@@ -125,13 +125,13 @@ const searchEntries = [
     name: "DevilutionX",
     page: "/ports.html",
     id: "devilutionx",
-    icon: "/images/devilutionx.png"
+    icon: "/images/devilutionx.jpg"
   },  
   {
     name: "Dhewm 3",
     page: "/ports.html",
     id: "dhewm3",
-    icon: "/images/dhewm.png"
+    icon: "/images/dhewm3.png"
   },  
   {
     name: "DXX Rebirth",
