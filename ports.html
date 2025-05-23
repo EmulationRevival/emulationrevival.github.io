@@ -1,0 +1,1798 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Ports</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top-bar">
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  <h1 class="site-title">Emulation Revival</h1>
+  <button class="search-icon" onclick="toggleSearch(event)">
+  <img src="images/search.svg" alt="Search">
+</button>
+</header>
+
+<div id="searchBar" class="search-bar">
+  <input type="text" placeholder="Search...">
+</div>
+
+<div class="menu" id="menu">
+  <a href="index.html" class="menu-item">
+    <img src="images/home.svg" alt="Home">
+    Home
+  </a>
+  <a href="emulators.html" class="menu-item"> <img src="images/emulators.svg" alt="Emulators">
+    Emulators
+  </a>
+  <a href="ports.html" class="menu-item active">
+    <img src="images/ports.svg" alt="Game Ports">
+    Game Ports
+  </a>
+  <a href="apps.html" class="menu-item">
+    <img src="images/apps.svg" alt="Apps">
+    Apps
+  </a>
+  <a href="media.html" class="menu-item">
+    <img src="images/media.svg" alt="Media">
+    Media Apps
+  </a>
+  <a href="frontends.html" class="menu-item">
+    <img src="images/frontends.svg" alt="Frontends"> 
+    Frontends
+  </a>
+  <a href="wipapps.html" class="menu-item">
+    <img src="images/wipapps.svg" alt="WIP Apps">
+    WIP Apps
+  </a>
+  <a href="utilities.html" class="menu-item">
+    <img src="images/utilities.svg" alt="Utilities">
+    Utilities 
+  </a>
+</div>
+
+<main>
+<h2 class="page-section-heading">GAME PORTS</h2>
+<div class="product-wrapper">
+
+  <div class="box-container" id="castlevania">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/castlevania.png" alt="Castlevania Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>Castlevania Revamped</h3>
+        <p>The NES classic re-forged in Metroid-style.</p>
+      </div>
+      <div class="box-links">
+        <a href="#" class="box-link left" id="download-castlevania">
+          <img src="images/download.svg" alt="Download" class="link-icon"> Download
+        </a>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/LSDonkeyKong" target="_blank" rel="noopener noreferrer">LSDonkeyKong</a></li>
+        <li><strong>Ported to UWP by:</strong> <a href="https://github.com/momo-AUX1" target="_blank" rel="noopener noreferrer">Moonpower</a>
+        <span class="donation-dash">&ndash;</span> 
+    <a href="https://ko-fi.com/moonpower007" target="_blank" rel="noopener noreferrer" class="donation-link">
+        <img src="images/kofi.svg" alt="Donate on Ko-fi">
+    </a></li>
+        <li><strong>Compatibility:</strong> Xbox Series S|X</li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/ports/castlevania-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+
+  <div class="box-container" id="celeste">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/celeste.jpg" alt="Celeste Classic Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>Celeste Classic</h3>
+        <p>The original challenging PICO-8 platformer.</p>
+      </div>
+      <div class="box-links">
+        <a href="#" class="box-link left" id="download-celeste">
+          <img src="images/download.svg" alt="Download" class="link-icon"> Download
+        </a>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> Maddy Makes Games</li>
+        <li><strong>Ported to UWP by:</strong> <a href="https://github.com/Xbox-Homebrew" target="_blank" rel="noopener noreferrer">Xbox-Homebrew</a></li>
+        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/ports/celeste-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+
+  <div class="box-container" id="chrono">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/chrono.jpg" alt="Chrono Divide Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>Chrono Divide</h3>
+        <p>A fan-made project based on Red Alert 2.</p>
+      </div>
+      <div class="box-links">
+        <a href="#" class="box-link left" id="download-chrono">
+          <img src="images/download.svg" alt="Download" class="link-icon"> Download
+        </a>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/chronodivide" target="_blank" rel="noopener noreferrer">Chrono Divide</a>
+        <span class="donation-dash">&ndash;</span> 
+    <a href="https://buymeacoffee.com/chronodivide" target="_blank" rel="noopener noreferrer" class="donation-link">
+        <img src="images/bmc.svg" alt="Donate on Buy Me a Coffee">
+    </a></li>
+        <li><strong>Ported to UWP by:</strong> <a href="https://github.com/momo-AUX1" target="_blank" rel="noopener noreferrer">Moonpower</a>
+        <span class="donation-dash">&ndash;</span> 
+    <a href="https://ko-fi.com/moonpower007" target="_blank" rel="noopener noreferrer" class="donation-link">
+        <img src="images/kofi.svg" alt="Donate on Ko-fi">
+    </a></li>
+        <li><strong>Compatibility:</strong> Xbox Series S|X</li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/ports/chronodivide-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+
+  <div class="box-container" id="darkplaces">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/darkplaces.png" alt="Darkplaces Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>Darkplaces</h3>
+        <p>An advanced open-source Quake engine port.</p>
+      </div>
+      <div class="box-links">
+        <a href="#" class="box-link left" id="download-darkplaces">
+          <img src="images/download.svg" alt="Download" class="link-icon"> Download
+        </a>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/DarkPlacesEngine" target="_blank" rel="noopener noreferrer">LadyHavoc</a></li>
+        <li><strong>Ported to UWP by:</strong> <a href="https://github.com/worleydl" target="_blank" rel="noopener noreferrer">Worleydl</a>
+        <span class="donation-dash">&ndash;</span> 
+    <a href="https://ko-fi.com/worleydl" target="_blank" rel="noopener noreferrer" class="donation-link">
+        <img src="images/kofi.svg" alt="Donate on Ko-fi">
+    </a></li>
+        <li><strong>Compatibility:</strong> Xbox Series S|X</li>
+        <li><strong>Requirements:</strong> 
+        <ul>
+        <li>Original Quake game data files (ID1)</li>
+        <li>External drive</li>
+      </ul>
+      </li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/ports/darkplaces-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+
+  <div class="box-container" id="devilutionx">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/devilutionx.jpg" alt="DevilutionX Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>DevilutionX</h3>
+        <p>A source port of Diablo and Hellfire.</p>
+      </div>
+      <div class="box-links">
+        <a href="#" class="box-link left" id="download-devilutionx">
+          <img src="images/download.svg" alt="Download" class="link-icon"> Download
+        </a>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/diasurgical" target="_blank" rel="noopener noreferrer">Diasurgical</a></li>
+        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
+        <li><strong>Requirements:</strong> Original Diablo game data.</li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/ports/devilutionx-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+
+  <div class="box-container" id="dhewm3">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/dhewm3.png" alt="Dhewm 3 Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>Dhewm 3</h3>
+        <p>A Doom 3 GPL source port.</p>
+      </div>
+      <div class="box-links">
+        <div class="dropdown">
+          <button class="box-link download-btn">
+            <img src="images/download.svg" alt="Download" class="link-icon"> Download
+            <span class="arrow">▼</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#" id="dhewm3hdr">Dhewm 3 HDR</a></li>
+            <li><a href="#" id="dhewm3sdr">Dhewm 3 SDR</a></li>
+            <li><a href="#" id="dhewm3roe">Dhewm 3 ROE</a></li>
+            <li><a href="#" id="dhewm3dep">Dependency file</a></li>
+          </ul>
+        </div>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/dhewm/dhewm3" target="_blank" rel="noopener noreferrer">dhewm3</a></li>
+        <li><strong>Ported to UWP by:</strong> <a href="https://github.com/worleydl" target="_blank" rel="noopener noreferrer">Worleydl</a>
+        <span class="donation-dash">&ndash;</span> 
+    <a href="https://ko-fi.com/worleydl" target="_blank" rel="noopener noreferrer" class="donation-link">
+        <img src="images/kofi.svg" alt="Donate on Ko-fi">
+    </a></li>
+        <li><strong>Compatibility:</strong> Xbox Series S|X</li>
+        <li><strong>Requirements:</strong> 
+        <ul>
+        <li>External drive</li>
+        <li>Original Doom 3 game data files</li>
+        <li>Install the dependency file</li>
+      </ul>
+      </li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/ports/dhewm3-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+
+  <div class="box-container" id="dxxrebirth">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/dxxrebirth.png" alt="DXX Rebirth Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>DXX Rebirth</h3>
+        <p>A source port for the 6DOF shooter Descent.</p>
+      </div>
+      <div class="box-links">
+        <div class="dropdown">
+          <button class="box-link download-btn">
+            <img src="images/download.svg" alt="Download" class="link-icon"> Download
+            <span class="arrow">▼</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#" id="dxxrebirth1">DXX Rebirth</a></li>
+            <li><a href="#" id="dxxrebirth2">DXX Rebirth Dependency</a></li>
+          </ul>
+        </div>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+        <a href="https://youtu.be/10z7nGZD1lM" class="box-link right" target="_blank" rel="noopener noreferrer">
+          <img src="images/youtube.svg" alt="Tutorial" class="link-icon"> Tutorial
+        </a>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/dxx-rebirth" target="_blank" rel="noopener noreferrer">DXX-Rebirth Team</a></li>
+        <li><strong>Ported to UWP by:</strong> <a href="https://github.com/worleydl" target="_blank" rel="noopener noreferrer">Worleydl</a>
+        <span class="donation-dash">&ndash;</span> 
+    <a href="https://ko-fi.com/worleydl" target="_blank" rel="noopener noreferrer" class="donation-link">
+        <img src="images/kofi.svg" alt="Donate on Ko-fi">
+    </a></li>
+        <li><strong>Compatibility:</strong> Xbox Series S|X</li>
+        <li><strong>Requirements:</strong> 
+        <ul>
+        <li>External drive</li>
+        <li>Original Descent game data files</li>
+        <li>Install the dependency file</li>
+      </ul>
+      </li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/ports/dxxrebirth-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+
+  <div class="box-container" id="ioquake3">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/ioquake3.png" alt="ioquake3 Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>ioquake3</h3>
+        <p>An open-source Quake III Arena engine.</p>
+      </div>
+      <div class="box-links">
+        <div class="dropdown">
+          <button class="box-link download-btn">
+            <img src="images/download.svg" alt="Download" class="link-icon"> Download
+            <span class="arrow">▼</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#" id="ioquake3app">ioquake3</a></li>
+            <li><a href="#" id="ioquake3dep">ioquake3 Dependency</a></li>
+          </ul>
+        </div>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+        <a href="https://youtu.be/xYi8FM633-o" class="box-link right" target="_blank" rel="noopener noreferrer">
+          <img src="images/youtube.svg" alt="Tutorial" class="link-icon"> Tutorial
+        </a>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/ioquake" target="_blank" rel="noopener noreferrer">ioquake Group</a></li>
+        <li><strong>Ported to UWP by:</strong> <a href="https://github.com/worleydl" target="_blank" rel="noopener noreferrer">Worleydl</a>
+        <span class="donation-dash">&ndash;</span> 
+    <a href="https://ko-fi.com/worleydl" target="_blank" rel="noopener noreferrer" class="donation-link">
+        <img src="images/kofi.svg" alt="Donate on Ko-fi">
+    </a></li>
+        <li><strong>Compatibility:</strong> Xbox Series S|X</li>
+        <li><strong>Requirements:</strong> 
+        <ul>
+        <li>External drive</li>
+        <li>Original Quake III Arena game data files</li>
+        <li>Install the dependency file</li>
+      </ul>
+      </li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/ports/ioquake3-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+
+  <div class="box-container" id="jazz2">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/jazz2.jpg" alt="Jazz 2 Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>Jazz² Resurrection</h3>
+        <p>A reimplementation of the game Jazz Jackrabbit 2.</p>
+      </div>
+      <div class="box-links">
+        <a href="#" class="box-link left" id="download-jazz2">
+          <img src="images/download.svg" alt="Download" class="link-icon"> Download
+        </a>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/deathkiller" target="_blank" rel="noopener noreferrer">Deathkiller</a></li>
+        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
+        <li><strong>Requirements:</strong> Original Jazz Jackrabbit 2 game files</li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/ports/jazz2-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+  
+  <div class="box-container" id="maze">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/maze.webp" alt="Maze 0x72 Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>Maze0x72</h3>
+        <p>A homebrew Unity maze game.</p>
+      </div>
+      <div class="box-links">
+        <a href="#" class="box-link left" id="download-maze">
+          <img src="images/download.svg" alt="Download" class="link-icon"> Download
+        </a>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/LucasBremm" target="_blank" rel="noopener noreferrer">LucasBremm</a></li>
+        <li><strong>Ported to UWP by:</strong> <a href="https://github.com/YTReviveMe" target="_blank" rel="noopener noreferrer">ReviveMe</a>
+        <span class="donation-dash">&ndash;</span> 
+    <a href="https://ko-fi.com/reviveme" target="_blank" rel="noopener noreferrer" class="donation-link">
+        <img src="images/kofi.svg" alt="Donate on Ko-fi">
+    </a></li>
+        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/ports/maze-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div> 
+  
+  <div class="box-container" id="mine">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/mine.png" alt="Minesweeper 3D Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>Minesweeper 3D</h3>
+        <p>A homebrew Unity minesweeper game.</p>
+      </div>
+      <div class="box-links">
+        <a href="#" class="box-link left" id="download-mine">
+          <img src="images/download.svg" alt="Download" class="link-icon"> Download
+        </a>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/RainbowWolfer" target="_blank" rel="noopener noreferrer">RainbowWolfer</a></li>
+        <li><strong>Ported to UWP by:</strong> <a href="https://github.com/YTReviveMe" target="_blank" rel="noopener noreferrer">ReviveMe</a>
+        <span class="donation-dash">&ndash;</span> 
+    <a href="https://ko-fi.com/reviveme" target="_blank" rel="noopener noreferrer" class="donation-link">
+        <img src="images/kofi.svg" alt="Donate on Ko-fi">
+    </a></li>
+        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/ports/mine-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div> 
+  
+  <div class="box-container" id="jkdf2">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/jkdf2.jpg" alt="Open JKDF2 Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>Open JKDF2</h3>
+        <p>Source port/enhancement for Jedi Knight: Dark Forces II.</p>
+      </div>
+      <div class="box-links">
+        <div class="dropdown">
+          <button class="box-link download-btn">
+            <img src="images/download.svg" alt="Download" class="link-icon"> Download
+            <span class="arrow">▼</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#" id="jkdf2app">Open JKDF2</a></li>
+            <li><a href="#" id="jkdf2dep">Dependency file</a></li>
+            <li><a href="#" id="jkdf2ctl">Controller profile</a></li>
+          </ul>
+        </div>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/shinyquagsire23" target="_blank" rel="noopener noreferrer">Max Thomas</a></li>
+        <li><strong>Ported to UWP by:</strong> <a href="https://github.com/worleydl" target="_blank" rel="noopener noreferrer">Worleydl</a>
+        <span class="donation-dash">&ndash;</span> 
+    <a href="https://ko-fi.com/worleydl" target="_blank" rel="noopener noreferrer" class="donation-link">
+        <img src="images/kofi.svg" alt="Donate on Ko-fi">
+    </a></li>
+        <li><strong>Compatibility:</strong> Xbox Series S|X</li>
+        <li><strong>Requirements:</strong> 
+        <ul>
+        <li>External drive</li>
+        <li>Original Star Wars Jedi Knight: Dark Forces II game files</li>
+        <li>Install the dependency file</li>
+        <li>Included controller profile</li>
+      </ul>
+      </li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/ports/jkdf2-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+
+  <div class="box-container" id="openlara">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/openlara.png" alt="OpenLara Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>OpenLara</h3>
+        <p>An open-source engine for the classic Tomb Raider.</p>
+      </div>
+      <div class="box-links">
+        <a href="#" class="box-link left" id="download-openlara">
+          <img src="images/download.svg" alt="Download" class="link-icon"> Download
+        </a>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/XProger" target="_blank" rel="noopener noreferrer">XProger</a></li>
+        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
+        <li><strong>Requirements:</strong> Original Tomb Raider game data files.</li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/ports/openlara-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+  
+  <div class="box-container" id="opentyrian">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/opentyrian.jpg" alt="OpenTyrian 2000 Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>OpenTyrian 2000</h3>
+        <p>Classic freeware vertical shooter via OpenTyrian.</p>
+      </div>
+      <div class="box-links">
+        <div class="dropdown">
+          <button class="box-link download-btn">
+            <img src="images/download.svg" alt="Download" class="link-icon"> Download
+            <span class="arrow">▼</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#" id="opentyrian1">OpenTyrian 2000</a></li>
+            <li><a href="#" id="opentyrian2">Tyrian freeware data</a></li>
+          </ul>
+        </div>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/opentyrian/opentyrian" target="_blank" rel="noopener noreferrer">OpenTyrian Team</a> & <a href="https://github.com/KScl" target="_blank" rel="noopener noreferrer">Kaito Sinclaire</a></li>
+        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
+        <li><strong>Requirements:</strong> Provided freeware Tyrian data</li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/ports/opentyrian-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+
+  <div class="box-container" id="relichunters">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/relichunters.png" alt="Relic Hunters Zero Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>Relic Hunters Zero</h3>
+        <p>A free, open-source top down shooter.</p>
+      </div>
+      <div class="box-links">
+        <a href="#" class="box-link left" id="download-relichunters">
+          <img src="images/download.svg" alt="Download" class="link-icon"> Download
+        </a>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> Rogue Snail</li>
+        <li><strong>Ported to UWP by:</strong> <a href="#" target="_blank" rel="noopener noreferrer">MDashK</a></li>
+        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/ports/relichunters-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+
+  <div class="box-container" id="sdlpop">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/sdlpop.png" alt="SDLPoP Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>SDLPoP</h3>
+        <p>An open-source port of Prince of Persia.</p>
+      </div>
+      <div class="box-links">
+        <a href="#" class="box-link left" id="download-sdlpop">
+          <img src="images/download.svg" alt="Download" class="link-icon"> Download
+        </a>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/NagyD" target="_blank" rel="noopener noreferrer">Dávid Nagy</a></li>
+        <li><strong>Ported to UWP by:</strong> <a href="https://github.com/Xbox-Homebrew" target="_blank" rel="noopener noreferrer">Xbox-Homebrew</a>
+        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/ports/sdlpop-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+  
+    <div class="box-container" id="snake">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/snake.png" alt="Snake UWP Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>Snake</h3>
+        <p>A classic Snake game for UWP.</p>
+      </div>
+      <div class="box-links">
+        <a href="#" class="box-link left" id="download-snake-uwp">
+          <img src="images/download.svg" alt="Download" class="link-icon"> Download
+        </a>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> Unknown</li>
+        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/ports/snake-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+
+  <div class="box-container" id="soh">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/soh.png" alt="SOH (Ship of Harkinian) Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>SOH (Ship of Harkinian)</h3>
+        <p>An open source port of The Legend of Zelda: Ocarina of Time.</p>
+      </div>
+      <div class="box-links">
+        <div class="dropdown">
+          <button class="box-link download-btn">
+            <img src="images/download.svg" alt="Download" class="link-icon"> Download
+            <span class="arrow">▼</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#" id="soh1">SOH (Ship of Harkinian)</a></li>
+            <li><a href="#" id="soh2">Dependency file</a></li>
+          </ul>
+        </div>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+        <a href="https://youtu.be/Yl3LQ4ODtGU" class="box-link right" target="_blank" rel="noopener noreferrer">
+          <img src="images/youtube.svg" alt="Tutorial" class="link-icon"> Tutorial
+        </a>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/HarbourMasters" target="_blank" rel="noopener noreferrer">Harbour Masters</a></li>
+        <li><strong>Ported to UWP by:</strong> <a href="https://github.com/worleydl" target="_blank" rel="noopener noreferrer">Worleydl</a>
+        <span class="donation-dash">&ndash;</span> 
+    <a href="https://ko-fi.com/worleydl" target="_blank" rel="noopener noreferrer" class="donation-link">
+        <img src="images/kofi.svg" alt="Donate on Ko-fi">
+    </a></li>
+        <li><strong>Compatibility:</strong> Xbox Series S|X</li>
+        <li><strong>Requirements:</strong>
+        <ul>
+        <li>External drive</li>
+        <li>Game (oot.otr) file</li>
+        <li>Install the dependency file</li>
+      </ul>
+      </li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/ports/soh-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+
+  <div class="box-container" id="sonic1decomp">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/sonic1decomp.png" alt="Sonic 1 Decompilation Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>Sonic 1 Decompilation</h3>
+        <p>A decompilation project of Sonic the Hedgehog.</p>
+      </div>
+      <div class="box-links">
+        <a href="#" class="box-link left" id="download-sonic1decomp">
+          <img src="images/download.svg" alt="Download" class="link-icon"> Download
+        </a>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/RSDKModding" target="_blank" rel="noopener noreferrer">RSDKModding</a></li>
+        <li><strong>Ported to UWP by:</strong> <a href="https://github.com/mattConn" target="_blank" rel="noopener noreferrer">MattConn</a></li>
+        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
+        <li><strong>Requirements:</strong> Original Sonic the Hedgehog (data.rsdk) file</li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/ports/sonic1decomp-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+  
+  <div class="box-container" id="sonic2decomp">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/sonic2decomp.png" alt="Sonic 2 Decompilation Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>Sonic 2 Decompilation</h3>
+        <p>A decompilation project of Sonic the Hedgehog 2.</p>
+      </div>
+      <div class="box-links">
+        <a href="#" class="box-link left" id="download-sonic2decomp">
+          <img src="images/download.svg" alt="Download" class="link-icon"> Download
+        </a>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/RSDKModding" target="_blank" rel="noopener noreferrer">RSDKModding</a></li>
+        <li><strong>Ported to UWP by:</strong> <a href="https://github.com/mattConn" target="_blank" rel="noopener noreferrer">MattConn</a></li>
+        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
+        <li><strong>Requirements:</strong> Original Sonic the Hedgehog 2 (data.rsdk) file.</li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/ports/sonic2decomp-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+
+  <div class="box-container" id="sonicsms">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/sonicsms.png" alt="Sonic 1&2 SMS Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>Sonic 1 & 2 SMS</h3>
+        <p>Ports of Sonic 1 & 2 for Sega Master System.</p>
+      </div>
+      <div class="box-links">
+        <div class="dropdown">
+          <button class="box-link download-btn">
+            <img src="images/download.svg" alt="Download" class="link-icon"> Download
+            <span class="arrow">▼</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#" id="sonic1sms">Sonic 1 SMS</a></li>
+            <li><a href="#" id="sonic2sms">Sonic 2 SMS</a></li>
+          </ul>
+        </div>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+        <a href="https://youtu.be/TZrGjgB5iMo" class="box-link right" target="_blank" rel="noopener noreferrer">
+          <img src="images/youtube.svg" alt="Tutorial" class="link-icon"> Tutorial
+        </a>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> Creative Araya</li>
+        <li><strong>Ported to UWP by:</strong> <a href="https://github.com/MDashK" target="_blank" rel="noopener noreferrer">MDashK</a></li>
+        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/ports/sonicsms-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+  
+    <div class="box-container" id="sonic3air">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/sonic3air.jpg" alt="Sonic 3 A.I.R. Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>Sonic 3 A.I.R.</h3>
+        <p>A fan-made widescreen remaster of Sonic 3 & Knuckles.</p>
+      </div>
+      <div class="box-links">
+        <a href="#" class="box-link left" id="download-sonic3air">
+          <img src="images/download.svg" alt="Download" class="link-icon"> Download
+        </a>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/Eukaryot" target="_blank" rel="noopener noreferrer">Eukaryot</a></li>
+        <li><strong>Ported to UWP by:</strong> <a href="https://github.com/momo-AUX1" target="_blank" rel="noopener noreferrer">Moonpower</a>
+        <span class="donation-dash">&ndash;</span> 
+    <a href="https://ko-fi.com/moonpower007" target="_blank" rel="noopener noreferrer" class="donation-link">
+        <img src="images/kofi.svg" alt="Donate on Ko-fi">
+    </a></li>
+        <li><strong>Compatibility:</strong> Xbox Series S|X</li>
+        <li><strong>Requirements:</strong> 
+        <ul>
+        <li>External drive</li>
+        <li>Game (Sonic_Knuckles_wSonic3.bin) file</li>
+        <li>Install all 5 dependency files</li>
+      </ul>
+      </li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/ports/sonic3air-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+  
+  <div class="box-container" id="sab2">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/sab2.webp" alt="Sonic Ring Racers Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>Sonic Adventure Blast 2 (SAB2)</h3>
+        <p>Fan-made game that allows you to play as Sonic, Tails, and Knuckles in adventure style gameplay.</p>
+      </div>
+      <div class="box-links">
+        <div class="dropdown">
+          <button class="box-link download-btn">
+            <img src="images/download.svg" alt="Download" class="link-icon"> Download
+            <span class="arrow">▼</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#" id="sab2app">Sonic Adventure Blast</a></li>
+            <li><a href="#" id="sab2dep">Dependency file</a></li>
+          </ul>
+        </div>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/TurtleMan64" target="_blank" rel="noopener noreferrer">TurtleMan64</a></li>
+        <li><strong>Ported to UWP by:</strong> <a href="https://github.com/worleydl" target="_blank" rel="noopener noreferrer">Worleydl</a>
+        <span class="donation-dash">&ndash;</span> 
+    <a href="https://ko-fi.com/worleydl" target="_blank" rel="noopener noreferrer" class="donation-link">
+        <img src="images/kofi.svg" alt="Donate on Ko-fi">
+    </a></li>
+        <li><strong>Compatibility:</strong> Xbox Series S|X</li>
+        <li><strong>Requirements:</strong> 
+        <ul>
+        <li>External drive</li>
+        <li>Pre-made folder (Linked in guide)</li>
+      </ul>
+      </li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/ports/sab2-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+
+  <div class="box-container" id="soniccd">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/soniccd.jpg" alt="Sonic CD Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>Sonic CD (Decompilation)</h3>
+        <p>Port of Sonic CD via decompilation.</p>
+      </div>
+      <div class="box-links">
+        <a href="#" class="box-link left" id="download-soniccd">
+          <img src="images/download.svg" alt="Download" class="link-icon"> Download
+        </a>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/RSDKModding" target="_blank" rel="noopener noreferrer">RSDKModding</a></li>
+        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
+        <li><strong>Requirements:</strong> Data.rsdk file from Sonic CD</li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/ports/soniccd-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+
+  <div class="box-container" id="sonicmania">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/sonicmania.jpg" alt="Sonic Mania Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>Sonic Mania</h3>
+        <p>Port of the acclaimed 2D Sonic adventure.</p>
+      </div>
+      <div class="box-links">
+        <a href="#" class="box-link left" id="download-sonicmania">
+          <img src="images/download.svg" alt="Download" class="link-icon"> Download
+        </a>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+        <a href="https://youtu.be/ujOgzotfnbc" class="box-link right" target="_blank" rel="noopener noreferrer">
+          <img src="images/youtube.svg" alt="Tutorial" class="link-icon"> Tutorial
+        </a>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/RSDKModding" target="_blank" rel="noopener noreferrer">RSDKModding</a></li>
+        <li><strong>Ported to UWP by:</strong> <a href="https://github.com/izzy2lost" target="_blank" rel="noopener noreferrer">Izzy2lost</a></li>
+        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
+        <li><strong>Requirements:</strong> Original Sonic Mania game (data.rsdk) files</li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/ports/sonicmania-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+
+  <div class="box-container" id="sonicrealms">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/sonicrealms.jpg" alt="Sonic Realms Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>Sonic Realms</h3>
+        <p>A fan-made Sonic game project.</p>
+      </div>
+      <div class="box-links">
+        <a href="#" class="box-link left" id="download-sonicrealms">
+          <img src="images/download.svg" alt="Download" class="link-icon"> Download
+        </a>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/mdechatech" target="_blank" rel="noopener noreferrer">Matty Dechatech</a></li>
+        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
+        <li><strong>Requirements:</strong> Install both dependencies</li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/ports/sonicrealms-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+
+  <div class="box-container" id="sonicringracers">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/sonicringracers.webp" alt="Sonic Ring Racers Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>Sonic Ring Racers</h3>
+        <p>Fan-made kart racer (aka Dr. Robotnik's Ring Racers).</p>
+      </div>
+      <div class="box-links">
+        <div class="dropdown">
+          <button class="box-link download-btn">
+            <img src="images/download.svg" alt="Download" class="link-icon"> Download
+            <span class="arrow">▼</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#" id="ringracers1">Sonic Ring Racers</a></li>
+            <li><a href="#" id="ringracers2">Dependency file</a></li>
+          </ul>
+        </div>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/KartKrewDev" target="_blank" rel="noopener noreferrer">Kart Krew</a></li>
+        <li><strong>Ported to UWP by:</strong> <a href="https://github.com/worleydl" target="_blank" rel="noopener noreferrer">Worleydl</a>
+        <span class="donation-dash">&ndash;</span> 
+    <a href="https://ko-fi.com/worleydl" target="_blank" rel="noopener noreferrer" class="donation-link">
+        <img src="images/kofi.svg" alt="Donate on Ko-fi">
+    </a></li>
+        <li><strong>Compatibility:</strong> Xbox Series S|X</li>
+        <li><strong>Requirements:</strong> 
+        <ul>
+        <li>External drive</li>
+        <li>Game assets</li>
+        <li>Install the dependency file</li>
+      </ul>
+      </li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/ports/sonicringracers-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+  
+    <div class="box-container" id="srb2">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/srb2.png" alt="Sonic Robo Blast 2 Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>Sonic Robo Blast 2</h3>
+        <p>A 3D Sonic the Hedgehog fangame based on a modified version of Doom Legacy.</p>
+      </div>
+      <div class="box-links">
+        <a href="#" class="box-link left" id="download-srb2">
+          <img src="images/download.svg" alt="Download" class="link-icon"> Download
+        </a>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://git.do.srb2.org/STJr" target="_blank" rel="noopener noreferrer">Sonic Team Junior</a></li>
+        <li><strong>Ported to UWP by:</strong> <a href="#" target="_blank" rel="noopener noreferrer">Aerisarn</a></li>
+        <li><strong>Compatibility:</strong> Xbox Series S|X</li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/ports/sonicroboblast2-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+  
+    <div class="box-container" id="sonictimetwisted">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/sonictimetwisted.png" alt="Sonic Time Twisted Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>Sonic Time Twisted</h3>
+        <p>Fan game inspired by Sonic CD & S3&K with time travel.</p>
+      </div>
+      <div class="box-links">
+        <a href="#" class="box-link left" id="download-sonictimetwisted">
+          <img src="images/download.svg" alt="Download" class="link-icon"> Download
+        </a>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/overbound" target="_blank" rel="noopener noreferrer">Overbound</a></li>
+        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/ports/sonictimetwisted-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+  
+    <div class="box-container" id="sonicunleashed">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/sonicunleashed.webp" alt="Sonic Unleashed Recomp Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>Sonic Unleashed Recomp</h3>
+        <p>An unofficial port of the Xbox 360 version of Sonic Unleashed.</p>
+      </div>
+      <div class="box-links">
+        <div class="dropdown">
+          <button class="box-link download-btn">
+            <img src="images/download.svg" alt="Download" class="link-icon"> Download
+            <span class="arrow">▼</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#" id="unleashed1">Sonic Unleashed Recomp</a></li>
+            <li><a href="#" id="unleashed2">Dependency file</a></li>
+          </ul>
+        </div>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/hedge-dev" target="_blank" rel="noopener noreferrer">Hedge-dev</a></li>
+        <li><strong>Ported to UWP by:</strong> <a href="https://github.com/worleydl" target="_blank" rel="noopener noreferrer">Worleydl</a>
+        <span class="donation-dash">&ndash;</span> 
+    <a href="https://ko-fi.com/worleydl" target="_blank" rel="noopener noreferrer" class="donation-link">
+        <img src="images/kofi.svg" alt="Donate on Ko-fi">
+    </a></li>
+        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/ports/sonicunleashed-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+
+  <div class="box-container" id="spelunky">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/spelunky.png" alt="Spelunky Classic HD Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>Spelunky Classic HD</h3>
+        <p>Acclaimed roguelike platformer with random levels.</p>
+      </div>
+      <div class="box-links">
+        <a href="#" class="box-link left" id="download-spelunky">
+          <img src="images/download.svg" alt="Download" class="link-icon"> Download
+        </a>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/yancharkin" target="_blank" rel="noopener noreferrer">Ivan Yancharkin</a>
+        <span class="donation-dash">–</span>
+    <a href="https://www.paypal.com/paypalme/iancharkin" target="_blank" rel="noopener noreferrer" class="donation-link">
+        <img src="images/paypal.svg" alt="Donate on PayPal">
+    </a></li>
+        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/ports/spelunky-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+
+  <div class="box-container" id="spooky">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/spooky.webp" alt="Spooky Dimensions Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>Spooky Dimensions</h3>
+        <p>A homebrew space shooter.</p>
+      </div>
+      <div class="box-links">
+        <a href="#" class="box-link left" id="download-spooky">
+          <img src="images/download.svg" alt="Download" class="link-icon"> Download
+        </a>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://gbatemp.net/members/wiired24.334503/" target="_blank" rel="noopener noreferrer">WiiRed24</a></li>
+        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/ports/spookydimensions-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+
+  <div class="box-container" id="trogdor">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/trogdor.png" alt="Trogdor-Reburninated Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>Trogdor-Reburninated</h3>
+        <p>Enhanced recreation of the Homestar Runner Flash game.</p>
+      </div>
+      <div class="box-links">
+        <a href="#" class="box-link left" id="download-trogdor">
+          <img src="images/download.svg" alt="Download" class="link-icon"> Download
+        </a>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/Mode8fx" target="_blank" rel="noopener noreferrer">Mode8fx</a></li>
+        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/ports/trogdor-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+  
+  <div class="box-container" id="tuck">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/tuck.png" alt="Tuck King of the Sky Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>Tuck King of the Sky</h3>
+        <p>A plane sky shooter.</p>
+      </div>
+      <div class="box-links">
+        <a href="#" class="box-link left" id="download-tuck">
+          <img src="images/download.svg" alt="Download" class="link-icon"> Download
+        </a>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://chossy.itch.io/" target="_blank" rel="noopener noreferrer">Chossy</a></li>
+        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="box-container" id="vvvvvv">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/vvvvvv.webp" alt="VVVVVV Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>VVVVVV (V6)</h3>
+        <p>Minimalist puzzle platformer with gravity flipping.</p>
+      </div>
+      <div class="box-links">
+        <div class="dropdown">
+          <button class="box-link download-btn">
+            <img src="images/download.svg" alt="Download" class="link-icon"> Download
+            <span class="arrow">▼</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#" id="vvvvvv1">VVVVVV (V6)</a></li>
+            <li><a href="#" id="vvvvvv2">Dependency file</a></li>
+          </ul>
+        </div>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/TerryCavanagh" target="_blank" rel="noopener noreferrer">Terry Cavanagh</a></li>
+        <li><strong>Ported to UWP by:</strong> <a href="https://github.com/tunip3" target="_blank" rel="noopener noreferrer">Tunip3</a></li>
+        <li><strong>Maintained by:</strong>
+  <a href="https://github.com/poopbird4k" target="_blank" rel="noopener noreferrer">Poopbird4k</a></li>
+        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/ports/vvvvvv-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+  
+    <div class="box-container" id="zelda3">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/zelda3.png" alt="Zelda 3 Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>Zelda 3</h3>
+        <p>A reimplementation of Zelda 3.</p>
+      </div>
+      <div class="box-links">
+        <div class="dropdown">
+          <button class="box-link download-btn">
+            <img src="images/download.svg" alt="Download" class="link-icon"> Download
+            <span class="arrow">▼</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#" id="zelda3app">Zelda 3</a></li>
+            <li><a href="#" id="zelda3ini">Config file</a></li>
+          </ul>
+        </div>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/snesrev" target="_blank" rel="noopener noreferrer">Snesrev</a></li>
+        <li><strong>Ported to UWP by:</strong> <a href="https://github.com/tunip3" target="_blank" rel="noopener noreferrer">Tunip3</a></li>
+        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
+        <li><strong>Requirements:</strong> 
+        <ul>
+        <li>A zelda3.sfc (US) rom</li>
+        <li>Install the dependency file</li>
+      </ul>
+      </li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/ports/zelda3-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+  
+    <div class="box-container" id="zelda64">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/zelda64.webp" alt="Zelda 64 Recompiled Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>Zelda 64 Recompiled</h3>
+        <p>A static recompilation of Majora's Mask.</p>
+      </div>
+      <div class="box-links">
+        <a href="#" class="box-link left" id="download-zelda64">
+          <img src="images/download.svg" alt="Download" class="link-icon"> Download
+        </a>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/Zelda64Recomp" target="_blank" rel="noopener noreferrer">Zelda 64: Recompiled team</a></li>
+        <li><strong>Ported to UWP by:</strong> <a href="https://github.com/worleydl" target="_blank" rel="noopener noreferrer">Worleydl</a>
+        <span class="donation-dash">&ndash;</span> 
+    <a href="https://ko-fi.com/worleydl" target="_blank" rel="noopener noreferrer" class="donation-link">
+        <img src="images/kofi.svg" alt="Donate on Ko-fi">
+    </a></li>
+        <li><strong>Compatibility:</strong> Xbox Series S|X</li>
+        <li><strong>Requirements:</strong> 
+        <ul>
+        <li>External drive</li>
+        <li>Majoras mask (US) N64 rom</li>
+      </ul>
+      </li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/ports/zelda64-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+  
+    <div class="box-container" id="zircon">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/zircon.png" alt="Zircon Quake Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>Quake</h3>
+        <p>An advanced open-source Quake engine port.</p>
+      </div>
+      <div class="box-links">
+        <a href="#" class="box-link left" id="download-zircon">
+          <img src="images/download.svg" alt="Download" class="link-icon"> Download
+        </a>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://www.moddb.com/mods/zircon-engine" target="_blank" rel="noopener noreferrer">Zircon Engine</a></li>
+        <li><strong>Ported to UWP by:</strong> <a href="https://github.com/worleydl" target="_blank" rel="noopener noreferrer">Worleydl</a>
+        <span class="donation-dash">&ndash;</span> 
+    <a href="https://ko-fi.com/worleydl" target="_blank" rel="noopener noreferrer" class="donation-link">
+        <img src="images/kofi.svg" alt="Donate on Ko-fi">
+    </a></li>
+        <li><strong>Compatibility:</strong> Xbox Series S|X</li>
+        <li><strong>Requirements:</strong> 
+        <ul>
+        <li>External drive</li>
+        <li>Quake game (`id1`) file</li>
+      </ul>
+      </li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/ports/zircon-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+  
+</div> </main>
+
+<footer>
+  <div class="discord-section">
+  <h3 class="discord-heading">Join the Communities</h3>
+  <div class="discord-servers-wrapper">
+    <div class="discord-server-item">
+      <a href="https://discord.gg/f82Tr22vRZ" class="discord-link" target="_blank" rel="noopener noreferrer">
+        <img src="images/discord.svg" alt="Discord" class="discord-icon">
+      </a>
+      <h5>Revive's Community</h5>
+    </div>
+    <div class="discord-server-item">
+      <a href="https://discord.gg/pVd47KAG24" class="discord-link" target="_blank" rel="noopener noreferrer">
+        <img src="images/discord.svg" alt="Discord" class="discord-icon">
+      </a>
+      <h5>Xbox Emulation Hub</h5>
+    </div>
+  </div>
+</div>
+  <p class="copyright">© 2025 Emulation Revival. All rights reserved.</p>
+  <p class="disclaimer-link-wrapper">
+  <a href="disclaimer.html" target="_blank" rel="noopener noreferrer">Disclaimer</a>
+</p>
+</footer>
+
+        <script src="downloads.js"></script>
+    <script src="searchdata.js"></script>
+    <script src="main.js"></script>
+    <script src="searchlogic.js"></script>
+
+    <script>
+      // --- UTILITY FUNCTIONS ---
+      function debounce(func, wait) {
+          let timeout;
+          return function executedFunction(...args) {
+              const later = () => {
+                  clearTimeout(timeout);
+                  func(...args);
+              };
+              clearTimeout(timeout);
+              timeout = setTimeout(later, wait);
+          };
+      }
+
+      // --- PAGE-SPECIFIC FUNCTIONALITY: CARD HEIGHTS ---
+      function equalizeInitialCardHeights() {
+          const productWrapper = document.querySelector('.product-wrapper');
+          if (!productWrapper) return;
+
+          const cards = Array.from(productWrapper.querySelectorAll('.box-container'));
+          if (cards.length === 0) return;
+
+          let maxHeight = 0;
+
+          // Reset heights first to accurately measure natural height
+          cards.forEach(card => {
+              if (!card.classList.contains('expanded')) { // Don't reset already expanded cards
+                  card.style.height = 'auto';
+                  card.style.minHeight = '0'; // Allow shrinking
+                  card.style.maxHeight = 'none'; // Allow growing
+                  const mainTopContent = card.querySelector('.main-card-top-content');
+                  if (mainTopContent) {
+                      mainTopContent.style.height = 'auto';
+                  }
+              }
+          });
+          
+          // Force reflow to get updated heights if needed - sometimes helpful
+          if (cards.length > 0) cards[0].offsetHeight; 
+
+          // Calculate max height among non-expanded cards
+          cards.forEach(card => {
+              if (!card.classList.contains('expanded')) {
+                  const currentCardHeight = card.scrollHeight; // Use scrollHeight for full content height
+                  if (currentCardHeight > maxHeight) {
+                      maxHeight = currentCardHeight;
+                  }
+              }
+          });
+
+          // Apply the calculated max height
+          if (maxHeight > 0) {
+              let totalVerticalPadding = 32; // Default or calculate as you did
+              if (cards[0]) {
+                  const computedStyle = window.getComputedStyle(cards[0]);
+                  const paddingTop = parseFloat(computedStyle.paddingTop) || 0;
+                  const paddingBottom = parseFloat(computedStyle.paddingBottom) || 0;
+                  totalVerticalPadding = paddingTop + paddingBottom;
+              }
+
+              cards.forEach(card => {
+                  if (!card.classList.contains('expanded')) {
+                      const targetHeightPx = `${maxHeight}px`;
+                      card.style.minHeight = targetHeightPx;
+                      card.style.maxHeight = targetHeightPx;
+                      card.style.height = targetHeightPx;
+
+                      // Adjust height of inner content wrapper if necessary
+                      const mainTopContent = card.querySelector('.main-card-top-content');
+                      if (mainTopContent) {
+                          // Ensure this calculation correctly leaves space for other elements like .box-links
+                          mainTopContent.style.height = `${maxHeight - totalVerticalPadding - (mainTopContent.nextElementSibling ? mainTopContent.nextElementSibling.offsetHeight : 0)}px`;
+                      }
+                  }
+              });
+          }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        // --- ELEMENT SELECTORS (Standardized) ---
+        const sideMenu = document.getElementById("menu");
+        const menuToggle = document.querySelector(".menu-toggle");
+        const searchBar = document.getElementById("searchBar"); // Standardized name
+        const searchIcon = document.querySelector(".search-icon");
+        const searchInput = searchBar ? searchBar.querySelector('input[type="text"]') : null;
+
+        // --- INITIALIZATION & EVENT LISTENERS FOR EMULATOR PAGE ---
+
+        // Info toggle buttons
+        document.querySelectorAll('.info-toggle').forEach(button => {
+          button.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent global click from closing it immediately
+            const currentBox = button.closest('.box-container');
+            if (!currentBox) return;
+            const isCurrentlyExpanded = currentBox.classList.contains('expanded');
+
+            // Close other expanded info boxes
+            document.querySelectorAll('.box-container.expanded').forEach(otherBox => {
+              if (otherBox !== currentBox) {
+                otherBox.classList.remove('expanded');
+              }
+            });
+
+            currentBox.classList.toggle('expanded', !isCurrentlyExpanded);
+          });
+        });
+
+        // Set download links (from downloads.js object)
+if (typeof downloads !== 'undefined') {
+    const linkIds = [
+    'download-castlevania', 'download-celeste', 'download-chrono', 'download-darkplaces', 'download-devilutionx', 'dhewm3hdr', 'dhewm3sdr', 'dhewm3roe', 'dhewmdep', 'download-dxxrebirth', 'ioquake3app', 'ioquake3dep', 'download-jazz2', 'download-maze', 'download-mine', 'jkdf2app', 'jkdf2dep', 'jkdf2ctl', 'download-openlara', 'opentyrian1', 'opentyrian2', 'download-relichunters', 'download-sdlpop', 'download-snake', 'soh1', 'soh2', 'download-sonic1decomp', 'download-sonic2decomp', 'sonic1sms', 'sonic2sms', 'sab2app', 'sab2dep', 'download-sonic3air', 'download-soniccd', 'download-sonicmania', 'download-sonicrealms', 'ringracers1', 'ringracers2', 'download-srb2', 'download-sonictimetwisted', 'unleashed1', 'unleashed2', 'download-spelunky', 'download-spooky', 'download-trogdor', 'download-tuck', 'vvvvvv1', 'vvvvvv2', 'download-zircon', 'download-zelda64', 'zelda3app', 'zelda3ini'
+    // Add any other link IDs that are present in html and downloads.js
+    ];
+
+    linkIds.forEach(id => {
+        const element = document.getElementById(id);
+        let downloadUrl = null;
+
+        // Determine the correct key to access the URL in the downloads object
+        if (downloads[id]) { // First, try direct match (e.g., downloads['download-xbsx2'])
+            downloadUrl = downloads[id];
+        } else if (downloads[id.replace('download-', '')]) { // Then, try removing 'download-' prefix (e.g., downloads['xbsx2'])
+            downloadUrl = downloads[id.replace('download-', '')];
+        }
+        // You could add more fallback logic here if your naming conventions vary further
+
+        if (element && downloadUrl) {
+            element.href = downloadUrl;                 // Set the actual download URL
+            element.target = "_blank";                // Force link to open in a new tab
+            element.rel = "noopener noreferrer";    // Security best practice for target="_blank"
+        } else if (element) {
+            // Optional: Handle cases where the link ID exists in HTML but not in downloads.js
+            // console.warn(`Download URL for ID '${id}' not found in downloads.js`);
+            // element.style.display = 'none'; // Or hide the link
+        }
+    });
+}
+
+
+        // Dropdown toggle for download buttons
+        document.querySelectorAll('.dropdown .download-btn').forEach(button => {
+          button.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent global click
+            const dropdown = button.closest('.dropdown'); // Changed from parentElement for robustness
+            if (!dropdown) return;
+            const box = dropdown.closest('.box-container');
+            const menu = dropdown.querySelector('.dropdown-menu');
+            if (!menu) return;
+
+            const isCurrentlyShown = menu.style.display === 'block'; // More reliable than class for this
+
+            // Close all other dropdowns
+            document.querySelectorAll('.dropdown .dropdown-menu').forEach(otherMenu => {
+              if (otherMenu !== menu && otherMenu.style.display === 'block') {
+                otherMenu.style.display = 'none';
+                const otherDropdown = otherMenu.closest('.dropdown');
+                if (otherDropdown) otherDropdown.classList.remove('show'); // If you use 'show' class
+                const otherBox = otherDropdown ? otherDropdown.closest('.box-container') : null;
+                if (otherBox) otherBox.classList.remove('expanded-dropdown');
+              }
+            });
+
+            // Toggle current dropdown
+            if (isCurrentlyShown) {
+              menu.style.display = 'none';
+              dropdown.classList.remove('show'); // If you use 'show' class
+              if (box) box.classList.remove('expanded-dropdown');
+            } else {
+              menu.style.display = 'block';
+              dropdown.classList.add('show'); // If you use 'show' class
+              if (box) box.classList.add('expanded-dropdown');
+            }
+          });
+        });
+
+        // Call equalize card heights if the wrapper exists
+        if (document.querySelector('.product-wrapper')) {
+            equalizeInitialCardHeights();
+        }
+
+        // --- HELPER FUNCTION FOR SEARCH ---
+        function closeAndResetSearch() {
+          if (searchBar && searchBar.classList.contains('search-bar-visible')) {
+            searchBar.classList.remove('search-bar-visible');
+            if (searchInput) {
+              searchInput.value = '';
+            }
+            const autocompleteResults = document.getElementById('autocompleteResults');
+            if (autocompleteResults) {
+              autocompleteResults.style.display = 'none';
+              autocompleteResults.innerHTML = '';
+            }
+          }
+        }
+
+        // --- GLOBAL CLICK LISTENER (Expanded) ---
+        document.addEventListener('click', (event) => {
+          const target = event.target;
+          const autocompleteResults = document.getElementById('autocompleteResults');
+
+          // 1. Close Side Menu
+          if (sideMenu && menuToggle && sideMenu.classList.contains('visible') &&
+              !sideMenu.contains(target) && !menuToggle.contains(target)) {
+            sideMenu.classList.remove('visible');
+          }
+
+          // 2. Close Search Bar & Autocomplete
+          if (searchBar && searchIcon) {
+            if (searchBar.classList.contains('search-bar-visible') &&
+                !searchBar.contains(target) && !searchIcon.contains(target)) {
+              closeAndResetSearch();
+            } else if (autocompleteResults && autocompleteResults.style.display === 'block') {
+              if (!searchInput || (searchInput && !searchInput.contains(target) && !autocompleteResults.contains(target))) {
+                 if (!searchBar.contains(target) || (searchInput && !searchInput.contains(target) && !autocompleteResults.contains(target))) {
+                    autocompleteResults.style.display = 'none';
+                    autocompleteResults.innerHTML = '';
+                 }
+              }
+            }
+          }
+
+          // 3. Close Download Dropdowns
+          document.querySelectorAll('.dropdown .dropdown-menu').forEach(menu => {
+            if (menu.style.display === 'block') {
+              const dropdown = menu.closest('.dropdown');
+              // Close if click is outside the entire dropdown (button + menu)
+              if (dropdown && !dropdown.contains(target)) {
+                menu.style.display = 'none';
+                dropdown.classList.remove('show'); // If you use 'show' class
+                const box = dropdown.closest('.box-container');
+                if (box) box.classList.remove('expanded-dropdown');
+              }
+            }
+          });
+
+          // 4. Close Expanded Info Boxes
+          document.querySelectorAll('.box-container.expanded').forEach(expandedBox => {
+            // Check if the click was on the toggle button for this specific box
+            const toggleBtn = expandedBox.querySelector('.info-toggle');
+            if (toggleBtn && toggleBtn.contains(target)) {
+              return; // Don't close if the toggle button itself was clicked
+            }
+            // Close if click is outside the expanded box
+            if (!expandedBox.contains(target)) {
+              expandedBox.classList.remove('expanded');
+            }
+          });
+        });
+
+        // --- EVENT.STOPPROPAGATION ATTACHMENTS ---
+        if (sideMenu) {
+          sideMenu.addEventListener('click', (event) => event.stopPropagation());
+        }
+        if (searchInput) {
+          searchInput.addEventListener('click', (event) => event.stopPropagation());
+        }
+        // Clicks inside an open dropdown menu should not close it
+        document.querySelectorAll('.dropdown-menu').forEach(menu => {
+            menu.addEventListener('click', event => event.stopPropagation());
+        });
+        // Clicks inside an expanded info box should not close it (unless on a specific close button if you add one)
+        document.querySelectorAll('.info-box').forEach(infoBox => { // Assuming .info-box is the content area
+            infoBox.addEventListener('click', event => event.stopPropagation());
+        });
+        // Note: stopPropagation for .info-toggle and .download-btn are already in their click listeners.
+      });
+
+      // --- TOGGLE FUNCTIONS (Standardized) ---
+      function toggleMenu() {
+        const menu = document.getElementById("menu");
+        if (menu) {
+          menu.classList.toggle("visible");
+        }
+      }
+
+      function toggleSearch(event) {
+        if (event) {
+          event.stopPropagation();
+        }
+        const searchBarElement = document.getElementById("searchBar");
+        const searchInput = searchBarElement ? searchBarElement.querySelector('input[type="text"]') : null;
+        const autocompleteResults = document.getElementById('autocompleteResults');
+
+        if (searchBarElement) {
+          const wasVisible = searchBarElement.classList.contains('search-bar-visible');
+          searchBarElement.classList.toggle('search-bar-visible');
+
+          if (!wasVisible && searchBarElement.classList.contains('search-bar-visible')) {
+            if (searchInput) {
+              searchInput.focus();
+            }
+          } else if (wasVisible && !searchBarElement.classList.contains('search-bar-visible')) {
+            if (searchInput) {
+              searchInput.value = '';
+            }
+            if (autocompleteResults) {
+              autocompleteResults.style.display = 'none';
+              autocompleteResults.innerHTML = '';
+            }
+          }
+        }
+      }
+
+      // --- RESIZE HANDLING FOR CARD HEIGHTS ---
+      let resizeTimeoutForCards; // Use a more specific name
+      window.addEventListener('resize', () => {
+          if (document.querySelector('.product-wrapper')) {
+              clearTimeout(resizeTimeoutForCards);
+              resizeTimeoutForCards = setTimeout(equalizeInitialCardHeights, 250); // Debounced call
+          }
+      });
+    </script>
+</body>
+</html>

@@ -1,0 +1,986 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emulators</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top-bar">
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  <h1 class="site-title">Emulation Revival</h1>
+  <button class="search-icon" onclick="toggleSearch(event)">
+  <img src="images/search.svg" alt="Search">
+</button>
+</header>
+
+<div id="searchBar" class="search-bar">
+  <input type="text" placeholder="Search...">
+</div>
+
+<div class="menu" id="menu">
+  <a href="index.html" class="menu-item">
+    <img src="images/home.svg" alt="Home">
+    Home
+  </a>
+  <a href="emulators.html" class="menu-item active"> <img src="images/emulators.svg" alt="Emulators">
+    Emulators
+  </a>
+  <a href="ports.html" class="menu-item">
+    <img src="images/ports.svg" alt="Game Ports">
+    Game Ports
+  </a>
+  <a href="apps.html" class="menu-item">
+    <img src="images/apps.svg" alt="Apps">
+    Apps
+  </a>
+  <a href="media.html" class="menu-item">
+    <img src="images/media.svg" alt="Media">
+    Media Apps
+  </a>
+  <a href="frontends.html" class="menu-item">
+    <img src="images/frontends.svg" alt="Frontends"> 
+    Frontends
+  </a>
+  <a href="wipapps.html" class="menu-item">
+    <img src="images/wipapps.svg" alt="WIP Apps">
+    WIP Apps
+  </a>
+  <a href="utilities.html" class="menu-item">
+    <img src="images/utilities.svg" alt="Utilities">
+    Utilities 
+  </a>
+</div>
+
+<main>
+<h2 class="page-section-heading">EMULATORS</h2>
+<div class="product-wrapper">
+    
+  <div class="box-container" id="boxedwine">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/boxedwine.png" alt="BoxedWine Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>BoxedWine</h3>
+        <p>Run 16-bit or 32-bit Windows programs.</p>
+      </div>
+      <div class="box-links">
+        <a href="#" class="box-link left" id="download-boxedwine">
+          <img src="images/download.svg" alt="Download" class="link-icon"> Download
+        </a>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+        <a href="https://youtu.be/R9nr7kDSJpo" class="box-link right" target="_blank" rel="noopener noreferrer">
+          <img src="images/youtube.svg" alt="Tutorial" class="link-icon"> Tutorial
+        </a>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/danoon2" target="_blank" rel="noopener noreferrer">Danoon2</a></li>
+        <li><strong>Ported to UWP by:</strong> <a href="https://github.com/momo-AUX1" target="_blank" rel="noopener noreferrer">Moonpower</a>
+        <span class="donation-dash">&ndash;</span> 
+    <a href="https://ko-fi.com/moonpower007" target="_blank" rel="noopener noreferrer" class="donation-link">
+        <img src="images/kofi.svg" alt="Donate on Ko-fi">
+    </a></li>
+        <li><strong>Compatibility:</strong> Xbox Series S|X)</li>
+        <li><strong>Requirements:</strong> External Drive - Required to store your zipped programs</li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/emulators/boxedwine-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>    
+    
+    <div class="box-container" id="citra">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/citra.png" alt="Citra Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>Citra</h3>
+        <p>An experimental RetroArch build with Citra, a 3DS emulator.</p>
+      </div>
+      <div class="box-links">
+        <a href="#" class="box-link left" id="download-citra">
+          <img src="images/download.svg" alt="Download" class="link-icon"> Download
+        </a>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+        <a href="https://youtu.be/hiJwHE18L9I" class="box-link right" target="_blank" rel="noopener noreferrer">
+          <img src="images/youtube.svg" alt="Tutorial" class="link-icon"> Tutorial
+        </a>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developers:</strong> Citra Team & <a href="https://github.com/libretro" target="_blank" rel="noopener noreferrer">Libretro</a></li>
+        <li><strong>Ported to UWP by:</strong> <a href="https://github.com/aerisarn" target="_blank" rel="noopener noreferrer">Aerisarn</a></li>
+        <li><strong>Compatibility:</strong> Xbox Series S|X</li>
+        <li><strong>Requirements:</strong> Do NOT update the Citra core or assets</li>
+      </ul>
+    </div>
+  </div> 
+  
+  <div class="box-container" id="dolphin">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/dolphin.png" alt="Dolphin Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>Dolphin</h3>
+        <p>A GameCube and Wii emulator.</p>
+      </div>
+      <div class="box-links">
+        <a href="#" class="box-link left" id="download-dolphin">
+          <img src="images/download.svg" alt="Download" class="link-icon"> Download
+        </a>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+        <a href="https://youtu.be/F1NQKHcQhbQ" class="box-link right" target="_blank" rel="noopener noreferrer">
+          <img src="images/youtube.svg" alt="Tutorial" class="link-icon"> Tutorial
+        </a>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/dolphin-emu" target="_blank" rel="noopener noreferrer">Dolphin</a></li>
+        <li><strong>Ported to UWP by:</strong> <a href="https://github.com/SirMangler" target="_blank" rel="noopener noreferrer">Sir Mangler</a> 
+   <span class="donation-dash">&ndash;</span>
+  <a href="https://ko-fi.com/sirmangler" target="_blank" rel="noopener noreferrer" class="donation-link">
+    <img src="images/kofi.svg" alt="Donate on Ko-fi">
+  </a></li>
+        <li><strong>Maintained by:</strong>
+  <a href="https://github.com/SternXD" target="_blank" rel="noopener noreferrer">Stern</a>
+  <span class="donation-dash">&ndash;</span>
+  <a href="https://ko-fi.com/stern" target="_blank" rel="noopener noreferrer" class="donation-link">
+    <img src="images/kofi.svg" alt="Donate on Ko-fi">
+  </a></li>
+        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
+        <li><strong>Requirements:</strong> Xbox language must be set to "English US" for controller input to work</li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/emulators/dolphin-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+  
+  <div class="box-container" id="flycast">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/flycast.png" alt="Flycast Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>Flycast</h3>
+        <p>A multiplatform Sega Dreamcast, Naomi, Naomi 2 and Atomiswave emulator.</p>
+      </div>
+      <div class="box-links">
+        <a href="#" class="box-link left" id="download-flycast">
+          <img src="images/download.svg" alt="Download" class="link-icon"> Download
+        </a>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+        <a href="https://youtu.be/nALdeQgfm_o" class="box-link right" target="_blank" rel="noopener noreferrer">
+          <img src="images/youtube.svg" alt="Tutorial" class="link-icon"> Tutorial
+        </a>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/flyinghead" target="_blank" rel="noopener noreferrer">Flyinghead</a>
+        <span class="donation-dash">&ndash;</span>
+  <a href="https://buymeacoffee.com/hhwtpernwq" target="_blank" rel="noopener noreferrer" class="donation-link">
+    <img src="images/bmc.svg" alt="Donate on Buy Me a Coffee">
+  </a></li>
+        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
+        <li><strong>Requirements:</strong> BIOS optional</li>
+        </ul>
+        <div class="guide-button-container">
+  <a href="{% link guides/emulators/flycast-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+  
+  <div class="box-container" id="gzdoom">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/gzdoom.png" alt="GZDoom Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>GZDoom</h3>
+        <p>A source port for Doom, Heretic, Hexen, and more.</p>
+      </div>
+      <div class="box-links">
+        <a href="#" class="box-link left" id="download-gzdoom">
+          <img src="images/download.svg" alt="Download" class="link-icon"> Download
+        </a>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+        <a href="https://youtu.be/M1LX8MifJhM" class="box-link right" target="_blank" rel="noopener noreferrer">
+          <img src="images/youtube.svg" alt="Tutorial" class="link-icon"> Tutorial
+        </a>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/ZDoom" target="_blank" rel="noopener noreferrer">ZDoom Team</a></li>
+        <li><strong>Ported to UWP by:</strong> <a href="https://github.com/aerisarn" target="_blank" rel="noopener noreferrer">Aerisarn</a></li>
+        <li><strong>Compatibility:</strong> Xbox Series S|X</li>
+        <li><strong>Requirements:</strong> IWAD files needed (doom.wad etc.)</li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/emulators/gzdoom-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+  
+  <div class="box-container" id="ikemen-go">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/ikemen_go.png" alt="Ikemen GO Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>Ikemen GO</h3>
+        <p>A M.U.G.E.N compatible fighting game engine.</p>
+      </div>
+      <div class="box-links">
+        <a href="#" class="box-link left" id="download-ikemen">
+          <img src="images/download.svg" alt="Download" class="link-icon"> Download
+        </a>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+        <a href="https://youtu.be/QSz755_O6NY" class="box-link right" target="_blank" rel="noopener noreferrer">
+          <img src="images/youtube.svg" alt="Tutorial" class="link-icon"> Tutorial
+        </a>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/ikemen-engine" target="_blank" rel="noopener noreferrer">Ikemen Engine Team</a></li>
+        <li><strong>Ported to UWP by:</strong> <a href="https://github.com/worleydl" target="_blank" rel="noopener noreferrer">Worleydl</a>
+        <span class="donation-dash">&ndash;</span> 
+    <a href="https://ko-fi.com/worleydl" target="_blank" rel="noopener noreferrer" class="donation-link">
+        <img src="images/kofi.svg" alt="Donate on Ko-fi">
+    </a></li>
+        <li><strong>Compatibility:</strong> Xbox Series S|X</li>
+        <li><strong>Requirements:</strong> Game packs</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="box-container" id="openbor">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/openbor.png" alt="OpenBOR Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>OpenBOR</h3>
+        <p>A 2D side scrolling beat 'em up game engine.</p>
+      </div>
+      <div class="box-links">
+        <div class="dropdown">
+          <button class="box-link download-btn">
+            <img src="images/download.svg" alt="Download" class="link-icon"> Download
+            <span class="arrow">▼</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#" id="openbor1">OpenBOR Emulator</a></li>
+            <li><a href="#" id="openbor2">Legacy OpenBOR Emulator</a></li>
+          </ul>
+        </div>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+        <a href="https://youtu.be/V5gR-y9urgA" class="box-link right" target="_blank" rel="noopener noreferrer">
+          <img src="images/youtube.svg" alt="Tutorial" class="link-icon"> Tutorial
+        </a>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/DCurrent/openbor" target="_blank" rel="noopener noreferrer">OpenBOR Team</a></li>
+        <li><strong>Ported to UWP by:</strong> <a href="https://github.com/worleydl" target="_blank" rel="noopener noreferrer">Worleydl</a>
+        <span class="donation-dash">&ndash;</span> 
+    <a href="https://ko-fi.com/worleydl" target="_blank" rel="noopener noreferrer" class="donation-link">
+        <img src="images/kofi.svg" alt="Donate on Ko-fi">
+    </a></li>
+        <li><strong>Compatibility:</strong> Xbox Series S|X</li>
+        <li><strong>Requirements:</strong> Game paks must be on a USB drive (NTFS formatted with special permissions)</li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/emulators/openbor-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+  
+  <div class="box-container" id="ppsspp">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/ppsspp.png" alt="PPSSPP Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>PPSSPP</h3>
+        <p>A PSP emulator.</p>
+      </div>
+      <div class="box-links">
+        <a href="#" class="box-link left" id="download-ppsspp">
+          <img src="images/download.svg" alt="Download" class="link-icon"> Download
+        </a>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+        <a href="https://youtu.be/-iK8KfewWok" class="box-link right" target="_blank" rel="noopener noreferrer">
+          <img src="images/youtube.svg" alt="Tutorial" class="link-icon"> Tutorial
+        </a>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/hrydgard" target="_blank" rel="noopener noreferrer">Henrik Rydgård</a></li>
+        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/emulators/ppsspp-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+  
+  <div class="box-container" id="raze">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/raze.png" alt="Raze Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>Raze</h3>
+        <p>A source port for Duke Nukem 3D, Blood, Redneck Rampage, and more Build engine games.</p>
+      </div>
+      <div class="box-links">
+        <a href="#" class="box-link left" id="download-raze">
+          <img src="images/download.svg" alt="Download" class="link-icon"> Download
+        </a>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+        <a href="https://youtu.be/odxBpuR9Yog" class="box-link right" target="_blank" rel="noopener noreferrer">
+          <img src="images/youtube.svg" alt="Tutorial" class="link-icon"> Tutorial
+        </a>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/ZDoom" target="_blank" rel="noopener noreferrer">ZDoom Team</a></li>
+        <li><strong>Ported to UWP by:</strong> <a href="https://github.com/aerisarn" target="_blank" rel="noopener noreferrer">Aerisarn</a></li>
+        <li><strong>Compatibility:</strong> Xbox Series S|X</li>
+        <li><strong>Requirements:</strong> Game files</li>
+        </ul>
+        <div class="guide-button-container">
+  <a href="{% link guides/emulators/raze-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+  
+  <div class="box-container" id="retroarch">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/retroarch.png" alt="RetroArch Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>RetroArch</h3>
+        <p>A multi-system emulator for classic games and consoles.</p>
+      </div>
+      <div class="box-links">
+        <div class="dropdown">
+          <button class="box-link download-btn">
+            <img src="images/download.svg" alt="Download" class="link-icon"> Download
+            <span class="arrow">▼</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#" id="retroarch1">Xbox One - No Cores</a></li>
+            <li><a href="#" id="retroarch2">Xbox One - All Cores</a></li>
+            <li><a href="#" id="retroarch3">Xbox Series - No Cores</a></li>
+            <li><a href="#" id="retroarch4">Xbox Series - All Cores</a></li>
+          </ul>
+        </div>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+        <a href="https://youtu.be/cy2oDaqIHG0" class="box-link right" target="_blank" rel="noopener noreferrer">
+          <img src="images/youtube.svg" alt="Tutorial" class="link-icon"> Tutorial
+        </a>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/libretro" target="_blank" rel="noopener noreferrer">Libretro</a></li>
+        <li><strong>Maintained by:</strong> 
+    <a href="https://github.com/TheRhysWyrill" target="_blank" rel="noopener noreferrer">TRW</a>
+    <span class="donation-dash">&ndash;</span> 
+    <a href="https://www.paypal.com/donate/?hosted_button_id=5PBT87FAGSBSE" target="_blank" rel="noopener noreferrer" class="donation-link">
+        <img src="images/paypal.svg" alt="Donate on PayPal">
+    </a></li>
+        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/emulators/retroarch-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+  
+  <div class="box-container" id="ruffle">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/ruffle.png" alt="Ruffle Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>Ruffle</h3>
+        <p>A Flash Player emulator.</p>
+      </div>
+      <div class="box-links">
+        <a href="#" class="box-link left" id="download-ruffle">
+          <img src="images/download.svg" alt="Download" class="link-icon"> Download
+        </a>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/ruffle-rs" target="_blank" rel="noopener noreferrer">Ruffle Team</a></li>
+        <li><strong>Ported to UWP by:</strong> <a href="https://github.com/momo-AUX1" target="_blank" rel="noopener noreferrer">Moonpower</a>
+        <span class="donation-dash">&ndash;</span> 
+    <a href="https://ko-fi.com/moonpower007" target="_blank" rel="noopener noreferrer" class="donation-link">
+        <img src="images/kofi.svg" alt="Donate on Ko-fi">
+    </a></li>
+        <li><strong>Compatibility:</strong> Xbox Series S|X</li>
+        <li><strong>Requirements:</strong> Games must be on a USB drive (NTFS formatted with special permissions)</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="box-container" id="supermodel">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/supermodel.png" alt="Sega Model 3 Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>Sega Model 3</h3>
+        <p>A Sega Model 3 arcade emulator based on Supermodel.</p>
+      </div>
+      <div class="box-links">
+        <div class="dropdown">
+          <button class="box-link download-btn">
+            <img src="images/download.svg" alt="Download" class="link-icon"> Download
+            <span class="arrow">▼</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#" id="supermodel1">Sega Model 3 Emulator</a></li>
+            <li><a href="#" id="supermodel2">Dependency File</a></li>
+          </ul>
+        </div>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+        <a href="https://youtu.be/VOJ1IKj0API" class="box-link right" target="_blank" rel="noopener noreferrer">
+          <img src="images/youtube.svg" alt="Tutorial" class="link-icon"> Tutorial
+        </a>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/trzy/Supermodel" target="_blank" rel="noopener noreferrer">Supermodel Team</a></li>
+        <li><strong>Ported to UWP by:</strong> <a href="https://github.com/aerisarn" target="_blank" rel="noopener noreferrer">Aerisarn</a></li>
+        <li><strong>Maintained by:</strong> <a href="https://github.com/poopbird4k" target="_blank" rel="noopener noreferrer">Poopbird4k</a></li>
+        <li><strong>Compatibility:</strong> Xbox Series S|X</li>
+        <li><strong>Requirements:</strong> Dependency file</li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/emulators/segamodel3-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+  
+      <div class="box-container" id="supermodel-g920">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/supermodel_g920.png" alt="Sega Model 3 Logo G920" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>Sega Model 3 G920</h3>
+        <p>A Sega Model 3 arcade emulator based on Supermodel, enhanced with Logitech G920 support.</p>
+      </div>
+      <div class="box-links">
+        <div class="dropdown">
+          <button class="box-link download-btn">
+            <img src="images/download.svg" alt="Download" class="link-icon"> Download
+            <span class="arrow">▼</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#" id="superg1">Sega Model 3 G920 Emulator</a></li>
+            <li><a href="#" id="superg2">Dependency File</a></li>
+          </ul>
+        </div>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+        <a href="https://youtu.be/8fKWM-4Q46k" class="box-link right" target="_blank" rel="noopener noreferrer">
+          <img src="images/youtube.svg" alt="Tutorial" class="link-icon"> Tutorial
+        </a>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/trzy/Supermodel" target="_blank" rel="noopener noreferrer">Supermodel Team</a></li>
+        <li><strong>Ported to UWP by:</strong> <a href="https://github.com/aerisarn" target="_blank" rel="noopener noreferrer">Aerisarn</a></li>
+        <li><strong>Maintained by:</strong> <a href="https://github.com/poopbird4k" target="_blank" rel="noopener noreferrer">Poopbird4k</a></li>
+        <li><strong>Compatibility:</strong> Xbox Series S|X</li>
+        <li><strong>Requirements:</strong> 
+        <ul>
+            <li>Dependency file</li>
+            <li>Logitech G920 wheel</li>
+            </ul>
+        </li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/emulators/segamodel3g920-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+  
+  <div class="box-container" id="xbsx2">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/xbsx2.png" alt="XBSX2 Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>XBSX2</h3>
+        <p>A Playstation 2 emulator ported from PCSX2.</p>
+      </div>
+      <div class="box-links">
+        <a href="#" class="box-link left" id="download-xbsx2">
+          <img src="images/download.svg" alt="Download" class="link-icon"> Download
+        </a>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+        <a href="https://youtu.be/hyX-qd84E_w" class="box-link right" target="_blank" rel="noopener noreferrer">
+          <img src="images/youtube.svg" alt="Tutorial" class="link-icon"> Tutorial
+        </a>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/PCSX2" target="_blank" rel="noopener noreferrer">PCSX2</a></li>
+        <li><strong>Ported to UWP by:</strong> <a href="https://github.com/SirMangler" target="_blank" rel="noopener noreferrer">Sir Mangler</a> 
+   <span class="donation-dash">&ndash;</span>
+  <a href="https://ko-fi.com/sirmangler" target="_blank" rel="noopener noreferrer" class="donation-link">
+    <img src="images/kofi.svg" alt="Donate on Ko-fi">
+  </a></li>
+        <li><strong>Maintained by:</strong>
+  <a href="https://github.com/SternXD" target="_blank" rel="noopener noreferrer">Stern</a>
+  <span class="donation-dash">&ndash;</span>
+  <a href="https://ko-fi.com/stern" target="_blank" rel="noopener noreferrer" class="donation-link">
+    <img src="images/kofi.svg" alt="Donate on Ko-fi">
+  </a></li>
+        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
+        <li><strong>Requirements:</strong> PS2 BIOS needed</li>
+      </ul>
+      <div class="guide-button-container">
+  <a href="{% link guides/emulators/xbsx2-guide.md %}" class="guide-cta-button">Guide</a>
+</div>
+    </div>
+  </div>
+  
+  <div class="box-container" id="xenia">
+    <div class="main-card-top-content">
+      <div class="box-image-wrapper">
+        <img src="images/xenia.png" alt="Xenia Logo" class="box-image">
+      </div>
+      <div class="box-content">
+        <h3>Xenia</h3>
+        <p>An Xbox 360 emulator.</p>
+      </div>
+      <div class="box-links">
+        <a href="#" class="box-link left" id="download-xenia">
+          <img src="images/download.svg" alt="Download" class="link-icon"> Download
+        </a>
+        <button class="box-link center info-toggle">
+          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+        </button>
+        <a href="https://youtu.be/rXAWYeJ0yRw" class="box-link right" target="_blank" rel="noopener noreferrer">
+          <img src="images/youtube.svg" alt="Tutorial" class="link-icon"> Tutorial
+        </a>
+      </div>
+    </div>
+    <div class="info-box">
+      <ul class="info-list">
+        <li><strong>Developer:</strong> <a href="https://github.com/xenia-project" target="_blank" rel="noopener noreferrer">Xenia Project</a></li>
+        <li><strong>Ported to UWP by:</strong> <a href="https://github.com/SirMangler" target="_blank" rel="noopener noreferrer">Sir Mangler</a> 
+   <span class="donation-dash">&ndash;</span>
+  <a href="https://ko-fi.com/sirmangler" target="_blank" rel="noopener noreferrer" class="donation-link">
+    <img src="images/kofi.svg" alt="Donate on Ko-fi">
+  </a></li>
+        <li><strong>Compatibility:</strong> Xbox Series S|X</li>
+      </ul>
+    </div>
+  </div>
+  
+</div> </main>
+
+<footer>
+  <div class="discord-section">
+  <h3 class="discord-heading">Join the Communities</h3>
+  <div class="discord-servers-wrapper">
+    <div class="discord-server-item">
+      <a href="https://discord.gg/f82Tr22vRZ" class="discord-link" target="_blank" rel="noopener noreferrer">
+        <img src="images/discord.svg" alt="Discord" class="discord-icon">
+      </a>
+      <h5>Revive's Community</h5>
+    </div>
+    <div class="discord-server-item">
+      <a href="https://discord.gg/pVd47KAG24" class="discord-link" target="_blank" rel="noopener noreferrer">
+        <img src="images/discord.svg" alt="Discord" class="discord-icon">
+      </a>
+      <h5>Xbox Emulation Hub</h5>
+    </div>
+  </div>
+</div>
+  <p class="copyright">© 2025 Emulation Revival. All rights reserved.</p>
+  <p class="disclaimer-link-wrapper">
+  <a href="disclaimer.html" target="_blank" rel="noopener noreferrer">Disclaimer</a>
+</p>
+</footer>
+    
+        <script src="downloads.js"></script>
+    <script src="searchdata.js"></script>
+    <script src="main.js"></script>
+    <script src="searchlogic.js"></script>
+
+    <script>
+      // --- UTILITY FUNCTIONS ---
+      function debounce(func, wait) {
+          let timeout;
+          return function executedFunction(...args) {
+              const later = () => {
+                  clearTimeout(timeout);
+                  func(...args);
+              };
+              clearTimeout(timeout);
+              timeout = setTimeout(later, wait);
+          };
+      }
+
+      // --- PAGE-SPECIFIC FUNCTIONALITY: CARD HEIGHTS ---
+      function equalizeInitialCardHeights() {
+          const productWrapper = document.querySelector('.product-wrapper');
+          if (!productWrapper) return;
+
+          const cards = Array.from(productWrapper.querySelectorAll('.box-container'));
+          if (cards.length === 0) return;
+
+          let maxHeight = 0;
+
+          // Reset heights first to accurately measure natural height
+          cards.forEach(card => {
+              if (!card.classList.contains('expanded')) { // Don't reset already expanded cards
+                  card.style.height = 'auto';
+                  card.style.minHeight = '0'; // Allow shrinking
+                  card.style.maxHeight = 'none'; // Allow growing
+                  const mainTopContent = card.querySelector('.main-card-top-content');
+                  if (mainTopContent) {
+                      mainTopContent.style.height = 'auto';
+                  }
+              }
+          });
+          
+          // Force reflow to get updated heights if needed - sometimes helpful
+          if (cards.length > 0) cards[0].offsetHeight; 
+
+          // Calculate max height among non-expanded cards
+          cards.forEach(card => {
+              if (!card.classList.contains('expanded')) {
+                  const currentCardHeight = card.scrollHeight; // Use scrollHeight for full content height
+                  if (currentCardHeight > maxHeight) {
+                      maxHeight = currentCardHeight;
+                  }
+              }
+          });
+
+          // Apply the calculated max height
+          if (maxHeight > 0) {
+              let totalVerticalPadding = 32; // Default or calculate as you did
+              if (cards[0]) {
+                  const computedStyle = window.getComputedStyle(cards[0]);
+                  const paddingTop = parseFloat(computedStyle.paddingTop) || 0;
+                  const paddingBottom = parseFloat(computedStyle.paddingBottom) || 0;
+                  totalVerticalPadding = paddingTop + paddingBottom;
+              }
+
+              cards.forEach(card => {
+                  if (!card.classList.contains('expanded')) {
+                      const targetHeightPx = `${maxHeight}px`;
+                      card.style.minHeight = targetHeightPx;
+                      card.style.maxHeight = targetHeightPx;
+                      card.style.height = targetHeightPx;
+
+                      // Adjust height of inner content wrapper if necessary
+                      const mainTopContent = card.querySelector('.main-card-top-content');
+                      if (mainTopContent) {
+                          // Ensure this calculation correctly leaves space for other elements like .box-links
+                          mainTopContent.style.height = `${maxHeight - totalVerticalPadding - (mainTopContent.nextElementSibling ? mainTopContent.nextElementSibling.offsetHeight : 0)}px`;
+                      }
+                  }
+              });
+          }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        // --- ELEMENT SELECTORS (Standardized) ---
+        const sideMenu = document.getElementById("menu");
+        const menuToggle = document.querySelector(".menu-toggle");
+        const searchBar = document.getElementById("searchBar"); // Standardized name
+        const searchIcon = document.querySelector(".search-icon");
+        const searchInput = searchBar ? searchBar.querySelector('input[type="text"]') : null;
+
+        // --- INITIALIZATION & EVENT LISTENERS FOR EMULATOR PAGE ---
+
+        // Info toggle buttons
+        document.querySelectorAll('.info-toggle').forEach(button => {
+          button.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent global click from closing it immediately
+            const currentBox = button.closest('.box-container');
+            if (!currentBox) return;
+            const isCurrentlyExpanded = currentBox.classList.contains('expanded');
+
+            // Close other expanded info boxes
+            document.querySelectorAll('.box-container.expanded').forEach(otherBox => {
+              if (otherBox !== currentBox) {
+                otherBox.classList.remove('expanded');
+              }
+            });
+
+            currentBox.classList.toggle('expanded', !isCurrentlyExpanded);
+          });
+        });
+
+        // Set download links (from downloads.js object)
+if (typeof downloads !== 'undefined') {
+    const linkIds = [
+        'download-xbsx2', 'download-dolphin', 'download-flycast', 'download-xenia',
+        'download-citra', 'retroarch1', 'retroarch2', 'retroarch3', 'retroarch4',
+        'download-ppsspp', 'supermodel1', 'supermodel2', 'superg1', 'superg2', 'download-ruffle', 'openbor1', 'openbor2', 'download-ikemen', 'download-gzdoom', 'download-raze', 'download-boxedwine'
+        // Add any other link IDs that are present in your HTML and downloads.js
+    ];
+
+    linkIds.forEach(id => {
+        const element = document.getElementById(id);
+        let downloadUrl = null;
+
+        // Determine the correct key to access the URL in the downloads object
+        if (downloads[id]) { // First, try direct match (e.g., downloads['download-xbsx2'])
+            downloadUrl = downloads[id];
+        } else if (downloads[id.replace('download-', '')]) { // Then, try removing 'download-' prefix (e.g., downloads['xbsx2'])
+            downloadUrl = downloads[id.replace('download-', '')];
+        }
+        // You could add more fallback logic here if your naming conventions vary further
+
+        if (element && downloadUrl) {
+            element.href = downloadUrl;                 // Set the actual download URL
+            element.target = "_blank";                // Force link to open in a new tab
+            element.rel = "noopener noreferrer";    // Security best practice for target="_blank"
+        } else if (element) {
+            // Optional: Handle cases where the link ID exists in HTML but not in downloads.js
+            // console.warn(`Download URL for ID '${id}' not found in downloads.js`);
+            // element.style.display = 'none'; // Or hide the link
+        }
+    });
+}
+
+
+        // Dropdown toggle for download buttons
+        document.querySelectorAll('.dropdown .download-btn').forEach(button => {
+          button.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent global click
+            const dropdown = button.closest('.dropdown'); // Changed from parentElement for robustness
+            if (!dropdown) return;
+            const box = dropdown.closest('.box-container');
+            const menu = dropdown.querySelector('.dropdown-menu');
+            if (!menu) return;
+
+            const isCurrentlyShown = menu.style.display === 'block'; // More reliable than class for this
+
+            // Close all other dropdowns
+            document.querySelectorAll('.dropdown .dropdown-menu').forEach(otherMenu => {
+              if (otherMenu !== menu && otherMenu.style.display === 'block') {
+                otherMenu.style.display = 'none';
+                const otherDropdown = otherMenu.closest('.dropdown');
+                if (otherDropdown) otherDropdown.classList.remove('show'); // If you use 'show' class
+                const otherBox = otherDropdown ? otherDropdown.closest('.box-container') : null;
+                if (otherBox) otherBox.classList.remove('expanded-dropdown');
+              }
+            });
+
+            // Toggle current dropdown
+            if (isCurrentlyShown) {
+              menu.style.display = 'none';
+              dropdown.classList.remove('show'); // If you use 'show' class
+              if (box) box.classList.remove('expanded-dropdown');
+            } else {
+              menu.style.display = 'block';
+              dropdown.classList.add('show'); // If you use 'show' class
+              if (box) box.classList.add('expanded-dropdown');
+            }
+          });
+        });
+
+        // Call equalize card heights if the wrapper exists
+        if (document.querySelector('.product-wrapper')) {
+            equalizeInitialCardHeights();
+        }
+
+        // --- HELPER FUNCTION FOR SEARCH ---
+        function closeAndResetSearch() {
+          if (searchBar && searchBar.classList.contains('search-bar-visible')) {
+            searchBar.classList.remove('search-bar-visible');
+            if (searchInput) {
+              searchInput.value = '';
+            }
+            const autocompleteResults = document.getElementById('autocompleteResults');
+            if (autocompleteResults) {
+              autocompleteResults.style.display = 'none';
+              autocompleteResults.innerHTML = '';
+            }
+          }
+        }
+
+        // --- GLOBAL CLICK LISTENER (Expanded) ---
+        document.addEventListener('click', (event) => {
+          const target = event.target;
+          const autocompleteResults = document.getElementById('autocompleteResults');
+
+          // 1. Close Side Menu
+          if (sideMenu && menuToggle && sideMenu.classList.contains('visible') &&
+              !sideMenu.contains(target) && !menuToggle.contains(target)) {
+            sideMenu.classList.remove('visible');
+          }
+
+          // 2. Close Search Bar & Autocomplete
+          if (searchBar && searchIcon) {
+            if (searchBar.classList.contains('search-bar-visible') &&
+                !searchBar.contains(target) && !searchIcon.contains(target)) {
+              closeAndResetSearch();
+            } else if (autocompleteResults && autocompleteResults.style.display === 'block') {
+              if (!searchInput || (searchInput && !searchInput.contains(target) && !autocompleteResults.contains(target))) {
+                 if (!searchBar.contains(target) || (searchInput && !searchInput.contains(target) && !autocompleteResults.contains(target))) {
+                    autocompleteResults.style.display = 'none';
+                    autocompleteResults.innerHTML = '';
+                 }
+              }
+            }
+          }
+
+          // 3. Close Download Dropdowns
+          document.querySelectorAll('.dropdown .dropdown-menu').forEach(menu => {
+            if (menu.style.display === 'block') {
+              const dropdown = menu.closest('.dropdown');
+              // Close if click is outside the entire dropdown (button + menu)
+              if (dropdown && !dropdown.contains(target)) {
+                menu.style.display = 'none';
+                dropdown.classList.remove('show'); // If you use 'show' class
+                const box = dropdown.closest('.box-container');
+                if (box) box.classList.remove('expanded-dropdown');
+              }
+            }
+          });
+
+          // 4. Close Expanded Info Boxes
+          document.querySelectorAll('.box-container.expanded').forEach(expandedBox => {
+            // Check if the click was on the toggle button for this specific box
+            const toggleBtn = expandedBox.querySelector('.info-toggle');
+            if (toggleBtn && toggleBtn.contains(target)) {
+              return; // Don't close if the toggle button itself was clicked
+            }
+            // Close if click is outside the expanded box
+            if (!expandedBox.contains(target)) {
+              expandedBox.classList.remove('expanded');
+            }
+          });
+        });
+
+        // --- EVENT.STOPPROPAGATION ATTACHMENTS ---
+        if (sideMenu) {
+          sideMenu.addEventListener('click', (event) => event.stopPropagation());
+        }
+        if (searchInput) {
+          searchInput.addEventListener('click', (event) => event.stopPropagation());
+        }
+        // Clicks inside an open dropdown menu should not close it
+        document.querySelectorAll('.dropdown-menu').forEach(menu => {
+            menu.addEventListener('click', event => event.stopPropagation());
+        });
+        // Clicks inside an expanded info box should not close it (unless on a specific close button if you add one)
+        document.querySelectorAll('.info-box').forEach(infoBox => { // Assuming .info-box is the content area
+            infoBox.addEventListener('click', event => event.stopPropagation());
+        });
+        // Note: stopPropagation for .info-toggle and .download-btn are already in their click listeners.
+      });
+
+      // --- TOGGLE FUNCTIONS (Standardized) ---
+      function toggleMenu() {
+        const menu = document.getElementById("menu");
+        if (menu) {
+          menu.classList.toggle("visible");
+        }
+      }
+
+      function toggleSearch(event) {
+        if (event) {
+          event.stopPropagation();
+        }
+        const searchBarElement = document.getElementById("searchBar");
+        const searchInput = searchBarElement ? searchBarElement.querySelector('input[type="text"]') : null;
+        const autocompleteResults = document.getElementById('autocompleteResults');
+
+        if (searchBarElement) {
+          const wasVisible = searchBarElement.classList.contains('search-bar-visible');
+          searchBarElement.classList.toggle('search-bar-visible');
+
+          if (!wasVisible && searchBarElement.classList.contains('search-bar-visible')) {
+            if (searchInput) {
+              searchInput.focus();
+            }
+          } else if (wasVisible && !searchBarElement.classList.contains('search-bar-visible')) {
+            if (searchInput) {
+              searchInput.value = '';
+            }
+            if (autocompleteResults) {
+              autocompleteResults.style.display = 'none';
+              autocompleteResults.innerHTML = '';
+            }
+          }
+        }
+      }
+
+      // --- RESIZE HANDLING FOR CARD HEIGHTS ---
+      let resizeTimeoutForCards; // Use a more specific name
+      window.addEventListener('resize', () => {
+          if (document.querySelector('.product-wrapper')) {
+              clearTimeout(resizeTimeoutForCards);
+              resizeTimeoutForCards = setTimeout(equalizeInitialCardHeights, 250); // Debounced call
+          }
+      });
+    </script>
+</body>
+</html>
