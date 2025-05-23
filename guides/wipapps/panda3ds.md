@@ -24,11 +24,11 @@ Before you begin, ensure the following conditions are met:
 4.  **PC:** A Windows PC for downloading files and accessing the Xbox Device Portal.
 5.  **Nintendo 3DS Game Files:** Your own legally dumped Nintendo 3DS game files (decrypted format usually required, e.g., `.3ds`, `.cia`).
 
-> **Need help with prerequisites?** See the [_Xbox Dev Mode Setup_](https://wiki.xboxdev.store/en/DevModeSetup) guide for detailed instructions on activating Dev Mode, setting up Remote Access, and preparing a USB drive (if using one).
+> **Need help with prerequisites?** See the [_Xbox Dev Mode Setup_](https://emulationrevival.github.io/guides/devmode-guide/) guide for detailed instructions on activating Dev Mode, setting up Remote Access, and preparing a USB drive (if using one).
 
 ## Step 1: Downloading Files
 
-1.  **Go to Xbox Dev Store:** Navigate to the [Xbox Dev Store](https://xbdev.store/).
+1.  **Go to Xbox Dev Store:** Navigate to WIP APPS.
 2.  **Find Panda3DS:** Go to the **"Emulators"** tab and scroll down until you see **"Panda3DS"**.
 3.  **Download:** Click the **"Download"** button. This will download a `.zip` file.
 4.  **Extract Files:** On your PC, extract the downloaded `.zip` file. Inside, you should find:
@@ -107,7 +107,7 @@ Panda3DS UWP looks for games in specific locations. Choose **ONE** method below.
 *   **Solutions:**
     1.  **Verify Game Location:** Double-check that your game files are placed *directly* in one of the four valid locations described in **Step 2**. Ensure they are **not** inside extra subfolders.
     2.  **USB Connected?:** Make sure your external USB drive was connected to the Xbox *before* launching Panda3DS.
-    3.  **USB Formatting/Permissions:** Confirm your USB drive is formatted as NTFS and has the correct permissions set ("ALL APPLICATION PACKAGES" > Full Control). Refer to the [_Xbox Dev Mode Setup_](https://wiki.xboxdev.store/en/DevModeSetup) guide if needed.
+    3.  **USB Formatting/Permissions:** Confirm your USB drive is formatted as NTFS and has the correct permissions set ("ALL APPLICATION PACKAGES" > Full Control). Refer to the [_Xbox Dev Mode Setup_](https://emulationrevival.github.io/guides/devmode-guide/) guide if needed.
     4.  **Try `LocalState`:** As a test, try placing one game file in the root of the app's `LocalState` folder (Option C in Step 2) using the Device Portal and see if the error persists. This helps determine if the issue is USB-specific.
 
 **Other Issues:**
