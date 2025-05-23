@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title | escape }}</title>
+  <link rel="stylesheet" href="{{ "/style.css" | relative_url }}">
+</head>
+<body>
+
+<header class="top-bar">
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  <h1 class="site-title">Emulation Revival</h1>
+  <button class="search-icon" onclick="toggleSearch(event)">
+    <img src="{{ "/images/search.svg" | relative_url }}" alt="Search">
+  </button>
+</header>
+
+<div id="searchBar" class="search-bar">
+  <input type="text" placeholder="Search...">
+</div>
+
+<div class="menu" id="menu">
+  <a href="{% link index.html %}" class="menu-item active">
+    <img src="{{ "/images/home.svg" | relative_url }}" alt="Home">
+    Home
+  </a>
+  <a href="{% link emulators.html %}" class="menu-item">
+    <img src="{{ "/images/emulators.svg" | relative_url }}" alt="Emulators">
+    Emulators
+  </a>
+  <a href="{% link ports.html %}" class="menu-item">
+    <img src="{{ "/images/ports.svg" | relative_url }}" alt="Game Ports">
+    Game Ports
+  </a>
+  <a href="{% link apps.html %}" class="menu-item">
+    <img src="{{ "/images/apps.svg" | relative_url }}" alt="Apps">
+    Apps
+  </a>
+  <a href="{% link media.html %}" class="menu-item">
+    <img src="{{ "/images/media.svg" | relative_url }}" alt="Media">
+    Media Apps
+  </a>
+  <a href="{% link frontends.html %}" class="menu-item">
+    <img src="{{ "/images/frontends.svg" | relative_url }}" alt="Frontends">
+    Frontends
+  </a>
+  <a href="{% link wipapps.html %}" class="menu-item">
+    <img src="{{ "/images/wipapps.svg" | relative_url }}" alt="WIP Apps">
+    WIP Apps
+  </a>
+  <a href="{% link utilities.html %}" class="menu-item">
+    <img src="{{ "/images/utilities.svg" | relative_url }}" alt="Utilities">
+    Utilities
+  </a>
+</div>
+
+<main>
+<div class="main-content-wrapper">
+  <div class="main-content markdown-body">
+    {{ content }}
+</div>
+</div>
+</main>
+
+<footer>
+  <div class="discord-section">
+    <h3 class="discord-heading">Join the Communities</h3>
+    <div class="discord-servers-wrapper">
+      <div class="discord-server-item">
+        <a href="https://discord.gg/f82Tr22vRZ" class="discord-link" target="_blank" rel="noopener noreferrer">
+          <img src="{{ '/images/discord.svg' | relative_url }}" alt="Discord" class="discord-icon">
+        </a>
+        <h5>Revive's Community</h5>
+      </div>
+      <div class="discord-server-item">
+        <a href="https://discord.gg/pVd47KAG24" class="discord-link" target="_blank" rel="noopener noreferrer">
+          <img src="{{ '/images/discord.svg' | relative_url }}" alt="Discord" class="discord-icon">
+        </a>
+        <h5>Xbox Emulation Hub</h5>
+      </div>
+    </div>
+  </div>
+  <p class="copyright">© 2025 Emulation Revival. All rights reserved.</p>
+  <p class="disclaimer-link-wrapper">
+    <a href="{% link disclaimer.html %}" target="_blank" rel="noopener noreferrer">Disclaimer</a>
+  </p>
+</footer>
+
+    <script src="{{ "/main.js" | relative_url }}"></script>
+    <script src="{{ "/searchdata.js" | relative_url }}"></script>
+    <script src="{{ "/searchlogic.js" | relative_url }}"></script>
+    <script>
+      // Your inline script remains the same as it doesn't involve Jekyll pathing
+      document.addEventListener("DOMContentLoaded", () => {
+        const sideMenu = document.getElementById("menu");
+        const menuToggle = document.querySelector(".menu-toggle");
+        const searchBar = document.getElementById("searchBar");
+        const searchIcon = document.querySelector(".search-icon");
+        const searchInput = searchBar ? searchBar.querySelector('input[type="text"]') : null;
+
+        function closeAndResetSearch() {
+          if (searchBar && searchBar.classList.contains('search-bar-visible')) {
+            searchBar.classList.remove('search-bar-visible');
+            if (searchInput) {
+              searchInput.value = '';
+            }
+            const autocompleteResults = document.getElementById('autocompleteResults');
+            if (autocompleteResults) {
+              autocompleteResults.style.display = 'none';
+              autocompleteResults.innerHTML = '';
+            }
+          }
+        }
+
+        document.addEventListener('click', (event) => {
+          const target = event.target;
+          const autocompleteResults = document.getElementById('autocompleteResults');
+
+          if (sideMenu && menuToggle && sideMenu.classList.contains('visible') &&
+              !sideMenu.contains(target) && !menuToggle.contains(target)) {
+            sideMenu.classList.remove('visible');
+          }
+
+          if (searchBar && searchIcon) {
+            if (searchBar.classList.contains('search-bar-visible') &&
+                !searchBar.contains(target) &&
+                !searchIcon.contains(target)) {
+              closeAndResetSearch();
+            }
+            else if (autocompleteResults && autocompleteResults.style.display === 'block') {
+                if (!searchInput || (searchInput && !searchInput.contains(target) && !autocompleteResults.contains(target))) {
+                    if (!searchBar.contains(target) || (searchInput && !searchInput.contains(target) && !autocompleteResults.contains(target))) {
+                        autocompleteResults.style.display = 'none';
+                        autocompleteResults.innerHTML = '';
+                    }
+                }
+            }
+          }
+        });
+
+        if (sideMenu) {
+          sideMenu.addEventListener('click', (event) => event.stopPropagation());
+        }
+        if (searchInput) {
+          searchInput.addEventListener('click', (event) => event.stopPropagation());
+        }
+      });
+
+      function toggleMenu() {
+        const menu = document.getElementById("menu");
+        if (menu) {
+          menu.classList.toggle("visible");
+        }
+      }
+
+      function toggleSearch(event) {
+        if (event) {
+          event.stopPropagation();
+        }
+        const searchBarElement = document.getElementById("searchBar");
+        const searchInput = searchBarElement ? searchBarElement.querySelector('input[type="text"]') : null;
+        const autocompleteResults = document.getElementById('autocompleteResults');
+
+        if (searchBarElement) {
+          const wasVisible = searchBarElement.classList.contains('search-bar-visible');
+          searchBarElement.classList.toggle('search-bar-visible');
+
+          if (!wasVisible && searchBarElement.classList.contains('search-bar-visible')) {
+            if (searchInput) {
+              searchInput.focus();
+            }
+          } else if (wasVisible && !searchBarElement.classList.contains('search-bar-visible')) {
+            if (searchInput) {
+              searchInput.value = '';
+            }
+            if (autocompleteResults) {
+              autocompleteResults.style.display = 'none';
+              autocompleteResults.innerHTML = '';
+            }
+          }
+        }
+      }
+    </script>
+</body>
+</html>
