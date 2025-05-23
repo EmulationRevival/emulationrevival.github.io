@@ -54,7 +54,7 @@ const downloads = {
   openbor2: "https://drive.google.com/uc?export=download&id=16Cmq95PWfLzmOinKNnxo1Zdg2FLVw4Rx",
   
   // Ikemen-GO
-  ikemen: "https://cdn.discordapp.com/attachments/1308220504553029673/1308220507929444412/IkemenGoRumbletest_1.0.6.0_x64__z5m0xxnb6r8z8-1.msix?ex=682fbaca&is=682e694a&hm=1053a2e3f49f5b94ccbc6302502ad91e8fd68a79aedcab4693c79e8179737761&",
+  ikemen: "",
   
   // GZDoom
   gzdoom: "https://github.com/aerisarn/gzdoom-uwp/releases/download/1.0.7/zdoom_1.0.7.0_x64.msixbundle",
