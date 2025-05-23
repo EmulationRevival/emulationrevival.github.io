@@ -182,5 +182,25 @@
         }
       }
     </script>
+
+    <script>
+      // Script to make external links open in a new tab
+      document.addEventListener('DOMContentLoaded', function() {
+        const contentArea = document.querySelector('.markdown-body'); // Targets links within the main Markdown content
+        if (contentArea) {
+          const links = contentArea.querySelectorAll('a');
+          const currentHostname = window.location.hostname;
+
+          links.forEach(link => {
+            if (link.href && link.host && link.host !== currentHostname) {
+              if (link.protocol === "http:" || link.protocol === "https:") {
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+              }
+            }
+          });
+        }
+      });
+    </script>
 </body>
 </html>
