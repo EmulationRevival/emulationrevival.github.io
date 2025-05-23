@@ -423,6 +423,18 @@ const searchEntries = [
 // WIP APPS
 
   {
+    name: "Chonkystation 3",
+    page: "/wipapps.html",
+    id: "chonkystation3",
+    icon: "/images/chonkystation3.png"
+  },  
+  {
+    name: "Panda3DS",
+    page: "/wipapps.html",
+    id: "panda3ds",
+    icon: "/images/panda3ds.png"
+  },  
+  {
     name: "Hedge Physics",
     page: "/wipapps.html",
     id: "hedgephysics",
