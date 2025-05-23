@@ -10,18 +10,18 @@ description: "A guide for setting up XBSX2 on dev mode."
 
 XBSX2 is an emulator that allows you to play PlayStation 2 (PS2) games on your Xbox Series X|S, taking advantage of the hardware to provide smooth gameplay with features such as:
 
-* Higher resolutions (up to 4K)
-* HD texture packs
-* 60fps patches
-* Multiplayer (local and online)
+- Higher resolutions (up to 4K)
+- HD texture packs
+- 60fps patches
+- Multiplayer (local and online)
 
 ### Requirements Checklist
 
-* **Xbox Series X|S**
+- **Xbox Series X|S**
     Make sure you have an Xbox Series X or Series S. Note: Xbox One can run some PS2 games, but it's not powerful enough for most of them.
-* **External USB Drive (Optional but Highly Recommended)**
+- **External USB Drive (Optional but Highly Recommended)**
     You will need a properly formatted USB drive to store the BIOS, games and other files. The USB drive must be formatted in NTFS and have the correct permissions - see the Dev Mode Setup Guide for the steps. We recommend using an external SSD for smoother performance when using HD textures or large games.
-* **Developer Mode on Xbox**
+- **Developer Mode on Xbox**
     To run homebrew applications such as XBSX2, you need to enable Developer Mode. This allows you to install applications that aren't available from the Microsoft Store. If you haven't enabled Developer Mode yet, don't worry - we've got you covered here.
 
 ## Setting up XBSX2 on Xbox
@@ -146,8 +146,8 @@ To save your games in XBSX2, you need virtual memory cards.
 
 For multiplayer, set up the controllers as:
 
-* Player 1: **Controller Port 1**
-* Player 2: **Controller Port 2**, and so on.
+- Player 1: **Controller Port 1**
+- Player 2: **Controller Port 2**, and so on.
 Enable the **Multitap** setting if you plan on using more than 2 controllers.
 
 ## Adding Cheat Codes
@@ -156,10 +156,10 @@ Enable the **Multitap** setting if you plan on using more than 2 controllers.
 
 Find cheats for your desired games. Recommended websites:
 
-* Emulation Collective Discord
-* Revives Community Server Discord
-* Gamehacking.org
-* PCSX2 forums
+- Emulation Collective Discord
+- Revives Community Server Discord
+- Gamehacking.org
+- PCSX2 forums
 
 Download the cheats in PCSX2 PNACH format.
 
