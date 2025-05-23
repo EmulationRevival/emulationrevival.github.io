@@ -54,4 +54,4 @@ If you don't own any of these versions, you can purchase the **Jazz Jackrabbit 2
 
 ### Additional Notes
 - **Xbox One Build**: `Jazz2.msixbundle`  
-- **Xbox Series S|X Build**: `Jazz2_mesa.msixbundle`
+- **Xbox Series S/X Build**: `Jazz2_mesa.msixbundle`
