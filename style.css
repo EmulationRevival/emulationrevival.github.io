@@ -928,7 +928,7 @@ input[type="text"]:focus-visible {
 }
 
 /* Small Tablets (e.g., iPad Mini Portrait) & Wider Mobile Landscape */
-@media (max-width: 900px) {
+@media (max-width: 960px) {
   .product-wrapper {
     grid-template-columns: repeat(2, 1fr);
     padding: 50px 10px 10px; 
