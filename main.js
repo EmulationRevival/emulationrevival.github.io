@@ -288,14 +288,24 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-            if (productWrapper) { 
-                let resizeTimeoutForCards; 
-                window.addEventListener('resize', () => { 
-                    clearTimeout(resizeTimeoutForCards);
-                    if (window.innerWidth > 1024) { 
-                        resizeTimeoutForCards = setTimeout(equalizeInitialCardHeights, 250); 
-                    } else {
-                    }
-                }); 
-            } 
+if (productWrapper) {
+    let resizeTimeoutForCards;
+    let lastKnownWidth = window.innerWidth; 
+
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeoutForCards); 
+
+        resizeTimeoutForCards = setTimeout(() => {
+            const currentWidth = window.innerWidth;
+
+            if (currentWidth > 1024 || currentWidth !== lastKnownWidth) {
+                console.log('Running equalizeInitialCardHeights due to significant resize or desktop view. Old/New width:', lastKnownWidth, currentWidth);
+                equalizeInitialCardHeights();
+                lastKnownWidth = currentWidth; 
+            } else {
+            }
+        }, 250); 
+    });
+
+} 
    }); 
