@@ -21,6 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.href = targetUrl;
         }
 
+    searchInput.value = '';
+    autocompleteResults.innerHTML = '';
+    autocompleteResults.style.display = 'none';
+
 
         if (searchBarContainer.classList.contains('search-bar-visible')) {
             if (typeof toggleSearch === 'function') {
