@@ -1,4 +1,5 @@
 // searchlogic.js
+
 document.addEventListener('DOMContentLoaded', () => {
     const searchBarContainer = document.getElementById('searchBar');
     if (!searchBarContainer) {
@@ -14,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let autocompleteResults = document.getElementById('autocompleteResults');
     if (!autocompleteResults) {
+        // This was in your original searchlogic.txt, ensures autocompleteResults div exists
         autocompleteResults = document.createElement('div');
         autocompleteResults.id = 'autocompleteResults';
         autocompleteResults.classList.add('autocomplete-items');
@@ -21,132 +23,148 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     autocompleteResults.style.display = 'none';
 
-    if (typeof searchEntries === 'undefined') {
-        // console.error('Search data (searchEntries) is not loaded!');
+    if (typeof searchEntries === 'undefined' || !Array.isArray(searchEntries)) {
+        // console.error('Search data (searchEntries) is not loaded or not an array!');
         return;
     }
 
-    let currentHighlight = null;
+    let currentHighlight = null; // From original file
+    let activeSuggestionIndex = -1; // From original file
 
-    // --- Helper Function to Close Search Bar and Clear Input ---
-    function closeSearchBarAndClearInput(clearInput = true) {
-        if (clearInput) {
-            searchInput.value = '';
-        }
-        autocompleteResults.innerHTML = '';
-        autocompleteResults.style.display = 'none';
-
-        // Ensure toggleSearch (from main.js) is available and called
-        if (searchBarContainer.classList.contains('search-bar-visible')) {
-            if (typeof toggleSearch === 'function') {
-                toggleSearch(); // This should handle toggling the class and focusing if needed
-            } else {
-                searchBarContainer.classList.remove('search-bar-visible'); // Fallback
-            }
-        }
-    }
-
-    // --- Helper Function for Highlighting and Scrolling (MODIFIED) ---
+    // --- Helper Function for Highlighting and Scrolling (TARGETED MODIFICATIONS) ---
     function applyHighlightAndScroll(elementId) {
+        if (!elementId) return;
         const targetElement = document.getElementById(elementId);
 
-        if (currentHighlight) {
+        if (currentHighlight && currentHighlight !== targetElement) {
             currentHighlight.classList.remove('highlighted-by-search');
         }
 
         if (targetElement) {
-            // Scroll into view with offset for fixed header
+            // **MODIFICATION 1: Calculate scroll position with offset for fixed top bar**
             const topBar = document.querySelector('.top-bar');
-            const topBarHeight = topBar ? topBar.offsetHeight : 0; // Default to 0 if not found
+            const topBarHeight = topBar ? topBar.offsetHeight : 0;
             const elementRect = targetElement.getBoundingClientRect();
             const elementTopRelativeToDocument = elementRect.top + window.pageYOffset;
-            const desiredMarginFromTopBar = 20; // Space between top bar and highlighted element
+            const desiredMarginFromTopBar = 20; // Adjust for spacing
             
-            // Ensure scrollToPosition is not negative if element is already near top
             let scrollToPosition = elementTopRelativeToDocument - topBarHeight - desiredMarginFromTopBar;
             if (scrollToPosition < 0) scrollToPosition = 0;
-
 
             window.scrollTo({
                 top: scrollToPosition,
                 behavior: 'smooth'
             });
+            // **END MODIFICATION 1**
 
-            // Apply highlight after a short delay to allow scroll to start/finish
-            // This can sometimes help with visual consistency.
-            setTimeout(() => {
-                targetElement.classList.add('highlighted-by-search');
-                currentHighlight = targetElement;
+            targetElement.classList.add('highlighted-by-search');
+            currentHighlight = targetElement;
 
-                // Focus management to potentially help with page drifting
-                if (searchInput) {
-                    searchInput.blur(); // Remove focus from search input
-                }
-                // Optionally, focus the target element itself, but prevent additional scrolling.
-                // targetElement.focus({ preventScroll: true }); 
-                // Be cautious with this if the element isn't naturally focusable or if it causes other issues.
-                // Sometimes, just blurring the input is enough.
-            }, 150); // Adjust delay if needed, or remove setTimeout if direct highlight is preferred.
+            // **MODIFICATION 2: Focus management**
+            if (searchInput) {
+                searchInput.blur(); // Remove focus from search input to help prevent page drift
+            }
+            // Optional: targetElement.focus({ preventScroll: true });
+            // Test if searchInput.blur() alone is sufficient first.
+            // **END MODIFICATION 2**
 
         } else {
-            // console.warn(`Element with ID '${elementId}' not found for highlighting.`);
+            // console.warn(`Element with ID '${elementId}' not found for highlight/scroll.`);
         }
     }
 
-    // --- Handle Hash on Page Load ---
+    // --- Function to close search bar and clear (combines original logic) ---
+    function closeAndClearSearchAfterNavigation() {
+        if (searchInput) {
+            searchInput.value = '';
+        }
+        if (autocompleteResults) {
+            autocompleteResults.innerHTML = '';
+            autocompleteResults.style.display = 'none';
+        }
+        activeSuggestionIndex = -1; // Reset active suggestion
+
+        if (searchBarContainer.classList.contains('search-bar-visible')) {
+            if (typeof toggleSearch === 'function') { // toggleSearch is from main.js
+                toggleSearch();
+            } else {
+                searchBarContainer.classList.remove('search-bar-visible');
+            }
+        }
+    }
+
+    // --- Handle Hash on Page Load (from original, with slight delay for stability) ---
     function handleHashOnLoad() {
         if (window.location.hash) {
             const elementId = window.location.hash.substring(1);
             if (elementId) {
-                // Delay slightly to ensure page layout is stable, especially if images are loading
                 setTimeout(() => {
                     applyHighlightAndScroll(elementId);
-                }, 250); // Adjust delay if necessary
+                }, 300); // Delay to allow page layout to stabilize
             }
         }
     }
-    handleHashOnLoad(); // Call on initial load
+    // Ensuring DOM is fully ready before trying to access hash or elements
+    if (document.readyState === "complete" || document.readyState === "interactive") {
+        handleHashOnLoad();
+    } else {
+        document.addEventListener("DOMContentLoaded", handleHashOnLoad);
+    }
 
-    // --- Event Listener for Search Input ---
-    searchInput.addEventListener('input', function () {
-        const value = this.value;
+
+    // --- Event Listener for Search Input (Structure from original searchlogic.txt) ---
+    searchInput.addEventListener('input', function() {
+        const value = this.value.trim().toLowerCase(); // Original uses toLowerCase here
         autocompleteResults.innerHTML = '';
+        activeSuggestionIndex = -1; // Reset on new input
+
         if (!value) {
             autocompleteResults.style.display = 'none';
             return;
         }
 
         const filteredEntries = searchEntries.filter(entry =>
-            entry.title.toLowerCase().includes(value.toLowerCase()) ||
-            (entry.keywords && entry.keywords.toLowerCase().includes(value.toLowerCase()))
-        ).slice(0, 5); // Limit to 5 results
+            (entry && entry.title && entry.title.toLowerCase().includes(value)) ||
+            (entry && entry.keywords && entry.keywords.toLowerCase().includes(value))
+        ).slice(0, 5);
 
         if (filteredEntries.length > 0) {
             filteredEntries.forEach(entry => {
+                // Assuming entry structure from original: id, page, title, icon, pageName
+                if (!entry || !entry.id || !entry.page || !entry.title) { return; } // Skip incomplete entries
+
                 const itemDiv = document.createElement('div');
                 itemDiv.classList.add('autocomplete-suggestion');
                 
                 let iconHtml = '';
-                if (entry.icon) { // icon path should be absolute or correctly relative from root
+                if (entry.icon) {
                     const iconSrc = entry.icon.startsWith('/') ? entry.icon : `/${entry.icon}`;
                     iconHtml = `<img src="${iconSrc}" class="autocomplete-icon" alt="${entry.title} icon">`;
                 }
+                
+                const pageHintText = entry.pageName || '';
+                itemDiv.innerHTML = `${iconHtml}<span class="autocomplete-text">${entry.title}</span><span class="autocomplete-page-hint">${pageHintText}</span>`;
 
-                itemDiv.innerHTML = `${iconHtml}<span class="autocomplete-text">${entry.title}</span><span class="autocomplete-page-hint">${entry.pageName || ''}</span>`;
-                itemDiv.addEventListener('click', function () {
-                    // Determine target: entry.id should be the ID of the element on the page
-                    const targetId = entry.id; 
-                    const targetPage = entry.page.startsWith('/') ? entry.page : `/${entry.page}`; // Ensure absolute path
+                itemDiv.addEventListener('click', function() {
+                    const targetId = entry.id;
+                    const targetPage = entry.page.startsWith('/') ? entry.page : `/${entry.page}`;
+                    const currentFullPath = window.location.pathname; // Original used window.location.pathname
 
-                    const currentFullPath = window.location.pathname;
+                    // Compare if the target page is the current page.
+                    // The original file had slightly different logic for this comparison.
+                    // Using endsWith for flexibility with potential trailing slashes or base paths.
+                    const onSamePage = currentFullPath.endsWith(targetPage) || (currentFullPath + '/') === targetPage || currentFullPath === targetPage;
 
-                    if (currentFullPath === targetPage) {
-                        window.location.hash = targetId; // This will trigger hashchange or be caught by manual call
-                        applyHighlightAndScroll(targetId); // Scroll and highlight on same page
+
+                    if (onSamePage) {
+                        if (window.location.hash !== `#${targetId}`) { // Avoid re-triggering if hash is already set
+                           window.location.hash = targetId;
+                        }
+                        applyHighlightAndScroll(targetId); // Ensure scroll even if hash doesn't change behavior
                     } else {
-                        window.location.href = `${targetPage}#${targetId}`; // Navigate to different page
+                        window.location.href = `${targetPage}#${targetId}`;
                     }
-                    closeSearchBarAndClearInput();
+                    closeAndClearSearchAfterNavigation();
                 });
                 autocompleteResults.appendChild(itemDiv);
             });
@@ -156,61 +174,95 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- Keyboard Navigation for Autocomplete and Enter Key ---
-    searchInput.addEventListener('keydown', function (event) {
-        const items = autocompleteResults.querySelectorAll('.autocomplete-suggestion');
-        let currentFocus = -1;
-        items.forEach((item, index) => {
-            if (item.classList.contains('autocomplete-active')) {
-                currentFocus = index;
+    // --- Keyboard Navigation (Structure from original searchlogic.txt) ---
+    function updateActiveSuggestion(suggestions, index) { // Original helper
+        suggestions.forEach((suggestion, i) => {
+            if (i === index) {
+                suggestion.classList.add('autocomplete-active');
+            } else {
+                suggestion.classList.remove('autocomplete-active');
             }
         });
+    }
+
+    searchInput.addEventListener('keydown', function(event) {
+        const suggestions = autocompleteResults.querySelectorAll('.autocomplete-suggestion');
+        let navigated = false; // Flag from original
 
         if (event.key === 'ArrowDown') {
             event.preventDefault();
-            currentFocus++;
-            addActive(items);
+            if (suggestions.length > 0) { // Only navigate if there are suggestions
+                activeSuggestionIndex++;
+                if (activeSuggestionIndex >= suggestions.length) activeSuggestionIndex = 0;
+                updateActiveSuggestion(suggestions, activeSuggestionIndex);
+            }
         } else if (event.key === 'ArrowUp') {
             event.preventDefault();
-            currentFocus--;
-            addActive(items);
+            if (suggestions.length > 0) { // Only navigate if there are suggestions
+                activeSuggestionIndex--;
+                if (activeSuggestionIndex < 0) activeSuggestionIndex = suggestions.length - 1;
+                updateActiveSuggestion(suggestions, activeSuggestionIndex);
+            }
         } else if (event.key === 'Enter') {
             event.preventDefault();
-            if (currentFocus > -1 && items[currentFocus]) {
-                items[currentFocus].click(); // Simulate click on the active item
-            } else if (items.length > 0) {
-                // If no item is actively focused via keyboard but results exist,
-                // navigate to the first one (optional behavior)
-                // items[0].click(); 
+            if (activeSuggestionIndex > -1 && suggestions[activeSuggestionIndex]) {
+                suggestions[activeSuggestionIndex].click(); // This will handle navigation and closing
+                navigated = true; // From original logic
+            } else if (this.value.trim() !== "") { // User hit enter on typed text
+                // Original logic: find first match and navigate
+                const value = this.value.trim().toLowerCase();
+                const firstEntry = searchEntries.find(entry =>
+                    (entry.title && entry.title.toLowerCase().includes(value)) ||
+                    (entry.keywords && entry.keywords.toLowerCase().includes(value))
+                );
+                if (firstEntry && firstEntry.id && firstEntry.page) {
+                    const targetId = firstEntry.id;
+                    const targetPage = firstEntry.page.startsWith('/') ? firstEntry.page : `/${firstEntry.page}`;
+                    const currentFullPath = window.location.pathname;
+                    const onSamePage = currentFullPath.endsWith(targetPage) || (currentFullPath + '/') === targetPage || currentFullPath === targetPage;
+
+                    if (onSamePage) {
+                        if (window.location.hash !== `#${targetId}`) {
+                            window.location.hash = targetId;
+                        }
+                        applyHighlightAndScroll(targetId);
+                    } else {
+                        window.location.href = `${targetPage}#${targetId}`;
+                    }
+                    navigated = true; // From original logic
+                }
             }
-             closeSearchBarAndClearInput(false); // Don't clear input yet, click handler will
+            
+            if (navigated) { // This part was in your original enter logic
+                // The click handler or direct navigation already calls closeAndClearSearchAfterNavigation
+                // So this might be redundant or handled by the simulated click.
+                // For safety, ensure search closes if navigation happened.
+                closeAndClearSearchAfterNavigation();
+            } else if (this.value.trim() === "" || suggestions.length === 0) {
+                // If Enter is pressed with no text, or no suggestions, just close.
+                closeAndClearSearchAfterNavigation();
+            }
+            // If Enter is pressed with text but no navigation occurred (e.g. no match from typed text)
+            // and suggestions were present but none selected, it might remain open.
+            // The global click in main.js should handle this if focus leaves.
+
         } else if (event.key === 'Escape') {
-            closeSearchBarAndClearInput();
-        }
-
-        function addActive(items) {
-            if (!items || items.length === 0) return false;
-            removeActive(items);
-            if (currentFocus >= items.length) currentFocus = 0;
-            if (currentFocus < 0) currentFocus = items.length - 1;
-            items[currentFocus].classList.add('autocomplete-active');
-        }
-
-        function removeActive(items) {
-            items.forEach(item => item.classList.remove('autocomplete-active'));
-        }
-    });
-
-    // Hide autocomplete if clicking outside the search bar or results
-    // This is already handled by the global click listener in main.js now,
-    // so this specific document click listener might be redundant if main.js handles it.
-    // However, let's keep a specific one for search for now, ensuring it plays nice.
-    document.addEventListener('click', function(event) {
-        if (autocompleteResults.style.display === 'block') {
-            if (!searchBarContainer.contains(event.target) && !autocompleteResults.contains(event.target)) {
-                autocompleteResults.innerHTML = '';
-                autocompleteResults.style.display = 'none';
+            event.preventDefault();
+            // Original logic for escape:
+            autocompleteResults.innerHTML = '';
+            autocompleteResults.style.display = 'none';
+            activeSuggestionIndex = -1;
+            // Also ensure the search bar itself closes if it was explicitly opened
+            if (searchBarContainer.classList.contains('search-bar-visible') && this.value === '') {
+                 if (typeof toggleSearch === 'function') { toggleSearch(); }
             }
         }
     });
+
+
+            }
+        }
+    });
+    */
 });
+                
