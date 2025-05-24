@@ -288,11 +288,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    if (productWrapper) {
-        let resizeTimeoutForCards;
-        window.addEventListener('resize', () => {
+if (productWrapper) {
+    let resizeTimeoutForCards;
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 600) {
             clearTimeout(resizeTimeoutForCards);
             resizeTimeoutForCards = setTimeout(equalizeInitialCardHeights, 250);
-        });
-    }
-});
+        } else {
+            
+        }
+    });
+}
