@@ -87,13 +87,13 @@
   <h3 class="discord-heading">Join the Communities</h3>
   <div class="discord-servers-wrapper">
     <div class="discord-server-item">
-      <a href="https://discord.gg/f82Tr22vRZ" class="discord-link" target="_blank" rel="noopener noreferrer">
+      <a href="https://discord.gg/f82Tr22vRZ" class="discord-link">
         <img src="images/discord.svg" alt="Discord" class="discord-icon">
       </a>
       <h5>Revive's Community</h5>
     </div>
     <div class="discord-server-item">
-      <a href="https://discord.gg/pVd47KAG24" class="discord-link" target="_blank" rel="noopener noreferrer">
+      <a href="https://discord.gg/pVd47KAG24" class="discord-link">
         <img src="images/discord.svg" alt="Discord" class="discord-icon">
       </a>
       <h5>Xbox Emulation Hub</h5>
@@ -102,120 +102,14 @@
 </div>
   <p class="copyright">© 2025 Emulation Revival. All rights reserved.</p>
   <p class="disclaimer-link-wrapper">
-  <a href="disclaimer.html" target="_blank" rel="noopener noreferrer">Disclaimer</a>
+  <a href="disclaimer.html">Disclaimer</a>
 </p>
 </footer>
 
-    <script src="main.js"></script>
-    <script src="searchdata.js"></script>
-    <script src="searchlogic.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const sideMenu = document.getElementById("menu");
-        const menuToggle = document.querySelector(".menu-toggle");
-        const searchBar = document.getElementById("searchBar");
-        const searchIcon = document.querySelector(".search-icon");
-        const searchInput = searchBar ? searchBar.querySelector('input[type="text"]') : null;
+<script src="downloads.js"></script>
+<script src="searchdata.js"></script>
+<script src="main.js"></script>
+<script src="searchlogic.js"></script>
 
-        // Helper function to close and reset the search bar and its autocomplete
-        function closeAndResetSearch() {
-          if (searchBar && searchBar.classList.contains('search-bar-visible')) {
-            searchBar.classList.remove('search-bar-visible');
-            if (searchInput) {
-              searchInput.value = ''; // Clear search input
-            }
-            const autocompleteResults = document.getElementById('autocompleteResults');
-            if (autocompleteResults) {
-              autocompleteResults.style.display = 'none'; // Hide autocomplete
-              autocompleteResults.innerHTML = ''; // Clear autocomplete suggestions
-            }
-          }
-        }
-
-        // Global click listener to close interactive elements when clicking outside
-        document.addEventListener('click', (event) => {
-          const target = event.target;
-          const autocompleteResults = document.getElementById('autocompleteResults'); // Get it fresh, might be dynamically added
-
-          // 1. Close Side Menu if click is outside
-          if (sideMenu && menuToggle && sideMenu.classList.contains('visible') &&
-              !sideMenu.contains(target) && !menuToggle.contains(target)) {
-            sideMenu.classList.remove('visible');
-          }
-
-          // 2. Handle Search Bar and Autocomplete closing
-          if (searchBar && searchIcon) {
-            // If search bar is visible AND the click is outside both the search bar container AND the search icon
-            if (searchBar.classList.contains('search-bar-visible') &&
-                !searchBar.contains(target) &&
-                !searchIcon.contains(target)) {
-              closeAndResetSearch();
-            }
-            // Separately, if autocomplete is visible AND the click is outside the input AND outside autocomplete itself
-            // This handles clicks within the searchBar div padding but not on input/results,
-            // or clicks completely outside the searchBar div if autocomplete was somehow still open.
-            else if (autocompleteResults && autocompleteResults.style.display === 'block') {
-                if (!searchInput || (searchInput && !searchInput.contains(target) && !autocompleteResults.contains(target))) {
-                    // More direct check: if click is not on input and not on results, hide results.
-                    // This must also consider if the click was on the searchBar itself but not input/results.
-                    if (!searchBar.contains(target) || (searchInput && !searchInput.contains(target) && !autocompleteResults.contains(target))) {
-                        autocompleteResults.style.display = 'none';
-                        autocompleteResults.innerHTML = '';
-                    }
-                }
-            }
-          }
-        });
-
-        // Prevent clicks inside the menu or search input from immediately closing them via the global listener
-        if (sideMenu) {
-          sideMenu.addEventListener('click', (event) => event.stopPropagation());
-        }
-        if (searchInput) { // Check if searchInput exists
-          searchInput.addEventListener('click', (event) => event.stopPropagation());
-        }
-        // Clicks on autocomplete suggestions should be handled by their own event listeners in searchlogic.js
-        // (e.g., they will likely also stop propagation or perform an action)
-      });
-
-      // Function to toggle the side menu visibility
-      function toggleMenu() {
-        const menu = document.getElementById("menu");
-        if (menu) {
-          menu.classList.toggle("visible");
-        }
-      }
-
-      // Function to toggle the search bar visibility
-      function toggleSearch(event) {
-        if (event) {
-          event.stopPropagation(); // Prevent this click from being caught by the global listener
-        }
-        const searchBarElement = document.getElementById("searchBar");
-        const searchInput = searchBarElement ? searchBarElement.querySelector('input[type="text"]') : null;
-        const autocompleteResults = document.getElementById('autocompleteResults');
-
-        if (searchBarElement) {
-          const wasVisible = searchBarElement.classList.contains('search-bar-visible');
-          searchBarElement.classList.toggle('search-bar-visible');
-
-          if (!wasVisible && searchBarElement.classList.contains('search-bar-visible')) {
-            // Search bar just became visible
-            if (searchInput) {
-              searchInput.focus();
-            }
-          } else if (wasVisible && !searchBarElement.classList.contains('search-bar-visible')) {
-            // Search bar just became hidden
-            if (searchInput) {
-              searchInput.value = ''; // Clear input
-            }
-            if (autocompleteResults) {
-              autocompleteResults.style.display = 'none'; // Hide autocomplete
-              autocompleteResults.innerHTML = '';         // Clear autocomplete
-            }
-          }
-        }
-      }
-    </script>
 </body>
 </html>

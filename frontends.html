@@ -84,21 +84,21 @@
         <button class="box-link center info-toggle">
           <img src="images/info.svg" alt="Info" class="link-icon"> Info
         </button>
-        <a href="https://youtu.be/1Qo2tqwA5qI" class="box-link right" target="_blank" rel="noopener noreferrer">
+        <a href="https://youtu.be/1Qo2tqwA5qI" class="box-link right">
           <img src="images/youtube.svg" alt="Tutorial" class="link-icon"> Tutorial
         </a>
       </div>
     </div>
     <div class="info-box">
       <ul class="info-list">
-        <li><strong>Developer:</strong> <a href="https://github.com/Misunderstood-Wookiee" target="_blank" rel="noopener noreferrer">Misunderstood-Wookiee</a> & <a href="https://github.com/danprice142" target="_blank" rel="noopener noreferrer">DanP</a></li>
+        <li><strong>Developer:</strong> <a href="https://github.com/Misunderstood-Wookiee">Misunderstood-Wookiee</a> & <a href="https://github.com/danprice142">DanP</a></li>
         <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
         <li><strong>Requirements:</strong> 
         <ul>
         <li>Install all 4 dependencies</li>
         <li><strong>Emulators:</strong> From a list of supported emulators</li>
         <li><strong>External storage:</strong> Used for setting up content library</li>
-        <li><strong>A computer:</strong> For setting up a content library with <a href="https://github.com/Misunderstood-Wookiee/LaunchPass/wiki/Setup-LaunchBox" target="_blank" rel="noopener noreferrer">LaunchBox</a></li>
+        <li><strong>A computer:</strong> For setting up a content library with <a href="https://github.com/Misunderstood-Wookiee/LaunchPass/wiki/Setup-LaunchBox">LaunchBox</a></li>
         </ul>
       </li>
     </ul>
@@ -124,14 +124,14 @@
         <button class="box-link center info-toggle">
           <img src="images/info.svg" alt="Info" class="link-icon"> Info
         </button>
-        <a href="https://youtu.be/eaStAmBhnaE" class="box-link right" target="_blank" rel="noopener noreferrer">
+        <a href="https://youtu.be/eaStAmBhnaE" class="box-link right">
           <img src="images/youtube.svg" alt="Tutorial" class="link-icon"> Tutorial
         </a>
       </div>
     </div>
 <div class="info-box">
   <ul class="info-list">
-    <li><strong>Developer:</strong> <a href="https://github.com/retropassdev" target="_blank" rel="noopener noreferrer">Retropassdev</a></li>
+    <li><strong>Developer:</strong> <a href="https://github.com/retropassdev">Retropassdev</a></li>
     <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
     <li>
       <strong>Requirements:</strong>
@@ -141,8 +141,8 @@
         <li><strong>External storage:</strong> Used for setting up content library</li>
         <li><strong>A computer:</strong> For setting up a content library with either:
           <ul>
-            <li><a href="https://github.com/retropassdev/RetroPass/blob/main/Docs/SetupLaunchBox.md" target="_blank" rel="noopener noreferrer">LaunchBox</a></li>
-            <li><a href="https://github.com/retropassdev/RetroPass/blob/main/Docs/SetupEmulationStation.md" target="_blank" rel="noopener noreferrer">EmulationStation</a></li>
+            <li><a href="https://github.com/retropassdev/RetroPass/blob/main/Docs/SetupLaunchBox.md">LaunchBox</a></li>
+            <li><a href="https://github.com/retropassdev/RetroPass/blob/main/Docs/SetupEmulationStation.md">EmulationStation</a></li>
           </ul>
         </li>
       </ul>
@@ -158,13 +158,13 @@
   <h3 class="discord-heading">Join the Communities</h3>
   <div class="discord-servers-wrapper">
     <div class="discord-server-item">
-      <a href="https://discord.gg/f82Tr22vRZ" class="discord-link" target="_blank" rel="noopener noreferrer">
+      <a href="https://discord.gg/f82Tr22vRZ" class="discord-link">
         <img src="images/discord.svg" alt="Discord" class="discord-icon">
       </a>
       <h5>Revive's Community</h5>
     </div>
     <div class="discord-server-item">
-      <a href="https://discord.gg/pVd47KAG24" class="discord-link" target="_blank" rel="noopener noreferrer">
+      <a href="https://discord.gg/pVd47KAG24" class="discord-link">
         <img src="images/discord.svg" alt="Discord" class="discord-icon">
       </a>
       <h5>Xbox Emulation Hub</h5>
@@ -173,327 +173,15 @@
 </div>
   <p class="copyright">© 2025 Emulation Revival. All rights reserved.</p>
   <p class="disclaimer-link-wrapper">
-  <a href="disclaimer.html" target="_blank" rel="noopener noreferrer">Disclaimer</a>
+  <a href="disclaimer.html">Disclaimer</a>
 </p>
 </footer>
     
 
-        <script src="downloads.js"></script>
-    <script src="searchdata.js"></script>
-    <script src="main.js"></script>
-    <script src="searchlogic.js"></script>
+<script src="downloads.js"></script>
+<script src="searchdata.js"></script>
+<script src="main.js"></script>
+<script src="searchlogic.js"></script>
 
-    <script>
-      // --- UTILITY FUNCTIONS ---
-      function debounce(func, wait) {
-          let timeout;
-          return function executedFunction(...args) {
-              const later = () => {
-                  clearTimeout(timeout);
-                  func(...args);
-              };
-              clearTimeout(timeout);
-              timeout = setTimeout(later, wait);
-          };
-      }
-
-      // --- PAGE-SPECIFIC FUNCTIONALITY: CARD HEIGHTS ---
-      function equalizeInitialCardHeights() {
-          const productWrapper = document.querySelector('.product-wrapper');
-          if (!productWrapper) return;
-
-          const cards = Array.from(productWrapper.querySelectorAll('.box-container'));
-          if (cards.length === 0) return;
-
-          let maxHeight = 0;
-
-          // Reset heights first to accurately measure natural height
-          cards.forEach(card => {
-              if (!card.classList.contains('expanded')) { // Don't reset already expanded cards
-                  card.style.height = 'auto';
-                  card.style.minHeight = '0'; // Allow shrinking
-                  card.style.maxHeight = 'none'; // Allow growing
-                  const mainTopContent = card.querySelector('.main-card-top-content');
-                  if (mainTopContent) {
-                      mainTopContent.style.height = 'auto';
-                  }
-              }
-          });
-          
-          // Force reflow to get updated heights if needed - sometimes helpful
-          if (cards.length > 0) cards[0].offsetHeight; 
-
-          // Calculate max height among non-expanded cards
-          cards.forEach(card => {
-              if (!card.classList.contains('expanded')) {
-                  const currentCardHeight = card.scrollHeight; // Use scrollHeight for full content height
-                  if (currentCardHeight > maxHeight) {
-                      maxHeight = currentCardHeight;
-                  }
-              }
-          });
-
-          // Apply the calculated max height
-          if (maxHeight > 0) {
-              let totalVerticalPadding = 32; // Default or calculate as you did
-              if (cards[0]) {
-                  const computedStyle = window.getComputedStyle(cards[0]);
-                  const paddingTop = parseFloat(computedStyle.paddingTop) || 0;
-                  const paddingBottom = parseFloat(computedStyle.paddingBottom) || 0;
-                  totalVerticalPadding = paddingTop + paddingBottom;
-              }
-
-              cards.forEach(card => {
-                  if (!card.classList.contains('expanded')) {
-                      const targetHeightPx = `${maxHeight}px`;
-                      card.style.minHeight = targetHeightPx;
-                      card.style.maxHeight = targetHeightPx;
-                      card.style.height = targetHeightPx;
-
-                      // Adjust height of inner content wrapper if necessary
-                      const mainTopContent = card.querySelector('.main-card-top-content');
-                      if (mainTopContent) {
-                          // Ensure this calculation correctly leaves space for other elements like .box-links
-                          mainTopContent.style.height = `${maxHeight - totalVerticalPadding - (mainTopContent.nextElementSibling ? mainTopContent.nextElementSibling.offsetHeight : 0)}px`;
-                      }
-                  }
-              });
-          }
-      }
-
-      document.addEventListener("DOMContentLoaded", () => {
-        // --- ELEMENT SELECTORS (Standardized) ---
-        const sideMenu = document.getElementById("menu");
-        const menuToggle = document.querySelector(".menu-toggle");
-        const searchBar = document.getElementById("searchBar"); // Standardized name
-        const searchIcon = document.querySelector(".search-icon");
-        const searchInput = searchBar ? searchBar.querySelector('input[type="text"]') : null;
-
-        // --- INITIALIZATION & EVENT LISTENERS FOR EMULATOR PAGE ---
-
-        // Info toggle buttons
-        document.querySelectorAll('.info-toggle').forEach(button => {
-          button.addEventListener('click', (e) => {
-            e.stopPropagation(); // Prevent global click from closing it immediately
-            const currentBox = button.closest('.box-container');
-            if (!currentBox) return;
-            const isCurrentlyExpanded = currentBox.classList.contains('expanded');
-
-            // Close other expanded info boxes
-            document.querySelectorAll('.box-container.expanded').forEach(otherBox => {
-              if (otherBox !== currentBox) {
-                otherBox.classList.remove('expanded');
-              }
-            });
-
-            currentBox.classList.toggle('expanded', !isCurrentlyExpanded);
-          });
-        });
-
-        // Set download links (from downloads.js object)
-if (typeof downloads !== 'undefined') {
-    const linkIds = [
-        'download-launchpass', 'download-retropass'
-        // Add any other link IDs that are present in your HTML and downloads.js
-    ];
-
-    linkIds.forEach(id => {
-        const element = document.getElementById(id);
-        let downloadUrl = null;
-
-        // Determine the correct key to access the URL in the downloads object
-        if (downloads[id]) { // First, try direct match (e.g., downloads['download-launchpass'])
-            downloadUrl = downloads[id];
-        } else if (downloads[id.replace('download-', '')]) { // Then, try removing 'download-' prefix (e.g., downloads['xuwp'])
-            downloadUrl = downloads[id.replace('download-', '')];
-        }
-        // You could add more fallback logic here if your naming conventions vary further
-
-        if (element && downloadUrl) {
-            element.href = downloadUrl;                 // Set the actual download URL
-            element.target = "_blank";                // Force link to open in a new tab
-            element.rel = "noopener noreferrer";    // Security best practice for target="_blank"
-        } else if (element) {
-            // Optional: Handle cases where the link ID exists in HTML but not in downloads.js
-            // console.warn(`Download URL for ID '${id}' not found in downloads.js`);
-            // element.style.display = 'none'; // Or hide the link
-        }
-    });
-}
-
-
-        // Dropdown toggle for download buttons
-        document.querySelectorAll('.dropdown .download-btn').forEach(button => {
-          button.addEventListener('click', (e) => {
-            e.stopPropagation(); // Prevent global click
-            const dropdown = button.closest('.dropdown'); // Changed from parentElement for robustness
-            if (!dropdown) return;
-            const box = dropdown.closest('.box-container');
-            const menu = dropdown.querySelector('.dropdown-menu');
-            if (!menu) return;
-
-            const isCurrentlyShown = menu.style.display === 'block'; // More reliable than class for this
-
-            // Close all other dropdowns
-            document.querySelectorAll('.dropdown .dropdown-menu').forEach(otherMenu => {
-              if (otherMenu !== menu && otherMenu.style.display === 'block') {
-                otherMenu.style.display = 'none';
-                const otherDropdown = otherMenu.closest('.dropdown');
-                if (otherDropdown) otherDropdown.classList.remove('show'); // If you use 'show' class
-                const otherBox = otherDropdown ? otherDropdown.closest('.box-container') : null;
-                if (otherBox) otherBox.classList.remove('expanded-dropdown');
-              }
-            });
-
-            // Toggle current dropdown
-            if (isCurrentlyShown) {
-              menu.style.display = 'none';
-              dropdown.classList.remove('show'); // If you use 'show' class
-              if (box) box.classList.remove('expanded-dropdown');
-            } else {
-              menu.style.display = 'block';
-              dropdown.classList.add('show'); // If you use 'show' class
-              if (box) box.classList.add('expanded-dropdown');
-            }
-          });
-        });
-
-        // Call equalize card heights if the wrapper exists
-        if (document.querySelector('.product-wrapper')) {
-            equalizeInitialCardHeights();
-        }
-
-        // --- HELPER FUNCTION FOR SEARCH ---
-        function closeAndResetSearch() {
-          if (searchBar && searchBar.classList.contains('search-bar-visible')) {
-            searchBar.classList.remove('search-bar-visible');
-            if (searchInput) {
-              searchInput.value = '';
-            }
-            const autocompleteResults = document.getElementById('autocompleteResults');
-            if (autocompleteResults) {
-              autocompleteResults.style.display = 'none';
-              autocompleteResults.innerHTML = '';
-            }
-          }
-        }
-
-        // --- GLOBAL CLICK LISTENER (Expanded) ---
-        document.addEventListener('click', (event) => {
-          const target = event.target;
-          const autocompleteResults = document.getElementById('autocompleteResults');
-
-          // 1. Close Side Menu
-          if (sideMenu && menuToggle && sideMenu.classList.contains('visible') &&
-              !sideMenu.contains(target) && !menuToggle.contains(target)) {
-            sideMenu.classList.remove('visible');
-          }
-
-          // 2. Close Search Bar & Autocomplete
-          if (searchBar && searchIcon) {
-            if (searchBar.classList.contains('search-bar-visible') &&
-                !searchBar.contains(target) && !searchIcon.contains(target)) {
-              closeAndResetSearch();
-            } else if (autocompleteResults && autocompleteResults.style.display === 'block') {
-              if (!searchInput || (searchInput && !searchInput.contains(target) && !autocompleteResults.contains(target))) {
-                 if (!searchBar.contains(target) || (searchInput && !searchInput.contains(target) && !autocompleteResults.contains(target))) {
-                    autocompleteResults.style.display = 'none';
-                    autocompleteResults.innerHTML = '';
-                 }
-              }
-            }
-          }
-
-          // 3. Close Download Dropdowns
-          document.querySelectorAll('.dropdown .dropdown-menu').forEach(menu => {
-            if (menu.style.display === 'block') {
-              const dropdown = menu.closest('.dropdown');
-              // Close if click is outside the entire dropdown (button + menu)
-              if (dropdown && !dropdown.contains(target)) {
-                menu.style.display = 'none';
-                dropdown.classList.remove('show'); // If you use 'show' class
-                const box = dropdown.closest('.box-container');
-                if (box) box.classList.remove('expanded-dropdown');
-              }
-            }
-          });
-
-          // 4. Close Expanded Info Boxes
-          document.querySelectorAll('.box-container.expanded').forEach(expandedBox => {
-            // Check if the click was on the toggle button for this specific box
-            const toggleBtn = expandedBox.querySelector('.info-toggle');
-            if (toggleBtn && toggleBtn.contains(target)) {
-              return; // Don't close if the toggle button itself was clicked
-            }
-            // Close if click is outside the expanded box
-            if (!expandedBox.contains(target)) {
-              expandedBox.classList.remove('expanded');
-            }
-          });
-        });
-
-        // --- EVENT.STOPPROPAGATION ATTACHMENTS ---
-        if (sideMenu) {
-          sideMenu.addEventListener('click', (event) => event.stopPropagation());
-        }
-        if (searchInput) {
-          searchInput.addEventListener('click', (event) => event.stopPropagation());
-        }
-        // Clicks inside an open dropdown menu should not close it
-        document.querySelectorAll('.dropdown-menu').forEach(menu => {
-            menu.addEventListener('click', event => event.stopPropagation());
-        });
-        // Clicks inside an expanded info box should not close it (unless on a specific close button if you add one)
-        document.querySelectorAll('.info-box').forEach(infoBox => { // Assuming .info-box is the content area
-            infoBox.addEventListener('click', event => event.stopPropagation());
-        });
-        // Note: stopPropagation for .info-toggle and .download-btn are already in their click listeners.
-      });
-
-      // --- TOGGLE FUNCTIONS (Standardized) ---
-      function toggleMenu() {
-        const menu = document.getElementById("menu");
-        if (menu) {
-          menu.classList.toggle("visible");
-        }
-      }
-
-      function toggleSearch(event) {
-        if (event) {
-          event.stopPropagation();
-        }
-        const searchBarElement = document.getElementById("searchBar");
-        const searchInput = searchBarElement ? searchBarElement.querySelector('input[type="text"]') : null;
-        const autocompleteResults = document.getElementById('autocompleteResults');
-
-        if (searchBarElement) {
-          const wasVisible = searchBarElement.classList.contains('search-bar-visible');
-          searchBarElement.classList.toggle('search-bar-visible');
-
-          if (!wasVisible && searchBarElement.classList.contains('search-bar-visible')) {
-            if (searchInput) {
-              searchInput.focus();
-            }
-          } else if (wasVisible && !searchBarElement.classList.contains('search-bar-visible')) {
-            if (searchInput) {
-              searchInput.value = '';
-            }
-            if (autocompleteResults) {
-              autocompleteResults.style.display = 'none';
-              autocompleteResults.innerHTML = '';
-            }
-          }
-        }
-      }
-
-      // --- RESIZE HANDLING FOR CARD HEIGHTS ---
-      let resizeTimeoutForCards; // Use a more specific name
-      window.addEventListener('resize', () => {
-          if (document.querySelector('.product-wrapper')) {
-              clearTimeout(resizeTimeoutForCards);
-              resizeTimeoutForCards = setTimeout(equalizeInitialCardHeights, 250); // Debounced call
-          }
-      });
-    </script>
 </body>
 </html>
