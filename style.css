@@ -918,19 +918,39 @@ input[type="text"]:focus-visible {
   outline: none;
 }
 
-/* Mobile Overrides */
+/* Large Tablets */
+@media (max-width: 1024px) {
+  .product-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 60px 15px 15px; 
+    gap: 15px; 
+  }
+}
+
+/* Small Tablets (e.g., iPad Mini Portrait) & Wider Mobile Landscape */
+@media (max-width: 768px) {
+  .product-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 50px 10px 10px; 
+    gap: 15px; 
+  }
+}
+
+/* Mobile Devices (Portrait & Smaller/Standard Landscape) */
 @media (max-width: 600px) {
   .product-wrapper {
-    grid-template-columns: 1fr;
-    padding-top: 70px;
+    grid-template-columns: 1fr; 
+    padding: 70px 10px 10px; 
+    gap: 10px; 
   }
 
   .main-content .page-main-heading {
-    font-size: 1.8em;
+    font-size: 1.8em; 
   }
   .main-content h2 {
-    font-size: 1.5em;
+    font-size: 1.5em; 
   }
+}
 
   footer {
     padding: 20px;
