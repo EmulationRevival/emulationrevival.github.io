@@ -886,6 +886,23 @@ footer .discord-server-item h5 {
   margin-bottom: 5px;
 }
 
+.credit {
+  font-size: 0.85em;
+  color: #888;
+  margin-top: 0; 
+  margin-bottom: 5px; 
+}
+
+.credit a {
+  color: var(--xbox-green);
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.credit a:hover {
+  color: #32b332;
+}
+
 .disclaimer-link-wrapper {
   font-size: 0.85em;
   margin-top: 0;
