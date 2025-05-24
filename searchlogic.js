@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             window.scrollTo({
                 top: scrollToPosition,
-                behavior: 'smooth'
+                behavior: 'auto'
             });
             // END MODIFICATION 1
 
