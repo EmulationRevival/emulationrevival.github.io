@@ -292,7 +292,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 let resizeTimeoutForCards; 
                 window.addEventListener('resize', () => { 
                     clearTimeout(resizeTimeoutForCards);
-                    if (window.innerWidth > 600) { 
+                    if (window.innerWidth > 1024) { 
                         resizeTimeoutForCards = setTimeout(equalizeInitialCardHeights, 250); 
                     } else {
                     }
