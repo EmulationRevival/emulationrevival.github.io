@@ -288,14 +288,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-if (productWrapper) {
-    let resizeTimeoutForCards;
-    window.addEventListener('resize', () => {
-        if (window.innerWidth > 600) {
-            clearTimeout(resizeTimeoutForCards);
-            resizeTimeoutForCards = setTimeout(equalizeInitialCardHeights, 250);
-        } else {
-            
-        }
-    });
-}
+            if (productWrapper) { 
+                let resizeTimeoutForCards; 
+                window.addEventListener('resize', () => { 
+                    clearTimeout(resizeTimeoutForCards);
+                    if (window.innerWidth > 600) { 
+                        resizeTimeoutForCards = setTimeout(equalizeInitialCardHeights, 250); 
+                    } else {
+                    }
+                }); 
+            } 
+   }); 
