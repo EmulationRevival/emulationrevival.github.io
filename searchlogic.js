@@ -1,4 +1,6 @@
 // searchlogic.js
+// Revised to work with absolute paths in searchData.js for 'page' and 'icon' properties,
+// and to correctly compare full pathnames for same-page vs. cross-page logic.
 
 document.addEventListener('DOMContentLoaded', () => {
     const searchBarContainer = document.getElementById('searchBar');
@@ -15,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let autocompleteResults = document.getElementById('autocompleteResults');
     if (!autocompleteResults) {
-        // This was in your original file to create the div if it doesn't exist
         autocompleteResults = document.createElement('div');
         autocompleteResults.id = 'autocompleteResults';
         autocompleteResults.classList.add('autocomplete-items');
@@ -23,233 +24,184 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     autocompleteResults.style.display = 'none';
 
-    if (typeof searchEntries === 'undefined' || !Array.isArray(searchEntries)) {
-        console.error('Search data (searchEntries) is not loaded or not an array! Make sure searchData.js is included before searchlogic.js.');
+    if (typeof searchEntries === 'undefined') {
+        console.error('Search data (searchEntries) is not loaded! Make sure searchData.js is included before searchlogic.js and uses absolute paths for "page" and "icon".');
         return;
     }
 
-    let currentHighlight = null;
-    let activeSuggestionIndex = -1; // As in your original file
-
-    // --- Helper Function for Highlighting and Scrolling (TARGETED MODIFICATIONS) ---
+    // --- Helper Function for Highlighting and Scrolling ---
     function applyHighlightAndScroll(elementId) {
-        if (!elementId) {
-            console.warn("applyHighlightAndScroll called with no elementId");
-            return;
-        }
         const targetElement = document.getElementById(elementId);
-
-        if (currentHighlight && currentHighlight !== targetElement) {
-            currentHighlight.classList.remove('highlighted-by-search');
-        }
-
         if (targetElement) {
-            const topBar = document.querySelector('.top-bar'); // Assuming your top bar has class 'top-bar'
-            const topBarHeight = topBar ? topBar.offsetHeight : 0;
-            const elementRect = targetElement.getBoundingClientRect();
-            const elementTopRelativeToDocument = elementRect.top + window.pageYOffset;
-            const desiredMarginFromTopBar = 20; // Adjust this for desired spacing below the top bar
-            
-            let scrollToPosition = elementTopRelativeToDocument - topBarHeight - desiredMarginFromTopBar;
-            if (scrollToPosition < 0) {
-                scrollToPosition = 0; // Prevent scrolling to a negative position
-            }
-
-            window.scrollTo({
-                top: scrollToPosition,
-                behavior: 'smooth'
-            });
-
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
             targetElement.classList.add('highlighted-by-search');
-            currentHighlight = targetElement;
-
-            if (searchInput) {
-                searchInput.blur(); // Remove focus from the search input
-            }
-            // Optional: Consider focusing the targetElement if blurring searchInput isn't enough.
-            // targetElement.focus({ preventScroll: true }); 
-            // (If you use this, ensure targetElement can receive focus, e.g., with tabindex="-1")
-        } else {
-            // console.warn(`Element with ID '${elementId}' not found for highlight/scroll.`);
+            setTimeout(() => {
+                targetElement.classList.remove('highlighted-by-search');
+            }, 2500);
         }
     }
 
-    // --- Handle Hash on Page Load (from original, with added delay) ---
-    function handleHashOnLoad() {
-        if (window.location.hash) {
-            const elementId = window.location.hash.substring(1); // Remove #
-            if (elementId) {
-                setTimeout(() => {
-                    applyHighlightAndScroll(elementId);
-                }, 300); // Delay to allow layout to stabilize, adjust if needed
-            }
+    // --- Check URL Hash on Page Load ---
+    const currentPathForHashCheck = window.location.pathname; // Use full pathname
+    if (window.location.hash) {
+        const targetIdFromHash = window.location.hash.substring(1);
+        // Compare against full 'page' path from searchEntries
+        const entryForHash = searchEntries.find(entry => entry.id === targetIdFromHash && entry.page === currentPathForHashCheck);
+        if (entryForHash) {
+            setTimeout(() => {
+                applyHighlightAndScroll(targetIdFromHash);
+            }, 100);
         }
     }
-    // Ensure DOM is fully ready before trying to access hash or elements
-    // This check is good practice.
-    if (document.readyState === "complete" || document.readyState === "interactive") {
-        handleHashOnLoad();
-    } else {
-        document.addEventListener("DOMContentLoaded", handleHashOnLoad);
-    }
 
-    // --- Event Listener for Search Input (Copied from your searchlogic.txt) ---
+    // --- Input Event Handler ---
     searchInput.addEventListener('input', function() {
-        const value = this.value.toLowerCase().trim(); // Your original had toLowerCase().trim()
+        const query = this.value.toLowerCase().trim();
         autocompleteResults.innerHTML = '';
-        activeSuggestionIndex = -1; // Reset active index
 
-        if (!value) {
+        if (query.length === 0) {
             autocompleteResults.style.display = 'none';
             return;
         }
 
-        const filteredEntries = searchEntries.filter(entry =>
-            (entry.title && entry.title.toLowerCase().includes(value)) ||
-            (entry.keywords && entry.keywords.toLowerCase().includes(value))
-        ).slice(0, 5); // Limit to 5 results as per your original
+        let filteredEntries = searchEntries.filter(entry => {
+            return entry.name.toLowerCase().includes(query);
+        });
 
         if (filteredEntries.length > 0) {
+            filteredEntries.sort((a, b) => {
+                const aNameLower = a.name.toLowerCase();
+                const bNameLower = b.name.toLowerCase();
+                const aStartsWithQuery = aNameLower.startsWith(query);
+                const bStartsWithQuery = bNameLower.startsWith(query);
+                if (aStartsWithQuery && !bStartsWithQuery) return -1;
+                if (!aStartsWithQuery && bStartsWithQuery) return 1;
+                if (aNameLower < bNameLower) return -1;
+                if (aNameLower > bNameLower) return 1;
+                return 0;
+            });
+        }
+
+        if (filteredEntries.length > 0) {
+            autocompleteResults.style.display = 'block';
             filteredEntries.forEach(entry => {
-                const itemDiv = document.createElement('div');
-                itemDiv.classList.add('autocomplete-suggestion');
-                
-                let iconHtml = '';
-                if (entry.icon) { // Assuming icon path is correctly formed in searchData.js
-                    iconHtml = `<img src="${entry.icon}" class="autocomplete-icon" alt="${entry.title} icon">`;
-                }
-                
-                const pageNameHtml = entry.pageName ? `<span class="autocomplete-page-hint">${entry.pageName}</span>` : '';
-                itemDiv.innerHTML = `${iconHtml}<span class="autocomplete-text">${entry.title}</span>${pageNameHtml}`;
+                const suggestionItem = document.createElement('div');
+                suggestionItem.classList.add('autocomplete-suggestion');
+                // Assumes entry.icon in searchData.js is now an absolute path like "/images/icon.png"
+                suggestionItem.innerHTML = `
+                    <img src="${entry.icon}" alt="${entry.name}" class="suggestion-logo">
+                    <span class="suggestion-name">${entry.name}</span>
+                `;
 
-                itemDiv.addEventListener('click', function() {
-                    const navigatedTargetId = entry.id;
-                    const navigatedTargetPage = entry.page; // page path from searchData.js
-                    const targetUrl = `${navigatedTargetPage}#${navigatedTargetId}`;
-                    const currentFullPath = window.location.pathname;
+                // --- Suggestion Click Handler (inside input event) ---
+                suggestionItem.addEventListener('click', () => {
+                    const targetPage = entry.page; // This is now an absolute path (e.g., "/emulators.html")
+                    const targetId = entry.id;
+                    const targetUrl = `${targetPage}#${targetId}`; // Correctly forms an absolute URL path
+                    const currentFullPath = window.location.pathname; // Use full pathname
 
-                    if (currentFullPath === navigatedTargetPage) {
-                        window.location.hash = navigatedTargetId;
-                        applyHighlightAndScroll(navigatedTargetId);
+                    if (currentFullPath === targetPage) { // Compare full paths
+                        window.location.hash = targetId;
+                        applyHighlightAndScroll(targetId);
                     } else {
-                        window.location.href = targetUrl;
+                        window.location.href = targetUrl; // Navigates correctly using absolute path
                     }
 
-                    // Logic from your original file to clear and close search after click
                     searchInput.value = '';
                     autocompleteResults.innerHTML = '';
                     autocompleteResults.style.display = 'none';
-                    activeSuggestionIndex = -1;
+
                     if (searchBarContainer.classList.contains('search-bar-visible')) {
                         if (typeof toggleSearch === 'function') {
-                            toggleSearch(); // Call from main.js
+                            toggleSearch();
                         } else {
                             searchBarContainer.classList.remove('search-bar-visible');
                         }
                     }
                 });
-                autocompleteResults.appendChild(itemDiv);
+                autocompleteResults.appendChild(suggestionItem);
             });
-            autocompleteResults.style.display = 'block';
         } else {
             autocompleteResults.style.display = 'none';
         }
     });
 
-    // --- Keyboard Navigation (Copied from your searchlogic.txt) ---
-    function updateActiveSuggestion(suggestions, index) { // Original helper
-        suggestions.forEach((suggestion, i) => {
-            if (i === index) {
-                suggestion.classList.add('autocomplete-active');
-            } else {
-                suggestion.classList.remove('autocomplete-active');
-            }
-        });
-    }
-
-    searchInput.addEventListener('keydown', function(event) {
-        const suggestions = autocompleteResults.querySelectorAll('.autocomplete-suggestion');
-        let navigated = false; // From original
-
-        if (event.key === 'ArrowDown') {
-            event.preventDefault();
-            if (suggestions.length > 0) {
-                activeSuggestionIndex++;
-                if (activeSuggestionIndex >= suggestions.length) activeSuggestionIndex = 0;
-                updateActiveSuggestion(suggestions, activeSuggestionIndex);
-            }
-        } else if (event.key === 'ArrowUp') {
-            event.preventDefault();
-            if (suggestions.length > 0) {
-                activeSuggestionIndex--;
-                if (activeSuggestionIndex < 0) activeSuggestionIndex = suggestions.length - 1;
-                updateActiveSuggestion(suggestions, activeSuggestionIndex);
-            }
-        } else if (event.key === 'Enter') {
-            event.preventDefault();
-            let navigatedTargetId = null;
-            let navigatedTargetPage = null;
-
-            if (activeSuggestionIndex > -1 && suggestions[activeSuggestionIndex]) {
-                // Find the entry corresponding to the active suggestion to get its page and id
-                // This part needs to safely get the original entry data
-                const activeText = suggestions[activeSuggestionIndex].querySelector('.autocomplete-text').textContent;
-                const activeEntry = searchEntries.find(e => e.title === activeText); // Assuming title is unique enough for this
-                if (activeEntry) {
-                    navigatedTargetId = activeEntry.id;
-                    navigatedTargetPage = activeEntry.page;
-                }
-            } else if (this.value.trim() !== "") { // If user typed text and hit enter
-                const value = this.value.toLowerCase().trim();
-                const firstEntry = searchEntries.find(entry =>
-                    (entry.title && entry.title.toLowerCase().includes(value)) ||
-                    (entry.keywords && entry.keywords.toLowerCase().includes(value))
-                );
-                if (firstEntry) {
-                    navigatedTargetId = firstEntry.id;
-                    navigatedTargetPage = firstEntry.page;
-                }
-            }
-
-            if (navigatedTargetId && navigatedTargetPage) {
-                const targetUrl = `${navigatedTargetPage}#${navigatedTargetId}`;
-                const currentFullPath = window.location.pathname;
-
-                if (currentFullPath === navigatedTargetPage) {
-                    window.location.hash = navigatedTargetId;
-                    applyHighlightAndScroll(navigatedTargetId);
-                } else {
-                    window.location.href = targetUrl;
-                }
-                navigated = true;
-            }
-
-            if (navigated) { // From original logic
-                this.value = ''; // Clear search input
-            }
-            // Common cleanup for Enter key, whether navigated or not (if suggestions were shown)
-            autocompleteResults.innerHTML = '';
-            autocompleteResults.style.display = 'none';
-            activeSuggestionIndex = -1;
-
-            if (navigated && searchBarContainer.classList.contains('search-bar-visible')) {
-                if (typeof toggleSearch === 'function') {
-                    toggleSearch();
-                } else {
-                    searchBarContainer.classList.remove('search-bar-visible');
-                }
-            } else if (!navigated && this.value.trim() === "" && searchBarContainer.classList.contains('search-bar-visible')) {
-                // If enter pressed with empty field, also close search bar
-                 if (typeof toggleSearch === 'function') { toggleSearch(); }
-            }
-
-
-        } else if (event.key === 'Escape') {
-            event.preventDefault(); // Added preventDefault
-            autocompleteResults.innerHTML = '';
-            autocompleteResults.style.display = 'none';
-            activeSuggestionIndex = -1;
+    // --- Focus Event Handler ---
+    searchInput.addEventListener('focus', function() {
+        if (this.value.trim().length > 0) {
+            this.dispatchEvent(new Event('input', { bubbles: true }));
         }
     });
 
+    // --- Keydown Event Handler (for Enter and Escape) ---
+    searchInput.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            const firstSuggestion = autocompleteResults.querySelector('.autocomplete-suggestion');
+            let navigated = false;
+            let navigatedTargetId = null;
+            let navigatedTargetPage = null; // Will be an absolute path from searchData.js
+
+            if (autocompleteResults.style.display === 'block' && firstSuggestion) {
+                firstSuggestion.click();
+            } else if (this.value.trim() !== '') {
+                const queryFromInput = this.value.toLowerCase().trim();
+                const directMatch = searchEntries.find(entry => entry.name.toLowerCase() === queryFromInput);
+
+                if (directMatch) {
+                    navigatedTargetPage = directMatch.page; // Absolute path
+                    navigatedTargetId = directMatch.id;
+                } else {
+                    let currentFilteredEntries = searchEntries.filter(entry => entry.name.toLowerCase().includes(queryFromInput));
+                    if (currentFilteredEntries.length > 0) {
+                        currentFilteredEntries.sort((a, b) => {
+                            const aNameLower = a.name.toLowerCase();
+                            const bNameLower = b.name.toLowerCase();
+                            const aStartsWithQuery = aNameLower.startsWith(queryFromInput);
+                            const bStartsWithQuery = bNameLower.startsWith(queryFromInput);
+                            if (aStartsWithQuery && !bStartsWithQuery) return -1;
+                            if (!aStartsWithQuery && bStartsWithQuery) return 1;
+                            if (aNameLower < bNameLower) return -1;
+                            if (aNameLower > bNameLower) return 1;
+                            return 0;
+                        });
+                        const firstEntry = currentFilteredEntries[0];
+                        navigatedTargetPage = firstEntry.page; // Absolute path
+                        navigatedTargetId = firstEntry.id;
+                    }
+                }
+
+                if (navigatedTargetId && navigatedTargetPage) {
+                    const targetUrl = `${navigatedTargetPage}#${navigatedTargetId}`; // Correctly forms absolute URL path
+                    const currentFullPath = window.location.pathname; // Use full pathname
+
+                    if (currentFullPath === navigatedTargetPage) { // Compare full paths
+                        window.location.hash = navigatedTargetId;
+                        applyHighlightAndScroll(navigatedTargetId);
+                    } else {
+                        window.location.href = targetUrl; // Navigates correctly
+                    }
+                    navigated = true;
+                }
+
+                if (navigated) {
+                    this.value = '';
+                }
+                autocompleteResults.innerHTML = '';
+                autocompleteResults.style.display = 'none';
+
+                if (navigated && searchBarContainer.classList.contains('search-bar-visible')) {
+                    if (typeof toggleSearch === 'function') {
+                        toggleSearch();
+                    } else {
+                        searchBarContainer.classList.remove('search-bar-visible');
+                    }
+                }
+            }
+        } else if (event.key === 'Escape') {
+             autocompleteResults.innerHTML = '';
+             autocompleteResults.style.display = 'none';
+        }
+    });
 });
+            
