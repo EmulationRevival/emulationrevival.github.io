@@ -928,7 +928,7 @@ input[type="text"]:focus-visible {
 }
 
 /* Small Tablets (e.g., iPad Mini Portrait) & Wider Mobile Landscape */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .product-wrapper {
     grid-template-columns: repeat(2, 1fr);
     padding: 50px 10px 10px; 
@@ -937,7 +937,7 @@ input[type="text"]:focus-visible {
 }
 
 /* Mobile Devices (Portrait & Smaller/Standard Landscape) */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .product-wrapper {
     grid-template-columns: 1fr; 
     padding: 70px 10px 10px; 
