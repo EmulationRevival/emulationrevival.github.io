@@ -653,7 +653,7 @@ html.light-theme main.main-content {
   font-weight: 700;
 }
 
-main.main-content h2:not(.page-section-heading):not(.section-title):not(.hero-title) {
+main.main-content h2:not(.page-section-heading):not(.section-title):not(.-title) {
   font-size: 1.8em;
   margin-top: 1.6em;
   margin-bottom: 0.8em;
@@ -708,7 +708,7 @@ main.main-content h3:not(.modal-title):not(.discord-heading) {
   line-height: 1.3;
 }
 
-.markdown-body h1:not(.hero-title),
+.markdown-body h1:not(.-title),
 .markdown-body h2:not(.section-title),
 .markdown-body h3:not(.modal-title) {
   border-bottom: 1px solid var(--border-color);
@@ -1482,7 +1482,7 @@ html.light-theme .contributor-link-icon[src$="buymeacoffee-logo.svg"] {
 }
 
 .hero-section {
-  background-color: rgba(var(--dt-bg-primary-rgb, 16, 17, 19), 0.6); 
+  background-color: rgba(var(--dt-bg-primary-rgb, 16, 17, 19), 0.8); 
   padding: 70px 20px 80px 20px;
   text-align: center;
   color: #ffffff; 
