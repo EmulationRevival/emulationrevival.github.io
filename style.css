@@ -623,6 +623,7 @@ main.main-content {
 
 html.light-theme main.main-content {
   background-color: rgba(var(--lt-bg-primary-rgb), 0.9);
+}
 
 .page-dim-overlay {
   position: fixed;
