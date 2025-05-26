@@ -118,7 +118,7 @@ body {
   background-attachment: fixed;
   color: var(--text-primary);
   line-height: 1.65;
-  min-height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
