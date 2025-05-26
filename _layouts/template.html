@@ -14,12 +14,14 @@
 </head>
 <body>
 
-<aside class="sidebar collapsed" id="sidebar" aria-label="Main Navigation">
+<div class="page-dim-overlay"></div>
+
+<aside class="sidebar" id="sidebar" aria-label="Main Navigation">
     <div class="sidebar-header">
-        <button class="menu-toggle" onclick="toggleMenu()" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle Navigation Menu">☰</button>
+        <button class="menu-toggle" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle Navigation Menu">☰</button>
         <div class="sidebar-search-interaction-area">
             <div class="sidebar-search-container">
-                <button class="sidebar-search-trigger" onclick="handleSidebarSearchTriggerClick()" aria-label="Search">
+                <button class="sidebar-search-trigger" aria-label="Search"> {/* Removed onclick="handleSidebarSearchTriggerClick()" */}
                     <img src="{{ '/images/search.svg' | relative_url }}" alt="Search Icon" class="sidebar-search-icon-display">
                 </button>
                 <div class="sidebar-search-input-wrapper">
@@ -36,7 +38,7 @@
             <li><a href="{{ site.baseurl }}/ports.html" class="nav-link"><img src="{{ "/images/ports.svg" | relative_url }}" alt="Game Ports icon"><span>Game Ports</span></a></li>
             <li><a href="{{ site.baseurl }}/apps.html" class="nav-link"><img src="{{ "/images/apps.svg" | relative_url }}" alt="Apps icon"><span>Apps</span></a></li>
             <li><a href="{{ site.baseurl }}/media.html" class="nav-link"><img src="{{ "/images/media.svg" | relative_url }}" alt="Media Apps icon"><span>Media Apps</span></a></li>
-            <li><a href="{{ site.baseurl }}/frontends.html" class="nav-link"><img src="{{ "/images/frontends.svg" | relative_url }}" alt="Frontends icon"><span>Frontends</span></a></li>
+            <li><a href="{{ site.baseurl }}/frontends.html" class="nav-link"> <img src="{{ "/images/frontends.svg" | relative_url }}" alt="Frontends icon"><span>Frontends</span></a></li> {/* Note: Static HTML had 'active' class here. A template usually handles 'active' dynamically. */}
             <li><a href="{{ site.baseurl }}/wipapps.html" class="nav-link"><img src="{{ "/images/wipapps.svg" | relative_url }}" alt="Work In Progress Apps icon"><span>WIP Apps</span></a></li>
             <li><a href="{{ site.baseurl }}/utilities.html" class="nav-link"><img src="{{ "/images/utilities.svg" | relative_url }}" alt="Utilities icon"><span>Utilities</span></a></li>
         </ul>
@@ -53,7 +55,7 @@
     </div>
 </aside>
 
-<div class="main-content-wrapper sidebar-collapsed">
+<div class="main-content-wrapper">
     <main class="main-content" id="mainContentArea">
         <div class="markdown-body">
             <h1>{{ page.title | escape }}</h1>
