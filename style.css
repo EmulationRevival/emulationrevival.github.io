@@ -744,6 +744,8 @@ main.main-content h3:not(.modal-title):not(.discord-heading) {
   color: var(--xbox-green);
   text-decoration: none;
   border-bottom: 1px dotted var(--xbox-green-desaturated);
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .markdown-body a:hover {
@@ -795,7 +797,8 @@ main.main-content h3:not(.modal-title):not(.discord-heading) {
   padding: 0.25em 0.6em;
   border-radius: var(--border-radius-small);
   font-size: 0.9em;
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: break-word;
   border: 1px solid var(--border-color-subtle);
 }
 
