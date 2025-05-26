@@ -622,7 +622,7 @@ main.main-content {
 }
 
 html.light-theme main.main-content {
-  background-color: rgba(var(--lt-bg-primary-rgb), 0.5);
+  background-color: rgba(var(--lt-bg-primary-rgb), 0.3);
 }
 
 .page-dim-overlay {
@@ -1492,7 +1492,7 @@ html.light-theme .contributor-link-icon[src$="buymeacoffee-logo.svg"] {
 }
 
 html.light-theme .hero-section {
-  background-color: rgba(var(--lt-bg-secondary-rgb, 255, 255, 255), 0.4); 
+  background-color: rgba(var(--lt-bg-primary-rgb), 0.6); 
   color: var(--lt-text-primary); 
   border-bottom-color: var(--xbox-green-dark);
 }
