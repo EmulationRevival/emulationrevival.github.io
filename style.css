@@ -42,7 +42,7 @@
   --lt-icon-filter-github: invert(100%);
   --lt-icon-filter-noinvert: invert(0%);
 
-  /* Applied Variables (Defaults to Dark Theme) */
+   Applied Variables (Defaults to Dark Theme) */
   --bg-primary: var(--dt-bg-primary);
   --bg-primary-rgb: var(--dt-bg-primary-rgb);
   --bg-secondary: var(--dt-bg-secondary);
@@ -202,7 +202,7 @@ p {
 }
 
 .sidebar:not(.overlay-active) .sidebar-header {
-  padding: 8px; /* Collapsed padding */
+  padding: 8px; 
 }
 
 .sidebar-header .menu-toggle {
