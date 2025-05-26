@@ -1,288 +1,337 @@
 ---
 ---
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Media Apps for Xbox Dev Mode (Kodi, VLC, etc.) | Emulation Revival</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Apps for Xbox Developer Mode (Kodi, VLC, etc.) | Emulation Revival</title>
+    <meta name="description" content="Explore media apps like Kodi, VLC, YouTube, SoundCloud, and TuneIn for your Xbox in Developer Mode with Emulation Revival.">
+    <link rel="stylesheet" href="style.css">
+    <script src="theme.js"></script>
 </head>
 <body>
 
-<header class="top-bar">
-  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-  <h1 class="site-title">Emulation Revival</h1>
-  <button class="search-icon" onclick="toggleSearch(event)">
-  <img src="images/search.svg" alt="Search">
-</button>
-</header>
+<div class="page-dim-overlay"></div>
 
-<div id="searchBar" class="search-bar">
-  <input type="text" placeholder="Search...">
-</div>
-
-<div class="menu" id="menu">
-  <a href="index.html" class="menu-item">
-    <img src="images/home.svg" alt="Home">
-    Home
-  </a>
-  <a href="emulators.html" class="menu-item"> <img src="images/emulators.svg" alt="Emulators">
-    Emulators
-  </a>
-  <a href="ports.html" class="menu-item">
-    <img src="images/ports.svg" alt="Game Ports">
-    Game Ports
-  </a>
-  <a href="apps.html" class="menu-item">
-    <img src="images/apps.svg" alt="Apps">
-    Apps
-  </a>
-  <a href="media.html" class="menu-item active">
-    <img src="images/media.svg" alt="Media">
-    Media Apps
-  </a>
-  <a href="frontends.html" class="menu-item">
-    <img src="images/frontends.svg" alt="Frontends"> 
-    Frontends
-  </a>
-  <a href="wipapps.html" class="menu-item">
-    <img src="images/wipapps.svg" alt="WIP Apps">
-    WIP Apps
-  </a>
-  <a href="utilities.html" class="menu-item">
-    <img src="images/utilities.svg" alt="Utilities">
-    Utilities 
-  </a>
-</div>
-
-<main>
-<h2 class="page-section-heading">MEDIA APPS</h2>
- <div class="product-wrapper">
-     
-  <div class="box-container" id="kodi">
-    <div class="main-card-top-content">
-      <div class="box-image-wrapper">
-        <img src="images/kodi.webp" alt="Kodi Logo" class="box-image">
-      </div>
-      <div class="box-content">
-        <h3>Kodi</h3>
-        <p>Open-source home theater software.</p>
-      </div>
-      <div class="box-links">
-        <a href="#" class="box-link left" id="download-kodi">
-          <img src="images/download.svg" alt="Download" class="link-icon"> Download
-        </a>
-        <button class="box-link center info-toggle">
-          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+<aside class="sidebar" id="sidebar" aria-label="Main Navigation">
+    <div class="sidebar-header">
+        <button class="menu-toggle" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle Navigation Menu">☰</button>
+        <div class="sidebar-search-interaction-area">
+            <div class="sidebar-search-container">
+                <button class="sidebar-search-trigger" aria-label="Search">
+                    <img src="images/search.svg" alt="Search Icon" class="sidebar-search-icon-display">
+                </button>
+                <div class="sidebar-search-input-wrapper">
+                    <input type="text" id="searchInput" name="searchInput" class="sidebar-search-input-field" placeholder="Search site..." aria-label="Search site">
+                </div>
+            </div>
+            <div id="autocompleteResults" class="autocomplete-items" style="display: none;"></div>
+        </div>
+    </div>
+    <nav class="sidebar-nav">
+        <ul>
+            <li><a href="index.html" class="nav-link"><img src="images/home.svg" alt="Home icon"><span>Home</span></a></li>
+            <li><a href="emulators.html" class="nav-link"><img src="images/emulators.svg" alt="Emulators icon"><span>Emulators</span></a></li>
+            <li><a href="ports.html" class="nav-link"><img src="images/ports.svg" alt="Game Ports icon"><span>Game Ports</span></a></li>
+            <li><a href="apps.html" class="nav-link"><img src="images/apps.svg" alt="Apps icon"><span>Apps</span></a></li>
+            <li><a href="media.html" class="nav-link active"><img src="images/media.svg" alt="Media Apps icon"><span>Media Apps</span></a></li>
+            <li><a href="frontends.html" class="nav-link"><img src="images/frontends.svg" alt="Frontends icon"><span>Frontends</span></a></li>
+            <li><a href="wipapps.html" class="nav-link"><img src="images/wipapps.svg" alt="Work In Progress Apps icon"><span>WIP Apps</span></a></li>
+            <li><a href="utilities.html" class="nav-link"><img src="images/utilities.svg" alt="Utilities icon"><span>Utilities</span></a></li>
+        </ul>
+    </nav>
+    <div class="sidebar-theme-toggle-container">
+        <button class="theme-switch" id="themeSwitch" aria-label="Switch Theme">
+            <img src="images/light-mode.svg" alt="Light Theme" id="themeIconSun" class="theme-icon light">
+            <img src="images/dark-mode.svg" alt="Dark Theme" id="themeIconMoon" class="theme-icon dark">
+            <span class="theme-toggle-text">Theme</span>
         </button>
-      </div>
     </div>
-    <div class="info-box">
-      <ul class="info-list">
-        <li><strong>Developer:</strong> <a href="https://github.com/xbmc">Team Kodi/XBMC</a></li>
-        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
-        <li><strong>Requirements:</strong> Check out the <a href="https://kodi.wiki/view/Quick_start_guide">Quick Start Guide</a></li>
-      </ul>
+    <div class="sidebar-footer">
+        <p>© <span id="currentYear"></span> Emulation Revival</p>
     </div>
-  </div>
+</aside>
 
-  <div class="box-container" id="soundcloud">
-    <div class="main-card-top-content">
-      <div class="box-image-wrapper">
-        <img src="images/soundcloud.webp" alt="SoundCloud Logo" class="box-image">
-      </div>
-      <div class="box-content">
-        <h3>SoundCloud</h3>
-        <p>Online audio distribution and music sharing platform.</p>
-      </div>
-      <div class="box-links">
-        <a href="#" class="box-link left" id="download-soundcloud">
-          <img src="images/download.svg" alt="Download" class="link-icon"> Download
-        </a>
-        <button class="box-link center info-toggle">
-          <img src="images/info.svg" alt="Info" class="link-icon"> Info
-        </button>
-      </div>
-    </div>
-    <div class="info-box">
-      <ul class="info-list">
-        <li><strong>Developer:</strong> SoundCloud</li>
-        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
-        <li><strong>Features:</strong> Background play</li>
-      </ul>
-    </div>
-  </div>
+<div class="main-content-wrapper">
+    <main class="main-content" id="mainContentArea">
+        <h2 class="page-section-heading">MEDIA APPS</h2>
+        <div class="product-wrapper">
+            
+            <div class="box-container" id="kodi">
+                <div class="main-card-top-content">
+                    <div class="box-image-wrapper">
+                        <img src="images/kodi.webp" alt="Kodi Logo" class="box-image">
+                    </div>
+                    <div class="box-content">
+                        <h3>Kodi</h3>
+                        <p>Open-source home theater software.</p>
+                    </div>
+                    <div class="box-links">
+                        <div class="box-link download-item-wrapper">
+                            <a href="#" class="action-link download-action-link" id="download-kodi">
+                                <img src="images/download.svg" alt="Download" class="link-icon">
+                                <span class="button-text-span">Download</span>
+                            </a>
+                        </div>
+                        <div class="box-link info-item-wrapper">
+                            <button class="action-button info-action-btn info-toggle" aria-expanded="false" aria-controls="info-kodi">
+                                <img src="images/info.svg" alt="Info" class="link-icon">
+                                <span class="button-text-span">Info</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-box" id="info-kodi">
+                    <ul class="info-list">
+                        <li><strong>Developer:</strong> <a href="https://github.com/xbmc" class="contributor-name-link" data-name="Team Kodi/XBMC" data-github-url="https://github.com/xbmc">Team Kodi/XBMC</a></li>
+                        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
+                        <li><strong>Requirements:</strong> Check out the <a href="https://kodi.wiki/view/Quick_start_guide" target="_blank" rel="noopener noreferrer">Quick Start Guide</a></li>
+                    </ul>
+                </div>
+            </div>
 
-  <div class="box-container" id="tunein">
-    <div class="main-card-top-content">
-      <div class="box-image-wrapper">
-        <img src="images/tunein.webp" alt="TuneIn Logo" class="box-image">
-      </div>
-      <div class="box-content">
-        <h3>TuneIn</h3>
-        <p>Live radio, sports, music, news, and podcasts.</p>
-      </div>
-      <div class="box-links">
-        <a href="#" class="box-link left" id="download-tunein">
-          <img src="images/download.svg" alt="Download" class="link-icon"> Download
-        </a>
-        <button class="box-link center info-toggle">
-          <img src="images/info.svg" alt="Info" class="link-icon"> Info
-        </button>
-      </div>
-    </div>
-    <div class="info-box">
-      <ul class="info-list">
-        <li><strong>Developer:</strong> TuneIn</li>
-        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
-      </ul>
-    </div>
-  </div>
+            <div class="box-container" id="soundcloud">
+                <div class="main-card-top-content">
+                    <div class="box-image-wrapper">
+                        <img src="images/soundcloud.webp" alt="SoundCloud Logo" class="box-image">
+                    </div>
+                    <div class="box-content">
+                        <h3>SoundCloud</h3>
+                        <p>Online audio distribution and music sharing platform.</p>
+                    </div>
+                    <div class="box-links">
+                        <div class="box-link download-item-wrapper">
+                            <a href="#" class="action-link download-action-link" id="download-soundcloud">
+                                <img src="images/download.svg" alt="Download" class="link-icon">
+                                <span class="button-text-span">Download</span>
+                            </a>
+                        </div>
+                        <div class="box-link info-item-wrapper">
+                            <button class="action-button info-action-btn info-toggle" aria-expanded="false" aria-controls="info-soundcloud">
+                                <img src="images/info.svg" alt="Info" class="link-icon">
+                                <span class="button-text-span">Info</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-box" id="info-soundcloud">
+                    <ul class="info-list">
+                        <li><strong>Developer:</strong> <span class="contributor-name-link" data-name="SoundCloud">SoundCloud</span></li>
+                        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
+                        <li><strong>Features:</strong> Background play</li>
+                    </ul>
+                </div>
+            </div>
 
-  <div class="box-container" id="twitch">
-    <div class="main-card-top-content">
-      <div class="box-image-wrapper">
-        <img src="images/twitch.webp" alt="Twitch Logo" class="box-image">
-      </div>
-      <div class="box-content">
-        <h3>Twitch</h3>
-        <p>Live streaming platform for gamers and content creators.</p>
-      </div>
-      <div class="box-links">
-        <a href="#" class="box-link left" id="download-twitch">
-          <img src="images/download.svg" alt="Download" class="link-icon"> Download
-        </a>
-        <button class="box-link center info-toggle">
-          <img src="images/info.svg" alt="Info" class="link-icon"> Info
-        </button>
-      </div>
-    </div>
-    <div class="info-box">
-      <ul class="info-list">
-        <li><strong>Developer:</strong> Twitch Interactive (Amazon)</li>
-        <li><strong>Compatibility:</strong> Xbox Series S|X</li>
-      </ul>
-    </div>
-  </div>
+            <div class="box-container" id="tunein">
+                <div class="main-card-top-content">
+                    <div class="box-image-wrapper">
+                        <img src="images/tunein.webp" alt="TuneIn Logo" class="box-image">
+                    </div>
+                    <div class="box-content">
+                        <h3>TuneIn</h3>
+                        <p>Live radio, sports, music, news, and podcasts.</p>
+                    </div>
+                    <div class="box-links">
+                        <div class="box-link download-item-wrapper">
+                            <a href="#" class="action-link download-action-link" id="download-tunein">
+                                <img src="images/download.svg" alt="Download" class="link-icon">
+                                <span class="button-text-span">Download</span>
+                            </a>
+                        </div>
+                        <div class="box-link info-item-wrapper">
+                            <button class="action-button info-action-btn info-toggle" aria-expanded="false" aria-controls="info-tunein">
+                                <img src="images/info.svg" alt="Info" class="link-icon">
+                                <span class="button-text-span">Info</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-box" id="info-tunein">
+                    <ul class="info-list">
+                        <li><strong>Developer:</strong> <span class="contributor-name-link" data-name="TuneIn">TuneIn</span></li>
+                        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
+                    </ul>
+                </div>
+            </div>
 
-  <div class="box-container" id="vlc">
-    <div class="main-card-top-content">
-      <div class="box-image-wrapper">
-        <img src="images/vlc.webp" alt="VLC Logo" class="box-image">
-      </div>
-      <div class="box-content">
-        <h3>VLC Media Player</h3>
-        <p>Free and open-source cross-platform multimedia player.</p>
-      </div>
-      <div class="box-links">
-        <a href="#" class="box-link left" id="download-vlc">
-          <img src="images/download.svg" alt="Download" class="link-icon"> Download
-        </a>
-        <button class="box-link center info-toggle">
-          <img src="images/info.svg" alt="Info" class="link-icon"> Info
-        </button>
-      </div>
-    </div>
-    <div class="info-box">
-      <ul class="info-list">
-        <li><strong>Developer:</strong> <a href="https://github.com/videolan">VideoLAN</a></li>
-        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
-        <li><strong>Requirements:</strong> External drive with your media files</li>
-      </ul>
-    </div>
-  </div>
+            <div class="box-container" id="twitch">
+                <div class="main-card-top-content">
+                    <div class="box-image-wrapper">
+                        <img src="images/twitch.webp" alt="Twitch Logo" class="box-image">
+                    </div>
+                    <div class="box-content">
+                        <h3>Twitch</h3>
+                        <p>Live streaming platform for gamers and content creators.</p>
+                    </div>
+                    <div class="box-links">
+                        <div class="box-link download-item-wrapper">
+                            <a href="#" class="action-link download-action-link" id="download-twitch">
+                                <img src="images/download.svg" alt="Download" class="link-icon">
+                                <span class="button-text-span">Download</span>
+                            </a>
+                        </div>
+                        <div class="box-link info-item-wrapper">
+                            <button class="action-button info-action-btn info-toggle" aria-expanded="false" aria-controls="info-twitch">
+                                <img src="images/info.svg" alt="Info" class="link-icon">
+                                <span class="button-text-span">Info</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-box" id="info-twitch">
+                    <ul class="info-list">
+                        <li><strong>Developer:</strong> <span class="contributor-name-link" data-name="Twitch Interactive (Amazon)">Twitch Interactive (Amazon)</span></li>
+                        <li><strong>Compatibility:</strong> Xbox Series S|X</li>
+                    </ul>
+                </div>
+            </div>
 
-  <div class="box-container" id="youtube">
-    <div class="main-card-top-content">
-      <div class="box-image-wrapper">
-        <img src="images/youtube.webp" alt="YouTube Logo" class="box-image">
-      </div>
-      <div class="box-content">
-        <h3>YouTube</h3>
-        <p>Online video sharing platform.</p>
-      </div>
-      <div class="box-links">
-        <a href="#" class="box-link left" id="download-youtube">
-          <img src="images/download.svg" alt="Download" class="link-icon"> Download
-        </a>
-        <button class="box-link center info-toggle">
-          <img src="images/info.svg" alt="Info" class="link-icon"> Info
-        </button>
-      </div>
-    </div>
-    <div class="info-box">
-      <ul class="info-list">
-        <li><strong>Developer:</strong> Google</li>
-        <li><strong>Ported to UWP by:</strong> <a href="https://github.com/momo-AUX1">Moonpower</a>
-        <span class="donation-dash">–</span>
-    <a href="https://ko-fi.com/moonpower007" class="donation-link">
-        <img src="images/kofi.svg" alt="Donate on Ko-fi">
-    </a></li>
-        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
-        <li><strong>Features:</strong> No ads</li>
-      </ul>
-    </div>
-  </div>
+            <div class="box-container" id="vlc">
+                <div class="main-card-top-content">
+                    <div class="box-image-wrapper">
+                        <img src="images/vlc.webp" alt="VLC Logo" class="box-image">
+                    </div>
+                    <div class="box-content">
+                        <h3>VLC Media Player</h3>
+                        <p>Free and open-source cross-platform multimedia player.</p>
+                    </div>
+                    <div class="box-links">
+                        <div class="box-link download-item-wrapper">
+                            <a href="#" class="action-link download-action-link" id="download-vlc">
+                                <img src="images/download.svg" alt="Download" class="link-icon">
+                                <span class="button-text-span">Download</span>
+                            </a>
+                        </div>
+                        <div class="box-link info-item-wrapper">
+                            <button class="action-button info-action-btn info-toggle" aria-expanded="false" aria-controls="info-vlc">
+                                <img src="images/info.svg" alt="Info" class="link-icon">
+                                <span class="button-text-span">Info</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-box" id="info-vlc">
+                    <ul class="info-list">
+                        <li><strong>Developer:</strong> <a href="https://github.com/videolan" class="contributor-name-link" data-name="VideoLAN" data-github-url="https://github.com/videolan">VideoLAN</a></li>
+                        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
+                        <li><strong>Requirements:</strong> External drive with your media files</li>
+                    </ul>
+                </div>
+            </div>
 
-  <div class="box-container" id="zune">
-    <div class="main-card-top-content">
-      <div class="box-image-wrapper">
-        <img src="images/zune.webp" alt="Zune Logo" class="box-image">
-      </div>
-      <div class="box-content">
-        <h3>Windows Media Player (Zune)</h3>
-        <p>Media player with Zune-inspired interface.</p>
-      </div>
-      <div class="box-links">
-        <a href="#" class="box-link left" id="download-zune">
-          <img src="images/download.svg" alt="Download" class="link-icon"> Download
-        </a>
-        <button class="box-link center info-toggle">
-          <img src="images/info.svg" alt="Info" class="link-icon"> Info
-        </button>
-        <a href="https://youtu.be/NE6GL6-YDu0" class="box-link right">
-          <img src="images/youtube.svg" alt="Tutorial" class="link-icon"> Tutorial
-        </a>
-      </div>
-    </div>
-    <div class="info-box">
-      <ul class="info-list">
-        <li><strong>Developer:</strong> Microsoft</li>
-        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
-        <li><strong>Requirements:</strong> External drive with your audio files</li>
-      </ul>
-    </div>
-  </div>
+            <div class="box-container" id="youtube">
+                <div class="main-card-top-content">
+                    <div class="box-image-wrapper">
+                        <img src="images/youtube.webp" alt="YouTube Logo" class="box-image">
+                    </div>
+                    <div class="box-content">
+                        <h3>YouTube</h3>
+                        <p>Online video sharing platform.</p>
+                    </div>
+                    <div class="box-links">
+                        <div class="box-link download-item-wrapper">
+                            <a href="#" class="action-link download-action-link" id="download-youtube">
+                                <img src="images/download.svg" alt="Download" class="link-icon">
+                                <span class="button-text-span">Download</span>
+                            </a>
+                        </div>
+                        <div class="box-link info-item-wrapper">
+                            <button class="action-button info-action-btn info-toggle" aria-expanded="false" aria-controls="info-youtube">
+                                <img src="images/info.svg" alt="Info" class="link-icon">
+                                <span class="button-text-span">Info</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-box" id="info-youtube">
+                    <ul class="info-list">
+                        <li><strong>Developer:</strong> <span class="contributor-name-link" data-name="Google">Google</span></li>
+                        <li><strong>Ported to UWP by:</strong> <a href="https://github.com/momo-AUX1" class="contributor-name-link" data-name="Moonpower" data-github-url="https://github.com/momo-AUX1" data-kofi-url="https://ko-fi.com/moonpower007">Moonpower</a></li>
+                        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
+                        <li><strong>Features:</strong> No ads</li>
+                    </ul>
+                </div>
+            </div>
 
-</div> </main>
+            <div class="box-container" id="zune">
+                <div class="main-card-top-content">
+                    <div class="box-image-wrapper">
+                        <img src="images/zune.webp" alt="Zune Logo" class="box-image">
+                    </div>
+                    <div class="box-content">
+                        <h3>Windows Media Player (Zune)</h3>
+                        <p>Media player with Zune-inspired interface.</p>
+                    </div>
+                    <div class="box-links">
+                        <div class="box-link download-item-wrapper">
+                            <a href="#" class="action-link download-action-link" id="download-zune">
+                                <img src="images/download.svg" alt="Download" class="link-icon">
+                                <span class="button-text-span">Download</span>
+                            </a>
+                        </div>
+                        <div class="box-link info-item-wrapper">
+                            <button class="action-button info-action-btn info-toggle" aria-expanded="false" aria-controls="info-zune">
+                                <img src="images/info.svg" alt="Info" class="link-icon">
+                                <span class="button-text-span">Info</span>
+                            </button>
+                        </div>
+                        <div class="box-link tutorial-item-wrapper">
+                            <a href="https://youtu.be/NE6GL6-YDu0" class="action-link tutorial-action-link tutorial-link">
+                                <img src="images/youtube.svg" alt="Tutorial" class="link-icon">
+                                <span class="button-text-span">Tutorial</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-box" id="info-zune">
+                    <ul class="info-list">
+                        <li><strong>Developer:</strong> <span class="contributor-name-link" data-name="Microsoft">Microsoft</span></li>
+                        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
+                        <li><strong>Requirements:</strong> External drive with your audio files</li>
+                    </ul>
+                </div>
+            </div>
 
-<footer>
-  <div class="discord-section">
-  <h3 class="discord-heading">Join the Communities</h3>
-  <div class="discord-servers-wrapper">
-    <div class="discord-server-item">
-      <a href="https://discord.gg/f82Tr22vRZ" class="discord-link">
-        <img src="images/discord.svg" alt="Discord" class="discord-icon">
-      </a>
-      <h5>Revive's Community</h5>
-    </div>
-    <div class="discord-server-item">
-      <a href="https://discord.gg/pVd47KAG24" class="discord-link">
-        <img src="images/discord.svg" alt="Discord" class="discord-icon">
-      </a>
-      <h5>Xbox Emulation Hub</h5>
-    </div>
-  </div>
-</div>
-  <p class="copyright">© 2025 Emulation Revival. All rights reserved.</p>
-  <p class="credit">Website by <a href="https://github.com/Mew-Lew">MewLew</a></p>
-  <p class="disclaimer-link-wrapper">
-  <a href="disclaimer.html">Disclaimer</a>
-</p>
-</footer>
+        </div> 
+    </main>
+
+    <footer>
+        <div class="discord-section">
+            <h3 class="discord-heading">Join the Communities</h3>
+            <div class="discord-servers-wrapper">
+                <div class="discord-server-item">
+                    <a href="https://discord.gg/f82Tr22vRZ" class="discord-link" target="_blank" rel="noopener noreferrer" aria-label="Join Revive's Community on Discord">
+                        <img src="images/discord.svg" alt="Discord logo" class="discord-icon">
+                    </a>
+                    <h5>Revive's Community</h5>
+                </div>
+                <div class="discord-server-item">
+                    <a href="https://discord.gg/pVd47KAG24" class="discord-link" target="_blank" rel="noopener noreferrer" aria-label="Join Xbox Emulation Hub on Discord">
+                        <img src="images/discord.svg" alt="Discord logo" class="discord-icon">
+                    </a>
+                    <h5>Xbox Emulation Hub</h5>
+                </div>
+            </div>
+        </div>
+        <div class="footer-meta-info">
+            <span class="copyright">© <span id="footerCurrentYear"></span> Emulation Revival. All rights reserved.</span>
+            <span class="credit">Website by <a href="https://github.com/Mew-Lew" target="_blank" rel="noopener noreferrer">MewLew</a></span>
+            <span class="disclaimer-link-wrapper"><a href="disclaimer.html">Disclaimer</a></span>
+        </div>
+    </footer>
+</div> 
     
+<div class="modal-overlay" id="contributorModalOverlay"></div>
+<div class="modal" id="contributorModal" role="dialog" aria-modal="true" aria-labelledby="contributorModalTitle">
+    <div class="modal-header">
+        <h3 id="contributorModalTitle" class="modal-title">Contributor Information</h3>
+        <button class="modal-close-button" id="contributorModalClose" aria-label="Close modal">×</button>
+    </div>
+    <div class="modal-body" id="contributorModalBody">
+    </div>
+</div>
 
 <script src="downloads.js"></script>
 <script src="searchdata.js"></script>

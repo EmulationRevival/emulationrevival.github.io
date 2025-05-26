@@ -1,111 +1,192 @@
 ---
 ---
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Xbox Dev Mode: Emulators, Apps & Game Ports | Emulation Revival</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your ultimate hub for Xbox Developer Mode emulators, game ports, apps, and step-by-step guides. Dive into retro gaming and more with Emulation Revival.">
+    <title>Xbox Dev Mode: Emulators, Apps & Game Ports | Emulation Revival</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="theme.js"></script>
 </head>
 <body>
 
-<header class="top-bar">
-  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-  <h1 class="site-title">Emulation Revival</h1>
-  <button class="search-icon" onclick="toggleSearch(event)">
-  <img src="images/search.svg" alt="Search">
-</button>
-</header>
+<div class="page-dim-overlay"></div>
 
-<div id="searchBar" class="search-bar">
-  <input type="text" placeholder="Search...">
-</div>
+<aside class="sidebar" id="sidebar" aria-label="Main Navigation">
+    <div class="sidebar-header">
+        <button class="menu-toggle" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle Navigation Menu">☰</button>
+        <div class="sidebar-search-interaction-area">
+            <div class="sidebar-search-container">
+                <button class="sidebar-search-trigger" aria-label="Search">
+                    <img src="images/search.svg" alt="Search Icon" class="sidebar-search-icon-display">
+                </button>
+                <div class="sidebar-search-input-wrapper">
+                    <input type="text" id="searchInput" name="searchInput" class="sidebar-search-input-field" placeholder="Search site..." aria-label="Search site">
+                </div>
+            </div>
+            <div id="autocompleteResults" class="autocomplete-items" style="display: none;"></div>
+        </div>
+    </div>
+    <nav class="sidebar-nav">
+        <ul>
+            <li><a href="index.html" class="nav-link active"><img src="images/home.svg" alt="Home icon"><span>Home</span></a></li>
+            <li><a href="emulators.html" class="nav-link"><img src="images/emulators.svg" alt="Emulators icon"><span>Emulators</span></a></li>
+            <li><a href="ports.html" class="nav-link"><img src="images/ports.svg" alt="Game Ports icon"><span>Game Ports</span></a></li>
+            <li><a href="apps.html" class="nav-link"><img src="images/apps.svg" alt="Apps icon"><span>Apps</span></a></li>
+            <li><a href="media.html" class="nav-link"><img src="images/media.svg" alt="Media Apps icon"><span>Media Apps</span></a></li>
+            <li><a href="frontends.html" class="nav-link"><img src="images/frontends.svg" alt="Frontends icon"><span>Frontends</span></a></li>
+            <li><a href="wipapps.html" class="nav-link"><img src="images/wipapps.svg" alt="Work In Progress Apps icon"><span>WIP Apps</span></a></li>
+            <li><a href="utilities.html" class="nav-link"><img src="images/utilities.svg" alt="Utilities icon"><span>Utilities</span></a></li>
+        </ul>
+    </nav>
+    <div class="sidebar-theme-toggle-container">
+        <button class="theme-switch" id="themeSwitch" aria-label="Switch Theme">
+            <img src="images/light-mode.svg" alt="Light Theme" id="themeIconSun" class="theme-icon light">
+            <img src="images/dark-mode.svg" alt="Dark Theme" id="themeIconMoon" class="theme-icon dark">
+            <span class="theme-toggle-text">Theme</span>
+        </button>
+    </div>
+    <div class="sidebar-footer">
+        <p>© <span id="currentYear"></span> Emulation Revival</p>
+    </div>
+</aside>
 
-<div class="menu" id="menu">
-  <a href="index.html" class="menu-item active">
-    <img src="images/home.svg" alt="Home">
-    Home
-  </a>
-  <a href="emulators.html" class="menu-item"> <img src="images/emulators.svg" alt="Emulators">
-    Emulators
-  </a>
-  <a href="ports.html" class="menu-item">
-    <img src="images/ports.svg" alt="Game Ports">
-    Game Ports
-  </a>
-  <a href="apps.html" class="menu-item">
-    <img src="images/apps.svg" alt="Apps">
-    Apps
-  </a>
-  <a href="media.html" class="menu-item">
-    <img src="images/media.svg" alt="Media">
-    Media Apps
-  </a>
-  <a href="frontends.html" class="menu-item">
-    <img src="images/frontends.svg" alt="Frontends"> 
-    Frontends
-  </a>
-  <a href="wipapps.html" class="menu-item">
-    <img src="images/wipapps.svg" alt="WIP Apps">
-    WIP Apps
-  </a>
-  <a href="utilities.html" class="menu-item">
-    <img src="images/utilities.svg" alt="Utilities">
-    Utilities 
-  </a>
-</div>
-
-<main>
 <div class="main-content-wrapper">
-  <div class="main-content">
-    <h2 class="page-main-heading">Welcome to your hub for emulators, apps, and game ports for Xbox Developer Mode.</h2>
-    <p>You will need an Xbox One or Xbox Series S/X in developer mode to make use of these.</p>
-    <p>If you haven't set up developer mode yet, we've got you covered!</p>
-    <h2>Getting Started</h2>
-    <div class="guide-button-container">
-  <a href="{% link guides/devmode.md %}" class="guide-cta-button">Text Guide</a>
-</div>
-<h2>Video Guide</h2>
-    <div class="dynamic-video-wrapper">
-  <iframe
-    src="https://www.youtube.com/embed/E7ZWmKh8urg?si=kfRuVyNOA5brCVgB"
-    title="YouTube video player"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
-  </iframe>
+    <main class="main-content" id="mainContentArea">
+        
+        <section class="hero-section">
+            <div class="hero-overlay"></div> 
+            <div class="hero-content">
+                <h1 class="hero-title">Unlock Your Xbox's Potential</h1>
+                <p class="hero-subtitle">Your ultimate hub for emulators, apps, game ports, and step-by-step guides for Xbox Developer Mode.</p>
+                <div class="hero-cta-buttons">
+                    <a href="{% link guides/devmode.md %}" class="guide-cta-button hero-cta primary">View Dev Mode Guide</a>
+                    <a href="emulators.html" class="guide-cta-button hero-cta secondary">Browse Emulators</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-carousel-section">
+            <h2 class="section-title">Featured Highlights</h2>
+            <div class="carousel-container">
+                <div class="carousel-track" id="carouselTrack">
+                </div>
+                <button class="carousel-button prev" id="carouselPrev" aria-label="Previous Slide">❮</button>
+                <button class="carousel-button next" id="carouselNext" aria-label="Next Slide">❯</button>
+                <div class="carousel-dots" id="carouselDots">
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-categories">
+            <h2 class="section-title">Explore Key Categories</h2>
+            <div class="category-grid">
+                <a href="emulators.html" class="category-card">
+                    <img src="images/emulators.svg" alt="Emulators Icon">
+                    <h3>Emulators</h3>
+                    <p>Play classic console games from various eras.</p>
+                </a>
+                <a href="ports.html" class="category-card">
+                    <img src="images/ports.svg" alt="Game Ports Icon">
+                    <h3>Game Ports</h3>
+                    <p>Experience PC & other classic titles on your Xbox.</p>
+                </a>
+                <a href="apps.html" class="category-card">
+                    <img src="images/apps.svg" alt="Apps Icon">
+                    <h3>Apps</h3>
+                    <p>Useful applications to enhance your Xbox experience.</p>
+                </a>
+                <a href="utilities.html" class="category-card">
+                    <img src="images/utilities.svg" alt="Utilities Icon">
+                    <h3>Utilities</h3>
+                    <p>Essential tools to manage and improve your setup.</p>
+                </a>
+            </div>
+        </section>
+
+        <section class="getting-started-section">
+            <div class="getting-started-column">
+                <h2 class="section-title-left">New Here? Get Started!</h2>
+                <p>Unlock the full potential of your Xbox with Developer Mode. Our comprehensive guides will walk you through the setup process step-by-step, making it easy to begin your emulation journey.</p>
+                <div class="guide-button-container">
+                    <a href="{% link guides/devmode.md %}" class="guide-cta-button">View Text Guide</a>
+                </div>
+            </div>
+            <div class="video-guide-column">
+                <h2 class="section-title-left">Visual Learner? Watch Our Video Guide!</h2>
+                <div class="dynamic-video-wrapper">
+                    <iframe
+                        src="https://www.youtube.com/embed/E7ZWmKh8urg?si=B8d2d9jJVsxPbLAH" 
+                        title="YouTube video player: How to Install Dev Mode on Xbox"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <h2 class="section-title">Why Emulation Revival?</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <img src="images/feature-curated.svg" alt="Curated Selection Icon">
+                    <h4>Curated & Tested</h4>
+                    <p>Reliable resources and applications specifically tested for Xbox Dev Mode compatibility and performance.</p>
+                </div>
+                <div class="feature-item">
+                    <img src="images/feature-guides.svg" alt="Comprehensive Guides Icon">
+                    <h4>Easy-to-Follow Guides</h4>
+                    <p>Clear, step-by-step instructions to get you up and running quickly, even if you're new to Dev Mode.</p>
+                </div>
+                <div class="feature-item">
+                    <img src="images/feature-community.svg" alt="Supportive Community Icon">
+                    <h4>Community Focused</h4>
+                    <p>Join our active Discord servers for troubleshooting, discussions, and sharing your experiences.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="discord-section">
+            <h3 class="discord-heading">Join the Communities</h3>
+            <div class="discord-servers-wrapper">
+                <div class="discord-server-item">
+                    <a href="https://discord.gg/f82Tr22vRZ" class="discord-link" target="_blank" rel="noopener noreferrer" aria-label="Join Revive's Community on Discord">
+                        <img src="images/discord.svg" alt="Discord logo" class="discord-icon">
+                    </a>
+                    <h5>Revive's Community</h5>
+                </div>
+                <div class="discord-server-item">
+                    <a href="https://discord.gg/pVd47KAG24" class="discord-link" target="_blank" rel="noopener noreferrer" aria-label="Join Xbox Emulation Hub on Discord">
+                        <img src="images/discord.svg" alt="Discord logo" class="discord-icon">
+                    </a>
+                    <h5>Xbox Emulation Hub</h5>
+                </div>
+            </div>
+        </div>
+        <div class="footer-meta-info">
+            <span class="copyright">© <span id="footerCurrentYear"></span> Emulation Revival. All rights reserved.</span>
+            <span class="credit">Website by <a href="https://github.com/Mew-Lew" target="_blank" rel="noopener noreferrer">MewLew</a></span>
+            <span class="disclaimer-link-wrapper"><a href="disclaimer.html">Disclaimer</a></span>
+        </div>
+    </footer>
 </div>
 
-</div>
-</div>
-</main>
-
-<footer>
-  <div class="discord-section">
-  <h3 class="discord-heading">Join the Communities</h3>
-  <div class="discord-servers-wrapper">
-    <div class="discord-server-item">
-      <a href="https://discord.gg/f82Tr22vRZ" class="discord-link">
-        <img src="images/discord.svg" alt="Discord" class="discord-icon">
-      </a>
-      <h5>Revive's Community</h5>
+<div class="modal-overlay" id="contributorModalOverlay"></div>
+<div class="modal" id="contributorModal" role="dialog" aria-modal="true" aria-labelledby="contributorModalTitle">
+    <div class="modal-header">
+        <h3 id="contributorModalTitle" class="modal-title">Contributor Information</h3>
+        <button class="modal-close-button" id="contributorModalClose" aria-label="Close modal">×</button>
     </div>
-    <div class="discord-server-item">
-      <a href="https://discord.gg/pVd47KAG24" class="discord-link">
-        <img src="images/discord.svg" alt="Discord" class="discord-icon">
-      </a>
-      <h5>Xbox Emulation Hub</h5>
+    <div class="modal-body" id="contributorModalBody">
     </div>
-  </div>
 </div>
-  <p class="copyright">© 2025 Emulation Revival. All rights reserved.</p>
-  <p class="credit">Website by <a href="https://github.com/Mew-Lew">MewLew</a></p>
-  <p class="disclaimer-link-wrapper">
-  <a href="disclaimer.html">Disclaimer</a>
-</p>
-</footer>
 
 <script src="downloads.js"></script>
 <script src="searchdata.js"></script>

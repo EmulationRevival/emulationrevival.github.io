@@ -1,183 +1,209 @@
 ---
 ---
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Emulation Frontends for Xbox Developer Mode | Emulation Revival</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emulation Frontends for Xbox Developer Mode | Emulation Revival</title>
+    <meta name="description" content="Discover emulation frontends like LaunchPass and Retro Pass for Xbox Developer Mode. Organize your retro games with Emulation Revival.">
+    <link rel="stylesheet" href="style.css">
+    <script src="theme.js"></script>
 </head>
 <body>
 
-<header class="top-bar">
-  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-  <h1 class="site-title">Emulation Revival</h1>
-  <button class="search-icon" onclick="toggleSearch(event)">
-  <img src="images/search.svg" alt="Search">
-</button>
-</header>
+<div class="page-dim-overlay"></div>
 
-<div id="searchBar" class="search-bar">
-  <input type="text" placeholder="Search...">
-</div>
-
-<div class="menu" id="menu">
-  <a href="index.html" class="menu-item">
-    <img src="images/home.svg" alt="Home">
-    Home
-  </a>
-  <a href="emulators.html" class="menu-item"> <img src="images/emulators.svg" alt="Emulators">
-    Emulators
-  </a>
-  <a href="ports.html" class="menu-item">
-    <img src="images/ports.svg" alt="Game Ports">
-    Game Ports
-  </a>
-  <a href="apps.html" class="menu-item">
-    <img src="images/apps.svg" alt="Apps">
-    Apps
-  </a>
-  <a href="media.html" class="menu-item">
-    <img src="images/media.svg" alt="Media">
-    Media Apps
-  </a>
-  <a href="frontends.html" class="menu-item active">
-    <img src="images/frontends.svg" alt="Frontends"> 
-    Frontends
-  </a>
-  <a href="wipapps.html" class="menu-item">
-    <img src="images/wipapps.svg" alt="WIP Apps">
-    WIP Apps
-  </a>
-  <a href="utilities.html" class="menu-item">
-    <img src="images/utilities.svg" alt="Utilities">
-    Utilities 
-  </a>
-</div>
-
-<main>
-<h2 class="page-section-heading">FRONTENDS</h2>
-<div class="product-wrapper">
-    
-  <div class="box-container" id="launchpass">
-    <div class="main-card-top-content">
-      <div class="box-image-wrapper">
-        <img src="images/launchpass.webp" alt="LaunchPass Logo" class="box-image">
-      </div>
-      <div class="box-content">
-        <h3>LaunchPass</h3>
-        <p>LaunchPass is a frontend that is capable of launching ROMs in most emulators on Xbox consoles.</p>
-      </div>
-      <div class="box-links">
-        <div class="dropdown">
-          <button class="box-link download-btn">
-            <img src="images/download.svg" alt="Download" class="link-icon"> Download
-            <span class="arrow">▼</span>
-          </button>
-          <ul class="dropdown-menu">
-            <li><a href="#" id="launchpass1">LaunchPass</a></li>
-            <li><a href="#" id="launchpass2">Dependencies</a></li>
-          </ul>
+<aside class="sidebar" id="sidebar" aria-label="Main Navigation">
+    <div class="sidebar-header">
+        <button class="menu-toggle" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle Navigation Menu">☰</button>
+        <div class="sidebar-search-interaction-area">
+            <div class="sidebar-search-container">
+                <button class="sidebar-search-trigger" aria-label="Search">
+                    <img src="images/search.svg" alt="Search Icon" class="sidebar-search-icon-display">
+                </button>
+                <div class="sidebar-search-input-wrapper">
+                    <input type="text" id="searchInput" name="searchInput" class="sidebar-search-input-field" placeholder="Search site..." aria-label="Search site">
+                </div>
+            </div>
+            <div id="autocompleteResults" class="autocomplete-items" style="display: none;"></div>
         </div>
-        <button class="box-link center info-toggle">
-          <img src="images/info.svg" alt="Info" class="link-icon"> Info
-        </button>
-        <a href="https://youtu.be/1Qo2tqwA5qI" class="box-link right">
-          <img src="images/youtube.svg" alt="Tutorial" class="link-icon"> Tutorial
-        </a>
-      </div>
     </div>
-    <div class="info-box">
-      <ul class="info-list">
-        <li><strong>Developer:</strong> <a href="https://github.com/Misunderstood-Wookiee">Misunderstood-Wookiee</a> & <a href="https://github.com/danprice142">DanP</a></li>
-        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
-        <li><strong>Requirements:</strong> 
+    <nav class="sidebar-nav">
         <ul>
-        <li>Install all 4 dependencies</li>
-        <li><strong>Emulators:</strong> From a list of supported emulators</li>
-        <li><strong>External storage:</strong> Used for setting up content library</li>
-        <li><strong>A computer:</strong> For setting up a content library with <a href="https://github.com/Misunderstood-Wookiee/LaunchPass/wiki/Setup-LaunchBox">LaunchBox</a></li>
+            <li><a href="index.html" class="nav-link"><img src="images/home.svg" alt="Home icon"><span>Home</span></a></li>
+            <li><a href="emulators.html" class="nav-link"><img src="images/emulators.svg" alt="Emulators icon"><span>Emulators</span></a></li>
+            <li><a href="ports.html" class="nav-link"><img src="images/ports.svg" alt="Game Ports icon"><span>Game Ports</span></a></li>
+            <li><a href="apps.html" class="nav-link"><img src="images/apps.svg" alt="Apps icon"><span>Apps</span></a></li>
+            <li><a href="media.html" class="nav-link"><img src="images/media.svg" alt="Media Apps icon"><span>Media Apps</span></a></li>
+            <li><a href="frontends.html" class="nav-link active"><img src="images/frontends.svg" alt="Frontends icon"><span>Frontends</span></a></li>
+            <li><a href="wipapps.html" class="nav-link"><img src="images/wipapps.svg" alt="Work In Progress Apps icon"><span>WIP Apps</span></a></li>
+            <li><a href="utilities.html" class="nav-link"><img src="images/utilities.svg" alt="Utilities icon"><span>Utilities</span></a></li>
         </ul>
-      </li>
-    </ul>
-    <div class="guide-button-container">
-  <a href="{% link guides/frontends/launchpass.md %}" class="guide-cta-button">Guide</a>
-</div>
-  </div>
-</div>
-
-  <div class="box-container" id="retropass">
-    <div class="main-card-top-content">
-      <div class="box-image-wrapper">
-        <img src="images/retropass.webp" alt="Retro Pass Logo" class="box-image">
-      </div>
-      <div class="box-content">
-        <h3>Retro Pass</h3>
-        <p>Retro Pass is a simple frontend for emulators running on Xbox.</p>
-      </div>
-      <div class="box-links">
-        <a href="#" class="box-link left" id="download-retropass">
-          <img src="images/download.svg" alt="Download" class="link-icon"> Download
-        </a>
-        <button class="box-link center info-toggle">
-          <img src="images/info.svg" alt="Info" class="link-icon"> Info
+    </nav>
+    <div class="sidebar-theme-toggle-container">
+        <button class="theme-switch" id="themeSwitch" aria-label="Switch Theme">
+            <img src="images/light-mode.svg" alt="Light Theme" id="themeIconSun" class="theme-icon light">
+            <img src="images/dark-mode.svg" alt="Dark Theme" id="themeIconMoon" class="theme-icon dark">
+            <span class="theme-toggle-text">Theme</span>
         </button>
-        <a href="https://youtu.be/eaStAmBhnaE" class="box-link right">
-          <img src="images/youtube.svg" alt="Tutorial" class="link-icon"> Tutorial
-        </a>
-      </div>
     </div>
-<div class="info-box">
-  <ul class="info-list">
-    <li><strong>Developer:</strong> <a href="https://github.com/retropassdev">Retropassdev</a></li>
-    <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
-    <li>
-      <strong>Requirements:</strong>
-      <ul>
-        <li>Install all 5 (x64) dependencies</li>
-        <li><strong>Emulators:</strong> From a list of supported emulators</li>
-        <li><strong>External storage:</strong> Used for setting up content library</li>
-        <li><strong>A computer:</strong> For setting up a content library with either:
-          <ul>
-            <li><a href="https://github.com/retropassdev/RetroPass/blob/main/Docs/SetupLaunchBox.md">LaunchBox</a></li>
-            <li><a href="https://github.com/retropassdev/RetroPass/blob/main/Docs/SetupEmulationStation.md">EmulationStation</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</div>
-</div>
+    <div class="sidebar-footer">
+        <p>© <span id="currentYear"></span> Emulation Revival</p>
+    </div>
+</aside>
 
-</div> </main>
-
-<footer>
-  <div class="discord-section">
-  <h3 class="discord-heading">Join the Communities</h3>
-  <div class="discord-servers-wrapper">
-    <div class="discord-server-item">
-      <a href="https://discord.gg/f82Tr22vRZ" class="discord-link">
-        <img src="images/discord.svg" alt="Discord" class="discord-icon">
-      </a>
-      <h5>Revive's Community</h5>
-    </div>
-    <div class="discord-server-item">
-      <a href="https://discord.gg/pVd47KAG24" class="discord-link">
-        <img src="images/discord.svg" alt="Discord" class="discord-icon">
-      </a>
-      <h5>Xbox Emulation Hub</h5>
-    </div>
-  </div>
-</div>
-  <p class="copyright">© 2025 Emulation Revival. All rights reserved.</p>
-  <p class="credit">Website by <a href="https://github.com/Mew-Lew">MewLew</a></p>
-  <p class="disclaimer-link-wrapper">
-  <a href="disclaimer.html">Disclaimer</a>
-</p>
-</footer>
+<div class="main-content-wrapper">
+    <main class="main-content" id="mainContentArea">
+        <h2 class="page-section-heading">FRONTENDS</h2>
+        <div class="product-wrapper">
     
+            <div class="box-container" id="launchpass">
+                <div class="main-card-top-content">
+                    <div class="box-image-wrapper">
+                        <img src="images/launchpass.webp" alt="LaunchPass Logo" class="box-image">
+                    </div>
+                    <div class="box-content">
+                        <h3>LaunchPass</h3>
+                        <p>LaunchPass is a frontend that is capable of launching ROMs in most emulators on Xbox consoles.</p>
+                    </div>
+                    <div class="box-links">
+                        <div class="box-link download-item-wrapper dropdown">
+                            <button class="action-button download-action-btn" aria-haspopup="true" aria-expanded="false">
+                                <img src="images/download.svg" alt="Download" class="link-icon">
+                                <span class="button-text-span">Download<span class="arrow">▼</span></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" id="launchpass1">LaunchPass</a></li>
+                                <li><a href="#" id="launchpass2">Dependencies</a></li>
+                            </ul>
+                        </div>
+                        <div class="box-link info-item-wrapper">
+                            <button class="action-button info-action-btn info-toggle" aria-expanded="false" aria-controls="info-launchpass">
+                                <img src="images/info.svg" alt="Info" class="link-icon">
+                                <span class="button-text-span">Info</span>
+                            </button>
+                        </div>
+                        <div class="box-link tutorial-item-wrapper">
+                            <a href="https://youtu.be/1Qo2tqwA5qI" class="action-link tutorial-action-link tutorial-link">
+                                <img src="images/youtube.svg" alt="Tutorial" class="link-icon">
+                                <span class="button-text-span">Tutorial</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-box" id="info-launchpass">
+                    <ul class="info-list">
+                        <li><strong>Developer:</strong> 
+                            <a href="https://github.com/Misunderstood-Wookiee" class="contributor-name-link" data-name="Misunderstood-Wookiee" data-github-url="https://github.com/Misunderstood-Wookiee">Misunderstood-Wookiee</a> & 
+                            <a href="https://github.com/danprice142" class="contributor-name-link" data-name="DanP" data-github-url="https://github.com/danprice142">DanP</a>
+                        </li>
+                        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
+                        <li><strong>Requirements:</strong> 
+                            <ul>
+                                <li>Install all 4 dependencies</li>
+                                <li><strong>Emulators:</strong> From a list of supported emulators</li>
+                                <li><strong>External storage:</strong> Used for setting up content library</li>
+                                <li><strong>A computer:</strong> For setting up a content library with <a href="https://github.com/Misunderstood-Wookiee/LaunchPass/wiki/Setup-LaunchBox" target="_blank" rel="noopener noreferrer">LaunchBox</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="guide-button-container">
+                        <a href="{% link guides/frontends/launchpass.md %}" class="guide-cta-button">Guide</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box-container" id="retropass">
+                <div class="main-card-top-content">
+                    <div class="box-image-wrapper">
+                        <img src="images/retropass.webp" alt="Retro Pass Logo" class="box-image">
+                    </div>
+                    <div class="box-content">
+                        <h3>Retro Pass</h3>
+                        <p>Retro Pass is a simple frontend for emulators running on Xbox.</p>
+                    </div>
+                    <div class="box-links">
+                        <div class="box-link download-item-wrapper">
+                            <a href="#" class="action-link download-action-link" id="download-retropass">
+                                <img src="images/download.svg" alt="Download" class="link-icon">
+                                <span class="button-text-span">Download</span>
+                            </a>
+                        </div>
+                        <div class="box-link info-item-wrapper">
+                            <button class="action-button info-action-btn info-toggle" aria-expanded="false" aria-controls="info-retropass">
+                                <img src="images/info.svg" alt="Info" class="link-icon">
+                                <span class="button-text-span">Info</span>
+                            </button>
+                        </div>
+                        <div class="box-link tutorial-item-wrapper">
+                            <a href="https://youtu.be/eaStAmBhnaE" class="action-link tutorial-action-link tutorial-link">
+                                <img src="images/youtube.svg" alt="Tutorial" class="link-icon">
+                                <span class="button-text-span">Tutorial</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-box" id="info-retropass">
+                    <ul class="info-list">
+                        <li><strong>Developer:</strong> <a href="https://github.com/retropassdev" class="contributor-name-link" data-name="Retropassdev" data-github-url="https://github.com/retropassdev">Retropassdev</a></li>
+                        <li><strong>Compatibility:</strong> Xbox One & Xbox Series S|X</li>
+                        <li>
+                            <strong>Requirements:</strong>
+                            <ul>
+                                <li>Install all 5 (x64) dependencies</li>
+                                <li><strong>Emulators:</strong> From a list of supported emulators</li>
+                                <li><strong>External storage:</strong> Used for setting up content library</li>
+                                <li><strong>A computer:</strong> For setting up a content library with either:
+                                    <ul>
+                                        <li><a href="https://github.com/retropassdev/RetroPass/blob/main/Docs/SetupLaunchBox.md" target="_blank" rel="noopener noreferrer">LaunchBox</a></li>
+                                        <li><a href="https://github.com/retropassdev/RetroPass/blob/main/Docs/SetupEmulationStation.md" target="_blank" rel="noopener noreferrer">EmulationStation</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div> 
+    </main>
+
+    <footer>
+        <div class="discord-section">
+            <h3 class="discord-heading">Join the Communities</h3>
+            <div class="discord-servers-wrapper">
+                <div class="discord-server-item">
+                    <a href="https://discord.gg/f82Tr22vRZ" class="discord-link" target="_blank" rel="noopener noreferrer" aria-label="Join Revive's Community on Discord">
+                        <img src="images/discord.svg" alt="Discord logo" class="discord-icon">
+                    </a>
+                    <h5>Revive's Community</h5>
+                </div>
+                <div class="discord-server-item">
+                    <a href="https://discord.gg/pVd47KAG24" class="discord-link" target="_blank" rel="noopener noreferrer" aria-label="Join Xbox Emulation Hub on Discord">
+                        <img src="images/discord.svg" alt="Discord logo" class="discord-icon">
+                    </a>
+                    <h5>Xbox Emulation Hub</h5>
+                </div>
+            </div>
+        </div>
+        <div class="footer-meta-info">
+            <span class="copyright">© <span id="footerCurrentYear"></span> Emulation Revival. All rights reserved.</span>
+            <span class="credit">Website by <a href="https://github.com/Mew-Lew" target="_blank" rel="noopener noreferrer">MewLew</a></span>
+            <span class="disclaimer-link-wrapper"><a href="disclaimer.html">Disclaimer</a></span>
+        </div>
+    </footer>
+</div> 
+    
+<div class="modal-overlay" id="contributorModalOverlay"></div>
+<div class="modal" id="contributorModal" role="dialog" aria-modal="true" aria-labelledby="contributorModalTitle">
+    <div class="modal-header">
+        <h3 id="contributorModalTitle" class="modal-title">Contributor Information</h3>
+        <button class="modal-close-button" id="contributorModalClose" aria-label="Close modal">×</button>
+    </div>
+    <div class="modal-body" id="contributorModalBody">
+    </div>
+</div>
 
 <script src="downloads.js"></script>
 <script src="searchdata.js"></script>
