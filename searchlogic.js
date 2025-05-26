@@ -1,4 +1,4 @@
-// searchlogic.js - Revised Path Comparison for GitHub Pages
+// searchlogic.js
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log('[searchlogic.js] DOMContentLoaded event fired.');
@@ -42,12 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const highlightedElements = document.querySelectorAll('.highlighted-by-search');
         highlightedElements.forEach(el => el.classList.remove('highlighted-by-search'));
         
-        // Since top-bar is removed, topBarHeight will be 0.
-        // If you have a new fixed header inside the sidebar, that's handled by sidebar scrolling usually.
-        // For scrolling the main page content, we just need to account for elements fixed to the viewport top.
         let fixedHeaderHeight = 0; 
-        // If you had a new fixed header replacing .top-bar, get its height here.
-        // For now, assuming no new equivalent to .top-bar for page content offset.
 
         const elementRect = targetElement.getBoundingClientRect();
         const elementTopRelativeToDocument = elementRect.top + window.pageYOffset;
@@ -63,17 +58,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 2500);
     }
     
-    // Function to check if the current page matches the entry's page
-    // entryPage will be like "/ports.html" or "/index.html" (if you normalize root to this)
     function isCurrentPage(entryPage) {
         let currentPath = window.location.pathname;
         let compareEntryPage = entryPage;
 
-        // Normalize entryPage for root: if it's "/", treat as "/index.html" for comparison
         if (compareEntryPage === "/") {
             compareEntryPage = "/index.html";
         }
-        // Normalize currentPath for root: if it ends with "/" or "/index.html", treat as "/index.html"
+        
         if (currentPath.endsWith("/index.html")) {
             // already fine
         } else if (currentPath.endsWith("/")) {
@@ -83,11 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
 
-        // Check if window.location.pathname ENDS WITH the entryPage.
-        // This handles cases where pathname might be /repo-name/ports.html and entry.page is /ports.html
         if (currentPath.endsWith(compareEntryPage)) {
-            // Further check to avoid false positives like /sub/ports.html matching /ports.html
-            // Ensure the character before the match is a / or it's the start of the path.
+
             const matchIndex = currentPath.lastIndexOf(compareEntryPage);
             if (matchIndex === 0 || (matchIndex > 0 && currentPath.charAt(matchIndex - 1) === '/')) {
                 return true;
