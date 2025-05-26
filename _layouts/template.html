@@ -1,97 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title | escape }}</title>
-  <link rel="stylesheet" href="{{ "/style.css" | relative_url }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title | escape }} | Emulation Revival</title>
+    {% if page.description %}
+    <meta name="description" content="{{ page.description | escape }}">
+    {% else %}
+    <meta name="description" content="Guides and information for Xbox Developer Mode. Emulation Revival.">
+    {% endif %}
+    <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
+    <script src="{{ '/theme.js' | relative_url }}"></script>
 </head>
 <body>
 
-<header class="top-bar">
-  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-  <h1 class="site-title">Emulation Revival</h1>
-  <button class="search-icon" onclick="toggleSearch(event)">
-    <img src="{{ "/images/search.svg" | relative_url }}" alt="Search">
-  </button>
-</header>
-
-<div id="searchBar" class="search-bar">
-  <input type="text" placeholder="Search...">
-</div>
-
-<div class="menu" id="menu">
-  <a href="{% link index.html %}" class="menu-item active">
-    <img src="{{ "/images/home.svg" | relative_url }}" alt="Home">
-    Home
-  </a>
-  <a href="{% link emulators.html %}" class="menu-item">
-    <img src="{{ "/images/emulators.svg" | relative_url }}" alt="Emulators">
-    Emulators
-  </a>
-  <a href="{% link ports.html %}" class="menu-item">
-    <img src="{{ "/images/ports.svg" | relative_url }}" alt="Game Ports">
-    Game Ports
-  </a>
-  <a href="{% link apps.html %}" class="menu-item">
-    <img src="{{ "/images/apps.svg" | relative_url }}" alt="Apps">
-    Apps
-  </a>
-  <a href="{% link media.html %}" class="menu-item">
-    <img src="{{ "/images/media.svg" | relative_url }}" alt="Media">
-    Media Apps
-  </a>
-  <a href="{% link frontends.html %}" class="menu-item">
-    <img src="{{ "/images/frontends.svg" | relative_url }}" alt="Frontends">
-    Frontends
-  </a>
-  <a href="{% link wipapps.html %}" class="menu-item">
-    <img src="{{ "/images/wipapps.svg" | relative_url }}" alt="WIP Apps">
-    WIP Apps
-  </a>
-  <a href="{% link utilities.html %}" class="menu-item">
-    <img src="{{ "/images/utilities.svg" | relative_url }}" alt="Utilities">
-    Utilities
-  </a>
-</div>
-
-<main>
-<div class="main-content-wrapper">
-  <div class="main-content markdown-body">
-    {{ content }}
-</div>
-</div>
-</main>
-
-<footer>
-  <div class="discord-section">
-    <h3 class="discord-heading">Join the Communities</h3>
-    <div class="discord-servers-wrapper">
-      <div class="discord-server-item">
-        <a href="https://discord.gg/f82Tr22vRZ" class="discord-link">
-          <img src="{{ '/images/discord.svg' | relative_url }}" alt="Discord" class="discord-icon">
-        </a>
-        <h5>Revive's Community</h5>
-      </div>
-      <div class="discord-server-item">
-        <a href="https://discord.gg/pVd47KAG24" class="discord-link">
-          <img src="{{ '/images/discord.svg' | relative_url }}" alt="Discord" class="discord-icon">
-        </a>
-        <h5>Xbox Emulation Hub</h5>
-      </div>
+<aside class="sidebar collapsed" id="sidebar" aria-label="Main Navigation">
+    <div class="sidebar-header">
+        <button class="menu-toggle" onclick="toggleMenu()" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle Navigation Menu">☰</button>
+        <div class="sidebar-search-interaction-area">
+            <div class="sidebar-search-container">
+                <button class="sidebar-search-trigger" onclick="handleSidebarSearchTriggerClick()" aria-label="Search">
+                    <img src="{{ '/images/search.svg' | relative_url }}" alt="Search Icon" class="sidebar-search-icon-display">
+                </button>
+                <div class="sidebar-search-input-wrapper">
+                    <input type="text" id="searchInput" name="searchInput" class="sidebar-search-input-field" placeholder="Search site..." aria-label="Search site">
+                </div>
+            </div>
+            <div id="autocompleteResults" class="autocomplete-items" style="display: none;"></div>
+        </div>
     </div>
-  </div>
-  <p class="copyright">© 2025 Emulation Revival. All rights reserved.</p>
-  <p class="credit">Website by <a href="https://github.com/Mew-Lew">MewLew</a></p>
-  <p class="disclaimer-link-wrapper">
-    <a href="{% link disclaimer.html %}">Disclaimer</a>
-  </p>
-</footer>
+    <nav class="sidebar-nav">
+        <ul>
+            <li><a href="{{ site.baseurl }}/index.html" class="nav-link"><img src="{{ "/images/home.svg" | relative_url }}" alt="Home icon"><span>Home</span></a></li>
+            <li><a href="{{ site.baseurl }}/emulators.html" class="nav-link"><img src="{{ "/images/emulators.svg" | relative_url }}" alt="Emulators icon"><span>Emulators</span></a></li>
+            <li><a href="{{ site.baseurl }}/ports.html" class="nav-link"><img src="{{ "/images/ports.svg" | relative_url }}" alt="Game Ports icon"><span>Game Ports</span></a></li>
+            <li><a href="{{ site.baseurl }}/apps.html" class="nav-link"><img src="{{ "/images/apps.svg" | relative_url }}" alt="Apps icon"><span>Apps</span></a></li>
+            <li><a href="{{ site.baseurl }}/media.html" class="nav-link"><img src="{{ "/images/media.svg" | relative_url }}" alt="Media Apps icon"><span>Media Apps</span></a></li>
+            <li><a href="{{ site.baseurl }}/frontends.html" class="nav-link"><img src="{{ "/images/frontends.svg" | relative_url }}" alt="Frontends icon"><span>Frontends</span></a></li>
+            <li><a href="{{ site.baseurl }}/wipapps.html" class="nav-link"><img src="{{ "/images/wipapps.svg" | relative_url }}" alt="Work In Progress Apps icon"><span>WIP Apps</span></a></li>
+            <li><a href="{{ site.baseurl }}/utilities.html" class="nav-link"><img src="{{ "/images/utilities.svg" | relative_url }}" alt="Utilities icon"><span>Utilities</span></a></li>
+        </ul>
+    </nav>
+    <div class="sidebar-theme-toggle-container">
+        <button class="theme-switch" id="themeSwitch" aria-label="Switch Theme">
+            <img src="{{ "/images/light-mode.svg" | relative_url }}" alt="Light Theme" id="themeIconSun" class="theme-icon light">
+            <img src="{{ "/images/dark-mode.svg" | relative_url }}" alt="Dark Theme" id="themeIconMoon" class="theme-icon dark">
+            <span class="theme-toggle-text">Theme</span>
+        </button>
+    </div>
+    <div class="sidebar-footer">
+        <p>© <span id="currentYear"></span> Emulation Revival</p>
+    </div>
+</aside>
+
+<div class="main-content-wrapper sidebar-collapsed">
+    <main class="main-content" id="mainContentArea">
+        <div class="markdown-body">
+            <h1>{{ page.title | escape }}</h1>
+            {{ content }}
+        </div>
+    </main>
+
+    <footer>
+        <div class="discord-section">
+            <h3 class="discord-heading">Join the Communities</h3>
+            <div class="discord-servers-wrapper">
+                <div class="discord-server-item">
+                    <a href="https://discord.gg/f82Tr22vRZ" class="discord-link" target="_blank" rel="noopener noreferrer" aria-label="Join Revive's Community on Discord">
+                        <img src="{{ "/images/discord.svg" | relative_url }}" alt="Discord logo" class="discord-icon">
+                    </a>
+                    <h5>Revive's Community</h5>
+                </div>
+                <div class="discord-server-item">
+                    <a href="https://discord.gg/pVd47KAG24" class="discord-link" target="_blank" rel="noopener noreferrer" aria-label="Join Xbox Emulation Hub on Discord">
+                        <img src="{{ "/images/discord.svg" | relative_url }}" alt="Discord logo" class="discord-icon">
+                    </a>
+                    <h5>Xbox Emulation Hub</h5>
+                </div>
+            </div>
+        </div>
+        <div class="footer-meta-info">
+            <span class="copyright">© <span id="footerCurrentYear"></span> Emulation Revival. All rights reserved.</span>
+            <span class="credit">Website by <a href="https://github.com/Mew-Lew" target="_blank" rel="noopener noreferrer">MewLew</a></span>
+            <span class="disclaimer-link-wrapper"><a href="{{ site.baseurl }}/disclaimer.html">Disclaimer</a></span>
+        </div>
+    </footer>
+</div>
+
+<div class="modal-overlay" id="contributorModalOverlay"></div>
+<div class="modal" id="contributorModal" role="dialog" aria-modal="true" aria-labelledby="contributorModalTitle">
+    <div class="modal-header">
+        <h3 id="contributorModalTitle" class="modal-title">Contributor Information</h3>
+        <button class="modal-close-button" id="contributorModalClose" aria-label="Close modal">×</button>
+    </div>
+    <div class="modal-body" id="contributorModalBody">
+    </div>
+</div>
 
 <script src="{{ "/downloads.js" | relative_url }}"></script>
 <script src="{{ "/searchdata.js" | relative_url }}"></script>
 <script src="{{ "/main.js" | relative_url }}"></script>
 <script src="{{ "/searchlogic.js" | relative_url }}"></script>
-  
+
 </body>
 </html>
