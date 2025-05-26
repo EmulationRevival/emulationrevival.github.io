@@ -61,8 +61,8 @@
   --border-radius-small: 5px;
   --border-radius-medium: 8px;
   --border-radius-large: 12px;
-  --sidebar-width: 260px; /* Width of the overlay when active */
-  --sidebar-width-collapsed: 70px; /* Permanent width of the visible collapsed sidebar */
+  --sidebar-width: 260px; 
+  --sidebar-width-collapsed: 70px; 
   --sidebar-transition-speed: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   --font-family-main: "Segoe UI", -apple-system, BlinkMacSystemFont, "Roboto", "Helvetica Neue", Arial, sans-serif;
   --font-family-headings: "Segoe UI Semibold", "Impact", "Helvetica Neue", sans-serif;
@@ -125,7 +125,7 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-body.no-scroll { /* Added for preventing scroll when overlay is active */
+body.no-scroll { 
   overflow: hidden;
 }
 
@@ -169,7 +169,7 @@ p {
 }
 
 .sidebar {
-  width: var(--sidebar-width-collapsed); /* Default: collapsed width */
+  width: var(--sidebar-width-collapsed); 
   background-color: var(--bg-secondary);
   color: var(--text-primary);
   display: flex;
@@ -179,7 +179,7 @@ p {
   top: 0;
   bottom: 0;
   height: 100%;
-  z-index: 1000; /* Base z-index for the collapsed part */
+  z-index: 1000; 
   transition: width var(--sidebar-transition-speed);
   overflow-x: hidden;
   border-right: 1px solid var(--border-color);
@@ -187,13 +187,13 @@ p {
 }
 
 .sidebar.overlay-active {
-  width: var(--sidebar-width); /* Expanded overlay width */
-  z-index: 1002; /* Higher z-index for overlay */
-  box-shadow: var(--shadow-lg); /* More prominent shadow */
+  width: var(--sidebar-width); 
+  z-index: 1002; 
+  box-shadow: var(--shadow-lg); 
 }
 
 .sidebar-header {
-  padding: 12px; /* Default for expanded */
+  padding: 12px; 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -206,7 +206,7 @@ p {
 }
 
 .sidebar-header .menu-toggle {
-  width: calc(100% - 4px); /* Default for expanded */
+  width: calc(100% - 4px); 
   height: 44px;
   font-size: 24px;
   font-weight: bold;
@@ -244,7 +244,7 @@ html.light-theme .sidebar-header .menu-toggle:hover {
   border-color: var(--xbox-green);
 }
 
-.sidebar:not(.overlay-active) .sidebar-header .menu-toggle { /* Styles for menu toggle when sidebar is "collapsed" */
+.sidebar:not(.overlay-active) .sidebar-header .menu-toggle { 
   width: 100%;
   margin: 0 0 8px 0;
   height: 42px;
@@ -257,7 +257,7 @@ html.light-theme .sidebar-header .menu-toggle:hover {
   transition: width var(--sidebar-transition-speed);
 }
 .sidebar:not(.overlay-active) .sidebar-search-interaction-area {
-    width: 100%; /* Full width in collapsed state for trigger */
+    width: 100%; 
 }
 
 
@@ -265,7 +265,7 @@ html.light-theme .sidebar-header .menu-toggle:hover {
   display: flex;
   align-items: center;
   width: 100%;
-  padding: 6px; /* Default for expanded */
+  padding: 6px; 
   box-sizing: border-box;
   border-radius: var(--border-radius-medium);
   background-color: var(--bg-primary);
@@ -279,7 +279,7 @@ html.light-theme .sidebar-search-container {
   background-color: var(--lt-bg-primary);
 }
 
-.sidebar:not(.overlay-active) .sidebar-search-container { /* Styles for search when sidebar is "collapsed" */
+.sidebar:not(.overlay-active) .sidebar-search-container { 
   padding: 0;
   border: none;
   background-color: transparent;
@@ -301,7 +301,7 @@ html.light-theme .sidebar-search-container {
   color: var(--text-primary);
 }
 
-.sidebar:not(.overlay-active) .sidebar-search-trigger { /* Styles for search trigger when "collapsed" */
+.sidebar:not(.overlay-active) .sidebar-search-trigger { 
   width: 100%;
   margin-left: 0;
   height: 42px;
@@ -322,16 +322,15 @@ html.light-theme .sidebar-search-icon-display {
   flex-grow: 1;
   margin-left: 8px;
   position: relative;
-  /* Default: visible when overlay is active, hidden otherwise */
   opacity: 1; display: block;
-  transition: opacity 0.15s ease-out 0.1s, display 0s 0s; /* Transition for appearing */
+  transition: opacity 0.15s ease-out 0.1s, display 0s 0s; 
 }
 
 .sidebar:not(.overlay-active) .sidebar-search-input-wrapper {
   opacity: 0; display: none;
   pointer-events: none;
   white-space: nowrap;
-  transition: opacity 0.1s ease-out 0s, display 0s 0.1s; /* Transition for disappearing */
+  transition: opacity 0.1s ease-out 0s, display 0s 0.1s;
 }
 
 .sidebar-search-input-field {
@@ -410,7 +409,6 @@ html.light-theme .sidebar-search-input-field {
   font-size: 0.9em;
 }
 
-/* Hiding text elements when sidebar is not overlay-active */
 .sidebar:not(.overlay-active) .sidebar-nav .nav-link span,
 .sidebar:not(.overlay-active) .sidebar-footer p,
 .sidebar:not(.overlay-active) .theme-switch .theme-toggle-text {
@@ -421,14 +419,12 @@ html.light-theme .sidebar-search-input-field {
   transition: opacity 0.1s ease-out 0s, width 0.1s ease-out 0s;
 }
 
-/* Styles for elements when sidebar overlay is active (text visible) */
 .sidebar.overlay-active .sidebar-nav .nav-link span,
 .sidebar.overlay-active .sidebar-footer p,
 .sidebar.overlay-active .theme-switch .theme-toggle-text {
   opacity: 1;
-  /* width: auto; Implicitly handled by flex/block */
   pointer-events: auto;
-  transition: opacity 0.15s ease-out 0.1s, width 0.15s ease-out 0.1s; /* Adjust timing based on sidebar width transition */
+  transition: opacity 0.15s ease-out 0.1s, width 0.15s ease-out 0.1s; 
 }
 
 
@@ -447,7 +443,7 @@ html.light-theme .sidebar-search-input-field {
 .sidebar-nav .nav-link {
   display: flex;
   align-items: center;
-  padding: 12px 20px; /* Default for expanded */
+  padding: 12px 20px; 
   color: var(--text-secondary);
   text-decoration: none;
   font-weight: 500;
@@ -460,23 +456,23 @@ html.light-theme .sidebar-search-input-field {
   border-radius: 0 var(--border-radius-medium) var(--border-radius-medium) 0;
 }
 
-.sidebar:not(.overlay-active) .nav-link { /* Styles for nav-link when "collapsed" */
+.sidebar:not(.overlay-active) .nav-link {
   justify-content: center;
   padding: 12px 0;
   width: 100%;
 }
 
 .sidebar-nav .nav-link img {
-  width: 22px; /* Default for expanded */
+  width: 22px;
   height: 22px;
-  margin-right: 15px; /* Default for expanded */
+  margin-right: 15px;
   transition: margin-right var(--sidebar-transition-speed), transform 0.2s ease, filter 0.3s ease,
               width var(--sidebar-transition-speed), height var(--sidebar-transition-speed);
   flex-shrink: 0;
   filter: var(--icon-filter);
 }
 
-.sidebar:not(.overlay-active) .nav-link img { /* Styles for nav-link img when "collapsed" */
+.sidebar:not(.overlay-active) .nav-link img { 
   margin-right: 0;
   width: 28px;
   height: 28px;
@@ -485,14 +481,13 @@ html.light-theme .sidebar-search-input-field {
 html.light-theme .sidebar-nav .nav-link:not(.active) img {
   filter: var(--lt-icon-filter);
 }
-/* Span opacity already handled by generic rules above */
 
 .sidebar-nav .nav-link:hover {
   background-color: var(--bg-tertiary);
   color: var(--text-primary);
   border-left-color: var(--xbox-green-light);
 }
-.sidebar.overlay-active .nav-link:hover { /* Hover specific to expanded overlay */
+.sidebar.overlay-active .nav-link:hover { 
     padding-left: 24px;
 }
 
@@ -501,16 +496,15 @@ html.light-theme .sidebar-nav .nav-link:not(.active) img {
   background-color: var(--xbox-green);
   color: var(--text-on-accent);
   font-weight: 600;
-  border-left-color: var(--xbox-green-light); /* This should be fine for both states */
+  border-left-color: var(--xbox-green-light); 
 }
 .sidebar-nav .nav-link.active img {
   filter: brightness(0) invert(1);
 }
 
 .sidebar:not(.overlay-active) .nav-link.active,
-.sidebar:not(.overlay-active) .nav-link:hover { /* Hover/active for "collapsed" state */
+.sidebar:not(.overlay-active) .nav-link:hover { 
   background-color: var(--xbox-green-dark);
-  /* border-left-color already var(--xbox-green) or var(--xbox-green-light) */
 }
 
 .sidebar:not(.overlay-active) .nav-link.active img {
@@ -528,14 +522,14 @@ html.light-theme .sidebar:not(.overlay-active) .nav-link.active img {
 
 
 .sidebar-theme-toggle-container {
-  padding: 12px 15px; /* Default for expanded */
+  padding: 12px 15px; 
   margin-top: auto;
   border-top: 1px solid var(--border-color);
   transition: padding var(--sidebar-transition-speed), border-top-width var(--sidebar-transition-speed);
 }
-.sidebar:not(.overlay-active) .sidebar-theme-toggle-container { /* Styles for theme toggle container when "collapsed" */
+.sidebar:not(.overlay-active) .sidebar-theme-toggle-container { 
   padding: 8px 5px;
-  border-top-width: 1px; /* Ensure it remains */
+  border-top-width: 1px; 
 }
 
 .sidebar .theme-switch {
@@ -544,15 +538,15 @@ html.light-theme .sidebar:not(.overlay-active) .nav-link.active img {
   border: 1px solid var(--border-color-subtle);
   color: var(--text-secondary);
   cursor: pointer;
-  padding: 10px; /* Default for expanded */
+  padding: 10px; 
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Default for expanded */
+  justify-content: flex-start; 
   border-radius: var(--border-radius-medium);
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease,
               padding var(--sidebar-transition-speed), justify-content var(--sidebar-transition-speed),
               height var(--sidebar-transition-speed), font-size var(--sidebar-transition-speed);
-  font-size: 0.9em; /* Default for expanded */
+  font-size: 0.9em; 
   font-family: var(--font-family-main);
 }
 .sidebar .theme-switch:hover {
@@ -560,11 +554,11 @@ html.light-theme .sidebar:not(.overlay-active) .nav-link.active img {
   color: var(--text-primary);
   border-color: var(--border-color);
 }
-.sidebar:not(.overlay-active) .theme-switch { /* Styles for theme switch when "collapsed" */
+.sidebar:not(.overlay-active) .theme-switch { 
   justify-content: center;
   padding: 10px 0;
   height: 44px;
-  font-size: 0; /* Hides text */
+  font-size: 0; 
   border: 1px solid transparent;
 }
 .sidebar:not(.overlay-active) .theme-switch:hover {
@@ -574,13 +568,13 @@ html.light-theme .sidebar:not(.overlay-active) .nav-link.active img {
 
 
 .sidebar .theme-switch .theme-icon {
-  width: 20px; /* Default for expanded */
+  width: 20px; 
   height: 20px;
-  margin-right: 12px; /* Default for expanded */
+  margin-right: 12px; 
   filter: var(--icon-filter);
   transition: margin-right var(--sidebar-transition-speed), width var(--sidebar-transition-speed), height var(--sidebar-transition-speed);
 }
-.sidebar:not(.overlay-active) .theme-switch .theme-icon { /* Styles for theme icon when "collapsed" */
+.sidebar:not(.overlay-active) .theme-switch .theme-icon { 
   margin-right: 0;
   width: 24px;
   height: 24px;
@@ -590,22 +584,20 @@ html.light-theme .sidebar .theme-switch .theme-icon.light,
 html.light-theme .sidebar .theme-switch .theme-icon.dark {
   filter: var(--lt-icon-filter);
 }
-/* Text opacity already handled by generic rules */
-
 
 .sidebar-footer {
-  padding: 15px 20px; /* Default for expanded */
+  padding: 15px 20px; 
   text-align: center;
   font-size: 0.75em;
   color: var(--text-secondary);
   border-top: 1px solid var(--border-color);
-  white-space: nowrap; /* Kept for expanded state, text hiding handles collapsed */
-  opacity: 1; /* Default for expanded */
+  white-space: nowrap; 
+  opacity: 1; 
   transition: opacity var(--sidebar-transition-speed), padding var(--sidebar-transition-speed);
 }
 .sidebar:not(.overlay-active) .sidebar-footer {
-    opacity: 0; /* Hides footer content including border if padding is zero */
-    padding: 0 5px; /* Minimal padding to collapse its height effectively with text gone */
+    opacity: 0; 
+    padding: 0 5px; 
     pointer-events: none;
 }
 .sidebar-footer p { margin: 0; }
@@ -615,10 +607,9 @@ html.light-theme .sidebar .theme-switch .theme-icon.dark {
   flex: 1;
   display: flex;
   flex-direction: column;
-  margin-left: var(--sidebar-width-collapsed); /* PERMANENT offset */
-  width: calc(100% - var(--sidebar-width-collapsed)); /* PERMANENT width */
+  margin-left: var(--sidebar-width-collapsed); 
+  width: calc(100% - var(--sidebar-width-collapsed)); 
   padding-top: 0;
-  /* Removed transition for margin-left and width */
 }
 
 main.main-content {
@@ -627,10 +618,9 @@ main.main-content {
   padding: 30px;
   margin: 0 auto;
   flex: 1 0 auto;
-  background-color: var(--bg-primary); /* Ensure this is not transparent if body has image */
+  background-color: var(--bg-primary); 
 }
 
-/* Page Dim Overlay for active sidebar */
 .page-dim-overlay {
   position: fixed;
   top: 0;
@@ -638,7 +628,7 @@ main.main-content {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1001; /* Below active sidebar, above other content */
+  z-index: 1001; 
   opacity: 0;
   visibility: hidden;
   transition: opacity var(--sidebar-transition-speed) ease-in-out, visibility 0s var(--sidebar-transition-speed);
@@ -649,13 +639,6 @@ main.main-content {
   transition: opacity var(--sidebar-transition-speed) ease-in-out;
 }
 
-
-/* --- Remaining styles should be largely unaffected --- */
-/* --- You can copy the rest of your CSS from here onwards --- */
-/* For brevity, I will assume the rest of your CSS (Markdown, Product, Modals, Hero, etc.)
-   does not need direct changes for this sidebar modification. If there are specific
-   interactions with the old .sidebar.collapsed or main content shifting, those would need review.
-*/
 
 .page-section-heading {
   text-align: center;
@@ -802,8 +785,8 @@ main.main-content h3:not(.modal-title):not(.discord-heading) {
 
 .markdown-body pre {
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-  background-color: var(--dt-bg-secondary); /* Keeps dark for code blocks always, or use --bg-tertiary */
-  color: var(--dt-text-secondary); /* Adjust if needed for light theme consistency */
+  background-color: var(--dt-bg-secondary); 
+  color: var(--dt-text-secondary); 
   padding: 1.2em;
   margin: 1.8em 0;
   overflow-x: auto;
@@ -815,7 +798,7 @@ main.main-content h3:not(.modal-title):not(.discord-heading) {
 }
 
 html.light-theme .markdown-body pre {
-  background-color: var(--lt-bg-tertiary); /* Or a specific light code block bg */
+  background-color: var(--lt-bg-tertiary); 
   color: var(--lt-text-primary);
   border-color: var(--lt-border-color-subtle);
 }
@@ -866,7 +849,7 @@ html.light-theme .markdown-body pre {
 }
 
 html.light-theme .markdown-body tr:nth-child(even) {
-  background-color: var(--lt-bg-tertiary); /* Or --lt-bg-primary for more subtle striping */
+  background-color: var(--lt-bg-tertiary); 
 }
 
 .markdown-body tr:hover td {
@@ -915,7 +898,7 @@ html.light-theme .markdown-body tr:nth-child(even) {
   box-shadow: var(--shadow-md);
   min-height: 350px;
   height: auto;
-  overflow: hidden; /* Important: for dropdowns, JS adds 'dropdown-active-overflow' */
+  overflow: hidden; 
   position: relative;
   transition: max-height 0.35s ease-in-out, transform 0.2s ease-out, box-shadow 0.2s ease-out,
               background-color 0.3s ease, border-color 0.3s ease;
@@ -928,12 +911,12 @@ html.light-theme .markdown-body tr:nth-child(even) {
 }
 
 .box-container.dropdown-active-overflow {
-  overflow: visible; /* Allows dropdown to show */
+  overflow: visible; 
   z-index: 10;
 }
 
-.box-container.expanded { /* For info box */
-  max-height: 1200px !important; /* Ensure this is enough */
+.box-container.expanded { 
+  max-height: 1200px !important; 
   min-height: 0 !important;
   height: auto !important;
 }
@@ -941,7 +924,7 @@ html.light-theme .markdown-body tr:nth-child(even) {
 .box-image-wrapper {
   position: relative;
   width: 100%;
-  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  padding-top: 56.25%; 
   overflow: hidden;
   border-radius: var(--border-radius-medium);
   margin-bottom: 15px;
@@ -981,9 +964,9 @@ html.light-theme .markdown-body tr:nth-child(even) {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    flex-wrap: nowrap; /* Changed from wrap to nowrap in original, keeping it */
+    flex-wrap: nowrap; 
     width: 100%;
-    margin-top: auto; /* Pushes to bottom */
+    margin-top: auto; 
     padding-top: 15px;
     flex-shrink: 0;
     gap: 10px;
@@ -995,51 +978,51 @@ html.light-theme .markdown-body tr:nth-child(even) {
     flex: 1;
     display: flex;
     justify-content: center;
-    align-items: stretch; /* Ensure inner button/link takes full height */
-    position: relative; /* For dropdown positioning */
-    min-width: 60px;  /* Approximate, adjust as needed */
-    max-width: 90px;  /* Approximate, adjust as needed */
-    border-radius: var(--border-radius-small); /* For hover effect */
+    align-items: stretch; 
+    position: relative; 
+    min-width: 60px; 
+    max-width: 90px;  
+    border-radius: var(--border-radius-small); 
     transition: transform 0.1s ease, background-color 0.2s ease;
 }
 
 .box-link:hover {
-    transform: translateY(-2px) scale(1.05); /* Slight lift and scale */
-    background-color: var(--xbox-green-transparent); /* Visual feedback on hover */
+    transform: translateY(-2px) scale(1.05); 
+    background-color: var(--xbox-green-transparent); 
 }
 
 .action-button,
 .action-link {
     display: flex;
-    flex-direction: column; /* Icon above text */
-    align-items: center;     /* Center icon and text */
-    justify-content: center; /* Center content vertically */
-    gap: 6px;            /* Space between icon and text */
-    padding: 5px;            /* Padding around content */
-    width: 100%;         /* Take full width of .box-link */
-    height: 100%;            /* Take full height of .box-link */
+    flex-direction: column; 
+    align-items: center;    
+    justify-content: center; 
+    gap: 6px;           
+    padding: 5px;        
+    width: 100%;       
+    height: 100%;           
     box-sizing: border-box;
-    font-family: inherit;    /* Use body font */
-    font-size: 0.75rem;      /* Small text */
+    font-family: inherit;    
+    font-size: 0.75rem;      
     font-weight: 500;
-    line-height: 1.1;        /* Tight line height */
+    line-height: 1.1;        
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    color: var(--text-secondary); /* Default color */
+    color: var(--text-secondary); 
 
-    background: none;        /* Transparent background */
-    border: none;            /* No border */
+    background: none;      
+    border: none;           
     cursor: pointer;
     text-align: center;
-    text-decoration: none; /* Remove underline from links */
+    text-decoration: none; 
 
-    border-radius: var(--border-radius-small); /* Match parent if needed */
-    transition: color 0.2s ease; /* Smooth color transition */
+    border-radius: var(--border-radius-small); 
+    transition: color 0.2s ease; 
 }
 
 .action-button:hover,
 .action-link:hover {
-    color: var(--xbox-green); /* Highlight color on hover */
+    color: var(--xbox-green); 
 }
 
 .link-icon {
@@ -1049,55 +1032,54 @@ html.light-theme .markdown-body tr:nth-child(even) {
 }
 html.light-theme .link-icon { filter: var(--lt-icon-filter); }
 
-/* Specific active state for info toggle button icon */
+
 .box-link.info-toggle.info-toggle-active .action-button .link-icon,
 html:not(.light-theme) .box-link.info-toggle.info-toggle-active .action-button .link-icon {
-    filter: brightness(0) invert(1); /* Make icon white for dark theme active */
+    filter: brightness(0) invert(1); 
 }
 html.light-theme .box-link.info-toggle.info-toggle-active .action-button .link-icon {
-    filter: var(--lt-icon-filter); /* Or specific light theme active filter if needed */
+    filter: var(--lt-icon-filter); 
 }
 
 
-/* Fix for specific icons in light theme if they don't look good with generic filter */
+
 html.light-theme img.link-icon[src="images/download.svg"],
 html.light-theme img.link-icon[src="images/youtube.svg"] {
-    filter: none !important; /* Or a specific filter for light theme if necessary */
+    filter: none !important; 
 }
 
 .button-text-span {
-    display: block; /* Or inline, depending on desired layout with arrow */
-    position: relative; /* For arrow positioning if any */
+    display: block; 
+    position: relative; 
     line-height: inherit;
-    white-space: nowrap; /* Prevent text wrapping if short */
+    white-space: nowrap; 
 }
 
-/* Arrow for dropdown toggle button */
 .action-button.download-action-btn .button-text-span .arrow {
     position: absolute;
-    right: -12px; /* Adjust as needed for spacing */
+    right: -12px; 
     top: 50%;
     transform: translateY(-50%);
     font-size: 0.9em;
-    line-height: 1; /* Ensure it doesn't affect button height */
-    pointer-events: none; /* So it doesn't interfere with button click */
+    line-height: 1; 
+    pointer-events: none; 
 }
 
 .dropdown-menu {
-    display: none; /* Hidden by default */
+    display: none; 
     position: absolute;
-    bottom: calc(100% + 5px); /* Position above the button */
+    bottom: calc(100% + 5px); 
     left: 50%;
-    transform: translateX(-50%); /* Center align */
+    transform: translateX(-50%); 
     box-sizing: border-box;
-    min-width: 160px; /* Or adjust as needed */
+    min-width: 160px; 
     background-color: var(--bg-secondary);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-medium);
     padding: 8px;
     list-style: none;
     box-shadow: var(--shadow-lg);
-    z-index: 200; /* Ensure it's above other card content */
+    z-index: 200; 
 }
 .dropdown-menu.open { display: block; }
 
@@ -1111,8 +1093,8 @@ html.light-theme img.link-icon[src="images/youtube.svg"] {
     white-space: nowrap;
     transition: background-color 0.2s ease, color 0.2s ease;
     border-radius: var(--border-radius-small);
-    text-transform: none; /* Override button's uppercase */
-    letter-spacing: normal; /* Override button's letter-spacing */
+    text-transform: none; 
+    letter-spacing: normal; 
     font-size: 0.9rem;
 }
 
@@ -1122,45 +1104,45 @@ html.light-theme img.link-icon[src="images/youtube.svg"] {
 }
 
 .info-box {
-  background-color: var(--bg-secondary); /* Slightly different from card to stand out or same */
+  background-color: var(--bg-secondary); 
   border-radius: var(--border-radius-medium);
   color: var(--text-secondary);
   font-size: 0.9em;
-  box-shadow: inset 0 0 10px rgba(var(--xbox-green-rgb), 0.4); /* Inner shadow with accent */
+  box-shadow: inset 0 0 10px rgba(var(--xbox-green-rgb), 0.4); 
   text-align: left;
   width: 100%;
   box-sizing: border-box;
-  max-height: 0; /* Collapsed by default */
-  opacity: 0;  /* Hidden by default */
+  max-height: 0; 
+  opacity: 0;  
   overflow: hidden;
-  margin-top: 0; /* No margin when collapsed */
-  padding: 0 18px; /* Padding only applied when expanded to prevent layout jumps */
+  margin-top: 0; 
+  padding: 0 18px; 
   line-height: 1.6;
   transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, margin-top 0.4s ease-in-out,
               padding-top 0.4s ease-in-out, padding-bottom 0.4s ease-in-out;
 }
 
-.box-container.expanded .info-box { /* When parent .box-container has .expanded */
-  max-height: 700px; /* Adjust as needed for your content */
+.box-container.expanded .info-box { 
+  max-height: 700px; 
   opacity: 1;
-  margin-top: 18px; /* Add margin when expanded */
-  padding-top: 20px;    /* Add padding when expanded */
-  padding-bottom: 20px; /* Add padding when expanded */
-  padding-left: 18px;   /* Keep horizontal padding */
-  padding-right: 18px;  /* Keep horizontal padding */
-  overflow-y: auto; /* If content exceeds max-height */
+  margin-top: 18px; 
+  padding-top: 20px;    
+  padding-bottom: 20px; 
+  padding-left: 18px;   
+  padding-right: 18px;  
+  overflow-y: auto; 
 }
 
 
 .info-box ul.info-list {
   list-style: none;
   padding: 0;
-  margin: 0 0 10px 0; /* Consistent margin */
+  margin: 0 0 10px 0; 
 }
 
 .info-box ul.info-list li {
   display: flex;
-  align-items: flex-start; /* Align items to the start of the flex line */
+  align-items: flex-start; 
   margin-bottom: 10px;
   line-height: 1.5;
 }
@@ -1168,12 +1150,12 @@ html.light-theme img.link-icon[src="images/youtube.svg"] {
 .info-box ul.info-list li strong {
   font-weight: 600;
   color: var(--text-primary);
-  flex-basis: 130px; /* Fixed width for the label part */
-  flex-shrink: 0;    /* Prevent shrinking */
+  flex-basis: 130px; 
+  flex-shrink: 0;    
   margin-right: 12px;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis; /* Ellipsis for long labels */
+  text-overflow: ellipsis; 
 }
 
 .info-box ul.info-list li a.contributor-name-link {
@@ -1187,21 +1169,21 @@ html.light-theme img.link-icon[src="images/youtube.svg"] {
 }
 
 
-.info-box ul.info-list ul { /* Nested list styles */
-  list-style-type: disc; /* Or square, or none */
-  padding-left: 25px; /* Indent nested list */
+.info-box ul.info-list ul { 
+  list-style-type: disc; 
+  padding-left: 25px; 
   margin-top: 6px;
-  width: 100%; /* Ensure it takes available width */
+  width: 100%; 
 }
 
 .info-box ul.info-list ul li {
-  display: list-item; /* Ensure default list item behavior */
+  display: list-item; 
   margin-bottom: 6px;
-  align-items: normal; /* Reset from parent if needed */
+  align-items: normal; 
 }
 
 .info-box ul li::marker {
-  color: var(--xbox-green); /* Style list markers if desired */
+  color: var(--xbox-green); 
 }
 
 
@@ -1248,10 +1230,10 @@ html.light-theme img.link-icon[src="images/youtube.svg"] {
 footer {
   text-align: center;
   padding: 30px 20px;
-  background-color: var(--dt-bg-secondary); /* Default to dark theme vars for footer */
+  background-color: var(--dt-bg-secondary); 
   border-top: 1px solid var(--dt-border-color);
   color: var(--dt-text-secondary);
-  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; /* Added color transition */
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; 
 }
 
 html.light-theme footer {
@@ -1268,13 +1250,13 @@ footer .discord-heading {
   font-size: 1.25rem;
   margin-bottom: 18px;
   text-align: center;
-  color: var(--text-primary); /* Use themeable text primary */
+  color: var(--text-primary); 
 }
 
 footer .discord-servers-wrapper {
   display: flex;
   justify-content: center;
-  align-items: center; /* Changed from flex-start */
+  align-items: center; 
   gap: 30px;
   flex-wrap: wrap;
 }
@@ -1283,12 +1265,12 @@ footer .discord-server-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 130px; /* Control width */
+  max-width: 130px; 
 }
 
 footer .discord-link {
   text-decoration: none;
-  display: inline-block; /* Or block if it's the only content */
+  display: inline-block; 
   transition: transform 0.2s ease-in-out, opacity 0.2s ease;
   opacity: 0.9;
 }
@@ -1301,18 +1283,18 @@ footer .discord-link:hover {
 footer .discord-icon {
   width: 48px;
   height: 48px;
-  filter: var(--icon-filter); /* Use themeable icon filter */
+  filter: var(--icon-filter); 
 }
 
 html.light-theme footer .discord-icon {
-  filter: var(--lt-icon-filter-noinvert); /* Specific for light theme if needed */
+  filter: var(--lt-icon-filter-noinvert); 
 }
 
 footer .discord-server-item h5 {
   margin-top: 10px;
   margin-bottom: 0;
   font-size: 0.85em;
-  color: var(--text-secondary); /* Use themeable text secondary */
+  color: var(--text-secondary); 
   font-weight: 500;
   line-height: 1.3;
   text-align: center;
@@ -1323,8 +1305,8 @@ footer .footer-meta-info {
   padding-top: 15px;
   font-size: 0.8em;
   line-height: 1.7;
-  color: var(--text-secondary); /* Use themeable text secondary */
-  border-top: 1px solid var(--border-color-subtle); /* Use themeable border */
+  color: var(--text-secondary); 
+  border-top: 1px solid var(--border-color-subtle); 
 }
 
 html.light-theme footer .footer-meta-info {
@@ -1332,13 +1314,13 @@ html.light-theme footer .footer-meta-info {
 }
 
 footer .footer-meta-info > span {
-  display: inline; /* Was block, inline seems more appropriate for "•" separator */
+  display: inline; 
 }
 footer .footer-meta-info > span:not(:last-child)::after {
   content: "•";
   margin-left: 10px;
   margin-right: 10px;
-  color: var(--text-secondary); /* Use themeable text secondary */
+  color: var(--text-secondary); 
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -1362,10 +1344,10 @@ footer .footer-meta-info a:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--bg-overlay); /* Use themeable overlay color */
+  background-color: var(--bg-overlay); 
   z-index: 1050;
-  display: none; /* Controlled by JS */
-  opacity: 0; /* Controlled by JS */
+  display: none; 
+  opacity: 0; 
   transition: opacity 0.25s ease-in-out;
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
@@ -1380,24 +1362,24 @@ footer .footer-meta-info a:hover {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(0.95); /* Initial state for transition */
+  transform: translate(-50%, -50%) scale(0.95); 
   background-color: var(--bg-secondary);
   color: var(--text-primary);
   padding: 25px 30px 30px 30px;
   border-radius: var(--border-radius-large);
   box-shadow: var(--shadow-xl);
-  z-index: 1060; /* Above modal overlay */
+  z-index: 1060; 
   width: 90%;
   max-width: 500px;
-  display: none; /* Controlled by JS */
-  opacity: 0; /* Controlled by JS */
+  display: none; 
+  opacity: 0; 
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 .modal.active {
   display: block;
   opacity: 1;
-  transform: translate(-50%, -50%) scale(1); /* Final state for transition */
+  transform: translate(-50%, -50%) scale(1); 
 }
 
 .modal-header {
@@ -1422,8 +1404,8 @@ footer .footer-meta-info a:hover {
   color: var(--text-secondary);
   font-size: 2.4em;
   font-weight: 300;
-  line-height: 0.5; /* Helps center the '×' */
-  padding: 0px 5px; /* Small padding for easier clicking */
+  line-height: 0.5;
+  padding: 0px 5px; 
   cursor: pointer;
   transition: color 0.2s ease, transform 0.2s ease;
 }
@@ -1434,9 +1416,9 @@ footer .footer-meta-info a:hover {
 }
 
 .modal-body {
-  max-height: 65vh; /* Prevent modal from becoming too tall */
+  max-height: 65vh; 
   overflow-y: auto;
-  padding-right: 10px; /* Space for scrollbar */
+  padding-right: 10px; 
   scrollbar-width: thin;
   scrollbar-color: var(--border-color) var(--bg-secondary);
 }
@@ -1448,11 +1430,11 @@ footer .footer-meta-info a:hover {
 a.contributor-link-item {
   display: flex;
   align-items: center;
-  text-decoration: none !important; /* Override global 'a' if necessary */
+  text-decoration: none !important; 
   color: var(--text-primary);
-  background-color: transparent; /* Or var(--bg-tertiary) for slight distinction */
+  background-color: transparent; 
   padding: 12px 15px;
-  margin-bottom: 12px; /* Space between links */
+  margin-bottom: 12px;
   border-radius: var(--border-radius-medium);
   border: 1px solid var(--border-color-subtle);
   transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
@@ -1461,11 +1443,11 @@ a.contributor-link-item {
 a.contributor-link-item:hover,
 a.contributor-link-item:focus-visible {
   background-color: var(--bg-tertiary);
-  color: var(--xbox-green-light); /* Or keep var(--text-primary) and change icon color */
+  color: var(--xbox-green-light); 
   text-decoration: none !important;
-  outline: none; /* Custom focus in :focus-visible section */
-  border-color: var(--xbox-green); /* Highlight border on hover/focus */
-  transform: translateX(3px); /* Slight shift on hover/focus */
+  outline: none; 
+  border-color: var(--xbox-green); 
+  transform: translateX(3px); 
 }
 
 a.contributor-link-item:last-child {
@@ -1476,17 +1458,17 @@ a.contributor-link-item:last-child {
   width: 24px;
   height: 24px;
   margin-right: 15px;
-  flex-shrink: 0; /* Prevent icon from shrinking */
+  flex-shrink: 0; 
   filter: var(--icon-filter);
 }
-/* Specific icon filters for light theme if needed */
+
 html.light-theme .contributor-link-icon[src$="github-logo.svg"] {
-  filter: var(--lt-icon-filter-github); /* Or a specific light theme filter if --lt-icon-filter is too generic */
+  filter: var(--lt-icon-filter-github); 
 }
 html.light-theme .contributor-link-icon[src$="kofi-logo.svg"],
 html.light-theme .contributor-link-icon[src$="paypal-logo.svg"],
 html.light-theme .contributor-link-icon[src$="buymeacoffee-logo.svg"] {
-  filter: none; /* If they look fine as is or have their own colors */
+  filter: none; 
 }
 
 .contributor-link-text {
@@ -1496,18 +1478,18 @@ html.light-theme .contributor-link-icon[src$="buymeacoffee-logo.svg"] {
 }
 
 .hero-section {
-  background-color: rgba(var(--dt-bg-primary-rgb, 16, 17, 19), 0.6); /* Dark theme overlay */
+  background-color: rgba(var(--dt-bg-primary-rgb, 16, 17, 19), 0.6); 
   padding: 70px 20px 80px 20px;
   text-align: center;
-  color: #ffffff; /* Default text color for dark hero */
+  color: #ffffff; 
   position: relative;
-  margin: -30px -30px 0 -30px; /* Pull to edges if main-content has padding */
+  margin: -30px -30px 0 -30px; 
   border-bottom: 3px solid var(--xbox-green);
 }
 
 html.light-theme .hero-section {
-  background-color: rgba(var(--lt-bg-secondary-rgb, 255, 255, 255), 0.8); /* Light theme overlay */
-  color: var(--lt-text-primary); /* Text color for light hero */
+  background-color: rgba(var(--lt-bg-secondary-rgb, 255, 255, 255), 0.8); 
+  color: var(--lt-text-primary); 
   border-bottom-color: var(--xbox-green-dark);
 }
 
@@ -1515,33 +1497,33 @@ html.light-theme .hero-section {
   max-width: 850px;
   margin: 0 auto;
   position: relative;
-  z-index: 2; /* Above pseudo-elements or background image if any */
+  z-index: 2; 
 }
 
 .hero-title {
   font-size: 2.8em;
   margin-bottom: 0.3em;
-  color: #ffffff; /* Explicitly white for dark hero */
+  color: #ffffff; 
   font-weight: 700;
   line-height: 1.2;
   text-shadow: 1px 2px 4px rgba(0,0,0,0.5);
 }
 
 html.light-theme .hero-title {
-  color: var(--lt-text-primary); /* Themeable for light */
+  color: var(--lt-text-primary); 
   text-shadow: 0px 1px 2px rgba(0,0,0,0.1);
 }
 
 .hero-subtitle {
   font-size: 1.2em;
-  color: #e0e0e0; /* Slightly off-white for dark hero */
+  color: #e0e0e0; 
   margin-bottom: 35px;
   line-height: 1.7;
-  font-weight: 300; /* Lighter weight for subtitle */
+  font-weight: 300; 
 }
 
 html.light-theme .hero-subtitle {
-  color: var(--lt-text-secondary); /* Themeable for light */
+  color: var(--lt-text-secondary); 
 }
 
 .hero-cta-buttons .guide-cta-button.hero-cta {
@@ -1549,7 +1531,7 @@ html.light-theme .hero-subtitle {
   padding: 14px 30px;
   font-size: 1.05em;
   min-width: 220px;
-  box-shadow: var(--shadow-md); /* Use themeable shadow */
+  box-shadow: var(--shadow-md); 
   text-transform: uppercase;
   letter-spacing: 0.5px;
   font-weight: 600;
@@ -1557,13 +1539,12 @@ html.light-theme .hero-subtitle {
 
 .hero-cta-buttons .guide-cta-button.hero-cta.primary {
   background-color: var(--xbox-green);
-  color: var(--text-on-accent); /* Should be white */
-  /* Fancy border effect using different shades */
+  color: var(--text-on-accent); 
   border-top-color: var(--xbox-green-light);
   border-left-color: var(--xbox-green-light);
   border-bottom-color: var(--xbox-green-dark);
   border-right-color: var(--xbox-green-dark);
-  border-width: 1px; /* Ensure border is visible if colors are same as bg */
+  border-width: 1px; 
   border-style: solid;
 }
 
@@ -1571,94 +1552,94 @@ html.light-theme .hero-subtitle {
   background-color: var(--xbox-green-light);
   border-top-color: var(--xbox-green);
   border-left-color: var(--xbox-green);
-  border-bottom-color: var(--xbox-green-darker, #073b07); /* Fallback */
-  border-right-color: var(--xbox-green-darker, #073b07); /* Fallback */
+  border-bottom-color: var(--xbox-green-darker, #073b07); 
+  border-right-color: var(--xbox-green-darker, #073b07); 
 }
 
 .hero-cta-buttons .guide-cta-button.hero-cta.secondary {
   background-color: transparent;
-  border: 2px solid var(--text-on-accent); /* White border on dark hero */
-  color: var(--text-on-accent); /* White text on dark hero */
+  border: 2px solid var(--text-on-accent); 
+  color: var(--text-on-accent); 
 }
 
 html.light-theme .hero-cta-buttons .guide-cta-button.hero-cta.secondary {
-  color: var(--xbox-green); /* Green text on light hero */
-  border-color: var(--xbox-green); /* Green border on light hero */
+  color: var(--xbox-green); 
+  border-color: var(--xbox-green); 
 }
 
 .hero-cta-buttons .guide-cta-button.hero-cta.secondary:hover {
   background-color: var(--xbox-green);
-  color: var(--text-on-accent); /* White text on hover */
+  color: var(--text-on-accent); 
   border-color: var(--xbox-green);
 }
 
 html.light-theme .hero-cta-buttons .guide-cta-button.hero-cta.secondary:hover {
   background-color: var(--xbox-green-light);
   border-color: var(--xbox-green-light);
-  color: var(--text-on-accent); /* White text on hover */
+  color: var(--text-on-accent); 
 }
 
 
-.section-title { /* Centered section title */
+.section-title { 
   font-size: 2em;
   color: var(--text-primary);
-  margin-top: 60px; /* Space above */
-  margin-bottom: 40px; /* Space below */
+  margin-top: 60px; 
+  margin-bottom: 40px; 
   text-align: center;
   border-bottom: 2px solid var(--xbox-green);
-  display: inline-block; /* To make border only as wide as text */
-  padding-bottom: 10px; /* Space between text and border */
+  display: inline-block; 
+  padding-bottom: 10px; 
   font-weight: 600;
 }
 
-.section-title-left { /* Left-aligned section title */
+.section-title-left { 
   font-size: 1.8em;
   color: var(--text-primary);
   margin-bottom: 20px;
   text-align: left;
   padding-bottom: 8px;
-  border-bottom: 1px solid var(--border-color); /* Themeable border */
+  border-bottom: 1px solid var(--border-color); 
   font-weight: 600;
 }
 
 .content-carousel-section {
-  padding: 50px 0; /* Vertical padding, horizontal will be by container */
+  padding: 50px 0; 
   text-align: center;
-  background-color: var(--bg-secondary); /* Section background */
-  margin-top: 40px; /* Space from content above */
+  background-color: var(--bg-secondary); 
+  margin-top: 40px; 
   border-top: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
 }
 
 .carousel-container {
   position: relative;
-  max-width: 1000px; /* Max width of the carousel */
-  margin: 0 auto; /* Center it */
-  overflow: hidden; /* Crucial for track movement */
+  max-width: 1000px; 
+  margin: 0 auto; 
+  overflow: hidden; 
   border-radius: var(--border-radius-large);
   box-shadow: var(--shadow-lg);
 }
 
 .carousel-track {
   display: flex;
-  transition: transform 0.5s ease-in-out; /* Smooth slide transition */
+  transition: transform 0.5s ease-in-out; 
 }
 
 .carousel-slide {
-  min-width: 100%; /* Each slide takes full width of container */
+  min-width: 100%; 
   box-sizing: border-box;
-  position: relative; /* For caption positioning */
-  background-color: var(--bg-primary); /* Fallback background for slides */
+  position: relative; 
+  background-color: var(--bg-primary); 
 }
 
 .carousel-slide a {
   display: block;
   text-decoration: none;
-  color: inherit; /* Inherit text color if caption is just text */
-  position: relative; /* For absolutely positioned image and caption */
+  color: inherit; 
+  position: relative; 
   width: 100%;
-  padding-top: 56.25%; /* 16:9 aspect ratio for the image area */
-  overflow: hidden; /* If image is larger than this area */
+  padding-top: 56.25%; 
+  overflow: hidden; 
 }
 
 .carousel-slide img {
@@ -1668,7 +1649,7 @@ html.light-theme .hero-cta-buttons .guide-cta-button.hero-cta.secondary:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Or 'cover', depending on desired image display */
+  object-fit: contain; 
 }
 
 .carousel-slide .slide-caption {
@@ -1676,8 +1657,8 @@ html.light-theme .hero-cta-buttons .guide-cta-button.hero-cta.secondary:hover {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0,0,0,0.8); /* Dark overlay for caption */
-  color: #fff; /* White text for caption */
+  background-color: rgba(0,0,0,0.8); 
+  color: #fff; 
   padding: 15px;
   text-align: center;
   font-size: 1.05em;
@@ -1686,29 +1667,29 @@ html.light-theme .hero-cta-buttons .guide-cta-button.hero-cta.secondary:hover {
 }
 
 .carousel-slide a:hover .slide-caption {
-  background-color: rgba(var(--xbox-green-rgb),0.85); /* Accent color on hover */
+  background-color: rgba(var(--xbox-green-rgb),0.85); 
 }
 
 .carousel-button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(var(--bg-secondary-rgb), 0.75); /* Themeable button background */
+  background-color: rgba(var(--bg-secondary-rgb), 0.75); 
   color: var(--text-primary);
   border: 1px solid var(--border-color-subtle);
   font-size: 2em;
-  padding: 8px 14px; /* Adjust for comfortable click area */
+  padding: 8px 14px; 
   cursor: pointer;
-  z-index: 10; /* Above slides */
-  border-radius: 50%; /* Circular buttons */
+  z-index: 10; 
+  border-radius: 50%; 
   transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-  line-height: 1; /* Ensure icon is centered */
+  line-height: 1; 
   box-shadow: var(--shadow-sm);
 }
 
 .carousel-button:hover {
   background-color: var(--xbox-green);
-  color: var(--text-on-accent); /* White icon on green */
+  color: var(--text-on-accent); 
   box-shadow: var(--shadow-md);
   border-color: var(--xbox-green-dark);
 }
@@ -1718,15 +1699,15 @@ html.light-theme .hero-cta-buttons .guide-cta-button.hero-cta.secondary:hover {
 
 .carousel-dots {
   text-align: center;
-  padding-top: 25px; /* Space above dots */
+  padding-top: 25px; 
 }
 
 .carousel-dot {
   cursor: pointer;
   height: 12px;
   width: 12px;
-  margin: 0 7px; /* Space between dots */
-  background-color: var(--border-color); /* Inactive dot color */
+  margin: 0 7px; 
+  background-color: var(--border-color); 
   border-radius: 50%;
   display: inline-block;
   transition: background-color 0.3s ease, transform 0.2s ease;
@@ -1734,8 +1715,8 @@ html.light-theme .hero-cta-buttons .guide-cta-button.hero-cta.secondary:hover {
 
 .carousel-dot.active,
 .carousel-dot:hover {
-  background-color: var(--xbox-green); /* Active/hover dot color */
-  transform: scale(1.2); /* Slight zoom effect */
+  background-color: var(--xbox-green); 
+  transform: scale(1.2); 
 }
 
 .featured-categories {
@@ -1748,7 +1729,7 @@ html.light-theme .hero-cta-buttons .guide-cta-button.hero-cta.secondary:hover {
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 30px;
   max-width: 1100px;
-  margin: 0 auto; /* Center the grid */
+  margin: 0 auto; 
 }
 
 .category-card {
@@ -1768,14 +1749,14 @@ html.light-theme .hero-cta-buttons .guide-cta-button.hero-cta.secondary:hover {
 .category-card:hover {
   transform: translateY(-6px) scale(1.03);
   box-shadow: var(--shadow-lg);
-  border-color: var(--xbox-green-light); /* Accent border on hover */
+  border-color: var(--xbox-green-light); 
 }
 
 .category-card img {
   width: 48px;
   height: 48px;
   margin-bottom: 18px;
-  filter: var(--icon-filter); /* Themeable icon */
+  filter: var(--icon-filter); 
 }
 
 html.light-theme .category-card img {
@@ -1792,18 +1773,18 @@ html.light-theme .category-card img {
   font-size: 0.95em;
   color: var(--text-secondary);
   line-height: 1.5;
-  margin-bottom: 0; /* Remove default p margin if it's the last element */
-  flex-grow: 1; /* Allows p to take up space if cards have varying title lengths */
+  margin-bottom: 0; 
+  flex-grow: 1; 
 }
 
 .getting-started-section {
   display: flex;
-  flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
-  gap: 40px; /* Space between columns */
+  flex-wrap: wrap; 
+  gap: 40px; 
   padding: 50px 20px;
-  align-items: flex-start; /* Align items to the top */
+  align-items: flex-start; 
   border-top: 1px solid var(--border-color-subtle);
-  background-color: var(--bg-secondary); /* Section background */
+  background-color: var(--bg-secondary); 
   border-radius: var(--border-radius-large);
   margin-top: 40px;
   box-shadow: var(--shadow-md);
@@ -1811,8 +1792,8 @@ html.light-theme .category-card img {
 
 .getting-started-column,
 .video-guide-column {
-  flex: 1; /* Each column tries to take equal space */
-  min-width: 300px; /* Minimum width before wrapping */
+  flex: 1; 
+  min-width: 300px; 
 }
 
 .getting-started-column p {
@@ -1822,14 +1803,14 @@ html.light-theme .category-card img {
 }
 
 .getting-started-column .guide-button-container {
-  text-align: left; /* Align button to the left in this column */
+  text-align: left; 
   margin-top: 10px;
 }
 
 .video-guide-column .dynamic-video-wrapper {
-  margin-top: 0; /* No extra margin if it's the main content of this column */
-  border-radius: var(--border-radius-medium); /* Consistent with other embeds */
-  overflow: hidden; /* If iframe has borders */
+  margin-top: 0; 
+  border-radius: var(--border-radius-medium); 
+  overflow: hidden; 
   box-shadow: var(--shadow-lg);
 }
 
@@ -1845,7 +1826,7 @@ html.light-theme .category-card img {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
   max-width: 1000px;
-  margin: 40px auto 0 auto; /* Space from title, centered */
+  margin: 40px auto 0 auto; 
 }
 
 .feature-item {
@@ -1870,7 +1851,7 @@ html.light-theme .category-card img {
   width: 55px;
   height: 55px;
   margin-bottom: 20px;
-  filter: var(--icon-filter); /* Themeable icon */
+  filter: var(--icon-filter); 
 }
 
 html.light-theme .feature-item img {
@@ -1891,7 +1872,7 @@ html.light-theme .feature-item img {
   margin-bottom: 0;
 }
 
-/* --- FOCUS VISIBLE STYLES (IMPORTANT FOR ACCESSIBILITY) --- */
+
 a:focus-visible,
 button:focus-visible,
 input[type="text"]:focus-visible,
@@ -1899,23 +1880,23 @@ input[type="text"]:focus-visible,
 .theme-switch:focus-visible,
 .sidebar-search-trigger:focus-visible,
 .nav-link:focus-visible,
-.box-link .action-button:focus-visible, /* Target the button inside .box-link */
-.box-link .action-link:focus-visible,   /* Target the link inside .box-link */
+.box-link .action-button:focus-visible, 
+.box-link .action-link:focus-visible,  
 .dropdown-menu li a:focus-visible,
-.info-toggle:focus-visible, /* This class is on the button inside .box-link */
+.info-toggle:focus-visible, 
 .guide-cta-button:focus-visible,
 a.contributor-link-item:focus-visible,
 .carousel-button:focus-visible,
 .carousel-dot:focus-visible {
   outline: 2px solid var(--xbox-green-light) !important;
   outline-offset: 2px !important;
-  box-shadow: 0 0 0 3px var(--xbox-green-transparent) !important; /* Subtle glow */
+  box-shadow: 0 0 0 3px var(--xbox-green-transparent) !important; 
 }
-/* Specific for search input if the global one is too much */
+
 .sidebar-search-input-field:focus-visible {
   border-color: var(--xbox-green) !important;
   box-shadow: 0 0 8px var(--xbox-green-transparent) !important;
-  outline: none !important; /* Override default outline if browser adds one */
+  outline: none !important; 
 }
 
 
@@ -1926,7 +1907,7 @@ a.contributor-link-item:focus-visible,
     padding: 15px;
     gap: 15px;
   }
-  :root { /* Adjust expanded sidebar width if needed for this breakpoint */
+  :root { 
     --sidebar-width: 220px;
   }
   .hero-title { font-size: 2.4em; }
@@ -1951,24 +1932,24 @@ a.contributor-link-item:focus-visible,
 
 @media (max-width: 768px) {
   body {
-    background-attachment: scroll; /* Performance on mobile */
+    background-attachment: scroll; 
   }
   main.main-content {
     padding: 15px;
-    padding-top: 0; /* If hero section is edge-to-edge */
+    padding-top: 0; 
   }
   .hero-section {
     padding: 40px 15px 50px 15px;
-    margin: 0 -15px; /* Full bleed if main-content has padding */
+    margin: 0 -15px; 
     border-radius: 0;
   }
   .hero-title { font-size: 2em; }
   .hero-subtitle { font-size: 1em; }
 
   .hero-cta-buttons .guide-cta-button.hero-cta {
-    display: block; /* Stack buttons */
-    width: calc(100% - 20px); /* Full width with some margin */
-    max-width: 320px; /* Max width for stacked buttons */
+    display: block; 
+    width: calc(100% - 20px); 
+    max-width: 320px; 
     margin-left: auto;
     margin-right: auto;
   }
@@ -1982,18 +1963,13 @@ a.contributor-link-item:focus-visible,
   .features-section {
     padding-top: 30px;
     padding-bottom: 30px;
-    padding-left: 15px; /* Consistent padding */
+    padding-left: 15px; 
     padding-right: 15px;
     margin-top: 30px;
   }
   .getting-started-section {
-    border-radius: 0; /* Full bleed if desired */
-    /* If full-bleed:
-    margin-left: -15px;
-    margin-right: -15px;
-    padding-left: 15px;
-    padding-right: 15px;
-    */
+    border-radius: 0; 
+ 
   }
   .features-section {
     margin-top: 30px;
@@ -2010,14 +1986,14 @@ a.contributor-link-item:focus-visible,
     padding: 6px 8px;
     font-size: 0.8em;
     line-height: 1.2;
-    background-color: rgba(0, 0, 0, 0.7); /* Ensure readability */
+    background-color: rgba(0, 0, 0, 0.7); 
   }
   .carousel-dots {
-    position: absolute; /* Position dots over the carousel */
+    position: absolute; 
     bottom: 3px;
     left: 0;
     right: 0;
-    z-index: 15; /* Above caption if they overlap */
+    z-index: 15; 
     padding-top: 4px;
     padding-bottom: 4px;
   }
@@ -2032,7 +2008,7 @@ a.contributor-link-item:focus-visible,
     gap: 15px;
   }
   .features-grid {
-    grid-template-columns: 1fr; /* Stack features */
+    grid-template-columns: 1fr; 
     gap: 25px;
   }
   .section-title {
@@ -2044,16 +2020,12 @@ a.contributor-link-item:focus-visible,
     margin-bottom: 15px;
   }
 
-  /* Sidebar search on mobile: when overlay is active, search input is visible.
-     When not active, only trigger is visible. This is handled by general rules.
-  */
-
   .product-wrapper {
-    grid-template-columns: 1fr; /* Stack product cards */
+    grid-template-columns: 1fr; 
     padding: 10px;
     gap: 10px;
   }
-  .box-container { /* Allow cards to adjust height */
+  .box-container { 
     min-height: 0;
   }
   .main-card-top-content {
@@ -2073,21 +2045,20 @@ a.contributor-link-item:focus-visible,
     min-width: 180px;
   }
   .category-grid {
-    grid-template-columns: 1fr; /* Stack categories */
+    grid-template-columns: 1fr; 
   }
 
   .box-content h3 { font-size: 1.1em; }
-  .box-content p { font-size: 0.9rem; } /* Changed from 0.9em */
+  .box-content p { font-size: 0.9rem; } 
   .box-links {
-    flex-direction: row; /* Keep as row for icons */
-    flex-wrap: wrap; /* Allow wrapping if too many icons */
-    /* min-height: 70px; /* Optional: if wrapping causes height issues */
+    flex-direction: row; 
+    flex-wrap: wrap; 
   }
-  /* .box-link styling usually controlled by flex items */
+
 
   .action-button,
   .action-link {
-    font-size: 0.65rem; /* Smaller font */
+    font-size: 0.65rem; 
     padding: 4px;
     gap: 2px;
   }
@@ -2096,7 +2067,6 @@ a.contributor-link-item:focus-visible,
     height: 16px;
   }
 
-  /* Search input within overlay-active sidebar on small screens */
   .sidebar.overlay-active .sidebar-search-container {
     padding: 2px;
   }
