@@ -9,7 +9,7 @@
   --xbox-green-transparent-hover: rgba(16, 124, 16, 0.18);
 
   /* Dark Theme (Default) */
-  --dt-bg-primary: #101113;
+  --dt-bg-primary: rgba(16,17,19, 0.85);
   --dt-bg-primary-rgb: 16,17,19;
   --dt-bg-secondary: #181a1d;
   --dt-bg-secondary-rgb: 24,26,29;
@@ -25,7 +25,7 @@
   --dt-icon-filter: brightness(0.9) saturate(0.8);
 
   /* Light Theme Variables */
-  --lt-bg-primary: #f0f2f5;
+  --lt-bg-primary: rgba(240,242,245, 0.4);
   --lt-bg-primary-rgb: 240,242,245;
   --lt-bg-secondary: #ffffff;
   --lt-bg-secondary-rgb: 255,255,255;
@@ -106,16 +106,16 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   height: 100%;
+  background-image: url('images/xbox-background.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
 }
 
 body {
   font-family: var(--font-family-main);
   background-color: var(--bg-primary);
-  background-image: url('images/xbox-background.jpg');
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
   color: var(--text-primary);
   line-height: 1.65;
   min-height: 100vh;
@@ -618,11 +618,11 @@ main.main-content {
   padding: 30px;
   margin: 0 auto;
   flex: 1 0 auto;
-  background-color: rgba(var(--dt-bg-primary-rgb), 0.85); 
+  background-color: transparent; 
 }
 
 html.light-theme main.main-content {
-  background-color: rgba(var(--lt-bg-primary-rgb), 0.3);
+  background-color: transparent;
 }
 
 .page-dim-overlay {
