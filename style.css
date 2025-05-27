@@ -1720,7 +1720,8 @@ html.light-theme .hero-cta-buttons .guide-cta-button.hero-cta.secondary:hover {
 
 .carousel-dots {
   text-align: center;
-  padding-top: 25px; /* Space above dots */
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .carousel-dot {
@@ -2114,9 +2115,7 @@ a.contributor-link-item:focus-visible,
     line-height: 1.1;
   }
   .carousel-dots {
-    padding-top: 2px;
-    padding-bottom: 2px;
-    bottom: 1px;
+    padding-top: 15px;
   }
   .carousel-dot {
     height: 7px;
