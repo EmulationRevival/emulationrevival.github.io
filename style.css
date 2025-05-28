@@ -1785,6 +1785,9 @@ flex-grow: 1;
 footer { padding: 20px 10px; }
 }
 @media (max-width: 480px) {
+:root {
+--sidebar-width-collapsed: 60px;
+}
 .hero-title { font-size: 1.7em; }
 .hero-subtitle { font-size: 0.9em; }
 .hero-cta-buttons .guide-cta-button.hero-cta {
