@@ -5,9 +5,6 @@ permalink: /guides/emulators/segamodel3g920-guide/
 description: "A guide for setting up Sega Model 3 G920 on dev mode."
 ---
 
-## Sega Model 3 G920 Revivee Edition (Powered by Supermodel)
-
-
 ### Requirements:
 - Xbox Series X/S.
 - External USB.
