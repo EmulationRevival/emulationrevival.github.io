@@ -3,7 +3,7 @@ layout: template
 title: "Dolphin Guide"
 permalink: /guides/emulators/dolphin-guide/
 description: "A guide for setting up Dolphin on dev mode."
-author: "Guide Authors: Credit to the guide authors in each section"
+author: "Credit to the guide authors in each section"
 ---
 
 This guide provides comprehensive instructions for setting up and using Dolphin UWP, the GameCube and Wii emulator, on an Xbox Series S/X in Developer Mode. It covers initial setup, file transfers, Netplay, optional resources (saves, cheats, textures), troubleshooting, and advanced topics.
