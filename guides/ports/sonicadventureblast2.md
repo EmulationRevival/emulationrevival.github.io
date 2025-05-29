@@ -3,10 +3,8 @@ layout: template
 title: "Sonic Adventure Blast 2 Guide"
 permalink: /guides/ports/sonicadventureblast2-guide/
 description: "A guide for setting up Sonic Adventure Blast 2 on dev mode."
+author: "Guide author: Jeen"
 ---
-
-## Sonic Adventure Blast 2 UWP Setup Guide
-#### Guide author: Jeen
 
 This guide provides instructions for installing and setting up the fan-made game "Sonic Adventure Blast 2" (SAB2) UWP port on an Xbox Series S/X console running in Developer Mode
 
