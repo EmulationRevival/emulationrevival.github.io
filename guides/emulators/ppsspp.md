@@ -3,7 +3,7 @@ layout: template
 title: "PPSSPP Guide"
 permalink: /guides/emulators/ppsspp-guide/
 description: "A guide for setting up PPSSPP on dev mode."
-author: "Guide Authors: Delta/Mewlew/Alouisious"
+author: "Delta/Mewlew/Alouisious"
 ---
 
 This is PPSSPP Setup Guide for External and Internal PPSSPP Users.
