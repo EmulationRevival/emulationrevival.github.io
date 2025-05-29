@@ -1740,10 +1740,7 @@ line-height: 1.2;
 background-color: rgba(0, 0, 0, 0.7);
 }
 .carousel-dots {
-position: absolute;
-bottom: 3px;
-left: 0;
-right: 0;
+position: static;
 z-index: 15;
 padding-top: 4px;
 padding-bottom: 4px;
@@ -1825,9 +1822,6 @@ padding: 6px 8px;
 padding: 3px 5px;
 font-size: 0.7em;
 line-height: 1.1;
-}
-.carousel-dots {
-padding-top: 15px;
 }
 .carousel-dot {
 height: 7px;
