@@ -627,8 +627,12 @@ padding-bottom: 0.4em;
 .markdown-body h1 { font-size: 2.1em; }
 .markdown-body h2 { font-size: 1.8em; }
 .markdown-body h3 { font-size: 1.5em; }
-.markdown-body > *:first-child {
-margin-top: 0 !important;
+}
+.markdown-body h1.page-main-title {
+  margin-top: 1em;
+}
+.markdown-body h4.page-author-subheading {
+  margin-top: 0.5em; 
 }
 .markdown-body p {
 color: var(--text-secondary);
