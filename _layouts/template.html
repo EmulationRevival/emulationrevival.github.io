@@ -57,10 +57,13 @@
 
 <div class="main-content-wrapper">
     <main class="main-content" id="mainContentArea">
-        <div class="markdown-body">
-            <h1>{{ page.title | escape }}</h1>
-            {{ content }}
-        </div>
+      <div class="markdown-body">
+    <h1>{{ page.title | escape }}</h1>
+    {% if page.author %}
+        <h4>{{ page.author | escape }}</h4>
+    {% endif %}
+    {{ content }}
+</div>
     </main>
 
     <footer>
