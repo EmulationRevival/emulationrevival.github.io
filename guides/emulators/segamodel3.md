@@ -5,8 +5,6 @@ permalink: /guides/emulators/segamodel3-guide/
 description: "A guide for setting up Sega Model 3 on dev mode."
 ---
 
-## Sega Model 3 (Powered by Supermodel)
-
 ### Requirements:
 - Xbox Series X/S.
 - External USB.
