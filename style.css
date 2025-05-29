@@ -635,6 +635,9 @@ border-radius: var(--border-radius-large);
   padding-bottom: 0;
   line-height: 1;
 }
+.author-label {
+  font-weight: 700;
+}
 .markdown-body h3.page-author-subheading {
   margin-top: 0em;
   margin-bottom: 1em;
