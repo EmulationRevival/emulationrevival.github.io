@@ -629,10 +629,10 @@ padding-bottom: 0.4em;
 .markdown-body h3 { font-size: 1.5em; }
 }
 .markdown-body h1.page-main-title {
-  margin-top: 1em;
+  margin-top: 0.5em;
 }
-.markdown-body h4.page-author-subheading {
-  margin-top: 0.5em; 
+.markdown-body h3.page-author-subheading {
+  margin-top: 0em; 
 }
 .markdown-body p {
 color: var(--text-secondary);
