@@ -1044,7 +1044,7 @@ border-bottom-style: solid;
 }
 .info-box ul.info-list ul {
 list-style-type: disc;
-padding-left: 25px;
+padding-left: 0px;
 margin-top: 6px;
 width: 100%;
 }
