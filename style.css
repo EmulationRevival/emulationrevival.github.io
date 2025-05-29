@@ -602,9 +602,9 @@ border: 0;
 border-radius: var(--border-radius-large);
 }
 .markdown-body {
-text-align: left;
-color: var(--text-secondary);
-line-height: 1.7;
+  text-align: left;
+  color: var(--text-secondary); /* Default text color for the body */
+  line-height: 1.7;
 }
 .markdown-body h1,
 .markdown-body h2,
@@ -612,27 +612,36 @@ line-height: 1.7;
 .markdown-body h4,
 .markdown-body h5,
 .markdown-body h6 {
-color: var(--text-primary);
-font-weight: 700;
-margin-top: 2em;
-margin-bottom: 1em;
-line-height: 1.3;
+  color: var(--text-primary);
+  font-weight: 700;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  line-height: 1.3;
 }
 .markdown-body h1:not(.hero-title),
 .markdown-body h2:not(.section-title),
 .markdown-body h3:not(.modal-title) {
-border-bottom: 1px solid var(--border-color);
-padding-bottom: 0.4em;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.4em;
 }
 .markdown-body h1 { font-size: 2.1em; }
 .markdown-body h2 { font-size: 1.8em; }
 .markdown-body h3 { font-size: 1.5em; }
-}
+
 .markdown-body h1.page-main-title {
   margin-top: 0.5em;
+  margin-bottom: 0.1em;
+  border-bottom: none;
+  padding-bottom: 0;
 }
 .markdown-body h3.page-author-subheading {
-  margin-top: 0em; 
+  margin-top: 0em;
+  margin-bottom: 1em;
+  border-bottom: none;
+  padding-bottom: 0;
+  font-size: 1.1em;
+  font-weight: 400;
+  color: var(--text-secondary);
 }
 .markdown-body p {
 color: var(--text-secondary);
