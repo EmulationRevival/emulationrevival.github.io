@@ -3,11 +3,10 @@ layout: template
 title: "PPSSPP Guide"
 permalink: /guides/emulators/ppsspp-guide/
 description: "A guide for setting up PPSSPP on dev mode."
+author: "Guide Authors: Delta/Mewlew/Alouisious"
 ---
 
-## PPSSPP Setup Guide
 This is PPSSPP Setup Guide for External and Internal PPSSPP Users.
-#### Guide Authors: Delta/Mewlew/Alouisious
 
 ### PPSSPP External USB Users
 Make sure your USB is NTFS and has **ALL APP PACKAGES Permission** otherwise Games won't load.
