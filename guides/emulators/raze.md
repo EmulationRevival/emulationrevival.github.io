@@ -3,7 +3,7 @@ layout: template
 title: "Raze Guide"
 permalink: /guides/emulators/raze-guide/
 description: "A guide for setting up raze on dev mode."
-author: "Guide Author: MewLew"
+author: "MewLew"
 ---
 
 ## External Drive Setup  
