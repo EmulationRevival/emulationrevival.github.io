@@ -3,11 +3,8 @@ layout: template
 title: "Flycast Guide"
 permalink: /guides/emulators/flycast-guide/
 description: "A guide for setting up Flycast on dev mode."
+author: "MewLew"
 ---
-
-
-# Flycast Guide
-#### Guide Author: MewLew
 
 ## Supported ROM Formats
 
