@@ -3,10 +3,8 @@ layout: template
 title: "Raze Guide"
 permalink: /guides/emulators/raze-guide/
 description: "A guide for setting up raze on dev mode."
+author: "Guide Author: MewLew"
 ---
-
-# Raze Setup Guide For Internal and External Storage
-#### Guide Author: MewLew
 
 ## External Drive Setup  
 1. Extract the premade USB folder from [**here**](<https://discord.com/channels/1024833470020722760/1223422209431834684>) and transfer the extracted `Raze` folder to your external drive.
