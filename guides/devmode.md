@@ -3,7 +3,7 @@ layout: template
 title: "Dev Mode Guide"
 permalink: /guides/devmode-guide/
 description: "A guide for setting up dev mode on dev Xbox."
-author: "Guide Author: Jeen"
+author: "Jeen"
 ---
 
 # Preliminary Steps
