@@ -3,7 +3,7 @@ layout: template
 title: "GZDoom Guide"
 permalink: /guides/emulators/gzdoom-guide/
 description: "A guide for setting up GZDoom on dev mode."
-author: "Guide Author: MewLew"
+author: "MewLew"
 ---
 
 ## **External Drive Setup**  
