@@ -1,11 +1,10 @@
 ---
 layout: template
-title: "Spelunky Classic HD"
+title: "Spelunky Classic HD Guide"
 permalink: /guides/ports/spelunky-guide/
 description: "A guide for setting up Spelunky Classic HD on dev mode."
+author: "MewLew"
 ---
-
-## Spelunky Classic HD
 
 ### Install Spelunky Classic HD:
 1. Install the `Spelunky_Classic_HD.appx` via the dev portal.
