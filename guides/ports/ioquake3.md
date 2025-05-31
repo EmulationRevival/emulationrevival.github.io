@@ -3,9 +3,8 @@ layout: template
 title: "ioquake3 Guide"
 permalink: /guides/ports/ioquake3-guide/
 description: "A guide for setting up ioquake3 on dev mode."
+author: "MewLew"
 ---
-
-## ioquake3 UWP Edition
 
 ### Requirements
 - **Xbox Series S/X**.
