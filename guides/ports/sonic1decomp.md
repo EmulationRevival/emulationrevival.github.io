@@ -1,11 +1,10 @@
 ---
 layout: template
-title: "Sonic 1 Decompilation"
+title: "Sonic 1 Decompilation Guide"
 permalink: /guides/ports/sonic1decomp-guide/
 description: "A guide for setting up Sonic 1 Decompilation on dev mode."
+author: "MewLew"
 ---
-
-## Sonic 1 Decompilation
 
 ### Requirements
 - **Game `data.rsdk` file** - You must own a copy of Sonic to obtain the required data files.
