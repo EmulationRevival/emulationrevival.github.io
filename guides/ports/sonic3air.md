@@ -1,11 +1,10 @@
 ---
 layout: template
-title: "Sonic 3 A.I.R."
+title: "Sonic 3 A.I.R. Guide"
 permalink: /guides/ports/sonic3air-guide/
 description: "A guide for setting up Sonic 3 A.I.R on dev mode."
+author: "MewLew"
 ---
-
-## Sonic 3 A.I.R.
 
 ### Requirements
 - **Xbox Series S/X**.
