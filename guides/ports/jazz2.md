@@ -1,11 +1,10 @@
 ---
 layout: template
-title: "Jazz² Resurrection"
+title: "Jazz² Resurrection Guide"
 permalink: /guides/ports/jazz2-guide/
 description: "A guide for setting up Jazz² Resurrection on dev mode."
+author: "MewLew"
 ---
-
-## Jazz² Resurrection
 
 ### Requirements
 - **Jazz Jackrabbit 2 game files**: You must own a copy of Jazz Jackrabbit 2 to use the required assets.  
