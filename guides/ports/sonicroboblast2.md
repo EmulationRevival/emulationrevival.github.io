@@ -1,11 +1,10 @@
 ---
 layout: template
-title: "Sonic Robo Blast 2"
+title: "Sonic Robo Blast 2 Guide"
 permalink: /guides/ports/sonicroboblast2-guide/
 description: "A guide for setting up Sonic Robo Blast 2 on dev mode."
+author: "MewLew"
 ---
-
-## Sonic Robo Blast 2
 
 ### External Drive Setup
 1. On your external drive, create a folder for Sonic Robo Blast 2 (e.g., `E:\SRB2`).  
