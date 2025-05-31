@@ -1,11 +1,10 @@
 ---
 layout: template
-title: "Sonic Ring Racers"
+title: "Sonic Ring Racers Guide"
 permalink: /guides/ports/sonicringracers-guide/
 description: "A guide for setting up Sonic Ring Racers on dev mode."
+author: "MewLew"
 ---
-
-## Sonic Ring Racers
 
 ### Requirements
 - **Xbox Series S/X**.
