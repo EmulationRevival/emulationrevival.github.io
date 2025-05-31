@@ -1,11 +1,10 @@
 ---
 layout: template
-title: "Spooky Dimensions"
+title: "Spooky Dimensions Guide"
 permalink: /guides/ports/spookydimensions-guide/
 description: "A guide for setting up Spooky Dimensions on dev mode."
+author: "MewLew"
 ---
-
-## Spooky Dimensions 
 
 ### Install Spooky Dimensions :
 1. Install the `SpookyDimensions.appx` via the dev portal.
