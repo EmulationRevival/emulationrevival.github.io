@@ -3,10 +3,8 @@ layout: template
 title: "Panda3DS Guide"
 permalink: /guides/wipapps/panda3ds-guide/
 description: "A guide for setting up Panda3DS on dev mode."
+author: "Jeen"
 ---
-
-# Panda3DS UWP Setup Guide
-#### Guide author: Jeen
 
 This guide provides instructions for installing and setting up Panda3DS, a Nintendo 3DS emulator, on an Xbox Series S/X console running in Developer Mode.
 
