@@ -1,11 +1,10 @@
 ---
 layout: template
-title: "Trogdor Reburninated"
+title: "Trogdor Reburninated Guide"
 permalink: /guides/ports/trogdor-guide/
 description: "A guide for setting up Trogdor Reburninated on dev mode."
+author: "MewLew"
 ---
-
-## Trogdor-Reburninated
 
 ### Install Trogdor-Reburninated
 1. Install the `Trogdor-Reburninated-UWP_2.0.0.0_x64.appx` via the dev portal.
