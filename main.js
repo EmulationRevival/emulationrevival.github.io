@@ -386,36 +386,6 @@ document.addEventListener("DOMContentLoaded", () => {
     sidebarSearchTriggerButton.addEventListener("click", handleSidebarSearchTriggerClick);
   }
 
-  // Event listener for clicks within the autocomplete results
-        if (autocompleteResults) {
-            autocompleteResults.addEventListener('click', function(event) {
-                let clickedLinkElement = event.target;
-                while (clickedLinkElement && clickedLinkElement !== this && clickedLinkElement.tagName !== 'A') {
-                    clickedLinkElement = clickedLinkElement.parentElement;
-                }
-
-                if (clickedLinkElement && clickedLinkElement.tagName === 'A' && this.contains(clickedLinkElement)) {
-
-                    if (sidebarSearchInput) {
-                        sidebarSearchInput.value = '';
-                    }
-                    this.style.display = 'none'; 
-                    this.innerHTML = ''; 
-
-                    const href = clickedLinkElement.getAttribute('href');
-                    const isSamePageLink = href && (href.startsWith('#') || 
-                                          (new URL(clickedLinkElement.href, window.location.origin).pathname === window.location.pathname && clickedLinkElement.hash));
-
-                    if (sidebar && sidebar.classList.contains("overlay-active") && isSamePageLink) {
-                        if (typeof toggleMenu === 'function') {
-                            toggleMenu(); 
-                        }
-                    }
-                }
-            });
-        }
-
-
   const currentYear = new Date().getFullYear().toString();
   const sidebarYearSpan = document.getElementById("currentYear");
   if (sidebarYearSpan) sidebarYearSpan.textContent = currentYear;
