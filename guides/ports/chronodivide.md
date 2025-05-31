@@ -1,11 +1,9 @@
 ---
 layout: template
-title: "Chrono Divide Guide"
+title: "Red Alert 2: Chrono Divide Guide"
 permalink: /guides/ports/chronodivide-guide/
 description: "A guide for setting up Chrono Divide on dev mode."
 ---
-
-## Red Alert 2: Chrono Divide
 
 ### Install the Chrono Divide App
 - Unzip the `ChronoDivide.zip` file.
