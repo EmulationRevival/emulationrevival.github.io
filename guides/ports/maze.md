@@ -1,11 +1,10 @@
 ---
 layout: template
-title: "Maze0x72"
+title: "Maze0x72 Guide"
 permalink: /guides/ports/maze-guide/
 description: "A guide for setting up Maze0x72 on dev mode."
+author: "MewLew"
 ---
-
-## Maze0x72
 
 >The game is very simple, the idea is to find the key that opens the door by exploring the maze. It has 5 possible locations for key spawning, once you got the key, just go to the door to exit the maze.
 
