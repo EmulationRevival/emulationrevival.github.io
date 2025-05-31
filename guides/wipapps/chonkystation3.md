@@ -14,7 +14,7 @@ This guide provides instructions for installing and running a Proof of Concept (
 
 *   **Xbox in Developer Mode:** Your Xbox Series S/X must be in Developer Mode.
 *   **PC:** A Windows PC for file transfers, accessing the Xbox Dev Portal, and potentially using RPCS3.
-*   **ChonkyStation 3 UWP Files:** Download the [ChonkyStation 3 UWP .zip file](https://xbdev.store/#99).  This .zip *should* contain:  *(Note: The provided link now points to a more general location.  Ideally, this would link directly to the ChonkyStation 3 download.)*
+*   **ChonkyStation 3 UWP Files:** Download the [ChonkyStation 3 UWP .zip file](https://emulationrevival.github.io/wipapps.html#chonkystation3).  This .zip *should* contain:  *(Note: The provided link now points to a more general location.  Ideally, this would link directly to the ChonkyStation 3 download.)*
     *   `xbox-uwp-sdl2-starter_1.0.6.0_x64.appx` (or a similarly named `.appx` file) - The main application package.
     *   An `x64` folder - Contains dependency files.
     *   A `sys` folder - Contains essential system files.
