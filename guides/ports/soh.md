@@ -1,11 +1,10 @@
 ---
 layout: template
-title: "SOH (Ship of Harkinian) Foxtrot UWP Edition"
+title: "SOH (Ship of Harkinian) Foxtrot UWP Edition Guide"
 permalink: /guides/ports/soh-guide/
 description: "A guide for setting up SOH (Ship of Harkinian) Foxtrot UWP Edition on dev mode."
+author: "MewLew"
 ---
-
-## SOH (Ship of Harkinian) Foxtrot UWP Edition
 
 ### Requirements
 - **External Drive** - Required to store your game file and other data.
