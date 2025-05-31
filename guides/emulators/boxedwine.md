@@ -13,7 +13,7 @@ This guide explains how to install and run BoxedWine, a Windows application emul
 
 Before you begin, you *must* have the following:
 
-1.  **Xbox in Developer Mode:**  This is absolutely essential. [DevModeSetup](/DevModeSetup)
+1.  **Xbox in Developer Mode:**  This is absolutely essential. [DevModeSetup](https://emulationrevival.github.io/guides/devmode-guide/)
 2.  **External Storage:** A USB flash drive or external hard drive.  This drive *must* be properly formatted for use with the Xbox in Developer Mode.
 3.  **A PC (Windows Recommended):** You'll need a computer to download files, prepare the external drive, and remotely manage your Xbox.
 4.  **BoxedWine Files:** These are downloaded from https://xbdev.store/
