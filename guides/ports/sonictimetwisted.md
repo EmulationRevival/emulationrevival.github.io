@@ -1,11 +1,10 @@
 ---
 layout: template
-title: "Sonic Time Twisted"
+title: "Sonic Time Twisted Guide"
 permalink: /guides/ports/sonictimetwisted-guide/
 description: "A guide for setting up Sonic Time Twisted on dev mode."
+author: "MewLew"
 ---
-
-## Sonic Time Twisted
 
 ### Install Sonic Time Twisted
 1. Install the `Sonic Time Twisted [Unofficial] (v1.1.2.0).appx` via the dev portal.
