@@ -1,11 +1,10 @@
 ---
 layout: template
-title: "Sonic CD (Decompilation)"
+title: "Sonic CD (Decompilation) Guide"
 permalink: /guides/ports/soniccd-guide/
 description: "A guide for setting up Sonic CD (Decompilation) on dev mode."
+author: "MewLew"
 ---
-
-## Sonic CD UWP Edition
 
 ### Requirements
 - **Game `data.rsdk` file** - You must own a copy of Sonic CD to obtain the required data files.
