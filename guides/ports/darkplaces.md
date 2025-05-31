@@ -5,9 +5,6 @@ permalink: /guides/ports/darkplaces-guide/
 description: "A guide for setting up Darkplaces (Quake) UWP Edition on dev mode."
 ---
 
-## Darkplaces (Quake) UWP Edition
-
-
 ### Requirements
 - **Xbox Series S/X**.
 - **External Drive** - Required to store your game file and other data.
