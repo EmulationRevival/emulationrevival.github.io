@@ -381,10 +381,39 @@ document.addEventListener("DOMContentLoaded", () => {
     menuToggleButton.addEventListener("click", toggleMenu); // Attach toggleMenu to the button
   }
 
-  // Add listener for the new sidebar search trigger button
+  // Event listener for the sidebar search trigger button
   if (sidebarSearchTriggerButton) {
     sidebarSearchTriggerButton.addEventListener("click", handleSidebarSearchTriggerClick);
   }
+
+  // Event listener for clicks within the autocomplete results
+        if (autocompleteResults) {
+            autocompleteResults.addEventListener('click', function(event) {
+                let clickedLinkElement = event.target;
+                while (clickedLinkElement && clickedLinkElement !== this && clickedLinkElement.tagName !== 'A') {
+                    clickedLinkElement = clickedLinkElement.parentElement;
+                }
+
+                if (clickedLinkElement && clickedLinkElement.tagName === 'A' && this.contains(clickedLinkElement)) {
+
+                    if (sidebarSearchInput) {
+                        sidebarSearchInput.value = '';
+                    }
+                    this.style.display = 'none'; 
+                    this.innerHTML = ''; 
+
+                    const href = clickedLinkElement.getAttribute('href');
+                    const isSamePageLink = href && (href.startsWith('#') || 
+                                          (new URL(clickedLinkElement.href, window.location.origin).pathname === window.location.pathname && clickedLinkElement.hash));
+
+                    if (sidebar && sidebar.classList.contains("overlay-active") && isSamePageLink) {
+                        if (typeof toggleMenu === 'function') {
+                            toggleMenu(); 
+                        }
+                    }
+                }
+            });
+        }
 
 
   const currentYear = new Date().getFullYear().toString();
