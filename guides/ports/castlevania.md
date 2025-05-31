@@ -3,6 +3,7 @@ layout: template
 title: "Castlevania Revamped Guide"
 permalink: /guides/ports/castlevania-guide/
 description: "A guide for setting up Castlevania Revamped on dev mode."
+author: "MewLew"
 ---
 
 ### Install the Castlevania Revamped App
