@@ -3,6 +3,7 @@ layout: template
 title: "Dhewm 3 Guide"
 permalink: /guides/ports/dhewm3-guide/
 description: "A guide for setting up Dhewm 3 on dev mode."
+author: "MewLew"
 ---
 
 ### Requirements:
