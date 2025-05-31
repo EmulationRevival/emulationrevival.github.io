@@ -3,9 +3,8 @@ layout: template
 title: "Hedge Physics Guide"
 permalink: /guides/wipapps/hedgephysics-guide/
 description: "A guide for setting up Hedge Physics on dev mode."
+author: "MewLew"
 ---
-
-## Hedge Physics 
 
 ### Install Hedge Physics:
 1. Extract the attached `HedgePhysics 1.2.3.0.zip` file.
