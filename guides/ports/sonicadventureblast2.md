@@ -25,21 +25,17 @@ Before you begin, ensure the following conditions are met:
 3.  **External USB Drive:** A USB drive formatted as NTFS with full read/write permissions set for UWP applications.
 4.  **PC:** A Windows PC for downloading files and accessing the Xbox Device Portal.
 
-> **Need help with prerequisites?** See the [_Xbox Dev Mode Setup_](https://wiki.xboxdev.store/en/DevModeSetup) guide for detailed instructions on activating Dev Mode, setting up Remote Access, and preparing a USB drive.
+> **Need help with prerequisites?** See the [_Xbox Dev Mode Setup_](https://emulationrevival.github.io/guides/devmode-guide/) guide for detailed instructions on activating Dev Mode, setting up Remote Access, and preparing a USB drive.
 
 ### Step 1: Downloading Files
 
 The necessary files are obtained from the official GitHub repository releases page.
 
-1.  **Go to Xbox Dev Store:** Navigate to the [Xbox Dev Store](https://xbdev.store/).
-2.  **Find SAB2:** Go to the "Games" tab and scroll down to find "Sonic Adventure Blast 2 (SAB2)".
-3.  **Go to Official Page:** *Instead of clicking "Download"*, click the **"Official Page"** button. This will take you to the GitHub repository (`worleydl/SAB2-uwp`).
-4.  **Navigate to Releases:** On the GitHub page, find the "Releases" section (usually on the right side) and click on the latest release (e.g., "SAB2-UWP v1.0.0").
-5.  **Download Required Files:** Under the "Assets" section of the release, download the following three files:
-    *   `SAB2_1.0.0_x64.msixbundle` (The main application package)
-    *   `Microsoft.VCLibs.x64.14.00.appx` (The necessary dependency)
-    *   `SonicAdventureBlast2_1.1.zip` (The game content files - *Note: The version number might differ from the main package*)
-6.  **Save Files:** Save these three files to a known location on your PC.
+1.  **Navigate** to the [Sonic Adventure Blast 2](https://emulationrevival.github.io/ports.html#sab2).
+2.  **Download Required Files:** Under the "Assets" section of the release, download the following three files:
+    *   `Sonic Adventure Blast 2` (The main application package)
+    *   `Dependency File` (The necessary dependency)
+3.  **Save Files:** Save these three files to a known location on your PC.
 
 > **Support the Developer:** If you enjoy WorleyDL's ports, consider supporting their work via their Ko-fi link (https://ko-fi.com/worleydl).
 
