@@ -1,11 +1,10 @@
 ---
 layout: template
-title: "Zelda 64 Recompiled"
+title: "Zelda 64 Recompiled Guide"
 permalink: /guides/ports/zelda64-guide/
 description: "A guide for setting up Zelda 64 Recompiled on dev mode."
+author: "MewLew"
 ---
-
-## Zelda 64 Recompiled (UWP)
 
 - Only **Majora’s Mask** is supported currently  
 - **Ocarina of Time** support is planned for a future release  
