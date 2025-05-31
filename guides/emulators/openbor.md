@@ -5,8 +5,6 @@ permalink: /guides/emulators/openbor-guide/
 description: "A guide for setting up OpenBOR on dev mode."
 ---
 
-## OpenBOR UWP Guide
-
 ### Requirements
 - **External Drive** - Required to store your game files and other data.  
 
