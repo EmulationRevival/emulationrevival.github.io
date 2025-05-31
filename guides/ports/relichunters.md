@@ -1,11 +1,10 @@
 ---
 layout: template
-title: "Relic Hunters Zero"
+title: "Relic Hunters Zero Guide"
 permalink: /guides/ports/relichunters-guide/
 description: "A guide for setting up Relic Hunters Zero on dev mode."
+author: "MewLew"
 ---
-
-## Relic Hunters Zero
 
 ### Install Relic Hunters Zero
 1. Install the `RelicHuntersZero.appx` via the dev portal.
