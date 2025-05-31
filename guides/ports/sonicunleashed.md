@@ -33,7 +33,7 @@ Before you begin, ensure the following conditions are met:
 6.  **Sonic Unleashed Recompiled PC Installer:** The Windows version installer is needed to generate game data files.
 7.  **Sonic Unleashed Recompiled UWP App:** The UWP application package (`.msixbundle`) and dependency (`.appx`) for installation on the Xbox.
 
-> **Need help with prerequisites?** See the [_Xbox Dev Mode Setup_](https://wiki.xboxdev.store/en/DevModeSetup) guide for detailed instructions on activating Dev Mode, setting up Remote Access, and preparing a USB drive (including formatting and permissions, **but double-check the drive letter requirement below**).
+> **Need help with prerequisites?** See the [_Xbox Dev Mode Setup_](https://emulationrevival.github.io/guides/devmode-guide/) guide for detailed instructions on activating Dev Mode, setting up Remote Access, and preparing a USB drive (including formatting and permissions, **but double-check the drive letter requirement below**).
 
 ## Part 1: Preparing Game Data Files on the E:\ Drive (Using PC Installer)
 
