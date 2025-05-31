@@ -1,11 +1,10 @@
 ---
 layout: template
-title: "Sonic 2 Decompilation"
+title: "Sonic 2 Decompilation Guide"
 permalink: /guides/ports/sonic2decomp-guide/
 description: "A guide for setting up Sonic 2 Decompilation on dev mode."
+author: "MewLew"
 ---
-
-## Sonic 2 Decompilation
 
 ### Requirements
 - **Game `data.rsdk` file** - You must own a copy of Sonic to obtain the required data files.
