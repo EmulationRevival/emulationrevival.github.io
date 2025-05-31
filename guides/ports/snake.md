@@ -1,11 +1,10 @@
 ---
 layout: template
-title: "Snake"
+title: "Snake Guide"
 permalink: /guides/ports/snake-guide/
 description: "A guide for setting up Snake on dev mode."
+author: "MewLew"
 ---
-
-## Snake UWP
 
 ### Install Snake
 1. Extract the attached `Snake.rar` file.
