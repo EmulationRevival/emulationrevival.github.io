@@ -1,11 +1,10 @@
 ---
 layout: template
-title: "Sonic 1 & 2 SMS remakes"
+title: "Sonic 1 & 2 SMS remakes Guide"
 permalink: /guides/ports/sonicsms-guide/
 description: "A guide for setting up Sonic 1 & 2 SMS remakes on dev mode."
+author: "MewLew"
 ---
-
-## Sonic 1 & 2 SMS Remake
 
 ### Install Sonic 1 SMS Remake
 1. Install the `Sonic1SMSRemake.appx` via the dev portal.
