@@ -1,11 +1,10 @@
 ---
 layout: template
-title: "Open JKDF2"
+title: "Open JKDF2 Guide"
 permalink: /guides/ports/jkdf2-guide/
 description: "A guide for setting up Open JKDF2 on dev mode."
+author: "MewLew"
 ---
-
-## OpenJKDF2 UWP Edition
 
 ### Requirements
 - **Xbox Series S/X**.
