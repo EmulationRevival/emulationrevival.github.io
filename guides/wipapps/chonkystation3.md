@@ -3,10 +3,8 @@ layout: template
 title: "ChonkyStation 3 Guide"
 permalink: /guides/wipapps/chonkystation3-guide/
 description: "A guide for setting up ChonkyStation 3 on dev mode."
+author: "Jeen"
 ---
-
-# ChonkyStation 3 UWP (Proof of Concept) Guide
-#### Guide Author: Jeen
 
 This guide provides instructions for installing and running a Proof of Concept (POC) build of ChonkyStation 3 UWP, a PlayStation 3 emulator, on an Xbox Series S/X console in Developer Mode.  *This build is highly experimental and incomplete.  Not all games will work, and those that do may have significant issues.*
 
