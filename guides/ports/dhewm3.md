@@ -5,8 +5,6 @@ permalink: /guides/ports/dhewm3-guide/
 description: "A guide for setting up Dhewm 3 on dev mode."
 ---
 
-## Dhewm3 UWP Edition
-
 ### Requirements:
 - **Xbox Series S/X**.
 - **External Drive** - Required to store your game file and other data.
