@@ -1,11 +1,10 @@
 ---
 layout: template
-title: "Zircon (Quake)"
+title: "Zircon (Quake) Guide"
 permalink: /guides/ports/zircon-guide/
 description: "A guide for setting up Zircon (Quake) on dev mode."
+author: "MewLew"
 ---
-
-## Zircon (Quake) UWP Edition
 
 ### Requirements
 - **Xbox Series S/X**.
