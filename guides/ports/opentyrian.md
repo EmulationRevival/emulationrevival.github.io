@@ -1,11 +1,10 @@
 ---
 layout: template
-title: "OpenTyrian 2000"
+title: "OpenTyrian 2000 Guide"
 permalink: /guides/ports/opentyrian-guide/
 description: "A guide for setting up OpenTyrian 2000 on dev mode."
+author: "MewLew"
 ---
-
-## OpenTyrian 2000
 
 ### Internal Setup
 1. Launch **OpenTyrian 2000** to initialize the folders.
