@@ -1,11 +1,10 @@
 ---
 layout: template
-title: "Minesweeper 3D"
+title: "Minesweeper 3D Guide"
 permalink: /guides/ports/mine-guide/
 description: "A guide for setting up Minesweeper 3D on dev mode."
+author: "MewLew"
 ---
-
-## Minesweeper 3D
 
 ### Requirements
 - Xbox Series S/X OR Xbox One
