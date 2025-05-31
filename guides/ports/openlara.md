@@ -1,11 +1,10 @@
 ---
 layout: template
-title: "OpenLara"
+title: "OpenLara Guide"
 permalink: /guides/ports/openlara-guide/
 description: "A guide for setting up OpenLara on dev mode."
+author: "MewLew"
 ---
-
-## OpenLara UWP
 
 ### Extracting Game Assets  
 
