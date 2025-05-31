@@ -1,11 +1,10 @@
 ---
 layout: template
-title: "Zelda 3"
+title: "Zelda 3 Guide"
 permalink: /guides/ports/zelda3-guide/
 description: "A guide for setting up Zelda 3 on dev mode."
+author: "MewLew"
 ---
-
-## Zelda 3
 
 ### Requirements
 - a `zelda3.sfc` USA ROM file (for asset extraction step only) with SHA256 hash `66871d66be19ad2c34c927d6b14cd8eb6fc3181965b6e517cb361f7316009cfb`
