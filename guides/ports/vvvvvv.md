@@ -1,11 +1,10 @@
 ---
 layout: template
-title: "VVVVVV (V6)"
+title: "VVVVVV (V6) Guide"
 permalink: /guides/ports/vvvvvv-guide/
 description: "A guide for setting up VVVVVV (V6) on dev mode."
+author: "MewLew"
 ---
-
-## VVVVVV UWP
 
 > The provided `.appx` is precompiled with assets from the **VVVVVV Make and Play Edition**, with explicit permission from Terry Cavanagh.
 > 
