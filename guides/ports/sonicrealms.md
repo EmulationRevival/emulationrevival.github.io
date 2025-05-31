@@ -1,11 +1,10 @@
 ---
 layout: template
-title: "Sonic Realms"
+title: "Sonic Realms Guide"
 permalink: /guides/ports/sonicrealms-guide/
 description: "A guide for setting up Sonic Realms on dev mode."
+author: "MewLew"
 ---
-
-## Sonic Realms UWP Port  
 
 > Sonic Realms is a **free, open-source 2D Sonic development kit** built using the Unity engine.  
 > - **Note:** After playing two levels, the game may send you back to the main menu. It's unclear if additional levels can be added, but it's exciting to see this available on UWP!  
