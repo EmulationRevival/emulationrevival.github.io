@@ -1,11 +1,10 @@
 ---
 layout: template
-title: "SDLPOP (Prince of Persia)"
+title: "SDLPOP (Prince of Persia) Guide"
 permalink: /guides/ports/sdlpop-guide/
 description: "A guide for setting up SDLPOP (Prince of Persia) on dev mode."
+author: "MewLew"
 ---
-
-## SDLPOP (Prince of Persia)
 
 ### Install SDLPOP:
 1. Install the `sdlpop.appx` via the dev portal.
