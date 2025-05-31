@@ -1,11 +1,10 @@
 ---
 layout: template
-title: "Sonic Mania"
+title: "Sonic Mania Guide"
 permalink: /guides/ports/sonicmania-guide/
 description: "A guide for setting up Sonic Mania on dev mode."
+author: "MewLew"
 ---
-
-## Sonic Mania UWP
 
 ### Requirements  
 - **Sonic Mania game files**: You must own a copy of Sonic Mania to use the required data file.
