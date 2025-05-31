@@ -5,8 +5,6 @@ permalink: /guides/ports/castlevania-guide/
 description: "A guide for setting up Castlevania Revamped on dev mode."
 ---
 
-## Castlevania Revamped 
-
 ### Install the Castlevania Revamped App
 - Unzip the `CVR.zip` file.
 - Install the `CVR_1.0.0.0_x64_Debug.msixbundle` via the dev portal.
