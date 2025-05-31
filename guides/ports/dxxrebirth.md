@@ -5,8 +5,6 @@ permalink: /guides/ports/dxxrebirth-guide/
 description: "A guide for setting up DXX Rebirth on dev mode."
 ---
 
-## DXX-Rebirth UWP
-
 ### Requirements:
 - **Xbox Series S/X**.
 - **External Drive** - Required to store your game files and other data.
