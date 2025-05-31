@@ -1,11 +1,10 @@
 ---
 layout: template
-title: "Sonic Adventure Blast 2 (SAB2)"
+title: "Sonic Adventure Blast 2 (SAB2) Guide"
 permalink: /guides/ports/sab2-guide/
 description: "A guide for setting up Sonic Adventure Blast 2 (SAB2) on dev mode."
+author: "MewLew"
 ---
-
-## Sonic Adventure Blast 2 (SAB2)
 
 ### Requirements
 Xbox Series S/X **ONLY**  
