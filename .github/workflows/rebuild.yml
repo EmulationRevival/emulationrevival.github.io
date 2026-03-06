@@ -1,0 +1,44 @@
+name: Nightly and Rebuild Scripts
+
+on:
+  push:
+    branches: ["main"]
+  schedule:
+    # Runs at midnight UTC every day
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: npm install cheerio dotenv node-fetch@2
+
+      - name: Run Build Links Script
+        env:
+          GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }} 
+        run: node build-links.js
+
+      - name: Run Build Index Script
+        run: node js/build-index.js
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add json/ 
+          git commit -m "Automated update: Build links and search index" || echo "No changes to commit"
+          git push
