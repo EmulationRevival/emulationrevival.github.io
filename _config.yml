@@ -1,5 +1,4 @@
 name: Emulation Revival
-remote_theme: none
 
 exclude:
   - node_modules
