@@ -1,4 +1,4 @@
-name: Emulation Revival
+name: EmulationRevival
 
 exclude:
   - node_modules
