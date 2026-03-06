@@ -1,0 +1,31 @@
+/* components/_forms.css */
+
+/* Container to handle centering on the page */
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: var(--spacing-xl) 0;
+    width: 100%;
+    background-color: var(--color-background-dark);
+}
+
+/* The Iframe styling */
+.google-form-iframe {
+    width: 100%;
+    max-width: 850px; /* Aligns with your text-heavy content width */
+    height: 1000px;   /* Adjusted for standard Google Form length */
+    border: 2px solid var(--color-secondary); /* Uses your Xbox Green variable */
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 0 20px rgba(var(--color-secondary-rgb), 0.2); /* Uses your RGB variable for glow */
+    background-color: #ffffff; /* Forms need white backgrounds for readability */
+}
+
+/* Responsiveness for mobile */
+@media (max-width: 768px) {
+    .google-form-iframe {
+        height: 1200px; /* Forms get longer on mobile */
+        border-left: none;
+        border-right: none;
+        border-radius: 0;
+    }
+}

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>About Us - Emulation Revival</title>
+        <meta
+            name="description"
+            content="Learn more about Emulation Revival, our mission, and our dedication to preserving and streamlining Xbox Developer Mode emulation."
+        >
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;600;700&family=Roboto+Mono:wght@400;700&display=swap"
+            rel="stylesheet"
+        >
+        <script src="https://unpkg.com/wicg-inert@latest/dist/inert.min.js"></script>
+        <style>
+            /* Specific text formatting for the about card to ensure readability */
+            .about-content {
+                padding: var(--spacing-xl);
+                max-width: 1200px; /* Wide desktop view */
+                margin: var(--spacing-xl) auto; /* Top margin for spacing */
+                cursor: default; /* Overrides the pointer cursor from emulator cards */
+            }
+            .about-content h1 {
+                margin-top: 0;
+                margin-bottom: var(--spacing-xl);
+                color: var(--color-primary);
+                text-align: center;
+            }
+            .about-content h2 {
+                margin-top: var(--spacing-xl);
+                margin-bottom: var(--spacing-sm);
+                color: var(--color-primary);
+            }
+            .about-content p, .about-content ul {
+                margin-bottom: var(--spacing-md);
+                line-height: 1.6;
+            }
+            .about-content ul {
+                padding-left: var(--spacing-xl);
+            }
+            .about-content li {
+                margin-bottom: var(--spacing-sm);
+            }
+            .about-content em {
+                opacity: 0.9;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header class="main-header">
+            <a href="#main-content" class="skip-link">Skip to main content</a>
+            <div class="container header-content">
+                <a href="/index.html" class="site-logo">
+                    <img
+                        src="/images/erlogo-white.webp"
+                        alt="Emulation Revival - Home"
+                        class="site-logo-img logo-dark-theme"
+                    >
+                    <img
+                        src="/images/erlogo-black.webp"
+                        alt="Emulation Revival - Home"
+                        class="site-logo-img logo-light-theme"
+                    >
+                </a>
+                <nav class="main-nav">
+                    <button class="hamburger-menu" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-navigation">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </button>
+                    <ul class="nav-list" id="main-navigation">
+                        <li><a href="/index.html" class="nav-link">Home</a></li>
+                        
+                        <li class="has-submenu">
+                            <a href="#" class="nav-link submenu-toggle" aria-haspopup="true">Library <span class="dropdown-icon">▼</span></a>
+                            <ul class="submenu">
+                                <li><a href="/xbox-dev-mode/emulators.html" class="nav-link">Emulators</a></li>
+                                <li><a href="/xbox-dev-mode/frontends.html" class="nav-link">Frontends</a></li>
+                                <li><a href="/xbox-dev-mode/ports.html" class="nav-link">Game Ports</a></li>
+                                <li><a href="/xbox-dev-mode/wip-apps.html" class="nav-link">WIP Apps</a></li>
+                                <li><a href="/xbox-dev-mode/media-apps.html" class="nav-link">Media Apps</a></li>
+                                <li><a href="/xbox-dev-mode/utilities.html" class="nav-link">Utilities</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="has-submenu">
+                            <a href="#" class="nav-link submenu-toggle" aria-haspopup="true">Guides <span class="dropdown-icon">▼</span></a>
+                            <ul class="submenu">
+                                <li><a href="{% link guides/devmode-activation.md %}" class="nav-link">Activation Guide</a></li>
+                                <li><a href="{% link guides/devmode-usb-ntfs.md %}" class="nav-link">USB & NTFS Setup</a></li>
+                                <li><a href="{% link guides/devmode-ftp.md %}" class="nav-link">FTP & File Transfer</a></li>
+                                <li><a href="{% link guides/devmode-bios.md %}" class="nav-link">BIOS Requirements</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="/compatibility.html" class="nav-link">Compatibility</a></li>
+                        <li><a href="/about.html" class="nav-link" aria-current="page">About</a></li>
+                        
+                        <li>
+                            <button id="theme-toggle"
+                                class="theme-toggle-btn"
+                                aria-label="Toggle between dark and light mode"
+                                aria-pressed="false">
+                            </button>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main id="main-content">
+            <section class="section-padded" aria-labelledby="about-us-heading">
+                <div class="container-fluid">
+                    <div class="card about-content">
+                        <h1 id="about-us-heading">About Emulation Revival</h1>
+
+                        <h2>Our Mission</h2>
+                        <p>The Xbox Series X|S and Xbox One are incredible pieces of hardware, capable of much more than just playing modern retail games. <strong>Emulation Revival</strong> was created with a single goal in mind: to provide a clean, centralized, and up-to-date repository for everything related to Xbox Developer Mode emulation.</p>
+                        <p>Whether you are looking to relive the 16-bit era, play classic 3D masterpieces, or explore community-developed game ports, we aim to make the setup process as seamless and accessible as possible.</p>
+
+                        <h2>Why Developer Mode?</h2>
+                        <p>Historically, the Xbox emulation community relied on "Retail Mode" workarounds to install emulators directly alongside standard games. However, following platform policy changes, those methods are no longer viable or safe for your account.</p>
+                        <p><strong>Developer Mode is the official, Microsoft-sanctioned way to run homebrew applications.</strong> While it takes a few extra steps to activate, it is a permanent, safe haven for emulation. Emulation Revival focuses exclusively on Dev Mode to ensure our guides and downloads remain reliable and secure for years to come.</p>
+
+                        <h2>What You Will Find Here</h2>
+                        <p>We cut through the clutter to bring you exactly what you need to get your ultimate retro console up and running:</p>
+                        <ul>
+                            <li><strong>The Library:</strong> A carefully curated, continually updated database of UWP (Universal Windows Platform) emulators, frontends, game ports, and media apps optimized for Xbox.</li>
+                            <li><strong>Comprehensive Guides:</strong> Step-by-step tutorials covering everything from your initial Dev Mode activation to formatting external USB drives and transferring files via FTP.</li>
+                            <li><strong>Direct Downloads:</strong> Safe, verified download links to the latest builds and dependencies straight from the developers.</li>
+                        </ul>
+
+                        <h2>Driven by the Community</h2>
+                        <p>Emulation Revival is built on the shoulders of giants. We are not the creators of these emulators; rather, we are an archival and educational hub. The true credit goes to the brilliant open-source developers, the dedicated porters, and the passionate testers who make Xbox emulation possible.</p>
+                        <p>We are proud to collaborate with and link directly to the Discord communities that keep this scene alive, including the <strong>Revives Community</strong>, <strong>Xbox Emulation Hub</strong>, and our own <strong>Emulation Revival</strong> server.</p>
+
+                        <h2>Legal Disclaimer</h2>
+                        <p><em>Emulation Revival is strictly an educational resource and archive for open-source and homebrew software.</em> We do not host, distribute, or provide links to copyrighted materials, including ROMs, ISOs, or proprietary BIOS files. We strongly encourage all users to legally dump their own games and BIOS files from hardware they own. Emulation Revival is not affiliated with, nor endorsed by, Microsoft, Xbox, or any associated brands.</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="discord-cta-container">
+                <div class="discord-cta">
+                    <p>For further support, please join our Discord community.</p>
+                    <button class="btn btn-discord" data-modal-target="discord-hub" aria-label="Open Discord community modal">
+                        <img src="/images/discord.svg" alt="Discord Logo" aria-hidden="true" class="icon">
+                        <span>Join our Community</span>
+                    </button>
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="main-footer">
+            <div class="container footer-content">
+                <div class="footer-logo">
+                    <img src="/images/erlogo-white.webp"
+                         alt="Emulation Revival Logo - Dark Version"
+                         class="site-logo-img logo-dark-theme">
+                    <img src="/images/erlogo-black.webp"
+                         alt="Emulation Revival Logo - Light Version"
+                         class="site-logo-img logo-light-theme">
+                </div>
+                <nav class="footer-nav" aria-label="Footer navigation">
+                    <ul>
+                        <li><a href="/index.html"
+                               aria-label="Home - navigate to homepage"
+                               class="footer-nav-link">Home</a></li>
+                        <li><a href="/about.html"
+                               aria-label="About Us - learn about our project"
+                               class="footer-nav-link">About Us</a></li>
+                        <li><a href="/contact.html"
+                               aria-label="Contact - get in touch with us"
+                               class="footer-nav-link">Contact</a></li>
+                        <li><a href="/privacy.html"
+                               aria-label="Privacy Policy - read our privacy policy"
+                               class="footer-nav-link">Privacy Policy</a></li>
+                    </ul>
+                </nav>
+                <div class="social-links">
+                    <button class="footer-modal-trigger" data-modal-target="discord-hub" aria-label="Join our Discord communities">
+                        <img src="/images/discord.svg" alt="Discord Logo" class="social-icon">
+                    </button>
+                </div>
+                <p class="copyright">
+                    © <span id="copyright-year" aria-live="polite">2026</span> Emulation Revival.
+                    All rights reserved.
+                </p>
+            </div>
+        </footer>
+        
+        <div class="modal-overlay" id="discordHubOverlay"></div>
+        <div class="modal" id="discordHubModal" role="dialog" aria-modal="true" aria-labelledby="discordHubTitle">
+            <div class="modal-header">
+                <div class="modal-header-thumb">
+                    <img src="/images/discord.svg" alt="" aria-hidden="true">
+                </div>
+                <h3 id="discordHubTitle" class="modal-header-title">Join Our Community</h3>
+                <button class="modal-close-button" id="discordHubClose" aria-label="Close menu">×</button>
+            </div>
+            <div class="modal-body" id="discordHubBody">
+                <p class="text-center" style="margin-bottom: var(--spacing-lg);">Choose a server to join for support and discussion:</p>
+                <div class="discord-grid">
+                    <a href="https://discord.gg/cBYsQCS7j7" class="btn btn-discord" target="_blank" rel="noopener noreferrer">
+                        <img src="/images/discord.svg" alt="" class="icon" aria-hidden="true">
+                        <span>Revives Community</span>
+                    </a>
+                    <a href="https://discord.gg/pVd47KAG24" class="btn btn-discord" target="_blank" rel="noopener noreferrer">
+                        <img src="/images/discord.svg" alt="" class="icon" aria-hidden="true">
+                        <span>Xbox Emulation Hub</span>
+                    </a>
+                    <a href="https://discord.gg/j2HndpJTej" class="btn btn-discord" target="_blank" rel="noopener noreferrer">
+                        <img src="/images/discord.svg" alt="" class="icon" aria-hidden="true">
+                        <span>Emulation Revival</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <script src="/js/main.js" defer></script>
+    </body>
+</html>

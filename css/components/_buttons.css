@@ -1,0 +1,151 @@
+.btn {
+    display: inline-block;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    font-family: var(--font-primary);
+    font-weight: 600;
+    font-size: 1em;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    position: relative;
+    box-sizing: border-box;
+    border: 1.5px solid;
+    color: var(--color-button-text);
+    background-color: var(--color-button-primary-bg);
+    border-color: var(--color-button-primary-border);
+    transition: background-color var(--transition-speed) var(--transition-ease),
+                color var(--transition-speed) var(--transition-ease),
+                border-color var(--transition-speed) var(--transition-ease),
+                transform var(--transition-speed) var(--transition-ease);
+}
+
+.btn:hover,
+.btn:focus-visible {
+    color: var(--color-button-text);
+    transform: translateY(-1.5px);
+}
+
+.btn:focus-visible {
+    outline: 2px solid var(--color-button-primary-bg-hover);
+    outline-offset: 2px;
+}
+
+@media (forced-colors: active) {
+    .btn {
+        border: 2px solid ButtonText;
+    }
+    .btn:focus {
+        border-color: Highlight;
+        outline: none;
+    }
+}
+
+.btn-primary {
+    background-color: var(--color-button-primary-bg);
+    border-color: var(--color-button-primary-border);
+}
+.btn-primary:hover,
+.btn-primary:focus-visible {
+    background-color: var(--color-button-primary-bg-hover);
+    border-color: var(--color-button-primary-border-hover);
+}
+
+.btn-secondary {
+    background-color: var(--color-button-secondary-bg);
+    border-color: var(--color-button-secondary-border);
+}
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+    background-color: var(--color-button-secondary-bg-hover);
+    border-color: var(--color-button-secondary-border-hover);
+}
+
+.btn-download {
+    background-color: var(--color-button-download-bg);
+    border-color: var(--color-button-download-border);
+}
+.btn-download:hover,
+.btn-download:focus-visible {
+    background-color: var(--color-button-download-bg-hover);
+    border-color: var(--color-button-download-border-hover);
+}
+
+.btn-info {
+    background-color: var(--color-button-info-bg);
+    border-color: var(--color-button-info-border);
+}
+.btn-info:hover,
+.btn-info:focus-visible {
+    background-color: var(--color-button-info-bg-hover);
+    border-color: var(--color-button-info-border-hover);
+}
+
+.btn-discord {
+    background-color: var(--color-button-discord-bg);
+    border-color: var(--color-button-discord-border);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+.btn-discord:hover,
+.btn-discord:focus-visible {
+    background-color: var(--color-button-discord-bg-hover);
+    border-color: var(--color-button-discord-border-hover);
+}
+
+.btn-youtube {
+    background-color: var(--color-button-youtube-bg);
+    border-color: var(--color-button-youtube-border);
+}
+.btn-youtube:hover,
+.btn-youtube:focus-visible {
+    background-color: var(--color-button-youtube-bg-hover);
+    border-color: var(--color-button-youtube-border-hover);
+}
+
+.btn-disabled,
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: var(--color-button-disabled-bg);
+    color: var(--color-button-text);
+    border-color: var(--color-button-disabled-border);
+    transform: none;
+    pointer-events: none;
+    box-shadow: none;
+}
+
+@media (forced-colors: active) {
+    .btn-disabled,
+    .btn:disabled {
+        opacity: 1;
+        background-color: GrayText !important;
+        color: ButtonFace !important;
+        border-color: GrayText !important;
+    }
+}
+
+.emulator-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+    justify-content: center;
+}
+
+.btn .icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .btn,
+    .btn:hover,
+    .btn:focus-visible {
+        transition: none !important;
+        transform: none !important;
+    }
+}

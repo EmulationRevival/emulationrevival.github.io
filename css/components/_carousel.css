@@ -1,0 +1,168 @@
+/* --- Carousel Container --- */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: var(--border-radius-md);
+}
+
+/* --- Carousel Track --- */
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    border-radius: var(--border-radius-md);
+}
+
+/* --- Carousel Slide --- */
+.carousel-slide {
+    min-width: 100%;
+    position: relative;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border-radius: var(--border-radius-md);
+}
+
+/* --- Carousel Navigation Buttons --- */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(var(--color-primary-rgb), 0.5);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+    color: white;
+}
+
+.carousel-button:hover,
+.carousel-button:active {
+    background-color: rgba(var(--color-primary-rgb), 0.9);
+    transform: translateY(-50%) scale(1.1);
+    color: white;
+}
+
+.carousel-link:focus-visible {
+  outline: none;
+}
+
+.carousel-link:focus-visible .carousel-img {
+  outline: 3px solid var(--color-accent); 
+  outline-offset: -3px; 
+  border-radius: var(--border-radius-md);
+}
+
+.carousel-button.prev {
+    left: 20px;
+}
+
+.carousel-button.next {
+    right: 20px;
+}
+
+/* --- Carousel Indicators --- */
+.carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.dot.active {
+    background-color: var(--color-accent);
+    transform: scale(1.2);
+}
+
+.dot:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.dot:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 2px;
+}
+
+/* --- Carousel Content Overlay --- */
+.carousel-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    text-align: center;
+    border-radius: 0 0 var(--border-radius-lg) var(--border-radius-md);
+}
+
+/* --- High Contrast Mode --- */
+@media (forced-colors: active) {
+    .carousel-button {
+        background-color: ButtonFace;
+        color: ButtonText;
+        border: 2px solid ButtonText;
+    }
+    .dot {
+        background-color: ButtonText;
+    }
+    .dot.active {
+        background-color: Highlight;
+    }
+}
+
+/* --- Reduced Motion --- */
+@media (prefers-reduced-motion: reduce) {
+    .carousel-track {
+        transition: none;
+    }
+    .carousel-button:hover {
+        transform: translateY(-50%);
+    }
+    .dot.active {
+        transform: none;
+    }
+}
+
+/* Desktop Overides */
+@media (min-width: 768px) {
+
+.carousel-button {
+    width: 80px;
+    height: 80px;
+    font-size: 2rem;
+    }
+    
+.dot {
+    width: 24px;
+    height: 24px;
+}
+}

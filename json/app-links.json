@@ -1,0 +1,761 @@
+{
+  "moonlight": {
+    "name": "Moonlight",
+    "assets": [
+      {
+        "id": "moonlight1",
+        "url": "https://github.com/TheElixZammuto/moonlight-xbox/releases/download/1.18.0/moonlight-xbox-dx_1.18.0.0_x64.msixbundle"
+      },
+      {
+        "id": "moonlight2",
+        "url": "https://github.com/TheElixZammuto/moonlight-xbox/releases/download/1.18.0/Microsoft.UI.Xaml.2.7.appx"
+      },
+      {
+        "id": "moonlight3",
+        "url": "https://github.com/TheElixZammuto/moonlight-xbox/releases/download/1.18.0/Microsoft.VCLibs.x64.14.00.appx"
+      }
+    ]
+  },
+  "discorduwp": {
+    "name": "Discord UWP",
+    "assets": [
+      {
+        "id": "discorduwp",
+        "url": "https://drive.google.com/uc?export=download&id=13qvqqpDsuHGznBpUITiV6W50Ng3pqyex"
+      }
+    ]
+  },
+  "xuwp": {
+    "name": "X UWP",
+    "assets": [
+      {
+        "id": "xuwp",
+        "url": "https://drive.google.com/uc?export=download&id=13vqMwvw1GejeElQ_62A1i1QRPylJma71"
+      }
+    ]
+  },
+  "xbcloudgaming": {
+    "name": "XB Cloud Gaming",
+    "assets": [
+      {
+        "id": "xbcloudgaming",
+        "url": "https://drive.google.com/uc?export=download&id=144V8fmPZBXklRYgfphkxbBt_dSKhkKuL"
+      }
+    ]
+  },
+  "kodi": {
+    "name": "Kodi",
+    "assets": [
+      {
+        "id": "kodi",
+        "url": "https://drive.google.com/uc?export=download&id=14YQNJ5FwlRnzdo5otCdp8l0dhLIDVR9V"
+      }
+    ]
+  },
+  "soundcloud": {
+    "name": "SoundCloud",
+    "assets": [
+      {
+        "id": "soundcloud",
+        "url": "https://drive.google.com/uc?export=download&id=15Gf3gHcW3EK1zAF3_7_fZjUTG81fJBZC"
+      }
+    ]
+  },
+  "tunein": {
+    "name": "TuneIn Radio",
+    "assets": [
+      {
+        "id": "tunein",
+        "url": "https://drive.google.com/uc?export=download&id=1515UGixciiCsNilnqnqrDwUydUoDf5YP"
+      }
+    ]
+  },
+  "twitch": {
+    "name": "Twitch",
+    "assets": [
+      {
+        "id": "twitch",
+        "url": "https://drive.google.com/uc?export=download&id=14rv08APMZMEmQd6VTNl-Rt4bA8XxBti4"
+      }
+    ]
+  },
+  "vlc": {
+    "name": "VLC Media Player",
+    "assets": [
+      {
+        "id": "vlc",
+        "url": "https://drive.google.com/uc?export=download&id=14VQd7q-nUe-mIjOiCttJnWgWv1nQ4zk1"
+      }
+    ]
+  },
+  "youtube": {
+    "name": "YouTube",
+    "assets": [
+      {
+        "id": "youtube",
+        "url": "https://drive.google.com/uc?export=download&id=14EVGDFL3x8jGbIuCfVHMqhXja5xQquyT"
+      }
+    ]
+  },
+  "zune": {
+    "name": "Zune",
+    "assets": [
+      {
+        "id": "zune",
+        "url": "https://drive.google.com/uc?export=download&id=15_ZOR4F4fXW8WCBTiDYpkbymdhTfJxUg"
+      }
+    ]
+  },
+  "xbsx2": {
+    "name": "XBSX2",
+    "assets": [
+      {
+        "id": "xbsx2_series",
+        "url": "https://github.com/XboxEmulationHub/XBSX2/releases/download/v2.0.8.5/XBSX2_2.0.8.5_x64_AVX2.msixbundle"
+      },
+      {
+        "id": "xbsx2_xb1",
+        "url": "https://github.com/XboxEmulationHub/XBSX2/releases/download/v2.0.8.5/XBSX2_2.0.8.5_x64_SSE4.msixbundle"
+      }
+    ]
+  },
+  "dolphin": {
+    "name": "Dolphin",
+    "assets": [
+      {
+        "id": "dolphin",
+        "url": "https://github.com/SternXD/dolphin/releases/download/1.1.9.0/DolphinWinRT_1.1.9.0_x64.msix"
+      }
+    ]
+  },
+  "flycast": {
+    "name": "Flycast",
+    "assets": [
+      {
+        "id": "flycast",
+        "url": "https://github.com/flyinghead/flycast/releases/download/v2.6/flycast-2.6.appx"
+      }
+    ]
+  },
+  "xenia": {
+    "name": "Xenia",
+    "assets": [
+      {
+        "id": "xenia",
+        "url": "https://github.com/SirMangler/xenia/releases/download/1.1.5a/xenia-canary-uwp_1.1.5a.appx"
+      }
+    ]
+  },
+  "citra": {
+    "name": "Citra",
+    "assets": [
+      {
+        "id": "citra",
+        "url": "https://github.com/YTReviveMe/RetroArch-uwp/releases/download/Citra-Alpha-RetroArch/RetroArch-Citra-Alpha_1.0.1.0_x64.msix"
+      }
+    ]
+  },
+  "retroarch": {
+    "name": "RetroArch",
+    "assets": [
+      {
+        "id": "retroarch1",
+        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/01-03-2026/RetroArch-XboxOne.appx"
+      },
+      {
+        "id": "retroarch2",
+        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/01-03-2026/RetroArch-XboxOne-AllCores.appx"
+      },
+      {
+        "id": "retroarch3",
+        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/01-03-2026/RetroArch-SeriesConsoles.appx"
+      },
+      {
+        "id": "retroarch4",
+        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/01-03-2026/RetroArch-SeriesConsoles-AllCores.appx"
+      }
+    ]
+  },
+  "ppsspp": {
+    "name": "PPSSPP",
+    "assets": [
+      {
+        "id": "ppsspp",
+        "url": "https://drive.google.com/uc?export=download&id=1rijhJMFEcN1qoxCMSf5iXi4G9I8_bUkL"
+      }
+    ]
+  },
+  "supermodel": {
+    "name": "Supermodel",
+    "assets": [
+      {
+        "id": "supermodel1",
+        "url": "https://github.com/poopbird4k/Supermodel-uwp-gl/releases/download/v1.0.0.4/SegaModel3-powered-by-SuperModel-v1.0.0.1_NoGUI.appx"
+      },
+      {
+        "id": "supermodel2",
+        "url": "https://github.com/poopbird4k/Supermodel-uwp-gl/releases/download/v1.0.0.4/Microsoft.VCLibs.x64.14.00.appx"
+      }
+    ]
+  },
+  "superg": {
+    "name": "Supermodel-G920",
+    "assets": [
+      {
+        "id": "superg1",
+        "url": "https://github.com/poopbird4k/Supermodel-uwp-gl/releases/download/v1.0.0.4/SegaModel3-G920-powered-by-SuperModel-v1.0.0.3_NoGUI.appx"
+      },
+      {
+        "id": "superg2",
+        "url": "https://github.com/poopbird4k/Supermodel-uwp-gl/releases/download/v1.0.0.4/Microsoft.VCLibs.x64.14.00.appx"
+      }
+    ]
+  },
+  "ruffle": {
+    "name": "Ruffle",
+    "assets": [
+      {
+        "id": "ruffle",
+        "url": "https://drive.google.com/uc?export=download&id=16PJ4EVXwz1ljaYMd43S61k5cHzr2X8EW"
+      }
+    ]
+  },
+  "openbor": {
+    "name": "OpenBOR",
+    "assets": [
+      {
+        "id": "openbor1",
+        "url": "https://drive.google.com/uc?export=download&id=16Cmq95PWfLzmOinKNnxo1Zdg2FLVw4Rx"
+      },
+      {
+        "id": "openbor2",
+        "url": "https://drive.google.com/uc?export=download&id=16Cmq95PWfLzmOinKNnxo1Zdg2FLVw4Rx"
+      }
+    ]
+  },
+  "ikemen": {
+    "name": "Ikemen-GO",
+    "assets": [
+      {
+        "id": "ikemen",
+        "url": ""
+      }
+    ]
+  },
+  "gzdoom": {
+    "name": "GZDoom",
+    "assets": [
+      {
+        "id": "gzdoom",
+        "url": "https://github.com/aerisarn/gzdoom-uwp/releases/download/1.0.7/zdoom_1.0.7.0_x64.msixbundle"
+      }
+    ]
+  },
+  "raze": {
+    "name": "Raze",
+    "assets": [
+      {
+        "id": "raze",
+        "url": "https://github.com/aerisarn/Raze-uwp/releases/download/1.0.22/raze_1.0.22.0_x64.msixbundle"
+      }
+    ]
+  },
+  "boxedwine": {
+    "name": "BoxedWine",
+    "assets": [
+      {
+        "id": "boxedwine",
+        "url": "https://drive.google.com/uc?export=download&id=1KUllCnxRIW24Rk-2hyhoWVNB0Ak48MSS"
+      }
+    ]
+  },
+  "castlevania": {
+    "name": "Castlevania Revamped",
+    "assets": [
+      {
+        "id": "castlevania",
+        "url": "https://drive.google.com/uc?export=download&id=16hBZME-610jsTGKmwTU8ZmBH6xd6InNF"
+      }
+    ]
+  },
+  "celeste": {
+    "name": "Celeste Classic",
+    "assets": [
+      {
+        "id": "celeste",
+        "url": "https://github.com/Xbox-Homebrew/ccleste/releases/download/1.0.2.0/CelesteClassic-UWP_1.0.2.0_Test.zip"
+      }
+    ]
+  },
+  "chrono": {
+    "name": "Chrono Divide",
+    "assets": [
+      {
+        "id": "chrono",
+        "url": "https://drive.google.com/uc?export=download&id=16hJY3G0jjdK-bwxuVCSpcrEevVPAwxCq"
+      }
+    ]
+  },
+  "darkplaces": {
+    "name": "Darkplaces Quake",
+    "assets": [
+      {
+        "id": "darkplaces",
+        "url": "https://drive.google.com/uc?export=download&id=16j7MGY_2pen4WmZJ6zV6CyuGZyDsjjXJ"
+      }
+    ]
+  },
+  "devilutionx": {
+    "name": "DevilutionX",
+    "assets": [
+      {
+        "id": "devilutionx",
+        "url": "https://github.com/diasurgical/DevilutionX/releases/download/1.5.5/devilutionx-xbox-one-series.zip"
+      }
+    ]
+  },
+  "dhewm3": {
+    "name": "Dhewm 3",
+    "assets": [
+      {
+        "id": "dhewm3app",
+        "url": "https://github.com/worleydl/dhewm3-uwp/releases/download/uwp-1.5.4/dhewm3-uwp_1.5.4.0_x64.msixbundle"
+      },
+      {
+        "id": "dhewm3dep",
+        "url": "https://github.com/worleydl/dhewm3-uwp/releases/download/uwp-1.5.4/Microsoft.VCLibs.x64.14.00.appx"
+      }
+    ]
+  },
+  "dxxrebirth": {
+    "name": "DXX Rebirth",
+    "assets": [
+      {
+        "id": "dxxrebirth1",
+        "url": "https://github.com/worleydl/dxx-rebirth-uwp/releases/download/release-alpha/dxx-rebirth-uwp_1.0.3.0_x64.msixbundle"
+      },
+      {
+        "id": "dxxrebirth2",
+        "url": "https://github.com/worleydl/dxx-rebirth-uwp/releases/download/release-alpha/Microsoft.VCLibs.x64.14.00.appx"
+      }
+    ]
+  },
+  "ioquake3": {
+    "name": "ioquake3",
+    "assets": [
+      {
+        "id": "ioquake3app",
+        "url": "https://github.com/worleydl/ioq3-uwp/releases/download/uwp-v1.0.0/uwp_1.0.0.0_rebundle_x64.msixbundle"
+      },
+      {
+        "id": "ioquake3dep",
+        "url": "https://github.com/worleydl/ioq3-uwp/releases/download/uwp-v1.0.0/Microsoft.VCLibs.x64.14.00.appx"
+      }
+    ]
+  },
+  "jazz2": {
+    "name": "Jazz 2 Resurrection",
+    "assets": [
+      {
+        "id": "jazz2",
+        "url": "https://github.com/deathkiller/jazz2/releases/download/3.5.0/Jazz2_3.5.0_UWP.zip"
+      }
+    ]
+  },
+  "maze": {
+    "name": "Maze0x72",
+    "assets": [
+      {
+        "id": "maze",
+        "url": "https://drive.google.com/uc?export=download&id=18YKPvE4mHfXLgQoY-V0XUy_scyqOaJDE"
+      }
+    ]
+  },
+  "mine": {
+    "name": "Minesweeper",
+    "assets": [
+      {
+        "id": "mine",
+        "url": "https://drive.google.com/uc?export=download&id=18TiEEa25OX0bRZMBWRykXnWdiM1ERfhI"
+      }
+    ]
+  },
+  "jkdf2": {
+    "name": "Open JKDF2",
+    "assets": [
+      {
+        "id": "jkdf2app",
+        "url": "https://github.com/worleydl/OpenJKDF2-uwp/releases/download/uwp-alpha/openjkdf2-uwp_1.0.0.0_x64.msixbundle"
+      },
+      {
+        "id": "jkdf2dep",
+        "url": "https://github.com/worleydl/OpenJKDF2-uwp/releases/download/uwp-alpha/Microsoft.VCLibs.x64.14.00.appx"
+      },
+      {
+        "id": "jkdf2ctl",
+        "url": "https://github.com/worleydl/OpenJKDF2-uwp/releases/download/uwp-alpha/xbone.ctl"
+      }
+    ]
+  },
+  "openlara": {
+    "name": "OpenLara",
+    "assets": [
+      {
+        "id": "openlara",
+        "url": "https://github.com/XProger/OpenLara/releases/download/latest/OpenLara_xb1.zip"
+      }
+    ]
+  },
+  "opentyrian": {
+    "name": "OpenTyrian 2000",
+    "assets": [
+      {
+        "id": "opentyrian1",
+        "url": "https://drive.google.com/uc?export=download&id=175wee2D5xoB60z4O15Ld-7mB3Xg7XF0w"
+      },
+      {
+        "id": "opentyrian2",
+        "url": "https://drive.google.com/uc?export=download&id=176CtEHJWqaokRRb6DoWBEP0ykv0PoAeY"
+      }
+    ]
+  },
+  "relichunters": {
+    "name": "Relic Hunters Zero",
+    "assets": [
+      {
+        "id": "relichunters",
+        "url": "https://github.com/MDashK/Relic-Hunters-Zero-Xbox/releases/download/v1.0.0/RelicHuntersZero.appx"
+      }
+    ]
+  },
+  "sdlpop": {
+    "name": "SDLPoP",
+    "assets": [
+      {
+        "id": "sdlpop",
+        "url": "https://github.com/Xbox-Homebrew/SDLPoP/releases/download/1.0.0.0/sdlpop.appx"
+      }
+    ]
+  },
+  "snake": {
+    "name": "Snake UWP",
+    "assets": [
+      {
+        "id": "snake",
+        "url": "https://drive.google.com/uc?export=download&id=17NweU0yfh32Na9zqqyw18jLxAeFBsjNn"
+      }
+    ]
+  },
+  "soh": {
+    "name": "Ship of Harkinian",
+    "assets": [
+      {
+        "id": "soh1",
+        "url": "https://github.com/worleydl/shipdev/releases/download/uwp-9.1.0/soh-uwp_9.1.0.0_x64.msixbundle"
+      },
+      {
+        "id": "soh2",
+        "url": "https://github.com/worleydl/shipdev/releases/download/uwp-9.1.0/Microsoft.VCLibs.x64.14.00.appx"
+      }
+    ]
+  },
+  "sonic1decomp": {
+    "name": "Sonic 1 Decompilation",
+    "assets": [
+      {
+        "id": "sonic1decomp",
+        "url": "https://drive.google.com/uc?export=download&id=17W0bUAji5ybPFEosQmnFsl0kiryGwuNZ"
+      }
+    ]
+  },
+  "sonic2decomp": {
+    "name": "Sonic 2 Decompilation",
+    "assets": [
+      {
+        "id": "sonic2decomp",
+        "url": "https://drive.google.com/uc?export=download&id=17auj4RzbrRLvCSxTpDFejgi-qC_RugPz"
+      }
+    ]
+  },
+  "sonic1sms": {
+    "name": "Sonic 1 SMS Remake",
+    "assets": [
+      {
+        "id": "sonic1sms",
+        "url": "https://github.com/MDashK/sonic-1-sms-remake-xbox/releases/download/v1.9.2-xbox/Sonic1SMSRemake.appx"
+      }
+    ]
+  },
+  "sonic2sms": {
+    "name": "Sonic 2 SMS Remake",
+    "assets": [
+      {
+        "id": "sonic2sms",
+        "url": "https://github.com/MDashK/sonic-2-sms-remake-xbox/releases/download/v2.9.2-xbox/Sonic2SMSRemake.appx"
+      }
+    ]
+  },
+  "sonic3air": {
+    "name": "Sonic 3 A.I.R",
+    "assets": [
+      {
+        "id": "sonic3air",
+        "url": "https://drive.google.com/uc?export=download&id=17jnUlMM76ztcac76zuNutyuYmIX9U0_4"
+      }
+    ]
+  },
+  "sab2": {
+    "name": "Sonic Adventure Blast 2",
+    "assets": [
+      {
+        "id": "sab2app",
+        "url": "https://github.com/worleydl/SAB2-uwp/releases/download/v1.0.0/SAB2_1.0.0.0_x64.msixbundle"
+      },
+      {
+        "id": "sab2dep",
+        "url": "https://github.com/worleydl/SAB2-uwp/releases/download/v1.0.0/Microsoft.VCLibs.x64.14.00.appx"
+      }
+    ]
+  },
+  "soniccd": {
+    "name": "Sonic CD Decompilation",
+    "assets": [
+      {
+        "id": "soniccd",
+        "url": "https://drive.google.com/uc?export=download&id=17yUkyPnQtmixv1OMFQYF2ngmHnEUpLHo"
+      }
+    ]
+  },
+  "sonicmania": {
+    "name": "Sonic Mania",
+    "assets": [
+      {
+        "id": "sonicmania",
+        "url": "https://github.com/izzy2lost/RSDKv5-Decompilation/releases/download/1.4.0/RSDKv5-UWP_1.4.0.0_x64.appx"
+      }
+    ]
+  },
+  "sonicrealms": {
+    "name": "Sonic Realms",
+    "assets": [
+      {
+        "id": "sonicrealms",
+        "url": "https://drive.google.com/uc?export=download&id=18ARq0oWTgrQA3aR3XB588NxTHhRiN-uA"
+      }
+    ]
+  },
+  "ringracers": {
+    "name": "Sonic Ring Racers",
+    "assets": [
+      {
+        "id": "ringracers1",
+        "url": "https://github.com/worleydl/ringracers-uwp/releases/download/uwp-initial/uwp_1.0.0.0_x64.msixbundle"
+      },
+      {
+        "id": "ringracers2",
+        "url": "https://github.com/worleydl/ringracers-uwp/releases/download/uwp-initial/Microsoft.VCLibs.x64.14.00.appx"
+      }
+    ]
+  },
+  "srb2": {
+    "name": "Sonic Robo Blast 2",
+    "assets": [
+      {
+        "id": "srb2",
+        "url": "https://github.com/aerisarn/srb2-uwp/releases/download/1.0.213/SRB2SDL2_1.0.213.0.zip"
+      }
+    ]
+  },
+  "sonictimetwisted": {
+    "name": "Sonic Time Twisted",
+    "assets": [
+      {
+        "id": "sonictimetwisted",
+        "url": "https://drive.google.com/uc?export=download&id=18EkopK5SPQbHdCRJKLsuLdg9hIJ0osPG"
+      }
+    ]
+  },
+  "unleashed": {
+    "name": "Sonic Unleashed Recomp",
+    "assets": [
+      {
+        "id": "unleashed1",
+        "url": "https://github.com/YTReviveMe/UnleashedRecomp-uwp/releases/download/Beta/UnleashedRecompiled_1.0.3.0_x64.msixbundle"
+      },
+      {
+        "id": "unleashed2",
+        "url": "https://github.com/YTReviveMe/UnleashedRecomp-uwp/releases/download/Beta/Microsoft.VCLibs.x64.14.00.appx"
+      }
+    ]
+  },
+  "spelunky": {
+    "name": "Spelunky Classic HD",
+    "assets": [
+      {
+        "id": "spelunky",
+        "url": "https://drive.google.com/uc?export=download&id=18H7b2ydAMej7ynhODvqCBWmFO2uXPVki"
+      }
+    ]
+  },
+  "spooky": {
+    "name": "Spooky Dimensions",
+    "assets": [
+      {
+        "id": "spooky",
+        "url": "https://drive.google.com/uc?export=download&id=18HuPIq-zBBVAWR5ilAxp_2ZdNLoL2EOz"
+      }
+    ]
+  },
+  "trogdor": {
+    "name": "Trogdor Reburninated",
+    "assets": [
+      {
+        "id": "trogdor",
+        "url": "https://drive.google.com/uc?export=download&id=18M9myT6bF1zVHh2UTH8zgXojcM8DC7iu"
+      }
+    ]
+  },
+  "tuck": {
+    "name": "Tuck King of the Sky",
+    "assets": [
+      {
+        "id": "tuck",
+        "url": "https://drive.google.com/uc?export=download&id=18aRcIzrd-ME--wwiuPQqtxNDo4g6JMRB"
+      }
+    ]
+  },
+  "vvvvvv": {
+    "name": "VVVVVV",
+    "assets": [
+      {
+        "id": "vvvvvv1",
+        "url": "https://github.com/poopbird4k/DURANGO-V6/releases/download/v2.3.6.0/VVVVVV-v2.3.6.0.appx"
+      },
+      {
+        "id": "vvvvvv2",
+        "url": "https://github.com/poopbird4k/DURANGO-V6/releases/download/v2.3.6.0/Microsoft.VCLibs.x64.14.00.appx"
+      }
+    ]
+  },
+  "zircon": {
+    "name": "Zircon Quake",
+    "assets": [
+      {
+        "id": "zircon",
+        "url": "https://drive.google.com/uc?export=download&id=18PQOAYOoZCgJQJJXVA_XZwcdJg9jXzpX"
+      }
+    ]
+  },
+  "zelda3": {
+    "name": "Zelda 3",
+    "assets": [
+      {
+        "id": "zelda3",
+        "url": "https://github.com/tunip3/zelda3/releases/download/1.0.1.0/zelda3_1.0.1.0_Test.zip"
+      }
+    ]
+  },
+  "zelda64": {
+    "name": "Zelda 64 Recomp",
+    "assets": [
+      {
+        "id": "zelda64",
+        "url": "https://github.com/YTReviveMe/Zelda64Recomp-uwp/releases/download/1.2.0/recomp_1.2.0.0_x64.msixbundle"
+      }
+    ]
+  },
+  "launchpass": {
+    "name": "Launchpass",
+    "assets": [
+      {
+        "id": "launchpass1",
+        "url": "https://github.com/Misunderstood-Wookiee/LaunchPass/releases/download/v2.2.0/LaunchPass_2.2.0.0_x64.msixbundle"
+      },
+      {
+        "id": "launchpass2",
+        "url": "https://github.com/Misunderstood-Wookiee/LaunchPass/releases/download/v2.2.0/Dependencies_x64.zip"
+      }
+    ]
+  },
+  "retropass": {
+    "name": "Retropass",
+    "assets": [
+      {
+        "id": "retropass",
+        "url": "https://github.com/retropassdev/RetroPass/releases/download/RetroPass_v1.12.0/RetroPass_v1.12.0.zip"
+      }
+    ]
+  },
+  "xboxusb": {
+    "name": "Xbox Media USB",
+    "assets": [
+      {
+        "id": "xboxusb",
+        "url": "https://github.com/SvenGDK/XboxMediaUSB/releases/download/v2.2/XboxMediaUSB.v2.2.zip"
+      }
+    ]
+  },
+  "durangoftp": {
+    "name": "Durango FTP",
+    "assets": [
+      {
+        "id": "durangoftp",
+        "url": "https://github.com/Dantes-Dungeon/DURANGO-FTP/releases/download/v1.2.1/DurangoFTP_1.0.3.0_x64.msix"
+      }
+    ]
+  },
+  "oberon": {
+    "name": "Oberon Remote",
+    "assets": [
+      {
+        "id": "oberon",
+        "url": "https://github.com/SamsidParty/OberonRemote/releases/download/1.2.0/Oberon.Msixbundle"
+      }
+    ]
+  },
+  "safeexit": {
+    "name": "Safe Exit",
+    "assets": [
+      {
+        "id": "safeexit",
+        "url": "https://github.com/Dantes-Dungeon/safe-exit/releases/download/1.0.0.1/SafeExitRelease.zip"
+      }
+    ]
+  },
+  "chonkystation3": {
+    "name": "ChonkyStation3",
+    "assets": [
+      {
+        "id": "chonkystation3",
+        "url": "https://drive.google.com/uc?export=download&id=18dxFEL2Ofv1kiN-pHZE-Zci_Woa3cPdm"
+      }
+    ]
+  },
+  "hedgephysics": {
+    "name": "Hedge Physics",
+    "assets": [
+      {
+        "id": "hedgephysics",
+        "url": "https://drive.google.com/uc?export=download&id=170OC29cIE_kZjQNM6y3OtBK7B2EOqMgM"
+      }
+    ]
+  },
+  "panda3ds": {
+    "name": "Panda3DS",
+    "assets": [
+      {
+        "id": "panda3ds",
+        "url": "https://drive.google.com/uc?export=download&id=18rpPV5w4urNPSiBtasFMaM-SdS_ESQqW"
+      }
+    ]
+  },
+  "sm64hd": {
+    "name": "SM64HD fan remake",
+    "assets": [
+      {
+        "id": "sm64hd",
+        "url": "https://drive.google.com/uc?export=download&id=18cFjR6Y9nNVzzcTkAlTXxjfgNeheKso0"
+      }
+    ]
+  }
+}

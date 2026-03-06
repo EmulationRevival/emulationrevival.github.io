@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Apps for Xbox Dev Mode - Emulation Revival</title>
+        <meta
+            name="description"
+            content="Discover and download essential apps for your Xbox in Developer Mode. Enhance your experience with tools like Discord, Moonlight, media players, and more."
+        >
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;600;700&family=Roboto+Mono:wght@400;700&display=swap"
+            rel="stylesheet"
+        >
+        <script src="https://unpkg.com/wicg-inert@latest/dist/inert.min.js"></script>
+    </head>
+
+    <body>
+        <header class="main-header">
+            <a href="#main-content" class="skip-link">Skip to main content</a>
+            <div class="container header-content">
+                <a href="/index.html" class="site-logo">
+                    <img
+                        src="/images/erlogo-white.webp"
+                        alt="Emulation Revival - Home"
+                        class="site-logo-img logo-dark-theme"
+                    >
+                    <img
+                        src="/images/erlogo-black.webp"
+                        alt="Emulation Revival - Home"
+                        class="site-logo-img logo-light-theme"
+                    >
+                </a>
+                <nav class="main-nav">
+    <button class="hamburger-menu" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+    <ul class="nav-list" id="main-navigation">
+        <li><a href="/index.html" class="nav-link">Home</a></li>
+        
+        <li class="has-submenu">
+            <a href="#" class="nav-link submenu-toggle" aria-haspopup="true">Library <span class="dropdown-icon">▼</span></a>
+            <ul class="submenu">
+                <li><a href="/xbox-dev-mode/emulators.html" class="nav-link">Emulators</a></li>
+                <li><a href="/xbox-dev-mode/frontends.html" class="nav-link">Frontends</a></li>
+                <li><a href="/xbox-dev-mode/ports.html" class="nav-link">Game Ports</a></li>
+                <li><a href="/xbox-dev-mode/wip-apps.html" class="nav-link">WIP Apps</a></li>
+                <li><a href="/xbox-dev-mode/media-apps.html" class="nav-link">Media Apps</a></li>
+                <li><a href="/xbox-dev-mode/utilities.html" class="nav-link">Utilities</a></li>
+            </ul>
+        </li>
+
+        <li class="has-submenu">
+            <a href="#" class="nav-link submenu-toggle" aria-haspopup="true">Guides <span class="dropdown-icon">▼</span></a>
+            <ul class="submenu">
+                <li><a href="{% link guides/devmode-activation.md %}" class="nav-link">Activation Guide</a></li>
+                <li><a href="{% link guides/devmode-usb-ntfs.md %}" class="nav-link">USB & NTFS Setup</a></li>
+                <li><a href="{% link guides/devmode-ftp.md %}" class="nav-link">FTP & File Transfer</a></li>
+                <li><a href="{% link guides/devmode-bios.md %}" class="nav-link">BIOS Requirements</a></li>
+            </ul>
+        </li>
+
+        <li><a href="/compatibility.html" class="nav-link">Compatibility</a></li>
+        <li><a href="/about.html" class="nav-link">About</a></li>
+        
+        <li>
+            <button id="theme-toggle"
+                class="theme-toggle-btn"
+                aria-label="Toggle between dark and light mode"
+                aria-pressed="false">
+            </button>
+        </li>
+    </ul>
+</nav>
+            </div>
+        </header>
+
+        <main id="main-content">
+            <section class="hero-section xbox-devmode-hero" aria-label="Xbox Developer Mode Apps introduction">
+                <img
+                    src="/images/devmode/xbox-background.webp"
+                    alt=""
+                    class="hero-background-image"
+                    loading="eager">
+                <div class="hero-overlay" aria-hidden="true"></div>
+                <div class="container-fluid hero-content">
+                    <h1>Xbox Dev Mode: Apps</h1>
+                    <p>
+                        Enhance your Xbox experience with a variety of powerful applications,
+                        from social media and game streaming clients to essential system tools,
+                        all available for Developer Mode.
+                    </p>
+                </div>
+            </section>
+
+            <section id="apps-list" class="section-padded" aria-labelledby="apps-list-heading">
+                <div class="container-fluid">
+                    <h2 id="apps-list-heading" class="text-center">Available Apps</h2>
+                    <p class="text-center section-description">
+                        Select any card to reveal download links and more
+                        information.
+                    </p>
+
+                    <div class="page-search-container">
+                        <label for="pageSearchInput" class="search-label">Search apps on this page:</label>
+                        <input
+                            type="search"
+                            id="pageSearchInput"
+                            class="page-search-input"
+                            aria-describedby="searchHelpText"
+                            placeholder="Search..."
+                            autocomplete="off"
+                            aria-controls="pageAutocompleteResults">
+                        <span id="searchHelpText" class="sr-only">Search by app title</span>
+                        <div
+                            id="pageAutocompleteResults"
+                            class="autocomplete-container"
+                            role="listbox"
+                            aria-labelledby="apps-list-heading"
+                            tabindex="-1"
+                        ></div>
+                    </div>
+
+                    <div class="sort-controls">
+                        <div class="sort-dropdown">
+                            <label id="sortByLabel" for="sortBy">Sort by:</label>
+                            <select id="sortBy" aria-labelledby="sortByLabel">
+                                <option value="default">Alphabetically</option>
+                                <option value="series-x">Xbox Series X|S</option>
+                                <option value="xbox-one">Xbox One</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="card-grid">
+
+                        <div class="card" id="discorduwp">
+                            <a href="#" class="card-link" data-modal-trigger="discorduwp">
+                                <div class="card-image-container">
+                                    <img src="/xbox-dev-mode/images/apps/discord.webp" alt="Discord Logo" class="card-image">
+                                </div>
+                                <div class="card-content">
+                                    <h3 class="card-title" id="discorduwp-title">Discord</h3>
+                                    <p class="card-description">Chat with friends and communities.</p>
+                                </div>
+                            </a>
+                            <div class="card-modal-content" data-modal-id="discorduwp" style="display: none;">
+                                <ul class="info-list">
+                                    <li><strong>Developer:</strong>
+                                        <div class="contributor-container">
+                                            <a href="#" class="contributor-name-link popover-trigger">Moonpower</a>
+                                            <div class="popover-menu">
+                                                <a href="https://github.com/momo-AUX1" class="popover-link"><img src="/images/github-logo.svg" alt="GitHub Logo" class="popover-icon">View on GitHub</a>
+                                                <a href="https://ko-fi.com/moonpower007" class="popover-link"><img src="/images/kofi-logo.svg" alt="Ko-fi Logo" class="popover-icon">Support on Ko-fi</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li><strong>Compatibility:</strong> Xbox One & Series S|X</li>
+                                    <li><strong>Requires:</strong> Discord account, Install all 5 dependencies.</li>
+                                </ul>
+                                <div class="card-actions">
+                                    <a href="#" class="btn btn-primary download-link" data-app-id="discorduwp" data-asset-id="discorduwp">Download</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card" id="moonlight">
+                            <a href="#" class="card-link" data-modal-trigger="moonlight">
+                                <div class="card-image-container">
+                                    <img src="/xbox-dev-mode/images/apps/moonlight.webp" alt="Moonlight Logo" class="card-image">
+                                </div>
+                                <div class="card-content">
+                                    <h3 class="card-title" id="moonlight-title">Moonlight</h3>
+                                    <p class="card-description">Stream PC games using NVIDIA GameStream or Sunshine.</p>
+                                </div>
+                            </a>
+                            <div class="card-modal-content" data-modal-id="moonlight" style="display: none;">
+                                <ul class="info-list">
+                                    <li><strong>Developer:</strong> <a href="https://github.com/moonlight-stream" class="contributor-name-link">Moonlight Game Streaming Project</a></li>
+                                    <li><strong>UWP Port by:</strong> <a href="https://github.com/TheElixZammuto" class="contributor-name-link">TheElixZammuto</a></li>
+                                    <li><strong>Compatibility:</strong> Xbox One & Series S|X</li>
+                                    <li><strong>Requires:</strong> Host PC with NVIDIA GPU (GameStream) or Sunshine, Install both dependencies.</li>
+                                </ul>
+                                <div class="card-actions">
+                                    <details class="action-dropdown">
+                                        <summary class="btn btn-primary">Download ▼</summary>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#" class="download-link" data-app-id="moonlight" data-asset-id="moonlight1">Moonlight App</a></li>
+                                            <li><a href="#" class="download-link" data-app-id="moonlight" data-asset-id="moonlight2">Moonlight - Dependency file 1</a></li>
+                                            <li><a href="#" class="download-link" data-app-id="moonlight" data-asset-id="moonlight3">Moonlight - Dependency file 2</a></li>
+                                        </ul>
+                                    </details>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card" id="xuwp">
+                            <a href="#" class="card-link" data-modal-trigger="xuwp">
+                                <div class="card-image-container">
+                                    <img src="/xbox-dev-mode/images/apps/xuwp.webp" alt="X (formerly Twitter) Logo" class="card-image">
+                                </div>
+                                <div class="card-content">
+                                    <h3 class="card-title" id="xuwp-title">X (Formerly Twitter)</h3>
+                                    <p class="card-description">The social media platform for news, updates, and conversations.</p>
+                                </div>
+                            </a>
+                            <div class="card-modal-content" data-modal-id="xuwp" style="display: none;">
+                                <ul class="info-list">
+                                    <li><strong>Developer:</strong>
+                                        <div class="contributor-container">
+                                            <a href="#" class="contributor-name-link popover-trigger">Moonpower</a>
+                                            <div class="popover-menu">
+                                                <a href="https://github.com/momo-AUX1" class="popover-link"><img src="/images/github-logo.svg" alt="GitHub Logo" class="popover-icon">View on GitHub</a>
+                                                <a href="https://ko-fi.com/moonpower007" class="popover-link"><img src="/images/kofi-logo.svg" alt="Ko-fi Logo" class="popover-icon">Support on Ko-fi</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li><strong>Compatibility:</strong> Xbox One & Series S|X</li>
+                                    <li><strong>Requires:</strong> Install all 5 dependencies.</li>
+                                </ul>
+                                <div class="card-actions">
+                                    <a href="#" class="btn btn-primary download-link" data-app-id="xuwp" data-asset-id="xuwp">Download</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card" id="xbcloudgaming">
+                            <a href="#" class="card-link" data-modal-trigger="xbcloudgaming">
+                                <div class="card-image-container">
+                                    <img src="/xbox-dev-mode/images/apps/xbcloudgaming.webp" alt="XB Cloud Gaming Logo" class="card-image">
+                                </div>
+                                <div class="card-content">
+                                    <h3 class="card-title" id="xbcloudgaming-title">XB Cloud Gaming</h3>
+                                    <p class="card-description">Access a library of games with Game Pass.</p>
+                                </div>
+                            </a>
+                            <div class="card-modal-content" data-modal-id="xbcloudgaming" style="display: none;">
+                                <ul class="info-list">
+                                    <li><strong>Developer:</strong> <a href="https://github.com/danprice142" class="contributor-name-link">DanP</a></li>
+                                    <li><strong>Compatibility:</strong> Xbox Series S|X</li>
+                                    <li><strong>Requires:</strong> Active Game Pass subscription, Install all 3 dependencies.</li>
+                                </ul>
+                                <div class="card-actions">
+                                    <a href="#" class="btn btn-primary download-link" data-app-id="xbcloudgaming" data-asset-id="xbcloudgaming">Download</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <div class="discord-cta-container">
+                <div class="discord-cta">
+                    <p>For further support, please join our Discord community.</p>
+                    <button class="btn btn-discord" data-modal-target="discord-hub" aria-label="Open Discord community modal">
+                        <img src="/images/discord.svg" alt="Discord Logo" aria-hidden="true" class="icon">
+                        <span>Join our Community</span>
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="main-footer">
+            <div class="container footer-content">
+                <div class="footer-logo">
+                    <img src="/images/erlogo-white.webp"
+                         alt="Emulation Revival Logo - Dark Version"
+                         class="site-logo-img logo-dark-theme">
+                    <img src="/images/erlogo-black.webp"
+                         alt="Emulation Revival Logo - Light Version"
+                         class="site-logo-img logo-light-theme">
+                </div>
+                <nav class="footer-nav" aria-label="Footer navigation">
+                    <ul>
+                        <li><a href="/index.html"
+                               aria-label="Home - navigate to homepage"
+                               class="footer-nav-link">Home</a></li>
+                        <li><a href="/about.html"
+                               aria-label="About Us - learn about our project"
+                               class="footer-nav-link">About Us</a></li>
+                        <li><a href="/contact.html"
+                               aria-label="Contact - get in touch with us"
+                               class="footer-nav-link">Contact</a></li>
+                        <li><a href="/privacy.html"
+                               aria-label="Privacy Policy - read our privacy policy"
+                               class="footer-nav-link">Privacy Policy</a></li>
+                    </ul>
+                </nav>
+                <div class="social-links">
+                    <button class="footer-modal-trigger" data-modal-target="discord-hub" aria-label="Join our Discord communities">
+                        <img src="/images/discord.svg" alt="Discord Logo" class="social-icon">
+                    </button>
+                </div>
+                <p class="copyright">
+                    © <span id="copyright-year" aria-live="polite">2026</span> Emulation Revival.
+                    All rights reserved.
+                </p>
+            </div>
+        </footer>
+
+        <div class="modal-overlay" id="gameDetailModalOverlay"></div>
+        <div class="modal" id="gameDetailModal" role="dialog" aria-modal="true" aria-labelledby="gameDetailModalTitle">
+            <div class="modal-header">
+                <h3 id="gameDetailModalTitle" class="modal-title">App Details</h3>
+                <button class="modal-close-button" id="gameDetailModalClose" aria-label="Close app details">×</button>
+            </div>
+            <div class="modal-body" id="gameDetailModalBody"></div>
+        </div>
+
+        <div class="modal-overlay" id="discordHubOverlay"></div>
+        <div class="modal" id="discordHubModal" role="dialog" aria-modal="true" aria-labelledby="discordHubTitle">
+            <div class="modal-header">
+                <div class="modal-header-thumb">
+                    <img src="/images/discord.svg" alt="" aria-hidden="true">
+                </div>
+                <h3 id="discordHubTitle" class="modal-header-title">Join Our Community</h3>
+                <button class="modal-close-button" id="discordHubClose" aria-label="Close menu">×</button>
+            </div>
+            <div class="modal-body" id="discordHubBody">
+                <p class="text-center" style="margin-bottom: var(--spacing-lg);">Choose a server to join for support and discussion:</p>
+                <div class="discord-grid">
+                    <a href="https://discord.gg/cBYsQCS7j7" class="btn btn-discord" target="_blank" rel="noopener noreferrer">
+                        <img src="/images/discord.svg" alt="" class="icon" aria-hidden="true">
+                        <span>Revives Community</span>
+                    </a>
+                    <a href="https://discord.gg/pVd47KAG24" class="btn btn-discord" target="_blank" rel="noopener noreferrer">
+                        <img src="/images/discord.svg" alt="" class="icon" aria-hidden="true">
+                        <span>Xbox Emulation Hub</span>
+                    </a>
+                    <a href="https://discord.gg/j2HndpJTej" class="btn btn-discord" target="_blank" rel="noopener noreferrer">
+                        <img src="/images/discord.svg" alt="" class="icon" aria-hidden="true">
+                        <span>Emulation Revival</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <script src="/js/main.js" defer></script>
+        <script src="/js/card-logic.js" defer></script>
+        <script src="/js/page-search-logic.js" defer></script>
+        <script src="/js/download-manager.js" defer></script>
+    </body>
+</html>

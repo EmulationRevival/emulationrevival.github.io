@@ -1,0 +1,212 @@
+/* _footer.css */
+
+.main-footer {
+    background-color: var(--color-background-medium);
+    padding: var(--spacing-xl) 0 var(--spacing-md) 0;
+    color: var(--color-text-secondary);
+    font-size: 0.9em;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+.footer-logo {
+    margin-bottom: var(--spacing-md);
+}
+
+.footer-logo .logo-text {
+    font-family: var(--font-primary);
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--color-heading);
+}
+
+.footer-nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    /* Mobile Default: Center the list items */
+    align-items: center;
+    padding: 0;
+    list-style: none;
+}
+
+.footer-nav a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color var(--transition-speed) var(--transition-ease);
+    padding: var(--spacing-xs) 0;
+    display: inline-block;
+}
+
+.footer-nav a:hover,
+.footer-nav a:focus-visible {
+    color: var(--color-accent);
+    outline: none;
+}
+
+.social-links {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);    
+}
+
+.social-links a {
+    display: inline-block;
+    line-height: 0;
+}
+
+.social-links img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    transition: transform var(--transition-speed) var(--transition-ease);
+}
+
+.social-links a:hover img,
+.social-links a:focus-visible img {
+    transform: translateY(-3px) scale(1.1);
+}
+
+[data-theme='light'] .social-links img {
+    filter: invert(0.8);
+}
+
+.copyright {
+    width: 100%;
+    text-align: center;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    margin-top: var(--spacing-md);
+}
+
+/* Accessibility Enhancements */
+.footer-nav a:focus-visible,
+.social-links a:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+.footer-nav [aria-current="page"] {
+    font-weight: bold;
+    color: var(--color-accent);
+    position: relative;
+}
+
+.footer-nav [aria-current="page"]::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-accent);
+}
+
+/* Discord Modal Trigger */
+.footer-modal-trigger {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 0;
+    transition: transform var(--transition-speed) var(--transition-ease);
+}
+
+.footer-modal-trigger:hover img,
+.footer-modal-trigger:focus-visible img {
+    transform: translateY(-3px) scale(1.1);
+}
+
+.footer-modal-trigger:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+/* Discord Modal Grid Layout */
+.discord-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    padding: 0 var(--spacing-md);
+}
+
+.discord-grid .btn-discord {
+    width: 100%;
+    justify-content: center;
+    padding: var(--spacing-md);
+}
+
+/* Remove box-art styling from the Discord modal icon */
+#discordHubModal .modal-header-thumb {
+    width: 32px;            /* Shrinks it to a normal icon size */
+    height: 32px;
+    background: transparent; /* Removes the background box */
+    border: none;           /* Removes the border */
+    box-shadow: none;       /* Removes any game-box shadow */
+    margin-right: var(--spacing-sm); /* Tightens the gap to the title */
+}
+
+/* Ensure the SVG scales nicely inside the new size */
+#discordHubModal .modal-header-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Re-center the title vertically with the new smaller icon */
+#discordHubModal .modal-header {
+    align-items: center; 
+}
+
+/* Strip the default h3 margin so the text centers perfectly with the icon */
+#discordHubModal .modal-header-title {
+    margin: 0; 
+    line-height: 1; /* Removes extra invisible vertical space */
+    display: flex;
+    align-items: center;
+}
+
+/* Ensure the thumb container itself doesn't have weird vertical spacing */
+#discordHubModal .modal-header-thumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Print Styles */
+@media print {
+    .main-footer {
+    border-top: 1px solid #ddd;
+}
+}
+
+/* Desktop Overides */
+@media (min-width: 768px) {
+
+    .main-footer {
+    text-align: left;
+  }
+  .footer-content {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .footer-nav ul {
+    align-items: flex-start;
+  }
+}
+
+

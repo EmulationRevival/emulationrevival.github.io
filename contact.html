@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage - Emulation Revival</title>
+    <meta
+        name="description"
+        content="Discover Emulators, Recommendations, Compatibility and More."
+    >
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/wicg-inert@latest/dist/inert.min.js"></script>
+</head>
+
+<body>
+
+<header class="main-header">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="container header-content">
+        <a href="/index.html" class="site-logo">
+            <img
+                src="/images/erlogo-white.webp"
+                alt="Emulation Revival - Home"
+                class="site-logo-img logo-dark-theme"
+            >
+            <img
+                src="/images/erlogo-black.webp"
+                alt="Emulation Revival - Home"
+                class="site-logo-img logo-light-theme"
+            >
+        </a>
+        <nav class="main-nav">
+    <button class="hamburger-menu" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+    <ul class="nav-list" id="main-navigation">
+        <li><a href="/index.html" class="nav-link">Home</a></li>
+        
+        <li class="has-submenu">
+            <a href="#" class="nav-link submenu-toggle" aria-haspopup="true">Library <span class="dropdown-icon">▼</span></a>
+            <ul class="submenu">
+                <li><a href="/xbox-dev-mode/emulators.html" class="nav-link">Emulators</a></li>
+                <li><a href="/xbox-dev-mode/frontends.html" class="nav-link">Frontends</a></li>
+                <li><a href="/xbox-dev-mode/ports.html" class="nav-link">Game Ports</a></li>
+                <li><a href="/xbox-dev-mode/wip-apps.html" class="nav-link">WIP Apps</a></li>
+                <li><a href="/xbox-dev-mode/media-apps.html" class="nav-link">Media Apps</a></li>
+                <li><a href="/xbox-dev-mode/utilities.html" class="nav-link">Utilities</a></li>
+            </ul>
+        </li>
+
+        <li class="has-submenu">
+            <a href="#" class="nav-link submenu-toggle" aria-haspopup="true">Guides <span class="dropdown-icon">▼</span></a>
+            <ul class="submenu">
+                <li><a href="{% link guides/devmode-activation.md %}" class="nav-link">Activation Guide</a></li>
+                <li><a href="{% link guides/devmode-usb-ntfs.md %}" class="nav-link">USB & NTFS Setup</a></li>
+                <li><a href="{% link guides/devmode-ftp.md %}" class="nav-link">FTP & File Transfer</a></li>
+                <li><a href="{% link guides/devmode-bios.md %}" class="nav-link">BIOS Requirements</a></li>
+            </ul>
+        </li>
+
+        <li><a href="/compatibility.html" class="nav-link">Compatibility</a></li>
+        <li><a href="/about.html" class="nav-link">About</a></li>
+        
+        <li>
+            <button id="theme-toggle"
+                class="theme-toggle-btn"
+                aria-label="Toggle between dark and light mode"
+                aria-pressed="false">
+            </button>
+        </li>
+    </ul>
+</nav>
+    </div>
+</header>
+
+<main id="main-content">
+    <section class="section-padded">
+        <div class="container-fluid">
+            <h1 class="text-center">Contact Us</h1>
+            <p class="text-center section-description">
+                Report a broken link, suggest an app, or leave general feedback.
+            </p>
+            
+            <div class="form-wrapper">
+                <iframe 
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSeTwPD_kUeUfU54oNYNLMp2wI5z3Dq_4rYyGGfUn2CFI67NNQ/viewform?embedded=true" 
+                    class="google-form-iframe"
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0">
+                    Loading…
+                </iframe>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+<footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <img src="/images/erlogo-white.webp"
+                     alt="Emulation Revival Logo - Dark Version"
+                     class="site-logo-img logo-dark-theme">
+                <img src="/images/erlogo-black.webp"
+                     alt="Emulation Revival Logo - Light Version"
+                     class="site-logo-img logo-light-theme">
+            </div>
+            <nav class="footer-nav" aria-label="Footer navigation">
+                <ul>
+                    <li><a href="/index.html"
+                           aria-label="Home - navigate to homepage"
+                           class="footer-nav-link">Home</a></li>
+                    <li><a href="/about.html"
+                           aria-label="About Us - learn about our project"
+                           class="footer-nav-link">About Us</a></li>
+                    <li><a href="/contact.html"
+                           aria-label="Contact - get in touch with us"
+                           class="footer-nav-link">Contact</a></li>
+                    <li><a href="/privacy.html"
+                           aria-label="Privacy Policy - read our privacy policy"
+                           class="footer-nav-link">Privacy Policy</a></li>
+                </ul>
+            </nav>
+            <div class="social-links">
+                <button class="footer-modal-trigger" data-modal-target="discord-hub" aria-label="Join our Discord communities">
+                    <img src="/images/discord.svg" alt="Discord Logo" class="social-icon">
+                </button>
+            </div>
+            <p class="copyright">
+                © <span id="copyright-year" aria-live="polite">2026</span> Emulation Revival.
+                All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <div class="modal-overlay" id="discordHubOverlay"></div>
+    <div class="modal" id="discordHubModal" role="dialog" aria-modal="true" aria-labelledby="discordHubTitle">
+        <div class="modal-header">
+            <div class="modal-header-thumb">
+                <img src="/images/discord.svg" alt="" aria-hidden="true">
+            </div>
+            <h3 id="discordHubTitle" class="modal-header-title">Join Our Community</h3>
+            <button class="modal-close-button" id="discordHubClose" aria-label="Close menu">×</button>
+        </div>
+        <div class="modal-body" id="discordHubBody">
+            <p class="text-center" style="margin-bottom: var(--spacing-lg);">Choose a server to join for support and discussion:</p>
+            <div class="discord-grid">
+                <a href="https://discord.gg/cBYsQCS7j7" class="btn btn-discord" target="_blank" rel="noopener noreferrer">
+                    <img src="/images/discord.svg" alt="" class="icon" aria-hidden="true">
+                    <span>Revives Community</span>
+                </a>
+                <a href="https://discord.gg/pVd47KAG24" class="btn btn-discord" target="_blank" rel="noopener noreferrer">
+                    <img src="/images/discord.svg" alt="" class="icon" aria-hidden="true">
+                    <span>Xbox Emulation Hub</span>
+                </a>
+                <a href="https://discord.gg/j2HndpJTej" class="btn btn-discord" target="_blank" rel="noopener noreferrer">
+                    <img src="/images/discord.svg" alt="" class="icon" aria-hidden="true">
+                    <span>Emulation Revival</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/carousel.js"></script>
+    <script src="/js/accordion.js"></script>
+    <script src="/app.js"></script>
+
+</body>
+</html>

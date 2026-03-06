@@ -1,0 +1,40 @@
+{
+  "duckstation": {
+    "version": "Latest Rolling Release",
+    "date": "2026-03-03T02:55:53Z"
+  },
+  "pcsx2": {
+    "version": "v2.6.3",
+    "date": "2026-01-28T17:40:45Z"
+  },
+  "netherSX2": {
+    "version": "NetherSX2 v2.2n Net Dev Build",
+    "date": "2025-12-25T12:22:12Z"
+  },
+  "rpcsxAndroid": {
+    "version": "v20250425",
+    "date": "2025-04-25T16:02:13Z"
+  },
+  "shadPS4": {
+    "version": "shadps4 v0.14.0 - codename JustShadow4",
+    "date": "2026-02-07T10:39:45Z"
+  },
+  "rpcs3": {
+    "date": "2026-03-06T12:56:04Z"
+  },
+  "beetlePsx": {
+    "date": "2026-03-06T08:45:09Z"
+  },
+  "pcsxRearmed": {
+    "date": "2026-02-23T02:15:20Z"
+  },
+  "lrps2": {
+    "date": "2026-02-06T11:27:57Z"
+  },
+  "play": {
+    "date": "2026-03-02T14:32:36Z"
+  },
+  "fpPS4": {
+    "date": "2025-09-02T08:42:17Z"
+  }
+}

@@ -1,0 +1,348 @@
+/* ============================= */
+/* Accessibility: Skip Link      */
+/* ============================= */
+.skip-link {
+  position: absolute;
+  left: 0;
+  top: -60px;
+  width: 100%;
+  text-align: center;
+  background: #000;
+  color: #fff;
+  padding: 8px;
+  z-index: 1001;
+  transition: top 0.3s ease;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* ============================= */
+/* Main Header                   */
+/* ============================= */
+.main-header {
+  background-color: var(--color-background-medium);
+  padding: var(--spacing-md) 0;
+  box-shadow: var(--box-shadow-light);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  color: var(--color-heading);
+  font-family: var(--font-primary);
+  font-size: 1.5em;
+  font-weight: 700;
+  transition: color var(--transition-speed) var(--transition-ease);
+}
+.site-logo:hover {
+  color: var(--color-secondary);
+}
+
+/* ============================= */
+/* Hamburger Menu (Mobile)       */
+/* ============================= */
+.hamburger-menu {
+  display: block;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-sm);
+  z-index: 1100;
+}
+.hamburger-menu .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: var(--color-text-light);
+  margin: 5px 0;
+  transition: all 0.3s ease-in-out;
+}
+.hamburger-menu:focus-visible {
+  outline: 2px dashed var(--color-primary);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+.hamburger-menu.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.hamburger-menu.active .bar:nth-child(2) {
+  opacity: 0;
+}
+.hamburger-menu.active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ============================= */
+/* Navigation Links              */
+/* ============================= */
+.main-nav .nav-link {
+  color: var(--color-text-light);
+  font-size: 1.1em;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  transition: color var(--transition-speed) var(--transition-ease);
+}
+
+/* ============================= */
+/* Slide-out Menu (Mobile)       */
+/* ============================= */
+.main-nav .nav-list {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  top: var(--header-height-dynamic, 72px);
+  left: 0;
+  width: 100%;
+  height: calc(100vh - var(--header-height-dynamic, 72px));
+  background-color: var(--color-background-dark);
+  z-index: 999;
+  padding: 0;
+  margin: 0;
+  gap: 0;
+  transform: translateX(-100%);
+  transition: transform var(--transition-speed) var(--transition-ease);
+  overflow-x: hidden;
+  overflow-y: hidden;
+  overscroll-behavior-x: none;
+  overscroll-behavior: contain;
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+.main-nav .nav-list.active {
+  display: flex;
+  transform: translateX(0);
+}
+.main-nav .nav-list li > a {
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--color-background-light);
+  box-sizing: border-box;
+}
+.main-nav .nav-list li > a:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Prevent any nav-list child from overflowing horizontally */
+.main-nav .nav-list,
+.main-nav .nav-list > li,
+.main-nav .nav-list > li > a,
+.main-nav .nav-list * {
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
+/* ============================= */
+/* Drill-down Submenus (Mobile)  */
+/* ============================= */
+.nav-list .submenu,
+.nav-list .sub-submenu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-background-dark);
+  transform: translateX(100%);
+  transition: transform var(--transition-speed) var(--transition-ease);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+.nav-list .submenu.active,
+.nav-list .sub-submenu.active {
+  transform: translateX(0);
+}
+.drilldown-back {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-md);
+  color: var(--color-text-light);
+  background-color: var(--color-background-medium);
+  cursor: pointer;
+  font-weight: bold;
+  border-bottom: 1px solid var(--color-background-light);
+  border: none;
+  background: none;
+  background-color: var(--color-background-medium);
+  font: inherit;
+  width: 100%;
+  text-align: left;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  box-shadow: none;
+}
+.drilldown-back:focus-visible {
+  outline: 2px dashed var(--color-primary);
+  outline-offset: 2px;
+  background-color: var(--color-background-light);
+}
+.drilldown-back::before {
+  content: '◀';
+  margin-right: var(--spacing-sm);
+  color: var(--color-secondary-light);
+}
+.submenu-content {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* ============================= */
+/* Dropdown Icon                 */
+/* ============================= */
+.dropdown-icon {
+  font-size: 0.8em;
+  color: var(--color-text-secondary);
+  transition: transform var(--transition-speed) var(--transition-ease);
+}
+.has-submenu.active > a > .dropdown-icon {
+  transform: rotate(90deg);
+}
+
+/* ============================= */
+/* Prevent Horizontal Scroll on Body When Menu Open */
+/* ============================= */
+body.no-scroll {
+  overflow-x: hidden;
+  overscroll-behavior-x: none;
+  position: fixed; width: 100vw;
+}
+
+/* ============================= */
+/* Theme Toggle                  */
+/* ============================= */
+.theme-toggle-btn {
+  background: none;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: var(--spacing-sm);
+  width: 44px;
+  height: 44px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--transition-speed) var(--transition-ease), transform var(--transition-speed) var(--transition-ease);
+}
+.theme-toggle-btn::after {
+  content: "🌙";
+  filter: brightness(0);
+}
+[data-theme="dark"] .theme-toggle-btn::after {
+  content: "☀️";
+  filter: brightness(100);
+}
+
+/* ============================= */
+/* Desktop Overrides             */
+/* ============================= */
+@media (min-width: 992px) {
+  .hamburger-menu,
+  .drilldown-back {
+    display: none;
+  }
+  .dropdown-icon {
+    display: inline-flex;
+  }
+
+  .main-nav {
+    flex-grow: 1;
+  }
+
+  .main-nav .nav-list {
+    display: flex !important;
+    position: static;
+    flex-direction: row;
+    transform: none;
+    background-color: transparent;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    justify-content: flex-end;
+    gap: var(--spacing-lg);
+    max-width: none;
+  }
+  .main-nav .nav-list li > a {
+    border-bottom: none;
+    padding: var(--spacing-sm) 0;
+  }
+  .main-nav .nav-list li > a:hover {
+    background-color: transparent;
+  }
+  .main-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent);
+    transition: width var(--transition-speed) var(--transition-ease);
+  }
+  .main-nav .nav-link:hover::after {
+    width: 100%;
+  }
+  .nav-list .has-submenu {
+    position: relative;
+  }
+  .nav-list .submenu,
+  .nav-list .sub-submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: max-content;
+    height: auto;
+    background-color: var(--color-background-medium);
+    box-shadow: var(--box-shadow-light);
+    border-radius: var(--border-radius-sm);
+    padding: var(--spacing-sm) 0;
+    z-index: 10;
+    transform: none;
+    flex-direction: column;
+    gap: 0;
+  }
+  .nav-list .submenu li {
+    padding: 0 var(--spacing-md);
+  }
+  .nav-list .submenu a {
+    padding: var(--spacing-sm) 0;
+    white-space: nowrap;
+  }
+  .nav-list .sub-submenu {
+    top: 0;
+    left: 100%;
+    background-color: var(--color-background-light);
+  }
+  .nav-list .has-submenu:hover > .submenu,
+  .nav-list .has-submenu:focus-within > .submenu {
+    display: block;
+  }
+  .nav-list .submenu .has-submenu:hover > .sub-submenu,
+  .nav-list .submenu .has-submenu:focus-within > .sub-submenu {
+    display: block;
+  }
+  .theme-toggle-btn:hover {
+    background-color: var(--color-background-light);
+  }
+  .theme-toggle-btn:hover::after {
+    transform: scale(1.2);
+  }
+}

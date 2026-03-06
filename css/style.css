@@ -1,0 +1,121 @@
+/* --- Import All Stylesheets --- */
+@import url('base/_reset.css');
+@import url('base/_variables.css');
+@import url('base/_typography.css');
+@import url('base/_markdown.css');
+@import url('layout/_header.css');
+@import url('layout/_footer.css');
+@import url('layout/_main-content.css');
+@import url('components/_buttons.css');
+@import url('components/_carousel.css');
+@import url('components/_accordion.css');
+@import url('components/_card.css');
+@import url('components/_search-bar.css');
+@import url('components/_forms.css');
+@import url('utilities/_helpers.css');
+
+/* Global Body & Element Styles */
+
+html {
+    scroll-padding-top: 72px;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--color-background-dark);
+    color: var(--color-text-light);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;    
+}
+
+a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-accent-hover);
+}
+
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.container-fluid {
+    width: 100%;
+    padding-left: var(--spacing-lg);
+    padding-right: var(--spacing-lg);
+    box-sizing: border-box; 
+}
+
+.section-padded {
+    /* Mobile-first default padding */
+    padding: var(--spacing-xl) 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.section-description {
+    max-width: 800px;
+    margin: var(--spacing-sm) auto var(--spacing-xl) auto;
+    font-size: 1.1em;
+    color: var(--color-text-secondary);
+}
+
+.warning-text {
+    color: var(--color-warning);
+    font-weight: 600;
+}
+
+.info-text {
+    color: var(--color-info);
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+/* Toggle logo based on theme */
+.site-logo-img.logo-dark-theme {
+    display: block;
+}
+.site-logo-img.logo-light-theme {
+    display: none;
+}
+
+[data-theme='light'] .site-logo-img.logo-dark-theme {
+    display: none;
+}
+[data-theme='light'] .site-logo-img.logo-light-theme {
+    display: block;
+}
+
+/* Base Logo Styling */
+.site-logo-img {
+    width: 250px;
+    height: auto;
+    border-radius: var(--border-radius-sm);
+    display: block; 
+}
+
+/* Desktop Overides */
+@media (min-width: 768px) {
+
+.site-logo-img {
+    width: 300px;
+  }
+  
+.container-fluid {
+    padding-left: var(--spacing-xxl);
+    padding-right: var(--spacing-xxl);
+  }
+  
+.section-padded {
+    padding: var(--spacing-xxl) 0;
+  }
+}

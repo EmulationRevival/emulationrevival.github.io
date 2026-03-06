@@ -1,0 +1,364 @@
+/*=============================================
+=     Card, Modal, & Popover CSS      =
+=============================================*/
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+  align-items: stretch;
+}
+
+/* The main card container */
+.card {
+  background-color: var(--color-background-light);
+  border: 1px solid var(--color-background-medium);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--box-shadow-light);
+  transition: transform var(--transition-speed) var(--transition-ease), box-shadow var(--transition-speed) var(--transition-ease);
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  display: flex;
+  flex-direction: column; /* Stacks the image and content vertically */
+  overflow: hidden; /* Clips the corners of the image */
+}
+
+.card:focus-within {
+  outline: 2px solid var(--color-primary);
+  transition: outline-color 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-heavy);
+}
+
+/* The link now wraps the whole card */
+.card-link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+}
+
+.card-link:focus-visible {
+    outline: none; /* The parent .card:focus-within handles focus */
+}
+
+/* Image container with a fixed aspect ratio */
+.card-image-container {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden; /* Ensures the image zoom doesn't break out */
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 400ms ease;
+}
+
+.card:hover .card-image {
+    transform: scale(1.05);
+}
+
+/* Text content area */
+.card-content {
+    padding: var(--spacing-md);
+    border-top: 1px solid var(--color-background-medium);
+    flex-grow: 1; /* This makes the content area expand to fill available space */
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+  font-family: var(--font-heading);
+  font-size: 1.5em;
+  color: var(--color-heading);
+  margin-bottom: var(--spacing-sm);
+  /* Truncate long titles */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/*
+  The description will now wrap to as many lines as needed,
+  and the `align-items: stretch` on the grid will handle the rest.
+*/
+.card-description {
+  font-size: 1em;
+  color: var(--color-text-light);
+  flex-grow: 1; /* Ensures the description takes up remaining space */
+}
+
+/*=============================================
+=           Modal Styling             =
+=============================================*/
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-overlay-start);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-speed) var(--transition-ease), visibility 0s var(--transition-speed);
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity var(--transition-speed) var(--transition-ease);
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  background-color: var(--color-background-medium);
+  border-radius: var(--border-radius-md);
+  border: 2px solid var(--color-primary-dark);
+  box-shadow: var(--box-shadow-heavy);
+  width: calc(100% - (var(--spacing-lg) * 2));
+  max-width: 550px;
+  z-index: 1001;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-speed) var(--transition-ease);
+}
+
+.modal.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--color-background-light);
+}
+
+.modal-title {
+  flex-grow: 1;
+  margin: 0;
+  font-size: 1.2em;
+  text-align: center;
+  color: var(--color-heading);
+}
+
+.modal-header-thumb {
+  flex-shrink: 0;
+  aspect-ratio: 16/9;
+  height: 50px;
+  object-fit: cover;
+  border-radius: var(--border-radius-sm);
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 2px;
+  border: 1px solid var(--color-background-light);
+}
+
+.modal-close-button {
+  background: none;
+  border: none;
+  font-size: 2.2rem;
+  line-height: 1;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.modal-close-button:hover,
+.modal-close-button:focus-visible {
+  color: var(--color-heading);
+  transform: rotate(90deg) scale(1.1);
+  transition: transform var(--transition-speed) var(--transition-ease), color var(--transition-speed) var(--transition-ease);
+}
+
+.modal-body {
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+#gameDetailModalBody .info-list {
+  margin-top: 0;
+}
+
+#gameDetailModalBody .card-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+}
+
+#gameDetailModalBody .card-actions .btn,
+#gameDetailModalBody .action-dropdown {
+  width: auto;
+}
+
+/*=============================================
+=     Reusable List/Action/Popover      =
+=============================================*/
+
+.info-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: var(--spacing-md);
+  font-size: 0.9em;
+}
+
+.info-list li {
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-text-secondary);
+}
+
+.info-list a {
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+.info-list a:hover {
+  text-decoration: underline;
+}
+
+.action-dropdown {
+  position: relative;
+}
+
+.action-dropdown .dropdown-menu {
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  transform: translateX(-50%);
+  width: max-content;
+  min-width: 100%;
+  background-color: var(--color-background-light);
+  border: 1px solid var(--color-primary-light);
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--box-shadow-heavy);
+  padding: var(--spacing-sm) 0;
+  margin: 0 0 8px 0;
+  z-index: 10;
+  list-style-type: none;
+  display: none;
+}
+
+.action-dropdown[open] .dropdown-menu {
+  display: block;
+}
+
+.action-dropdown .dropdown-menu li a {
+  display: block;
+  padding: var(--spacing-sm) var(--spacing-md);
+  color: var(--color-text-light);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color var(--transition-speed) var(--transition-ease), color var(--transition-speed) var(--transition-ease);
+}
+
+.action-dropdown .dropdown-menu li a:hover {
+  background-color: var(--color-primary);
+  color: #E0E0E0;
+}
+
+#gameDetailModalBody .action-dropdown .dropdown-menu {
+  bottom: auto;
+  top: 100%;
+  left: 0;
+  transform: translateX(0);
+}
+
+.contributor-container {
+  position: relative;
+  display: inline-block;
+}
+
+.contributor-name-link.popover-trigger {
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+}
+
+.popover-menu {
+  display: none;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 8px;
+  background-color: var(--color-background-light);
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--box-shadow-heavy);
+  z-index: 1010;
+  width: max-content;
+  padding: var(--spacing-xs);
+  border: 1px solid var(--color-primary-light);
+}
+
+.popover-menu.active {
+  display: block;
+}
+
+.popover-link {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-sm);
+  color: var(--color-text-light);
+  text-decoration: none;
+  border-radius: var(--border-radius-xs);
+  transition: background-color var(--transition-speed) var(--transition-ease);
+}
+
+.popover-link:hover {
+  background-color: var(--color-primary);
+  color: #E0E0E0;
+}
+
+.popover-icon {
+  width: 18px;
+  height: 18px;
+  margin-right: var(--spacing-sm);
+}
+
+[data-theme='light'] .popover-icon[src*="github-logo.svg"] {
+  filter: invert(1);
+}
+
+/* =============================================
+=     DESKTOP CARD GRID - FLEXBOX OVERRIDE    =
+============================================= */
+
+@media (min-width: 768px) {
+  /* 1. Switch the container to a Flexbox layout */
+  .card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* align-items: stretch; is the default, but we can be explicit */
+    align-items: stretch;
+  }
+
+  /* 2. Give each card a specific width */
+  /* This prevents the cards from stretching and shrinking */
+  .card-grid .card {
+    width: 420px;
+    /* You could also use flex-basis if you prefer */
+    /* flex: 0 1 320px; */
+  }
+}
+
+

@@ -1,0 +1,165 @@
+/* variables.css */
+
+:root {
+  /* Main Palette */
+  --color-primary: hsl(271, 76%, 52%);
+  --color-primary-rgb: 138, 43, 226;
+  --color-primary-dark: hsl(277, 72%, 36%);
+  --color-primary-dark-rgb: 106, 26, 160;
+  --color-primary-light: hsl(274, 78%, 77%);
+  --color-primary-light-rgb: 195, 153, 240;
+  --color-secondary: hsl(174, 100%, 48%);
+  --color-secondary-rgb: 0, 245, 212;  
+  --color-secondary-dark: hsl(174, 100%, 18%);
+  --color-secondary-dark-rgb: 0, 91, 81;
+  --color-secondary-light: hsl(174, 95%, 69%);
+  --color-secondary-light-rgb: 102, 250, 230;
+
+  /* Backgrounds */
+  --color-background-dark: hsl(0, 0%, 7%);
+  --color-background-dark-rgb: 18, 18, 18;
+  --color-background-medium: hsl(0, 0%, 10%);
+  --color-background-medium-rgb: 26, 26, 26;
+  --color-background-light: hsl(0, 0%, 17%);
+  --color-background-light-rgb: 44, 44, 44;
+
+  /* Text */
+  --color-text-light: hsl(0, 0%, 88%);
+  --color-text-light-rgb: 224, 224, 224;
+  --color-text-button: hsl(0, 0%, 88%);
+  --color-text-button-rgb: 224, 224, 224;
+  --color-text-secondary: hsl(0, 0%, 69%);
+  --color-text-secondary-rgb: 176, 176, 176;
+  --color-heading: hsl(0, 0%, 100%);
+  --color-heading-rgb: 255, 255, 255;
+
+  /* Links */
+  --color-link: var(--color-info);
+  --color-link-hover: var(--color-secondary-light);
+
+  /* UI Accents & Status */
+  --color-accent: var(--color-primary);
+  --color-accent-hover: var(--color-primary-dark);
+  --color-success: hsl(134, 61%, 41%);
+  --color-success-rgb: 40, 167, 69;
+  --color-warning: hsl(45, 100%, 51%);
+  --color-warning-rgb: 255, 193, 7;
+  --color-error: hsl(354, 70%, 54%);
+  --color-error-rgb: 220, 53, 69;
+  --color-info: hsl(192, 77%, 41%);
+  --color-info-rgb: 23, 162, 184;
+
+  /* Overlays */
+  --color-overlay-start: rgba(0, 0, 0, 0.6);
+  --color-overlay-end: rgba(0, 0, 0, 0.8);
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 64px;
+  --spacing-xxxl: 96px;
+
+  /* Borders & Shadows */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --color-border: hsl(0, 0%, 27%);
+  --color-border-rgb: 68, 68, 68;
+  --color-border-light: hsl(240, 2%, 23%);
+  --color-border-light-rgb: 58, 58, 62;
+  --box-shadow-light: 0 4px 15px rgba(0, 0, 0, 0.2);
+  --box-shadow-heavy: 0 8px 25px rgba(0, 0, 0, 0.4);
+  
+/* --- Button: Text (always white) --- */
+--color-button-text: hsl(0, 0%, 88%);
+
+/* --- Button: Primary --- */
+--color-button-primary-bg: hsl(271, 76%, 52%);
+--color-button-primary-bg-hover: hsl(277, 72%, 36%);
+--color-button-primary-border: hsl(277, 72%, 36%);
+--color-button-primary-border-hover: hsl(271, 76%, 52%);
+
+/* --- Button: Secondary --- */
+--color-button-secondary-bg: hsl(0, 0%, 25%);
+--color-button-secondary-bg-hover: hsl(0, 0%, 40%);
+--color-button-secondary-border: hsl(0, 0%, 25%);
+--color-button-secondary-border-hover: hsl(0, 0%, 40%);
+
+/* --- Button: Download --- */
+--color-button-download-bg: hsl(174, 100%, 28%);
+--color-button-download-bg-hover: hsl(174, 100%, 18%);
+--color-button-download-border: hsl(174, 100%, 18%);
+--color-button-download-border-hover: hsl(174, 100%, 28%);
+
+/* --- Button: Info --- */
+--color-button-info-bg: hsl(192, 77%, 33%);
+--color-button-info-bg-hover: hsl(192, 77%, 25%);
+--color-button-info-border: hsl(192, 77%, 25%);
+--color-button-info-border-hover: hsl(192, 77%, 33%);
+
+/* --- Button: Discord --- */
+--color-button-discord-bg: hsl(236, 88%, 65%);
+--color-button-discord-bg-hover: hsl(236, 52%, 52%);
+--color-button-discord-border: hsl(236, 52%, 52%);
+--color-button-discord-border-hover: hsl(236, 88%, 65%);
+
+/* --- Button: YouTube --- */
+--color-button-youtube-bg: hsl(0, 100%, 45%);
+--color-button-youtube-bg-hover: hsl(0, 100%, 40%);
+--color-button-youtube-border: hsl(0, 100%, 40%);
+--color-button-youtube-border-hover: hsl(0, 100%, 45%);
+
+/* --- Button: Disabled --- */
+--color-button-disabled-bg: hsl(0, 0%, 50%);
+--color-button-disabled-border: hsl(0, 0%, 65%);
+
+  /* Transitions */
+  --transition-speed: 0.3s;
+  --transition-ease: ease-in-out;
+
+  /* Medium screens (tablets) */
+  --breakpoint-md: 768px;
+
+  /* Large screens (desktops) */
+  --breakpoint-lg: 992px;
+}
+
+[data-theme='light'] {
+  /* Main Palette (Light Mode Override) */
+  --color-primary: hsl(271, 60%, 55%);
+  --color-primary-dark: hsl(277, 60%, 40%);
+  --color-primary-light: hsl(274, 60%, 65%);
+  --color-secondary: hsl(174, 80%, 30%);
+  --color-secondary-dark: hsl(174, 80%, 20%);
+  --color-secondary-light: hsl(174, 80%, 40%);
+
+  /* Backgrounds */
+  --color-background-dark: hsl(210, 11%, 95%);
+  --color-background-dark-rgb: 241, 243, 245;
+  --color-background-medium: hsl(210, 16%, 98%);
+  --color-background-medium-rgb: 248, 249, 250;
+  --color-background-light: hsl(0, 0%, 100%);
+  --color-background-light-rgb: 255, 255, 255;
+
+  /* Text */
+  --color-text-light: hsl(210, 6%, 31%);
+  --color-text-light-rgb: 73, 80, 87;
+  --color-text-secondary: hsl(212, 7%, 36%);
+  --color-text-secondary-rgb: 90, 97, 104;
+  --color-heading: hsl(210, 10%, 13%);
+  --color-heading-rgb: 33, 37, 41;
+
+  /* Overlays */
+  --color-overlay-start: rgba(255, 255, 255, 0.7);
+  --color-overlay-end: rgba(255, 255, 255, 0.9);
+
+  /* Links */
+  --color-link: var(--color-primary-dark);
+  --color-link-hover: var(--color-primary);
+
+  /* Shadows */
+  --box-shadow-light: 0 4px 15px rgba(var(--color-primary-rgb), 0.1);
+  --box-shadow-heavy: 0 8px 25px rgba(var(--color-primary-rgb), 0.15);
+}
