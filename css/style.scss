@@ -1,18 +1,20 @@
+---
+---
 /* --- Import All Stylesheets --- */
-@import url('base/_reset.css');
-@import url('base/_variables.css');
-@import url('base/_typography.css');
-@import url('base/_markdown.css');
-@import url('layout/_header.css');
-@import url('layout/_footer.css');
-@import url('layout/_main-content.css');
-@import url('components/_buttons.css');
-@import url('components/_carousel.css');
-@import url('components/_accordion.css');
-@import url('components/_card.css');
-@import url('components/_search-bar.css');
-@import url('components/_forms.css');
-@import url('utilities/_helpers.css');
+@import 'base/reset';
+@import 'base/variables';
+@import 'base/typography';
+@import 'base/markdown';
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/main-content';
+@import 'components/buttons';
+@import 'components/carousel';
+@import 'components/accordion';
+@import 'components/card';
+@import 'components/search-bar';
+@import 'components/forms';
+@import 'utilities/helpers';
 
 /* Global Body & Element Styles */
 
