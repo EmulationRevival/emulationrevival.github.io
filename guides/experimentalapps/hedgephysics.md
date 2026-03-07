@@ -1,7 +1,7 @@
 ---
 layout: template
 title: "Hedge Physics Guide"
-permalink: /guides/wipapps/hedgephysics-guide/
+permalink: /guides/experimentalapps/hedgephysics-guide/
 description: "A guide for setting up Hedge Physics on dev mode."
 author: "MewLew"
 ---

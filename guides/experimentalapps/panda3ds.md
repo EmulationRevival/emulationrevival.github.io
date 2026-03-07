@@ -1,7 +1,7 @@
 ---
 layout: template
 title: "Panda3DS Guide"
-permalink: /guides/wipapps/panda3ds-guide/
+permalink: /guides/experimentalapps/panda3ds-guide/
 description: "A guide for setting up Panda3DS on dev mode."
 author: "Jeen"
 ---

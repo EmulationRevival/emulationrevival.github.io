@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Compatibility Lists - Emulation Revival</title>
         <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
+        <link rel="preload" as="image" href="/images/devmode/xbox-background-1280.webp">
         <script src="/js/inert.min.js" defer></script>
     </head>
 
@@ -30,7 +31,7 @@
                                 <li><a href="/xbox-dev-mode/emulators.html" class="nav-link">Emulators</a></li>
                                 <li><a href="/xbox-dev-mode/frontends.html" class="nav-link">Frontends</a></li>
                                 <li><a href="/xbox-dev-mode/ports.html" class="nav-link">Game Ports</a></li>
-                                <li><a href="/xbox-dev-mode/wip-apps.html" class="nav-link">WIP Apps</a></li>
+                                <li><a href="/xbox-dev-mode/experimental-apps.html" class="nav-link">Experimental Apps</a></li>
                                 <li><a href="/xbox-dev-mode/media-apps.html" class="nav-link">Media Apps</a></li>
                                 <li><a href="/xbox-dev-mode/utilities.html" class="nav-link">Utilities</a></li>
                             </ul>
@@ -54,7 +55,19 @@
 
         <main id="main-content">
             <section class="hero-section xbox-devmode-hero" aria-label="Compatibility Hub">
-                <img src="/images/devmode/xbox-background.webp" alt="" class="hero-background-image" loading="eager">
+                <img
+    src="/images/devmode/xbox-background-1280.webp"
+    srcset="
+        /images/devmode/xbox-background-640.webp 640w,
+        /images/devmode/xbox-background-960.webp 960w,
+        /images/devmode/xbox-background-1280.webp 1280w"
+    sizes="100vw"
+    width="1280"
+    height="720"
+    alt=""
+    class="hero-background-image"
+    loading="eager"
+    decoding="async">
                 <div class="hero-overlay" aria-hidden="true"></div>
                 <div class="container-fluid hero-content">
                     <h1>Compatibility Hub</h1>
@@ -115,7 +128,7 @@
                         <div class="card" id="compat-chonkystation">
                             <a href="#" class="card-link" style="pointer-events: none;">
                                 <div class="card-image-container">
-                                    <img src="/xbox-dev-mode/images/wip-apps/chonkystation3.webp" alt="ChonkyStation 3 Logo" class="card-image">
+                                    <img src="/xbox-dev-mode/images/experimental-apps/chonkystation3.webp" alt="ChonkyStation 3 Logo" class="card-image">
                                 </div>
                                 <div class="card-content">
                                     <h3 class="card-title">ChonkyStation 3</h3>

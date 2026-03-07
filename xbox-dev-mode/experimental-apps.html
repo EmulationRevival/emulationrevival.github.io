@@ -5,12 +5,13 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>WIP & Beta Apps for Xbox Dev Mode - Emulation Revival</title>
+        <title>Experimental apps for Xbox Dev Mode - Emulation Revival</title>
         <meta
             name="description"
-            content="Discover and test Work-In-Progress (WIP) and beta emulators, apps, and game ports for Xbox Developer Mode. Get early access to the latest projects."
+            content="Discover and test experimental emulators, apps, and game ports for Xbox Developer Mode. Get early access to the latest projects."
         >
         <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
+        <link rel="preload" as="image" href="/images/devmode/xbox-background-1280.webp">
         <script src="/js/inert.min.js" defer></script>
     </head>
 
@@ -45,7 +46,7 @@
                 <li><a href="/xbox-dev-mode/emulators.html" class="nav-link">Emulators</a></li>
                 <li><a href="/xbox-dev-mode/frontends.html" class="nav-link">Frontends</a></li>
                 <li><a href="/xbox-dev-mode/ports.html" class="nav-link">Game Ports</a></li>
-                <li><a href="/xbox-dev-mode/wip-apps.html" class="nav-link">WIP Apps</a></li>
+                <li><a href="/xbox-dev-mode/experimental-apps.html" class="nav-link">Experimental Apps</a></li>
                 <li><a href="/xbox-dev-mode/media-apps.html" class="nav-link">Media Apps</a></li>
                 <li><a href="/xbox-dev-mode/utilities.html" class="nav-link">Utilities</a></li>
             </ul>
@@ -77,32 +78,39 @@
         </header>
 
         <main id="main-content">
-            <section class="hero-section xbox-devmode-hero" aria-label="Xbox Developer Mode WIP Apps introduction">
+            <section class="hero-section xbox-devmode-hero" aria-label="Xbox Developer Mode Experimental Apps introduction">
                 <img
-                    src="/images/devmode/xbox-background.webp"
-                    alt=""
-                    class="hero-background-image"
-                    loading="eager">
+    src="/images/devmode/xbox-background-1280.webp"
+    srcset="
+        /images/devmode/xbox-background-640.webp 640w,
+        /images/devmode/xbox-background-960.webp 960w,
+        /images/devmode/xbox-background-1280.webp 1280w"
+    sizes="100vw"
+    width="1280"
+    height="720"
+    alt=""
+    class="hero-background-image"
+    loading="eager"
+    decoding="async">
                 <div class="hero-overlay" aria-hidden="true"></div>
                 <div class="container-fluid hero-content">
-                    <h1>Xbox Dev Mode: WIP & Beta Apps</h1>
+                    <h1>Xbox Dev Mode: Experimental Apps</h1>
                     <p>
-                        Get a sneak peek at the future of Xbox homebrew. Test the latest work-in-progress emulators,
-                        apps, and game ports before their official release.
+                        Get a sneak peek at the future of Xbox homebrew. Test the latest experimental emulators, apps, and game ports.
                     </p>
                 </div>
             </section>
 
-            <section id="wip-apps-list" class="section-padded" aria-labelledby="wip-apps-list-heading">
+            <section id="experimental-apps-list" class="section-padded" aria-labelledby="experimental-apps-list-heading">
                 <div class="container-fluid">
-                    <h2 id="wip-apps-list-heading" class="text-center">Available WIP & Beta Apps</h2>
+                    <h2 id="experimental-apps-list-heading" class="text-center">Available Experimental Apps</h2>
                     <p class="text-center section-description">
                         Select any card to reveal download links and more
                         information.
                     </p>
 
                     <div class="page-search-container">
-                        <label for="pageSearchInput" class="search-label">Search WIP apps on this page:</label>
+                        <label for="pageSearchInput" class="search-label">Search Experimental apps on this page:</label>
                         <input
                             type="search"
                             id="pageSearchInput"
@@ -117,7 +125,7 @@
                             id="pageAutocompleteResults"
                             class="autocomplete-container"
                             role="listbox"
-                            aria-labelledby="wip-apps-list-heading"
+                            aria-labelledby="experimental-apps-list-heading"
                             tabindex="-1"
                         ></div>
                     </div>
@@ -138,11 +146,11 @@
                         <div class="card" id="chonkystation3">
                             <a href="#" class="card-link" data-modal-trigger="chonkystation3">
                                 <div class="card-image-container">
-                                    <img src="/xbox-dev-mode/images/wip-apps/chonkystation3.webp" alt="Chonkystation 3 Logo" class="card-image">
+                                    <img src="/xbox-dev-mode/images/experimental-apps/chonkystation3.webp" alt="Chonkystation 3 Logo" class="card-image">
                                 </div>
                                 <div class="card-content">
                                     <h3 class="card-title" id="chonkystation3-title">Chonkystation 3</h3>
-                                    <p class="card-description">A Work-In-Progress PlayStation 3 emulator.</p>
+                                    <p class="card-description">An experimental PlayStation 3 emulator.</p>
                                 </div>
                             </a>
                             <div class="card-modal-content" data-modal-id="chonkystation3" style="display: none;">
@@ -167,7 +175,7 @@
                                 </ul>
                                 <div class="card-actions">
                                     <a href="#" class="btn btn-primary download-link" data-app-id="chonkystation3" data-asset-id="chonkystation3">Download</a>
-                                    <a href="{% link guides/wipapps/chonkystation3.md %}" class="btn btn-info">Setup Guide</a>
+                                    <a href="{% link guides/experimentalapps/chonkystation3.md %}" class="btn btn-info">Setup Guide</a>
                                     <a href="https://youtu.be/_Q6EPH-SH48" class="btn btn-youtube">Watch Tutorial</a>
                                 </div>
                             </div>
@@ -176,7 +184,7 @@
                         <div class="card" id="hedgephysics">
                             <a href="#" class="card-link" data-modal-trigger="hedgephysics">
                                 <div class="card-image-container">
-                                    <img src="/xbox-dev-mode/images/wip-apps/hedgephysics.webp" alt="Hedge Physics Logo" class="card-image">
+                                    <img src="/xbox-dev-mode/images/experimental-apps/hedgephysics.webp" alt="Hedge Physics Logo" class="card-image">
                                 </div>
                                 <div class="card-content">
                                     <h3 class="card-title" id="hedgephysics-title">Hedge Physics</h3>
@@ -190,7 +198,7 @@
                                 </ul>
                                 <div class="card-actions">
                                     <a href="#" class="btn btn-primary download-link" data-app-id="hedgephysics" data-asset-id="hedgephysics">Download</a>
-                                    <a href="{% link guides/wipapps/hedgephysics.md %}" class="btn btn-info">Setup Guide</a>
+                                    <a href="{% link guides/experimentalapps/hedgephysics.md %}" class="btn btn-info">Setup Guide</a>
                                 </div>
                             </div>
                         </div>
@@ -198,11 +206,11 @@
                         <div class="card" id="panda3ds">
                             <a href="#" class="card-link" data-modal-trigger="panda3ds">
                                 <div class="card-image-container">
-                                    <img src="/xbox-dev-mode/images/wip-apps/panda3ds.webp" alt="Panda3DS Logo" class="card-image">
+                                    <img src="/xbox-dev-mode/images/experimental-apps/panda3ds.webp" alt="Panda3DS Logo" class="card-image">
                                 </div>
                                 <div class="card-content">
                                     <h3 class="card-title" id="panda3ds-title">Panda3DS</h3>
-                                    <p class="card-description">A Work-In-Progress Nintendo 3DS emulator.</p>
+                                    <p class="card-description">An experimental Nintendo 3DS emulator.</p>
                                 </div>
                             </a>
                             <div class="card-modal-content" data-modal-id="panda3ds" style="display: none;">
@@ -222,7 +230,7 @@
                                 </ul>
                                 <div class="card-actions">
                                     <a href="#" class="btn btn-primary download-link" data-app-id="panda3ds" data-asset-id="panda3ds">Download</a>
-                                    <a href="{% link guides/wipapps/panda3ds.md %}" class="btn btn-info">Setup Guide</a>
+                                    <a href="{% link guides/experimentalapps/panda3ds.md %}" class="btn btn-info">Setup Guide</a>
                                     <a href="https://youtu.be/8n2m8TL3thY" class="btn btn-youtube">Watch Tutorial</a>
                                 </div>
                             </div>
@@ -231,7 +239,7 @@
                         <div class="card" id="sm64hd">
                             <a href="#" class="card-link" data-modal-trigger="sm64hd">
                                 <div class="card-image-container">
-                                    <img src="/xbox-dev-mode/images/wip-apps/sm64hd.webp" alt="SM64HD Fan Remake Logo" class="card-image">
+                                    <img src="/xbox-dev-mode/images/experimental-apps/sm64hd.webp" alt="SM64HD Fan Remake Logo" class="card-image">
                                 </div>
                                 <div class="card-content">
                                     <h3 class="card-title" id="sm64hd-title">SM64HD Fan Remake</h3>
@@ -245,7 +253,7 @@
                                 </ul>
                                 <div class="card-actions">
                                     <a href="#" class="btn btn-primary download-link" data-app-id="sm64hd" data-asset-id="sm64hd">Download</a>
-                                    <a href="{% link guides/wipapps/sm64hd.md %}" class="btn btn-info">Setup Guide</a>
+                                    <a href="{% link guides/experimentalapps/sm64hd.md %}" class="btn btn-info">Setup Guide</a>
                                 </div>
                             </div>
                         </div>
@@ -306,8 +314,8 @@
         <div class="modal-overlay" id="gameDetailModalOverlay"></div>
         <div class="modal" id="gameDetailModal" role="dialog" aria-modal="true" aria-labelledby="gameDetailModalTitle">
             <div class="modal-header">
-                <h3 id="gameDetailModalTitle" class="modal-title">WIP App Details</h3>
-                <button class="modal-close-button" id="gameDetailModalClose" aria-label="Close WIP app details">×</button>
+                <h3 id="gameDetailModalTitle" class="modal-title">Experimental App Details</h3>
+                <button class="modal-close-button" id="gameDetailModalClose" aria-label="Close experimental app details">×</button>
             </div>
             <div class="modal-body" id="gameDetailModalBody"></div>
         </div>

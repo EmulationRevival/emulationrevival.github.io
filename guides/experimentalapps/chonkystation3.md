@@ -1,7 +1,7 @@
 ---
 layout: template
 title: "ChonkyStation 3 Guide"
-permalink: /guides/wipapps/chonkystation3-guide/
+permalink: /guides/experimentalapps/chonkystation3-guide/
 description: "A guide for setting up ChonkyStation 3 on dev mode."
 author: "Jeen"
 ---
