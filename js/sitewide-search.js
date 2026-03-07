@@ -1,8 +1,3 @@
-/**
- * sitewide-search.js
- * Automated Sitewide Search mirroring page-search-logic.js exactly.
- * Points to the /json/ directory for data.
- */
 document.addEventListener('DOMContentLoaded', () => {
   // --- CONSTANTS ---
   const IDS = {
@@ -66,6 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchInput = document.getElementById(IDS.SEARCH_INPUT_ID);
   const autocompleteResults = document.getElementById(IDS.RESULTS_CONTAINER_ID);
   let masterIndex = [];
+  let isIndexLoading = false;
 
   if (!searchInput || !autocompleteResults) return;
 
@@ -98,13 +94,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- DATA LOADING ---
   async function loadSearchIndex() {
+    if (masterIndex.length > 0 || isIndexLoading) return;
+    isIndexLoading = true;
     try {
       const response = await fetch(CONFIG.INDEX_PATH);
       if (!response.ok) throw new Error('Index fetch failed');
       masterIndex = await response.json();
       console.log('Sitewide index loaded successfully from /json/');
+      
+      // If the user already typed something while it was loading, trigger a search
+      if (searchInput.value.trim().length >= CONFIG.MIN_QUERY_LENGTH) {
+        searchInput.dispatchEvent(new Event('input'));
+      }
     } catch (err) {
       console.warn('Sitewide Search: JSON index not found at ' + CONFIG.INDEX_PATH);
+    } finally {
+      isIndexLoading = false;
     }
   }
 
@@ -202,6 +207,11 @@ document.addEventListener('DOMContentLoaded', () => {
       setAutocompleteVisibility(false);
       return;
     }
+    
+    // Ensure data is loaded before filtering
+    if (masterIndex.length === 0) {
+       return;
+    }
 
     const filtered = masterIndex.filter(item => {
       const nameMatch = item.name ? item.name.toLowerCase().includes(query) : false;
@@ -212,8 +222,8 @@ document.addEventListener('DOMContentLoaded', () => {
     renderSuggestions(filtered, query);
   }, CONFIG.DEBOUNCE_MS);
 
-  // Initialize
-  loadSearchIndex();
+  // Initialize data load ONLY when the user focuses on the search input
+  searchInput.addEventListener('focus', loadSearchIndex, { once: true });
 
   searchInput.addEventListener('input', handleInput);
 
