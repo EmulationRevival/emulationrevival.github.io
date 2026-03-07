@@ -488,33 +488,5 @@
     "img": "/xbox-dev-mode/images/media-apps/zune.webp",
     "url": "/xbox-dev-mode/media-apps.html#zune",
     "category": "Media apps"
-  },
-  {
-    "name": "Chonkystation 3",
-    "description": "A Work-In-Progress PlayStation 3 emulator.",
-    "img": "/xbox-dev-mode/images/wip-apps/chonkystation3.webp",
-    "url": "/xbox-dev-mode/wip-apps.html#chonkystation3",
-    "category": "Wip apps"
-  },
-  {
-    "name": "Hedge Physics",
-    "description": "A fan-made Sonic physics engine/game demo.",
-    "img": "/xbox-dev-mode/images/wip-apps/hedgephysics.webp",
-    "url": "/xbox-dev-mode/wip-apps.html#hedgephysics",
-    "category": "Wip apps"
-  },
-  {
-    "name": "Panda3DS",
-    "description": "A Work-In-Progress Nintendo 3DS emulator.",
-    "img": "/xbox-dev-mode/images/wip-apps/panda3ds.webp",
-    "url": "/xbox-dev-mode/wip-apps.html#panda3ds",
-    "category": "Wip apps"
-  },
-  {
-    "name": "SM64HD Fan Remake",
-    "description": "A fan-made SM64HD (Super Mario 64) engine/game demo.",
-    "img": "/xbox-dev-mode/images/wip-apps/sm64hd.webp",
-    "url": "/xbox-dev-mode/wip-apps.html#sm64hd",
-    "category": "Wip apps"
   }
 ]
