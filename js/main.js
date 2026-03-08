@@ -314,6 +314,35 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             } catch (err) {}
         });
+        
+        // =========================
+        // LITE YOUTUBE FACADE LOGIC
+        // =========================
+        document.querySelectorAll('.lite-youtube').forEach(wrapper => {
+            wrapper.addEventListener('click', function() {
+                const videoId = this.getAttribute('data-video-id');
+                // Create the iframe dynamically
+                const iframe = document.createElement('iframe');
+                
+                // ADDED: &playsinline=1 (fixes iOS/mobile autoplay) and &rel=0 (hides related videos)
+                iframe.setAttribute('src', `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&playsinline=1&rel=0`);
+                iframe.setAttribute('title', 'YouTube Video');
+                iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+                iframe.setAttribute('allowfullscreen', 'true');
+                
+                // Make iframe fill the wrapper
+                iframe.style.position = 'absolute';
+                iframe.style.top = '0';
+                iframe.style.left = '0';
+                iframe.style.width = '100%';
+                iframe.style.height = '100%';
+                iframe.style.border = 'none';
+
+                // Wipe out the image/button and replace with the iframe
+                this.innerHTML = '';
+                this.appendChild(iframe);
+            }, { once: true }); // Ensure it only fires once
+        });
     });
 
     // Handle bfcache restorations (back-button ghosting)
