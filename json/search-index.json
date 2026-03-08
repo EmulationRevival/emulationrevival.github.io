@@ -488,5 +488,33 @@
     "img": "/xbox-dev-mode/images/media-apps/zune.webp",
     "url": "/xbox-dev-mode/media-apps.html#zune",
     "category": "Media apps"
+  },
+  {
+    "name": "Chonkystation 3",
+    "description": "An experimental PlayStation 3 emulator.",
+    "img": "/xbox-dev-mode/images/experimental-apps/chonkystation3.webp",
+    "url": "/xbox-dev-mode/experimental-apps.html#chonkystation3",
+    "category": "Experimental apps"
+  },
+  {
+    "name": "Hedge Physics",
+    "description": "A fan-made Sonic physics engine/game demo.",
+    "img": "/xbox-dev-mode/images/experimental-apps/hedgephysics.webp",
+    "url": "/xbox-dev-mode/experimental-apps.html#hedgephysics",
+    "category": "Experimental apps"
+  },
+  {
+    "name": "Panda3DS",
+    "description": "An experimental Nintendo 3DS emulator.",
+    "img": "/xbox-dev-mode/images/experimental-apps/panda3ds.webp",
+    "url": "/xbox-dev-mode/experimental-apps.html#panda3ds",
+    "category": "Experimental apps"
+  },
+  {
+    "name": "SM64HD Fan Remake",
+    "description": "A fan-made SM64HD (Super Mario 64) engine/game demo.",
+    "img": "/xbox-dev-mode/images/experimental-apps/sm64hd.webp",
+    "url": "/xbox-dev-mode/experimental-apps.html#sm64hd",
+    "category": "Experimental apps"
   }
 ]
