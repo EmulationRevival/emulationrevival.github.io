@@ -7,14 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
     SORT_BY: 'sortBy',
   };
   const SELECTORS = {
-    CARD_GRID_CARD: '.card-grid .card',
-    CARD_TITLE: '.card-title',
-    CARD_IMAGE: '.card-image',
     HIGHLIGHTED: '.highlighted-by-search',
     MAIN_HEADER: '.main-header',
     SUGGESTION: '.autocomplete-suggestion',
     SEARCH_CONTAINER: '.page-search-container',
-    CARD_GRID: '.card-grid',
   };
   const CLASSES = {
     HIGHLIGHT: 'highlighted-by-search',
@@ -33,11 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ARIA_LABEL: 'aria-label',
     ARIA_SELECTED: 'aria-selected',
     ARIA_ACTIVEDESCENDANT: 'aria-activedescendant',
-    SRC: 'src',
-    ALT: 'alt',
-    ID: 'id',
     TABINDEX: 'tabindex',
-    DATA_ENTRY_ID: 'data-entryId',
   };
   const ROLES = {
     COMBOBOX: 'combobox',
@@ -58,33 +50,34 @@ document.addEventListener('DOMContentLoaded', () => {
     TAB: 'Tab',
   };
   const CONFIG = {
+    INDEX_PATH: '/json/search-index.json', // Path to your global JSON
     SCROLL_BEHAVIOR: 'smooth',
     SCROLL_OFFSET_PX: 20,
-    FOCUS_DELAY_MS: 350,
     HIGHLIGHT_DURATION_MS: 2500,
     DEBOUNCE_MS: 150,
     MIN_QUERY_LENGTH: 1,
     MAX_SUGGESTIONS: 10,
-    IMAGE_FALLBACK: 'fallback.png', // Set your fallback image path here
+    IMAGE_FALLBACK: '/images/fallback.png', 
   };
   const TEMPLATES = {
     SUGGESTION_ID_PREFIX: 'suggestion-',
-    ARIA_LABEL_SUGGESTIONS: 'Suggested game ports',
+    ARIA_LABEL_SUGGESTIONS: 'Suggested items',
     NO_RESULTS: (input) => input
       ? `No results found for "${input}".`
       : 'No results found.',
-    NO_CARDS: 'No cards available to search.',
   };
 
   // --- DOM ELEMENTS ---
   const searchInput = document.getElementById(IDS.SEARCH_INPUT_ID);
   const autocompleteResults = document.getElementById(IDS.RESULTS_CONTAINER_ID);
-  const cardGrid = document.querySelector(SELECTORS.CARD_GRID);
   const sortSelect = document.getElementById(IDS.SORT_BY);
+
+  let searchIndexCache = [];
+  let isIndexLoading = false;
 
   // --- Live region for screen reader announcements ---
   let liveRegion = document.getElementById(IDS.LIVE_REGION_ID);
-  if (!liveRegion) {
+  if (!liveRegion && autocompleteResults) {
     liveRegion = document.createElement('div');
     liveRegion.id = IDS.LIVE_REGION_ID;
     liveRegion.setAttribute(ATTRIBUTES.ROLE, ROLES.STATUS);
@@ -106,32 +99,52 @@ document.addEventListener('DOMContentLoaded', () => {
   autocompleteResults.setAttribute(ATTRIBUTES.ROLE, ROLES.LISTBOX);
   autocompleteResults.setAttribute(ATTRIBUTES.ARIA_LABEL, TEMPLATES.ARIA_LABEL_SUGGESTIONS);
 
-  // --- Helper: Get card search entry from a card element ---
-  function getCardSearchEntry(card) {
-    const titleElement = card.querySelector(SELECTORS.CARD_TITLE);
-    const imageElement = card.querySelector(SELECTORS.CARD_IMAGE);
-    return card.id && titleElement && imageElement
-      ? {
-          id: card.id,
-          name: titleElement.textContent.trim(),
-          icon: imageElement.getAttribute(ATTRIBUTES.SRC),
-          alt: imageElement.getAttribute(ATTRIBUTES.ALT) || '',
-          cardElement: card,
-        }
-      : null;
-  }
-
-  // --- Helper: Get all visible cards (those currently in the grid) ---
-  function getVisibleCardSearchEntries() {
-    if (!cardGrid) return [];
-    return Array.from(cardGrid.querySelectorAll(SELECTORS.CARD_GRID_CARD))
-      .map(getCardSearchEntry)
-      .filter(Boolean);
-  }
-
   // --- UTILITY: ACCENT-INSENSITIVE SEARCH ---
   function stripAccents(str) {
     return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  }
+
+  // =========================
+  // JSON DATA LOADING & FILTERING
+  // =========================
+  async function loadSearchIndex() {
+    if (searchIndexCache.length > 0 || isIndexLoading) return;
+    isIndexLoading = true;
+    
+    try {
+      const response = await fetch(CONFIG.INDEX_PATH);
+      if (!response.ok) throw new Error('Index fetch failed');
+      const masterIndex = await response.json();
+
+      // Extract the current filename (e.g., 'emulators.html') to filter the global JSON
+      const currentPageFile = window.location.pathname.split('/').pop() || 'index.html';
+
+      // Keep only items that belong to this specific page
+      const pageSpecificData = masterIndex.filter(item => item.url.includes(currentPageFile));
+
+      // Map it into our rapid-search cache
+      searchIndexCache = pageSpecificData.map(item => {
+        // Extract the DOM ID from the URL (everything after the #)
+        const elementId = item.url.split('#')[1];
+        
+        return {
+          id: elementId,
+          name: item.name,
+          searchKey: stripAccents(`${item.name} ${item.description || ''}`),
+          icon: item.img,
+        };
+      });
+
+      // If the user already typed something while it was loading, trigger a search
+      if (searchInput.value.trim().length >= CONFIG.MIN_QUERY_LENGTH) {
+        searchInput.dispatchEvent(new Event('input'));
+      }
+
+    } catch (err) {
+      console.warn('Page Search: JSON index not found or failed to load.', err);
+    } finally {
+      isIndexLoading = false;
+    }
   }
 
   // --- UTILITY: DEBOUNCE ---
@@ -158,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
     liveRegion.textContent = '';
   }
 
-  // --- HIGHLIGHT AND SCROLL (Refactored) ---
+  // --- HIGHLIGHT AND SCROLL ---
   function removeExistingHighlights() {
     document.querySelectorAll(SELECTORS.HIGHLIGHTED).forEach(el => {
       el.classList.remove(CLASSES.HIGHLIGHT);
@@ -182,10 +195,9 @@ document.addEventListener('DOMContentLoaded', () => {
   function focusAndHighlightElement(element) {
     element.classList.add(CLASSES.HIGHLIGHT);
     element.setAttribute(ATTRIBUTES.TABINDEX, '-1');
-    element.focus({ preventScroll: true }); // Prevent browser from snapping to the element
+    element.focus({ preventScroll: true });
     setTimeout(() => {
       element.classList.remove(CLASSES.HIGHLIGHT);
-      // Remove tabindex on blur for accessibility
       element.addEventListener('blur', () => {
         element.removeAttribute(ATTRIBUTES.TABINDEX);
       }, { once: true });
@@ -205,9 +217,15 @@ document.addEventListener('DOMContentLoaded', () => {
   function getFilteredSuggestions(query) {
     const normalizedQuery = stripAccents(query.trim());
     if (normalizedQuery.length < CONFIG.MIN_QUERY_LENGTH) return [];
-    return getVisibleCardSearchEntries()
-      .filter(entry => stripAccents(entry.name).includes(normalizedQuery))
-      .sort((a, b) => a.name.localeCompare(b.name));
+    
+    return searchIndexCache.filter(entry => {
+      // 1. Must match search query
+      if (!entry.searchKey.includes(normalizedQuery)) return false;
+      
+      // 2. Must be physically visible on the page (respects your dropdown sort/filters)
+      const cardEl = document.getElementById(entry.id);
+      return cardEl && cardEl.style.display !== 'none';
+    }).sort((a, b) => a.name.localeCompare(b.name));
   }
 
   // --- ARIA State Sync Helper ---
@@ -230,29 +248,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // --- RENDER SUGGESTIONS (SECURE) ---
+  // --- RENDER SUGGESTIONS ---
   function renderSuggestions(filtered, query) {
-    autocompleteResults.innerHTML = '';
-
-    // --- Handle empty card grid case ---
-    const visibleCards = getVisibleCardSearchEntries();
-    if (visibleCards.length === 0) {
-      setAutocompleteVisibility(false);
-      liveRegion.textContent = TEMPLATES.NO_CARDS;
-      return;
-    }
-
     if (filtered.length === 0) {
       const noResults = document.createElement('div');
       noResults.className = CLASSES.NO_RESULTS;
       const message = TEMPLATES.NO_RESULTS(query);
       noResults.textContent = message;
-      autocompleteResults.appendChild(noResults);
+      autocompleteResults.replaceChildren(noResults);
       setAutocompleteVisibility(true);
       liveRegion.textContent = message;
       searchInput.removeAttribute(ATTRIBUTES.ARIA_ACTIVEDESCENDANT);
       return;
     }
+
+    const fragment = document.createDocumentFragment();
 
     filtered.slice(0, CONFIG.MAX_SUGGESTIONS).forEach((entry, index) => {
       const item = document.createElement('div');
@@ -262,13 +272,10 @@ document.addEventListener('DOMContentLoaded', () => {
       item.dataset.entryId = entry.id;
 
       const img = document.createElement('img');
-      img.src = entry.icon;
-      img.alt = entry.alt || entry.name || '';
+      img.src = entry.icon || CONFIG.IMAGE_FALLBACK;
+      img.alt = entry.name;
       img.className = CLASSES.SUGGESTION_LOGO;
-      img.onerror = () => {
-        img.src = CONFIG.IMAGE_FALLBACK;
-        img.alt = 'Image not available';
-      };
+      img.onerror = () => { img.src = CONFIG.IMAGE_FALLBACK; };
 
       const span = document.createElement('span');
       span.className = CLASSES.SUGGESTION_NAME;
@@ -277,11 +284,12 @@ document.addEventListener('DOMContentLoaded', () => {
       item.appendChild(img);
       item.appendChild(span);
 
-      autocompleteResults.appendChild(item);
+      fragment.appendChild(item);
     });
+
+    autocompleteResults.replaceChildren(fragment);
     setAutocompleteVisibility(true);
-    liveRegion.textContent =
-      `${filtered.length} suggestion${filtered.length > 1 ? 's' : ''} for "${query}" available. Use up and down arrows to navigate.`;
+    liveRegion.textContent = `${filtered.length} suggestion${filtered.length > 1 ? 's' : ''} for "${query}" available.`;
     syncAriaState();
   }
 
@@ -289,30 +297,6 @@ document.addEventListener('DOMContentLoaded', () => {
   function updateSuggestions(query) {
     const filtered = getFilteredSuggestions(query);
     renderSuggestions(filtered, query);
-  }
-
-  // --- MOVE ACTIVE SUGGESTION ---
-  function moveActiveSuggestion(direction) {
-    const suggestions = Array.from(autocompleteResults.querySelectorAll(SELECTORS.SUGGESTION));
-    if (suggestions.length === 0) return;
-
-    let currentIndex = suggestions.findIndex(s => s.getAttribute(ATTRIBUTES.ARIA_SELECTED) === 'true');
-    if (currentIndex === -1) currentIndex = 0;
-
-    suggestions[currentIndex].setAttribute(ATTRIBUTES.ARIA_SELECTED, 'false');
-    suggestions[currentIndex].classList.remove(CLASSES.ACTIVE);
-
-    if (direction === 'down') {
-      currentIndex = (currentIndex + 1) % suggestions.length;
-    } else if (direction === 'up') {
-      currentIndex = (currentIndex - 1 + suggestions.length) % suggestions.length;
-    }
-
-    const newActive = suggestions[currentIndex];
-    newActive.setAttribute(ATTRIBUTES.ARIA_SELECTED, 'true');
-    newActive.classList.add(CLASSES.ACTIVE);
-    searchInput.setAttribute(ATTRIBUTES.ARIA_ACTIVEDESCENDANT, newActive.id);
-    newActive.scrollIntoView({ block: 'nearest' });
   }
 
   // --- DEBOUNCED INPUT HANDLER ---
@@ -324,10 +308,16 @@ document.addEventListener('DOMContentLoaded', () => {
       liveRegion.textContent = '';
       return;
     }
+
+    // Ensure data is loaded before trying to filter
+    if (searchIndexCache.length === 0) return;
+
     updateSuggestions(query);
   }, CONFIG.DEBOUNCE_MS);
 
-  // --- EVENT LISTENERS ---
+  // --- INITIALIZATION & EVENT LISTENERS ---
+  
+  loadSearchIndex(); // Fetch JSON immediately to prevent typing delay
 
   searchInput.addEventListener(EVENTS.INPUT, handleInput);
 
@@ -370,7 +360,7 @@ document.addEventListener('DOMContentLoaded', () => {
   autocompleteResults.addEventListener(EVENTS.CLICK, function (event) {
     const suggestion = event.target.closest(SELECTORS.SUGGESTION);
     if (suggestion && suggestion.dataset.entryId) {
-      event.preventDefault(); // Prevent jumping to top of the page on click
+      event.preventDefault(); 
       applyHighlightAndScroll(suggestion.dataset.entryId);
       resetSearchUI();
     }
