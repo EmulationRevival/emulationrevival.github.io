@@ -16,7 +16,7 @@ const PAGES_TO_INDEX = [
     'xbox-dev-mode/apps.html',
     'xbox-dev-mode/frontends.html',
     'xbox-dev-mode/media-apps.html',
-    'xbox-dev-mode/wip-apps.html'
+    'xbox-dev-mode/experimental-apps.html'
 ];
 
 let masterIndex = [];
