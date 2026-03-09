@@ -1,3 +1,20 @@
+/* The Outer Quarantine Zone */
+.markdown-isolated-layout {
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-background-dark);
+    
+    /* The Bug Killers */
+    width: 100%;
+    max-width: 100vw;
+    min-width: 0;
+    overflow-x: hidden;
+    
+    /* Top and bottom spacing */
+    padding: var(--spacing-xl) 0; 
+}
+
 /* --- Markdown Container --- */
 .markdown-content {
     max-width: 900px;
@@ -5,6 +22,7 @@
     margin: 0 auto;
     padding: 0 var(--spacing-lg); 
     box-sizing: border-box; 
+    min-width: 0;
 }
 
 /* Adjust heading spacing for document flow */
