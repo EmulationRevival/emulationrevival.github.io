@@ -61,8 +61,13 @@
     padding: 0.2em 0.4em;
     border-radius: var(--border-radius-sm);
     font-size: 0.9em;
+    
+    /* Word-Wrap Stack for all engines */
     overflow-wrap: break-word;
-    word-break: break-word;
+    word-wrap: break-word;
+    word-break: break-word; 
+    line-break: anywhere;
+    -webkit-line-break: anywhere;
     white-space: pre-wrap;
 }
 
@@ -71,11 +76,17 @@
     background-color: var(--color-background-medium);
     padding: var(--spacing-md);
     border-radius: var(--border-radius-md);
-    overflow-x: auto;
-    max-width: 100%;
     margin: var(--spacing-lg) 0;
     border: 1px solid var(--color-border);
     box-shadow: var(--box-shadow-light);
+
+    /* --- The Mobile Overflow Fix --- */
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .markdown-content pre code {
@@ -84,9 +95,14 @@
     padding: 0;
     font-size: 0.9em;
     border-radius: 0;
+    border: none;
+    
+    /* --- Formatting preservation --- */
     white-space: pre;
     word-break: normal;
     overflow-wrap: normal;
+    display: inline-block; 
+    min-width: 100%;
 }
 
 /* Tables */
@@ -99,6 +115,7 @@
     display: block; 
     overflow-x: auto;
     box-shadow: var(--box-shadow-light);
+    -webkit-overflow-scrolling: touch;
 }
 
 .markdown-content th, 
