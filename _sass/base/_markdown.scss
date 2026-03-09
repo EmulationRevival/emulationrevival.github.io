@@ -1,6 +1,10 @@
+/* --- Markdown Container --- */
 .markdown-content {
     max-width: 900px;
+    width: 100%;
     margin: 0 auto;
+    padding: 0 var(--spacing-lg); 
+    box-sizing: border-box; 
 }
 
 /* Adjust heading spacing for document flow */
@@ -49,7 +53,7 @@
     margin-bottom: 0;
 }
 
-/* Inline Code */
+/* Inline Code  */
 .markdown-content code {
     font-family: var(--font-secondary);
     background-color: var(--color-background-light);
@@ -57,14 +61,18 @@
     padding: 0.2em 0.4em;
     border-radius: var(--border-radius-sm);
     font-size: 0.9em;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: pre-wrap;
 }
 
-/* Code Blocks (Pre-formatted text) */
+/* Code Blocks */
 .markdown-content pre {
     background-color: var(--color-background-medium);
     padding: var(--spacing-md);
     border-radius: var(--border-radius-md);
     overflow-x: auto;
+    max-width: 100%;
     margin: var(--spacing-lg) 0;
     border: 1px solid var(--color-border);
     box-shadow: var(--box-shadow-light);
@@ -76,6 +84,9 @@
     padding: 0;
     font-size: 0.9em;
     border-radius: 0;
+    white-space: pre;
+    word-break: normal;
+    overflow-wrap: normal;
 }
 
 /* Tables */
@@ -85,7 +96,8 @@
     margin: var(--spacing-lg) 0;
     background-color: var(--color-background-medium);
     border-radius: var(--border-radius-md);
-    overflow: hidden;
+    display: block; 
+    overflow-x: auto;
     box-shadow: var(--box-shadow-light);
 }
 
@@ -95,6 +107,7 @@
     text-align: left;
     border-bottom: 1px solid var(--color-border);
     color: var(--color-text-light);
+    min-width: 120px;
 }
 
 .markdown-content th {
