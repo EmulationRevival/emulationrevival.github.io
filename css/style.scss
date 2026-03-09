@@ -1,58 +1,5 @@
 ---
 ---
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Oxanium';
-  font-style: normal;
-  font-weight: 300;
-  src: url('/fonts/oxanium-v21-latin-300.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-
-/* oxanium-regular - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Oxanium';
-  font-style: normal;
-  font-weight: 400;
-  src: url('/fonts/oxanium-v21-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-
-/* oxanium-600 - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Oxanium';
-  font-style: normal;
-  font-weight: 600;
-  src: url('/fonts/oxanium-v21-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-
-/* oxanium-700 - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Oxanium';
-  font-style: normal;
-  font-weight: 700;
-  src: url('/fonts/oxanium-v21-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-
-/* roboto-mono-regular - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Roboto Mono';
-  font-style: normal;
-  font-weight: 400;
-  src: url('/fonts/roboto-mono-v31-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-
-/* roboto-mono-700 - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Roboto Mono';
-  font-style: normal;
-  font-weight: 700;
-  src: url('/fonts/roboto-mono-v31-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-
 /* --- Import All Stylesheets --- */
 @import 'base/reset';
 @import 'base/variables';
@@ -68,6 +15,26 @@
 @import 'components/search-bar';
 @import 'components/forms';
 @import 'utilities/helpers';
+
+/* Oxanium variable font */
+@font-face {
+  font-family: 'Oxanium';
+  src: url('/fonts/oxanium-wght.woff2') format('woff2-variations'),
+       url('/fonts/oxanium-wght.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+/* Roboto Mono variable font */
+@font-face {
+  font-family: 'Roboto Mono';
+  src: url('/fonts/robotomono-wght.woff2') format('woff2-variations'),
+       url('/fonts/robotomono-wght.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 100 700;
+  font-display: swap;
+}
 
 /* Global Body & Element Styles */
 

@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if page.title %}{{ page.title }} - {% endif %}Emulation Revival</title>
+    <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
     <meta
         name="description"
         content="{% if page.description %}{{ page.description }}{% else %}Discover Emulators, Recommendations, Compatibility and More.{% endif %}"
     >
+    <link rel="preload" href="{{ '/fonts/oxanium-wght.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ '/fonts/robotomono-wght.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
     <script src="{{ '/js/inert.min.js' | relative_url }}" defer></script>
 </head>
