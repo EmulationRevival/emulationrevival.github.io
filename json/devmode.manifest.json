@@ -117,7 +117,7 @@
       }
     ]
   },
-    "xbsx2": {
+  "xbsx2": {
     "name": "XBSX2",
     "repo": "XboxEmulationHub/XBSX2",
     "assets": [
@@ -830,6 +830,40 @@
       {
         "id": "sm64hd",
         "url": "https://drive.google.com/uc?export=download&id=18cFjR6Y9nNVzzcTkAlTXxjfgNeheKso0"
+      }
+    ]
+  },
+  "dxxdescent2": {
+    "name": "DXX-Rebirth (Descent 2)",
+    "repo": "worleydl/dxx-rebirth-uwp",
+    "assets": [
+      {
+        "id": "dxxdescent2",
+        "assetPattern": "d2x-rebirth-uwp_*.msixbundle"
+      },
+      {
+        "id": "dxxdescent2dep",
+        "assetPattern": "Microsoft.VCLibs.x64.14.00.appx"
+      }
+    ]
+  },
+  "2s2h": {
+    "name": "2Ship2Harkinian",
+    "repo": "SternXD/2ship2harkinian-uwp",
+    "assets": [
+      {
+        "id": "2s2h",
+        "assetPattern": "2ship2harkinian*.msixbundle"
+      }
+    ]
+  },
+  "nsmb": {
+    "name": "NSMB (MarioVsLuigi)",
+    "repo": "YTReviveMe/NSMB-MarioVsLuigi-UWP",
+    "assets": [
+      {
+        "id": "nsmb",
+        "assetPattern": "NSMB-MarioVsLuigi_*.msix"
       }
     ]
   }
