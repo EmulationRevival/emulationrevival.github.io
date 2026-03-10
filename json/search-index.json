@@ -385,6 +385,13 @@
     "category": "Ports"
   },
   {
+    "name": "NSMB (MarioVsLuigi)",
+    "description": "A unity-standalone 2-10 online player remake of the Mario vs. Luigi gamemode from the New Super Mario Bros DS download game",
+    "img": "/xbox-dev-mode/images/game-ports/NSMB.webp",
+    "url": "/xbox-dev-mode/ports.html#nsmb-mariovsluigi",
+    "category": "Ports"
+  },
+  {
     "name": "Console Media USB Tool",
     "description": "Format a USB drive to NTFS and add permissions for UWP apps.",
     "img": "/xbox-dev-mode/images/utilities/xboxusb.webp",
