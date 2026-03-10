@@ -757,5 +757,36 @@
         "url": "https://drive.google.com/uc?export=download&id=18cFjR6Y9nNVzzcTkAlTXxjfgNeheKso0"
       }
     ]
+  },
+  "dxxdescent2": {
+    "name": "DXX-Rebirth (Descent 2)",
+    "assets": [
+      {
+        "id": "dxxdescent2",
+        "url": "https://github.com/worleydl/dxx-rebirth-uwp/releases/download/release-alpha/d2x-rebirth-uwp_1.0.3.0_x64.msixbundle"
+      },
+      {
+        "id": "dxxdescent2dep",
+        "url": "https://github.com/worleydl/dxx-rebirth-uwp/releases/download/release-alpha/Microsoft.VCLibs.x64.14.00.appx"
+      }
+    ]
+  },
+  "2s2h": {
+    "name": "2Ship2Harkinian",
+    "assets": [
+      {
+        "id": "2s2h",
+        "url": "https://github.com/SternXD/2ship2harkinian-uwp/releases/download/0.1.0-uwp/2ship2harkinian.msixbundle"
+      }
+    ]
+  },
+  "nsmb": {
+    "name": "NSMB (MarioVsLuigi)",
+    "assets": [
+      {
+        "id": "nsmb",
+        "url": "https://github.com/YTReviveMe/NSMB-MarioVsLuigi-UWP/releases/download/v2.0.4.1/NSMB-MarioVsLuigi_1.0.1.0_x64.msix"
+      }
+    ]
   }
 }
