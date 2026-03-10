@@ -371,6 +371,13 @@
     "category": "Ports"
   },
   {
+    "name": "DXX-Rebirth (Descent 2)",
+    "description": "A Source Port for the classic 6-degrees-of-freedom shooter, Descent 2.",
+    "img": "/xbox-dev-mode/images/game-ports/dxxrebirth2.webp",
+    "url": "/xbox-dev-mode/ports.html#dxx-rebirth-descent-2",
+    "category": "Ports"
+  },
+  {
     "name": "Console Media USB Tool",
     "description": "Format a USB drive to NTFS and add permissions for UWP apps.",
     "img": "/xbox-dev-mode/images/utilities/xboxusb.webp",
