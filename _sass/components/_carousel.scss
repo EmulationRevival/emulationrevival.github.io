@@ -51,11 +51,19 @@
     color: white;
 }
 
-.carousel-button:hover,
+/* Mobile tap feedback (Active state without layout shifts) */
 .carousel-button:active {
     background-color: rgba(var(--color-primary-rgb), 0.9);
-    transform: translateY(-50%) scale(1.1);
     color: white;
+}
+
+/* Desktop-Only Hovers (Mobile Double-Tap Fix) */
+@media (hover: hover) and (pointer: fine) {
+    .carousel-button:hover {
+        background-color: rgba(var(--color-primary-rgb), 0.9);
+        transform: translateY(-50%) scale(1.1);
+        color: white;
+    }
 }
 
 .carousel-link:focus-visible {
@@ -102,13 +110,16 @@
     transform: scale(1.2);
 }
 
-.dot:hover {
-    background-color: rgba(255, 255, 255, 0.8);
-}
-
 .dot:focus-visible {
     outline: 2px solid white;
     outline-offset: 2px;
+}
+
+/* Desktop-Only Hovers for Dots */
+@media (hover: hover) and (pointer: fine) {
+    .dot:hover {
+        background-color: rgba(255, 255, 255, 0.8);
+    }
 }
 
 /* --- Carousel Content Overlay --- */
@@ -144,25 +155,27 @@
     .carousel-track {
         transition: none;
     }
-    .carousel-button:hover {
-        transform: translateY(-50%);
-    }
     .dot.active {
         transform: none;
+    }
+    @media (hover: hover) and (pointer: fine) {
+        .carousel-button:hover {
+            transform: translateY(-50%);
+        }
     }
 }
 
 /* Desktop Overides */
 @media (min-width: 768px) {
 
-.carousel-button {
-    width: 80px;
-    height: 80px;
-    font-size: 2rem;
+    .carousel-button {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
     }
     
-.dot {
-    width: 24px;
-    height: 24px;
-}
+    .dot {
+        width: 24px;
+        height: 24px;
+    }
 }

@@ -73,10 +73,26 @@
     border-bottom: none;
 }
 
-/* Combined hover and keyboard-selected states */
-.autocomplete-suggestion:is(:hover, [aria-selected="true"]) {
+/* Keyboard-selected states (Always active for accessibility) */
+.autocomplete-suggestion[aria-selected="true"] {
     background-color: var(--color-primary);
     color: var(--color-heading);
+}
+
+.autocomplete-suggestion[aria-selected="true"] .suggestion-name {
+    color: #E0E0E0;
+}
+
+/* Hover states (Desktop/Mouse only) */
+@media (hover: hover) and (pointer: fine) {
+    .autocomplete-suggestion:hover {
+        background-color: var(--color-primary);
+        color: var(--color-heading);
+    }
+
+    .autocomplete-suggestion:hover .suggestion-name {
+        color: #E0E0E0;
+    }
 }
 
 /* --- Suggestion Logo Thumbnail --- */
@@ -95,11 +111,6 @@
     font-size: 0.9em;
     font-weight: 500;
     color: var(--color-text-light);
-}
-
-/* Text color for the name inside a hovered or selected suggestion */
-.autocomplete-suggestion:is(:hover, [aria-selected="true"]) .suggestion-name {
-  color: #E0E0E0;
 }
 
 /* --- No Results Message --- */

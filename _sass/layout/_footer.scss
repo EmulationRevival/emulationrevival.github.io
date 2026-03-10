@@ -47,12 +47,6 @@
     display: inline-block;
 }
 
-.footer-nav a:hover,
-.footer-nav a:focus-visible {
-    color: var(--color-accent);
-    outline: none;
-}
-
 .social-links {
     display: flex;
     gap: var(--spacing-md);
@@ -71,11 +65,6 @@
     transition: transform var(--transition-speed) var(--transition-ease);
 }
 
-.social-links a:hover img,
-.social-links a:focus-visible img {
-    transform: translateY(-3px) scale(1.1);
-}
-
 [data-theme='light'] .social-links img {
     filter: invert(0.8);
 }
@@ -88,14 +77,44 @@
     margin-top: var(--spacing-md);
 }
 
-/* Accessibility Enhancements */
+/* --- Base Focus States (Always active for keyboard accessibility) --- */
+.footer-nav a:focus-visible {
+    color: var(--color-accent);
+    outline: none;
+}
+
+.social-links a:focus-visible img {
+    transform: translateY(-3px) scale(1.1);
+}
+
+.footer-modal-trigger:focus-visible img {
+    transform: translateY(-3px) scale(1.1);
+}
+
 .footer-nav a:focus-visible,
-.social-links a:focus-visible {
+.social-links a:focus-visible,
+.footer-modal-trigger:focus-visible {
     outline: 2px solid var(--color-accent);
     outline-offset: 3px;
     border-radius: 2px;
 }
 
+/* --- Desktop-Only Hover States (Mobile Double-Tap Fix) --- */
+@media (hover: hover) and (pointer: fine) {
+    .footer-nav a:hover {
+        color: var(--color-accent);
+    }
+    
+    .social-links a:hover img {
+        transform: translateY(-3px) scale(1.1);
+    }
+    
+    .footer-modal-trigger:hover img {
+        transform: translateY(-3px) scale(1.1);
+    }
+}
+
+/* --- Active Page Indicator --- */
 .footer-nav [aria-current="page"] {
     font-weight: bold;
     color: var(--color-accent);
@@ -112,7 +131,7 @@
     background-color: var(--color-accent);
 }
 
-/* Discord Modal Trigger */
+/* Discord Modal Trigger Base */
 .footer-modal-trigger {
     background: none;
     border: none;
@@ -121,17 +140,6 @@
     display: inline-block;
     line-height: 0;
     transition: transform var(--transition-speed) var(--transition-ease);
-}
-
-.footer-modal-trigger:hover img,
-.footer-modal-trigger:focus-visible img {
-    transform: translateY(-3px) scale(1.1);
-}
-
-.footer-modal-trigger:focus-visible {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 3px;
-    border-radius: 2px;
 }
 
 /* Discord Modal Grid Layout */
@@ -148,32 +156,28 @@
     padding: var(--spacing-md);
 }
 
-/* Remove box-art styling from the Discord modal icon */
 #discordHubModal .modal-header-thumb {
-    width: 32px;            /* Shrinks it to a normal icon size */
+    width: 32px; 
     height: 32px;
-    background: transparent; /* Removes the background box */
-    border: none;           /* Removes the border */
-    box-shadow: none;       /* Removes any game-box shadow */
-    margin-right: var(--spacing-sm); /* Tightens the gap to the title */
+    background: transparent;
+    border: none;
+    box-shadow: none; 
+    margin-right: var(--spacing-sm);
 }
 
-/* Ensure the SVG scales nicely inside the new size */
 #discordHubModal .modal-header-thumb img {
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
 
-/* Re-center the title vertically with the new smaller icon */
 #discordHubModal .modal-header {
     align-items: center; 
 }
 
-/* Strip the default h3 margin so the text centers perfectly with the icon */
 #discordHubModal .modal-header-title {
     margin: 0; 
-    line-height: 1; /* Removes extra invisible vertical space */
+    line-height: 1;
     display: flex;
     align-items: center;
 }
@@ -189,24 +193,21 @@
 /* Print Styles */
 @media print {
     .main-footer {
-    border-top: 1px solid #ddd;
-}
+        border-top: 1px solid #ddd;
+    }
 }
 
 /* Desktop Overides */
 @media (min-width: 768px) {
-
     .main-footer {
-    text-align: left;
-  }
-  .footer-content {
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-  }
-  .footer-nav ul {
-    align-items: flex-start;
-  }
+        text-align: left;
+    }
+    .footer-content {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+    .footer-nav ul {
+        align-items: flex-start;
+    }
 }
-
-

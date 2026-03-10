@@ -58,8 +58,10 @@ a {
     transition: color 0.3s ease;
 }
 
-a:hover {
-    color: var(--color-accent-hover);
+@media (hover: hover) and (pointer: fine) {
+    a:hover {
+        color: var(--color-accent-hover);
+    }
 }
 
 .container {

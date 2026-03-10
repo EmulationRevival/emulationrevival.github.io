@@ -29,11 +29,6 @@
   transition: outline-color 0.3s ease;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--box-shadow-heavy);
-}
-
 /* The link now wraps the whole card */
 .card-link {
     display: flex;
@@ -59,10 +54,6 @@
     height: 100%;
     object-fit: cover;
     transition: transform 400ms ease;
-}
-
-.card:hover .card-image {
-    transform: scale(1.05);
 }
 
 /* Text content area */
@@ -179,7 +170,6 @@
   padding: 0.25rem;
 }
 
-.modal-close-button:hover,
 .modal-close-button:focus-visible {
   color: var(--color-heading);
   transform: rotate(90deg) scale(1.1);
@@ -231,10 +221,6 @@
   text-decoration: none;
 }
 
-.info-list a:hover {
-  text-decoration: underline;
-}
-
 .action-dropdown {
   position: relative;
 }
@@ -268,11 +254,6 @@
   text-decoration: none;
   white-space: nowrap;
   transition: background-color var(--transition-speed) var(--transition-ease), color var(--transition-speed) var(--transition-ease);
-}
-
-.action-dropdown .dropdown-menu li a:hover {
-  background-color: var(--color-primary);
-  color: #E0E0E0;
 }
 
 #gameDetailModalBody .action-dropdown .dropdown-menu {
@@ -323,11 +304,6 @@
   transition: background-color var(--transition-speed) var(--transition-ease);
 }
 
-.popover-link:hover {
-  background-color: var(--color-primary);
-  color: #E0E0E0;
-}
-
 .popover-icon {
   width: 18px;
   height: 18px;
@@ -339,26 +315,53 @@
 }
 
 /* =============================================
+=     DESKTOP ONLY HOVER STATES (MOBILE FIX)  =
+============================================= */
+
+@media (hover: hover) and (pointer: fine) {
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--box-shadow-heavy);
+    }
+
+    .card:hover .card-image {
+        transform: scale(1.05);
+    }
+    
+    .modal-close-button:hover {
+        color: var(--color-heading);
+        transform: rotate(90deg) scale(1.1);
+        transition: transform var(--transition-speed) var(--transition-ease), color var(--transition-speed) var(--transition-ease);
+    }
+    
+    .info-list a:hover {
+        text-decoration: underline;
+    }
+    
+    .action-dropdown .dropdown-menu li a:hover {
+        background-color: var(--color-primary);
+        color: #E0E0E0;
+    }
+    
+    .popover-link:hover {
+        background-color: var(--color-primary);
+        color: #E0E0E0;
+    }
+}
+
+/* =============================================
 =     DESKTOP CARD GRID - FLEXBOX OVERRIDE    =
 ============================================= */
 
 @media (min-width: 768px) {
-  /* 1. Switch the container to a Flexbox layout */
   .card-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    /* align-items: stretch; is the default, but we can be explicit */
     align-items: stretch;
   }
 
-  /* 2. Give each card a specific width */
-  /* This prevents the cards from stretching and shrinking */
   .card-grid .card {
     width: 420px;
-    /* You could also use flex-basis if you prefer */
-    /* flex: 0 1 320px; */
   }
 }
-
-

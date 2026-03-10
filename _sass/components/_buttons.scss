@@ -21,13 +21,10 @@
                 transform var(--transition-speed) var(--transition-ease);
 }
 
-.btn:hover,
+/* Base Focus State */
 .btn:focus-visible {
     color: var(--color-button-text);
     transform: translateY(-1.5px);
-}
-
-.btn:focus-visible {
     outline: 2px solid var(--color-button-primary-bg-hover);
     outline-offset: 2px;
 }
@@ -42,11 +39,12 @@
     }
 }
 
+/* --- Button Variants (Normal & Focus States) --- */
+
 .btn-primary {
     background-color: var(--color-button-primary-bg);
     border-color: var(--color-button-primary-border);
 }
-.btn-primary:hover,
 .btn-primary:focus-visible {
     background-color: var(--color-button-primary-bg-hover);
     border-color: var(--color-button-primary-border-hover);
@@ -56,7 +54,6 @@
     background-color: var(--color-button-secondary-bg);
     border-color: var(--color-button-secondary-border);
 }
-.btn-secondary:hover,
 .btn-secondary:focus-visible {
     background-color: var(--color-button-secondary-bg-hover);
     border-color: var(--color-button-secondary-border-hover);
@@ -66,7 +63,6 @@
     background-color: var(--color-button-download-bg);
     border-color: var(--color-button-download-border);
 }
-.btn-download:hover,
 .btn-download:focus-visible {
     background-color: var(--color-button-download-bg-hover);
     border-color: var(--color-button-download-border-hover);
@@ -76,7 +72,6 @@
     background-color: var(--color-button-info-bg);
     border-color: var(--color-button-info-border);
 }
-.btn-info:hover,
 .btn-info:focus-visible {
     background-color: var(--color-button-info-bg-hover);
     border-color: var(--color-button-info-border-hover);
@@ -89,7 +84,6 @@
     align-items: center;
     gap: 0.75rem;
 }
-.btn-discord:hover,
 .btn-discord:focus-visible {
     background-color: var(--color-button-discord-bg-hover);
     border-color: var(--color-button-discord-border-hover);
@@ -99,11 +93,50 @@
     background-color: var(--color-button-youtube-bg);
     border-color: var(--color-button-youtube-border);
 }
-.btn-youtube:hover,
 .btn-youtube:focus-visible {
     background-color: var(--color-button-youtube-bg-hover);
     border-color: var(--color-button-youtube-border-hover);
 }
+
+/* --- Desktop-Only Hover States --- */
+@media (hover: hover) and (pointer: fine) {
+    .btn:hover {
+        color: var(--color-button-text);
+        transform: translateY(-1.5px);
+    }
+    
+    .btn-primary:hover {
+        background-color: var(--color-button-primary-bg-hover);
+        border-color: var(--color-button-primary-border-hover);
+    }
+    
+    .btn-secondary:hover {
+        background-color: var(--color-button-secondary-bg-hover);
+        border-color: var(--color-button-secondary-border-hover);
+    }
+    
+    .btn-download:hover {
+        background-color: var(--color-button-download-bg-hover);
+        border-color: var(--color-button-download-border-hover);
+    }
+    
+    .btn-info:hover {
+        background-color: var(--color-button-info-bg-hover);
+        border-color: var(--color-button-info-border-hover);
+    }
+    
+    .btn-discord:hover {
+        background-color: var(--color-button-discord-bg-hover);
+        border-color: var(--color-button-discord-border-hover);
+    }
+    
+    .btn-youtube:hover {
+        background-color: var(--color-button-youtube-bg-hover);
+        border-color: var(--color-button-youtube-border-hover);
+    }
+}
+
+/* --- Disabled & Utility States --- */
 
 .btn-disabled,
 .btn:disabled {

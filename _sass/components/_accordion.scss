@@ -15,8 +15,10 @@ details.accordion-item {
   transition: box-shadow 0.3s ease;
 }
 
-details.accordion-item:hover {
-  box-shadow: var(--box-shadow-light);
+@media (hover: hover) and (pointer: fine) {
+  details.accordion-item:hover {
+    box-shadow: var(--box-shadow-light);
+  }
 }
 
 /* Accordion Header */
@@ -111,8 +113,10 @@ details[open] > summary.accordion-header {
   border-bottom-right-radius: 0;
 }
 
-summary.accordion-header:hover {
-  background-color: rgba(var(--color-primary), 0.1);
+@media (hover: hover) and (pointer: fine) {
+  summary.accordion-header:hover {
+    background-color: rgba(var(--color-primary), 0.1);
+  }
 }
 
 .accordion-content {
@@ -203,8 +207,10 @@ summary.accordion-header:hover {
   transition: transform 0.3s ease;
 }
 
-.accordion-close-trigger:hover span[aria-hidden="true"] {
-  transform: translateY(-3px);
+@media (hover: hover) and (pointer: fine) {
+  .accordion-close-trigger:hover span[aria-hidden="true"] {
+    transform: translateY(-3px);
+  }
 }
 
 /* Desktop Overrides */

@@ -214,6 +214,9 @@ main {
     font-family: var(--font-primary);
 }
 
+/* ============================= */
+/* Lite YouTube Wrapper          */
+/* ============================= */
 .video-wrapper.lite-youtube {
     position: relative;
     width: 100%;
@@ -241,10 +244,6 @@ main {
     object-fit: cover;
     opacity: 0.8;
     transition: opacity 0.2s ease;
-}
-
-.lite-youtube:hover img {
-    opacity: 1;
 }
 
 /* --- The Fake Play Button --- */
@@ -275,11 +274,24 @@ main {
     border-color: transparent transparent transparent #fff;
 }
 
-/* Hover state */
-.lite-youtube:hover .lite-play-btn,
-.lite-play-btn:focus {
+/* --- Focus states for keyboard accessibility (Always Active) --- */
+.lite-play-btn:focus-visible,
+.lite-youtube:focus-within .lite-play-btn {
     background-color: var(--color-button-youtube-bg-hover);
     border-color: var(--color-button-youtube-border-hover);
+    outline: 2px solid var(--color-button-youtube-bg-hover);
+    outline-offset: 4px;
+}
+
+/* --- Desktop-Only Hovers (Mobile Double-Tap Fix) --- */
+@media (hover: hover) and (pointer: fine) {
+    .lite-youtube:hover img {
+        opacity: 1;
+    }
+    .lite-youtube:hover .lite-play-btn {
+        background-color: var(--color-button-youtube-bg-hover);
+        border-color: var(--color-button-youtube-border-hover);
+    }
 }
 
 /* Desktop Overides */
@@ -309,5 +321,4 @@ main {
     .dual-column-grid .section-description {
         margin-bottom: var(--spacing-lg);
     }
-} 
-
+}
