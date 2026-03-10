@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Privacy Policy - Emulation Revival</title>
         <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
+        <link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
         <meta
             name="description"
             content="Read the Privacy Policy for Emulation Revival to understand how we collect, use, and protect your information."
@@ -250,5 +251,14 @@
         </div>
 
         <script src="/js/main.js" defer></script>
+        <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register("{{ '/sw.js' | relative_url }}")
+        .then(registration => { console.log('PWA ServiceWorker registered successfully'); })
+        .catch(err => { console.log('PWA ServiceWorker registration failed: ', err); });
+    });
+  }
+</script>
     </body>
 </html>

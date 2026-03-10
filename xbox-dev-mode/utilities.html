@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Xbox Dev Mode Utilities & Tools - Emulation Revival</title>
         <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
+        <link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
         <meta
             name="description"
             content="Find and download useful utilities and tools for Xbox Developer Mode, including FTP clients, USB formatters, and remote input tools."
@@ -332,5 +333,14 @@
         <script src="/js/card-logic.js" defer></script>
         <script src="/js/page-search-logic.js" defer></script>
         <script src="/js/download-manager.js" defer></script>
+        <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register("{{ '/sw.js' | relative_url }}")
+        .then(registration => { console.log('PWA ServiceWorker registered successfully'); })
+        .catch(err => { console.log('PWA ServiceWorker registration failed: ', err); });
+    });
+  }
+</script>
     </body>
 </html>
