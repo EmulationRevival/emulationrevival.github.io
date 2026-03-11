@@ -338,17 +338,18 @@ document.addEventListener('DOMContentLoaded', () => {
             } catch {}
         });
 
-        document.querySelectorAll('main a[href^="http"], .main-footer a[href^="http"]').forEach(link => {
-            try {
-                if (
-                    new URL(link.href).hostname !== window.location.hostname &&
-                    !link.classList.contains('download-link')
-                ) {
-                    link.setAttribute('target', '_blank');
-                    link.setAttribute('rel', 'noopener noreferrer');
-                }
-            } catch {}
-        });
+        document.querySelectorAll('main a[href^="http"], .main-footer a[href^="http"], .main-header a[href^="http"]').forEach(link => {
+    try {
+        if (
+            new URL(link.href).hostname !== window.location.hostname &&
+            !link.classList.contains('download-link')
+        ) {
+            link.setAttribute('target', '_blank');
+            link.setAttribute('rel', 'noopener noreferrer');
+        }
+    } catch {}
+});
+
 
         // Lite YouTube facade
         document.querySelectorAll('.lite-youtube').forEach(wrapper => {
