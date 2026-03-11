@@ -2,117 +2,121 @@
 layout: template
 title: "Xbox Dev Mode BIOS Requirements"
 permalink: /guides/devmode-bios/
-description: "Required BIOS files for emulators used in Xbox Dev Mode."
-author: "Jeen"
+description: "Comprehensive BIOS and firmware requirements for emulators used in Xbox Dev Mode."
+author: "MewLew"
 ---
 
 # Overview
 
-Some emulators require firmware or BIOS files extracted from original hardware. These files must be placed in the correct directory for the emulator to detect them.
+Some emulators require firmware or BIOS files extracted from original hardware to function correctly or improve compatibility. 
 
-When using RetroArch, BIOS files are typically placed in:
+In Xbox Developer Mode, **Standalone Emulators** (like XBSX2 or Flycast) allow you to specify your own BIOS directories—typically on an external USB drive. **RetroArch cores**, however, strictly require BIOS files to be placed in its designated `system` folder.
 
-/system
-
-Some standalone emulators use their own internal BIOS folders.
-
-Only the emulators below require BIOS files.
+Below is a comprehensive checklist of BIOS requirements, exact filenames, and standard directory paths for the emulators featured on Emulation Revival.
 
 ---
 
-# PlayStation 2 (XBSX2)
+# PlayStation 2 (XBSX2 & PCSX2 Standards)
 
-XBSX2 requires a **PlayStation 2 BIOS dump**.
+**XBSX2** is a UWP port of **PCSX2**. Because it shares the exact same backend logic, it adheres strictly to PCSX2's official BIOS documentation.
 
-Common BIOS files:
+### The PCSX2/XBSX2 BIOS Files
+To successfully boot and play games, **only the main BIOS file is strictly required**. 
 
-SCPH-70012_BIOS_V12_USA_200.bin  
-SCPH-70004_BIOS_V12_PAL_200.bin  
-SCPH-70000_BIOS_JAPAN.bin  
+**Required File:**
+* `SCPH-XXXXX.bin` (The primary BIOS file)
+*(Note: Replace `XXXXX` with your console's model number, such as `70012` for US, `70004` for PAL, or `70000` for Japan).*
 
-Typical directory:
+**Common Alternative Filenames:**
+If you are using files from curated emulation sets, the main BIOS may be named like this instead:
+* `ps2-0200a-20040614.bin` (North America / NTSC-U)
+* `ps2-0200e-20040614.bin` (Europe / PAL-E)
+* `ps2-0200j-20040614.bin` (Japan / NTSC-J)
 
-/system/pcsx2/bios
+**Optional / Legacy Files:**
+If you perform a full hardware dump of your PS2, you may get the following extra files. While XBSX2 can read them, they are **not strictly required** for game compatibility. They mainly preserve memory card encryption, saved system settings, and DVD player functionality:
+* `SCPH-XXXXX.mec` 
+* `SCPH-XXXXX.nvm` 
+* `SCPH-XXXXX.rom1.bin` 
+* `SCPH-XXXXX.rom2.bin` 
+* `SCPH-XXXXX.erom.bin` 
 
-Multiple BIOS versions can be stored in the same directory.
+**Directory Placement:**
+Unlike RetroArch, XBSX2 is a standalone UWP emulator. You must create a folder on your USB drive (e.g., `USB:\XBSX2\BIOS`) and place your BIOS files there. 
+1. Open XBSX2.
+2. Navigate to **Settings > BIOS Settings**.
+3. Under **BIOS Directory**, select *Add Search Directory* and navigate to your folder, then select "Use this Directory".
 
-## Using PS3 Backwards Compatibility BIOS
+### PS3 Extracted BIOS (via RPCS3)
+Instead of dumping a physical PS2, you can use BIOS files extracted from official PlayStation 3 firmware. These files can be easily claimed using the [Firmware BIOS Claim Tool](https://archive.org/details/firmware_bios_claim_release1) once you have installed the official PS3 firmware file (`PS3UPDAT.PUP`) via the **RPCS3 emulator**.
 
-It is also possible to use BIOS files extracted from **backwards-compatible PlayStation 3 consoles**.
+The extracted PS2 BIOS files supported by XBSX2 are:
+* `ps3_ps2_gxemu_bios.bin`
+* `ps3_ps2_netemu_bios.bin`
+* `ps3_ps2_emu_bios.bin`
 
-Examples:
-
-ps2-0230a.bin  
-ps2-0200a.bin  
-
-These function as PS2 BIOS replacements and are supported by XBSX2.
-
----
-
-# Sega Dreamcast / Naomi / Atomiswave (Flycast)
-
-Flycast requires Dreamcast firmware files.
-
-Required BIOS:
-
-dc_boot.bin  
-dc_flash.bin  
-
-Typical directory:
-
-/system/dc
-
-Additional arcade platform BIOS:
-
-Naomi systems:
-
-naomi.zip  
-
-Atomiswave systems:
-
-awbios.zip  
+*(Note: The extraction process will also generate a `ps3_ps1_bios.bin` file, which you can use for PlayStation 1 emulation in RetroArch.)*
 
 ---
 
-# Nintendo 3DS (RetroArch – Citra Core)
+# RetroArch (Multi-System)
 
-Some configurations require Nintendo 3DS firmware components.
+RetroArch emulates dozens of consoles via "Cores," many of which require their own BIOS files.
 
-Required files:
+**Directory Placement:** All BIOS files for RetroArch must be placed directly into its main system folder (unless the core explicitly requires a subfolder):
+`USB:\RetroArch\system\`
 
-boot9.bin  
-boot11.bin  
+### Comprehensive RetroArch BIOS Checklist
+Below are the exact filenames required for the most commonly used cores on Xbox Dev Mode. **Filenames are case-sensitive.**
 
-Optional but sometimes required:
+#### PlayStation 1 (Cores: SwanStation, Beetle PSX, PCSX ReARMed)
+* `scph5500.bin` (Japan)
+* `scph5501.bin` (North America)
+* `scph5502.bin` (Europe)
+* `ps3_ps1_bios.bin` *(Extracted via RPCS3 using official PS3 firmware)*
 
-nand.bin  
+#### Sega CD / Mega CD (Cores: Genesis Plus GX, PicoDrive)
+* `bios_CD_U.bin` (North America)
+* `bios_CD_E.bin` (Europe)
+* `bios_CD_J.bin` (Japan)
 
-Typical directory:
+#### Sega Saturn (Cores: Beetle Saturn, Yabause)
+* `mpr-17933.bin` (North America / Europe)
+* `sega_101.bin` (Japan)
 
-/system
+#### Game Boy Advance (Core: mGBA)
+* `gba_bios.bin` *(Optional, but required if you want to see the iconic GBA boot screen)*
 
-These files are extracted from real Nintendo 3DS hardware.
+#### Panasonic 3DO (Core: Opera)
+* `panafz10.bin`
+
+#### Arcade / Neo Geo (Core: FinalBurn Neo)
+* `neogeo.zip` 
+**CRITICAL:** For FBNeo, the `neogeo.zip` BIOS file must usually be placed **in the exact same folder as your Neo Geo game ROMs**, not just inside the RetroArch `/system/` folder.
 
 ---
 
-# BIOS Summary
+# Sega Dreamcast / Naomi / Atomiswave (Flycast - Standalone)
 
-| Emulator | Required Files |
-|--------|--------|
-| XBSX2 (PS2) | PS2 BIOS or PS3 BC PS2 BIOS |
-| Flycast | dc_boot.bin, dc_flash.bin |
-| Flycast (Naomi) | naomi.zip |
-| Flycast (Atomiswave) | awbios.zip |
-| Citra (3DS) | boot9.bin, boot11.bin |
+Flycast requires Dreamcast firmware files if you have "HLE BIOS" disabled in the settings, or to improve compatibility with certain games. Arcade platforms require them strictly.
+
+**Dreamcast BIOS:**
+* `dc_boot.bin`
+* `dc_flash.bin`
+
+**Arcade Platform BIOS:**
+* Naomi systems: `naomi.zip`
+* Atomiswave systems: `awbios.zip`
+
+**Directory Placement:**
+For the Standalone Flycast app, easily point Flycast to your USB drive by going into the emulator's **Settings > General** and changing the **Data/BIOS** directory to a folder on your USB (e.g., `USB:\Flycast\data\`).
 
 ---
 
-# File Detection
+# BIOS Troubleshooting & Validation
 
-BIOS detection requires:
+If your emulator reports a missing BIOS, check the following:
 
-* Exact filenames
-* Correct directory placement
-* Correct file extensions
-
-Incorrect names or placement will cause the emulator to report the BIOS as missing.
+1. **Exact Filenames:** Verify case-sensitivity against the lists above (e.g., `dc_boot.bin`, not `DC_BOOT.BIN`). Xbox Dev Mode can silently fail if the casing is incorrect.
+2. **Correct USB Permissions:** This is the #1 cause of BIOS failure on Xbox Dev Mode. You **must** ensure your external USB drive is formatted to NTFS and has the **"ALL APPLICATION PACKAGES"** security permission set to **"Full Control"** via a Windows PC. If this is missing, the Xbox will silently block the emulator from reading your files. 
+3. **Double Check Directories:** Ensure you assigned the correct directories within standalone emulator settings, and didn't bury RetroArch files in unnecessary subfolders. 
