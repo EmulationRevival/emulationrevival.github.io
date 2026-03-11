@@ -27,8 +27,8 @@ To successfully boot and play games, **only the main BIOS file is strictly requi
 * `SCPH-XXXXX.bin` (The primary BIOS file)
 *(Note: Replace `XXXXX` with your console's model number, such as `70012` for US, `70004` for PAL, or `70000` for Japan).*
 
-**Common Alternative Filenames:**
-If you are using files from curated emulation sets, the main BIOS may be named like this instead:
+**Alternative Dumper Filenames:**
+Depending on the specific homebrew tool you use to dump your PS2 console, the extraction software may automatically name the BIOS file based on its internal firmware version and date, rather than the console model. These are perfectly valid and will look like this:
 * `ps2-0200a-20040614.bin` (North America / NTSC-U)
 * `ps2-0200e-20040614.bin` (Europe / PAL-E)
 * `ps2-0200j-20040614.bin` (Japan / NTSC-J)
@@ -120,3 +120,7 @@ If your emulator reports a missing BIOS, check the following:
 1. **Exact Filenames:** Verify case-sensitivity against the lists above (e.g., `dc_boot.bin`, not `DC_BOOT.BIN`). Xbox Dev Mode can silently fail if the casing is incorrect.
 2. **Correct USB Permissions:** This is the #1 cause of BIOS failure on Xbox Dev Mode. You **must** ensure your external USB drive is formatted to NTFS and has the **"ALL APPLICATION PACKAGES"** security permission set to **"Full Control"** via a Windows PC. If this is missing, the Xbox will silently block the emulator from reading your files. 
 3. **Double Check Directories:** Ensure you assigned the correct directories within standalone emulator settings, and didn't bury RetroArch files in unnecessary subfolders. 
+
+---
+
+> **Disclaimer:** Emulation Revival does not endorse piracy. We strongly encourage all users to legally dump their own BIOS, firmware, and game files from original hardware that they personally own. 
