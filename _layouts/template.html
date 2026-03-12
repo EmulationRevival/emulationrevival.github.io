@@ -14,7 +14,14 @@
     <link rel="preload" href="{{ '/fonts/oxanium-wght.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="{{ '/fonts/robotomono-wght.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
-    <script src="{{ '/js/inert.min.js' | relative_url }}" defer></script>
+    <script id="polyfill-inert">
+  if (!('inert' in HTMLElement.prototype)) {
+    const s = document.createElement('script');
+    s.src = "{{ '/js/inert.min.js' | relative_url }}";
+    s.defer = true;
+    document.head.appendChild(s);
+  }
+</script>
 </head>
 
 <body>
