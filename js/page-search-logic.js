@@ -248,6 +248,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // --- KEYBOARD NAVIGATION HELPER ---
+  function moveActiveSuggestion(direction) {
+    const suggestions = Array.from(autocompleteResults.querySelectorAll(SELECTORS.SUGGESTION));
+    if (suggestions.length === 0) return;
+
+    let currentIndex = suggestions.findIndex(s => s.getAttribute(ATTRIBUTES.ARIA_SELECTED) === 'true');
+    if (currentIndex === -1) currentIndex = 0;
+
+    suggestions[currentIndex].setAttribute(ATTRIBUTES.ARIA_SELECTED, 'false');
+    suggestions[currentIndex].classList.remove(CLASSES.ACTIVE);
+
+    if (direction === 'down') {
+      currentIndex = (currentIndex + 1) % suggestions.length;
+    } else if (direction === 'up') {
+      currentIndex = (currentIndex - 1 + suggestions.length) % suggestions.length;
+    }
+
+    const newActive = suggestions[currentIndex];
+    newActive.setAttribute(ATTRIBUTES.ARIA_SELECTED, 'true');
+    newActive.classList.add(CLASSES.ACTIVE);
+    searchInput.setAttribute(ATTRIBUTES.ARIA_ACTIVEDESCENDANT, newActive.id);
+    newActive.scrollIntoView({ block: 'nearest' });
+  }
+
   // --- RENDER SUGGESTIONS ---
   function renderSuggestions(filtered, query) {
     if (filtered.length === 0) {
