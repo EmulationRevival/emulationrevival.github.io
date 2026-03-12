@@ -8,7 +8,8 @@ main {
 
 .hero-section {
     position: relative;    
-    height: 50vh; 
+    height: 50vh;
+    height: 50svh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -298,6 +299,7 @@ main {
 @media (min-width: 768px) {
     .hero-section {
     height: 60vh;
+    height: 60svh;
   }
   .intro-grid {
     grid-template-columns: 2fr 1fr;
