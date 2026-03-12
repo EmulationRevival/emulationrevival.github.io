@@ -364,6 +364,7 @@ document.addEventListener('DOMContentLoaded', () => {
       case KEYS.ENTER: {
         if (!hasSuggestions) return;
         event.preventDefault();
+        event.stopPropagation(); // <-- This stops the keypress from triggering the modal!
         const activeSuggestion = autocompleteResults.querySelector('[aria-selected="true"]');
         if (activeSuggestion && activeSuggestion.dataset.entryId) {
           applyHighlightAndScroll(activeSuggestion.dataset.entryId);
