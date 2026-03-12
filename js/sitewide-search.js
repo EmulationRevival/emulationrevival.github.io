@@ -52,7 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
     DEBOUNCE_MS: 150,
     MIN_QUERY_LENGTH: 1,
     MAX_SUGGESTIONS: 10,
-    // --- UPDATED PATH TO JSON FOLDER ---
     INDEX_PATH: '/json/search-index.json', 
     IMAGE_FALLBACK: '/images/fallback.png',
   };
@@ -67,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const autocompleteResults = document.getElementById(IDS.RESULTS_CONTAINER_ID);
   let masterIndex = [];
 
+  // Early return if search UI is not on this page
   if (!searchInput || !autocompleteResults) return;
 
   // --- Live region for screen reader announcements ---

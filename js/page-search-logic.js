@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     MAIN_HEADER: '.main-header',
     SUGGESTION: '.autocomplete-suggestion',
     SEARCH_CONTAINER: '.page-search-container',
+    CARD_LINK: '.card-link',
   };
   const CLASSES = {
     HIGHLIGHT: 'highlighted-by-search',
@@ -194,13 +195,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function focusAndHighlightElement(element) {
     element.classList.add(CLASSES.HIGHLIGHT);
-    element.setAttribute(ATTRIBUTES.TABINDEX, '-1');
-    element.focus({ preventScroll: true });
+    
+    // Find the actual interactive trigger inside the card
+    const targetToFocus = element.querySelector(SELECTORS.CARD_LINK) || element;
+    
+    // Only add tabindex="-1" if we are forced to focus a non-interactive element
+    if (targetToFocus === element) {
+      element.setAttribute(ATTRIBUTES.TABINDEX, '-1');
+    }
+    
+    targetToFocus.focus({ preventScroll: true });
+    
     setTimeout(() => {
       element.classList.remove(CLASSES.HIGHLIGHT);
-      element.addEventListener('blur', () => {
-        element.removeAttribute(ATTRIBUTES.TABINDEX);
-      }, { once: true });
+      if (targetToFocus === element) {
+        targetToFocus.addEventListener('blur', () => {
+          targetToFocus.removeAttribute(ATTRIBUTES.TABINDEX);
+        }, { once: true });
+      }
     }, CONFIG.HIGHLIGHT_DURATION_MS);
   }
 
@@ -409,4 +421,21 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // --- CROSS-PAGE HIGHLIGHT LISTENER ---
+  function handleHashNavigation() {
+    if (window.location.hash) {
+      const targetId = window.location.hash.substring(1);
+      // Slight delay ensures the DOM is fully painted
+      setTimeout(() => {
+        applyHighlightAndScroll(targetId);
+      }, 150);
+    }
+  }
+
+  // Fire once on initial load (for cross-page navigation)
+  handleHashNavigation();
+  
+  // Fire again if the hash changes without a page reload (for same-page sitewide search)
+  window.addEventListener('hashchange', handleHashNavigation);
 });
