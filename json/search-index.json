@@ -392,10 +392,10 @@
     "category": "Ports"
   },
   {
-    "name": "Console Media USB Tool",
-    "description": "Format a USB drive to NTFS and add permissions for UWP apps.",
-    "img": "/xbox-dev-mode/images/utilities/xboxusb.webp",
-    "url": "/xbox-dev-mode/utilities.html#xboxusb",
+    "name": "USB Permissions Tool",
+    "description": "Add necessary permissions to an NTFS formatted USB drive for UWP apps.",
+    "img": "/xbox-dev-mode/images/utilities/usb-perms-tool.webp",
+    "url": "/xbox-dev-mode/utilities.html#usb-permissions-tool",
     "category": "Utilities"
   },
   {
