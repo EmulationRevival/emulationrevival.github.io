@@ -753,13 +753,13 @@
       }
     ]
   },
-  "xboxusb": {
-    "name": "Xbox Media USB",
-    "repo": "SvenGDK/XboxMediaUSB",
+  "usbPermissionsTool": {
+    "name": "USB Permissions Tool",
+    "repo": "YTReviveMe/Xbox-UWP-Permission-Tool",
     "assets": [
       {
-        "id": "xboxusb",
-        "assetPattern": "XboxMediaUSB.*.zip"
+        "id": "usbpermtool",
+        "assetPattern": "Xbox.UWP.Drive.Permission.Tool.exe"
       }
     ]
   },
