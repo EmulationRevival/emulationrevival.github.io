@@ -686,12 +686,12 @@
       }
     ]
   },
-  "xboxusb": {
-    "name": "Xbox Media USB",
+  "usbPermissionsTool": {
+    "name": "USB Permissions Tool",
     "assets": [
       {
-        "id": "xboxusb",
-        "url": "https://github.com/SvenGDK/XboxMediaUSB/releases/download/v2.2/XboxMediaUSB.v2.2.zip"
+        "id": "usbpermtool",
+        "url": "https://github.com/YTReviveMe/Xbox-UWP-Permission-Tool/releases/download/v1/Xbox.UWP.Drive.Permission.Tool.exe"
       }
     ]
   },
