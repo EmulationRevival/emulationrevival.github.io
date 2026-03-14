@@ -1,4 +1,8 @@
 name: EmulationRevival
+url: "https://emulationrevival.github.io"
+
+plugins:
+  - jekyll-sitemap
 
 exclude:
   - node_modules
