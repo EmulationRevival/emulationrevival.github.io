@@ -151,13 +151,13 @@
       }
     ]
   },
-  "xenia": {
-    "name": "Xenia",
-    "repo": "SirMangler/xenia",
+  "xeniaCanary": {
+    "name": "Xenia Canary",
+    "type": "static",
     "assets": [
       {
         "id": "xenia",
-        "assetPattern": "xenia-canary-uwp_*.appx"
+        "url": "https://drive.google.com/uc?export=download&id=13dZbf9XNiYgRcxLSrgMNUyf8sddZviFU"
       }
     ]
   },
