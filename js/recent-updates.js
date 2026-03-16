@@ -1,21 +1,24 @@
-document.addEventListener('DOMContentLoaded', async () => {
+async function loadRecentUpdates() {
     const RECENT_GRID = document.getElementById('recent-updates-grid');
     const RECENT_SECTION = document.getElementById('recent-updates-section');
     
     if (!RECENT_GRID || !RECENT_SECTION) return;
 
     try {
+        // The crucial fix for PWA
+        const fetchOpts = { cache: 'no-store' };
+
         // 1. Fetch version and release date data
-        const vRes = await fetch(`/json/version.json?cb=${Date.now()}`);
+        const vRes = await fetch(`/json/version.json?cb=${Date.now()}`, fetchOpts);
         if (!vRes.ok) throw new Error("Could not fetch version.json");
         const vData = await vRes.json();
         
-        const appRes = await fetch(`/json/app-links.json?v=${vData.version}`);
+        const appRes = await fetch(`/json/app-links.json?v=${vData.version}`, fetchOpts);
         if (!appRes.ok) throw new Error("Could not fetch app-links.json");
         const appData = await appRes.json();
 
         // 2. Fetch your existing Search Index
-        const searchRes = await fetch(`/json/search-index.json`); 
+        const searchRes = await fetch(`/json/search-index.json?cb=${Date.now()}`, fetchOpts); 
         if (!searchRes.ok) throw new Error("Could not fetch search index");
         const searchIndex = await searchRes.json();
 
@@ -28,8 +31,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const rDate = new Date(info.releaseDate).getTime();
                 
                 if (rDate >= thirtyDaysAgo) {
-                    // Cross-reference with search index using the exact app name
-                    const searchData = searchIndex.find(item => item.name === info.name);
+                    // Cross-reference with search index using a forgiving match
+                    const appNameCleaned = info.name ? info.name.toLowerCase().trim() : "";
+                    const searchData = searchIndex.find(item => 
+                        item.name && item.name.toLowerCase().trim() === appNameCleaned
+                    );
                     
                     if (searchData) {
                         recentApps.push({ 
@@ -46,6 +52,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // 5. Build the HTML and reveal the section if updates exist
         if (recentApps.length > 0) {
+            // Clear it first in case of BFCache restoring an already-populated grid
+            RECENT_GRID.innerHTML = ''; 
+            
             RECENT_GRID.innerHTML = recentApps.map(app => {
                 const data = app.searchData;
                 return `
@@ -65,8 +74,26 @@ document.addEventListener('DOMContentLoaded', async () => {
             }).join('');
             
             RECENT_SECTION.style.display = 'block';
+        } else {
+            RECENT_SECTION.style.display = 'none';
         }
     } catch (error) {
         console.error("Failed to load recent updates:", error);
+    }
+}
+
+// --- Lifecycle Event Listeners ---
+
+// 1. Standard initial load
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadRecentUpdates);
+} else {
+    loadRecentUpdates();
+}
+
+// 2. Mobile BFCache load (when user swipes back to the page)
+window.addEventListener('pageshow', (event) => {
+    if (event.persisted) {
+        loadRecentUpdates();
     }
 });
