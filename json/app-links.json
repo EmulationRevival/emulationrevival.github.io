@@ -137,12 +137,12 @@
       }
     ]
   },
-  "xenia": {
-    "name": "Xenia",
+  "xeniaCanary": {
+    "name": "Xenia Canary",
     "assets": [
       {
         "id": "xenia",
-        "url": "https://github.com/SirMangler/xenia/releases/download/1.1.5a/xenia-canary-uwp_1.1.5a.appx"
+        "url": "https://drive.google.com/uc?export=download&id=13dZbf9XNiYgRcxLSrgMNUyf8sddZviFU"
       }
     ]
   },
