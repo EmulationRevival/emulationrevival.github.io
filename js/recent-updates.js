@@ -1,113 +1,72 @@
-// recent-update.js
-
-document.addEventListener('DOMContentLoaded', () => {
-
-    // --- CONFIGURATION ---
-    const AUTO_UPDATES_BASE_PATH = '/json/updates.json';
-    const MANUAL_UPDATES_PATH = '/json/manual-updates.json';
-    // NEW: Path to the version file.
-    const VERSION_PATH = '/json/updates-version.json';
-
-    const PREFIXES = {
-        COMMIT: 'Latest commit: ',
-        TAG: 'Last tagged release: ',
-        BUILD: 'Latest successful build: '
-    };
-
-    const CONFIGS = {
-        // Release-based
-        duckstation: { type: 'release' },
-        pcsx2: { type: 'release' },
-        netherSX2: { type: 'release' },
-        rpcsxAndroid: { type: 'release' },
-        shadPS4: { type: 'release' },
-        
-        // Commit-based
-        rpcs3: { type: 'commit', prefix: PREFIXES.COMMIT },
-        beetlePsx: { type: 'commit', prefix: PREFIXES.COMMIT },
-        pcsxRearmed: { type: 'commit', prefix: PREFIXES.COMMIT },
-        lrps2: { type: 'commit', prefix: PREFIXES.COMMIT },
-        
-        // Tag-based
-        play: { type: 'tag', prefix: PREFIXES.TAG },
-        
-        // Workflow-based
-        fpPS4: { type: 'workflow', prefix: PREFIXES.BUILD },
-        
-        // Manual
-        'duckstationAndroid': { type: 'manual' }
-    };
-
-    // --- PROCESSING ENGINE ---
-    const DATE_FORMAT_OPTIONS = { year: 'numeric', month: 'long', day: 'numeric' };
-    const formatDate = (dateString) => new Date(dateString).toLocaleDateString('en-GB', DATE_FORMAT_OPTIONS);
-
-    const elementsToUpdate = document.querySelectorAll('.recent-update');
-    if (elementsToUpdate.length === 0) {
-        return;
-    }
+document.addEventListener('DOMContentLoaded', async () => {
+    const RECENT_GRID = document.getElementById('recent-updates-grid');
+    const RECENT_SECTION = document.getElementById('recent-updates-section');
     
-    console.log('Fetching update data for elements on this page...');
+    if (!RECENT_GRID || !RECENT_SECTION) return;
 
-    // NEW: The fetch process now includes cache-busting.
-    const fetchWithCacheBusting = async () => {
-        // First, get the latest version timestamp. Bust cache for the version file itself.
-        const versionResponse = await fetch(`${VERSION_PATH}?cb=${Date.now()}`);
-        if (!versionResponse.ok) throw new Error('Could not fetch updates-version.json');
-        const versionData = await versionResponse.json();
-        const version = versionData.version;
+    try {
+        // 1. Fetch version and release date data
+        const vRes = await fetch(`/json/version.json?cb=${Date.now()}`);
+        if (!vRes.ok) throw new Error("Could not fetch version.json");
+        const vData = await vRes.json();
+        
+        const appRes = await fetch(`/json/app-links.json?v=${vData.version}`);
+        if (!appRes.ok) throw new Error("Could not fetch app-links.json");
+        const appData = await appRes.json();
 
-        // Now fetch the main data files using the version as a cache-busting query parameter.
-        const [autoUpdatesResponse, manualUpdatesResponse] = await Promise.all([
-            fetch(`${AUTO_UPDATES_BASE_PATH}?v=${version}`).then(res => res.ok ? res.json() : {}),
-            fetch(MANUAL_UPDATES_PATH).then(res => res.ok ? res.json() : {}) // Manual updates don't need busting
-        ]);
+        // 2. Fetch your existing Search Index
+        const searchRes = await fetch(`/json/search-index.json`); 
+        if (!searchRes.ok) throw new Error("Could not fetch search index");
+        const searchIndex = await searchRes.json();
 
-        return { ...autoUpdatesResponse, ...manualUpdatesResponse };
-    };
+        // 3. Filter for updates < 30 days old
+        const thirtyDaysAgo = Date.now() - (30 * 24 * 60 * 60 * 1000);
+        const recentApps = [];
 
-
-    fetchWithCacheBusting()
-    .then(allUpdates => {
-        elementsToUpdate.forEach(element => {
-            const key = element.dataset.updateKey;
-            if (!key) {
-                console.warn('Element has class "recent-update" but is missing a "data-update-key" attribute.', element);
-                return;
+        for (const [appId, info] of Object.entries(appData)) {
+            if (info.releaseDate && info.releaseDate !== "Unknown") {
+                const rDate = new Date(info.releaseDate).getTime();
+                
+                if (rDate >= thirtyDaysAgo) {
+                    // Cross-reference with search index using the exact app name
+                    const searchData = searchIndex.find(item => item.name === info.name);
+                    
+                    if (searchData) {
+                        recentApps.push({ 
+                            timestamp: rDate, 
+                            searchData: searchData 
+                        });
+                    }
+                }
             }
+        }
 
-            const config = CONFIGS[key];
-            const data = allUpdates[key];
+        // 4. Sort newest updates first
+        recentApps.sort((a, b) => b.timestamp - a.timestamp);
 
-            if (!config || !data) {
-                console.warn(`Missing config or data for key: ${key}`);
-                return;
-            }
-
-            let text = '';
-            switch (config.type) {
-                case 'release':
-                    text = `${data.version} (${formatDate(data.date)})`;
-                    break;
-                case 'commit':
-                case 'tag':
-                case 'workflow':
-                    text = `${config.prefix}${formatDate(data.date)}`;
-                    break;
-                case 'manual':
-                    text = data.lastUpdate;
-                    break;
-                default:
-                    text = `Unknown type: ${config.type}`;
-                    break;
-            }
-
-            if (text) {
-                element.textContent = text;
-            }
-        });
-    })
-    .catch(error => {
-        console.error('CRITICAL: Could not load or process update files.', error);
-    });
+        // 5. Build the HTML and reveal the section if updates exist
+        if (recentApps.length > 0) {
+            RECENT_GRID.innerHTML = recentApps.map(app => {
+                const data = app.searchData;
+                return `
+                    <div class="card">
+                        <a href="${data.url}" class="card-link">
+                            <div class="card-image-container" style="position: relative;">
+                                <img src="${data.img}" alt="${data.name} Logo" class="card-image">
+                                <div class="new-update-badge" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: url('/images/new-update.svg'); background-size: 100% 100%; background-repeat: no-repeat; pointer-events: none; z-index: 10;"></div>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title">${data.name}</h3>
+                                <p class="card-description">${data.description}</p>
+                            </div>
+                        </a>
+                    </div>
+                `;
+            }).join('');
+            
+            RECENT_SECTION.style.display = 'block';
+        }
+    } catch (error) {
+        console.error("Failed to load recent updates:", error);
+    }
 });
