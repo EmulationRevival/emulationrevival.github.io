@@ -7,10 +7,10 @@
     "category": "Emulators"
   },
   {
-    "name": "Citra",
-    "description": "An experimental RetroArch build with Citra, a 3DS emulator.",
-    "img": "/xbox-dev-mode/images/emulators/citra.webp",
-    "url": "/xbox-dev-mode/emulators.html#citra",
+    "name": "Retroarch 3DS",
+    "description": "An experimental RetroArch build with Citra, Azahar and Panda3ds cores.",
+    "img": "/xbox-dev-mode/images/emulators/retroarch3ds.webp",
+    "url": "/xbox-dev-mode/emulators.html#retroarch-3ds",
     "category": "Emulators"
   },
   {
