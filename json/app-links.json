@@ -176,14 +176,14 @@
       }
     ]
   },
-  "citra": {
-    "name": "Citra",
+  "retroarch3ds": {
+    "name": "Retroarch 3DS",
     "version": "Citra-Alpha-RetroArch",
     "releaseDate": "2024-05-09",
     "assets": [
       {
-        "id": "citra",
-        "url": "https://github.com/YTReviveMe/RetroArch-uwp/releases/download/Citra-Alpha-RetroArch/RetroArch-Citra-Alpha_1.0.1.0_x64.msix"
+        "id": "retroarch3ds",
+        "url": "https://github.com/YTReviveMe/RetroArch-uwp/releases/download/Citra-Alpha-RetroArch/RetroArch-3ds-Alpha_1.0.1.0_x64.msix"
       }
     ]
   },
