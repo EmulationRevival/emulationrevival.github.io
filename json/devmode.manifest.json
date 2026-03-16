@@ -183,13 +183,13 @@
       }
     ]
   },
-  "citra": {
-    "name": "Citra",
+  "retroarch3ds": {
+    "name": "Retroarch 3DS",
     "repo": "YTReviveMe/RetroArch-uwp",
     "assets": [
       {
-        "id": "citra",
-        "assetPattern": "RetroArch-Citra-Alpha_*.msix"
+        "id": "retroarch3ds",
+        "assetPattern": "RetroArch-*ds-Alpha_*.*_x*.msix"
       }
     ]
   },
