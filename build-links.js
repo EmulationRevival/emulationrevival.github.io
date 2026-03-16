@@ -1,5 +1,3 @@
-// build-links.js
-
 require('dotenv').config();
 
 const fs = require('fs');
@@ -49,10 +47,14 @@ async function main() {
 
         finalJsonOutput[appId] = {
             name: config.name,
+            version: "Unknown",
+            releaseDate: "Unknown",
             assets: []
         };
 
         if (config.type === 'static') {
+            finalJsonOutput[appId].version = config.version || "Unknown";
+            finalJsonOutput[appId].releaseDate = config.releaseDate || "Unknown";
             finalJsonOutput[appId].assets = config.assets;
             console.log('  - Static links processed.');
             continue;
@@ -98,6 +100,18 @@ async function main() {
             console.log(
                 `  - Found release: '${latestStableRelease.name || latestStableRelease.tag_name}'`
             );
+
+            // Extract version and format date (stripping the time portion)
+            const releaseVersion = latestStableRelease.tag_name || latestStableRelease.name || "Unknown";
+            let releaseDate = "Unknown";
+            if (latestStableRelease.published_at) {
+                releaseDate = latestStableRelease.published_at.split('T')[0];
+            } else if (latestStableRelease.created_at) {
+                releaseDate = latestStableRelease.created_at.split('T')[0];
+            }
+
+            finalJsonOutput[appId].version = releaseVersion;
+            finalJsonOutput[appId].releaseDate = releaseDate;
 
             const releaseAssets = latestStableRelease.assets;
 

@@ -20,6 +20,8 @@
   "discorduwp": {
     "name": "Discord UWP",
     "type": "static",
+    "version": "Unknown",
+    "releaseDate": "2024-10-16",
     "assets": [
       {
         "id": "discorduwp",
@@ -30,6 +32,8 @@
   "xuwp": {
     "name": "X UWP",
     "type": "static",
+    "version": "Unknown",
+    "releaseDate": "2024-12-01",
     "assets": [
       {
         "id": "xuwp",
@@ -40,6 +44,8 @@
   "xbcloudgaming": {
     "name": "XB Cloud Gaming",
     "type": "static",
+    "version": "Unknown",
+    "releaseDate": "2024-11-27",
     "assets": [
       {
         "id": "xbcloudgaming",
@@ -50,6 +56,8 @@
   "kodi": {
     "name": "Kodi",
     "type": "static",
+    "version": "Unknown",
+    "releaseDate": "2022-10-29",
     "assets": [
       {
         "id": "kodi",
@@ -60,6 +68,8 @@
   "soundcloud": {
     "name": "SoundCloud",
     "type": "static",
+    "version": "Unknown",
+    "releaseDate": "2024-02-21",
     "assets": [
       {
         "id": "soundcloud",
@@ -70,6 +80,8 @@
   "tunein": {
     "name": "TuneIn Radio",
     "type": "static",
+    "version": "Unknown",
+    "releaseDate": "2024-11-21",
     "assets": [
       {
         "id": "tunein",
@@ -80,6 +92,8 @@
   "twitch": {
     "name": "Twitch",
     "type": "static",
+    "version": "Unknown",
+    "releaseDate": "2024-12-01",
     "assets": [
       {
         "id": "twitch",
@@ -90,6 +104,8 @@
   "vlc": {
     "name": "VLC Media Player",
     "type": "static",
+    "version": "Unknown",
+    "releaseDate": "2024-11-22",
     "assets": [
       {
         "id": "vlc",
@@ -100,6 +116,8 @@
   "youtube": {
     "name": "YouTube",
     "type": "static",
+    "version": "Unknown",
+    "releaseDate": "2024-10-20",
     "assets": [
       {
         "id": "youtube",
@@ -110,6 +128,8 @@
   "zune": {
     "name": "Zune",
     "type": "static",
+    "version": "Unknown",
+    "releaseDate": "2024-02-21",
     "assets": [
       {
         "id": "zune",
@@ -154,6 +174,8 @@
   "xeniaCanary": {
     "name": "Xenia Canary",
     "type": "static",
+    "version": "1.1.7",
+    "releaseDate": "2026-03-15",
     "assets": [
       {
         "id": "xenia",
@@ -196,6 +218,8 @@
   "ppsspp": {
     "name": "PPSSPP",
     "type": "static",
+    "version": "1.20.3",
+    "releaseDate": "2026-03-03",
     "assets": [
       {
         "id": "ppsspp",
@@ -234,6 +258,8 @@
   "ruffle": {
     "name": "Ruffle",
     "type": "static",
+    "version": "Unknown",
+    "releaseDate": "2024-06-22",
     "assets": [
       {
         "id": "ruffle",
@@ -244,6 +270,8 @@
   "openbor": {
     "name": "OpenBOR",
     "type": "static",
+    "version": "Unknown",
+    "releaseDate": "2024-06-18",
     "assets": [
       {
         "id": "openbor1",
@@ -258,6 +286,8 @@
   "ikemen": {
     "name": "Ikemen-GO",
     "type": "static",
+    "version": "Unknown",
+    "releaseDate": "2024-08-26",
     "assets": [
       {
         "id": "ikemen",
@@ -288,6 +318,8 @@
   "boxedwine": {
     "name": "BoxedWine",
     "type": "static",
+    "version": "Unknown",
+    "releaseDate": "2024-10-32",
     "assets": [
       {
         "id": "boxedwine",
@@ -298,6 +330,8 @@
   "castlevania": {
     "name": "Castlevania Revamped",
     "type": "static",
+    "version": "Unknown",
+    "releaseDate": "2024-09-12",
     "assets": [
       {
         "id": "castlevania",
@@ -318,6 +352,8 @@
   "chrono": {
     "name": "Chrono Divide",
     "type": "static",
+    "version": "Unknown",
+    "releaseDate": "2024-06-27",
     "assets": [
       {
         "id": "chrono",
@@ -328,6 +364,8 @@
   "darkplaces": {
     "name": "Darkplaces Quake",
     "type": "static",
+    "version": "Unknown",
+    "releaseDate": "2024-06-07",
     "assets": [
       {
         "id": "darkplaces",
@@ -400,6 +438,8 @@
   "maze": {
     "name": "Maze0x72",
     "type": "static",
+    "version": "Unknown",
+    "releaseDate": "2024-12-21",
     "assets": [
       {
         "id": "maze",
@@ -410,6 +450,8 @@
   "mine": {
     "name": "Minesweeper",
     "type": "static",
+    "version": "Unknown",
+    "releaseDate": "2024-12-27",
     "assets": [
       {
         "id": "mine",
@@ -448,6 +490,8 @@
   "opentyrian": {
     "name": "OpenTyrian 2000",
     "type": "static",
+    "version": "Unknown",
+    "releaseDate": "2024-11-28",
     "assets": [
       {
         "id": "opentyrian1",
@@ -482,6 +526,8 @@
   "snake": {
     "name": "Snake UWP",
     "type": "static",
+    "version": "Unknown",
+    "releaseDate": "2024-06-21",
     "assets": [
       {
         "id": "snake",
@@ -506,6 +552,8 @@
   "sonic1decomp": {
     "name": "Sonic 1 Decompilation",
     "type": "static",
+    "version": "Unknown",
+    "releaseDate": "2021-01-18",
     "assets": [
       {
         "id": "sonic1decomp",
@@ -516,6 +564,8 @@
   "sonic2decomp": {
     "name": "Sonic 2 Decompilation",
     "type": "static",
+    "version": "Unknown",
+    "releaseDate": "2021-01-18",
     "assets": [
       {
         "id": "sonic2decomp",
@@ -546,6 +596,8 @@
   "sonic3air": {
     "name": "Sonic 3 A.I.R",
     "type": "static",
+    "version": "Unknown",
+    "releaseDate": "2024-09-04",
     "assets": [
       {
         "id": "sonic3air",
@@ -570,6 +622,8 @@
   "soniccd": {
     "name": "Sonic CD Decompilation",
     "type": "static",
+    "version": "Unknown",
+    "releaseDate": "2021-02-07",
     "assets": [
       {
         "id": "soniccd",
@@ -590,6 +644,8 @@
   "sonicrealms": {
     "name": "Sonic Realms",
     "type": "static",
+    "version": "Unknown",
+    "releaseDate": "2024-06-21",
     "assets": [
       {
         "id": "sonicrealms",
@@ -624,6 +680,8 @@
   "sonictimetwisted": {
     "name": "Sonic Time Twisted",
     "type": "static",
+    "version": "Unknown",
+    "releaseDate": "2022-05-07",
     "assets": [
       {
         "id": "sonictimetwisted",
@@ -648,6 +706,8 @@
   "spelunky": {
     "name": "Spelunky Classic HD",
     "type": "static",
+    "version": "Unknown",
+    "releaseDate": "2024-06-21",
     "assets": [
       {
         "id": "spelunky",
@@ -658,6 +718,8 @@
   "spooky": {
     "name": "Spooky Dimensions",
     "type": "static",
+    "version": "Unknown",
+    "releaseDate": "2024-06-21",
     "assets": [
       {
         "id": "spooky",
@@ -668,6 +730,8 @@
   "trogdor": {
     "name": "Trogdor Reburninated",
     "type": "static",
+    "version": "Unknown",
+    "releaseDate": "2022-12-03",
     "assets": [
       {
         "id": "trogdor",
@@ -678,6 +742,8 @@
   "tuck": {
     "name": "Tuck King of the Sky",
     "type": "static",
+    "version": "Unknown",
+    "releaseDate": "2023-09-01",
     "assets": [
       {
         "id": "tuck",
@@ -702,6 +768,8 @@
   "zircon": {
     "name": "Zircon Quake",
     "type": "static",
+    "version": "Unknown",
+    "releaseDate": "2024-06-07",
     "assets": [
       {
         "id": "zircon",
@@ -796,6 +864,8 @@
   "chonkystation3": {
     "name": "ChonkyStation3",
     "type": "static",
+    "version": "Unknown",
+    "releaseDate": "2025-03-07",
     "assets": [
       {
         "id": "chonkystation3",
@@ -806,6 +876,8 @@
   "hedgephysics": {
     "name": "Hedge Physics",
     "type": "static",
+    "version": "Unknown",
+    "releaseDate": "2024-11-29",
     "assets": [
       {
         "id": "hedgephysics",
@@ -816,6 +888,8 @@
   "panda3ds": {
     "name": "Panda3DS",
     "type": "static",
+    "version": "Alpha",
+    "releaseDate": "2025-04-26",
     "assets": [
       {
         "id": "panda3ds",
@@ -826,6 +900,8 @@
   "sm64hd": {
     "name": "SM64HD fan remake",
     "type": "static",
+    "version": "Unknown",
+    "releaseDate": "2018-12-17",
     "assets": [
       {
         "id": "sm64hd",

@@ -144,20 +144,21 @@
                     </div>
 
                     <div class="sort-controls">
-                        <div class="sort-dropdown">
-                            <label id="sortByLabel" for="sortBy">Sort by:</label>
-                            <select id="sortBy" aria-labelledby="sortByLabel">
-                                <option value="default">Alphabetically</option>
-                                <option value="series-x">Xbox Series X|S</option>
-                                <option value="xbox-one">Xbox One</option>
-                            </select>
-                        </div>
-                    </div>
+    <div class="sort-dropdown">
+        <label for="sortBy">Sort by:</label>
+        <select id="sortBy">
+            <option value="default">Alphabetically</option>
+            <option value="newest">Release Date (Newest)</option>
+            <option value="oldest">Release Date (Oldest)</option>
+            <option value="xbox-series">Xbox Series X|S</option>
+            <option value="xbox-one">Xbox One</option>
+        </select>
+    </div>
+</div>
 
                     <div class="card-grid">
-
-                        <div class="card" id="launchpass">
-                            <a href="#" class="card-link" data-modal-trigger="launchpass">
+                    <div class="card" id="launchpass">
+                            <a href="#launchpass" class="card-link" data-modal-trigger="launchpass">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/frontends/launchpass.webp" alt="LaunchPass Logo" class="card-image">
                                 </div>
@@ -168,6 +169,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="launchpass" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="launchpass"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="launchpass"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developers:</strong> <a href="https://github.com/Misunderstood-Wookiee" class="contributor-name-link">Misunderstood-Wookiee</a> & <a href="https://github.com/danprice142" class="contributor-name-link">DanP</a></li>
                                     <li><strong>Compatibility:</strong> Xbox One & Series S|X</li>
                                     <li><strong>Requires:</strong>
@@ -194,7 +197,7 @@
                         </div>
 
                         <div class="card" id="retropass">
-                            <a href="#" class="card-link" data-modal-trigger="retropass">
+                            <a href="#retropass" class="card-link" data-modal-trigger="retropass">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/frontends/retropass.webp" alt="Retro Pass Logo" class="card-image">
                                 </div>
@@ -205,6 +208,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="retropass" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="retropass"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="retropass"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/retropassdev" class="contributor-name-link">Retropassdev</a></li>
                                     <li><strong>Compatibility:</strong> Xbox One & Series S|X</li>
                                     <li><strong>Requires:</strong>

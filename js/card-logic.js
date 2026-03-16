@@ -17,7 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
     MAIN_CONTENT: 'main',
     MAIN_FOOTER: '.main-footer',
     CARD_MODAL_CONTENT: '.card-modal-content',
-    MODAL_CLOSE_BUTTON: '.modal-close-button'
+    MODAL_CLOSE_BUTTON: '.modal-close-button',
+    RELEASE_DATE: '.release-date'
   };
 
   const IDS = {
@@ -48,6 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
     REVERSE_ALPHABETICAL: 'reverse-alphabetical',
     XBOX_ONE: 'xbox-one',
     XBOX_SERIES: 'xbox-series',
+    NEWEST: 'newest', 
+    OLDEST: 'oldest', 
     DEFAULT: 'default',
   };
 
@@ -88,6 +91,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function sortCards(cards, sortType) {
     return cards.slice().sort((a, b) => {
+      // Handle Date Sorting
+      if (sortType === SORT_TYPES.NEWEST || sortType === SORT_TYPES.OLDEST) {
+        // Grab the ISO datetime attribute. If it's missing, default to an old date so it drops to the bottom.
+        const dateA = a.querySelector(SELECTORS.RELEASE_DATE)?.getAttribute('datetime') || '1970-01-01';
+        const dateB = b.querySelector(SELECTORS.RELEASE_DATE)?.getAttribute('datetime') || '1970-01-01';
+
+        if (sortType === SORT_TYPES.NEWEST) {
+          return dateB.localeCompare(dateA); // Newer (larger string) comes first
+        } else {
+          return dateA.localeCompare(dateB); // Older (smaller string) comes first
+        }
+      }
+
+      // Fallback to Alphabetical Sorting
       const titleA = a.querySelector(SELECTORS.CARD_TITLE)?.textContent.toLowerCase() || '';
       const titleB = b.querySelector(SELECTORS.CARD_TITLE)?.textContent.toLowerCase() || '';
       if (sortType === SORT_TYPES.REVERSE_ALPHABETICAL) {
@@ -106,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return compatibility.includes('Xbox One');
       }
       if (filterType === SORT_TYPES.XBOX_SERIES) {
-        return compatibility.includes('Xbox Series S|X');
+        return compatibility.includes('Series S|X'); // Relaxed to strictly match the back-half of both variations
       }
       // Default: show all
       return true;

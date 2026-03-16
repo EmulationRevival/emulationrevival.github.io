@@ -146,20 +146,21 @@
                     </div>
 
                     <div class="sort-controls">
-                        <div class="sort-dropdown">
-                            <label id="sortByLabel" for="sortBy">Sort by:</label>
-                            <select id="sortBy" aria-labelledby="sortByLabel">
-                                <option value="default">Alphabetically</option>
-                                <option value="series-x">Xbox Series X|S</option>
-                                <option value="xbox-one">Xbox One</option>
-                            </select>
-                        </div>
-                    </div>
+    <div class="sort-dropdown">
+        <label for="sortBy">Sort by:</label>
+        <select id="sortBy">
+            <option value="default">Alphabetically</option>
+            <option value="newest">Release Date (Newest)</option>
+            <option value="oldest">Release Date (Oldest)</option>
+            <option value="xbox-series">Xbox Series X|S</option>
+            <option value="xbox-one">Xbox One</option>
+        </select>
+    </div>
+</div>
 
                     <div class="card-grid">
-
-                        <div class="card" id="castlevania">
-                            <a href="#" class="card-link" data-modal-trigger="castlevania">
+                    <div class="card" id="castlevania">
+                            <a href="#castlevania" class="card-link" data-modal-trigger="castlevania">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/game-ports/castlevania.webp" alt="Castlevania Revamped Logo" class="card-image">
                                 </div>
@@ -170,6 +171,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="castlevania" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="castlevania"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="castlevania"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/LSDonkeyKong" class="contributor-name-link">LSDonkeyKong</a></li>
                                     <li><strong>UWP Port by:</strong>
                                         <div class="contributor-container">
@@ -190,7 +193,7 @@
                         </div>
 
                         <div class="card" id="celeste">
-                            <a href="#" class="card-link" data-modal-trigger="celeste">
+                            <a href="#celeste" class="card-link" data-modal-trigger="celeste">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/game-ports/celeste.webp" alt="Celeste Classic Logo" class="card-image">
                                 </div>
@@ -201,6 +204,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="celeste" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="celeste"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="celeste"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> Maddy Makes Games</li>
                                     <li><strong>UWP Port by:</strong> <a href="https://github.com/Xbox-Homebrew" class="contributor-name-link">Xbox-Homebrew</a></li>
                                     <li><strong>Compatibility:</strong> Xbox One & Series S|X</li>
@@ -213,7 +218,7 @@
                         </div>
 
                         <div class="card" id="chrono">
-                            <a href="#" class="card-link" data-modal-trigger="chrono">
+                            <a href="#chrono" class="card-link" data-modal-trigger="chrono">
                                <div class="card-image-container">
                                    <img src="/xbox-dev-mode/images/game-ports/chrono.webp" alt="Chrono Divide Logo" class="card-image">
                                </div>
@@ -224,6 +229,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="chrono" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="chrono"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="chrono"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong>
                                         <div class="contributor-container">
                                             <a href="#" class="contributor-name-link popover-trigger">Chrono Divide</a>
@@ -252,7 +259,7 @@
                         </div>
 
                         <div class="card" id="darkplaces">
-                            <a href="#" class="card-link" data-modal-trigger="darkplaces">
+                            <a href="#darkplaces" class="card-link" data-modal-trigger="darkplaces">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/game-ports/darkplaces.webp" alt="Darkplaces Logo" class="card-image">
                                 </div>
@@ -263,6 +270,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="darkplaces" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="darkplaces"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="darkplaces"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/DarkPlacesEngine" class="contributor-name-link">LadyHavoc</a></li>
                                     <li><strong>UWP Port by:</strong>
                                         <div class="contributor-container">
@@ -284,7 +293,7 @@
                         </div>
 
                         <div class="card" id="devilutionx">
-                            <a href="#" class="card-link" data-modal-trigger="devilutionx">
+                            <a href="#devilutionx" class="card-link" data-modal-trigger="devilutionx">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/game-ports/devilutionx.webp" alt="DevilutionX Logo" class="card-image">
                                 </div>
@@ -295,6 +304,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="devilutionx" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="devilutionx"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="devilutionx"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/diasurgical" class="contributor-name-link">Diasurgical</a></li>
                                     <li><strong>Compatibility:</strong> Xbox One & Series S|X</li>
                                     <li><strong>Requires:</strong> Original Diablo game data.</li>
@@ -307,7 +318,7 @@
                         </div>
 
                         <div class="card" id="dhewm3">
-                            <a href="#" class="card-link" data-modal-trigger="dhewm3">
+                            <a href="#dhewm3" class="card-link" data-modal-trigger="dhewm3">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/game-ports/dhewm3.webp" alt="Dhewm 3 Logo" class="card-image">
                                 </div>
@@ -318,6 +329,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="dhewm3" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="dhewm3"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="dhewm3"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/dhewm/dhewm3" class="contributor-name-link">dhewm3</a></li>
                                     <li><strong>UWP Port by:</strong>
                                         <div class="contributor-container">
@@ -345,7 +358,7 @@
                         </div>
 
                         <div class="card" id="dxxrebirth">
-                            <a href="#" class="card-link" data-modal-trigger="dxxrebirth">
+                            <a href="#dxxrebirth" class="card-link" data-modal-trigger="dxxrebirth">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/game-ports/dxxrebirth.webp" alt="DXX Rebirth Logo" class="card-image">
                                 </div>
@@ -356,6 +369,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="dxxrebirth" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="dxxrebirth"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="dxxrebirth"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/dxx-rebirth" class="contributor-name-link">DXX-Rebirth Team</a></li>
                                     <li><strong>UWP Port by:</strong>
                                         <div class="contributor-container">
@@ -384,7 +399,7 @@
                         </div>
 
                         <div class="card" id="ioquake3">
-                            <a href="#" class="card-link" data-modal-trigger="ioquake3">
+                            <a href="#ioquake3" class="card-link" data-modal-trigger="ioquake3">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/game-ports/ioquake3.webp" alt="ioquake3 Logo" class="card-image">
                                 </div>
@@ -395,6 +410,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="ioquake3" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="ioquake3"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="ioquake3"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/ioquake" class="contributor-name-link">ioquake Group</a></li>
                                     <li><strong>UWP Port by:</strong>
                                         <div class="contributor-container">
@@ -423,7 +440,7 @@
                         </div>
 
                         <div class="card" id="jazz2">
-                            <a href="#" class="card-link" data-modal-trigger="jazz2">
+                            <a href="#jazz2" class="card-link" data-modal-trigger="jazz2">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/game-ports/jazz2.webp" alt="Jazz 2 Logo" class="card-image">
                                 </div>
@@ -434,6 +451,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="jazz2" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="jazz2"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="jazz2"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/deathkiller" class="contributor-name-link">Deathkiller</a></li>
                                     <li><strong>Compatibility:</strong> Xbox One & Series S|X</li>
                                     <li><strong>Requires:</strong> Original Jazz Jackrabbit 2 game files.</li>
@@ -446,7 +465,7 @@
                         </div>
 
                         <div class="card" id="maze">
-                            <a href="#" class="card-link" data-modal-trigger="maze">
+                            <a href="#maze" class="card-link" data-modal-trigger="maze">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/game-ports/maze.webp" alt="Maze 0x72 Logo" class="card-image">
                                 </div>
@@ -457,6 +476,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="maze" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="maze"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="maze"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/LucasBremm" class="contributor-name-link">LucasBremm</a></li>
                                     <li><strong>UWP Port by:</strong>
                                         <div class="contributor-container">
@@ -477,7 +498,7 @@
                         </div>
 
                         <div class="card" id="mine">
-                            <a href="#" class="card-link" data-modal-trigger="mine">
+                            <a href="#mine" class="card-link" data-modal-trigger="mine">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/game-ports/mine.webp" alt="Minesweeper 3D Logo" class="card-image">
                                 </div>
@@ -488,6 +509,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="mine" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="mine"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="mine"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/RainbowWolfer" class="contributor-name-link">RainbowWolfer</a></li>
                                     <li><strong>UWP Port by:</strong>
                                         <div class="contributor-container">
@@ -508,7 +531,7 @@
                         </div>
 
                         <div class="card" id="jkdf2">
-                            <a href="#" class="card-link" data-modal-trigger="jkdf2">
+                            <a href="#jkdf2" class="card-link" data-modal-trigger="jkdf2">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/game-ports/jkdf2.webp" alt="Open JKDF2 Logo" class="card-image">
                                 </div>
@@ -519,6 +542,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="jkdf2" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="jkdf2"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="jkdf2"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/shinyquagsire23" class="contributor-name-link">Max Thomas</a></li>
                                     <li><strong>UWP Port by:</strong>
                                         <div class="contributor-container">
@@ -547,7 +572,7 @@
                         </div>
 
                         <div class="card" id="openlara">
-                            <a href="#" class="card-link" data-modal-trigger="openlara">
+                            <a href="#openlara" class="card-link" data-modal-trigger="openlara">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/game-ports/openlara.webp" alt="OpenLara Logo" class="card-image">
                                 </div>
@@ -558,6 +583,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="openlara" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="openlara"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="openlara"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/XProger" class="contributor-name-link">XProger</a></li>
                                     <li><strong>Compatibility:</strong> Xbox One & Series S|X</li>
                                     <li><strong>Requires:</strong> Original Tomb Raider game data.</li>
@@ -570,7 +597,7 @@
                         </div>
 
                         <div class="card" id="opentyrian">
-                            <a href="#" class="card-link" data-modal-trigger="opentyrian">
+                            <a href="#opentyrian" class="card-link" data-modal-trigger="opentyrian">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/game-ports/opentyrian.webp" alt="OpenTyrian 2000 Logo" class="card-image">
                                 </div>
@@ -581,6 +608,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="opentyrian" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="opentyrian"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="opentyrian"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developers:</strong> <a href="https://github.com/opentyrian/opentyrian" class="contributor-name-link">OpenTyrian Team</a>, <a href="https://github.com/KScl" class="contributor-name-link">Kaito Sinclaire</a></li>
                                     <li><strong>Compatibility:</strong> Xbox One & Series S|X</li>
                                     <li><strong>Requires:</strong> Provided freeware Tyrian data.</li>
@@ -599,7 +628,7 @@
                         </div>
 
                         <div class="card" id="relichunters">
-                            <a href="#" class="card-link" data-modal-trigger="relichunters">
+                            <a href="#relichunters" class="card-link" data-modal-trigger="relichunters">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/game-ports/relichunters.webp" alt="Relic Hunters Zero Logo" class="card-image">
                                 </div>
@@ -610,6 +639,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="relichunters" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="relichunters"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="relichunters"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> Rogue Snail</li>
                                     <li><strong>UWP Port by:</strong> MDashK</li>
                                     <li><strong>Compatibility:</strong> Xbox One & Series S|X</li>
@@ -622,7 +653,7 @@
                         </div>
 
                         <div class="card" id="sdlpop">
-                            <a href="#" class="card-link" data-modal-trigger="sdlpop">
+                            <a href="#sdlpop" class="card-link" data-modal-trigger="sdlpop">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/game-ports/sdlpop.webp" alt="SDLPoP Logo" class="card-image">
                                 </div>
@@ -633,6 +664,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="sdlpop" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="sdlpop"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="sdlpop"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/NagyD" class="contributor-name-link">Dávid Nagy</a></li>
                                     <li><strong>UWP Port by:</strong> <a href="https://github.com/Xbox-Homebrew" class="contributor-name-link">Xbox-Homebrew</a></li>
                                     <li><strong>Compatibility:</strong> Xbox One & Series S|X</li>
@@ -645,7 +678,7 @@
                         </div>
 
                         <div class="card" id="snake">
-                            <a href="#" class="card-link" data-modal-trigger="snake">
+                            <a href="#snake" class="card-link" data-modal-trigger="snake">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/game-ports/snake.webp" alt="Snake UWP Logo" class="card-image">
                                 </div>
@@ -656,6 +689,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="snake" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="snake"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="snake"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> Unknown</li>
                                     <li><strong>Compatibility:</strong> Xbox One & Series S|X</li>
                                 </ul>
@@ -667,7 +702,7 @@
                         </div>
 
                         <div class="card" id="soh">
-                            <a href="#" class="card-link" data-modal-trigger="soh">
+                            <a href="#soh" class="card-link" data-modal-trigger="soh">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/game-ports/soh.webp" alt="SOH (Ship of Harkinian) Logo" class="card-image">
                                 </div>
@@ -678,6 +713,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="soh" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="soh"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="soh"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/HarbourMasters" class="contributor-name-link">Harbour Masters</a></li>
                                     <li><strong>UWP Port by:</strong>
                                         <div class="contributor-container">
@@ -706,7 +743,7 @@
                         </div>
 
                         <div class="card" id="sonic1decomp">
-                            <a href="#" class="card-link" data-modal-trigger="sonic1decomp">
+                            <a href="#sonic1decomp" class="card-link" data-modal-trigger="sonic1decomp">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/game-ports/sonic1decomp.webp" alt="Sonic 1 Decompilation Logo" class="card-image">
                                 </div>
@@ -717,6 +754,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="sonic1decomp" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="sonic1decomp"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="sonic1decomp"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/RSDKModding" class="contributor-name-link">RSDKModding</a></li>
                                     <li><strong>UWP Port by:</strong> <a href="https://github.com/mattConn" class="contributor-name-link">MattConn</a></li>
                                     <li><strong>Compatibility:</strong> Xbox One & Series S|X</li>
@@ -730,7 +769,7 @@
                         </div>
 
                         <div class="card" id="sonic2decomp">
-                            <a href="#" class="card-link" data-modal-trigger="sonic2decomp">
+                            <a href="#sonic2decomp" class="card-link" data-modal-trigger="sonic2decomp">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/game-ports/sonic2decomp.webp" alt="Sonic 2 Decompilation Logo" class="card-image">
                                 </div>
@@ -741,6 +780,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="sonic2decomp" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="sonic2decomp"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="sonic2decomp"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/RSDKModding" class="contributor-name-link">RSDKModding</a></li>
                                     <li><strong>UWP Port by:</strong> <a href="https://github.com/mattConn" class="contributor-name-link">MattConn</a></li>
                                     <li><strong>Compatibility:</strong> Xbox One & Series S|X</li>
@@ -754,7 +795,7 @@
                         </div>
 
                         <div class="card" id="sonicsms">
-                            <a href="#" class="card-link" data-modal-trigger="sonicsms">
+                            <a href="#sonicsms" class="card-link" data-modal-trigger="sonicsms">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/game-ports/sonicsms.webp" alt="Sonic 1&2 SMS Logo" class="card-image">
                                 </div>
@@ -765,6 +806,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="sonicsms" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="sonic1sms"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="sonic1sms"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> Creative Araya</li>
                                     <li><strong>UWP Port by:</strong> <a href="https://github.com/MDashK" class="contributor-name-link">MDashK</a></li>
                                     <li><strong>Compatibility:</strong> Xbox One & Series S|X</li>
@@ -784,7 +827,7 @@
                         </div>
 
                         <div class="card" id="sonic3air">
-                            <a href="#" class="card-link" data-modal-trigger="sonic3air">
+                            <a href="#sonic3air" class="card-link" data-modal-trigger="sonic3air">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/game-ports/sonic3air.webp" alt="Sonic 3 A.I.R. Logo" class="card-image">
                                 </div>
@@ -795,6 +838,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="sonic3air" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="sonic3air"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="sonic3air"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/Eukaryot" class="contributor-name-link">Eukaryot</a></li>
                                     <li><strong>UWP Port by:</strong>
                                         <div class="contributor-container">
@@ -817,7 +862,7 @@
                         </div>
 
                         <div class="card" id="sab2">
-                            <a href="#" class="card-link" data-modal-trigger="sab2">
+                            <a href="#sab2" class="card-link" data-modal-trigger="sab2">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/game-ports/sab2.webp" alt="Sonic Adventure Blast 2 Logo" class="card-image">
                                 </div>
@@ -828,6 +873,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="sab2" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="sab2"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="sab2"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/TurtleMan64" class="contributor-name-link">TurtleMan64</a></li>
                                     <li><strong>UWP Port by:</strong>
                                         <div class="contributor-container">
@@ -855,7 +902,7 @@
                         </div>
 
                         <div class="card" id="soniccd">
-                            <a href="#" class="card-link" data-modal-trigger="soniccd">
+                            <a href="#soniccd" class="card-link" data-modal-trigger="soniccd">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/game-ports/soniccd.webp" alt="Sonic CD Logo" class="card-image">
                                 </div>
@@ -866,6 +913,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="soniccd" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="soniccd"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="soniccd"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/RSDKModding" class="contributor-name-link">RSDKModding</a></li>
                                     <li><strong>Compatibility:</strong> Xbox One & Series S|X</li>
                                     <li><strong>Requires:</strong> `Data.rsdk` file from Sonic CD.</li>
@@ -878,7 +927,7 @@
                         </div>
 
                         <div class="card" id="sonicmania">
-                            <a href="#" class="card-link" data-modal-trigger="sonicmania">
+                            <a href="#sonicmania" class="card-link" data-modal-trigger="sonicmania">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/game-ports/sonicmania.webp" alt="Sonic Mania Logo" class="card-image">
                                 </div>
@@ -889,6 +938,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="sonicmania" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="sonicmania"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="sonicmania"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/RSDKModding" class="contributor-name-link">RSDKModding</a></li>
                                     <li><strong>UWP Port by:</strong> <a href="https://github.com/izzy2lost" class="contributor-name-link">Izzy2lost</a></li>
                                     <li><strong>Compatibility:</strong> Xbox One & Series S|X</li>
@@ -903,7 +954,7 @@
                         </div>
 
                         <div class="card" id="sonicrealms">
-                            <a href="#" class="card-link" data-modal-trigger="sonicrealms">
+                            <a href="#sonicrealms" class="card-link" data-modal-trigger="sonicrealms">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/game-ports/sonicrealms.webp" alt="Sonic Realms Logo" class="card-image">
                                 </div>
@@ -914,6 +965,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="sonicrealms" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="sonicrealms"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="sonicrealms"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/mdechatech" class="contributor-name-link">Matty Dechatech</a></li>
                                     <li><strong>Compatibility:</strong> Xbox One & Series S|X</li>
                                     <li><strong>Requires:</strong> Install both dependencies.</li>
@@ -926,7 +979,7 @@
                         </div>
 
                         <div class="card" id="sonicringracers">
-                            <a href="#" class="card-link" data-modal-trigger="sonicringracers">
+                            <a href="#sonicringracers" class="card-link" data-modal-trigger="sonicringracers">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/game-ports/sonicringracers.webp" alt="Sonic Ring Racers Logo" class="card-image">
                                 </div>
@@ -937,6 +990,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="sonicringracers" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="ringracers"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="ringracers"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/KartKrewDev" class="contributor-name-link">Kart Krew</a></li>
                                     <li><strong>UWP Port by:</strong>
                                         <div class="contributor-container">
@@ -964,7 +1019,7 @@
                         </div>
 
                         <div class="card" id="srb2">
-                            <a href="#" class="card-link" data-modal-trigger="srb2">
+                            <a href="#srb2" class="card-link" data-modal-trigger="srb2">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/game-ports/srb2.webp" alt="Sonic Robo Blast 2 Logo" class="card-image">
                                 </div>
@@ -975,6 +1030,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="srb2" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="srb2"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="srb2"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://git.do.srb2.org/STJr" class="contributor-name-link">Sonic Team Junior</a></li>
                                     <li><strong>UWP Port by:</strong> Aerisarn</li>
                                     <li><strong>Compatibility:</strong> Xbox Series S|X</li>
@@ -987,7 +1044,7 @@
                         </div>
 
                         <div class="card" id="sonictimetwisted">
-                            <a href="#" class="card-link" data-modal-trigger="sonictimetwisted">
+                            <a href="#sonictimetwisted" class="card-link" data-modal-trigger="sonictimetwisted">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/game-ports/sonictimetwisted.webp" alt="Sonic Time Twisted Logo" class="card-image">
                                 </div>
@@ -998,6 +1055,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="sonictimetwisted" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="sonictimetwisted"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="sonictimetwisted"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/overbound" class="contributor-name-link">Overbound</a></li>
                                     <li><strong>Compatibility:</strong> Xbox One & Series S|X</li>
                                 </ul>
@@ -1009,7 +1068,7 @@
                         </div>
 
                         <div class="card" id="sonicunleashed">
-                            <a href="#" class="card-link" data-modal-trigger="sonicunleashed">
+                            <a href="#sonicunleashed" class="card-link" data-modal-trigger="sonicunleashed">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/game-ports/sonicunleashed.webp" alt="Sonic Unleashed Recomp Logo" class="card-image">
                                 </div>
@@ -1020,6 +1079,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="sonicunleashed" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="unleashed"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="unleashed"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/hedge-dev" class="contributor-name-link">Hedge-dev</a></li>
                                     <li><strong>UWP Port by:</strong>
                                         <div class="contributor-container">
@@ -1046,7 +1107,7 @@
                         </div>
                         
                         <div class="card" id="spelunky">
-                            <a href="#" class="card-link" data-modal-trigger="spelunky">
+                            <a href="#spelunky" class="card-link" data-modal-trigger="spelunky">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/game-ports/spelunky.webp" alt="Spelunky Classic HD Logo" class="card-image">
                                 </div>
@@ -1057,6 +1118,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="spelunky" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="spelunky"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="spelunky"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong>
                                         <div class="contributor-container">
                                             <a href="#" class="contributor-name-link popover-trigger">Ivan Yancharkin</a>
@@ -1076,7 +1139,7 @@
                         </div>
 
                         <div class="card" id="spooky">
-                            <a href="#" class="card-link" data-modal-trigger="spooky">
+                            <a href="#spooky" class="card-link" data-modal-trigger="spooky">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/game-ports/spooky.webp" alt="Spooky Dimensions Logo" class="card-image">
                                 </div>
@@ -1087,6 +1150,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="spooky" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="spooky"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="spooky"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> WiiRed24</li>
                                     <li><strong>Compatibility:</strong> Xbox One & Series S|X</li>
                                 </ul>
@@ -1098,7 +1163,7 @@
                         </div>
 
                         <div class="card" id="trogdor">
-                            <a href="#" class="card-link" data-modal-trigger="trogdor">
+                            <a href="#trogdor" class="card-link" data-modal-trigger="trogdor">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/game-ports/trogdor.webp" alt="Trogdor-Reburninated Logo" class="card-image">
                                 </div>
@@ -1109,6 +1174,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="trogdor" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="trogdor"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="trogdor"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/Mode8fx" class="contributor-name-link">Mode8fx</a></li>
                                     <li><strong>Compatibility:</strong> Xbox One & Series S|X</li>
                                 </ul>
@@ -1120,7 +1187,7 @@
                         </div>
 
                         <div class="card" id="tuck">
-                            <a href="#" class="card-link" data-modal-trigger="tuck">
+                            <a href="#tuck" class="card-link" data-modal-trigger="tuck">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/game-ports/tuck.webp" alt="Tuck King of the Sky Logo" class="card-image">
                                 </div>
@@ -1131,6 +1198,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="tuck" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="tuck"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="tuck"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> Chossy</li>
                                     <li><strong>Compatibility:</strong> Xbox One & Series S|X</li>
                                 </ul>
@@ -1141,7 +1210,7 @@
                         </div>
 
                         <div class="card" id="vvvvvv">
-                            <a href="#" class="card-link" data-modal-trigger="vvvvvv">
+                            <a href="#vvvvvv" class="card-link" data-modal-trigger="vvvvvv">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/game-ports/vvvvvv.webp" alt="VVVVVV Logo" class="card-image">
                                 </div>
@@ -1152,6 +1221,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="vvvvvv" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="vvvvvv"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="vvvvvv"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/TerryCavanagh" class="contributor-name-link">Terry Cavanagh</a></li>
                                     <li><strong>UWP Port by:</strong> <a href="https://github.com/tunip3" class="contributor-name-link">Tunip3</a></li>
                                     <li><strong>Maintained by:</strong> Poopbird4k</li>
@@ -1171,7 +1242,7 @@
                         </div>
 
                         <div class="card" id="zelda3">
-                            <a href="#" class="card-link" data-modal-trigger="zelda3">
+                            <a href="#zelda3" class="card-link" data-modal-trigger="zelda3">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/game-ports/zelda3.webp" alt="Zelda 3 Logo" class="card-image">
                                 </div>
@@ -1182,6 +1253,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="zelda3" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="zelda3"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="zelda3"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/snesrev" class="contributor-name-link">Snesrev</a></li>
                                     <li><strong>UWP Port by:</strong> <a href="https://github.com/tunip3" class="contributor-name-link">Tunip3</a></li>
                                     <li><strong>Compatibility:</strong> Xbox One & Series S|X</li>
@@ -1195,7 +1268,7 @@
                         </div>
 
                         <div class="card" id="zelda64">
-                            <a href="#" class="card-link" data-modal-trigger="zelda64">
+                            <a href="#zelda64" class="card-link" data-modal-trigger="zelda64">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/game-ports/zelda64.webp" alt="Zelda 64 Recompiled Logo" class="card-image">
                                 </div>
@@ -1206,6 +1279,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="zelda64" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="zelda64"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="zelda64"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/Zelda64Recomp" class="contributor-name-link">Zelda 64: Recompiled team</a></li>
                                     <li><strong>UWP Port by:</strong>
                                         <div class="contributor-container">
@@ -1227,7 +1302,7 @@
                         </div>
 
                         <div class="card" id="zircon">
-                            <a href="#" class="card-link" data-modal-trigger="zircon">
+                            <a href="#zircon" class="card-link" data-modal-trigger="zircon">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/game-ports/zircon.webp" alt="Zircon Quake Logo" class="card-image">
                                 </div>
@@ -1238,6 +1313,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="zircon" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="zircon"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="zircon"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> Zircon Engine</li>
                                     <li><strong>UWP Port by:</strong>
                                         <div class="contributor-container">
@@ -1259,7 +1336,7 @@
                         </div>                               
                         
                         <div class="card" id="dxx-rebirth-descent-2">
-    <a href="#" class="card-link" data-modal-trigger="dxx-rebirth-descent-2">
+    <a href="#dxx-rebirth-descent-2" class="card-link" data-modal-trigger="dxx-rebirth-descent-2">
         <div class="card-image-container">
             <img src="/xbox-dev-mode/images/game-ports/dxxrebirth2.webp" alt="DXX-Rebirth (Descent 2) Logo" class="card-image">
         </div>
@@ -1270,6 +1347,8 @@
     </a>
     <div class="card-modal-content" data-modal-id="dxx-rebirth-descent-2" style="display: none;">
         <ul class="info-list">
+            <li class="app-version" data-app-id="dxxdescent2"><strong>Version:</strong> <span class="val">Checking...</span></li>
+            <li class="app-release-date" data-app-id="dxxdescent2"><strong>Release date:</strong> <span class="val">Checking...</span></li>
             <li><strong>Developer:</strong> <a href="https://github.com/dxx-rebirth" class="contributor-name-link">DXX-Rebirth Team</a></li>
             <li><strong>UWP Port by:</strong> 
                 <div class="contributor-container">
@@ -1296,7 +1375,7 @@
 </div>
 
 <div class="card" id="ship2harkinian">
-    <a href="#" class="card-link" data-modal-trigger="ship2harkinian">
+    <a href="#ship2harkinian" class="card-link" data-modal-trigger="ship2harkinian">
         <div class="card-image-container">
             <img src="/xbox-dev-mode/images/game-ports/2s2h.webp" alt="2S2H (2Ship2Harkinian) Logo" class="card-image">
         </div>
@@ -1307,6 +1386,8 @@
     </a>
     <div class="card-modal-content" data-modal-id="ship2harkinian" style="display: none;">
         <ul class="info-list">
+            <li class="app-version" data-app-id="2s2h"><strong>Version:</strong> <span class="val">Checking...</span></li>
+            <li class="app-release-date" data-app-id="2s2h"><strong>Release date:</strong> <span class="val">Checking...</span></li>
             <li><strong>Developer:</strong> <a href="https://github.com/HarbourMasters" class="contributor-name-link">Harbour Masters</a></li>
             <li><strong>UWP Port by:</strong> 
                 <div class="contributor-container">
@@ -1337,7 +1418,7 @@
 </div>
 
 <div class="card" id="nsmb-mariovsluigi">
-    <a href="#" class="card-link" data-modal-trigger="nsmb-mariovsluigi">
+    <a href="#nsmb-mariovsluigi" class="card-link" data-modal-trigger="nsmb-mariovsluigi">
         <div class="card-image-container">
             <img src="/xbox-dev-mode/images/game-ports/NSMB.webp" alt="NSMB (MarioVsLuigi) Logo" class="card-image">
         </div>
@@ -1348,6 +1429,8 @@
     </a>
     <div class="card-modal-content" data-modal-id="nsmb-mariovsluigi" style="display: none;">
         <ul class="info-list">
+            <li class="app-version" data-app-id="nsmb"><strong>Version:</strong> <span class="val">Checking...</span></li>
+            <li class="app-release-date" data-app-id="nsmb"><strong>Release date:</strong> <span class="val">Checking...</span></li>
             <li><strong>Developer:</strong> <a href="https://github.com/ipodtouch0218" class="contributor-name-link">ipodtouch0218</a></li>
             <li><strong>UWP Port by:</strong> 
                 <div class="contributor-container">

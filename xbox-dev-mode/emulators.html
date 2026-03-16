@@ -144,19 +144,21 @@
                     </div>
 
                     <div class="sort-controls">
-                        <div class="sort-dropdown">
-                            <label for="sortBy">Sort by:</label>
-                            <select id="sortBy">
-                                <option value="default">Alphabetically</option>
-                                <option value="series-x">Xbox Series X|S</option>
-                                <option value="xbox-one">Xbox One</option>
-                            </select>
-                        </div>
-                    </div>
+    <div class="sort-dropdown">
+        <label for="sortBy">Sort by:</label>
+        <select id="sortBy">
+            <option value="default">Alphabetically</option>
+            <option value="newest">Release Date (Newest)</option>
+            <option value="oldest">Release Date (Oldest)</option>
+            <option value="xbox-series">Xbox Series X|S</option>
+            <option value="xbox-one">Xbox One</option>
+        </select>
+    </div>
+</div>
 
                     <div class="card-grid">
                         <div class="card" id="boxedwine">
-                            <a href="#" class="card-link" data-modal-trigger="boxedwine">
+                            <a href="#boxedwine" class="card-link" data-modal-trigger="boxedwine">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/emulators/boxedwine.webp" alt="BoxedWine Logo" class="card-image">
                                 </div>
@@ -167,6 +169,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="boxedwine" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="boxedwine"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="boxedwine"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/danoon2" class="contributor-name-link">Danoon2</a></li>
                                     <li><strong>UWP Port by:</strong>
                                         <div class="contributor-container">
@@ -189,7 +193,7 @@
                         </div>
 
                         <div class="card" id="citra">
-                            <a href="#" class="card-link" data-modal-trigger="citra">
+                            <a href="#citra" class="card-link" data-modal-trigger="citra">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/emulators/citra.webp" alt="Citra Logo" class="card-image">
                                 </div>
@@ -200,7 +204,9 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="citra" style="display: none;">
                                 <ul class="info-list">
-                                    <li><strong>Developers:</strong> Citra Team & <a href="https://github.com/libretro" class="contributor-name-link">Libretro</a></li>
+                                    <li class="app-version" data-app-id="citra"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="citra"><strong>Release date:</strong> <span class="val">Checking...</span></li>
+                                    <li><strong>Developers:</strong> Citra Team &amp; <a href="https://github.com/libretro" class="contributor-name-link">Libretro</a></li>
                                     <li><strong>UWP Port by:</strong> <a href="https://github.com/aerisarn" class="contributor-name-link">Aerisarn</a></li>
                                     <li><strong>Compatibility:</strong> Xbox Series S|X</li>
                                     <li><strong>Requires:</strong> Do NOT update the Citra core or assets.</li>
@@ -213,7 +219,7 @@
                         </div>
 
                         <div class="card" id="dolphin">
-                            <a href="#" class="card-link" data-modal-trigger="dolphin">
+                            <a href="#dolphin" class="card-link" data-modal-trigger="dolphin">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/emulators/dolphin.webp" alt="Dolphin Logo" class="card-image">
                                 </div>
@@ -224,6 +230,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="dolphin" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="dolphin"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="dolphin"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/dolphin-emu" class="contributor-name-link">Dolphin Team</a></li>
                                     <li><strong>UWP Port by:</strong>
                                         <div class="contributor-container">
@@ -243,7 +251,7 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <li><strong>Compatibility:</strong> Xbox One & Series S|X</li>
+                                    <li><strong>Compatibility:</strong> Xbox One &amp; Series S|X</li>
                                     <li><strong>Requires:</strong> Xbox language must be set to "English US" for controller input.</li>
                                 </ul>
                                 <div class="card-actions">
@@ -255,7 +263,7 @@
                         </div>
 
                         <div class="card" id="flycast">
-                             <a href="#" class="card-link" data-modal-trigger="flycast">
+                             <a href="#flycast" class="card-link" data-modal-trigger="flycast">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/emulators/flycast.webp" alt="Flycast Logo" class="card-image">
                                 </div>
@@ -266,6 +274,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="flycast" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="flycast"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="flycast"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong>
                                         <div class="contributor-container">
                                             <a href="#" class="contributor-name-link popover-trigger">Flyinghead</a>
@@ -275,7 +285,7 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <li><strong>Compatibility:</strong> Xbox One & Series S|X</li>
+                                    <li><strong>Compatibility:</strong> Xbox One &amp; Series S|X</li>
                                     <li><strong>Requires:</strong> BIOS optional.</li>
                                 </ul>
                                 <div class="card-actions">
@@ -287,7 +297,7 @@
                         </div>
 
                         <div class="card" id="gzdoom">
-                            <a href="#" class="card-link" data-modal-trigger="gzdoom">
+                            <a href="#gzdoom" class="card-link" data-modal-trigger="gzdoom">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/emulators/gzdoom.webp" alt="GZDoom Logo" class="card-image">
                                 </div>
@@ -298,6 +308,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="gzdoom" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="gzdoom"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="gzdoom"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/ZDoom" class="contributor-name-link">ZDoom Team</a></li>
                                     <li><strong>UWP Port by:</strong> <a href="https://github.com/aerisarn" class="contributor-name-link">Aerisarn</a></li>
                                     <li><strong>Compatibility:</strong> Xbox Series S|X</li>
@@ -312,7 +324,7 @@
                         </div>
 
                         <div class="card" id="ikemen-go">
-                            <a href="#" class="card-link" data-modal-trigger="ikemen-go">
+                            <a href="#ikemen-go" class="card-link" data-modal-trigger="ikemen-go">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/emulators/ikemen_go.webp" alt="Ikemen GO Logo" class="card-image">
                                 </div>
@@ -323,6 +335,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="ikemen-go" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="ikemen"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="ikemen"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/ikemen-engine" class="contributor-name-link">Ikemen Engine Team</a></li>
                                     <li><strong>UWP Port by:</strong>
                                         <div class="contributor-container">
@@ -344,7 +358,7 @@
                         </div>
 
                         <div class="card" id="openbor">
-                            <a href="#" class="card-link" data-modal-trigger="openbor">
+                            <a href="#openbor" class="card-link" data-modal-trigger="openbor">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/emulators/openbor.webp" alt="OpenBOR Logo" class="card-image">
                                 </div>
@@ -355,6 +369,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="openbor" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="openbor"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="openbor"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/DCurrent/openbor" class="contributor-name-link">OpenBOR Team</a></li>
                                     <li><strong>UWP Port by:</strong>
                                         <div class="contributor-container">
@@ -383,7 +399,7 @@
                         </div>
 
                         <div class="card" id="ppsspp">
-                            <a href="#" class="card-link" data-modal-trigger="ppsspp">
+                            <a href="#ppsspp" class="card-link" data-modal-trigger="ppsspp">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/emulators/ppsspp.webp" alt="PPSSPP Logo" class="card-image">
                                 </div>
@@ -394,8 +410,10 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="ppsspp" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="ppsspp"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="ppsspp"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/hrydgard" class="contributor-name-link">Henrik Rydgård</a></li>
-                                    <li><strong>Compatibility:</strong> Xbox One & Series S|X</li>
+                                    <li><strong>Compatibility:</strong> Xbox One &amp; Series S|X</li>
                                 </ul>
                                 <div class="card-actions">
                                     <a href="#" class="btn btn-primary download-link" data-app-id="ppsspp" data-asset-id="ppsspp">Download</a>
@@ -406,7 +424,7 @@
                         </div>
 
                         <div class="card" id="raze">
-                            <a href="#" class="card-link" data-modal-trigger="raze">
+                            <a href="#raze" class="card-link" data-modal-trigger="raze">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/emulators/raze.webp" alt="Raze Logo" class="card-image">
                                 </div>
@@ -417,6 +435,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="raze" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="raze"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="raze"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/ZDoom" class="contributor-name-link">ZDoom Team</a></li>
                                     <li><strong>UWP Port by:</strong> <a href="https://github.com/aerisarn" class="contributor-name-link">Aerisarn</a></li>
                                     <li><strong>Compatibility:</strong> Xbox Series S|X</li>
@@ -431,7 +451,7 @@
                         </div>
 
                         <div class="card" id="retroarch">
-                            <a href="#" class="card-link" data-modal-trigger="retroarch">
+                            <a href="#retroarch" class="card-link" data-modal-trigger="retroarch">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/emulators/retroarch.webp" alt="RetroArch Logo" class="card-image">
                                 </div>
@@ -442,6 +462,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="retroarch" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="retroarch"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="retroarch"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/libretro" class="contributor-name-link">Libretro</a></li>
                                     <li><strong>Maintained by:</strong>
                                         <div class="contributor-container">
@@ -452,7 +474,7 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <li><strong>Compatibility:</strong> Xbox One & Series S|X</li>
+                                    <li><strong>Compatibility:</strong> Xbox One &amp; Series S|X</li>
                                 </ul>
                                 <div class="card-actions">
                                     <details class="action-dropdown">
@@ -471,7 +493,7 @@
                         </div>
 
                         <div class="card" id="ruffle">
-                            <a href="#" class="card-link" data-modal-trigger="ruffle">
+                            <a href="#ruffle" class="card-link" data-modal-trigger="ruffle">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/emulators/ruffle.webp" alt="Ruffle Logo" class="card-image">
                                 </div>
@@ -482,6 +504,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="ruffle" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="ruffle"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="ruffle"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/ruffle-rs" class="contributor-name-link">Ruffle Team</a></li>
                                     <li><strong>UWP Port by:</strong>
                                         <div class="contributor-container">
@@ -502,7 +526,7 @@
                         </div>
 
                         <div class="card" id="supermodel">
-                            <a href="#" class="card-link" data-modal-trigger="supermodel">
+                            <a href="#supermodel" class="card-link" data-modal-trigger="supermodel">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/emulators/supermodel.webp" alt="Sega Model 3 Logo" class="card-image">
                                 </div>
@@ -513,6 +537,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="supermodel" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="supermodel"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="supermodel"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/trzy/Supermodel" class="contributor-name-link">Supermodel Team</a></li>
                                     <li><strong>UWP Port by:</strong> <a href="https://github.com/aerisarn" class="contributor-name-link">Aerisarn</a></li>
                                     <li><strong>Maintained by:</strong> <a href="https://github.com/poopbird4k" class="contributor-name-link">Poopbird4k</a></li>
@@ -534,7 +560,7 @@
                         </div>
 
                         <div class="card" id="supermodel-g920">
-                            <a href="#" class="card-link" data-modal-trigger="supermodel-g920">
+                            <a href="#supermodel-g920" class="card-link" data-modal-trigger="supermodel-g920">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/emulators/supermodel_g920.webp" alt="Sega Model 3 G920 Logo" class="card-image">
                                 </div>
@@ -545,6 +571,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="supermodel-g920" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="superg"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="superg"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/trzy/Supermodel" class="contributor-name-link">Supermodel Team</a></li>
                                     <li><strong>UWP Port by:</strong> <a href="https://github.com/aerisarn" class="contributor-name-link">Aerisarn</a></li>
                                     <li><strong>Maintained by:</strong> <a href="https://github.com/poopbird4k" class="contributor-name-link">Poopbird4k</a></li>
@@ -566,55 +594,57 @@
                         </div>
 
                         <div class="card" id="xbsx2">
-    <a href="#" class="card-link" data-modal-trigger="xbsx2">
-        <div class="card-image-container">
-            <img src="/xbox-dev-mode/images/emulators/xbsx2.webp" alt="XBSX2 Logo" class="card-image">
-        </div>
-        <div class="card-content">
-            <h3 class="card-title" id="xbsx2-title">XBSX2</h3>
-            <p class="card-description">A Playstation 2 emulator ported from PCSX2.</p>
-        </div>
-    </a>
-    <div class="card-modal-content" data-modal-id="xbsx2" style="display: none;">
-        <ul class="info-list">
-            <li><strong>Developer:</strong> <a href="https://github.com/PCSX2" class="contributor-name-link">PCSX2 Team</a></li>
-            <li><strong>UWP Port by:</strong>
-                <div class="contributor-container">
-                    <a href="#" class="contributor-name-link popover-trigger">Sir Mangler</a>
-                    <div class="popover-menu">
-                        <a href="https://github.com/SirMangler" class="popover-link"><img src="/images/github-logo.svg" alt="GitHub Logo" class="popover-icon">View on GitHub</a>
-                        <a href="https://ko-fi.com/sirmangler" class="popover-link"><img src="/images/kofi-logo.svg" alt="Ko-fi Logo" class="popover-icon">Support on Ko-fi</a>
-                    </div>
-                </div>
-            </li>
-            <li><strong>Maintained by:</strong>
-                <div class="contributor-container">
-                    <a href="#" class="contributor-name-link popover-trigger">Stern</a>
-                    <div class="popover-menu">
-                        <a href="https://github.com/SternXD" class="popover-link"><img src="/images/github-logo.svg" alt="GitHub Logo" class="popover-icon">View on GitHub</a>
-                        <a href="https://ko-fi.com/stern" class="popover-link"><img src="/images/kofi-logo.svg" alt="Ko-fi Logo" class="popover-icon">Support on Ko-fi</a>
-                    </div>
-                </div>
-            </li>
-            <li><strong>Compatibility:</strong> Xbox One & Series S|X</li>
-            <li><strong>Requires:</strong> PS2 BIOS needed.</li>
-        </ul>
-        <div class="card-actions">
-            <details class="action-dropdown">
-                <summary class="btn btn-primary">Download ▼</summary>
-                <ul class="dropdown-menu">
-                    <li><a href="#" class="download-link" data-app-id="xbsx2" data-asset-id="xbsx2_xb1">Xbox One</a></li>
-                    <li><a href="#" class="download-link" data-app-id="xbsx2" data-asset-id="xbsx2_series">Xbox Series</a></li>
-                </ul>
-            </details>
-            <a href="https://wiki.sternserv.xyz/docs/emulation/xbsx2-guide" class="btn btn-info">Setup Guide</a>
-            <a href="https://youtu.be/hyX-qd84E_w" class="btn btn-youtube">Watch Tutorial</a>
-        </div>
-    </div>
-</div>
+                            <a href="#xbsx2" class="card-link" data-modal-trigger="xbsx2">
+                                <div class="card-image-container">
+                                    <img src="/xbox-dev-mode/images/emulators/xbsx2.webp" alt="XBSX2 Logo" class="card-image">
+                                </div>
+                                <div class="card-content">
+                                    <h3 class="card-title" id="xbsx2-title">XBSX2</h3>
+                                    <p class="card-description">A Playstation 2 emulator ported from PCSX2.</p>
+                                </div>
+                            </a>
+                            <div class="card-modal-content" data-modal-id="xbsx2" style="display: none;">
+                                <ul class="info-list">
+                                    <li class="app-version" data-app-id="xbsx2"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="xbsx2"><strong>Release date:</strong> <span class="val">Checking...</span></li>
+                                    <li><strong>Developer:</strong> <a href="https://github.com/PCSX2" class="contributor-name-link">PCSX2 Team</a></li>
+                                    <li><strong>UWP Port by:</strong>
+                                        <div class="contributor-container">
+                                            <a href="#" class="contributor-name-link popover-trigger">Sir Mangler</a>
+                                            <div class="popover-menu">
+                                                <a href="https://github.com/SirMangler" class="popover-link"><img src="/images/github-logo.svg" alt="GitHub Logo" class="popover-icon">View on GitHub</a>
+                                                <a href="https://ko-fi.com/sirmangler" class="popover-link"><img src="/images/kofi-logo.svg" alt="Ko-fi Logo" class="popover-icon">Support on Ko-fi</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li><strong>Maintained by:</strong>
+                                        <div class="contributor-container">
+                                            <a href="#" class="contributor-name-link popover-trigger">Stern</a>
+                                            <div class="popover-menu">
+                                                <a href="https://github.com/SternXD" class="popover-link"><img src="/images/github-logo.svg" alt="GitHub Logo" class="popover-icon">View on GitHub</a>
+                                                <a href="https://ko-fi.com/stern" class="popover-link"><img src="/images/kofi-logo.svg" alt="Ko-fi Logo" class="popover-icon">Support on Ko-fi</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li><strong>Compatibility:</strong> Xbox One &amp; Series S|X</li>
+                                    <li><strong>Requires:</strong> PS2 BIOS needed.</li>
+                                </ul>
+                                <div class="card-actions">
+                                    <details class="action-dropdown">
+                                        <summary class="btn btn-primary">Download ▼</summary>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#" class="download-link" data-app-id="xbsx2" data-asset-id="xbsx2_xb1">Xbox One</a></li>
+                                            <li><a href="#" class="download-link" data-app-id="xbsx2" data-asset-id="xbsx2_series">Xbox Series</a></li>
+                                        </ul>
+                                    </details>
+                                    <a href="https://wiki.sternserv.xyz/docs/emulation/xbsx2-guide" class="btn btn-info">Setup Guide</a>
+                                    <a href="https://youtu.be/hyX-qd84E_w" class="btn btn-youtube">Watch Tutorial</a>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="card" id="xenia-canary">
-                            <a href="#" class="card-link" data-modal-trigger="xenia-canary">
+                            <a href="#xenia-canary" class="card-link" data-modal-trigger="xenia-canary">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/emulators/xenia.webp" alt="Xenia Canary Logo" class="card-image">
                                 </div>
@@ -625,6 +655,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="xenia-canary" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="xeniaCanary"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="xeniaCanary"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/xenia-project" class="contributor-name-link">Xenia Project</a></li>
                                     <li><strong>UWP Port by:</strong> <div class="contributor-container">
                                         <a href="#" class="contributor-name-link popover-trigger">Sir Mangler</a>
@@ -642,6 +674,7 @@
                                 </div>
                             </div>
                         </div>
+
 
                     </div>
                 </div>

@@ -143,20 +143,21 @@
                     </div>
 
                     <div class="sort-controls">
-                        <div class="sort-dropdown">
-                            <label id="sortByLabel" for="sortBy">Sort by:</label>
-                            <select id="sortBy" aria-labelledby="sortByLabel">
-                                <option value="default">Alphabetically</option>
-                                <option value="series-x">Xbox Series X|S</option>
-                                <option value="xbox-one">Xbox One</option>
-                            </select>
-                        </div>
-                    </div>
+    <div class="sort-dropdown">
+        <label for="sortBy">Sort by:</label>
+        <select id="sortBy">
+            <option value="default">Alphabetically</option>
+            <option value="newest">Release Date (Newest)</option>
+            <option value="oldest">Release Date (Oldest)</option>
+            <option value="xbox-series">Xbox Series X|S</option>
+            <option value="xbox-one">Xbox One</option>
+        </select>
+    </div>
+</div>
 
                     <div class="card-grid">
-
-                        <div class="card" id="chonkystation3">
-                            <a href="#" class="card-link" data-modal-trigger="chonkystation3">
+                    <div class="card" id="chonkystation3">
+                            <a href="#chonkystation3" class="card-link" data-modal-trigger="chonkystation3">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/experimental-apps/chonkystation3.webp" alt="Chonkystation 3 Logo" class="card-image">
                                 </div>
@@ -167,6 +168,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="chonkystation3" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="chonkystation3"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="chonkystation3"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/liuk7071" class="contributor-name-link">Liuk7071</a></li>
                                     <li><strong>UWP Port by:</strong>
                                         <div class="contributor-container">
@@ -194,7 +197,7 @@
                         </div>
 
                         <div class="card" id="hedgephysics">
-                            <a href="#" class="card-link" data-modal-trigger="hedgephysics">
+                            <a href="#hedgephysics" class="card-link" data-modal-trigger="hedgephysics">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/experimental-apps/hedgephysics.webp" alt="Hedge Physics Logo" class="card-image">
                                 </div>
@@ -205,6 +208,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="hedgephysics" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="hedgephysics"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="hedgephysics"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://forums.sonicretro.org/index.php?threads/1-0-final-hedge-physics-3d-sonic-engine-on-unity.36171/" class="contributor-name-link">LakeFeperd</a></li>
                                     <li><strong>Compatibility:</strong> Xbox One & Series S|X</li>
                                 </ul>
@@ -216,7 +221,7 @@
                         </div>
 
                         <div class="card" id="panda3ds">
-                            <a href="#" class="card-link" data-modal-trigger="panda3ds">
+                            <a href="#panda3ds" class="card-link" data-modal-trigger="panda3ds">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/experimental-apps/panda3ds.webp" alt="Panda3DS Logo" class="card-image">
                                 </div>
@@ -227,6 +232,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="panda3ds" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="panda3ds"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="panda3ds"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/wheremyfoodat" class="contributor-name-link">Wheremyfoodat</a></li>
                                     <li><strong>UWP Port by:</strong>
                                         <div class="contributor-container">
@@ -249,7 +256,7 @@
                         </div>
 
                         <div class="card" id="sm64hd">
-                            <a href="#" class="card-link" data-modal-trigger="sm64hd">
+                            <a href="#sm64hd" class="card-link" data-modal-trigger="sm64hd">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/experimental-apps/sm64hd.webp" alt="SM64HD Fan Remake Logo" class="card-image">
                                 </div>
@@ -260,6 +267,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="sm64hd" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="sm64hd"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="sm64hd"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/JerrySM64" class="contributor-name-link">Jerry Starke</a></li>
                                     <li><strong>Compatibility:</strong> Xbox One & Series S|X</li>
                                 </ul>

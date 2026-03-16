@@ -144,20 +144,21 @@
                     </div>
 
                     <div class="sort-controls">
-                        <div class="sort-dropdown">
-                            <label id="sortByLabel" for="sortBy">Sort by:</label>
-                            <select id="sortBy" aria-labelledby="sortByLabel">
-                                <option value="default">Alphabetically</option>
-                                <option value="series-x">Xbox Series X|S</option>
-                                <option value="xbox-one">Xbox One</option>
-                            </select>
-                        </div>
-                    </div>
+    <div class="sort-dropdown">
+        <label for="sortBy">Sort by:</label>
+        <select id="sortBy">
+            <option value="default">Alphabetically</option>
+            <option value="newest">Release Date (Newest)</option>
+            <option value="oldest">Release Date (Oldest)</option>
+            <option value="xbox-series">Xbox Series X|S</option>
+            <option value="xbox-one">Xbox One</option>
+        </select>
+    </div>
+</div>
 
                     <div class="card-grid">
-
-                        <div class="card" id="kodi">
-                            <a href="#" class="card-link" data-modal-trigger="kodi">
+                    <div class="card" id="kodi">
+                            <a href="#kodi" class="card-link" data-modal-trigger="kodi">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/media-apps/kodi.webp" alt="Kodi Logo" class="card-image">
                                 </div>
@@ -168,6 +169,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="kodi" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="kodi"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="kodi"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/xbmc" class="contributor-name-link">Team Kodi/XBMC</a></li>
                                     <li><strong>Compatibility:</strong> Xbox One & Series S|X</li>
                                 </ul>
@@ -179,7 +182,7 @@
                         </div>
 
                         <div class="card" id="soundcloud">
-                            <a href="#" class="card-link" data-modal-trigger="soundcloud">
+                            <a href="#soundcloud" class="card-link" data-modal-trigger="soundcloud">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/media-apps/soundcloud.webp" alt="SoundCloud Logo" class="card-image">
                                 </div>
@@ -190,6 +193,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="soundcloud" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="soundcloud"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="soundcloud"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> SoundCloud</li>
                                     <li><strong>Compatibility:</strong> Xbox One & Series S|X</li>
                                     <li><strong>Features:</strong> Background play</li>
@@ -201,7 +206,7 @@
                         </div>
 
                         <div class="card" id="tunein">
-                            <a href="#" class="card-link" data-modal-trigger="tunein">
+                            <a href="#tunein" class="card-link" data-modal-trigger="tunein">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/media-apps/tunein.webp" alt="TuneIn Logo" class="card-image">
                                 </div>
@@ -212,6 +217,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="tunein" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="tunein"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="tunein"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> TuneIn</li>
                                     <li><strong>Compatibility:</strong> Xbox One & Series S|X</li>
                                 </ul>
@@ -222,7 +229,7 @@
                         </div>
 
                         <div class="card" id="twitch">
-                            <a href="#" class="card-link" data-modal-trigger="twitch">
+                            <a href="#twitch" class="card-link" data-modal-trigger="twitch">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/media-apps/twitch.webp" alt="Twitch Logo" class="card-image">
                                 </div>
@@ -233,6 +240,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="twitch" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="twitch"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="twitch"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> Twitch Interactive (Amazon)</li>
                                     <li><strong>Compatibility:</strong> Xbox Series S|X</li>
                                 </ul>
@@ -243,7 +252,7 @@
                         </div>
 
                         <div class="card" id="vlc">
-                            <a href="#" class="card-link" data-modal-trigger="vlc">
+                            <a href="#vlc" class="card-link" data-modal-trigger="vlc">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/media-apps/vlc.webp" alt="VLC Logo" class="card-image">
                                 </div>
@@ -254,6 +263,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="vlc" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="vlc"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="vlc"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> <a href="https://github.com/videolan" class="contributor-name-link">VideoLAN</a></li>
                                     <li><strong>Compatibility:</strong> Xbox One & Series S|X</li>
                                     <li><strong>Requires:</strong> External drive with your media files.</li>
@@ -265,7 +276,7 @@
                         </div>
 
                         <div class="card" id="youtube">
-                            <a href="#" class="card-link" data-modal-trigger="youtube">
+                            <a href="#youtube" class="card-link" data-modal-trigger="youtube">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/media-apps/youtube.webp" alt="YouTube Logo" class="card-image">
                                 </div>
@@ -276,6 +287,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="youtube" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="youtube"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="youtube"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> Google</li>
                                     <li><strong>UWP Port by:</strong>
                                         <div class="contributor-container">
@@ -296,7 +309,7 @@
                         </div>
 
                         <div class="card" id="zune">
-                            <a href="#" class="card-link" data-modal-trigger="zune">
+                            <a href="#zune" class="card-link" data-modal-trigger="zune">
                                 <div class="card-image-container">
                                     <img src="/xbox-dev-mode/images/media-apps/zune.webp" alt="Zune Logo" class="card-image">
                                 </div>
@@ -307,6 +320,8 @@
                             </a>
                             <div class="card-modal-content" data-modal-id="zune" style="display: none;">
                                 <ul class="info-list">
+                                    <li class="app-version" data-app-id="zune"><strong>Version:</strong> <span class="val">Checking...</span></li>
+                                    <li class="app-release-date" data-app-id="zune"><strong>Release date:</strong> <span class="val">Checking...</span></li>
                                     <li><strong>Developer:</strong> Microsoft</li>
                                     <li><strong>Compatibility:</strong> Xbox One & Series S|X</li>
                                     <li><strong>Requires:</strong> External drive with your audio files.</li>
