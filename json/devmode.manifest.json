@@ -185,11 +185,13 @@
   },
   "retroarch3ds": {
     "name": "Retroarch 3DS",
-    "repo": "YTReviveMe/RetroArch-uwp",
+    "type": "static",
+    "version": "1.0.1.0",
+    "releaseDate": "2026-03-16",
     "assets": [
       {
         "id": "retroarch3ds",
-        "assetPattern": "RetroArch-*ds-Alpha_*.*_x*.msix"
+        "url": "https://github.com/YTReviveMe/RetroArch-uwp/releases/download/Citra-Alpha-RetroArch/RetroArch-3ds-Alpha_1.0.1.0_x64.msix"
       }
     ]
   },
