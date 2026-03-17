@@ -1,12 +1,5 @@
 [
   {
-    "name": "BoxedWine",
-    "description": "Run 16-bit or 32-bit Windows programs.",
-    "img": "/xbox-dev-mode/images/emulators/boxedwine.webp",
-    "url": "/xbox-dev-mode/emulators.html#boxedwine",
-    "category": "Emulators"
-  },
-  {
     "name": "Retroarch 3DS",
     "description": "An experimental RetroArch build with Citra, Azahar and Panda3ds cores.",
     "img": "/xbox-dev-mode/images/emulators/retroarch3ds.webp",
@@ -536,6 +529,13 @@
     "description": "A fan-made SM64HD (Super Mario 64) engine/game demo.",
     "img": "/xbox-dev-mode/images/experimental-apps/sm64hd.webp",
     "url": "/xbox-dev-mode/experimental-apps.html#sm64hd",
+    "category": "Experimental apps"
+  },
+  {
+    "name": "BoxedWine",
+    "description": "Run 16-bit or 32-bit Windows programs.",
+    "img": "/xbox-dev-mode/images/experimental-apps/boxedwine.webp",
+    "url": "/xbox-dev-mode/experimental-apps.html#boxedwine",
     "category": "Experimental apps"
   }
 ]
