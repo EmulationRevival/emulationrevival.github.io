@@ -63,77 +63,82 @@ document.addEventListener('DOMContentLoaded', () => {
         return appDataPromise;
     }
 
-    // --- Data Injection ---
+    // --- Data Injection (OPTIMIZED) ---
     function populateVersionAndDateData(data) {
         if (!data) return;
         
-        for (const [appId, appInfo] of Object.entries(data)) {
-            // Find and update the version placeholder
-            const versionLi = document.querySelector(`${CONSTANTS.SELECTORS.APP_VERSION}[data-app-id="${appId}"]`);
-            if (versionLi) {
-                if (appInfo.version && appInfo.version !== "Unknown") {
-                    const valSpan = versionLi.querySelector(CONSTANTS.SELECTORS.VAL_SPAN);
-                    if (valSpan) valSpan.textContent = appInfo.version;
-                } else {
-                    versionLi.style.display = 'none'; // Hide the element if version is Unknown
-                }
+        // 1. Process all Version elements currently on the page
+        const versionElements = document.querySelectorAll(CONSTANTS.SELECTORS.APP_VERSION);
+        versionElements.forEach(versionLi => {
+            const appId = versionLi.getAttribute(`data-${CONSTANTS.DATA_ATTR.APP_ID_PROP}`);
+            const appInfo = data[appId];
+
+            if (appInfo && appInfo.version && appInfo.version !== "Unknown") {
+                const valSpan = versionLi.querySelector(CONSTANTS.SELECTORS.VAL_SPAN);
+                if (valSpan) valSpan.textContent = appInfo.version;
+            } else {
+                versionLi.style.display = 'none'; // Hide the element if version is Unknown
             }
-            
-            // Find and update the release date placeholder
-            const dateLi = document.querySelector(`${CONSTANTS.SELECTORS.APP_RELEASE_DATE}[data-app-id="${appId}"]`);
-            if (dateLi) {
-                if (appInfo.releaseDate && appInfo.releaseDate !== "Unknown") {
-                    const valSpan = dateLi.querySelector(CONSTANTS.SELECTORS.VAL_SPAN);
-                    if (valSpan) {
-                        const iso = appInfo.releaseDate;
-                        const display = new Date(iso).toLocaleDateString("en-US", {
-                            timeZone: "UTC",
-                            year: "numeric",
-                            month: "long",
-                            day: "numeric"
-                        });
-                        valSpan.innerHTML = `<time class="release-date" datetime="${iso}">${display}</time>`;
+        });
 
-                        // --- NEW OVERLAY LOGIC ---
-                        const releaseDateObj = new Date(iso);
-                        const currentDate = new Date();
-                        const timeDiff = currentDate.getTime() - releaseDateObj.getTime();
-                        const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+        // 2. Process all Release Date elements currently on the page
+        const dateElements = document.querySelectorAll(CONSTANTS.SELECTORS.APP_RELEASE_DATE);
+        const currentDate = new Date(); // Calculate the current date only once for performance
 
-                        // Check if the update is less than 30 days old (and not in the future)
-                        if (daysDiff >= 0 && daysDiff < 30) {
-                            const parentCard = dateLi.closest(CONSTANTS.SELECTORS.CARD_CONTAINER);
-                            if (parentCard) {
-                                const imageContainer = parentCard.querySelector('.card-image-container');
-                                // Ensure we don't accidentally add the badge twice
-                                if (imageContainer && !imageContainer.querySelector('.new-update-badge')) {
-                                    // Ensure the container can anchor the absolute overlay
-                                    imageContainer.style.position = 'relative';
-                                    
-                                    const badge = document.createElement('img');
-                                    badge.src = '/images/new-update.svg';
-                                    badge.alt = 'New Update';
-                                    badge.className = 'new-update-badge';
-                                    
-                                    // Styling to perfectly overlay the container
-                                    badge.style.position = 'absolute';
-                                    badge.style.top = '0';
-                                    badge.style.left = '0';
-                                    badge.style.width = '100%';
-                                    badge.style.height = '100%';
-                                    badge.style.pointerEvents = 'none'; // Prevents blocking clicks on the card
-                                    badge.style.zIndex = '5'; // Ensures it sits above the main image
-                                    
-                                    imageContainer.appendChild(badge);
-                                }
+        dateElements.forEach(dateLi => {
+            const appId = dateLi.getAttribute(`data-${CONSTANTS.DATA_ATTR.APP_ID_PROP}`);
+            const appInfo = data[appId];
+
+            if (appInfo && appInfo.releaseDate && appInfo.releaseDate !== "Unknown") {
+                const valSpan = dateLi.querySelector(CONSTANTS.SELECTORS.VAL_SPAN);
+                if (valSpan) {
+                    const iso = appInfo.releaseDate;
+                    const display = new Date(iso).toLocaleDateString("en-US", {
+                        timeZone: "UTC",
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric"
+                    });
+                    valSpan.innerHTML = `<time class="release-date" datetime="${iso}">${display}</time>`;
+
+                    // --- NEW OVERLAY LOGIC ---
+                    const releaseDateObj = new Date(iso);
+                    const timeDiff = currentDate.getTime() - releaseDateObj.getTime();
+                    const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
+                    // Check if the update is less than 30 days old (and not in the future)
+                    if (daysDiff >= 0 && daysDiff < 30) {
+                        const parentCard = dateLi.closest(CONSTANTS.SELECTORS.CARD_CONTAINER);
+                        if (parentCard) {
+                            const imageContainer = parentCard.querySelector('.card-image-container');
+                            // Ensure we don't accidentally add the badge twice
+                            if (imageContainer && !imageContainer.querySelector('.new-update-badge')) {
+                                // Ensure the container can anchor the absolute overlay
+                                imageContainer.style.position = 'relative';
+                                
+                                const badge = document.createElement('img');
+                                badge.src = '/images/new-update.svg';
+                                badge.alt = 'New Update';
+                                badge.className = 'new-update-badge';
+                                
+                                // Styling to perfectly overlay the container
+                                badge.style.position = 'absolute';
+                                badge.style.top = '0';
+                                badge.style.left = '0';
+                                badge.style.width = '100%';
+                                badge.style.height = '100%';
+                                badge.style.pointerEvents = 'none'; // Prevents blocking clicks on the card
+                                badge.style.zIndex = '5'; // Ensures it sits above the main image
+                                
+                                imageContainer.appendChild(badge);
                             }
                         }
                     }
-                } else {
-                    dateLi.style.display = 'none'; // Hide the element if date is Unknown
                 }
+            } else {
+                dateLi.style.display = 'none'; // Hide the element if date is Unknown
             }
-        }
+        });
     }
 
     // --- Main Click Handler (Event Delegation) ---

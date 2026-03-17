@@ -8,19 +8,36 @@ async function loadRecentUpdates() {
         // The crucial fix for PWA
         const fetchOpts = { cache: 'no-store' };
 
+        // OPTIMIZATION 1: Parallel Fetching
+        // Start fetching search-index immediately since it doesn't depend on version.json
+        const searchIndexPromise = fetch(`/json/search-index.json?cb=${Date.now()}`, fetchOpts).then(res => {
+            if (!res.ok) throw new Error("Could not fetch search index");
+            return res.json();
+        });
+
         // 1. Fetch version and release date data
         const vRes = await fetch(`/json/version.json?cb=${Date.now()}`, fetchOpts);
         if (!vRes.ok) throw new Error("Could not fetch version.json");
         const vData = await vRes.json();
         
-        const appRes = await fetch(`/json/app-links.json?v=${vData.version}`, fetchOpts);
-        if (!appRes.ok) throw new Error("Could not fetch app-links.json");
-        const appData = await appRes.json();
+        // Start fetching app-links now that we have the version
+        const appLinksPromise = fetch(`/json/app-links.json?v=${vData.version}`, fetchOpts).then(res => {
+            if (!res.ok) throw new Error("Could not fetch app-links.json");
+            return res.json();
+        });
 
-        // 2. Fetch your existing Search Index
-        const searchRes = await fetch(`/json/search-index.json?cb=${Date.now()}`, fetchOpts); 
-        if (!searchRes.ok) throw new Error("Could not fetch search index");
-        const searchIndex = await searchRes.json();
+        // Wait for both data sources to finish downloading simultaneously
+        const [searchIndex, appData] = await Promise.all([searchIndexPromise, appLinksPromise]);
+
+        // OPTIMIZATION 2: O(1) Hash Map Lookup
+        // Instead of running .find() in a loop (which causes hundreds of slow searches), 
+        // we build a dictionary of the search index once.
+        const searchMap = new Map();
+        for (const item of searchIndex) {
+            if (item.name) {
+                searchMap.set(item.name.toLowerCase().trim(), item);
+            }
+        }
 
         // 3. Filter for updates < 30 days old
         const thirtyDaysAgo = Date.now() - (30 * 24 * 60 * 60 * 1000);
@@ -31,11 +48,9 @@ async function loadRecentUpdates() {
                 const rDate = new Date(info.releaseDate).getTime();
                 
                 if (rDate >= thirtyDaysAgo) {
-                    // Cross-reference with search index using a forgiving match
+                    // Cross-reference with search index using our instant lookup map
                     const appNameCleaned = info.name ? info.name.toLowerCase().trim() : "";
-                    const searchData = searchIndex.find(item => 
-                        item.name && item.name.toLowerCase().trim() === appNameCleaned
-                    );
+                    const searchData = searchMap.get(appNameCleaned);
                     
                     if (searchData) {
                         recentApps.push({ 
