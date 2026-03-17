@@ -1,7 +1,7 @@
 ---
 layout: template
 title: "DevilutionX Guide"
-permalink: /guides/ports/devilutionx-guide/
+permalink: /guides/ports/devilutionx-guide.html
 description: "A guide for setting up DevilutionX on dev mode."
 author: "MewLew"
 ---

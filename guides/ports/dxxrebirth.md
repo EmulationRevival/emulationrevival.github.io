@@ -1,7 +1,7 @@
 ---
 layout: template
 title: "DXX Rebirth Guide"
-permalink: /guides/ports/dxxrebirth-guide/
+permalink: /guides/ports/dxxrebirth-guide.html
 description: "A guide for setting up DXX Rebirth on dev mode."
 author: "MewLew"
 ---

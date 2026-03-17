@@ -1,7 +1,7 @@
 ---
 layout: template
 title: "SOH (Ship of Harkinian) Foxtrot UWP Edition Guide"
-permalink: /guides/ports/soh-guide/
+permalink: /guides/ports/soh-guide.html
 description: "A guide for setting up SOH (Ship of Harkinian) Foxtrot UWP Edition on dev mode."
 author: "MewLew"
 ---

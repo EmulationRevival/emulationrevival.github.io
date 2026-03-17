@@ -1,7 +1,7 @@
 ---
 layout: template
 title: "Sonic 3 A.I.R. Guide"
-permalink: /guides/ports/sonic3air-guide/
+permalink: /guides/ports/sonic3air-guide.html
 description: "A guide for setting up Sonic 3 A.I.R on dev mode."
 author: "MewLew"
 ---

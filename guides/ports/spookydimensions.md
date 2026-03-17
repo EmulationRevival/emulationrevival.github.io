@@ -1,7 +1,7 @@
 ---
 layout: template
 title: "Spooky Dimensions Guide"
-permalink: /guides/ports/spookydimensions-guide/
+permalink: /guides/ports/spookydimensions-guide.html
 description: "A guide for setting up Spooky Dimensions on dev mode."
 author: "MewLew"
 ---

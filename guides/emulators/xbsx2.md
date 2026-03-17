@@ -1,7 +1,7 @@
 ---
 layout: template
 title: "XBSX2 Guide"
-permalink: /guides/emulators/xbsx2-guide/
+permalink: /guides/emulators/xbsx2-guide.html
 description: "A guide for setting up XBSX2 on dev mode."
 author: "Stern/Jeen"
 ---

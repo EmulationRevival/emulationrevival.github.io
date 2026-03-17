@@ -1,7 +1,7 @@
 ---
 layout: template
 title: "Dolphin Guide"
-permalink: /guides/emulators/dolphin-guide/
+permalink: /guides/emulators/dolphin-guide.html
 description: "A guide for setting up Dolphin on dev mode."
 author: "Credit to the guide authors in each section"
 ---

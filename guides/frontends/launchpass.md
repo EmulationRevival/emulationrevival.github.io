@@ -1,7 +1,7 @@
 ---
 layout: template
 title: "LaunchPass Guide"
-permalink: /guides/frontends/launchpass-guide/
+permalink: /guides/frontends/launchpass-guide.html
 description: "A guide for setting up LaunchPass on dev mode."
 ---
 

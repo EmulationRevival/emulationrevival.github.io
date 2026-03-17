@@ -1,7 +1,7 @@
 ---
 layout: template
 title: "Spelunky Classic HD Guide"
-permalink: /guides/ports/spelunky-guide/
+permalink: /guides/ports/spelunky-guide.html
 description: "A guide for setting up Spelunky Classic HD on dev mode."
 author: "MewLew"
 ---

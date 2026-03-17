@@ -1,7 +1,7 @@
 ---
 layout: template
 title: "PPSSPP Guide"
-permalink: /guides/emulators/ppsspp-guide/
+permalink: /guides/emulators/ppsspp-guide.html
 description: "A guide for setting up PPSSPP on dev mode."
 author: "Delta/Mewlew/Alouisious"
 ---

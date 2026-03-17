@@ -1,7 +1,7 @@
 ---
 layout: template
 title: "Relic Hunters Zero Guide"
-permalink: /guides/ports/relichunters-guide/
+permalink: /guides/ports/relichunters-guide.html
 description: "A guide for setting up Relic Hunters Zero on dev mode."
 author: "MewLew"
 ---

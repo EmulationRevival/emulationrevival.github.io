@@ -1,7 +1,7 @@
 ---
 layout: template
 title: "SM64HD Fan Remake (Super Mario 64) Guide"
-permalink: /guides/experimentalapps/sm64hd-guide/
+permalink: /guides/experimentalapps/sm64hd-guide.html
 description: "A guide for setting up SM64HD Fan Remake (Super Mario 64) on dev mode."
 author: "MewLew"
 ---

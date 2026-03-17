@@ -1,7 +1,7 @@
 ---
 layout: template
 title: "Sonic Robo Blast 2 Guide"
-permalink: /guides/ports/sonicroboblast2-guide/
+permalink: /guides/ports/sonicroboblast2-guide.html
 description: "A guide for setting up Sonic Robo Blast 2 on dev mode."
 author: "MewLew"
 ---

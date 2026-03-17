@@ -1,7 +1,7 @@
 ---
 layout: template
 title: "Maze0x72 Guide"
-permalink: /guides/ports/maze-guide/
+permalink: /guides/ports/maze-guide.html
 description: "A guide for setting up Maze0x72 on dev mode."
 author: "MewLew"
 ---

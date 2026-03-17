@@ -1,7 +1,7 @@
 ---
 layout: template
 title: "Sonic Realms Guide"
-permalink: /guides/ports/sonicrealms-guide/
+permalink: /guides/ports/sonicrealms-guide.html
 description: "A guide for setting up Sonic Realms on dev mode."
 author: "MewLew"
 ---

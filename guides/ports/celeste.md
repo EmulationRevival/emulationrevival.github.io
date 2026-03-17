@@ -1,7 +1,7 @@
 ---
 layout: template
 title: "Celeste Classic Guide"
-permalink: /guides/ports/celeste-guide/
+permalink: /guides/ports/celeste-guide.html
 description: "A guide for setting up Celeste Classic on dev mode."
 author: "MewLew"
 ---

@@ -1,7 +1,7 @@
 ---
 layout: template
 title: "Snake Guide"
-permalink: /guides/ports/snake-guide/
+permalink: /guides/ports/snake-guide.html
 description: "A guide for setting up Snake on dev mode."
 author: "MewLew"
 ---

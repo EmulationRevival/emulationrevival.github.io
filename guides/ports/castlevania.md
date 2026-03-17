@@ -1,7 +1,7 @@
 ---
 layout: template
 title: "Castlevania Revamped Guide"
-permalink: /guides/ports/castlevania-guide/
+permalink: /guides/ports/castlevania-guide.html
 description: "A guide for setting up Castlevania Revamped on dev mode."
 author: "MewLew"
 ---

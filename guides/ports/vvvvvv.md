@@ -1,7 +1,7 @@
 ---
 layout: template
 title: "VVVVVV (V6) Guide"
-permalink: /guides/ports/vvvvvv-guide/
+permalink: /guides/ports/vvvvvv-guide.html
 description: "A guide for setting up VVVVVV (V6) on dev mode."
 author: "MewLew"
 ---

@@ -1,7 +1,7 @@
 ---
 layout: template
 title: "Sonic Ring Racers Guide"
-permalink: /guides/ports/sonicringracers-guide/
+permalink: /guides/ports/sonicringracers-guide.html
 description: "A guide for setting up Sonic Ring Racers on dev mode."
 author: "MewLew"
 ---

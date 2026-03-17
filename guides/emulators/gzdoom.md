@@ -1,7 +1,7 @@
 ---
 layout: template
 title: "GZDoom Guide"
-permalink: /guides/emulators/gzdoom-guide/
+permalink: /guides/emulators/gzdoom-guide.html
 description: "A guide for setting up GZDoom on dev mode."
 author: "MewLew"
 ---
