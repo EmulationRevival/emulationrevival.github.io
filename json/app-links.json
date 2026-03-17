@@ -178,8 +178,8 @@
   },
   "retroarch3ds": {
     "name": "Retroarch 3DS",
-    "version": "Citra-Alpha-RetroArch",
-    "releaseDate": "2024-05-09",
+    "version": "1.0.1.0",
+    "releaseDate": "2026-03-16",
     "assets": [
       {
         "id": "retroarch3ds",
