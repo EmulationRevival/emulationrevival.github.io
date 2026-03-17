@@ -63,14 +63,15 @@ document.addEventListener('DOMContentLoaded', () => {
         return appDataPromise;
     }
 
-    // --- Data Injection (OPTIMIZED) ---
+    // --- Data Injection (OPTIMIZED & REPAIRED) ---
     function populateVersionAndDateData(data) {
         if (!data) return;
         
         // 1. Process all Version elements currently on the page
         const versionElements = document.querySelectorAll(CONSTANTS.SELECTORS.APP_VERSION);
         versionElements.forEach(versionLi => {
-            const appId = versionLi.getAttribute(`data-${CONSTANTS.DATA_ATTR.APP_ID_PROP}`);
+            // FIX: Using dataset matches data-app-id perfectly
+            const appId = versionLi.dataset[CONSTANTS.DATA_ATTR.APP_ID_PROP];
             const appInfo = data[appId];
 
             if (appInfo && appInfo.version && appInfo.version !== "Unknown") {
@@ -86,7 +87,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const currentDate = new Date(); // Calculate the current date only once for performance
 
         dateElements.forEach(dateLi => {
-            const appId = dateLi.getAttribute(`data-${CONSTANTS.DATA_ATTR.APP_ID_PROP}`);
+            // FIX: Using dataset matches data-app-id perfectly
+            const appId = dateLi.dataset[CONSTANTS.DATA_ATTR.APP_ID_PROP];
             const appInfo = data[appId];
 
             if (appInfo && appInfo.releaseDate && appInfo.releaseDate !== "Unknown") {
@@ -181,12 +183,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- Background Pre-warming ---
-    // Since this script is only loaded on pages with downloads, we can safely
-    // trigger the fetch in the background as soon as the browser has free time.
-    scheduleTask(() => {
-        fetchAppData(); 
-    });
+    // --- Immediate Fetch ---
+    // Executing this directly inside DOMContentLoaded removes the artificial idle delay
+    // and populates the cards instantly.
+    fetchAppData(); 
 
     // --- Helper Functions ---
     function findAssetUrl(data, appId, assetId) {
