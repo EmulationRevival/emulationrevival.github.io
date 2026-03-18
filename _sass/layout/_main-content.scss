@@ -1,3 +1,10 @@
+/* ============================= */
+/* Global Fix for Fixed Header   */
+/* ============================= */
+body {
+    padding-top: 96px;
+}
+
 main {
     background-color: var(--color-background-dark);
     flex-grow: 1; 
@@ -5,16 +12,17 @@ main {
     flex-direction: column;
 }
 
-
+/* ============================= */
+/* Hero Section (Mobile/Base)    */
+/* ============================= */
 .hero-section {
-    position: relative;    
-    height: 50vh;
-    height: 50svh;
+    position: relative;
+    min-height: 50vh;
+    min-height: 50svh;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    overflow: hidden;
+    text-align: center; 
 }
 
 .hero-background-image {
@@ -43,6 +51,8 @@ main {
     z-index: 2;
     padding: var(--spacing-xl);
     color: #FFFFFF;
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 .hero-content h1 {
@@ -54,7 +64,7 @@ main {
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-}
+} 
 
 .introduction-section {
     background-color: var(--color-background-medium);
@@ -295,12 +305,17 @@ main {
     }
 }
 
-/* Desktop Overides */
+/* ============================= */
+/* Desktop Overrides             */
+/* ============================= */
 @media (min-width: 768px) {
     .hero-section {
-    height: 60vh;
-    height: 60svh;
-  }
+        /* FIX: Re-applied your strict height and overflow just for desktop so it remains visually identical */
+        min-height: auto; 
+        height: 60vh;
+        height: 60svh;
+        overflow: hidden; 
+    }
   .intro-grid {
     grid-template-columns: 2fr 1fr;
     text-align: left;

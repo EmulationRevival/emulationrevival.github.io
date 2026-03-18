@@ -55,8 +55,8 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const DATA_ATTRS = {
-    MODAL_TRIGGER: 'modalTrigger', // used as dataset property, not full 'data-modal-trigger'
-    MODAL_ID: 'modal-id', // used for selector
+    MODAL_TRIGGER: 'modalTrigger', 
+    MODAL_ID: 'modal-id', 
   };
 
   const ARIA = {
@@ -84,33 +84,28 @@ document.addEventListener('DOMContentLoaded', () => {
   const backgroundElementsToInert = [mainHeader, mainContent, mainFooter].filter(Boolean);
 
   // --- CARDS CACHE ---
-  // Cache all card elements at page load (original order)
   const ALL_CARDS = Array.from(document.querySelectorAll(SELECTORS.CARD));
 
   // --- SORTING & FILTERING ---
 
   function sortCards(cards, sortType) {
     return cards.slice().sort((a, b) => {
-      // Handle Date Sorting
       if (sortType === SORT_TYPES.NEWEST || sortType === SORT_TYPES.OLDEST) {
-        // Grab the ISO datetime attribute. If it's missing, default to an old date so it drops to the bottom.
         const dateA = a.querySelector(SELECTORS.RELEASE_DATE)?.getAttribute('datetime') || '1970-01-01';
         const dateB = b.querySelector(SELECTORS.RELEASE_DATE)?.getAttribute('datetime') || '1970-01-01';
 
         if (sortType === SORT_TYPES.NEWEST) {
-          return dateB.localeCompare(dateA); // Newer (larger string) comes first
+          return dateB.localeCompare(dateA); 
         } else {
-          return dateA.localeCompare(dateB); // Older (smaller string) comes first
+          return dateA.localeCompare(dateB); 
         }
       }
 
-      // Fallback to Alphabetical Sorting
       const titleA = a.querySelector(SELECTORS.CARD_TITLE)?.textContent.toLowerCase() || '';
       const titleB = b.querySelector(SELECTORS.CARD_TITLE)?.textContent.toLowerCase() || '';
       if (sortType === SORT_TYPES.REVERSE_ALPHABETICAL) {
         return titleB.localeCompare(titleA);
       }
-      // Default and 'alphabetical'
       return titleA.localeCompare(titleB);
     });
   }
@@ -123,14 +118,12 @@ document.addEventListener('DOMContentLoaded', () => {
         return compatibility.includes('Xbox One');
       }
       if (filterType === SORT_TYPES.XBOX_SERIES) {
-        return compatibility.includes('Series S|X'); // Relaxed to strictly match the back-half of both variations
+        return compatibility.includes('Series S|X'); 
       }
-      // Default: show all
       return true;
     });
   }
 
-  // --- SIMPLIFIED UPDATE LOGIC ---
   function updateCardGrid(filteredCards) {
     const fragment = document.createDocumentFragment();
     filteredCards.forEach(card => {
@@ -138,7 +131,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     cardGrid.replaceChildren(fragment);
 
-    // Show a message if the grid is empty
     if (filteredCards.length === 0) {
       const emptyMsg = document.createElement('div');
       emptyMsg.className = 'card-grid-empty-message';
@@ -165,7 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const contentSource = document.querySelector(`${SELECTORS.CARD_MODAL_CONTENT}[data-${DATA_ATTRS.MODAL_ID}="${modalTriggerId}"]`);
     if (!contentSource) {
-      // Show a user-friendly message in the modal if content is missing
       gameDetailModalBody.textContent = 'Details not available for this card.';
       gameDetailModal.classList.add(CLASSES.ACTIVE);
       gameDetailModalOverlay?.classList.add(CLASSES.ACTIVE);
@@ -176,22 +167,16 @@ document.addEventListener('DOMContentLoaded', () => {
     lastOpenedCardTrigger = cardLink;
     cardLink.setAttribute(ARIA.EXPANDED, ARIA.TRUE);
 
-    // Scrollbar compensation
-    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-    document.body.style.paddingRight = `${scrollbarWidth}px`;
-    if (mainHeader) mainHeader.style.paddingRight = `${scrollbarWidth}px`;
-    document.body.style.overflow = 'hidden';
+    // FIX: Delegate scroll locking to main.js master controller
+    window.dispatchEvent(new CustomEvent('requestScrollLock', { detail: { lock: true } }));
 
     backgroundElementsToInert.forEach(el => el.inert = true);
 
-    // Modal header thumbnail
     updateModalHeaderThumb(cardElement);
 
-    // Clone modal content
     const contentClone = contentSource.cloneNode(true);
     gameDetailModalBody?.replaceChildren(...contentClone.childNodes);
 
-    // Accessibility: Fallback focus to close button if no focusable elements
     const focusableElements = getFocusableElements(gameDetailModal);
     if (focusableElements.length === 0 && gameDetailModalCloseBtn) {
       gameDetailModalCloseBtn.focus();
@@ -215,7 +200,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (imageSource && gameDetailModalHeader) {
       const thumb = document.createElement('img');
       thumb.src = imageSource.src;
-      // Use the card's defined alt text for accessibility
       thumb.alt = imageSource.alt || (title ? `${title} Thumbnail` : '');
       thumb.className = CLASSES.MODAL_HEADER_THUMB;
       gameDetailModalHeader.insertBefore(thumb, gameDetailModalTitle);
@@ -227,15 +211,14 @@ document.addEventListener('DOMContentLoaded', () => {
     gameDetailModalOverlay?.classList.remove(CLASSES.ACTIVE);
     gameDetailModal.classList.remove(CLASSES.ACTIVE);
 
-    document.body.style.paddingRight = '';
-    if (mainHeader) mainHeader.style.paddingRight = '';
-    document.body.style.overflow = '';
+    // FIX: Delegate scroll unlocking to main.js master controller
+    window.dispatchEvent(new CustomEvent('requestScrollLock', { detail: { lock: false } }));
 
     backgroundElementsToInert.forEach(el => el.inert = false);
 
     if (lastOpenedCardTrigger) {
       lastOpenedCardTrigger.setAttribute(ARIA.EXPANDED, ARIA.FALSE);
-      lastOpenedCardTrigger.focus();
+      lastOpenedCardTrigger.focus({ preventScroll: true });
       lastOpenedCardTrigger = null;
     }
   }
@@ -307,7 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function handleDocumentKeydown(event) {
-    if (gameDetailModal.classList.contains(CLASSES.ACTIVE)) {
+    if (gameDetailModal && gameDetailModal.classList.contains(CLASSES.ACTIVE)) {
       trapFocusInModal(event);
       if (event.key === KEYS.ESCAPE) {
         closeGameDetailModal();

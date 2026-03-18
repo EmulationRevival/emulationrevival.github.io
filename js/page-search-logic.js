@@ -96,6 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
   searchInput.setAttribute(ATTRIBUTES.ARIA_AUTOCOMPLETE, 'list');
   searchInput.setAttribute(ATTRIBUTES.ARIA_HASPOPUP, ROLES.LISTBOX);
   searchInput.setAttribute(ATTRIBUTES.ARIA_OWNS, IDS.RESULTS_CONTAINER_ID);
+  searchInput.setAttribute(ATTRIBUTES.ARIA_EXPANDED, 'false');
 
   autocompleteResults.setAttribute(ATTRIBUTES.ROLE, ROLES.LISTBOX);
   autocompleteResults.setAttribute(ATTRIBUTES.ARIA_LABEL, TEMPLATES.ARIA_LABEL_SUGGESTIONS);
@@ -160,6 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- UTILITY: AUTOCOMPLETE VISIBILITY ---
   function setAutocompleteVisibility(visible) {
     autocompleteResults.style.display = visible ? 'block' : 'none';
+    // FIX: Dynamically update aria-expanded based on visibility
     searchInput.setAttribute(ATTRIBUTES.ARIA_EXPANDED, visible ? 'true' : 'false');
     if (!visible) searchInput.removeAttribute(ATTRIBUTES.ARIA_ACTIVEDESCENDANT);
   }

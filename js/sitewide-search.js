@@ -85,6 +85,9 @@ document.addEventListener('DOMContentLoaded', () => {
   searchInput.setAttribute(ATTRIBUTES.ARIA_AUTOCOMPLETE, 'list');
   searchInput.setAttribute(ATTRIBUTES.ARIA_HASPOPUP, ROLES.LISTBOX);
   searchInput.setAttribute(ATTRIBUTES.ARIA_OWNS, IDS.RESULTS_CONTAINER_ID);
+  // FIX: Initialize aria-expanded to false to satisfy Lighthouse
+  searchInput.setAttribute(ATTRIBUTES.ARIA_EXPANDED, 'false');
+  
   autocompleteResults.setAttribute(ATTRIBUTES.ROLE, ROLES.LISTBOX);
 
   // --- UTILITY: DEBOUNCE ---

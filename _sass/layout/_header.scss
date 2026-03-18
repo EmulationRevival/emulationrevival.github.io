@@ -24,8 +24,12 @@
   background-color: var(--color-background-medium);
   padding: var(--spacing-md) 0;
   box-shadow: var(--box-shadow-light);
-  position: sticky;
+  height: var(--header-height);
+  position: fixed; 
   top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   z-index: 1000;
 }
 .header-content {
@@ -105,13 +109,12 @@
 .main-nav .nav-list {
   display: none;
   flex-direction: column;
-  position: fixed;
-  top: var(--header-height-dynamic, 72px);
+  position: absolute;
+  top: 100%;
   left: 0;
   width: 100%;
-  /* Fallback for older browsers, progressive enhancement for modern mobile browsers */
-  height: calc(100vh - var(--header-height-dynamic, 72px));
-  height: calc(100dvh - var(--header-height-dynamic, 72px));
+  height: calc(100vh - 100%);
+  height: calc(100dvh - 100%);
   background-color: var(--color-background-dark);
   z-index: 999;
   padding: 0;
@@ -229,7 +232,7 @@
 body.no-scroll {
   overflow-x: hidden;
   overscroll-behavior-x: none;
-  position: fixed; width: 100%; /* Changed from 100vw to 100% to prevent scrollbar jump */
+  position: fixed; width: 100%; 
 }
 
 /* ============================= */

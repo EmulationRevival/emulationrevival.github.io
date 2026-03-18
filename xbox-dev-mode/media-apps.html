@@ -4,7 +4,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content">
         <title>Media Apps for Xbox Dev Mode (Kodi, VLC, etc.) - Emulation Revival</title>
         <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
         <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
@@ -56,6 +56,8 @@
         <li class="has-submenu">
             <a href="#" class="nav-link submenu-toggle" aria-haspopup="true">Library <span class="dropdown-icon">▼</span></a>
             <ul class="submenu">
+                <button type="button" class="drilldown-back" tabindex="0" aria-label="Back to previous menu">Library</button>
+                
                 <li><a href="/xbox-dev-mode/emulators.html" class="nav-link">Emulators</a></li>
                 <li><a href="/xbox-dev-mode/frontends.html" class="nav-link">Frontends</a></li>
                 <li><a href="/xbox-dev-mode/ports.html" class="nav-link">Game Ports</a></li>
@@ -69,6 +71,8 @@
         <li class="has-submenu">
             <a href="#" class="nav-link submenu-toggle" aria-haspopup="true">Guides <span class="dropdown-icon">▼</span></a>
             <ul class="submenu">
+                <button type="button" class="drilldown-back" tabindex="0" aria-label="Back to previous menu">Guides</button>
+                
                 <li><a href="https://wiki.sternserv.xyz/docs/xbox-setup/xbox-developer-mode-setup" class="nav-link">Dev Mode Activation and Setup</a></li>
                 <li><a href="{% link guides/devmode-bios.md %}" class="nav-link">BIOS Requirements</a></li>
             </ul>
@@ -132,8 +136,12 @@
                             placeholder="Search..."
                             autocomplete="off"
                             aria-controls="pageAutocompleteResults"
-                        >
-                        <span id="searchHelpText" class="sr-only">Search by app title</span>
+                            role="combobox"
+                            aria-expanded="false"
+                            aria-autocomplete="list"
+                            aria-haspopup="listbox"
+                            aria-owns="pageAutocompleteResults">
+                        <span id="searchHelpText" class="sr-only">Search by media app title</span>
                         <div
                             id="pageAutocompleteResults"
                             class="autocomplete-container"

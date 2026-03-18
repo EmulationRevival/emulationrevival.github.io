@@ -4,7 +4,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content">
         <title>About Us - Emulation Revival</title>
         <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
         <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
@@ -78,48 +78,51 @@
                     >
                 </a>
                 <nav class="main-nav">
-                    <button class="hamburger-menu" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-navigation">
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                    </button>
-                    <ul class="nav-list" id="main-navigation">
-                        <li><a href="/index.html" class="nav-link">Home</a></li>
-                        
-                        <li class="has-submenu">
-                            <a href="#" class="nav-link submenu-toggle" aria-haspopup="true">Library <span class="dropdown-icon">▼</span></a>
-                            <ul class="submenu">
-                                <li><a href="/xbox-dev-mode/emulators.html" class="nav-link">Emulators</a></li>
-                                <li><a href="/xbox-dev-mode/frontends.html" class="nav-link">Frontends</a></li>
-                                <li><a href="/xbox-dev-mode/ports.html" class="nav-link">Game Ports</a></li>
-                                <li><a href="/xbox-dev-mode/apps.html" class="nav-link">Apps</a></li>
-                                <li><a href="/xbox-dev-mode/experimental-apps.html" class="nav-link">Experimental Apps</a></li>
-                                <li><a href="/xbox-dev-mode/media-apps.html" class="nav-link">Media Apps</a></li>
-                                <li><a href="/xbox-dev-mode/utilities.html" class="nav-link">Utilities</a></li>
-                            </ul>
-                        </li>
+    <button class="hamburger-menu" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+    <ul class="nav-list" id="main-navigation">
+        <li><a href="/index.html" class="nav-link">Home</a></li>
+        
+        <li class="has-submenu">
+            <a href="#" class="nav-link submenu-toggle" aria-haspopup="true">Library <span class="dropdown-icon">▼</span></a>
+            <ul class="submenu">
+                <button type="button" class="drilldown-back" tabindex="0" aria-label="Back to previous menu">Library</button>
+                
+                <li><a href="/xbox-dev-mode/emulators.html" class="nav-link">Emulators</a></li>
+                <li><a href="/xbox-dev-mode/frontends.html" class="nav-link">Frontends</a></li>
+                <li><a href="/xbox-dev-mode/ports.html" class="nav-link">Game Ports</a></li>
+                <li><a href="/xbox-dev-mode/apps.html" class="nav-link">Apps</a></li>
+                <li><a href="/xbox-dev-mode/experimental-apps.html" class="nav-link">Experimental Apps</a></li>
+                <li><a href="/xbox-dev-mode/media-apps.html" class="nav-link">Media Apps</a></li>
+                <li><a href="/xbox-dev-mode/utilities.html" class="nav-link">Utilities</a></li>
+            </ul>
+        </li>
 
-                                <li class="has-submenu">
+        <li class="has-submenu">
             <a href="#" class="nav-link submenu-toggle" aria-haspopup="true">Guides <span class="dropdown-icon">▼</span></a>
             <ul class="submenu">
+                <button type="button" class="drilldown-back" tabindex="0" aria-label="Back to previous menu">Guides</button>
+                
                 <li><a href="https://wiki.sternserv.xyz/docs/xbox-setup/xbox-developer-mode-setup" class="nav-link">Dev Mode Activation and Setup</a></li>
                 <li><a href="{% link guides/devmode-bios.md %}" class="nav-link">BIOS Requirements</a></li>
             </ul>
         </li>
 
-
-                        <li><a href="/compatibility.html" class="nav-link">Compatibility</a></li>
-                        <li><a href="/about.html" class="nav-link" aria-current="page">About</a></li>
-                        
-                        <li>
-                            <button id="theme-toggle"
-                                class="theme-toggle-btn"
-                                aria-label="Toggle between dark and light mode"
-                                aria-pressed="false">
-                            </button>
-                        </li>
-                    </ul>
-                </nav>
+        <li><a href="/compatibility.html" class="nav-link">Compatibility</a></li>
+        <li><a href="/about.html" class="nav-link">About</a></li>
+        
+        <li>
+            <button id="theme-toggle"
+                class="theme-toggle-btn"
+                aria-label="Toggle between dark and light mode"
+                aria-pressed="false">
+            </button>
+        </li>
+    </ul>
+</nav>
             </div>
         </header>
 
