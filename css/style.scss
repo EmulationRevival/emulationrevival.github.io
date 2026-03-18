@@ -126,8 +126,12 @@ a {
 }
 
 /* Desktop Overides */
-@media (min-width: 768px) {
+@media (min-width: 992px) {
 
+body {
+    padding-top: 0;
+  }
+  
 .site-logo-img {
     width: 300px;
   }

@@ -265,6 +265,12 @@ body.no-scroll {
 /* Desktop Overrides             */
 /* ============================= */
 @media (min-width: 992px) {
+
+  .main-header {
+    position: sticky;
+    top: 0;
+  }
+  
   .hamburger-menu,
   .drilldown-back {
     display: none;
