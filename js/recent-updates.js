@@ -48,10 +48,6 @@ function createRecentCard(app) {
     img.src = CONFIG.IMAGE_FALLBACK;
   };
 
-  const badge = document.createElement('div');
-  badge.className = 'new-update-badge';
-  badge.setAttribute('aria-hidden', 'true');
-
   const content = document.createElement('div');
   content.className = 'card-content';
 
@@ -64,7 +60,7 @@ function createRecentCard(app) {
   description.textContent = app.description || '';
 
   content.append(title, description);
-  imageContainer.append(img, badge);
+  imageContainer.append(img);
   link.append(imageContainer, content);
   card.appendChild(link);
 

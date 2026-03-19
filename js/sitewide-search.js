@@ -1,7 +1,7 @@
 /**
  * sitewide-search.js
  * Automated Sitewide Search
- * Module-safe: no DOMContentLoaded wrapper needed
+ * Module-safe
  */
 
 // --- CONSTANTS ---
@@ -64,14 +64,12 @@ const TEMPLATES = {
 const searchInput = document.getElementById(IDS.SEARCH_INPUT_ID);
 const autocompleteResults = document.getElementById(IDS.RESULTS_CONTAINER_ID);
 
-// Early return if UI is absent
 if (!searchInput || !autocompleteResults) {
   // noop
 } else {
   // --- STATE ---
   let searchIndexCache = [];
   let searchIndexPromise = null;
-  let currentSuggestions = [];
   let activeSuggestionIndex = -1;
 
   // --- LIVE REGION ---
@@ -95,7 +93,6 @@ if (!searchInput || !autocompleteResults) {
 
   autocompleteResults.setAttribute(ATTRIBUTES.ROLE, ROLES.LISTBOX);
 
-  // --- UTILITIES ---
   function debounce(fn, wait) {
     let timeoutId;
     return function debounced(...args) {
@@ -115,13 +112,11 @@ if (!searchInput || !autocompleteResults) {
     if (!visible) {
       searchInput.removeAttribute(ATTRIBUTES.ARIA_ACTIVEDESCENDANT);
       activeSuggestionIndex = -1;
-      currentSuggestions = [];
     }
   }
 
   function clearSuggestions() {
     autocompleteResults.replaceChildren();
-    currentSuggestions = [];
     activeSuggestionIndex = -1;
     searchInput.removeAttribute(ATTRIBUTES.ARIA_ACTIVEDESCENDANT);
   }
@@ -174,7 +169,6 @@ if (!searchInput || !autocompleteResults) {
     window.location.assign(url);
   }
 
-  // --- DATA LOADING ---
   async function loadSearchIndex() {
     if (searchIndexPromise) return searchIndexPromise;
 
@@ -205,7 +199,6 @@ if (!searchInput || !autocompleteResults) {
     return searchIndexPromise;
   }
 
-  // --- SEARCH ---
   function getFilteredSuggestions(query) {
     const normalizedQuery = stripAccents(query.trim());
     if (normalizedQuery.length < CONFIG.MIN_QUERY_LENGTH) return [];
@@ -236,11 +229,8 @@ if (!searchInput || !autocompleteResults) {
       liveRegion.textContent = TEMPLATES.NO_RESULTS(query);
       searchInput.removeAttribute(ATTRIBUTES.ARIA_ACTIVEDESCENDANT);
       activeSuggestionIndex = -1;
-      currentSuggestions = [];
       return;
     }
-
-    currentSuggestions = filtered;
 
     const fragment = document.createDocumentFragment();
 
@@ -299,7 +289,6 @@ if (!searchInput || !autocompleteResults) {
     processInputValue(event.target.value);
   }, CONFIG.DEBOUNCE_MS);
 
-  // --- EVENTS ---
   searchInput.addEventListener('input', handleInput);
 
   searchInput.addEventListener('keydown', event => {
@@ -361,7 +350,6 @@ if (!searchInput || !autocompleteResults) {
     }
   });
 
-  // --- INIT ---
   loadSearchIndex().then(() => {
     const query = searchInput.value.trim();
     if (query.length >= CONFIG.MIN_QUERY_LENGTH) {

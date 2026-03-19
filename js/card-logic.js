@@ -1,3 +1,5 @@
+import { scheduleTask, createFocusTrap } from './ui-utils.js';
+
 // =========================
 // CONFIG
 // =========================
@@ -86,24 +88,12 @@ const C = {
   THIRTY_DAYS_MS: 30 * 24 * 60 * 60 * 1000,
 };
 
-// =========================
-// UTIL
-// =========================
-const scheduleTask = window.requestIdleCallback || (cb =>
-  setTimeout(() => cb({ timeRemaining: () => 0 }), 200)
-);
-
-function getFocusableElements(container) {
-  if (!container) return [];
-  return Array.from(
-    container.querySelectorAll(
-      'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
-    )
-  ).filter(el => el.offsetParent !== null);
-}
-
 function normalizeText(str = '') {
   return str.toLowerCase().trim();
+}
+
+function sortNeedsHydratedDates(sortType) {
+  return sortType === C.SORT_TYPES.NEWEST || sortType === C.SORT_TYPES.OLDEST;
 }
 
 // =========================
@@ -113,13 +103,13 @@ const state = {
   dataPromise: null,
   lastOpenedCardTrigger: null,
   activePopover: null,
-  modalFocusables: [],
   parsedCardsData: [],
 };
 
 const domMeta = new WeakMap();
 const modalContentMap = new Map();
 const cardMap = new Map();
+const modalTrap = createFocusTrap();
 
 const dateFormatter = new Intl.DateTimeFormat('en-US', {
   timeZone: 'UTC',
@@ -238,7 +228,6 @@ function hydrateCards(data) {
 
   const now = Date.now();
 
-  // Versions
   dom.versions.forEach(el => {
     const appId = el.getAttribute(C.ATTR.APP);
     const info = data[appId];
@@ -252,7 +241,6 @@ function hydrateCards(data) {
     }
   });
 
-  // Dates + badges + cached sort dates
   dom.dates.forEach(el => {
     const appId = el.getAttribute(C.ATTR.APP);
     const info = data[appId];
@@ -300,7 +288,7 @@ function hydrateCards(data) {
   });
 }
 
-async function fetchAppData() {
+async function fetchAppData({ rerender = true } = {}) {
   if (state.dataPromise) return state.dataPromise;
 
   state.dataPromise = fetch(`${C.URL.VERSION}?cb=${Date.now()}`)
@@ -317,7 +305,11 @@ async function fetchAppData() {
       preprocessAppData(data);
       hydrateCards(data);
       rebuildParsedCardsData();
-      handleSortAndFilter();
+
+      if (rerender) {
+        handleSortAndFilter();
+      }
+
       return data;
     })
     .catch(err => {
@@ -430,13 +422,7 @@ function openGameDetailModal(cardLink) {
   dom.gameDetailModalOverlay?.classList.add(C.CLASSES.ACTIVE);
   dom.gameDetailModal.classList.add(C.CLASSES.ACTIVE);
 
-  state.modalFocusables = getFocusableElements(dom.gameDetailModal);
-
-  if (state.modalFocusables.length > 0) {
-    state.modalFocusables[0].focus({ preventScroll: true });
-  } else {
-    dom.gameDetailModalCloseBtn?.focus({ preventScroll: true });
-  }
+  modalTrap.activate(dom.gameDetailModal);
 }
 
 function closeGameDetailModal() {
@@ -452,27 +438,12 @@ function closeGameDetailModal() {
     el.removeAttribute('aria-hidden');
   });
 
-  state.modalFocusables = [];
+  modalTrap.deactivate();
 
   if (state.lastOpenedCardTrigger) {
     state.lastOpenedCardTrigger.setAttribute(C.ARIA.EXPANDED, C.ARIA.FALSE);
     state.lastOpenedCardTrigger.focus({ preventScroll: true });
     state.lastOpenedCardTrigger = null;
-  }
-}
-
-function trapFocusInModal(event) {
-  if (event.key !== 'Tab' || state.modalFocusables.length === 0) return;
-
-  const first = state.modalFocusables[0];
-  const last = state.modalFocusables[state.modalFocusables.length - 1];
-
-  if (event.shiftKey && document.activeElement === first) {
-    event.preventDefault();
-    last.focus({ preventScroll: true });
-  } else if (!event.shiftKey && document.activeElement === last) {
-    event.preventDefault();
-    first.focus({ preventScroll: true });
   }
 }
 
@@ -518,7 +489,7 @@ async function handleDownloadClick(btn) {
   meta.loading = true;
   btn.dataset.loading = '1';
 
-  const data = await fetchAppData();
+  const data = await fetchAppData({ rerender: false });
 
   meta.loading = false;
   btn.removeAttribute('data-loading');
@@ -600,7 +571,6 @@ function handleDocumentClick(event) {
 
 function handleDocumentKeydown(event) {
   if (dom.gameDetailModal?.classList.contains(C.CLASSES.ACTIVE)) {
-    trapFocusInModal(event);
     if (event.key === 'Escape') closeGameDetailModal();
     return;
   }
@@ -635,11 +605,24 @@ function init() {
 
   scheduleTask(initAriaLabels);
 
-  // Initial alphabetical render using static data, then corrected once hydrated.
   rebuildParsedCardsData();
-  handleSortAndFilter();
 
-  fetchAppData();
+  const initialSortType = dom.sortSelect?.value || C.SORT_TYPES.DEFAULT;
+
+  if (sortNeedsHydratedDates(initialSortType)) {
+    if (dom.cardGrid) dom.cardGrid.style.visibility = 'hidden';
+
+    fetchAppData({ rerender: true }).finally(() => {
+      if (dom.cardGrid) dom.cardGrid.style.visibility = '';
+      if (!state.dataPromise) {
+        rebuildParsedCardsData();
+        handleSortAndFilter();
+      }
+    });
+  } else {
+    handleSortAndFilter();
+    fetchAppData({ rerender: false });
+  }
 }
 
 init();
