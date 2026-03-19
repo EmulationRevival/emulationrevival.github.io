@@ -1,88 +1,109 @@
-const fs = require('fs');
+const fs = require('fs/promises');
 const path = require('path');
-const cheerio = require('cheerio'); 
+const cheerio = require('cheerio');
 
-/**
- * build-index.js
- * Scans library pages and generates a search-index.json file.
- * Run this in Termux using: node js/build-index.js
- */
-
-// The files the script will "read" to build your search database
 const PAGES_TO_INDEX = [
-    'xbox-dev-mode/emulators.html',
-    'xbox-dev-mode/ports.html',
-    'xbox-dev-mode/utilities.html',
-    'xbox-dev-mode/apps.html',
-    'xbox-dev-mode/frontends.html',
-    'xbox-dev-mode/media-apps.html',
-    'xbox-dev-mode/experimental-apps.html'
+  'xbox-dev-mode/emulators.html',
+  'xbox-dev-mode/ports.html',
+  'xbox-dev-mode/utilities.html',
+  'xbox-dev-mode/apps.html',
+  'xbox-dev-mode/frontends.html',
+  'xbox-dev-mode/media-apps.html',
+  'xbox-dev-mode/experimental-apps.html',
 ];
 
-let masterIndex = [];
+const ROOT_DIR = path.join(__dirname, '../');
+const JSON_DIR = path.join(ROOT_DIR, 'json');
+const OUTPUT_PATH = path.join(JSON_DIR, 'search-index.json');
 
-console.log('Starting search index build...');
+function normalizeText(str = '') {
+  return str.replace(/\s+/g, ' ').trim();
+}
 
-PAGES_TO_INDEX.forEach(filePath => {
-    // Navigate up from /js and into the target file path
-    const fullPath = path.join(__dirname, '../', filePath);
-    
-    if (!fs.existsSync(fullPath)) {
-        console.warn(`skipping: File not found at ${fullPath}`);
-        return;
-    }
+function makeCategory(filePath) {
+  const base = path.basename(filePath, '.html');
+  const spaced = base.replace(/-/g, ' ');
+  return spaced.charAt(0).toUpperCase() + spaced.slice(1);
+}
 
-    const html = fs.readFileSync(fullPath, 'utf8');
-    const $ = cheerio.load(html);
+function buildUrl(filePath, id) {
+  return `/${filePath}${id ? `#${id}` : ''}`;
+}
 
-    // Targets elements with the .card class
-    $('.card').each((i, el) => {
-        const title = $(el).find('.card-title, h3').first().text().trim();
-        const desc = $(el).find('.card-description, p').first().text().trim();
-        
-        // --- IMAGE EXTRACTION ---
-        // Specifically targets the img tag source within the card
-        const img = $(el).find('img').attr('src');
+function getStableId($, cardEl) {
+  const directId = $(cardEl).attr('id');
+  if (directId) return directId;
 
-        const id = $(el).attr('id') || $(el).closest('[id]').attr('id');
+  const closestId = $(cardEl).closest('[id]').attr('id');
+  return closestId || '';
+}
 
-        if (title) {
-            // Clean up the category name for the UI (e.g., "media-apps" -> "Media apps")
-            let cleanCategory = filePath.split('/').pop().replace('.html', '');
-            cleanCategory = cleanCategory.charAt(0).toUpperCase() + cleanCategory.slice(1).replace(/-/g, ' ');
+async function fileExists(filePath) {
+  try {
+    await fs.access(filePath);
+    return true;
+  } catch {
+    return false;
+  }
+}
 
-            masterIndex.push({
-                name: title,
-                description: desc,
-                img: img || '', // Captures the relative path to the image
-                url: `/${filePath}${id ? '#' + id : ''}`,
-                category: cleanCategory
-            });
-        }
+async function extractPageIndex(filePath) {
+  const fullPath = path.join(ROOT_DIR, filePath);
+
+  if (!(await fileExists(fullPath))) {
+    console.warn(`Skipping missing file: ${fullPath}`);
+    return [];
+  }
+
+  const html = await fs.readFile(fullPath, 'utf8');
+  const $ = cheerio.load(html);
+  const category = makeCategory(filePath);
+  const entries = [];
+  const seenUrls = new Set();
+
+  $('.card').each((_, el) => {
+    const title = normalizeText($(el).find('.card-title').first().text());
+    if (!title) return;
+
+    const description = normalizeText($(el).find('.card-description').first().text());
+    const img = normalizeText($(el).find('.card-image').first().attr('src') || '');
+    const id = getStableId($, el);
+
+    // If search should always jump to a specific card, enforce id presence:
+    if (!id) return;
+
+    const url = buildUrl(filePath, id);
+    if (seenUrls.has(url)) return;
+    seenUrls.add(url);
+
+    entries.push({
+      name: title,
+      description,
+      img,
+      url,
+      category,
     });
+  });
+
+  return entries;
+}
+
+async function main() {
+  console.log('Starting search index build...');
+
+  const pageResults = await Promise.all(PAGES_TO_INDEX.map(extractPageIndex));
+  const masterIndex = pageResults.flat();
+
+  await fs.mkdir(JSON_DIR, { recursive: true });
+  await fs.writeFile(OUTPUT_PATH, JSON.stringify(masterIndex, null, 2), 'utf8');
+
+  console.log('-------------------------------------------');
+  console.log(`Success! Index built with ${masterIndex.length} items.`);
+  console.log(`Saved to: ${OUTPUT_PATH}`);
+  console.log('-------------------------------------------');
+}
+
+main().catch(err => {
+  console.error('Error building search index:', err);
+  process.exitCode = 1;
 });
-
-// --- OUTPUT LOGIC ---
-
-// Define the directory path (moving up from /js and into /json)
-const jsonDir = path.join(__dirname, '../json');
-
-// Ensure the /json directory exists; if not, create it
-if (!fs.existsSync(jsonDir)){
-    console.log('Creating /json directory...');
-    fs.mkdirSync(jsonDir, { recursive: true });
-}
-
-// Define the final file path
-const outputPath = path.join(jsonDir, 'search-index.json');
-
-// Write the file to the /json folder
-try {
-    fs.writeFileSync(outputPath, JSON.stringify(masterIndex, null, 2));
-    console.log('-------------------------------------------');
-    console.log(`Success! Index built with ${masterIndex.length} items.`);
-    console.log(`Saved to: ${outputPath}`);
-    console.log('-------------------------------------------');
-} catch (err) {
-    console.error('Error writing the JSON file:', err);
-}

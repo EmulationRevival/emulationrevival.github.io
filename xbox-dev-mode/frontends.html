@@ -332,11 +332,11 @@
             </div>
         </div>
 
-        <script src="/js/main.js" defer></script>
-        <script src="/js/card-logic.js" defer></script>
-        <script src="/js/page-search-logic.js" defer></script>
-        <script src="/js/download-manager.js" defer></script>
-        <script>
+<script type="module" src="/js/main.js"></script>
+<script type="module" src="/js/card-logic.js"></script>
+<script type="module" src="/js/page-search-logic.js"></script>
+
+<script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register("{{ '/sw.js' | relative_url }}")

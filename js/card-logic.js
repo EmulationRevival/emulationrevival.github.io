@@ -1,332 +1,645 @@
-document.addEventListener('DOMContentLoaded', () => {
-  // --- CONSTANTS ---
-  const SELECTORS = {
+// =========================
+// CONFIG
+// =========================
+const C = {
+  URL: {
+    VERSION: '/json/version.json',
+    APP_LINKS: '/json/app-links.json',
+  },
+
+  SEL: {
     CARD: '.card',
     CARD_GRID: '.card-grid',
     CARD_LINK: '.card-link',
     CARD_TITLE: '.card-title',
     CARD_IMAGE: '.card-image',
+    CARD_MODAL_CONTENT: '.card-modal-content',
     INFO_LIST: '.info-list',
+    RELEASE_DATE: '.release-date',
+
+    VERSION: '.app-version',
+    DATE: '.app-release-date',
+    VAL: '.val',
+    IMG_CONTAINER: '.card-image-container',
+
+    BTN: '.download-link',
+    DROPDOWN: '.action-dropdown',
     POPOVER_TRIGGER: '.popover-trigger',
     POPOVER_MENU: '.popover-menu',
-    ACTION_DROPDOWN: '.action-dropdown',
+
     MODAL_HEADER: '.modal-header',
     MODAL_HEADER_THUMB: '.modal-header-thumb',
-    MODAL_HEADER_TITLE: '.modal-header-title',
     MAIN_HEADER: '.main-header',
     MAIN_CONTENT: 'main',
     MAIN_FOOTER: '.main-footer',
-    CARD_MODAL_CONTENT: '.card-modal-content',
-    MODAL_CLOSE_BUTTON: '.modal-close-button',
-    RELEASE_DATE: '.release-date'
-  };
+  },
 
-  const IDS = {
+  IDS: {
     SORT_BY: 'sortBy',
     GAME_DETAIL_MODAL: 'gameDetailModal',
     GAME_DETAIL_MODAL_OVERLAY: 'gameDetailModalOverlay',
     GAME_DETAIL_MODAL_CLOSE: 'gameDetailModalClose',
     GAME_DETAIL_MODAL_TITLE: 'gameDetailModalTitle',
     GAME_DETAIL_MODAL_BODY: 'gameDetailModalBody',
-  };
+  },
 
-  const CLASSES = {
+  ATTR: {
+    APP: 'data-app-id',
+    ASSET: 'data-asset-id',
+    ARIA: 'aria-label',
+  },
+
+  DATASET: {
+    MODAL_TRIGGER: 'modalTrigger',
+    MODAL_ID: 'modalId',
+  },
+
+  CLASSES: {
     ACTIVE: 'active',
-    OPEN: 'open',
-    SELECTED: 'selected',
     MODAL_HEADER_THUMB: 'modal-header-thumb',
-  };
+  },
 
-  const KEYS = {
-    TAB: 'Tab',
-    ENTER: 'Enter',
-    SPACE: ' ',
-    ESCAPE: 'Escape',
-  };
-
-  const SORT_TYPES = {
+  SORT_TYPES: {
     ALPHABETICAL: 'alphabetical',
     REVERSE_ALPHABETICAL: 'reverse-alphabetical',
     XBOX_ONE: 'xbox-one',
     XBOX_SERIES: 'xbox-series',
-    NEWEST: 'newest', 
-    OLDEST: 'oldest', 
+    NEWEST: 'newest',
+    OLDEST: 'oldest',
     DEFAULT: 'default',
-  };
+  },
 
-  const DATA_ATTRS = {
-    MODAL_TRIGGER: 'modalTrigger', 
-    MODAL_ID: 'modal-id', 
-  };
+  TXT: {
+    UNKNOWN: 'Unknown',
+    DL_PREFIX: 'Download',
+  },
 
-  const ARIA = {
+  ARIA: {
     EXPANDED: 'aria-expanded',
-    HIDDEN: 'aria-hidden',
     TRUE: 'true',
     FALSE: 'false',
-  };
+  },
 
-  // --- DOM ELEMENTS ---
-  const gameDetailModal = document.getElementById(IDS.GAME_DETAIL_MODAL);
-  const gameDetailModalOverlay = document.getElementById(IDS.GAME_DETAIL_MODAL_OVERLAY);
-  const gameDetailModalCloseBtn = document.getElementById(IDS.GAME_DETAIL_MODAL_CLOSE);
-  const gameDetailModalHeader = gameDetailModal?.querySelector(SELECTORS.MODAL_HEADER);
-  const gameDetailModalTitle = document.getElementById(IDS.GAME_DETAIL_MODAL_TITLE);
-  const gameDetailModalBody = document.getElementById(IDS.GAME_DETAIL_MODAL_BODY);
-  const mainHeader = document.querySelector(SELECTORS.MAIN_HEADER);
-  const mainContent = document.querySelector(SELECTORS.MAIN_CONTENT);
-  const mainFooter = document.querySelector(SELECTORS.MAIN_FOOTER);
-  const sortSelect = document.getElementById(IDS.SORT_BY);
-  const cardGrid = document.querySelector(SELECTORS.CARD_GRID);
+  FILE_EXT: /\.(zip|msixbundle|msix|appx|exe|apk|7z|rar|tar|gz|dmg|pdf|mp3|mp4|avi|mov|jpg|jpeg|png|gif|webp|svg|docx?|xlsx?|pptx?|iso|bin|img|msi|deb|rpm|sh|bat|ps1|ini|cfg|ctl|json|txt|xml|csv)$/i,
 
-  // --- STATE ---
-  let lastOpenedCardTrigger = null;
-  const backgroundElementsToInert = [mainHeader, mainContent, mainFooter].filter(Boolean);
+  BADGE_SRC: '/images/new-update.svg',
+  THIRTY_DAYS_MS: 30 * 24 * 60 * 60 * 1000,
+};
 
-  // --- CARDS CACHE ---
-  const ALL_CARDS = Array.from(document.querySelectorAll(SELECTORS.CARD));
+// =========================
+// UTIL
+// =========================
+const scheduleTask = window.requestIdleCallback || (cb =>
+  setTimeout(() => cb({ timeRemaining: () => 0 }), 200)
+);
 
-  // --- SORTING & FILTERING ---
+function getFocusableElements(container) {
+  if (!container) return [];
+  return Array.from(
+    container.querySelectorAll(
+      'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    )
+  ).filter(el => el.offsetParent !== null);
+}
 
-  function sortCards(cards, sortType) {
-    return cards.slice().sort((a, b) => {
-      if (sortType === SORT_TYPES.NEWEST || sortType === SORT_TYPES.OLDEST) {
-        const dateA = a.querySelector(SELECTORS.RELEASE_DATE)?.getAttribute('datetime') || '1970-01-01';
-        const dateB = b.querySelector(SELECTORS.RELEASE_DATE)?.getAttribute('datetime') || '1970-01-01';
+function normalizeText(str = '') {
+  return str.toLowerCase().trim();
+}
 
-        if (sortType === SORT_TYPES.NEWEST) {
-          return dateB.localeCompare(dateA); 
-        } else {
-          return dateA.localeCompare(dateB); 
+// =========================
+// STATE
+// =========================
+const state = {
+  dataPromise: null,
+  lastOpenedCardTrigger: null,
+  activePopover: null,
+  modalFocusables: [],
+  parsedCardsData: [],
+};
+
+const domMeta = new WeakMap();
+const modalContentMap = new Map();
+const cardMap = new Map();
+
+const dateFormatter = new Intl.DateTimeFormat('en-US', {
+  timeZone: 'UTC',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+// =========================
+// DOM CACHE
+// =========================
+const dom = {
+  cards: Array.from(document.querySelectorAll(C.SEL.CARD)),
+  versions: Array.from(document.querySelectorAll(C.SEL.VERSION)),
+  dates: Array.from(document.querySelectorAll(C.SEL.DATE)),
+  buttons: Array.from(document.querySelectorAll(C.SEL.BTN)),
+
+  cardGrid: document.querySelector(C.SEL.CARD_GRID),
+  sortSelect: document.getElementById(C.IDS.SORT_BY),
+
+  gameDetailModal: document.getElementById(C.IDS.GAME_DETAIL_MODAL),
+  gameDetailModalOverlay: document.getElementById(C.IDS.GAME_DETAIL_MODAL_OVERLAY),
+  gameDetailModalCloseBtn: document.getElementById(C.IDS.GAME_DETAIL_MODAL_CLOSE),
+  gameDetailModalTitle: document.getElementById(C.IDS.GAME_DETAIL_MODAL_TITLE),
+  gameDetailModalBody: document.getElementById(C.IDS.GAME_DETAIL_MODAL_BODY),
+
+  mainHeader: document.querySelector(C.SEL.MAIN_HEADER),
+  mainContent: document.querySelector(C.SEL.MAIN_CONTENT),
+  mainFooter: document.querySelector(C.SEL.MAIN_FOOTER),
+};
+
+dom.gameDetailModalHeader = dom.gameDetailModal?.querySelector(C.SEL.MODAL_HEADER);
+
+const backgroundElementsToInert = [
+  dom.mainHeader,
+  dom.mainContent,
+  dom.mainFooter,
+].filter(Boolean);
+
+// =========================
+// PREBIND STATIC RELATIONSHIPS
+// =========================
+function bindStaticDom() {
+  dom.cards.forEach(card => {
+    const titleEl = card.querySelector(C.SEL.CARD_TITLE);
+    const imgEl = card.querySelector(C.SEL.CARD_IMAGE);
+    const imgContainer = card.querySelector(C.SEL.IMG_CONTAINER);
+    const modalContent = card.querySelector(C.SEL.CARD_MODAL_CONTENT);
+    const infoList = modalContent?.querySelector(C.SEL.INFO_LIST);
+    const versionEl = card.querySelector(C.SEL.VERSION);
+
+    domMeta.set(card, {
+      titleEl,
+      imgEl,
+      imgContainer,
+      infoListText: infoList?.textContent || '',
+      hasBadge: false,
+      titleText: normalizeText(titleEl?.textContent || ''),
+      dateMs: 0,
+    });
+
+    if (versionEl) {
+      const appId = versionEl.getAttribute(C.ATTR.APP);
+      if (appId) cardMap.set(appId, card);
+    }
+
+    if (modalContent) {
+      const modalId = modalContent.dataset[C.DATASET.MODAL_ID];
+      if (modalId) {
+        modalContentMap.set(modalId, modalContent);
+      }
+    }
+  });
+
+  dom.versions.forEach(el => {
+    domMeta.set(el, { valEl: el.querySelector(C.SEL.VAL) });
+  });
+
+  dom.dates.forEach(el => {
+    domMeta.set(el, { valEl: el.querySelector(C.SEL.VAL) });
+  });
+
+  dom.buttons.forEach(btn => {
+    domMeta.set(btn, {
+      card: btn.closest(C.SEL.CARD),
+      isDropdown: !!btn.closest(C.SEL.DROPDOWN),
+      loading: false,
+    });
+  });
+}
+
+// =========================
+// DATA FETCH / HYDRATE
+// =========================
+function preprocessAppData(data) {
+  for (const app of Object.values(data)) {
+    if (app.assets) {
+      const assetMap = {};
+      for (const asset of app.assets) {
+        assetMap[asset.id] = asset;
+      }
+      app._assetMap = assetMap;
+    }
+
+    if (app.releaseDate && app.releaseDate !== C.TXT.UNKNOWN) {
+      const parsedMs = Date.parse(app.releaseDate);
+      if (Number.isFinite(parsedMs)) {
+        app._releaseMs = parsedMs;
+      }
+    }
+  }
+}
+
+function hydrateCards(data) {
+  if (!data) return;
+
+  const now = Date.now();
+
+  // Versions
+  dom.versions.forEach(el => {
+    const appId = el.getAttribute(C.ATTR.APP);
+    const info = data[appId];
+    if (!info) return;
+
+    const meta = domMeta.get(el);
+    if (info.version && info.version !== C.TXT.UNKNOWN) {
+      if (meta?.valEl) meta.valEl.textContent = info.version;
+    } else {
+      el.style.display = 'none';
+    }
+  });
+
+  // Dates + badges + cached sort dates
+  dom.dates.forEach(el => {
+    const appId = el.getAttribute(C.ATTR.APP);
+    const info = data[appId];
+    if (!info) return;
+
+    const ms = info._releaseMs;
+    const meta = domMeta.get(el);
+
+    if (Number.isFinite(ms)) {
+      if (meta?.valEl) {
+        const time = document.createElement('time');
+        time.className = 'release-date';
+        time.dateTime = info.releaseDate;
+        time.textContent = dateFormatter.format(ms);
+        meta.valEl.replaceChildren(time);
+      }
+
+      const card = cardMap.get(appId);
+      if (card) {
+        const cardMeta = domMeta.get(card);
+        if (cardMeta) {
+          cardMeta.dateMs = ms;
+
+          const timeDiff = now - ms;
+          if (
+            timeDiff >= 0 &&
+            timeDiff < C.THIRTY_DAYS_MS &&
+            cardMeta.imgContainer &&
+            !cardMeta.hasBadge
+          ) {
+            cardMeta.hasBadge = true;
+
+            const badge = document.createElement('img');
+            badge.src = C.BADGE_SRC;
+            badge.alt = 'New Update';
+            badge.className = 'new-update-badge';
+
+            cardMeta.imgContainer.appendChild(badge);
+          }
         }
       }
-
-      const titleA = a.querySelector(SELECTORS.CARD_TITLE)?.textContent.toLowerCase() || '';
-      const titleB = b.querySelector(SELECTORS.CARD_TITLE)?.textContent.toLowerCase() || '';
-      if (sortType === SORT_TYPES.REVERSE_ALPHABETICAL) {
-        return titleB.localeCompare(titleA);
-      }
-      return titleA.localeCompare(titleB);
-    });
-  }
-
-  function filterCards(cards, filterType) {
-    return cards.filter(card => {
-      const modalContent = card.querySelector(SELECTORS.CARD_MODAL_CONTENT);
-      const compatibility = modalContent?.querySelector(SELECTORS.INFO_LIST)?.textContent || '';
-      if (filterType === SORT_TYPES.XBOX_ONE) {
-        return compatibility.includes('Xbox One');
-      }
-      if (filterType === SORT_TYPES.XBOX_SERIES) {
-        return compatibility.includes('Series S|X'); 
-      }
-      return true;
-    });
-  }
-
-  function updateCardGrid(filteredCards) {
-    const fragment = document.createDocumentFragment();
-    filteredCards.forEach(card => {
-      fragment.appendChild(card);
-    });
-    cardGrid.replaceChildren(fragment);
-
-    if (filteredCards.length === 0) {
-      const emptyMsg = document.createElement('div');
-      emptyMsg.className = 'card-grid-empty-message';
-      emptyMsg.textContent = 'No cards available.';
-      cardGrid.appendChild(emptyMsg);
-    }
-  }
-
-  function handleSortAndFilter() {
-    if (!cardGrid) return;
-    const sortType = sortSelect?.value || SORT_TYPES.DEFAULT;
-    const sortedCards = sortCards(ALL_CARDS, sortType);
-    const filteredCards = filterCards(sortedCards, sortType);
-    updateCardGrid(filteredCards);
-  }
-
-  // --- MODAL LOGIC ---
-
-  function openGameDetailModal(cardLink) {
-    if (!gameDetailModal || !cardLink) return;
-    const cardElement = cardLink.closest(SELECTORS.CARD);
-    const modalTriggerId = cardLink.dataset[DATA_ATTRS.MODAL_TRIGGER];
-    if (!cardElement || !modalTriggerId) return;
-
-    const contentSource = document.querySelector(`${SELECTORS.CARD_MODAL_CONTENT}[data-${DATA_ATTRS.MODAL_ID}="${modalTriggerId}"]`);
-    if (!contentSource) {
-      gameDetailModalBody.textContent = 'Details not available for this card.';
-      gameDetailModal.classList.add(CLASSES.ACTIVE);
-      gameDetailModalOverlay?.classList.add(CLASSES.ACTIVE);
-      gameDetailModalCloseBtn?.focus();
-      return;
-    }
-
-    lastOpenedCardTrigger = cardLink;
-    cardLink.setAttribute(ARIA.EXPANDED, ARIA.TRUE);
-
-    // FIX: Delegate scroll locking to main.js master controller
-    window.dispatchEvent(new CustomEvent('requestScrollLock', { detail: { lock: true } }));
-
-    backgroundElementsToInert.forEach(el => el.inert = true);
-
-    updateModalHeaderThumb(cardElement);
-
-    const contentClone = contentSource.cloneNode(true);
-    gameDetailModalBody?.replaceChildren(...contentClone.childNodes);
-
-    const focusableElements = getFocusableElements(gameDetailModal);
-    if (focusableElements.length === 0 && gameDetailModalCloseBtn) {
-      gameDetailModalCloseBtn.focus();
-    } else if (focusableElements.length > 0) {
-      focusableElements[0].focus();
-    }
-
-    gameDetailModalOverlay?.classList.add(CLASSES.ACTIVE);
-    gameDetailModal.classList.add(CLASSES.ACTIVE);
-  }
-
-  function updateModalHeaderThumb(cardElement) {
-    const existingThumb = gameDetailModalHeader?.querySelector(SELECTORS.MODAL_HEADER_THUMB);
-    if (existingThumb) existingThumb.remove();
-
-    const title = cardElement.querySelector(SELECTORS.CARD_TITLE)?.textContent;
-    const imageSource = cardElement.querySelector(SELECTORS.CARD_IMAGE);
-
-    if (gameDetailModalTitle) gameDetailModalTitle.textContent = title || '';
-
-    if (imageSource && gameDetailModalHeader) {
-      const thumb = document.createElement('img');
-      thumb.src = imageSource.src;
-      thumb.alt = imageSource.alt || (title ? `${title} Thumbnail` : '');
-      thumb.className = CLASSES.MODAL_HEADER_THUMB;
-      gameDetailModalHeader.insertBefore(thumb, gameDetailModalTitle);
-    }
-  }
-
-  function closeGameDetailModal() {
-    if (!gameDetailModal) return;
-    gameDetailModalOverlay?.classList.remove(CLASSES.ACTIVE);
-    gameDetailModal.classList.remove(CLASSES.ACTIVE);
-
-    // FIX: Delegate scroll unlocking to main.js master controller
-    window.dispatchEvent(new CustomEvent('requestScrollLock', { detail: { lock: false } }));
-
-    backgroundElementsToInert.forEach(el => el.inert = false);
-
-    if (lastOpenedCardTrigger) {
-      lastOpenedCardTrigger.setAttribute(ARIA.EXPANDED, ARIA.FALSE);
-      lastOpenedCardTrigger.focus({ preventScroll: true });
-      lastOpenedCardTrigger = null;
-    }
-  }
-
-  function getFocusableElements(container) {
-    if (!container) return [];
-    return Array.from(
-      container.querySelectorAll(
-        'a[href]:not([disabled]), button:not([disabled]), [tabindex]:not([tabindex="-1"])'
-      )
-    ).filter(el => el.offsetWidth > 0 && el.offsetHeight > 0);
-  }
-
-  function trapFocusInModal(event) {
-    if (event.key !== KEYS.TAB) return;
-    const focusableElements = getFocusableElements(gameDetailModal);
-    if (focusableElements.length === 0) return;
-
-    const firstElement = focusableElements[0];
-    const lastElement = focusableElements[focusableElements.length - 1];
-
-    if (event.shiftKey) {
-      if (document.activeElement === firstElement) {
-        lastElement.focus();
-        event.preventDefault();
-      }
     } else {
-      if (document.activeElement === lastElement) {
-        firstElement.focus();
-        event.preventDefault();
-      }
+      el.style.display = 'none';
     }
+  });
+}
+
+async function fetchAppData() {
+  if (state.dataPromise) return state.dataPromise;
+
+  state.dataPromise = fetch(`${C.URL.VERSION}?cb=${Date.now()}`)
+    .then(r => {
+      if (!r.ok) throw new Error('Version fetch failed');
+      return r.json();
+    })
+    .then(v => fetch(`${C.URL.APP_LINKS}?v=${v.version}`))
+    .then(r => {
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      return r.json();
+    })
+    .then(data => {
+      preprocessAppData(data);
+      hydrateCards(data);
+      rebuildParsedCardsData();
+      handleSortAndFilter();
+      return data;
+    })
+    .catch(err => {
+      console.error('FATAL AppData:', err);
+      state.dataPromise = null;
+      return null;
+    });
+
+  return state.dataPromise;
+}
+
+// =========================
+// SORT / FILTER
+// =========================
+function rebuildParsedCardsData() {
+  state.parsedCardsData = dom.cards.map(card => {
+    const meta = domMeta.get(card);
+
+    return {
+      element: card,
+      title: meta?.titleText || '',
+      date: meta?.dateMs || 0,
+      compatibility: meta?.infoListText || '',
+    };
+  });
+}
+
+function handleSortAndFilter() {
+  if (!dom.cardGrid) return;
+
+  const sortType = dom.sortSelect?.value || C.SORT_TYPES.DEFAULT;
+
+  const processedData = state.parsedCardsData
+    .filter(data => {
+      if (sortType === C.SORT_TYPES.XBOX_ONE) return data.compatibility.includes('Xbox One');
+      if (sortType === C.SORT_TYPES.XBOX_SERIES) return data.compatibility.includes('Series S|X');
+      return true;
+    })
+    .sort((a, b) => {
+      if (sortType === C.SORT_TYPES.NEWEST) return b.date - a.date;
+      if (sortType === C.SORT_TYPES.OLDEST) return a.date - b.date;
+      if (sortType === C.SORT_TYPES.REVERSE_ALPHABETICAL) return b.title.localeCompare(a.title);
+      return a.title.localeCompare(b.title);
+    });
+
+  const fragment = document.createDocumentFragment();
+  processedData.forEach(item => fragment.appendChild(item.element));
+
+  dom.cardGrid.replaceChildren(fragment);
+
+  if (processedData.length === 0) {
+    const emptyMsg = document.createElement('div');
+    emptyMsg.className = 'card-grid-empty-message';
+    emptyMsg.textContent = 'No cards available.';
+    dom.cardGrid.appendChild(emptyMsg);
+  }
+}
+
+// =========================
+// MODAL
+// =========================
+function updateModalHeaderThumb(cardElement) {
+  const existingThumb = dom.gameDetailModalHeader?.querySelector(`.${C.CLASSES.MODAL_HEADER_THUMB}`);
+  if (existingThumb) existingThumb.remove();
+
+  const meta = domMeta.get(cardElement);
+  const title = meta?.titleEl?.textContent || '';
+  const imageSource = meta?.imgEl;
+
+  if (dom.gameDetailModalTitle) dom.gameDetailModalTitle.textContent = title;
+
+  if (imageSource && dom.gameDetailModalHeader) {
+    const thumb = document.createElement('img');
+    thumb.src = imageSource.src;
+    thumb.alt = imageSource.alt || (title ? `${title} Thumbnail` : '');
+    thumb.className = C.CLASSES.MODAL_HEADER_THUMB;
+    dom.gameDetailModalHeader.insertBefore(thumb, dom.gameDetailModalTitle);
+  }
+}
+
+function openGameDetailModal(cardLink) {
+  if (!dom.gameDetailModal || !cardLink) return;
+
+  const cardElement = cardLink.closest(C.SEL.CARD);
+  const modalTriggerId = cardLink.dataset[C.DATASET.MODAL_TRIGGER];
+  if (!cardElement || !modalTriggerId) return;
+
+  const contentSource = modalContentMap.get(modalTriggerId);
+
+  if (!contentSource) {
+    dom.gameDetailModalBody.textContent = 'Details not available for this card.';
+  } else {
+    const contentClone = contentSource.cloneNode(true);
+    contentClone.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));
+    dom.gameDetailModalBody.replaceChildren(...contentClone.childNodes);
   }
 
-  // --- EVENT HANDLERS ---
+  state.lastOpenedCardTrigger = cardLink;
+  cardLink.setAttribute(C.ARIA.EXPANDED, C.ARIA.TRUE);
 
-  function handleDocumentClick(event) {
-    const { target } = event;
+  window.dispatchEvent(new CustomEvent('requestScrollLock', { detail: { lock: true } }));
 
-    const cardLink = target.closest(SELECTORS.CARD_LINK);
-    if (cardLink && cardLink.dataset[DATA_ATTRS.MODAL_TRIGGER]) {
-      event.preventDefault();
-      openGameDetailModal(cardLink);
+  backgroundElementsToInert.forEach(el => {
+    el.inert = true;
+    el.setAttribute('aria-hidden', 'true');
+  });
+
+  updateModalHeaderThumb(cardElement);
+
+  dom.gameDetailModalOverlay?.classList.add(C.CLASSES.ACTIVE);
+  dom.gameDetailModal.classList.add(C.CLASSES.ACTIVE);
+
+  state.modalFocusables = getFocusableElements(dom.gameDetailModal);
+
+  if (state.modalFocusables.length > 0) {
+    state.modalFocusables[0].focus({ preventScroll: true });
+  } else {
+    dom.gameDetailModalCloseBtn?.focus({ preventScroll: true });
+  }
+}
+
+function closeGameDetailModal() {
+  if (!dom.gameDetailModal) return;
+
+  dom.gameDetailModalOverlay?.classList.remove(C.CLASSES.ACTIVE);
+  dom.gameDetailModal.classList.remove(C.CLASSES.ACTIVE);
+
+  window.dispatchEvent(new CustomEvent('requestScrollLock', { detail: { lock: false } }));
+
+  backgroundElementsToInert.forEach(el => {
+    el.inert = false;
+    el.removeAttribute('aria-hidden');
+  });
+
+  state.modalFocusables = [];
+
+  if (state.lastOpenedCardTrigger) {
+    state.lastOpenedCardTrigger.setAttribute(C.ARIA.EXPANDED, C.ARIA.FALSE);
+    state.lastOpenedCardTrigger.focus({ preventScroll: true });
+    state.lastOpenedCardTrigger = null;
+  }
+}
+
+function trapFocusInModal(event) {
+  if (event.key !== 'Tab' || state.modalFocusables.length === 0) return;
+
+  const first = state.modalFocusables[0];
+  const last = state.modalFocusables[state.modalFocusables.length - 1];
+
+  if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last.focus({ preventScroll: true });
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first.focus({ preventScroll: true });
+  }
+}
+
+// =========================
+// DOWNLOADS
+// =========================
+function initAriaLabels() {
+  dom.buttons.forEach(btn => {
+    if (btn.hasAttribute(C.ATTR.ARIA)) return;
+
+    const meta = domMeta.get(btn);
+    if (!meta?.card) return;
+
+    const text = meta.isDropdown
+      ? btn.textContent
+      : domMeta.get(meta.card)?.titleEl?.textContent;
+
+    if (text) {
+      btn.setAttribute(C.ATTR.ARIA, `${C.TXT.DL_PREFIX} ${text.trim()}`);
+    }
+  });
+}
+
+async function handleDownloadClick(btn) {
+  if (!domMeta.has(btn)) {
+    domMeta.set(btn, {
+      card: btn.closest(C.SEL.CARD),
+      isDropdown: !!btn.closest(C.SEL.DROPDOWN),
+      loading: false,
+    });
+  }
+
+  const meta = domMeta.get(btn);
+  if (meta.loading) return;
+
+  const appId = btn.getAttribute(C.ATTR.APP);
+  const assetId = btn.getAttribute(C.ATTR.ASSET);
+  if (!appId || !assetId) {
+    console.error('Missing attributes', btn);
+    return;
+  }
+
+  meta.loading = true;
+  btn.dataset.loading = '1';
+
+  const data = await fetchAppData();
+
+  meta.loading = false;
+  btn.removeAttribute('data-loading');
+
+  if (!data) {
+    alert('Load failed.');
+    return;
+  }
+
+  const url = data[appId]?._assetMap?.[assetId]?.url;
+  if (!url) {
+    alert('Link not found.');
+    return;
+  }
+
+  if (C.FILE_EXT.test(url)) {
+    window.location.assign(url);
+  } else {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  }
+}
+
+// =========================
+// EVENTS
+// =========================
+function handleDocumentClick(event) {
+  const { target } = event;
+
+  const downloadBtn = target.closest(C.SEL.BTN);
+  if (downloadBtn) {
+    event.preventDefault();
+    handleDownloadClick(downloadBtn);
+    return;
+  }
+
+  const cardLink = target.closest(C.SEL.CARD_LINK);
+  if (cardLink && cardLink.dataset[C.DATASET.MODAL_TRIGGER]) {
+    event.preventDefault();
+    openGameDetailModal(cardLink);
+    return;
+  }
+
+  const popoverTrigger = target.closest(C.SEL.POPOVER_TRIGGER);
+  if (popoverTrigger) {
+    event.preventDefault();
+    const menu = popoverTrigger.nextElementSibling;
+
+    if (menu === state.activePopover) {
+      menu.classList.remove(C.CLASSES.ACTIVE);
+      state.activePopover = null;
+      popoverTrigger.focus({ preventScroll: true });
       return;
     }
 
-    const popoverTrigger = target.closest(SELECTORS.POPOVER_TRIGGER);
-    const activePopover = document.querySelector(`${SELECTORS.POPOVER_MENU}.${CLASSES.ACTIVE}`);
-
-    if (popoverTrigger) {
-      event.preventDefault();
-      const menu = popoverTrigger.nextElementSibling;
-      if (activePopover) activePopover.classList.remove(CLASSES.ACTIVE);
-      if (menu && activePopover !== menu) {
-        menu.classList.add(CLASSES.ACTIVE);
-        menu.querySelector('a')?.focus();
-      }
-      return;
+    if (state.activePopover) {
+      state.activePopover.classList.remove(C.CLASSES.ACTIVE);
     }
 
-    if (activePopover && !target.closest(SELECTORS.POPOVER_MENU)) {
-      activePopover.classList.remove(CLASSES.ACTIVE);
+    if (menu) {
+      menu.classList.add(C.CLASSES.ACTIVE);
+      state.activePopover = menu;
+      menu.querySelector('a, button')?.focus({ preventScroll: true });
     }
-
-    const openDetailsDropdown = document.querySelector(`${SELECTORS.ACTION_DROPDOWN}[${CLASSES.OPEN}]`);
-    if (openDetailsDropdown && !openDetailsDropdown.contains(target)) {
-      openDetailsDropdown.open = false;
-    }
+    return;
   }
 
-  function handleDocumentKeydown(event) {
-    if (gameDetailModal && gameDetailModal.classList.contains(CLASSES.ACTIVE)) {
-      trapFocusInModal(event);
-      if (event.key === KEYS.ESCAPE) {
-        closeGameDetailModal();
-      }
-      return;
-    }
-
-    if (
-      document.activeElement &&
-      document.activeElement.matches(SELECTORS.CARD_LINK) &&
-      (event.key === KEYS.ENTER || event.key === KEYS.SPACE)
-    ) {
-      event.preventDefault();
-      openGameDetailModal(document.activeElement);
-    }
+  if (state.activePopover && !target.closest(C.SEL.POPOVER_MENU)) {
+    const trigger = state.activePopover.previousElementSibling;
+    state.activePopover.classList.remove(C.CLASSES.ACTIVE);
+    state.activePopover = null;
+    trigger?.focus({ preventScroll: true });
   }
 
-  // --- INITIALIZATION ---
+  const openDetailsDropdown = document.querySelector(`${C.SEL.ACTION_DROPDOWN}[open]`);
+  if (openDetailsDropdown && !openDetailsDropdown.contains(target)) {
+    openDetailsDropdown.removeAttribute('open');
+  }
+}
 
-  function bindEvents() {
-    sortSelect?.addEventListener('change', handleSortAndFilter);
-    gameDetailModalOverlay?.addEventListener('click', closeGameDetailModal);
-    gameDetailModalCloseBtn?.addEventListener('click', closeGameDetailModal);
-
-    document.addEventListener('click', handleDocumentClick);
-    document.addEventListener('keydown', handleDocumentKeydown);
+function handleDocumentKeydown(event) {
+  if (dom.gameDetailModal?.classList.contains(C.CLASSES.ACTIVE)) {
+    trapFocusInModal(event);
+    if (event.key === 'Escape') closeGameDetailModal();
+    return;
   }
 
-  function init() {
-    if (!cardGrid) {
-      console.warn('Card grid not found. Card logic will not be initialized.');
-      return;
-    }
-    handleSortAndFilter();
-    bindEvents();
+  if (
+    document.activeElement &&
+    document.activeElement.matches(C.SEL.CARD_LINK) &&
+    (event.key === 'Enter' || event.key === ' ')
+  ) {
+    event.preventDefault();
+    openGameDetailModal(document.activeElement);
   }
+}
 
-  init();
-});
+// =========================
+// INIT
+// =========================
+function init() {
+  if (!dom.cardGrid) return;
+
+  bindStaticDom();
+
+  dom.gameDetailModal?.setAttribute('role', 'dialog');
+  dom.gameDetailModal?.setAttribute('aria-modal', 'true');
+
+  dom.sortSelect?.addEventListener('change', handleSortAndFilter);
+  dom.gameDetailModalOverlay?.addEventListener('click', closeGameDetailModal);
+  dom.gameDetailModalCloseBtn?.addEventListener('click', closeGameDetailModal);
+
+  document.addEventListener('click', handleDocumentClick);
+  document.addEventListener('keydown', handleDocumentKeydown);
+
+  scheduleTask(initAriaLabels);
+
+  // Initial alphabetical render using static data, then corrected once hydrated.
+  rebuildParsedCardsData();
+  handleSortAndFilter();
+
+  fetchAppData();
+}
+
+init();

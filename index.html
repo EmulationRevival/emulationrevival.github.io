@@ -297,10 +297,11 @@
             </div>
         </div>
 
-        <script src="/js/main.js" defer></script>
-        <script src="/js/sitewide-search.js" defer></script>
-        <script src="/js/recent-updates.js" defer></script>
-        <script>
+<script type="module" src="/js/main.js"></script>
+<script type="module" src="/js/sitewide-search.js"></script>
+<script type="module" src="/js/recent-updates.js"></script>
+
+<script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register("{{ '/sw.js' | relative_url }}")
