@@ -1,229 +1,264 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. PERFORMANCE: Defer non-critical work to prevent network stalls
-    const scheduleTask = window.requestIdleCallback || function (cb) { 
-        return setTimeout(() => cb({ timeRemaining: () => 0 }), 200); 
+    // =========================
+    // TASK SCHEDULER
+    // =========================
+    const scheduleTask = window.requestIdleCallback || (cb => 
+        setTimeout(() => cb({ timeRemaining: () => 0 }), 200)
+    );
+
+    // =========================
+    // CONFIG
+    // =========================
+    const C = {
+        URL: {
+            VERSION: '/json/version.json',
+            APP_LINKS: '/json/app-links.json',
+        },
+        ATTR: {
+            APP: 'data-app-id',
+            ASSET: 'data-asset-id',
+            ARIA: 'aria-label',
+        },
+        SEL: {
+            BTN: '.download-link',
+            CARD: '.card',
+            DROPDOWN: '.action-dropdown',
+            TITLE: '.card-title',
+            VERSION: '.app-version',
+            DATE: '.app-release-date',
+            VAL: '.val',
+            IMG_CONTAINER: '.card-image-container',
+        },
+        TXT: {
+            UNKNOWN: 'Unknown',
+            DL_PREFIX: 'Download',
+        },
+        FILE_EXT: /\.(zip|msixbundle|msix|appx|exe|apk|7z|rar|tar|gz|dmg|pdf|mp3|mp4|avi|mov|jpg|jpeg|png|gif|webp|svg|docx?|xlsx?|pptx?|iso|bin|img|msi|deb|rpm|sh|bat|ps1|ini|cfg|ctl|json|txt|xml|csv)$/i,
+        BADGE_SRC: '/images/new-update.svg'
     };
 
-    const CONSTANTS = {
-        VERSION_URL: '/json/version.json',
-        APP_LINKS_URL: '/json/app-links.json',
-        DATA_ATTR: {
-            APP_ID_PROP: 'appId',
-            ASSET_ID_PROP: 'assetId',
-        },
-        SELECTORS: {
-            DOWNLOAD_LINK: '.download-link',
-            CARD_CONTAINER: '.card',
-            DROPDOWN_WRAPPER: '.action-dropdown',
-            CARD_TITLE: '.card-title',
-            APP_VERSION: '.app-version',
-            APP_RELEASE_DATE: '.app-release-date',
-            VAL_SPAN: '.val',
-        },
-        ARIA: {
-            LABEL_ATTR: 'aria-label',
-            DOWNLOAD_PREFIX: 'Download',
-        },
-        FILE_EXT_PATTERN: /\.(zip|msixbundle|msix|appx|exe|apk|7z|rar|tar|gz|dmg|pdf|mp3|mp4|avi|mov|jpg|jpeg|png|gif|webp|svg|docx?|xlsx?|pptx?|iso|bin|img|msi|deb|rpm|sh|bat|ps1|ini|cfg|ctl|json|txt|xml|csv)$/i
+    // =========================
+    // STATE & CACHE
+    // =========================
+    const state = {
+        dataPromise: null,
+        thirtyDaysMs: 30 * 24 * 60 * 60 * 1000
     };
 
-    // --- State ---
-    let appDataPromise = null;
+    const dateFormatter = new Intl.DateTimeFormat("en-US", {
+        timeZone: "UTC", year: "numeric", month: "long", day: "numeric"
+    });
 
-    // --- Lazy Fetch Function ---
-    function fetchAppData() {
-        // If we already started fetching, just return the existing promise
-        if (appDataPromise) return appDataPromise;
+    const dom = {
+        cards: document.querySelectorAll(C.SEL.CARD),
+        versions: document.querySelectorAll(C.SEL.VERSION),
+        dates: document.querySelectorAll(C.SEL.DATE),
+        buttons: document.querySelectorAll(C.SEL.BTN)
+    };
 
-        appDataPromise = fetch(`${CONSTANTS.VERSION_URL}?cb=${Date.now()}`)
-            .then(response => {
-                if (!response.ok) throw new Error('Could not fetch version file.');
-                return response.json();
-            })
-            .then(versionData => {
-                const version = versionData.version;
-                const finalUrl = `${CONSTANTS.APP_LINKS_URL}?v=${version}`;
-                return fetch(finalUrl);
-            })
-            .then(response => {
-                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-                return response.json();
-            })
-            .then(appData => {
-                // Instantly populate all version and date fields on the page once data is loaded
-                populateVersionAndDateData(appData);
-                return appData;
-            })
-            .catch(error => {
-                console.error(`FATAL: Could not fetch app links data. Error: ${error}`);
-                appDataPromise = null; // Reset so it can try again if it fails
-                return null;
-            });
-
-        return appDataPromise;
-    }
-
-    // --- Data Injection (OPTIMIZED & REPAIRED) ---
-    function populateVersionAndDateData(data) {
-        if (!data) return;
-        
-        // 1. Process all Version elements currently on the page
-        const versionElements = document.querySelectorAll(CONSTANTS.SELECTORS.APP_VERSION);
-        versionElements.forEach(versionLi => {
-            // FIX: Using dataset matches data-app-id perfectly
-            const appId = versionLi.dataset[CONSTANTS.DATA_ATTR.APP_ID_PROP];
-            const appInfo = data[appId];
-
-            if (appInfo && appInfo.version && appInfo.version !== "Unknown") {
-                const valSpan = versionLi.querySelector(CONSTANTS.SELECTORS.VAL_SPAN);
-                if (valSpan) valSpan.textContent = appInfo.version;
-            } else {
-                versionLi.style.display = 'none'; // Hide the element if version is Unknown
-            }
-        });
-
-        // 2. Process all Release Date elements currently on the page
-        const dateElements = document.querySelectorAll(CONSTANTS.SELECTORS.APP_RELEASE_DATE);
-        const currentDate = new Date(); // Calculate the current date only once for performance
-
-        dateElements.forEach(dateLi => {
-            // FIX: Using dataset matches data-app-id perfectly
-            const appId = dateLi.dataset[CONSTANTS.DATA_ATTR.APP_ID_PROP];
-            const appInfo = data[appId];
-
-            if (appInfo && appInfo.releaseDate && appInfo.releaseDate !== "Unknown") {
-                const valSpan = dateLi.querySelector(CONSTANTS.SELECTORS.VAL_SPAN);
-                if (valSpan) {
-                    const iso = appInfo.releaseDate;
-                    const display = new Date(iso).toLocaleDateString("en-US", {
-                        timeZone: "UTC",
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric"
-                    });
-                    valSpan.innerHTML = `<time class="release-date" datetime="${iso}">${display}</time>`;
-
-                    // --- NEW OVERLAY LOGIC ---
-                    const releaseDateObj = new Date(iso);
-                    const timeDiff = currentDate.getTime() - releaseDateObj.getTime();
-                    const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
-
-                    // Check if the update is less than 30 days old (and not in the future)
-                    if (daysDiff >= 0 && daysDiff < 30) {
-                        const parentCard = dateLi.closest(CONSTANTS.SELECTORS.CARD_CONTAINER);
-                        if (parentCard) {
-                            const imageContainer = parentCard.querySelector('.card-image-container');
-                            // Ensure we don't accidentally add the badge twice
-                            if (imageContainer && !imageContainer.querySelector('.new-update-badge')) {
-                                // Ensure the container can anchor the absolute overlay
-                                imageContainer.style.position = 'relative';
-                                
-                                const badge = document.createElement('img');
-                                badge.src = '/images/new-update.svg';
-                                badge.alt = 'New Update';
-                                badge.className = 'new-update-badge';
-                                
-                                // Styling to perfectly overlay the container
-                                badge.style.position = 'absolute';
-                                badge.style.top = '0';
-                                badge.style.left = '0';
-                                badge.style.width = '100%';
-                                badge.style.height = '100%';
-                                badge.style.pointerEvents = 'none'; // Prevents blocking clicks on the card
-                                badge.style.zIndex = '5'; // Ensures it sits above the main image
-                                
-                                imageContainer.appendChild(badge);
-                            }
-                        }
-                    }
-                }
-            } else {
-                dateLi.style.display = 'none'; // Hide the element if date is Unknown
-            }
-        });
-    }
-
-    // --- Main Click Handler (Event Delegation) ---
-    document.body.addEventListener('click', async (event) => {
-        const downloadButton = event.target.closest(CONSTANTS.SELECTORS.DOWNLOAD_LINK);
-        if (!downloadButton) return;
-
-        event.preventDefault();
-
-        const appId = downloadButton.dataset[CONSTANTS.DATA_ATTR.APP_ID_PROP];
-        const assetId = downloadButton.dataset[CONSTANTS.DATA_ATTR.ASSET_ID_PROP];
-
-        if (!appId || !assetId) {
-            console.error('Button is missing data-app-id or data-asset-id attributes.', downloadButton);
-            return;
+    const cardMap = {};
+    
+    // Pre-bind all static DOM relationships once
+    dom.cards.forEach(card => {
+        const imgContainer = card.querySelector(C.SEL.IMG_CONTAINER);
+        if (imgContainer) {
+            imgContainer.style.position = 'relative';
+            card._imgContainer = imgContainer;
         }
 
-        const originalButtonText = downloadButton.innerHTML;
-        downloadButton.innerHTML = 'Loading...';
-        downloadButton.style.pointerEvents = 'none';
-
-        // Wait for the data. If it was already fetched in the background, this resolves instantly!
-        const appData = await fetchAppData();
-
-        downloadButton.innerHTML = originalButtonText;
-        downloadButton.style.pointerEvents = '';
-
-        if (!appData) {
-            alert('Download data could not be loaded. Please check your connection and try again.');
-            return;
-        }
-
-        const url = findAssetUrl(appData, appId, assetId);
-
-        if (url) {
-            updateAriaLabel(downloadButton);
-            setDownloadLinkTargetAndGo(downloadButton, url);
-        } else {
-            alert(`Download link for ${appId} / ${assetId} could not be found.`);
+        const versionEl = card.querySelector(C.SEL.VERSION);
+        if (versionEl) {
+            const appId = versionEl.getAttribute(C.ATTR.APP);
+            if (appId) cardMap[appId] = card;
         }
     });
 
-    // --- Immediate Fetch ---
-    // Executing this directly inside DOMContentLoaded removes the artificial idle delay
-    // and populates the cards instantly.
-    fetchAppData(); 
+    dom.versions.forEach(el => el._val = el.querySelector(C.SEL.VAL));
+    dom.dates.forEach(el => el._val = el.querySelector(C.SEL.VAL));
+    
+    dom.buttons.forEach(btn => {
+        btn._card = btn.closest(C.SEL.CARD);
+        btn._isDropdown = !!btn.closest(C.SEL.DROPDOWN);
+    });
 
-    // --- Helper Functions ---
-    function findAssetUrl(data, appId, assetId) {
-        const app = data[appId];
-        if (!app) return null;
-        const asset = app.assets.find(a => a.id === assetId);
-        return (asset && asset.url) ? asset.url : null;
-    }
-
-    function setDownloadLinkTargetAndGo(link, url) {
-        if (CONSTANTS.FILE_EXT_PATTERN.test(url)) {
-            window.location.href = url;
-        } else {
-            window.open(url, '_blank', 'noopener,noreferrer');
-        }
-    }
-
-    function updateAriaLabel(linkElement) {
-        const parentCard = linkElement.closest(CONSTANTS.SELECTORS.CARD_CONTAINER);
-        if (!parentCard) return;
-        
-        let ariaLabelText;
-        const isDropdownLink = linkElement.closest(CONSTANTS.SELECTORS.DROPDOWN_WRAPPER);
-        
-        if (isDropdownLink) {
-            const linkText = linkElement.textContent.trim();
-            ariaLabelText = `${CONSTANTS.ARIA.DOWNLOAD_PREFIX} ${linkText}`;
-        } else {
-            const titleElement = parentCard.querySelector(CONSTANTS.SELECTORS.CARD_TITLE);
-            if (titleElement) {
-                const appName = titleElement.textContent.trim();
-                ariaLabelText = `${CONSTANTS.ARIA.DOWNLOAD_PREFIX} ${appName}`;
+    // =========================
+    // DATA FETCHING & PREPROCESSING
+    // =========================
+    function preprocessData(data) {
+        for (const app of Object.values(data)) {
+            if (app.assets) {
+                const map = {};
+                for (const a of app.assets) {
+                    map[a.id] = a;
+                }
+                app._assetMap = map;
+            }
+            if (app.releaseDate && app.releaseDate !== C.TXT.UNKNOWN) {
+                const parsedMs = Date.parse(app.releaseDate);
+                if (Number.isFinite(parsedMs)) {
+                    app._releaseMs = parsedMs;
+                }
             }
         }
-        
-        if (ariaLabelText) {
-            linkElement.setAttribute(CONSTANTS.ARIA.LABEL_ATTR, ariaLabelText);
-        }
     }
+
+    function fetchAppData() {
+        if (state.dataPromise) return state.dataPromise;
+
+        state.dataPromise = fetch(`${C.URL.VERSION}?cb=${Date.now()}`)
+            .then(r => {
+                if (!r.ok) throw new Error('Version fetch failed');
+                return r.json();
+            })
+            .then(v => fetch(`${C.URL.APP_LINKS}?v=${v.version}`))
+            .then(r => {
+                if (!r.ok) throw new Error(`HTTP ${r.status}`);
+                return r.json();
+            })
+            .then(data => {
+                preprocessData(data);
+                populateData(data);
+                return data;
+            })
+            .catch(err => {
+                console.error('FATAL AppData:', err);
+                state.dataPromise = null; 
+                return null;
+            });
+
+        return state.dataPromise;
+    }
+
+    // =========================
+    // DOM POPULATION
+    // =========================
+    function populateData(data) {
+        if (!data) return;
+
+        const now = Date.now();
+
+        // 1. Process Versions
+        dom.versions.forEach(el => {
+            const id = el.getAttribute(C.ATTR.APP);
+            const info = data[id];
+            if (!info) return;
+
+            if (info.version && info.version !== C.TXT.UNKNOWN) {
+                if (el._val) el._val.textContent = info.version;
+            } else {
+                el.style.display = 'none';
+            }
+        });
+
+        // 2. Process Dates & Badges
+        dom.dates.forEach(el => {
+            const id = el.getAttribute(C.ATTR.APP);
+            const info = data[id];
+            if (!info) return;
+
+            const ms = info._releaseMs;
+
+            if (Number.isFinite(ms)) {
+                if (el._val) {
+                    const display = dateFormatter.format(ms);
+                    
+                    const time = document.createElement('time');
+                    time.className = 'release-date';
+                    time.dateTime = info.releaseDate;
+                    time.textContent = display;
+                    
+                    el._val.replaceChildren(time);
+                }
+
+                // Avoid badge drift by using current 'now'
+                const timeDiff = now - ms;
+                if (timeDiff >= 0 && timeDiff < state.thirtyDaysMs) {
+                    const card = cardMap[id];
+                    const imgContainer = card?._imgContainer;
+                    
+                    if (imgContainer && !imgContainer._hasBadge) {
+                        imgContainer._hasBadge = true;
+                        
+                        const badge = document.createElement('img');
+                        badge.src = C.BADGE_SRC;
+                        badge.alt = 'New Update';
+                        badge.className = 'new-update-badge';
+                        badge.style.cssText = 'position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:5;';
+                        
+                        imgContainer.appendChild(badge);
+                    }
+                }
+            } else {
+                el.style.display = 'none';
+            }
+        });
+    }
+
+    // =========================
+    // ARIA INITIALIZATION
+    // =========================
+    function initAriaLabels() {
+        dom.buttons.forEach(btn => {
+            if (btn.hasAttribute(C.ATTR.ARIA)) return; 
+
+            const card = btn._card;
+            if (!card) return;
+
+            const text = btn._isDropdown ? btn.textContent : card.querySelector(C.SEL.TITLE)?.textContent;
+            
+            if (text) {
+                btn.setAttribute(C.ATTR.ARIA, `${C.TXT.DL_PREFIX} ${text.trim()}`);
+            }
+        });
+    }
+
+    // =========================
+    // EVENT DELEGATION
+    // =========================
+    document.body.addEventListener('click', async e => {
+        const btn = e.target.closest(C.SEL.BTN);
+        if (!btn) return;
+
+        e.preventDefault();
+
+        // JS Execution Lock
+        if (btn._loading) return;
+        
+        const appId = btn.getAttribute(C.ATTR.APP);
+        const assetId = btn.getAttribute(C.ATTR.ASSET);
+
+        if (!appId || !assetId) {
+            console.error('Missing attributes', btn);
+            return;
+        }
+
+        btn._loading = true;
+        btn.dataset.loading = '1';
+
+        const data = await fetchAppData();
+
+        btn._loading = false;
+        btn.removeAttribute('data-loading');
+
+        if (!data) {
+            alert('Load failed.');
+            return;
+        }
+
+        const url = data[appId]?._assetMap?.[assetId]?.url;
+
+        if (url) {
+            C.FILE_EXT.test(url) 
+                ? window.location.assign(url) 
+                : window.open(url, '_blank', 'noopener,noreferrer');
+        } else {
+            alert(`Link not found.`);
+        }
+    });
+
+    // =========================
+    // INITIALIZATION
+    // =========================
+    fetchAppData(); 
+    scheduleTask(initAriaLabels);
 });
