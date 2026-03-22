@@ -57,6 +57,7 @@ const EVENTS = {
   FOCUS: 'focus',
   REQUEST_MOBILE_SEARCH_PANEL: 'requestMobileSearchPanel',
   NAV_MENU_STATE_CHANGE: 'navMenuStateChange',
+  REQUEST_CLOSE_MOBILE_MENU: 'requestCloseMobileMenu',
 };
 
 const TEMPLATES = {
@@ -163,6 +164,20 @@ if (!searchInput || !autocompleteResults) {
         focusTarget: searchInput,
       },
     }));
+  }
+
+  function requestMobileMenuClose() {
+    window.dispatchEvent(new CustomEvent(EVENTS.REQUEST_CLOSE_MOBILE_MENU));
+  }
+
+  function navigateToSuggestion(url) {
+    if (!url) return;
+
+    if (isMobileViewport()) {
+      requestMobileMenuClose();
+    }
+
+    window.location.assign(url);
   }
 
   function toggleSearchPanel() {
@@ -325,7 +340,7 @@ if (!searchInput || !autocompleteResults) {
 
         if (activeSuggestion?.dataset.url) {
           event.preventDefault();
-          window.location.assign(activeSuggestion.dataset.url);
+          navigateToSuggestion(activeSuggestion.dataset.url);
         }
         break;
       }
@@ -373,7 +388,7 @@ if (!searchInput || !autocompleteResults) {
   autocompleteResults.addEventListener(EVENTS.CLICK, event => {
     const suggestion = event.target.closest(`.${CLASSES.SUGGESTION}`);
     if (suggestion?.dataset.url) {
-      window.location.assign(suggestion.dataset.url);
+      navigateToSuggestion(suggestion.dataset.url);
     }
   });
 

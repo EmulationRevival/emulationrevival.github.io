@@ -23,6 +23,7 @@ const C = {
   EVENTS: {
     REQUEST_MOBILE_SEARCH_PANEL: 'requestMobileSearchPanel',
     NAV_MENU_STATE_CHANGE: 'navMenuStateChange',
+    REQUEST_CLOSE_MOBILE_MENU: 'requestCloseMobileMenu',
   },
 };
 
@@ -172,6 +173,11 @@ window.addEventListener(C.EVENTS.REQUEST_MOBILE_SEARCH_PANEL, event => {
     focusTarget: event.detail?.focusTarget || null,
     activateTrap: false,
   });
+});
+
+window.addEventListener(C.EVENTS.REQUEST_CLOSE_MOBILE_MENU, () => {
+  if (!state.isMobile) return;
+  closeMenu();
 });
 
 el.submenuLinks.forEach(link => {
