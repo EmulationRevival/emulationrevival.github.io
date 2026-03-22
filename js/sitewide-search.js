@@ -107,13 +107,25 @@ if (!searchInput || !autocompleteResults) {
       resultsContainer: autocompleteResults,
       activeSuggestionIndexRef,
     });
+
     setAutocompleteVisibility({
       input: searchInput,
       resultsContainer: autocompleteResults,
       visible: false,
       activeSuggestionIndexRef,
     });
+
     liveRegion.textContent = '';
+  }
+
+  function resetSitewideSearch({ blur = false } = {}) {
+    searchInput.value = '';
+    clearSitewideResults();
+    clearControl.sync();
+
+    if (blur) {
+      searchInput.blur();
+    }
   }
 
   const clearControl = setupClearableSearchInput({
@@ -150,7 +162,7 @@ if (!searchInput || !autocompleteResults) {
     if (!searchPanel || !searchToggle || isMobileViewport()) return;
 
     searchPanel.classList.remove(CLASSES.SEARCH_PANEL_ACTIVE);
-    clearSitewideResults();
+    resetSitewideSearch();
     syncSearchAccessibility();
 
     if (restoreFocus) {
@@ -173,8 +185,13 @@ if (!searchInput || !autocompleteResults) {
   function navigateToSuggestion(url) {
     if (!url) return;
 
+    resetSitewideSearch();
+
     if (isMobileViewport()) {
       requestMobileMenuClose();
+    } else if (isDesktopSearchPanelOpen()) {
+      searchPanel.classList.remove(CLASSES.SEARCH_PANEL_ACTIVE);
+      syncSearchAccessibility();
     }
 
     window.location.assign(url);
@@ -202,12 +219,14 @@ if (!searchInput || !autocompleteResults) {
       noResults.textContent = TEMPLATES.NO_RESULTS(query);
 
       autocompleteResults.replaceChildren(noResults);
+
       setAutocompleteVisibility({
         input: searchInput,
         resultsContainer: autocompleteResults,
         visible: true,
         activeSuggestionIndexRef,
       });
+
       liveRegion.textContent = TEMPLATES.NO_RESULTS(query);
       searchInput.removeAttribute('aria-activedescendant');
       activeSuggestionIndexRef.value = -1;
@@ -374,10 +393,7 @@ if (!searchInput || !autocompleteResults) {
       case KEYS.ESCAPE:
         event.preventDefault();
         if (hasSuggestions || searchInput.value.trim()) {
-          searchInput.value = '';
-          clearSitewideResults();
-          clearControl.sync();
-          searchInput.blur();
+          resetSitewideSearch({ blur: true });
         } else if (!isMobileViewport() && isDesktopSearchPanelOpen()) {
           closeSearchPanel({ restoreFocus: true });
         }
@@ -402,12 +418,7 @@ if (!searchInput || !autocompleteResults) {
       !target.closest(`#${IDS.SEARCH_PANEL_ID}`);
 
     if (isOutsideSearch) {
-      setAutocompleteVisibility({
-        input: searchInput,
-        resultsContainer: autocompleteResults,
-        visible: false,
-        activeSuggestionIndexRef,
-      });
+      clearSitewideResults();
 
       if (!isMobileViewport() && isDesktopSearchPanelOpen()) {
         closeSearchPanel();
@@ -434,8 +445,7 @@ if (!searchInput || !autocompleteResults) {
   });
 
   window.addEventListener(EVENTS.NAV_MENU_STATE_CHANGE, () => {
-    clearSitewideResults();
-    clearControl.sync();
+    resetSitewideSearch();
     syncSearchAccessibility();
   });
 
