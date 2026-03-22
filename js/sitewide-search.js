@@ -4,15 +4,13 @@ import {
   stripAccents,
   getOrCreateLiveRegion,
   setupComboboxAria,
-  setAutocompleteVisibility,
   clearSearchUiState,
   resetSearchState,
   moveActiveSuggestion,
   setupClearableSearchInput,
-  createSearchTargetHighlighter,
   renderNoSearchResults,
   renderSearchSuggestionsList,
-  navigateToSearchTarget,
+  navigateToUrl,
 } from './search-utils.js';
 
 const IDS = {
@@ -26,8 +24,6 @@ const IDS = {
 
 const SELECTORS = {
   SEARCH_CONTAINER: '.page-search-container',
-  MAIN_HEADER: '.main-header',
-  CARD_LINK: '.card-link',
 };
 
 const CLASSES = {
@@ -38,7 +34,6 @@ const CLASSES = {
   ACTIVE: 'is-active',
   SEARCH_PANEL_ACTIVE: 'active',
   NAV_ACTIVE: 'active',
-  HIGHLIGHT: 'highlighted-by-search',
 };
 
 const KEYS = {
@@ -55,9 +50,6 @@ const CONFIG = {
   INDEX_PATH: '/json/search-index.json',
   IMAGE_FALLBACK: '/images/fallback.png',
   MOBILE_BREAKPOINT: 991,
-  SCROLL_BEHAVIOR: 'smooth',
-  SCROLL_OFFSET_PX: 20,
-  HIGHLIGHT_DURATION_MS: 2500,
 };
 
 const EVENTS = {
@@ -92,12 +84,6 @@ if (!searchInput || !autocompleteResults) {
   const liveRegion = getOrCreateLiveRegion({
     id: IDS.LIVE_REGION_ID,
     parent: autocompleteResults.parentNode,
-  });
-
-  const targetHighlighter = createSearchTargetHighlighter({
-    highlightClass: CLASSES.HIGHLIGHT,
-    durationMs: CONFIG.HIGHLIGHT_DURATION_MS,
-    focusSelector: SELECTORS.CARD_LINK,
   });
 
   setupComboboxAria({
@@ -200,31 +186,14 @@ if (!searchInput || !autocompleteResults) {
 
     resetSitewideSearch();
 
-    navigateToSearchTarget({
-      url,
-      mainHeaderSelector: SELECTORS.MAIN_HEADER,
-      extraOffset: CONFIG.SCROLL_OFFSET_PX,
-      behavior: CONFIG.SCROLL_BEHAVIOR,
-      focusSelector: SELECTORS.CARD_LINK,
-      onSamePageTarget: targetElement => {
-        if (isMobileViewport()) {
-          requestMobileMenuClose();
-        } else if (isDesktopSearchPanelOpen()) {
-          searchPanel.classList.remove(CLASSES.SEARCH_PANEL_ACTIVE);
-          syncSearchAccessibility();
-        }
+    if (isMobileViewport()) {
+      requestMobileMenuClose();
+    } else if (isDesktopSearchPanelOpen()) {
+      searchPanel.classList.remove(CLASSES.SEARCH_PANEL_ACTIVE);
+      syncSearchAccessibility();
+    }
 
-        targetHighlighter.highlight(targetElement);
-      },
-      onBeforeCrossPageNavigation: () => {
-        if (isMobileViewport()) {
-          requestMobileMenuClose();
-        } else if (isDesktopSearchPanelOpen()) {
-          searchPanel.classList.remove(CLASSES.SEARCH_PANEL_ACTIVE);
-          syncSearchAccessibility();
-        }
-      },
-    });
+    navigateToUrl(url);
   }
 
   function toggleSearchPanel() {

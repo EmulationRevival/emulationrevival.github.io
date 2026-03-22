@@ -4,15 +4,14 @@ import {
   stripAccents,
   getOrCreateLiveRegion,
   setupComboboxAria,
-  setAutocompleteVisibility,
   clearSearchUiState,
   resetSearchState,
   moveActiveSuggestion,
   setupClearableSearchInput,
-  createSearchTargetHighlighter,
   renderNoSearchResults,
   renderSearchSuggestionsList,
-  scrollToSearchTarget,
+  buildHashUrlForElementId,
+  navigateToUrl,
 } from './search-utils.js';
 
 const IDS = {
@@ -23,13 +22,11 @@ const IDS = {
 };
 
 const SELECTORS = {
-  MAIN_HEADER: '.main-header',
   SEARCH_CONTAINER: '.page-search-container',
   CARD: '.card',
 };
 
 const CLASSES = {
-  HIGHLIGHT: 'highlighted-by-search',
   SUGGESTION: 'autocomplete-suggestion',
   SUGGESTION_LOGO: 'suggestion-logo',
   SUGGESTION_NAME: 'suggestion-name',
@@ -55,14 +52,10 @@ const KEYS = {
 
 const CONFIG = {
   INDEX_PATH: '/json/search-index.json',
-  SCROLL_BEHAVIOR: 'smooth',
-  SCROLL_OFFSET_PX: 20,
-  HIGHLIGHT_DURATION_MS: 2500,
   DEBOUNCE_MS: 150,
   MIN_QUERY_LENGTH: 1,
   MAX_SUGGESTIONS: 10,
   IMAGE_FALLBACK: '/images/fallback.png',
-  HASH_SCROLL_DELAY_MS: 150,
 };
 
 const TEMPLATES = {
@@ -90,12 +83,6 @@ if (!searchInput || !autocompleteResults) {
   const liveRegion = getOrCreateLiveRegion({
     id: IDS.LIVE_REGION_ID,
     parent: autocompleteResults.parentNode,
-  });
-
-  const targetHighlighter = createSearchTargetHighlighter({
-    highlightClass: CLASSES.HIGHLIGHT,
-    durationMs: CONFIG.HIGHLIGHT_DURATION_MS,
-    focusSelector: '.card-link',
   });
 
   setupComboboxAria({
@@ -148,18 +135,10 @@ if (!searchInput || !autocompleteResults) {
     });
   }
 
-  function applyHighlightAndScroll(elementId) {
-    const targetElement = elementMap.get(elementId) || document.getElementById(elementId);
-    if (!targetElement) return;
-
-    scrollToSearchTarget({
-      element: targetElement,
-      mainHeaderSelector: SELECTORS.MAIN_HEADER,
-      extraOffset: CONFIG.SCROLL_OFFSET_PX,
-      behavior: CONFIG.SCROLL_BEHAVIOR,
-    });
-
-    targetHighlighter.highlight(targetElement);
+  function navigateToSuggestionById(elementId) {
+    if (!elementId) return;
+    resetSearchUI();
+    navigateToUrl(buildHashUrlForElementId(elementId));
   }
 
   async function hydrateSearchIndex() {
@@ -301,8 +280,7 @@ if (!searchInput || !autocompleteResults) {
           activeSuggestionIndexRef.value >= 0 ? autocompleteResults.children[activeSuggestionIndexRef.value] : null;
 
         if (activeSuggestion?.dataset.entryId) {
-          applyHighlightAndScroll(activeSuggestion.dataset.entryId);
-          resetSearchUI();
+          navigateToSuggestionById(activeSuggestion.dataset.entryId);
         }
         break;
       }
@@ -349,8 +327,7 @@ if (!searchInput || !autocompleteResults) {
     if (!suggestion?.dataset.entryId) return;
 
     event.preventDefault();
-    applyHighlightAndScroll(suggestion.dataset.entryId);
-    resetSearchUI();
+    navigateToSuggestionById(suggestion.dataset.entryId);
   });
 
   document.addEventListener(EVENTS.CLICK, event => {
@@ -358,12 +335,13 @@ if (!searchInput || !autocompleteResults) {
     if (!target || target.nodeType !== 1) return;
 
     if (!target.closest(SELECTORS.SEARCH_CONTAINER)) {
-      setAutocompleteVisibility({
+      clearSearchUiState({
         input: searchInput,
         resultsContainer: autocompleteResults,
-        visible: false,
         activeSuggestionIndexRef,
         currentSuggestionsRef,
+        liveRegion,
+        clearControl,
       });
     }
   });
@@ -386,15 +364,6 @@ if (!searchInput || !autocompleteResults) {
     });
   }
 
-  function handleHashNavigation() {
-    if (!window.location.hash) return;
-
-    const targetId = window.location.hash.substring(1);
-    window.setTimeout(() => {
-      applyHighlightAndScroll(targetId);
-    }, CONFIG.HASH_SCROLL_DELAY_MS);
-  }
-
   buildElementIndex();
   syncVisibilityCache();
 
@@ -404,7 +373,4 @@ if (!searchInput || !autocompleteResults) {
       processInputValue(query);
     }
   });
-
-  handleHashNavigation();
-  window.addEventListener('hashchange', handleHashNavigation);
 }
