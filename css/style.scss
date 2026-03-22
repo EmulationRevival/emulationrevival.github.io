@@ -1,6 +1,5 @@
 ---
 ---
-/* --- Import All Stylesheets --- */
 @import 'base/reset';
 @import 'base/variables';
 @import 'base/typography';
@@ -14,7 +13,6 @@
 @import 'components/forms';
 @import 'utilities/helpers';
 
-/* Oxanium variable font */
 @font-face {
   font-family: 'Oxanium';
   src: url('/fonts/oxanium-wght.woff2') format('woff2-variations'),
@@ -24,120 +22,117 @@
   font-display: swap;
 }
 
-/* Roboto Mono variable font */
-@font-face {
-  font-family: 'Roboto Mono';
-  src: url('/fonts/robotomono-wght.woff2') format('woff2-variations'),
-       url('/fonts/robotomono-wght.woff2') format('woff2');
-  font-style: normal;
-  font-weight: 100 700;
-  font-display: swap;
-}
-
-/* Global Body & Element Styles */
-
 html {
-    scroll-padding-top: 72px;
+  scroll-padding-top: 72px;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-    font-family: var(--font-primary);
-    background-color: var(--color-background-dark);
-    color: var(--color-text-light);
-    line-height: 1.6;
-    margin: 0;
-    padding-top: var(--header-height);  
+  font-family: var(--font-primary);
+  background-color: var(--color-background-dark);
+  color: var(--color-text-light);
+  line-height: 1.6;
+  margin: 0;
+  padding-top: var(--header-height);
 }
 
 a {
-    color: var(--color-accent);
-    text-decoration: none;
-    transition: color 0.3s ease;
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 @media (hover: hover) and (pointer: fine) {
-    a:hover {
-        color: var(--color-accent-hover);
-    }
+  a:hover {
+    color: var(--color-accent-hover);
+  }
 }
 
 .container {
-    max-width: 1600px;
-    margin: 0 auto;
-    padding: 0 var(--spacing-md);
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
 }
 
 .container-fluid {
-    width: 100%;
-    padding-left: var(--spacing-lg);
-    padding-right: var(--spacing-lg);
-    box-sizing: border-box; 
+  width: 100%;
+  padding-left: var(--spacing-lg);
+  padding-right: var(--spacing-lg);
+  box-sizing: border-box;
 }
 
 .section-padded {
-    /* Mobile-first default padding */
-    padding: var(--spacing-xl) 0;
+  padding: var(--spacing-xl) 0;
 }
 
 .text-center {
-    text-align: center;
+  text-align: center;
 }
 
 .section-description {
-    max-width: 800px;
-    margin: var(--spacing-sm) auto var(--spacing-xl) auto;
-    font-size: 1.1em;
-    color: var(--color-text-secondary);
+  max-width: 800px;
+  margin: var(--spacing-sm) auto var(--spacing-xl) auto;
+  font-size: 1.1em;
+  color: var(--color-text-secondary);
 }
 
 .warning-text {
-    color: var(--color-warning);
-    font-weight: 600;
+  color: var(--color-warning);
+  font-weight: 600;
 }
 
 .info-text {
-    color: var(--color-info);
-    font-style: italic;
-    font-size: 0.9em;
+  color: var(--color-info);
+  font-style: italic;
+  font-size: 0.9em;
 }
 
-/* Toggle logo based on theme */
 .site-logo-img.logo-dark-theme {
-    display: block;
+  display: block;
 }
+
 .site-logo-img.logo-light-theme {
-    display: none;
+  display: none;
 }
 
 [data-theme='light'] .site-logo-img.logo-dark-theme {
-    display: none;
+  display: none;
 }
+
 [data-theme='light'] .site-logo-img.logo-light-theme {
-    display: block;
+  display: block;
 }
 
-/* Base Logo Styling */
 .site-logo-img {
-    width: 200px;
-    height: auto;
-    border-radius: var(--border-radius-sm);
-    display: block;
-    color: transparent;
+  width: 200px;
+  height: auto;
+  border-radius: var(--border-radius-sm);
+  display: block;
+  color: transparent;
+  flex-shrink: 0;
 }
 
-/* Desktop Overides */
-@media (min-width: 992px) {
+@media (hover: none) and (pointer: coarse) and (min-width: 768px) and (max-height: 500px) {
+  html {
+    scroll-padding-top: var(--header-height);
+  }
 
-body {
+  .site-logo-img {
+    width: 120px;
+  }
+}
+
+@media (min-width: 992px) {
+  body {
     padding-top: 0;
   }
-  
-.container-fluid {
+
+  .container-fluid {
     padding-left: var(--spacing-xxl);
     padding-right: var(--spacing-xxl);
   }
-  
-.section-padded {
+
+  .section-padded {
     padding: var(--spacing-xxl) 0;
   }
 }

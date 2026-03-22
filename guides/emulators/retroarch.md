@@ -1,5 +1,5 @@
 ---
-layout: template
+layout: guide
 title: "RetroArch Guide (Mesa/Angle for Xbox)"
 permalink: /guides/emulators/retroarch-guide.html
 description: "A guide for setting up RetroArch on dev mode."

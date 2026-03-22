@@ -1,295 +1,136 @@
 ---
+layout: default
+title: Compatibility Lists - Emulation Revival
+description: Select an emulator to view its compatibility via official databases or community spreadsheets.
+use_sitewide_search: true
+extra_scripts:
+  - /js/sitewide-search.js
 ---
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content">
-        <title>Compatibility Lists - Emulation Revival</title>
-        <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
-        <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
-        <link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
-        <link rel="preload" href="{{ '/fonts/oxanium-wght.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
-        <link rel="preload" href="{{ '/fonts/robotomono-wght.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
-        <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
-        <script id="polyfill-inert"> 
-  if (!('inert' in HTMLElement.prototype) && !document.querySelector('script[data-inert-polyfill]')) { 
-    const s = document.createElement('script'); 
-    s.src = "{{ '/js/inert.min.js' | relative_url }}"; 
-    s.dataset.inertPolyfill = "true"; 
-    document.head.appendChild(s); 
-  } 
-</script>
-    </head>
 
-    <body>
-        <header class="main-header">
-            <a href="#main-content" class="skip-link">Skip to main content</a>
-            <div class="container header-content">
-                <a href="/index.html" class="site-logo">
-                    <img src="/images/erlogo-white.webp" alt="Emulation Revival - Home" class="site-logo-img logo-dark-theme" width="600" height="192">
-                    <img src="/images/erlogo-black.webp" alt="Emulation Revival - Home" class="site-logo-img logo-light-theme" width="600" height="192">
-                </a>
-                <nav class="main-nav">
-    <button class="hamburger-menu" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-navigation">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </button>
-    <ul class="nav-list" id="main-navigation">
-        <li><a href="/index.html" class="nav-link">Home</a></li>
-        
-        <li class="has-submenu">
-            <a href="#" class="nav-link submenu-toggle" aria-haspopup="true">Library <span class="dropdown-icon">▼</span></a>
-            <ul class="submenu">
-                <button type="button" class="drilldown-back" tabindex="0" aria-label="Back to previous menu">Library</button>
-                
-                <li><a href="/xbox-dev-mode/emulators.html" class="nav-link">Emulators</a></li>
-                <li><a href="/xbox-dev-mode/frontends.html" class="nav-link">Frontends</a></li>
-                <li><a href="/xbox-dev-mode/ports.html" class="nav-link">Game Ports</a></li>
-                <li><a href="/xbox-dev-mode/apps.html" class="nav-link">Apps</a></li>
-                <li><a href="/xbox-dev-mode/experimental-apps.html" class="nav-link">Experimental Apps</a></li>
-                <li><a href="/xbox-dev-mode/media-apps.html" class="nav-link">Media Apps</a></li>
-                <li><a href="/xbox-dev-mode/utilities.html" class="nav-link">Utilities</a></li>
-            </ul>
-        </li>
+<main id="main-content">
+    {% include page-hero.html
+        hero_class="compatibility-hero"
+        aria_label="Compatibility Hub"
+        title="Compatibility Hub"
+        title_class="compatibility-page-title"
+        description="Select an emulator to view its compatibility via official databases or community spreadsheets."
+        description_class="compatibility-page-description"
+    %}
 
-        <li class="has-submenu">
-            <a href="#" class="nav-link submenu-toggle" aria-haspopup="true">Guides <span class="dropdown-icon">▼</span></a>
-            <ul class="submenu">
-                <button type="button" class="drilldown-back" tabindex="0" aria-label="Back to previous menu">Guides</button>
-                
-                <li><a href="https://wiki.sternserv.xyz/docs/xbox-setup/xbox-developer-mode-setup" class="nav-link">Dev Mode Activation and Setup</a></li>
-                <li><a href="{% link guides/devmode-bios.md %}" class="nav-link">BIOS Requirements</a></li>
-            </ul>
-        </li>
-
-        <li><a href="/compatibility.html" class="nav-link">Compatibility</a></li>
-        <li><a href="/about.html" class="nav-link">About</a></li>
-        
-        <li>
-            <button id="theme-toggle"
-                class="theme-toggle-btn"
-                aria-label="Toggle between dark and light mode"
-                aria-pressed="false">
-            </button>
-        </li>
-    </ul>
-</nav>
-            </div>
-        </header>
-
-        <main id="main-content">
-            <section class="hero-section xbox-devmode-hero" aria-label="Compatibility Hub">
-                <img
-    src="/images/devmode/xbox-background-1280.webp"
-    srcset="
-        /images/devmode/xbox-background-640.webp 640w,
-        /images/devmode/xbox-background-960.webp 960w,
-        /images/devmode/xbox-background-1280.webp 1280w"
-    sizes="100vw"
-    width="1280"
-    height="720"
-    alt=""
-    class="hero-background-image"
-    fetchpriority="high"
-    decoding="async">
-                <div class="hero-overlay" aria-hidden="true"></div>
-                <div class="container-fluid hero-content">
-                    <h1>Compatibility Hub</h1>
-                    <p>Select an emulator to view its compatibility via official databases or community spreadsheets.</p>
-                </div>
-            </section>
-
-            <section class="section-padded">
-                <div class="container-fluid">
-                    <div class="card-grid">
-                        
-                        <div class="card" id="compat-xenia">
-                            <a href="#" class="card-link" style="pointer-events: none;">
-                                <div class="card-image-container">
-                                    <img src="/xbox-dev-mode/images/emulators/xenia.webp" alt="Xenia Logo" class="card-image">
-                                </div>
-                                <div class="card-content">
-                                    <h3 class="card-title">Xenia Canary</h3>
-                                    <p class="card-description">Xbox 360 Compatibility Reports</p>
-                                </div>
-                            </a>
-                            <div class="emulator-links" style="padding: 0 var(--spacing-md) var(--spacing-md); display: flex; justify-content: center; gap: var(--spacing-sm); margin-top: auto;">
-                                <a href="https://docs.google.com/spreadsheets/d/1lt0xfslXhlLFS6tS74PRehAsDa7ME50-Eo719piCnuY/edit?gid=1315464648#gid=1315464648" target="_blank" rel="noopener noreferrer" class="btn btn-info">TRW Doc</a>
-                                <a href="https://docs.google.com/spreadsheets/d/1zZ89XfdzvcJs6x4EeuHDOR80PbuSD8A2BQ51z6x6y8s/edit?gid=1151723300#gid=1151723300" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Community Doc</a>
-                            </div>
+    <section class="section-padded compatibility-page-section">
+        <div class="container-fluid">
+            <div class="card-grid">
+                <div class="card" id="compat-xenia">
+                    <a href="#" class="card-link" style="pointer-events: none;">
+                        <div class="card-image-container">
+                            <img src="/xbox-dev-mode/images/emulators/xenia.webp" alt="Xenia Logo" class="card-image">
                         </div>
-
-                        <div class="card" id="compat-citra">
-                            <a href="#" class="card-link" style="pointer-events: none;">
-                                <div class="card-image-container">
-                                    <img src="/xbox-dev-mode/images/emulators/retroarch3ds.webp" alt="Citra Logo" class="card-image">
-                                </div>
-                                <div class="card-content">
-                                    <h3 class="card-title">Citra (RetroArch)</h3>
-                                    <p class="card-description">Nintendo 3DS Compatibility Reports</p>
-                                </div>
-                            </a>
-                            <div class="emulator-links" style="padding: 0 var(--spacing-md) var(--spacing-md); display: flex; justify-content: center; margin-top: auto;">
-                                <a href="https://docs.google.com/spreadsheets/d/1x905pqppIh6_w-ReNMdVwWoYS4XhSJagM9kk4UTIKxA/edit?gid=0#gid=0" target="_blank" rel="noopener noreferrer" class="btn btn-info">Community Doc</a>
-                            </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Xenia Canary</h3>
+                            <p class="card-description">Xbox 360 Compatibility Reports</p>
                         </div>
-
-                        <div class="card" id="compat-boxedwine">
-                            <a href="#" class="card-link" style="pointer-events: none;">
-                                <div class="card-image-container">
-                                    <img src="/xbox-dev-mode/images/experimental-apps/boxedwine.webp" alt="BoxedWine Logo" class="card-image">
-                                </div>
-                                <div class="card-content">
-                                    <h3 class="card-title">BoxedWine</h3>
-                                    <p class="card-description">Windows PC Compatibility Reports</p>
-                                </div>
-                            </a>
-                            <div class="emulator-links" style="padding: 0 var(--spacing-md) var(--spacing-md); display: flex; justify-content: center; margin-top: auto;">
-                                <a href="https://docs.google.com/spreadsheets/d/1Z49dissz6bX04D-tQMTPw2e5KqMUtSmn0N7r_16c424/edit?gid=0#gid=0" target="_blank" rel="noopener noreferrer" class="btn btn-info">Community Doc</a>
-                            </div>
-                        </div>
-
-                        <div class="card" id="compat-chonkystation">
-                            <a href="#" class="card-link" style="pointer-events: none;">
-                                <div class="card-image-container">
-                                    <img src="/xbox-dev-mode/images/experimental-apps/chonkystation3.webp" alt="ChonkyStation 3 Logo" class="card-image">
-                                </div>
-                                <div class="card-content">
-                                    <h3 class="card-title">ChonkyStation 3</h3>
-                                    <p class="card-description">PlayStation 3 Compatibility Reports</p>
-                                </div>
-                            </a>
-                            <div class="emulator-links" style="padding: 0 var(--spacing-md) var(--spacing-md); display: flex; justify-content: center; margin-top: auto;">
-                                <a href="https://docs.google.com/spreadsheets/d/19q5a1fhn-0NsfJD18ijge4AfvHAe4kirM7NIZ0vYysQ/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-info">Community Doc</a>
-                            </div>
-                        </div>
-
-                        <div class="card" id="compat-openbor">
-                            <a href="#" class="card-link" style="pointer-events: none;">
-                                <div class="card-image-container">
-                                    <img src="/xbox-dev-mode/images/emulators/openbor.webp" alt="OpenBOR Logo" class="card-image">
-                                </div>
-                                <div class="card-content">
-                                    <h3 class="card-title">OpenBOR</h3>
-                                    <p class="card-description">Beat 'Em Up Engine Game Compatibility</p>
-                                </div>
-                            </a>
-                            <div class="emulator-links" style="padding: 0 var(--spacing-md) var(--spacing-md); display: flex; justify-content: center; margin-top: auto;">
-                                <a href="https://docs.google.com/spreadsheets/d/1qQ4LDYa0sVArcFEooqcPo_5WgMYw2v1JHeM11eddbnU/edit?gid=0#gid=0" target="_blank" rel="noopener noreferrer" class="btn btn-info">Community Doc</a>
-                            </div>
-                        </div>
-
-                        <div class="card" id="compat-xbsx2">
-                            <a href="#" class="card-link" style="pointer-events: none;">
-                                <div class="card-image-container">
-                                    <img src="/xbox-dev-mode/images/emulators/xbsx2.webp" alt="XBSX2 Logo" class="card-image">
-                                </div>
-                                <div class="card-content">
-                                    <h3 class="card-title">XBSX2 / PCSX2</h3>
-                                    <p class="card-description">PlayStation 2 Compatibility Reports</p>
-                                </div>
-                            </a>
-                            <div class="emulator-links" style="padding: 0 var(--spacing-md) var(--spacing-md); display: flex; justify-content: center; margin-top: auto;">
-                                <a href="https://pcsx2.net/compat/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Official Site</a>
-                            </div>
-                        </div>
-
-                        <div class="card" id="compat-dolphin">
-                            <a href="#" class="card-link" style="pointer-events: none;">
-                                <div class="card-image-container">
-                                    <img src="/xbox-dev-mode/images/emulators/dolphin.webp" alt="Dolphin Logo" class="card-image">
-                                </div>
-                                <div class="card-content">
-                                    <h3 class="card-title">Dolphin</h3>
-                                    <p class="card-description">GameCube & Wii Compatibility Reports</p>
-                                </div>
-                            </a>
-                            <div class="emulator-links" style="padding: 0 var(--spacing-md) var(--spacing-md); display: flex; justify-content: center; margin-top: auto;">
-                                <a href="https://dolphin-emu.org/compat/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Official Site</a>
-                            </div>
-                        </div>
-
+                    </a>
+                    <div class="emulator-links" style="padding: 0 var(--spacing-md) var(--spacing-md); display: flex; justify-content: center; gap: var(--spacing-sm); margin-top: auto;">
+                        <a href="https://docs.google.com/spreadsheets/d/1lt0xfslXhlLFS6tS74PRehAsDa7ME50-Eo719piCnuY/edit?gid=1315464648#gid=1315464648" target="_blank" rel="noopener noreferrer" class="btn btn-info">TRW Doc</a>
+                        <a href="https://docs.google.com/spreadsheets/d/1zZ89XfdzvcJs6x4EeuHDOR80PbuSD8A2BQ51z6x6y8s/edit?gid=1151723300#gid=1151723300" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Community Doc</a>
                     </div>
                 </div>
-            </section>
 
-            <div class="discord-cta-container">
-                <div class="discord-cta">
-                    <p>Have a compatibility report to share? Join the discussion.</p>
-                    <button class="btn btn-discord" data-modal-target="discord-hub" aria-label="Open Discord community modal">
-                        <img src="/images/discord.svg" alt="" class="icon" aria-hidden="true">
-                        <span>Join our Community</span>
-                    </button>
+                <div class="card" id="compat-citra">
+                    <a href="#" class="card-link" style="pointer-events: none;">
+                        <div class="card-image-container">
+                            <img src="/xbox-dev-mode/images/emulators/retroarch3ds.webp" alt="Citra Logo" class="card-image">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Citra (RetroArch)</h3>
+                            <p class="card-description">Nintendo 3DS Compatibility Reports</p>
+                        </div>
+                    </a>
+                    <div class="emulator-links" style="padding: 0 var(--spacing-md) var(--spacing-md); display: flex; justify-content: center; margin-top: auto;">
+                        <a href="https://docs.google.com/spreadsheets/d/1x905pqppIh6_w-ReNMdVwWoYS4XhSJagM9kk4UTIKxA/edit?gid=0#gid=0" target="_blank" rel="noopener noreferrer" class="btn btn-info">Community Doc</a>
+                    </div>
                 </div>
-            </div>
-        </main>
 
-        <footer class="main-footer">
-            <div class="container footer-content">
-                <div class="footer-logo">
-                    <img src="/images/erlogo-white.webp" alt="" class="site-logo-img logo-dark-theme">
-                    <img src="/images/erlogo-black.webp" alt="" class="site-logo-img logo-light-theme">
+                <div class="card" id="compat-boxedwine">
+                    <a href="#" class="card-link" style="pointer-events: none;">
+                        <div class="card-image-container">
+                            <img src="/xbox-dev-mode/images/experimental-apps/boxedwine.webp" alt="BoxedWine Logo" class="card-image">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">BoxedWine</h3>
+                            <p class="card-description">Windows PC Compatibility Reports</p>
+                        </div>
+                    </a>
+                    <div class="emulator-links" style="padding: 0 var(--spacing-md) var(--spacing-md); display: flex; justify-content: center; margin-top: auto;">
+                        <a href="https://docs.google.com/spreadsheets/d/1Z49dissz6bX04D-tQMTPw2e5KqMUtSmn0N7r_16c424/edit?gid=0#gid=0" target="_blank" rel="noopener noreferrer" class="btn btn-info">Community Doc</a>
+                    </div>
                 </div>
-                <nav class="footer-nav" aria-label="Footer navigation">
-                    <ul>
-                        <li><a href="/index.html" class="footer-nav-link">Home</a></li>
-                        <li><a href="/about.html" class="footer-nav-link">About Us</a></li>
-                        <li><a href="/contact.html" class="footer-nav-link">Contact</a></li>
-                        <li><a href="/privacy.html" class="footer-nav-link">Privacy Policy</a></li>
-                    </ul>
-                </nav>
-                <div class="social-links">
-                    <button class="footer-modal-trigger" data-modal-target="discord-hub" aria-label="Join our Discord communities">
-                        <img src="/images/discord.svg" alt="Discord Logo" class="social-icon">
-                    </button>
-                </div>
-                <p class="copyright">
-                    © <span id="copyright-year" aria-live="polite">2026</span> Emulation Revival.
-                    All rights reserved.
-                </p>
-            </div>
-        </footer>
 
-        <div class="modal-overlay" id="discordHubOverlay"></div>
-        <div class="modal" id="discordHubModal" role="dialog" aria-modal="true" aria-labelledby="discordHubTitle">
-            <div class="modal-header">
-                <div class="modal-header-thumb">
-                    <img src="/images/discord.svg" alt="" aria-hidden="true">
+                <div class="card" id="compat-chonkystation">
+                    <a href="#" class="card-link" style="pointer-events: none;">
+                        <div class="card-image-container">
+                            <img src="/xbox-dev-mode/images/experimental-apps/chonkystation3.webp" alt="ChonkyStation 3 Logo" class="card-image">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">ChonkyStation 3</h3>
+                            <p class="card-description">PlayStation 3 Compatibility Reports</p>
+                        </div>
+                    </a>
+                    <div class="emulator-links" style="padding: 0 var(--spacing-md) var(--spacing-md); display: flex; justify-content: center; margin-top: auto;">
+                        <a href="https://docs.google.com/spreadsheets/d/19q5a1fhn-0NsfJD18ijge4AfvHAe4kirM7NIZ0vYysQ/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-info">Community Doc</a>
+                    </div>
                 </div>
-                <h3 id="discordHubTitle" class="modal-header-title">Join Our Community</h3>
-                <button class="modal-close-button" id="discordHubClose" aria-label="Close menu">×</button>
-            </div>
-            <div class="modal-body" id="discordHubBody">
-                <p class="text-center" style="margin-bottom: var(--spacing-lg);">Choose a server to join for support and discussion:</p>
-                <div class="discord-grid">
-                    <a href="https://discord.gg/cBYsQCS7j7" class="btn btn-discord" target="_blank" rel="noopener noreferrer">
-                        <img src="/images/discord.svg" alt="" class="icon" aria-hidden="true">
-                        <span>Revives Community</span>
+
+                <div class="card" id="compat-openbor">
+                    <a href="#" class="card-link" style="pointer-events: none;">
+                        <div class="card-image-container">
+                            <img src="/xbox-dev-mode/images/emulators/openbor.webp" alt="OpenBOR Logo" class="card-image">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">OpenBOR</h3>
+                            <p class="card-description">Beat 'Em Up Engine Game Compatibility</p>
+                        </div>
                     </a>
-                    <a href="https://discord.gg/pVd47KAG24" class="btn btn-discord" target="_blank" rel="noopener noreferrer">
-                        <img src="/images/discord.svg" alt="" class="icon" aria-hidden="true">
-                        <span>Xbox Emulation Hub</span>
+                    <div class="emulator-links" style="padding: 0 var(--spacing-md) var(--spacing-md); display: flex; justify-content: center; margin-top: auto;">
+                        <a href="https://docs.google.com/spreadsheets/d/1qQ4LDYa0sVArcFEooqcPo_5WgMYw2v1JHeM11eddbnU/edit?gid=0#gid=0" target="_blank" rel="noopener noreferrer" class="btn btn-info">Community Doc</a>
+                    </div>
+                </div>
+
+                <div class="card" id="compat-xbsx2">
+                    <a href="#" class="card-link" style="pointer-events: none;">
+                        <div class="card-image-container">
+                            <img src="/xbox-dev-mode/images/emulators/xbsx2.webp" alt="XBSX2 Logo" class="card-image">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">XBSX2 / PCSX2</h3>
+                            <p class="card-description">PlayStation 2 Compatibility Reports</p>
+                        </div>
                     </a>
-                    <a href="https://discord.gg/j2HndpJTej" class="btn btn-discord" target="_blank" rel="noopener noreferrer">
-                        <img src="/images/discord.svg" alt="" class="icon" aria-hidden="true">
-                        <span>Emulation Revival</span>
+                    <div class="emulator-links" style="padding: 0 var(--spacing-md) var(--spacing-md); display: flex; justify-content: center; margin-top: auto;">
+                        <a href="https://pcsx2.net/compat/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Official Site</a>
+                    </div>
+                </div>
+
+                <div class="card" id="compat-dolphin">
+                    <a href="#" class="card-link" style="pointer-events: none;">
+                        <div class="card-image-container">
+                            <img src="/xbox-dev-mode/images/emulators/dolphin.webp" alt="Dolphin Logo" class="card-image">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Dolphin</h3>
+                            <p class="card-description">GameCube & Wii Compatibility Reports</p>
+                        </div>
                     </a>
+                    <div class="emulator-links" style="padding: 0 var(--spacing-md) var(--spacing-md); display: flex; justify-content: center; margin-top: auto;">
+                        <a href="https://dolphin-emu.org/compat/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Official Site</a>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
 
-<script type="module" src="/js/main.js"></script>
-
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register("{{ '/sw.js' | relative_url }}")
-        .then(registration => { console.log('PWA ServiceWorker registered successfully'); })
-        .catch(err => { console.log('PWA ServiceWorker registration failed: ', err); });
-    });
-  }
-</script>
-    </body>
-</html>
+    {% include discord-cta.html
+        text="Have a compatibility report to share? Join the discussion."
+        text_class="compatibility-cta-text"
+    %}
+</main>

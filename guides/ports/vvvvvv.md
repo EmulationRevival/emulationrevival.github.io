@@ -1,5 +1,5 @@
 ---
-layout: template
+layout: guide
 title: "VVVVVV (V6) Guide"
 permalink: /guides/ports/vvvvvv-guide.html
 description: "A guide for setting up VVVVVV (V6) on dev mode."

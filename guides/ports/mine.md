@@ -1,5 +1,5 @@
 ---
-layout: template
+layout: guide
 title: "Minesweeper 3D Guide"
 permalink: /guides/ports/mine-guide.html
 description: "A guide for setting up Minesweeper 3D on dev mode."

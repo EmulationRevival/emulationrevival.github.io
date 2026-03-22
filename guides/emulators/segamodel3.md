@@ -1,5 +1,5 @@
 ---
-layout: template
+layout: guide
 title: "Sega Model 3 Guide"
 permalink: /guides/emulators/segamodel3-guide.html
 description: "A guide for setting up Sega Model 3 on dev mode."

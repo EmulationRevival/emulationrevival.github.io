@@ -1,5 +1,5 @@
 ---
-layout: template
+layout: guide
 title: "Zelda 64 Recompiled Guide"
 permalink: /guides/ports/zelda64-guide.html
 description: "A guide for setting up Zelda 64 Recompiled on dev mode."

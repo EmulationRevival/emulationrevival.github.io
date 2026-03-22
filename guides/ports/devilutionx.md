@@ -1,5 +1,5 @@
 ---
-layout: template
+layout: guide
 title: "DevilutionX Guide"
 permalink: /guides/ports/devilutionx-guide.html
 description: "A guide for setting up DevilutionX on dev mode."

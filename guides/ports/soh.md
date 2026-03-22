@@ -1,5 +1,5 @@
 ---
-layout: template
+layout: guide
 title: "SOH (Ship of Harkinian) Foxtrot UWP Edition Guide"
 permalink: /guides/ports/soh-guide.html
 description: "A guide for setting up SOH (Ship of Harkinian) Foxtrot UWP Edition on dev mode."

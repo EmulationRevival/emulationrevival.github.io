@@ -1,5 +1,5 @@
 ---
-layout: template
+layout: guide
 title: "Spelunky Classic HD Guide"
 permalink: /guides/ports/spelunky-guide.html
 description: "A guide for setting up Spelunky Classic HD on dev mode."

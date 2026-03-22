@@ -1,5 +1,5 @@
 ---
-layout: template
+layout: guide
 title: "Red Alert 2: Chrono Divide Guide"
 permalink: /guides/ports/chronodivide-guide.html
 description: "A guide for setting up Chrono Divide on dev mode."

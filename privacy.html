@@ -1,276 +1,68 @@
 ---
+layout: default
+title: Privacy Policy - Emulation Revival
+description: Read the Privacy Policy for Emulation Revival to understand how we collect, use, and protect your information.
+use_sitewide_search: true
+extra_scripts:
+  - /js/sitewide-search.js
 ---
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content">
-        <title>Privacy Policy - Emulation Revival</title>
-        <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
-        <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
-        <link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
-        <meta
-            name="description"
-            content="Read the Privacy Policy for Emulation Revival to understand how we collect, use, and protect your information."
-        >
-        <link rel="preload" href="{{ '/fonts/oxanium-wght.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
-        <link rel="preload" href="{{ '/fonts/robotomono-wght.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
-        <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
-        <script id="polyfill-inert"> 
-  if (!('inert' in HTMLElement.prototype) && !document.querySelector('script[data-inert-polyfill]')) { 
-    const s = document.createElement('script'); 
-    s.src = "{{ '/js/inert.min.js' | relative_url }}"; 
-    s.dataset.inertPolyfill = "true"; 
-    document.head.appendChild(s); 
-  } 
-</script>
-        <style>
-            /* Specific text formatting for the policy card to ensure readability */
-            .policy-content {
-                padding: var(--spacing-xl);
-                max-width: 1200px; /* Increased for wider desktop view */
-                margin: var(--spacing-xl) auto; /* Added top margin since the hero is removed */
-                cursor: default; /* Overrides the pointer cursor from emulator cards */
-            }
-            .policy-content h1 {
-                margin-top: 0;
-                margin-bottom: var(--spacing-xs);
-                color: var(--color-primary);
-                text-align: center;
-            }
-            .policy-content .effective-date {
-                text-align: center;
-                margin-bottom: var(--spacing-xl);
-                font-style: italic;
-                opacity: 0.8;
-            }
-            .policy-content h2 {
-                margin-top: var(--spacing-xl);
-                margin-bottom: var(--spacing-sm);
-                color: var(--color-primary);
-            }
-            .policy-content p, .policy-content ul {
-                margin-bottom: var(--spacing-md);
-                line-height: 1.6;
-            }
-            .policy-content ul {
-                padding-left: var(--spacing-xl);
-            }
-            .policy-content li {
-                margin-bottom: var(--spacing-sm);
-            }
-        </style>
-    </head>
 
-    <body>
-        <header class="main-header">
-            <a href="#main-content" class="skip-link">Skip to main content</a>
-            <div class="container header-content">
-                <a href="/index.html" class="site-logo">
-                    <img
-                        src="/images/erlogo-white.webp"
-                        alt="Emulation Revival - Home"
-                        class="site-logo-img logo-dark-theme"
-                        width="600" height="192"
-                    >
-                    <img
-                        src="/images/erlogo-black.webp"
-                        alt="Emulation Revival - Home"
-                        class="site-logo-img logo-light-theme"
-                        width="600" height="192"
-                    >
-                </a>
-                <nav class="main-nav">
-    <button class="hamburger-menu" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-navigation">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </button>
-    <ul class="nav-list" id="main-navigation">
-        <li><a href="/index.html" class="nav-link">Home</a></li>
-        
-        <li class="has-submenu">
-            <a href="#" class="nav-link submenu-toggle" aria-haspopup="true">Library <span class="dropdown-icon">▼</span></a>
-            <ul class="submenu">
-                <button type="button" class="drilldown-back" tabindex="0" aria-label="Back to previous menu">Library</button>
-                
-                <li><a href="/xbox-dev-mode/emulators.html" class="nav-link">Emulators</a></li>
-                <li><a href="/xbox-dev-mode/frontends.html" class="nav-link">Frontends</a></li>
-                <li><a href="/xbox-dev-mode/ports.html" class="nav-link">Game Ports</a></li>
-                <li><a href="/xbox-dev-mode/apps.html" class="nav-link">Apps</a></li>
-                <li><a href="/xbox-dev-mode/experimental-apps.html" class="nav-link">Experimental Apps</a></li>
-                <li><a href="/xbox-dev-mode/media-apps.html" class="nav-link">Media Apps</a></li>
-                <li><a href="/xbox-dev-mode/utilities.html" class="nav-link">Utilities</a></li>
-            </ul>
-        </li>
+<main id="main-content">
+    <section class="section-padded privacy-page-section" aria-labelledby="privacy-policy-heading">
+        <div class="container-fluid">
+            <div class="content-panel policy-content">
+                <h1 id="privacy-policy-heading" class="policy-title">Privacy Policy</h1>
+                <p class="effective-date">Effective Date: March 5, 2026</p>
 
-        <li class="has-submenu">
-            <a href="#" class="nav-link submenu-toggle" aria-haspopup="true">Guides <span class="dropdown-icon">▼</span></a>
-            <ul class="submenu">
-                <button type="button" class="drilldown-back" tabindex="0" aria-label="Back to previous menu">Guides</button>
-                
-                <li><a href="https://wiki.sternserv.xyz/docs/xbox-setup/xbox-developer-mode-setup" class="nav-link">Dev Mode Activation and Setup</a></li>
-                <li><a href="{% link guides/devmode-bios.md %}" class="nav-link">BIOS Requirements</a></li>
-            </ul>
-        </li>
+                <h2>1. Introduction</h2>
+                <p>Welcome to Emulation Revival ("we," "our," or "us"). We are committed to protecting your privacy. This Privacy Policy explains how your information is collected, used, and protected when you visit our website hosted on GitHub Pages.</p>
+                <p>By using our website, you agree to the collection and use of information in accordance with this policy.</p>
 
-        <li><a href="/compatibility.html" class="nav-link">Compatibility</a></li>
-        <li><a href="/about.html" class="nav-link">About</a></li>
-        
-        <li>
-            <button id="theme-toggle"
-                class="theme-toggle-btn"
-                aria-label="Toggle between dark and light mode"
-                aria-pressed="false">
-            </button>
-        </li>
-    </ul>
-</nav>
-            </div>
-        </header>
+                <h2>2. Information We Collect</h2>
+                <p>Because our website is a static site designed to provide resources and community links, we collect very little personal data. However, certain information is collected automatically by our hosting provider or when you voluntarily submit it.</p>
+                <ul>
+                    <li><strong>Automatically Collected Information (Log Data):</strong> Our website is hosted on GitHub Pages. When you visit the site, GitHub automatically collects standard server log information. This may include your IP address, browser type, operating system, referring URLs, device information, and the date/time of your visit. We do not have direct access to this raw personal data; it is managed by GitHub.</li>
+                    <li><strong>Voluntarily Submitted Information:</strong> If you contact us using our embedded Google Form, we will collect the information you choose to provide (such as your name, email address, and the contents of your message).</li>
+                </ul>
 
-        <main id="main-content">
-            <section class="section-padded" aria-labelledby="privacy-policy-heading">
-                <div class="container-fluid">
-                    <div class="card policy-content">
-                        <h1 id="privacy-policy-heading">Privacy Policy</h1>
-                        <p class="effective-date">Effective Date: March 5, 2026</p>
+                <h2>3. Cookies and Local Storage</h2>
+                <p>We do not use tracking cookies or third-party advertising cookies.</p>
+                <p>We do use <strong>Local Storage</strong> strictly for functional purposes to improve your user experience:</p>
+                <ul>
+                    <li><strong>Theme Preference:</strong> We use your browser's Local Storage to remember your preference for Light Mode or Dark Mode (saved as <code>theme</code>). This data never leaves your device and is never transmitted to us or any third parties.</li>
+                </ul>
 
-                        <h2>1. Introduction</h2>
-                        <p>Welcome to Emulation Revival ("we," "our," or "us"). We are committed to protecting your privacy. This Privacy Policy explains how your information is collected, used, and protected when you visit our website hosted on GitHub Pages.</p>
-                        <p>By using our website, you agree to the collection and use of information in accordance with this policy.</p>
+                <h2>4. How We Use Your Information</h2>
+                <p>We use the limited information we collect for the following purposes:</p>
+                <ul>
+                    <li><strong>To maintain and improve the site:</strong> To ensure the site renders properly on your device and remembers your viewing preferences.</li>
+                    <li><strong>To respond to inquiries:</strong> To read and reply to messages you submit via our contact form.</li>
+                    <li><strong>To monitor security:</strong> Relying on GitHub's infrastructure to protect the website against malicious activity.</li>
+                </ul>
 
-                        <h2>2. Information We Collect</h2>
-                        <p>Because our website is a static site designed to provide resources and community links, we collect very little personal data. However, certain information is collected automatically by our hosting provider or when you voluntarily submit it.</p>
-                        <ul>
-                            <li><strong>Automatically Collected Information (Log Data):</strong> Our website is hosted on GitHub Pages. When you visit the site, GitHub automatically collects standard server log information. This may include your IP address, browser type, operating system, referring URLs, device information, and the date/time of your visit. We do not have direct access to this raw personal data; it is managed by GitHub.</li>
-                            <li><strong>Voluntarily Submitted Information:</strong> If you contact us using our embedded Google Form, we will collect the information you choose to provide (such as your name, email address, and the contents of your message).</li>
-                        </ul>
+                <h2>5. Third-Party Links and Services</h2>
+                <p>Our website serves as a hub and contains numerous links to third-party websites, including Discord, emulator download pages, and GitHub repositories.</p>
+                <p><strong>Please Note:</strong> We are not responsible for the privacy practices, content, or data collection policies of any third-party websites. Once you click an external link (such as joining a Discord server or downloading a file from a third-party developer), their respective privacy policies apply.</p>
+                <p>Additionally, we utilize <strong>Google Forms</strong> for our contact page. Information submitted through this form is subject to Google's Privacy Policy.</p>
 
-                        <h2>3. Cookies and Local Storage</h2>
-                        <p>We do not use tracking cookies or third-party advertising cookies.</p>
-                        <p>We do use <strong>Local Storage</strong> strictly for functional purposes to improve your user experience:</p>
-                        <ul>
-                            <li><strong>Theme Preference:</strong> We use your browser's Local Storage to remember your preference for Light Mode or Dark Mode (saved as <code>theme</code>). This data never leaves your device and is never transmitted to us or any third parties.</li>
-                        </ul>
+                <h2>6. Children's Privacy</h2>
+                <p>Our website is not directed at children under the age of 13. We do not knowingly collect personal identifiable information from children. If you are a parent or guardian and believe your child has provided us with personal information, please contact us so we can remove it.</p>
 
-                        <h2>4. How We Use Your Information</h2>
-                        <p>We use the limited information we collect for the following purposes:</p>
-                        <ul>
-                            <li><strong>To maintain and improve the site:</strong> To ensure the site renders properly on your device and remembers your viewing preferences.</li>
-                            <li><strong>To respond to inquiries:</strong> To read and reply to messages you submit via our contact form.</li>
-                            <li><strong>To monitor security:</strong> Relying on GitHub's infrastructure to protect the website against malicious activity.</li>
-                        </ul>
+                <h2>7. Changes to This Privacy Policy</h2>
+                <p>We may update our Privacy Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Effective Date" at the top.</p>
 
-                        <h2>5. Third-Party Links and Services</h2>
-                        <p>Our website serves as a hub and contains numerous links to third-party websites, including Discord, emulator download pages, and GitHub repositories.</p>
-                        <p><strong>Please Note:</strong> We are not responsible for the privacy practices, content, or data collection policies of any third-party websites. Once you click an external link (such as joining a Discord server or downloading a file from a third-party developer), their respective privacy policies apply.</p>
-                        <p>Additionally, we utilize <strong>Google Forms</strong> for our contact page. Information submitted through this form is subject to Google's Privacy Policy.</p>
-
-                        <h2>6. Children's Privacy</h2>
-                        <p>Our website is not directed at children under the age of 13. We do not knowingly collect personal identifiable information from children. If you are a parent or guardian and believe your child has provided us with personal information, please contact us so we can remove it.</p>
-
-                        <h2>7. Changes to This Privacy Policy</h2>
-                        <p>We may update our Privacy Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Effective Date" at the top.</p>
-
-                        <h2>8. Contact Us</h2>
-                        <p>If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us:</p>
-                        <ul>
-                            <li><strong>Via Discord:</strong> Join our <a href="https://discord.gg/cBYsQCS7j7" target="_blank" rel="noopener noreferrer" class="contributor-name-link">Revives Community</a> server and open a ticket.</li>
-                            <li><strong>Via Contact Form:</strong> Visit our <a href="/contact.html" class="contributor-name-link">Contact Page</a>.</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <div class="discord-cta-container">
-                <div class="discord-cta">
-                    <p>For further support, please join our Discord community.</p>
-                    <button class="btn btn-discord" data-modal-target="discord-hub" aria-label="Open Discord community modal">
-                        <img src="/images/discord.svg" alt="Discord Logo" aria-hidden="true" class="icon">
-                        <span>Join our Community</span>
-                    </button>
-                </div>
-            </div>
-
-        </main>
-
-        <footer class="main-footer">
-            <div class="container footer-content">
-                <div class="footer-logo">
-                    <img src="/images/erlogo-white.webp"
-                         alt="Emulation Revival Logo - Dark Version"
-                         class="site-logo-img logo-dark-theme">
-                    <img src="/images/erlogo-black.webp"
-                         alt="Emulation Revival Logo - Light Version"
-                         class="site-logo-img logo-light-theme">
-                </div>
-                <nav class="footer-nav" aria-label="Footer navigation">
-                    <ul>
-                        <li><a href="/index.html"
-                               aria-label="Home - navigate to homepage"
-                               class="footer-nav-link">Home</a></li>
-                        <li><a href="/about.html"
-                               aria-label="About Us - learn about our project"
-                               class="footer-nav-link">About Us</a></li>
-                        <li><a href="/contact.html"
-                               aria-label="Contact - get in touch with us"
-                               class="footer-nav-link">Contact</a></li>
-                        <li><a href="/privacy.html"
-                               aria-label="Privacy Policy - read our privacy policy"
-                               class="footer-nav-link">Privacy Policy</a></li>
-                    </ul>
-                </nav>
-                <div class="social-links">
-                    <button class="footer-modal-trigger" data-modal-target="discord-hub" aria-label="Join our Discord communities">
-                        <img src="/images/discord.svg" alt="Discord Logo" class="social-icon">
-                    </button>
-                </div>
-                <p class="copyright">
-                    © <span id="copyright-year" aria-live="polite">2026</span> Emulation Revival.
-                    All rights reserved.
-                </p>
-            </div>
-        </footer>
-        
-        <div class="modal-overlay" id="discordHubOverlay"></div>
-        <div class="modal" id="discordHubModal" role="dialog" aria-modal="true" aria-labelledby="discordHubTitle">
-            <div class="modal-header">
-                <div class="modal-header-thumb">
-                    <img src="/images/discord.svg" alt="" aria-hidden="true">
-                </div>
-                <h3 id="discordHubTitle" class="modal-header-title">Join Our Community</h3>
-                <button class="modal-close-button" id="discordHubClose" aria-label="Close menu">×</button>
-            </div>
-            <div class="modal-body" id="discordHubBody">
-                <p class="text-center" style="margin-bottom: var(--spacing-lg);">Choose a server to join for support and discussion:</p>
-                <div class="discord-grid">
-                    <a href="https://discord.gg/cBYsQCS7j7" class="btn btn-discord" target="_blank" rel="noopener noreferrer">
-                        <img src="/images/discord.svg" alt="" class="icon" aria-hidden="true">
-                        <span>Revives Community</span>
-                    </a>
-                    <a href="https://discord.gg/pVd47KAG24" class="btn btn-discord" target="_blank" rel="noopener noreferrer">
-                        <img src="/images/discord.svg" alt="" class="icon" aria-hidden="true">
-                        <span>Xbox Emulation Hub</span>
-                    </a>
-                    <a href="https://discord.gg/j2HndpJTej" class="btn btn-discord" target="_blank" rel="noopener noreferrer">
-                        <img src="/images/discord.svg" alt="" class="icon" aria-hidden="true">
-                        <span>Emulation Revival</span>
-                    </a>
-                </div>
+                <h2>8. Contact Us</h2>
+                <p>If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us:</p>
+                <ul>
+                    <li><strong>Via Discord:</strong> Join our <a href="https://discord.gg/cBYsQCS7j7" target="_blank" rel="noopener noreferrer" class="contributor-name-link">Revives Community</a> server and open a ticket.</li>
+                    <li><strong>Via Contact Form:</strong> Visit our <a href="/contact.html" class="contributor-name-link">Contact Page</a>.</li>
+                </ul>
             </div>
         </div>
+    </section>
 
-<script type="module" src="/js/main.js"></script>
-
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register("{{ '/sw.js' | relative_url }}")
-        .then(registration => { console.log('PWA ServiceWorker registered successfully'); })
-        .catch(err => { console.log('PWA ServiceWorker registration failed: ', err); });
-    });
-  }
-</script>
-    </body>
-</html>
+    {% include discord-cta.html
+        text="For further support, please join our Discord community."
+        text_class="privacy-cta-text"
+    %}
+</main>

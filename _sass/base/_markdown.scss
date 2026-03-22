@@ -1,31 +1,24 @@
-/* The Outer Quarantine Zone */
 .markdown-isolated-layout {
-    flex-grow: 1; 
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     background-color: var(--color-background-dark);
-    
-    /* The Bug Killers */
     width: 100%;
     max-width: 100vw;
     min-width: 0;
     overflow-x: hidden;
-    
-    /* Top and bottom spacing */
-    padding: var(--spacing-xl) 0; 
+    padding: var(--spacing-xl) 0;
 }
 
-/* --- Markdown Container --- */
 .markdown-content {
     max-width: 900px;
     width: 100%;
     margin: 0 auto;
-    padding: 0 var(--spacing-lg); 
-    box-sizing: border-box; 
+    padding: 0 var(--spacing-lg);
+    box-sizing: border-box;
     min-width: 0;
 }
 
-/* Adjust heading spacing for document flow */
 .markdown-content h2,
 .markdown-content h3,
 .markdown-content h4 {
@@ -38,8 +31,7 @@
     margin-top: 0;
 }
 
-/* Lists */
-.markdown-content ul, 
+.markdown-content ul,
 .markdown-content ol {
     margin-bottom: var(--spacing-lg);
     padding-left: var(--spacing-xl);
@@ -52,7 +44,6 @@
     line-height: 1.6;
 }
 
-/* Blockquotes */
 .markdown-content blockquote {
     margin: var(--spacing-xl) 0;
     padding: var(--spacing-md) var(--spacing-lg);
@@ -71,25 +62,19 @@
     margin-bottom: 0;
 }
 
-/* Inline Code  */
 .markdown-content code {
-    font-family: var(--font-secondary);
+    font-family: var(--font-primary);
     background-color: var(--color-background-light);
     color: var(--color-secondary);
     padding: 0.2em 0.4em;
     border-radius: var(--border-radius-sm);
     font-size: 0.9em;
-    
-    /* Word-Wrap Stack for all engines */
-    overflow-wrap: break-word;
+    overflow-wrap: anywhere;
     word-wrap: break-word;
-    word-break: break-word; 
-    line-break: anywhere;
-    -webkit-line-break: anywhere;
+    word-break: normal;
     white-space: pre-wrap;
 }
 
-/* Code Blocks */
 .markdown-content pre {
     background-color: var(--color-background-medium);
     padding: var(--spacing-md);
@@ -97,8 +82,6 @@
     margin: var(--spacing-lg) 0;
     border: 1px solid var(--color-border);
     box-shadow: var(--box-shadow-light);
-
-    /* --- The Mobile Overflow Fix --- */
     display: block;
     max-width: 100%;
     width: 100%;
@@ -114,29 +97,26 @@
     font-size: 0.9em;
     border-radius: 0;
     border: none;
-    
-    /* --- Formatting preservation --- */
     white-space: pre;
     word-break: normal;
     overflow-wrap: normal;
-    display: inline-block; 
+    display: inline-block;
     min-width: 100%;
 }
 
-/* Tables */
 .markdown-content table {
     width: 100%;
     border-collapse: collapse;
     margin: var(--spacing-lg) 0;
     background-color: var(--color-background-medium);
     border-radius: var(--border-radius-md);
-    display: block; 
+    display: block;
     overflow-x: auto;
     box-shadow: var(--box-shadow-light);
     -webkit-overflow-scrolling: touch;
 }
 
-.markdown-content th, 
+.markdown-content th,
 .markdown-content td {
     padding: var(--spacing-md);
     text-align: left;
@@ -156,7 +136,6 @@
     border-bottom: none;
 }
 
-/* Images in Markdown */
 .markdown-content img {
     max-width: 100%;
     height: auto;
@@ -166,7 +145,6 @@
     display: block;
 }
 
-/* Horizontal Rules */
 .markdown-content hr {
     border: 0;
     height: 1px;

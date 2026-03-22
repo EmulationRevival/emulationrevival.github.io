@@ -1,0 +1,9 @@
+<div class="discord-cta-container">
+    <div class="discord-cta">
+        <p{% if include.text_class %} class="{{ include.text_class }}"{% endif %}>{{ include.text }}</p>
+        <button class="btn btn-discord" data-modal-target="discord-hub" aria-label="Open Discord community modal">
+            <img src="/images/discord.svg" alt="Discord Logo" aria-hidden="true" class="icon">
+            <span>Join our Community</span>
+        </button>
+    </div>
+</div>

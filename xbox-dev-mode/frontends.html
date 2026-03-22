@@ -1,349 +1,42 @@
 ---
+layout: default
+title: Emulation Frontends for Xbox Developer Mode - Emulation Revival
+description: Discover and set up emulation frontends like LaunchPass and Retro Pass for Xbox Developer Mode. Organize your entire retro games library with ease.
+use_sitewide_search: true
+use_card_modal: true
+card_modal_title: Frontend Details
+extra_scripts:
+  - /js/card-logic.js
+  - /js/page-search-logic.js
 ---
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content">
-        <title>Emulation Frontends for Xbox Developer Mode - Emulation Revival</title>
-        <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
-        <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
-        <link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
-        <meta
-            name="description"
-            content="Discover and set up emulation frontends like LaunchPass and Retro Pass for Xbox Developer Mode. Organize your entire retro games library with ease."
-        >
-        <link rel="preload" href="{{ '/fonts/oxanium-wght.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
-        <link rel="preload" href="{{ '/fonts/robotomono-wght.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
-        <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
-        <script id="polyfill-inert"> 
-  if (!('inert' in HTMLElement.prototype) && !document.querySelector('script[data-inert-polyfill]')) { 
-    const s = document.createElement('script'); 
-    s.src = "{{ '/js/inert.min.js' | relative_url }}"; 
-    s.dataset.inertPolyfill = "true"; 
-    document.head.appendChild(s); 
-  } 
-</script>
-    </head>
 
-    <body>
-        <header class="main-header">
-            <a href="#main-content" class="skip-link">Skip to main content</a>
-            <div class="container header-content">
-                <a href="/index.html" class="site-logo">
-                    <img
-                        src="/images/erlogo-white.webp"
-                        alt="Emulation Revival - Home"
-                        class="site-logo-img logo-dark-theme"
-                        width="600" height="192"
-                    >
-                    <img
-                        src="/images/erlogo-black.webp"
-                        alt="Emulation Revival - Home"
-                        class="site-logo-img logo-light-theme"
-                        width="600" height="192"
-                    >
-                </a>
-                <nav class="main-nav">
-    <button class="hamburger-menu" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-navigation">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </button>
-    <ul class="nav-list" id="main-navigation">
-        <li><a href="/index.html" class="nav-link">Home</a></li>
-        
-        <li class="has-submenu">
-            <a href="#" class="nav-link submenu-toggle" aria-haspopup="true">Library <span class="dropdown-icon">▼</span></a>
-            <ul class="submenu">
-                <button type="button" class="drilldown-back" tabindex="0" aria-label="Back to previous menu">Library</button>
-                
-                <li><a href="/xbox-dev-mode/emulators.html" class="nav-link">Emulators</a></li>
-                <li><a href="/xbox-dev-mode/frontends.html" class="nav-link">Frontends</a></li>
-                <li><a href="/xbox-dev-mode/ports.html" class="nav-link">Game Ports</a></li>
-                <li><a href="/xbox-dev-mode/apps.html" class="nav-link">Apps</a></li>
-                <li><a href="/xbox-dev-mode/experimental-apps.html" class="nav-link">Experimental Apps</a></li>
-                <li><a href="/xbox-dev-mode/media-apps.html" class="nav-link">Media Apps</a></li>
-                <li><a href="/xbox-dev-mode/utilities.html" class="nav-link">Utilities</a></li>
-            </ul>
-        </li>
+<main id="main-content">
+    {% include page-hero.html
+        hero_class="frontends-page-hero"
+        aria_label="Xbox Developer Mode Frontends introduction"
+        title="Xbox Dev Mode: Frontends"
+        title_class="frontends-page-title"
+        description="Organize your entire emulation library with a beautiful and seamless user interface. Frontends unify your games and emulators into one easy-to-use platform."
+        description_class="frontends-page-description"
+    %}
 
-        <li class="has-submenu">
-            <a href="#" class="nav-link submenu-toggle" aria-haspopup="true">Guides <span class="dropdown-icon">▼</span></a>
-            <ul class="submenu">
-                <button type="button" class="drilldown-back" tabindex="0" aria-label="Back to previous menu">Guides</button>
-                
-                <li><a href="https://wiki.sternserv.xyz/docs/xbox-setup/xbox-developer-mode-setup" class="nav-link">Dev Mode Activation and Setup</a></li>
-                <li><a href="{% link guides/devmode-bios.md %}" class="nav-link">BIOS Requirements</a></li>
-            </ul>
-        </li>
+    {% include card-page-section-start.html
+        slug="frontends"
+        page_class="frontends-page-section"
+        heading_id="frontends-list-heading"
+        label="Frontends"
+        search_label="Search frontends on this page:"
+        search_help_text="Search by frontend title"
+    %}
 
-        <li><a href="/compatibility.html" class="nav-link">Compatibility</a></li>
-        <li><a href="/about.html" class="nav-link">About</a></li>
-        
-        <li>
-            <button id="theme-toggle"
-                class="theme-toggle-btn"
-                aria-label="Toggle between dark and light mode"
-                aria-pressed="false">
-            </button>
-        </li>
-    </ul>
-</nav>
-            </div>
-        </header>
-
-        <main id="main-content">
-            <section class="hero-section xbox-devmode-hero" aria-label="Xbox Developer Mode Frontends introduction">
-                <img
-    src="/images/devmode/xbox-background-1280.webp"
-    srcset="
-        /images/devmode/xbox-background-640.webp 640w,
-        /images/devmode/xbox-background-960.webp 960w,
-        /images/devmode/xbox-background-1280.webp 1280w"
-    sizes="100vw"
-    width="1280"
-    height="720"
-    alt=""
-    class="hero-background-image"
-    fetchpriority="high"
-    decoding="async">
-                <div class="hero-overlay" aria-hidden="true"></div>
-                <div class="container-fluid hero-content">
-                    <h1>Xbox Dev Mode: Frontends</h1>
-                    <p>
-                        Organize your entire emulation library with a beautiful and seamless user interface.
-                        Frontends unify your games and emulators into one easy-to-use platform.
-                    </p>
-                </div>
-            </section>
-
-            <section id="frontends-list" class="section-padded" aria-labelledby="frontends-list-heading">
-                <div class="container-fluid">
-                    <h2 id="frontends-list-heading" class="text-center">Available Frontends</h2>
-                    <p class="text-center section-description">
-                        Select any card to reveal download links and more
-                        information.
-                    </p>
-
-                    <div class="page-search-container">
-                        <label for="pageSearchInput" class="search-label">Search frontends on this page:</label>
-                        <input
-                            type="search"
-                            id="pageSearchInput"
-                            class="page-search-input"
-                            aria-describedby="searchHelpText"
-                            placeholder="Search..."
-                            autocomplete="off"
-                            aria-controls="pageAutocompleteResults"
-                            role="combobox"
-                            aria-expanded="false"
-                            aria-autocomplete="list"
-                            aria-haspopup="listbox"
-                            aria-owns="pageAutocompleteResults">
-                        <span id="searchHelpText" class="sr-only">Search by frontend title</span>
-                        <div
-                            id="pageAutocompleteResults"
-                            class="autocomplete-container"
-                            role="listbox"
-                            aria-labelledby="frontends-list-heading"
-                            tabindex="-1"
-                        ></div>
-                    </div>
-
-                    <div class="sort-controls">
-    <div class="sort-dropdown">
-        <label for="sortBy">Sort by:</label>
-        <select id="sortBy">
-            <option value="default">Alphabetically</option>
-            <option value="newest">Release Date (Newest)</option>
-            <option value="oldest">Release Date (Oldest)</option>
-            <option value="xbox-series">Xbox Series X|S</option>
-            <option value="xbox-one">Xbox One</option>
-        </select>
+        <div class="card-grid">
+            {% include cards/frontends-grid.html %}
+        </div>
     </div>
-</div>
+</section>
 
-                    <div class="card-grid">
-                    <div class="card" id="launchpass">
-                            <a href="#launchpass" class="card-link" data-modal-trigger="launchpass">
-                                <div class="card-image-container">
-                                    <img src="/xbox-dev-mode/images/frontends/launchpass.webp" alt="LaunchPass Logo" class="card-image">
-                                </div>
-                                <div class="card-content">
-                                    <h3 class="card-title" id="launchpass-title">LaunchPass</h3>
-                                    <p class="card-description">A frontend capable of launching ROMs in most emulators on Xbox.</p>
-                                </div>
-                            </a>
-                            <div class="card-modal-content" data-modal-id="launchpass" style="display: none;">
-                                <ul class="info-list">
-                                    <li class="app-version" data-app-id="launchpass"><strong>Version:</strong> <span class="val">Checking...</span></li>
-                                    <li class="app-release-date" data-app-id="launchpass"><strong>Release date:</strong> <span class="val">Checking...</span></li>
-                                    <li><strong>Developers:</strong> <a href="https://github.com/Misunderstood-Wookiee" class="contributor-name-link">Misunderstood-Wookiee</a> &amp; <div class="contributor-container">
-                                        <a href="#" class="contributor-name-link popover-trigger">DanP</a>
-                                        <div class="popover-menu">
-                                        <a href="https://github.com/danprice142" class="popover-link"><img src="/images/github-logo.svg" alt="GitHub Logo" class="popover-icon">View on GitHub</a>
-                                        <a href="https://ko-fi.com/danp142" class="popover-link"><img src="/images/kofi-logo.svg" alt="Ko-fi Logo" class="popover-icon">Support on Ko-fi</a>
-                                        </div>
-                                    </div></li>
-                                    <li><strong>Compatibility:</strong> Xbox One & Series S|X</li>
-                                    <li><strong>Requires:</strong>
-                                        <ul>
-                                            <li>Install all 4 dependencies.</li>
-                                        <li>Supported emulators.</li>
-                                        <li>External storage for content library.</li>
-                                        <li>PC for setup with LaunchBox.</li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                <div class="card-actions">
-                                    <details class="action-dropdown">
-                                        <summary class="btn btn-primary">Download ▼</summary>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="#" class="download-link" data-app-id="launchpass" data-asset-id="launchpass1">LaunchPass</a></li>
-                                            <li><a href="#" class="download-link" data-app-id="launchpass" data-asset-id="launchpass2">LaunchPass - Dependency files</a></li>
-                                        </ul>
-                                    </details>
-                                    <a href="https://wiki.sternserv.xyz/docs/apps/launchpass-guide" class="btn btn-info">Setup Guide</a>
-                                    <a href="https://youtu.be/1Qo2tqwA5qI" class="btn btn-youtube">Watch Tutorial</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card" id="retropass">
-                            <a href="#retropass" class="card-link" data-modal-trigger="retropass">
-                                <div class="card-image-container">
-                                    <img src="/xbox-dev-mode/images/frontends/retropass.webp" alt="Retro Pass Logo" class="card-image">
-                                </div>
-                                <div class="card-content">
-                                    <h3 class="card-title" id="retropass-title">Retro Pass</h3>
-                                    <p class="card-description">A simple frontend for emulators running on Xbox.</p>
-                                </div>
-                            </a>
-                            <div class="card-modal-content" data-modal-id="retropass" style="display: none;">
-                                <ul class="info-list">
-                                    <li class="app-version" data-app-id="retropass"><strong>Version:</strong> <span class="val">Checking...</span></li>
-                                    <li class="app-release-date" data-app-id="retropass"><strong>Release date:</strong> <span class="val">Checking...</span></li>
-                                    <li><strong>Developer:</strong> <a href="https://github.com/retropassdev" class="contributor-name-link">Retropassdev</a></li>
-                                    <li><strong>Compatibility:</strong> Xbox One & Series S|X</li>
-                                    <li><strong>Requires:</strong>
-                                        <ul>
-                                            <li>Install all 5 (x64) dependencies.</li>
-                                            <li>Supported emulators.</li>
-                                            <li>External storage for content library.</li>
-                                            <li>PC for setup with <a href="https://github.com/retropassdev/RetroPass/blob/main/Docs/SetupLaunchBox.md">LaunchBox</a> or <a href="https://github.com/retropassdev/RetroPass/blob/main/Docs/SetupEmulationStation.md">EmulationStation</a>.</li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                <div class="card-actions">
-                                    <a href="#" class="btn btn-primary download-link" data-app-id="retropass" data-asset-id="retropass">Download</a>
-                                    <a href="https://youtu.be/eaStAmBhnaE" class="btn btn-youtube">Watch Tutorial</a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-
-            <div class="discord-cta-container">
-                <div class="discord-cta">
-                    <p>For further support, please join our Discord community.</p>
-                    <button class="btn btn-discord" data-modal-target="discord-hub" aria-label="Open Discord community modal">
-                        <img src="/images/discord.svg" alt="Discord Logo" aria-hidden="true" class="icon">
-                        <span>Join our Community</span>
-                    </button>
-                </div>
-            </div>
-        </main>
-
-        <footer class="main-footer">
-            <div class="container footer-content">
-                <div class="footer-logo">
-                    <img src="/images/erlogo-white.webp"
-                         alt="Emulation Revival Logo - Dark Version"
-                         class="site-logo-img logo-dark-theme">
-                    <img src="/images/erlogo-black.webp"
-                         alt="Emulation Revival Logo - Light Version"
-                         class="site-logo-img logo-light-theme">
-                </div>
-                <nav class="footer-nav" aria-label="Footer navigation">
-                    <ul>
-                        <li><a href="/index.html"
-                               aria-label="Home - navigate to homepage"
-                               class="footer-nav-link">Home</a></li>
-                        <li><a href="/about.html"
-                               aria-label="About Us - learn about our project"
-                               class="footer-nav-link">About Us</a></li>
-                        <li><a href="/contact.html"
-                               aria-label="Contact - get in touch with us"
-                               class="footer-nav-link">Contact</a></li>
-                        <li><a href="/privacy.html"
-                               aria-label="Privacy Policy - read our privacy policy"
-                               class="footer-nav-link">Privacy Policy</a></li>
-                    </ul>
-                </nav>
-                <div class="social-links">
-                    <button class="footer-modal-trigger" data-modal-target="discord-hub" aria-label="Join our Discord communities">
-                        <img src="/images/discord.svg" alt="Discord Logo" class="social-icon">
-                    </button>
-                </div>
-                <p class="copyright">
-                    © <span id="copyright-year" aria-live="polite">2026</span> Emulation Revival.
-                    All rights reserved.
-                </p>
-            </div>
-        </footer>
-
-        <div class="modal-overlay" id="gameDetailModalOverlay"></div>
-        <div class="modal" id="gameDetailModal" role="dialog" aria-modal="true" aria-labelledby="gameDetailModalTitle">
-            <div class="modal-header">
-                <h3 id="gameDetailModalTitle" class="modal-title">Frontend Details</h3>
-                <button class="modal-close-button" id="gameDetailModalClose" aria-label="Close frontend details">×</button>
-            </div>
-            <div class="modal-body" id="gameDetailModalBody"></div>
-        </div>
-
-        <div class="modal-overlay" id="discordHubOverlay"></div>
-        <div class="modal" id="discordHubModal" role="dialog" aria-modal="true" aria-labelledby="discordHubTitle">
-            <div class="modal-header">
-                <div class="modal-header-thumb">
-                    <img src="/images/discord.svg" alt="" aria-hidden="true">
-                </div>
-                <h3 id="discordHubTitle" class="modal-header-title">Join Our Community</h3>
-                <button class="modal-close-button" id="discordHubClose" aria-label="Close menu">×</button>
-            </div>
-            <div class="modal-body" id="discordHubBody">
-                <p class="text-center" style="margin-bottom: var(--spacing-lg);">Choose a server to join for support and discussion:</p>
-                <div class="discord-grid">
-                    <a href="https://discord.gg/cBYsQCS7j7" class="btn btn-discord" target="_blank" rel="noopener noreferrer">
-                        <img src="/images/discord.svg" alt="" class="icon" aria-hidden="true">
-                        <span>Revives Community</span>
-                    </a>
-                    <a href="https://discord.gg/pVd47KAG24" class="btn btn-discord" target="_blank" rel="noopener noreferrer">
-                        <img src="/images/discord.svg" alt="" class="icon" aria-hidden="true">
-                        <span>Xbox Emulation Hub</span>
-                    </a>
-                    <a href="https://discord.gg/j2HndpJTej" class="btn btn-discord" target="_blank" rel="noopener noreferrer">
-                        <img src="/images/discord.svg" alt="" class="icon" aria-hidden="true">
-                        <span>Emulation Revival</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-<script type="module" src="/js/main.js"></script>
-<script type="module" src="/js/card-logic.js"></script>
-<script type="module" src="/js/page-search-logic.js"></script>
-
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register("{{ '/sw.js' | relative_url }}")
-        .then(registration => { console.log('PWA ServiceWorker registered successfully'); })
-        .catch(err => { console.log('PWA ServiceWorker registration failed: ', err); });
-    });
-  }
-</script>
-    </body>
-</html>
+    {% include discord-cta.html
+        text="For further support, please join our Discord community."
+        text_class="frontends-cta-text"
+    %}
+</main>

@@ -1,5 +1,5 @@
 ---
-layout: template
+layout: guide
 title: "Sonic Unleashed Recompiled Guide"
 permalink: /guides/ports/sonicunleashedrecomp-guide.html
 description: "A guide for setting up Sonic Unleashed Recompiled on dev mode."

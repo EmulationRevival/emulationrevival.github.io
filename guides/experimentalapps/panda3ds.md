@@ -1,5 +1,5 @@
 ---
-layout: template
+layout: guide
 title: "Panda3DS Guide"
 permalink: /guides/experimentalapps/panda3ds-guide.html
 description: "A guide for setting up Panda3DS on dev mode."

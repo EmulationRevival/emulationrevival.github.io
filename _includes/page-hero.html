@@ -1,0 +1,20 @@
+<section class="hero-section xbox-devmode-hero{% if include.hero_class %} {{ include.hero_class }}{% endif %}" aria-label="{{ include.aria_label }}">
+    <img
+        src="/images/devmode/xbox-background-1280.webp"
+        srcset="
+            /images/devmode/xbox-background-640.webp 640w,
+            /images/devmode/xbox-background-960.webp 960w,
+            /images/devmode/xbox-background-1280.webp 1280w"
+        sizes="100vw"
+        width="1280"
+        height="720"
+        alt=""
+        class="hero-background-image"
+        fetchpriority="high"
+        decoding="async">
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="container-fluid hero-content">
+        <h1 class="hero-title{% if include.title_class %} {{ include.title_class }}{% endif %}">{{ include.title }}</h1>
+        <p class="hero-subtitle{% if include.description_class %} {{ include.description_class }}{% endif %}">{{ include.description }}</p>
+    </div>
+</section>

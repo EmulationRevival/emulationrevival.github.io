@@ -1,5 +1,5 @@
 ---
-layout: template
+layout: guide
 title: "ChonkyStation 3 Guide"
 permalink: /guides/experimentalapps/chonkystation3-guide.html
 description: "A guide for setting up ChonkyStation 3 on dev mode."

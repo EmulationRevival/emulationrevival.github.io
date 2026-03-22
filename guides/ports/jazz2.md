@@ -1,5 +1,5 @@
 ---
-layout: template
+layout: guide
 title: "Jazz² Resurrection Guide"
 permalink: /guides/ports/jazz2-guide.html
 description: "A guide for setting up Jazz² Resurrection on dev mode."

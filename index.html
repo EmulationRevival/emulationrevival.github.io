@@ -1,314 +1,136 @@
 ---
+layout: default
+title: "Xbox Dev Mode: Emulators, Apps & Game Ports | Emulation Revival"
+description: Your ultimate hub for Xbox Developer Mode emulators, game ports, apps, and step-by-step guides.
+canonical: https://emulationrevival.github.io/
+use_sitewide_search: true
+extra_scripts:
+  - /js/sitewide-search.js
+  - /js/recent-updates.js
 ---
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content">
-        <title>Xbox Dev Mode: Emulators, Apps & Game Ports | Emulation Revival</title>
-        <link rel="canonical" href="https://emulationrevival.github.io/">
-        <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
-        <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
-        <link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
-        <meta name="description" content="Your ultimate hub for Xbox Developer Mode emulators, game ports, apps, and step-by-step guides.">
-        <link rel="preload" href="{{ '/fonts/oxanium-wght.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
-        <link rel="preload" href="{{ '/fonts/robotomono-wght.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
-        <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
-        <script id="polyfill-inert"> 
-  if (!('inert' in HTMLElement.prototype) && !document.querySelector('script[data-inert-polyfill]')) { 
-    const s = document.createElement('script'); 
-    s.src = "{{ '/js/inert.min.js' | relative_url }}"; 
-    s.dataset.inertPolyfill = "true"; 
-    document.head.appendChild(s); 
-  } 
-</script>
-    </head>
 
-    <body>
-        <header class="main-header">
-            <a href="#main-content" class="skip-link">Skip to main content</a>
-            <div class="container header-content">
-                <a href="/index.html" class="site-logo">
-                    <img src="/images/erlogo-white.webp" alt="Emulation Revival - Home" class="site-logo-img logo-dark-theme" width="600" height="192">
-                    <img src="/images/erlogo-black.webp" alt="Emulation Revival - Home" class="site-logo-img logo-light-theme" width="600" height="192">
-                </a>
-                <nav class="main-nav">
-    <button class="hamburger-menu" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-navigation">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </button>
-    <ul class="nav-list" id="main-navigation">
-        <li><a href="/index.html" class="nav-link">Home</a></li>
-        
-        <li class="has-submenu">
-            <a href="#" class="nav-link submenu-toggle" aria-haspopup="true">Library <span class="dropdown-icon">▼</span></a>
-            <ul class="submenu">
-                <button type="button" class="drilldown-back" tabindex="0" aria-label="Back to previous menu">Library</button>
-                
-                <li><a href="/xbox-dev-mode/emulators.html" class="nav-link">Emulators</a></li>
-                <li><a href="/xbox-dev-mode/frontends.html" class="nav-link">Frontends</a></li>
-                <li><a href="/xbox-dev-mode/ports.html" class="nav-link">Game Ports</a></li>
-                <li><a href="/xbox-dev-mode/apps.html" class="nav-link">Apps</a></li>
-                <li><a href="/xbox-dev-mode/experimental-apps.html" class="nav-link">Experimental Apps</a></li>
-                <li><a href="/xbox-dev-mode/media-apps.html" class="nav-link">Media Apps</a></li>
-                <li><a href="/xbox-dev-mode/utilities.html" class="nav-link">Utilities</a></li>
-            </ul>
-        </li>
+<main id="main-content">
+    <section class="hero-section hero-section-home" aria-label="Welcome to Emulation Revival">
+        <img
+            src="/images/devmode/xbox-background-1280.webp"
+            srcset="
+                /images/devmode/xbox-background-640.webp 640w,
+                /images/devmode/xbox-background-960.webp 960w,
+                /images/devmode/xbox-background-1280.webp 1280w"
+            sizes="100vw"
+            width="1280"
+            height="720"
+            alt=""
+            class="hero-background-image"
+            fetchpriority="high"
+            decoding="async">
+        <div class="hero-overlay" aria-hidden="true"></div>
 
-        <li class="has-submenu">
-            <a href="#" class="nav-link submenu-toggle" aria-haspopup="true">Guides <span class="dropdown-icon">▼</span></a>
-            <ul class="submenu">
-                <button type="button" class="drilldown-back" tabindex="0" aria-label="Back to previous menu">Guides</button>
-                
-                <li><a href="https://wiki.sternserv.xyz/docs/xbox-setup/xbox-developer-mode-setup" class="nav-link">Dev Mode Activation and Setup</a></li>
-                <li><a href="{% link guides/devmode-bios.md %}" class="nav-link">BIOS Requirements</a></li>
-            </ul>
-        </li>
-
-        <li><a href="/compatibility.html" class="nav-link">Compatibility</a></li>
-        <li><a href="/about.html" class="nav-link">About</a></li>
-        
-        <li>
-            <button id="theme-toggle"
-                class="theme-toggle-btn"
-                aria-label="Toggle between dark and light mode"
-                aria-pressed="false">
-            </button>
-        </li>
-    </ul>
-</nav>
+        <div class="container-fluid hero-content">
+            <h1 class="hero-title">Unlock Your Xbox</h1>
+            <p class="hero-subtitle">
+                The ultimate, community-driven hub for safe Xbox Developer Mode emulation. Play classics from PS2, GameCube, Dreamcast and more.
+            </p>
+            <div class="emulator-links hero-actions">
+                <a href="https://wiki.sternserv.xyz/docs/xbox-setup/xbox-developer-mode-setup" class="btn btn-primary">Start the Guide</a>
+                <a href="/xbox-dev-mode/emulators.html" class="btn btn-info">Browse Emulators</a>
             </div>
-        </header>
+        </div>
+    </section>
 
-        <main id="main-content">
-            <section class="hero-section" aria-label="Welcome to Emulation Revival">
-                <img
-    src="/images/devmode/xbox-background-1280.webp"
-    srcset="
-        /images/devmode/xbox-background-640.webp 640w,
-        /images/devmode/xbox-background-960.webp 960w,
-        /images/devmode/xbox-background-1280.webp 1280w"
-    sizes="100vw"
-    width="1280"
-    height="720"
-    alt=""
-    class="hero-background-image"
-    fetchpriority="high"
-    decoding="async">
-                <div class="hero-overlay" aria-hidden="true"></div>
-                
-                <div class="container-fluid hero-content">
-                    <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: var(--spacing-sm);">Unlock Your Xbox</h1>
-                    <p style="font-size: 1.25rem; max-width: 700px; margin: 0 auto; color: var(--color-text-light);">
-                        The ultimate, community-driven hub for safe Xbox Developer Mode emulation. Play classics from PS2, GameCube, Dreamcast and more.
-                    </p>
-                    <div class="emulator-links">
-                        <a href="https://wiki.sternserv.xyz/docs/xbox-setup/xbox-developer-mode-setup" class="btn btn-primary">Start the Guide</a>
-                        <a href="/xbox-dev-mode/emulators.html" class="btn btn-info">Browse Emulators</a>
+    <section class="getting-started-section section-padded">
+        <div class="container-fluid">
+            <h2 class="text-center section-title">How It Works</h2>
+            <div class="guide-grid">
+                <div class="guide-step">
+                    <div class="step-content-wrapper">
+                        <div class="step-number">1</div>
+                        <h3 class="step-title">Activate Dev Mode</h3>
+                        <p class="step-description">Officially unlock your console using Microsoft's developer portal. No hacking required.</p>
                     </div>
                 </div>
-            </section>
-            
-            <section class="section-padded" style="background-color: var(--color-background-medium);">
-                <div class="container-fluid">
-                    <div class="page-search-container" style="max-width: 700px; margin: 0 auto;">
-                        <label for="sitewideSearch" class="search-label">Search the Revival Library:</label>
-                        <input 
-                            type="search" 
-                            id="sitewideSearch" 
-                            class="page-search-input" 
-                            placeholder="Search..."
-                            autocomplete="off"
-                            aria-label="Search the entire library"
-                            role="combobox"
-                            aria-expanded="false"
-                            aria-autocomplete="list"
-                            aria-haspopup="listbox"
-                            aria-owns="sitewideAutocomplete"
-                            aria-controls="sitewideAutocomplete"
-                        >
-                        <div id="sitewideAutocomplete" class="autocomplete-container" role="listbox"></div>
-                    </div>                    
-                </div>
-            </section>
-
-            <section class="getting-started-section section-padded">
-                <div class="container-fluid">
-                    <h2 class="text-center">How It Works</h2>
-                    <div class="guide-grid">
-                        <div class="guide-step">
-                            <div class="step-content-wrapper">
-                                <div class="step-number">1</div>
-                                <h3>Activate Dev Mode</h3>
-                                <p>Officially unlock your console using Microsoft's developer portal. No hacking required.</p>
-                            </div>
-                        </div>
-                        <div class="guide-step">
-                            <div class="step-content-wrapper">
-                                <div class="step-number">2</div>
-                                <h3>Install Emulators</h3>
-                                <p>Download optimized emulators and install them via your network browser.</p>
-                            </div>
-                        </div>
-                        <div class="guide-step">
-                            <div class="step-content-wrapper">
-                                <div class="step-number">3</div>
-                                <h3>Add Your Games</h3>
-                                <p>Format your USB drive for Xbox and start playing your legally owned backups.</p>
-                            </div>
-                        </div>
+                <div class="guide-step">
+                    <div class="step-content-wrapper">
+                        <div class="step-number">2</div>
+                        <h3 class="step-title">Install Emulators</h3>
+                        <p class="step-description">Download optimized emulators and install them via your network browser.</p>
                     </div>
                 </div>
-            </section>
-            
-            <section class="section-padded" id="recent-updates-section" style="display: none;">
-    <div class="container-fluid">
-        <h2 class="text-center">Recently Updated</h2>
-        <div class="card-grid" id="recent-updates-grid">
-            </div>
-    </div>
-</section>
-
-            <section class="section-padded">
-                <div class="container-fluid">
-                    <h2 class="text-center">Featured Highlights</h2>
-                    <div class="card-grid">
-                        <div class="card">
-                            <a href="/xbox-dev-mode/emulators.html#xbsx2" class="card-link">
-                                <div class="card-image-container">
-                                    <img src="/xbox-dev-mode/images/emulators/xbsx2.webp" alt="XBSX2" class="card-image">
-                                </div>
-                                <div class="card-content">
-                                    <h3 class="card-title">XBSX2</h3>
-                                    <p class="card-description">Playstation 2 emulation fully optimized for Xbox.</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="card">
-                            <a href="/xbox-dev-mode/emulators.html#dolphin" class="card-link">
-                                <div class="card-image-container">
-                                    <img src="/xbox-dev-mode/images/emulators/dolphin.webp" alt="Dolphin" class="card-image">
-                                </div>
-                                <div class="card-content">
-                                    <h3 class="card-title">Dolphin</h3>
-                                    <p class="card-description">The premier GameCube and Wii emulator for your console.</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="card">
-                            <a href="/xbox-dev-mode/emulators.html#retroarch" class="card-link">
-                                <div class="card-image-container">
-                                    <img src="/xbox-dev-mode/images/emulators/retroarch.webp" alt="RetroArch" class="card-image">
-                                </div>
-                                <div class="card-content">
-                                    <h3 class="card-title">RetroArch</h3>
-                                    <p class="card-description">The ultimate frontend for classic console emulation.</p>
-                                </div>
-                            </a>
-                        </div>
+                <div class="guide-step">
+                    <div class="step-content-wrapper">
+                        <div class="step-number">3</div>
+                        <h3 class="step-title">Add Your Games</h3>
+                        <p class="step-description">Format your USB drive for Xbox and start playing your legally owned backups.</p>
                     </div>
                 </div>
-            </section>
+            </div>
+        </div>
+    </section>
 
-            <section class="introduction-section section-padded">
-                <div class="container-fluid">
-                    <div class="dual-column-grid">
-                        <div class="video-wrapper lite-youtube" data-video-id="E7ZWmKh8urg">
-    <img src="https://i.ytimg.com/vi/E7ZWmKh8urg/maxresdefault.jpg" alt="Xbox Dev Mode Guide" loading="lazy">
-    <button class="lite-play-btn" aria-label="Play Video"></button>
-</div>
-                        <div>
-                            <h2>Need Help?</h2>
-                            <p>Watch our video guide to see exactly how Dev Mode is activated. Still stuck? Join our Discord servers for real-time support from the community.</p>
-                            <button class="btn btn-discord" data-modal-target="discord-hub" aria-label="Open Discord community modal">
-                                <img src="/images/discord.svg" alt="Discord Logo" class="icon" aria-hidden="true">
-                                <span>Join the Discord</span>
-                            </button>
+    <section class="section-padded recent-updates-section" id="recent-updates-section" style="display: none;">
+        <div class="container-fluid">
+            <h2 class="text-center section-title">Recently Updated</h2>
+            <div class="card-grid recent-updates-grid" id="recent-updates-grid"></div>
+        </div>
+    </section>
+
+    <section class="section-padded featured-highlights-section">
+        <div class="container-fluid">
+            <h2 class="text-center section-title">Featured Highlights</h2>
+            <div class="card-grid featured-highlights-grid">
+                <div class="card">
+                    <a href="/xbox-dev-mode/emulators.html#xbsx2" class="card-link">
+                        <div class="card-image-container">
+                            <img src="/xbox-dev-mode/images/emulators/xbsx2.webp" alt="XBSX2" class="card-image">
                         </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <footer class="main-footer">
-            <div class="container footer-content">
-                <div class="footer-logo">
-                    <img src="/images/erlogo-white.webp"
-                         alt="Emulation Revival Logo - Dark Version"
-                         class="site-logo-img logo-dark-theme">
-                    <img src="/images/erlogo-black.webp"
-                         alt="Emulation Revival Logo - Light Version"
-                         class="site-logo-img logo-light-theme">
-                </div>
-                <nav class="footer-nav" aria-label="Footer navigation">
-                    <ul>
-                        <li><a href="/index.html"
-                               aria-label="Home - navigate to homepage"
-                               class="footer-nav-link">Home</a></li>
-                        <li><a href="/about.html"
-                               aria-label="About Us - learn about our project"
-                               class="footer-nav-link">About Us</a></li>
-                        <li><a href="/contact.html"
-                               aria-label="Contact - get in touch with us"
-                               class="footer-nav-link">Contact</a></li>
-                        <li><a href="/privacy.html"
-                               aria-label="Privacy Policy - read our privacy policy"
-                               class="footer-nav-link">Privacy Policy</a></li>
-                    </ul>
-                </nav>
-                <div class="social-links">
-                    <button class="footer-modal-trigger" data-modal-target="discord-hub" aria-label="Join our Discord communities">
-                        <img src="/images/discord.svg" alt="Discord Logo" class="social-icon">
-                    </button>
-                </div>
-                <p class="copyright">
-                    © <span id="copyright-year" aria-live="polite">2026</span> Emulation Revival.
-                    All rights reserved.
-                </p>
-            </div>
-        </footer>
-
-        <div class="modal-overlay" id="discordHubOverlay"></div>
-        <div class="modal" id="discordHubModal" role="dialog" aria-modal="true" aria-labelledby="discordHubTitle">
-            <div class="modal-header">
-                <div class="modal-header-thumb">
-                    <img src="/images/discord.svg" alt="" aria-hidden="true">
-                </div>
-                <h3 id="discordHubTitle" class="modal-header-title">Join Our Community</h3>
-                <button class="modal-close-button" id="discordHubClose" aria-label="Close menu">×</button>
-            </div>
-            <div class="modal-body" id="discordHubBody">
-                <p class="text-center" style="margin-bottom: var(--spacing-lg);">Choose a server to join for support and discussion:</p>
-                <div class="discord-grid">
-                    <a href="https://discord.gg/cBYsQCS7j7" class="btn btn-discord" target="_blank" rel="noopener noreferrer">
-                        <img src="/images/discord.svg" alt="" class="icon" aria-hidden="true">
-                        <span>Revives Community</span>
+                        <div class="card-content">
+                            <h3 class="card-title">XBSX2</h3>
+                            <p class="card-description">Playstation 2 emulation fully optimized for Xbox.</p>
+                        </div>
                     </a>
-                    <a href="https://discord.gg/pVd47KAG24" class="btn btn-discord" target="_blank" rel="noopener noreferrer">
-                        <img src="/images/discord.svg" alt="" class="icon" aria-hidden="true">
-                        <span>Xbox Emulation Hub</span>
+                </div>
+                <div class="card">
+                    <a href="/xbox-dev-mode/emulators.html#dolphin" class="card-link">
+                        <div class="card-image-container">
+                            <img src="/xbox-dev-mode/images/emulators/dolphin.webp" alt="Dolphin" class="card-image">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Dolphin</h3>
+                            <p class="card-description">The premier GameCube and Wii emulator for your console.</p>
+                        </div>
                     </a>
-                    <a href="https://discord.gg/j2HndpJTej" class="btn btn-discord" target="_blank" rel="noopener noreferrer">
-                        <img src="/images/discord.svg" alt="" class="icon" aria-hidden="true">
-                        <span>Emulation Revival</span>
+                </div>
+                <div class="card">
+                    <a href="/xbox-dev-mode/emulators.html#retroarch" class="card-link">
+                        <div class="card-image-container">
+                            <img src="/xbox-dev-mode/images/emulators/retroarch.webp" alt="RetroArch" class="card-image">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">RetroArch</h3>
+                            <p class="card-description">The ultimate frontend for classic console emulation.</p>
+                        </div>
                     </a>
                 </div>
             </div>
         </div>
+    </section>
 
-<script type="module" src="/js/main.js"></script>
-<script type="module" src="/js/sitewide-search.js"></script>
-<script type="module" src="/js/recent-updates.js"></script>
-
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register("{{ '/sw.js' | relative_url }}")
-        .then(registration => { console.log('PWA ServiceWorker registered successfully'); })
-        .catch(err => { console.log('PWA ServiceWorker registration failed: ', err); });
-    });
-  }
-</script>       
-    </body>
-</html>
+    <section class="introduction-section section-padded support-section">
+        <div class="container-fluid">
+            <div class="dual-column-grid support-grid">
+                <div class="video-wrapper lite-youtube support-video" data-video-id="E7ZWmKh8urg">
+                    <img src="https://i.ytimg.com/vi/E7ZWmKh8urg/maxresdefault.jpg" alt="Xbox Dev Mode Guide" loading="lazy">
+                    <button class="lite-play-btn" aria-label="Play Video"></button>
+                </div>
+                <div class="support-content">
+                    <h2 class="support-title">Need Help?</h2>
+                    <p class="support-description">Watch our video guide to see exactly how Dev Mode is activated. Still stuck? Join our Discord servers for real-time support from the community.</p>
+                    <button class="btn btn-discord support-discord-button" data-modal-target="discord-hub" aria-label="Open Discord community modal">
+                        <img src="/images/discord.svg" alt="Discord Logo" class="icon" aria-hidden="true">
+                        <span>Join the Discord</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

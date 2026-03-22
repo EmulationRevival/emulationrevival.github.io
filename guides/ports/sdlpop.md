@@ -1,5 +1,5 @@
 ---
-layout: template
+layout: guide
 title: "SDLPOP (Prince of Persia) Guide"
 permalink: /guides/ports/sdlpop-guide.html
 description: "A guide for setting up SDLPOP (Prince of Persia) on dev mode."

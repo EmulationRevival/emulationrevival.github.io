@@ -1,8 +1,5 @@
 import { scheduleTask, createFocusTrap } from './ui-utils.js';
 
-// =========================
-// CONFIG
-// =========================
 const C = {
   SEL: {
     HAMBURGER: '.hamburger-menu',
@@ -23,11 +20,12 @@ const C = {
     MOBILE: 992,
   },
   THEME_KEY: 'theme',
+  EVENTS: {
+    REQUEST_MOBILE_SEARCH_PANEL: 'requestMobileSearchPanel',
+    NAV_MENU_STATE_CHANGE: 'navMenuStateChange',
+  },
 };
 
-// =========================
-// DOM CACHE
-// =========================
 const el = {
   hamburger: document.querySelector(C.SEL.HAMBURGER),
   nav: document.querySelector(C.SEL.NAV_LIST),
@@ -41,18 +39,12 @@ const el = {
   discordClose: document.querySelector(C.SEL.DISCORD_CLOSE),
 };
 
-// =========================
-// STATE
-// =========================
 const state = {
   isMobile: window.matchMedia(`(max-width:${C.BP.MOBILE}px)`).matches,
 };
 
 const focusTrap = createFocusTrap();
 
-// =========================
-// UTIL: SCROLL LOCK
-// =========================
 let scrollLocks = 0;
 let scrollBarWidth = '0px';
 
@@ -86,9 +78,6 @@ window.addEventListener('requestScrollLock', event => {
   }
 });
 
-// =========================
-// MODAL
-// =========================
 function toggleModal(force) {
   const { discordModal, discordOverlay } = el;
   if (!discordModal || !discordOverlay) return;
@@ -118,16 +107,44 @@ el.discordTriggers.forEach(trigger => {
 el.discordClose?.addEventListener('click', () => toggleModal(false));
 el.discordOverlay?.addEventListener('click', () => toggleModal(false));
 
-// =========================
-// MENU
-// =========================
 function resetSubmenus() {
   el.submenus.forEach(menu => menu.classList.remove(C.CLS.ACTIVE));
   el.submenuLinks.forEach(link => link.setAttribute('aria-expanded', 'false'));
 }
 
+function notifyNavMenuState(open) {
+  window.dispatchEvent(new CustomEvent(C.EVENTS.NAV_MENU_STATE_CHANGE, {
+    detail: { open },
+  }));
+}
+
+function openMenu({ focusTarget = null, activateTrap = true } = {}) {
+  if (!el.nav) return;
+
+  const wasOpen = el.nav.classList.contains(C.CLS.ACTIVE);
+
+  el.nav.classList.add(C.CLS.ACTIVE);
+  el.hamburger?.classList.add(C.CLS.ACTIVE);
+  el.hamburger?.setAttribute('aria-expanded', 'true');
+
+  if (!wasOpen) {
+    setScrollLock(true);
+    if (activateTrap) {
+      focusTrap.activate(el.nav);
+    }
+    notifyNavMenuState(true);
+  }
+
+  if (focusTarget && document.contains(focusTarget)) {
+    requestAnimationFrame(() => {
+      focusTarget.focus({ preventScroll: true });
+    });
+  }
+}
+
 function closeMenu() {
   if (!el.nav) return;
+  if (!el.nav.classList.contains(C.CLS.ACTIVE)) return;
 
   el.nav.classList.remove(C.CLS.ACTIVE);
   el.hamburger?.classList.remove(C.CLS.ACTIVE);
@@ -136,26 +153,27 @@ function closeMenu() {
   resetSubmenus();
   focusTrap.deactivate();
   setScrollLock(false);
+  notifyNavMenuState(false);
 }
 
 el.hamburger?.addEventListener('click', event => {
   event.stopPropagation();
 
-  const open = el.nav.classList.toggle(C.CLS.ACTIVE);
-  el.hamburger.classList.toggle(C.CLS.ACTIVE, open);
-  el.hamburger.setAttribute('aria-expanded', open);
-
-  if (open) {
-    setScrollLock(true);
-    focusTrap.activate(el.nav);
-  } else {
+  if (el.nav?.classList.contains(C.CLS.ACTIVE)) {
     closeMenu();
+  } else {
+    openMenu({ activateTrap: false });
   }
 });
 
-// =========================
-// SUBMENUS
-// =========================
+window.addEventListener(C.EVENTS.REQUEST_MOBILE_SEARCH_PANEL, event => {
+  if (!state.isMobile) return;
+  openMenu({
+    focusTarget: event.detail?.focusTarget || null,
+    activateTrap: false,
+  });
+});
+
 el.submenuLinks.forEach(link => {
   const submenu = link.parentElement?.querySelector(C.SEL.SUBMENU);
   if (!submenu) return;
@@ -188,9 +206,6 @@ el.submenuLinks.forEach(link => {
   });
 });
 
-// =========================
-// NAV DELEGATION
-// =========================
 el.nav?.addEventListener('click', event => {
   const back = event.target.closest(`.${C.CLS.BACK}`);
   if (back) {
@@ -209,9 +224,6 @@ el.nav?.addEventListener('click', event => {
   closeMenu();
 });
 
-// =========================
-// ESC HANDLER
-// =========================
 document.addEventListener('keydown', event => {
   if (event.key !== 'Escape') return;
 
@@ -235,9 +247,6 @@ document.addEventListener('keydown', event => {
   }
 });
 
-// =========================
-// MEDIA QUERY
-// =========================
 const mq = window.matchMedia(`(max-width:${C.BP.MOBILE}px)`);
 const handleMqChange = event => {
   state.isMobile = event.matches;
@@ -250,9 +259,6 @@ if (mq.addEventListener) {
   mq.addListener(handleMqChange);
 }
 
-// =========================
-// THEME
-// =========================
 if (el.themeToggle) {
   const saved =
     localStorage.getItem(C.THEME_KEY) ||
@@ -269,9 +275,6 @@ if (el.themeToggle) {
   });
 }
 
-// =========================
-// DEFERRED TASKS
-// =========================
 scheduleTask(() => {
   const copyYear = document.getElementById('copyright-year');
   if (copyYear) copyYear.textContent = new Date().getFullYear();
@@ -321,9 +324,6 @@ scheduleTask(() => {
   });
 });
 
-// =========================
-// BF CACHE FIX
-// =========================
 window.addEventListener('pageshow', event => {
   if (event.persisted) closeMenu();
 });

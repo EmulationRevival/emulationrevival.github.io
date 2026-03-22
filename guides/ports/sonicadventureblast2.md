@@ -1,5 +1,5 @@
 ---
-layout: template
+layout: guide
 title: "Sonic Adventure Blast 2 Guide"
 permalink: /guides/ports/sonicadventureblast2-guide.html
 description: "A guide for setting up Sonic Adventure Blast 2 on dev mode."

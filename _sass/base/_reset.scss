@@ -4,10 +4,6 @@
     padding: 0;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -15,6 +11,10 @@ body {
 
 body.no-scroll {
     overflow: hidden;
+    overflow-x: hidden;
+    overscroll-behavior-x: none;
+    position: fixed;
+    width: 100%;
     padding-right: var(--scrollbar-width, 0px);
 }
 
@@ -34,4 +34,3 @@ p, h1, h2, h3, h4, h5, h6 {
 ul, ol {
     list-style: none;
 }
-

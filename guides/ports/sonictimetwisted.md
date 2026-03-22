@@ -1,5 +1,5 @@
 ---
-layout: template
+layout: guide
 title: "Sonic Time Twisted Guide"
 permalink: /guides/ports/sonictimetwisted-guide.html
 description: "A guide for setting up Sonic Time Twisted on dev mode."

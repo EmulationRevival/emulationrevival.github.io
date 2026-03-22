@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content">
+    <title>{{ page.title }}</title>
+    <meta name="description" content="{{ page.description }}">
+    {% if page.canonical %}
+    <link rel="canonical" href="{{ page.canonical }}">
+    {% endif %}
+    <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
+    <link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
+    <link rel="preload" href="{{ '/fonts/oxanium-wght.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
+    <script id="polyfill-inert">
+      if (!('inert' in HTMLElement.prototype) && !document.querySelector('script[data-inert-polyfill]')) {
+        const s = document.createElement('script');
+        s.src = "{{ '/js/inert.min.js' | relative_url }}";
+        s.dataset.inertPolyfill = "true";
+        document.head.appendChild(s);
+      }
+    </script>
+    {% if page.head_extra %}{{ page.head_extra }}{% endif %}
+</head>
+<body{% if page.body_class %} class="{{ page.body_class }}"{% endif %}>
+    {% include header.html %}
+
+    {{ content }}
+
+    {% include footer.html %}
+
+    <div class="modal-overlay" id="discordHubOverlay"></div>
+    <div class="modal" id="discordHubModal" role="dialog" aria-modal="true" aria-labelledby="discordHubTitle">
+        <div class="modal-header">
+            <div class="modal-header-thumb">
+                <img src="/images/discord.svg" alt="" aria-hidden="true">
+            </div>
+            <h3 id="discordHubTitle" class="modal-header-title">Join Our Community</h3>
+            <button class="modal-close-button" id="discordHubClose" aria-label="Close menu">×</button>
+        </div>
+        <div class="modal-body" id="discordHubBody">
+            <p class="text-center discord-modal-description">Choose a server to join for support and discussion:</p>
+            <div class="discord-grid">
+                <a href="https://discord.gg/cBYsQCS7j7" class="btn btn-discord" target="_blank" rel="noopener noreferrer">
+                    <img src="/images/discord.svg" alt="" class="icon" aria-hidden="true">
+                    <span>Revives Community</span>
+                </a>
+                <a href="https://discord.gg/pVd47KAG24" class="btn btn-discord" target="_blank" rel="noopener noreferrer">
+                    <img src="/images/discord.svg" alt="" class="icon" aria-hidden="true">
+                    <span>Xbox Emulation Hub</span>
+                </a>
+                <a href="https://discord.gg/j2HndpJTej" class="btn btn-discord" target="_blank" rel="noopener noreferrer">
+                    <img src="/images/discord.svg" alt="" class="icon" aria-hidden="true">
+                    <span>Emulation Revival</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    {% if page.use_card_modal %}
+    <div class="modal-overlay" id="gameDetailModalOverlay"></div>
+    <div class="modal" id="gameDetailModal" role="dialog" aria-modal="true" aria-labelledby="gameDetailModalTitle">
+        <div class="modal-header">
+            <h3 id="gameDetailModalTitle" class="modal-title">{{ page.card_modal_title | default: 'Details' }}</h3>
+            <button class="modal-close-button" id="gameDetailModalClose" aria-label="Close details">×</button>
+        </div>
+        <div class="modal-body" id="gameDetailModalBody"></div>
+    </div>
+    {% endif %}
+
+    <script type="module" src="{{ '/js/main.js' | relative_url }}"></script>
+    {% if page.use_sitewide_search %}
+    <script type="module" src="{{ '/js/sitewide-search.js' | relative_url }}"></script>
+    {% endif %}
+    {% if page.extra_scripts %}
+        {% for script in page.extra_scripts %}
+    <script type="module" src="{{ script | relative_url }}"></script>
+        {% endfor %}
+    {% endif %}
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register("{{ '/sw.js' | relative_url }}")
+            .then(registration => { console.log('PWA ServiceWorker registered successfully'); })
+            .catch(err => { console.log('PWA ServiceWorker registration failed: ', err); });
+        });
+      }
+    </script>
+</body>
+</html>

@@ -1,5 +1,5 @@
 ---
-layout: template
+layout: guide
 title: "OpenLara Guide"
 permalink: /guides/ports/openlara-guide.html
 description: "A guide for setting up OpenLara on dev mode."

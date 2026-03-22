@@ -1,4 +1,15 @@
-// --- CONSTANTS ---
+import {
+  debounce,
+  stripAccents,
+  getOrCreateLiveRegion,
+  setupComboboxAria,
+  setAutocompleteVisibility,
+  clearSuggestions,
+  syncAriaState,
+  moveActiveSuggestion,
+  setupClearableSearchInput,
+} from './search-utils.js';
+
 const IDS = {
   SEARCH_INPUT_ID: 'pageSearchInput',
   RESULTS_CONTAINER_ID: 'pageAutocompleteResults',
@@ -21,25 +32,6 @@ const CLASSES = {
   SUGGESTION_NAME: 'suggestion-name',
   NO_RESULTS: 'autocomplete-no-results',
   ACTIVE: 'is-active',
-};
-
-const ATTRIBUTES = {
-  ROLE: 'role',
-  ARIA_AUTOCOMPLETE: 'aria-autocomplete',
-  ARIA_HASPOPUP: 'aria-haspopup',
-  ARIA_CONTROLS: 'aria-controls',
-  ARIA_EXPANDED: 'aria-expanded',
-  ARIA_LABEL: 'aria-label',
-  ARIA_SELECTED: 'aria-selected',
-  ARIA_ACTIVEDESCENDANT: 'aria-activedescendant',
-  TABINDEX: 'tabindex',
-};
-
-const ROLES = {
-  COMBOBOX: 'combobox',
-  LISTBOX: 'listbox',
-  OPTION: 'option',
-  STATUS: 'status',
 };
 
 const EVENTS = {
@@ -78,64 +70,38 @@ const TEMPLATES = {
   ),
 };
 
-// --- DOM ELEMENTS ---
 const searchInput = document.getElementById(IDS.SEARCH_INPUT_ID);
 const autocompleteResults = document.getElementById(IDS.RESULTS_CONTAINER_ID);
 const sortSelect = document.getElementById(IDS.SORT_BY);
 const mainHeader = document.querySelector(SELECTORS.MAIN_HEADER);
 
-// --- EARLY NULL CHECKS ---
 if (!searchInput || !autocompleteResults) {
-  // Module script; safe early exit if search UI is not present on page.
 } else {
-  // --- STATE ---
+  const activeSuggestionIndexRef = { value: -1 };
+  const currentSuggestionsRef = { value: [] };
+
   let searchIndexCache = [];
   let searchIndexPromise = null;
-  let currentSuggestions = [];
-  let activeSuggestionIndex = -1;
   let highlightTimeoutId = null;
 
-  // O(1) DOM lookup and cheap visibility cache
-  const elementMap = new Map();     // id -> element
-  const visibilityCache = new WeakMap(); // element -> visible boolean
+  const elementMap = new Map();
+  const visibilityCache = new WeakMap();
 
-  // --- LIVE REGION ---
-  let liveRegion = document.getElementById(IDS.LIVE_REGION_ID);
-  if (!liveRegion) {
-    liveRegion = document.createElement('div');
-    liveRegion.id = IDS.LIVE_REGION_ID;
-    liveRegion.setAttribute(ATTRIBUTES.ROLE, ROLES.STATUS);
-    liveRegion.setAttribute('aria-live', 'polite');
-    liveRegion.setAttribute('aria-atomic', 'true');
-    liveRegion.className = 'sr-only';
-    autocompleteResults.parentNode?.appendChild(liveRegion);
-  }
+  const liveRegion = getOrCreateLiveRegion({
+    id: IDS.LIVE_REGION_ID,
+    parent: autocompleteResults.parentNode,
+  });
 
-  // --- ARIA SETUP ---
-  searchInput.setAttribute(ATTRIBUTES.ROLE, ROLES.COMBOBOX);
-  searchInput.setAttribute(ATTRIBUTES.ARIA_AUTOCOMPLETE, 'list');
-  searchInput.setAttribute(ATTRIBUTES.ARIA_HASPOPUP, ROLES.LISTBOX);
-  searchInput.setAttribute(ATTRIBUTES.ARIA_CONTROLS, IDS.RESULTS_CONTAINER_ID);
-  searchInput.setAttribute(ATTRIBUTES.ARIA_EXPANDED, 'false');
-
-  autocompleteResults.setAttribute(ATTRIBUTES.ROLE, ROLES.LISTBOX);
-  autocompleteResults.setAttribute(ATTRIBUTES.ARIA_LABEL, TEMPLATES.ARIA_LABEL_SUGGESTIONS);
-
-  // --- UTILITIES ---
-  function stripAccents(str) {
-    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
-  }
-
-  function debounce(fn, wait) {
-    let timeoutId;
-    return function debounced(...args) {
-      clearTimeout(timeoutId);
-      timeoutId = setTimeout(() => fn.apply(this, args), wait);
-    };
-  }
+  setupComboboxAria({
+    input: searchInput,
+    resultsContainer: autocompleteResults,
+    resultsId: IDS.RESULTS_CONTAINER_ID,
+    ariaLabel: TEMPLATES.ARIA_LABEL_SUGGESTIONS,
+  });
 
   function buildElementIndex() {
     elementMap.clear();
+
     document.querySelectorAll(SELECTORS.CARD).forEach(card => {
       if (card.id) {
         elementMap.set(card.id, card);
@@ -150,30 +116,53 @@ if (!searchInput || !autocompleteResults) {
     });
   }
 
-  function setAutocompleteVisibility(visible) {
-    autocompleteResults.style.display = visible ? 'block' : 'none';
-    searchInput.setAttribute(ATTRIBUTES.ARIA_EXPANDED, visible ? 'true' : 'false');
+  function resetSearchUI({ blur = false } = {}) {
+    searchInput.value = '';
 
-    if (!visible) {
-      searchInput.removeAttribute(ATTRIBUTES.ARIA_ACTIVEDESCENDANT);
-      activeSuggestionIndex = -1;
-      currentSuggestions = [];
+    clearSuggestions({
+      input: searchInput,
+      resultsContainer: autocompleteResults,
+      activeSuggestionIndexRef,
+      currentSuggestionsRef,
+    });
+
+    setAutocompleteVisibility({
+      input: searchInput,
+      resultsContainer: autocompleteResults,
+      visible: false,
+      activeSuggestionIndexRef,
+      currentSuggestionsRef,
+    });
+
+    liveRegion.textContent = '';
+    clearControl.sync();
+
+    if (blur) {
+      searchInput.blur();
     }
   }
 
-  function clearSuggestions() {
-    autocompleteResults.replaceChildren();
-    currentSuggestions = [];
-    activeSuggestionIndex = -1;
-    searchInput.removeAttribute(ATTRIBUTES.ARIA_ACTIVEDESCENDANT);
-  }
+  const clearControl = setupClearableSearchInput({
+    input: searchInput,
+    onClear: () => {
+      clearSuggestions({
+        input: searchInput,
+        resultsContainer: autocompleteResults,
+        activeSuggestionIndexRef,
+        currentSuggestionsRef,
+      });
 
-  function resetSearchUI() {
-    searchInput.value = '';
-    clearSuggestions();
-    setAutocompleteVisibility(false);
-    liveRegion.textContent = '';
-  }
+      setAutocompleteVisibility({
+        input: searchInput,
+        resultsContainer: autocompleteResults,
+        visible: false,
+        activeSuggestionIndexRef,
+        currentSuggestionsRef,
+      });
+
+      liveRegion.textContent = '';
+    },
+  });
 
   function removeExistingHighlights() {
     document.querySelectorAll(SELECTORS.HIGHLIGHTED).forEach(el => {
@@ -186,8 +175,7 @@ if (!searchInput || !autocompleteResults) {
   }
 
   function scrollToElement(element, headerHeight) {
-    const offsetPosition =
-      element.offsetTop - headerHeight - CONFIG.SCROLL_OFFSET_PX;
+    const offsetPosition = element.offsetTop - headerHeight - CONFIG.SCROLL_OFFSET_PX;
 
     window.scrollTo({
       top: Math.max(0, offsetPosition),
@@ -206,7 +194,7 @@ if (!searchInput || !autocompleteResults) {
     const targetToFocus = element.querySelector(SELECTORS.CARD_LINK) || element;
 
     if (targetToFocus === element) {
-      element.setAttribute(ATTRIBUTES.TABINDEX, '-1');
+      element.setAttribute('tabindex', '-1');
     }
 
     targetToFocus.focus({ preventScroll: true });
@@ -216,7 +204,7 @@ if (!searchInput || !autocompleteResults) {
 
       if (targetToFocus === element) {
         targetToFocus.addEventListener('blur', () => {
-          targetToFocus.removeAttribute(ATTRIBUTES.TABINDEX);
+          targetToFocus.removeAttribute('tabindex');
         }, { once: true });
       }
 
@@ -234,7 +222,6 @@ if (!searchInput || !autocompleteResults) {
     focusAndHighlightElement(targetElement);
   }
 
-  // --- SEARCH INDEX LOADING ---
   async function loadSearchIndex() {
     if (searchIndexPromise) return searchIndexPromise;
 
@@ -244,8 +231,7 @@ if (!searchInput || !autocompleteResults) {
         return response.json();
       })
       .then(masterIndex => {
-        const currentPageFile =
-          window.location.pathname.split('/').pop() || 'index.html';
+        const currentPageFile = window.location.pathname.split('/').pop() || 'index.html';
 
         const pageSpecificData = masterIndex.filter(item =>
           item.url.includes(currentPageFile)
@@ -276,7 +262,6 @@ if (!searchInput || !autocompleteResults) {
     return searchIndexPromise;
   }
 
-  // --- SUGGESTION FILTERING ---
   function getFilteredSuggestions(query) {
     const normalizedQuery = stripAccents(query.trim());
     if (normalizedQuery.length < CONFIG.MIN_QUERY_LENGTH) return [];
@@ -300,48 +285,6 @@ if (!searchInput || !autocompleteResults) {
     return results.slice(0, CONFIG.MAX_SUGGESTIONS);
   }
 
-  function syncAriaState() {
-    const nodes = autocompleteResults.children;
-    if (!nodes.length) {
-      activeSuggestionIndex = -1;
-      searchInput.removeAttribute(ATTRIBUTES.ARIA_ACTIVEDESCENDANT);
-      return;
-    }
-
-    for (let i = 0; i < nodes.length; i++) {
-      const isActive = i === 0;
-      nodes[i].setAttribute(ATTRIBUTES.ARIA_SELECTED, isActive ? 'true' : 'false');
-      nodes[i].classList.toggle(CLASSES.ACTIVE, isActive);
-
-      if (isActive) {
-        activeSuggestionIndex = 0;
-        searchInput.setAttribute(ATTRIBUTES.ARIA_ACTIVEDESCENDANT, nodes[i].id);
-      }
-    }
-  }
-
-  function moveActiveSuggestion(direction) {
-    const nodes = autocompleteResults.children;
-    if (!nodes.length) return;
-
-    if (activeSuggestionIndex < 0) activeSuggestionIndex = 0;
-
-    nodes[activeSuggestionIndex].setAttribute(ATTRIBUTES.ARIA_SELECTED, 'false');
-    nodes[activeSuggestionIndex].classList.remove(CLASSES.ACTIVE);
-
-    if (direction === 'down') {
-      activeSuggestionIndex = (activeSuggestionIndex + 1) % nodes.length;
-    } else {
-      activeSuggestionIndex = (activeSuggestionIndex - 1 + nodes.length) % nodes.length;
-    }
-
-    const next = nodes[activeSuggestionIndex];
-    next.setAttribute(ATTRIBUTES.ARIA_SELECTED, 'true');
-    next.classList.add(CLASSES.ACTIVE);
-    searchInput.setAttribute(ATTRIBUTES.ARIA_ACTIVEDESCENDANT, next.id);
-    next.scrollIntoView({ block: 'nearest' });
-  }
-
   function renderSuggestions(filtered, query) {
     if (filtered.length === 0) {
       const noResults = document.createElement('div');
@@ -351,15 +294,24 @@ if (!searchInput || !autocompleteResults) {
       noResults.textContent = message;
 
       autocompleteResults.replaceChildren(noResults);
-      setAutocompleteVisibility(true);
+
+      setAutocompleteVisibility({
+        input: searchInput,
+        resultsContainer: autocompleteResults,
+        visible: true,
+        activeSuggestionIndexRef,
+        currentSuggestionsRef,
+      });
+
       liveRegion.textContent = message;
-      searchInput.removeAttribute(ATTRIBUTES.ARIA_ACTIVEDESCENDANT);
-      activeSuggestionIndex = -1;
-      currentSuggestions = [];
+      searchInput.removeAttribute('aria-activedescendant');
+      activeSuggestionIndexRef.value = -1;
+      currentSuggestionsRef.value = [];
+      clearControl.sync();
       return;
     }
 
-    currentSuggestions = filtered;
+    currentSuggestionsRef.value = filtered;
 
     const fragment = document.createDocumentFragment();
 
@@ -368,8 +320,8 @@ if (!searchInput || !autocompleteResults) {
 
       const item = document.createElement('div');
       item.className = CLASSES.SUGGESTION;
-      item.setAttribute(ATTRIBUTES.ROLE, ROLES.OPTION);
-      item.setAttribute(ATTRIBUTES.ARIA_SELECTED, 'false');
+      item.setAttribute('role', 'option');
+      item.setAttribute('aria-selected', 'false');
       item.id = `${TEMPLATES.SUGGESTION_ID_PREFIX}${i}`;
       item.dataset.entryId = entry.id;
 
@@ -391,10 +343,26 @@ if (!searchInput || !autocompleteResults) {
     }
 
     autocompleteResults.replaceChildren(fragment);
-    setAutocompleteVisibility(true);
+
+    setAutocompleteVisibility({
+      input: searchInput,
+      resultsContainer: autocompleteResults,
+      visible: true,
+      activeSuggestionIndexRef,
+      currentSuggestionsRef,
+    });
+
     liveRegion.textContent =
       `${filtered.length} suggestion${filtered.length > 1 ? 's' : ''} for "${query}" available.`;
-    syncAriaState();
+
+    syncAriaState({
+      input: searchInput,
+      resultsContainer: autocompleteResults,
+      activeSuggestionIndexRef,
+      activeClass: CLASSES.ACTIVE,
+    });
+
+    clearControl.sync();
   }
 
   function updateSuggestions(query) {
@@ -406,9 +374,23 @@ if (!searchInput || !autocompleteResults) {
     const query = rawValue.trim();
 
     if (query.length === 0) {
-      clearSuggestions();
-      setAutocompleteVisibility(false);
+      clearSuggestions({
+        input: searchInput,
+        resultsContainer: autocompleteResults,
+        activeSuggestionIndexRef,
+        currentSuggestionsRef,
+      });
+
+      setAutocompleteVisibility({
+        input: searchInput,
+        resultsContainer: autocompleteResults,
+        visible: false,
+        activeSuggestionIndexRef,
+        currentSuggestionsRef,
+      });
+
       liveRegion.textContent = '';
+      clearControl.sync();
       return;
     }
 
@@ -421,11 +403,11 @@ if (!searchInput || !autocompleteResults) {
     processInputValue(event.target.value);
   }, CONFIG.DEBOUNCE_MS);
 
-  // --- EVENTS ---
   searchInput.addEventListener(EVENTS.INPUT, handleInput);
 
   searchInput.addEventListener(EVENTS.KEYDOWN, event => {
-    const hasSuggestions = autocompleteResults.children.length > 0 &&
+    const hasSuggestions =
+      autocompleteResults.children.length > 0 &&
       autocompleteResults.firstElementChild?.classList.contains(CLASSES.SUGGESTION);
 
     switch (event.key) {
@@ -436,7 +418,7 @@ if (!searchInput || !autocompleteResults) {
         event.stopPropagation();
 
         const activeSuggestion =
-          activeSuggestionIndex >= 0 ? autocompleteResults.children[activeSuggestionIndex] : null;
+          activeSuggestionIndexRef.value >= 0 ? autocompleteResults.children[activeSuggestionIndexRef.value] : null;
 
         if (activeSuggestion?.dataset.entryId) {
           applyHighlightAndScroll(activeSuggestion.dataset.entryId);
@@ -448,19 +430,33 @@ if (!searchInput || !autocompleteResults) {
       case KEYS.ARROW_DOWN: {
         if (!hasSuggestions) return;
         event.preventDefault();
-        moveActiveSuggestion('down');
+
+        moveActiveSuggestion({
+          input: searchInput,
+          resultsContainer: autocompleteResults,
+          activeSuggestionIndexRef,
+          direction: 'down',
+          activeClass: CLASSES.ACTIVE,
+        });
         break;
       }
 
       case KEYS.ARROW_UP: {
         if (!hasSuggestions) return;
         event.preventDefault();
-        moveActiveSuggestion('up');
+
+        moveActiveSuggestion({
+          input: searchInput,
+          resultsContainer: autocompleteResults,
+          activeSuggestionIndexRef,
+          direction: 'up',
+          activeClass: CLASSES.ACTIVE,
+        });
         break;
       }
 
       case KEYS.ESCAPE:
-        resetSearchUI();
+        resetSearchUI({ blur: true });
         break;
 
       case KEYS.TAB:
@@ -478,8 +474,17 @@ if (!searchInput || !autocompleteResults) {
   });
 
   document.addEventListener(EVENTS.CLICK, event => {
-    if (!event.target.closest(SELECTORS.SEARCH_CONTAINER)) {
-      setAutocompleteVisibility(false);
+    const { target } = event;
+    if (!target || target.nodeType !== 1) return;
+
+    if (!target.closest(SELECTORS.SEARCH_CONTAINER)) {
+      setAutocompleteVisibility({
+        input: searchInput,
+        resultsContainer: autocompleteResults,
+        visible: false,
+        activeSuggestionIndexRef,
+        currentSuggestionsRef,
+      });
     }
   });
 
@@ -510,9 +515,9 @@ if (!searchInput || !autocompleteResults) {
     }, CONFIG.HASH_SCROLL_DELAY_MS);
   }
 
-  // --- INIT ---
   buildElementIndex();
   syncVisibilityCache();
+
   loadSearchIndex().then(() => {
     const query = searchInput.value.trim();
     if (query.length >= CONFIG.MIN_QUERY_LENGTH) {

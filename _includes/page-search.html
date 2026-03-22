@@ -1,0 +1,24 @@
+<div class="page-search-container">
+    <label for="pageSearchInput" class="search-label">{{ include.label }}</label>
+    <input
+        type="search"
+        id="pageSearchInput"
+        class="page-search-input"
+        aria-describedby="searchHelpText"
+        placeholder="{{ include.placeholder | default: 'Search...' }}"
+        autocomplete="off"
+        aria-controls="pageAutocompleteResults"
+        role="combobox"
+        aria-expanded="false"
+        aria-autocomplete="list"
+        aria-haspopup="listbox"
+        aria-owns="pageAutocompleteResults">
+    <span id="searchHelpText" class="sr-only">{{ include.help_text }}</span>
+    <div
+        id="pageAutocompleteResults"
+        class="autocomplete-container"
+        role="listbox"
+        aria-labelledby="{{ include.labelledby }}"
+        tabindex="-1"
+    ></div>
+</div>

@@ -1,5 +1,5 @@
 ---
-layout: template
+layout: guide
 title: "OpenBOR Guide"
 permalink: /guides/emulators/openbor-guide.html
 description: "A guide for setting up OpenBOR on dev mode."

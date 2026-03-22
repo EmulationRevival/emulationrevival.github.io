@@ -1,5 +1,5 @@
 ---
-layout: template
+layout: guide
 title: "Dolphin Guide"
 permalink: /guides/emulators/dolphin-guide.html
 description: "A guide for setting up Dolphin on dev mode."

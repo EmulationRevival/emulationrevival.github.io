@@ -1,5 +1,5 @@
 ---
-layout: template
+layout: guide
 title: "Raze Guide"
 permalink: /guides/emulators/raze-guide.html
 description: "A guide for setting up raze on dev mode."

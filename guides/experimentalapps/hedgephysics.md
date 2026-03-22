@@ -1,5 +1,5 @@
 ---
-layout: template
+layout: guide
 title: "Hedge Physics Guide"
 permalink: /guides/experimentalapps/hedgephysics-guide.html
 description: "A guide for setting up Hedge Physics on dev mode."

@@ -1,8 +1,6 @@
-/* variables.css */
-
 :root {
   --header-height: 96px;
-  
+
   /* Main Palette */
   --color-primary: hsl(271, 76%, 52%);
   --color-primary-rgb: 138, 43, 226;
@@ -11,7 +9,7 @@
   --color-primary-light: hsl(274, 78%, 77%);
   --color-primary-light-rgb: 195, 153, 240;
   --color-secondary: hsl(174, 100%, 48%);
-  --color-secondary-rgb: 0, 245, 212;  
+  --color-secondary-rgb: 0, 245, 212;
   --color-secondary-dark: hsl(174, 100%, 18%);
   --color-secondary-dark-rgb: 0, 91, 81;
   --color-secondary-light: hsl(174, 95%, 69%);
@@ -65,6 +63,7 @@
   --spacing-xxxl: 96px;
 
   /* Borders & Shadows */
+  --border-radius-xs: 2px;
   --border-radius-sm: 4px;
   --border-radius-md: 8px;
   --color-border: hsl(0, 0%, 27%);
@@ -73,63 +72,75 @@
   --color-border-light-rgb: 58, 58, 62;
   --box-shadow-light: 0 4px 15px rgba(0, 0, 0, 0.2);
   --box-shadow-heavy: 0 8px 25px rgba(0, 0, 0, 0.4);
-  
-/* --- Button: Text (always white) --- */
---color-button-text: hsl(0, 0%, 88%);
+  --popover-gap: 8px;
 
-/* --- Button: Primary --- */
---color-button-primary-bg: hsl(271, 76%, 52%);
---color-button-primary-bg-hover: hsl(277, 72%, 36%);
---color-button-primary-border: hsl(277, 72%, 36%);
---color-button-primary-border-hover: hsl(271, 76%, 52%);
+  --color-button-text: hsl(0, 0%, 88%);
 
-/* --- Button: Secondary --- */
---color-button-secondary-bg: hsl(0, 0%, 25%);
---color-button-secondary-bg-hover: hsl(0, 0%, 40%);
---color-button-secondary-border: hsl(0, 0%, 25%);
---color-button-secondary-border-hover: hsl(0, 0%, 40%);
+  --color-button-primary-bg: hsl(271, 76%, 52%);
+  --color-button-primary-bg-hover: hsl(277, 72%, 36%);
+  --color-button-primary-border: hsl(277, 72%, 36%);
+  --color-button-primary-border-hover: hsl(271, 76%, 52%);
 
-/* --- Button: Download --- */
---color-button-download-bg: hsl(174, 100%, 28%);
---color-button-download-bg-hover: hsl(174, 100%, 18%);
---color-button-download-border: hsl(174, 100%, 18%);
---color-button-download-border-hover: hsl(174, 100%, 28%);
+  --color-button-secondary-bg: hsl(0, 0%, 25%);
+  --color-button-secondary-bg-hover: hsl(0, 0%, 40%);
+  --color-button-secondary-border: hsl(0, 0%, 25%);
+  --color-button-secondary-border-hover: hsl(0, 0%, 40%);
 
-/* --- Button: Info --- */
---color-button-info-bg: hsl(192, 77%, 33%);
---color-button-info-bg-hover: hsl(192, 77%, 25%);
---color-button-info-border: hsl(192, 77%, 25%);
---color-button-info-border-hover: hsl(192, 77%, 33%);
+  --color-button-download-bg: hsl(174, 100%, 28%);
+  --color-button-download-bg-hover: hsl(174, 100%, 18%);
+  --color-button-download-border: hsl(174, 100%, 18%);
+  --color-button-download-border-hover: hsl(174, 100%, 28%);
 
-/* --- Button: Discord --- */
---color-button-discord-bg: hsl(236, 88%, 65%);
---color-button-discord-bg-hover: hsl(236, 52%, 52%);
---color-button-discord-border: hsl(236, 52%, 52%);
---color-button-discord-border-hover: hsl(236, 88%, 65%);
+  --color-button-info-bg: hsl(192, 77%, 33%);
+  --color-button-info-bg-hover: hsl(192, 77%, 25%);
+  --color-button-info-border: hsl(192, 77%, 25%);
+  --color-button-info-border-hover: hsl(192, 77%, 33%);
 
-/* --- Button: YouTube --- */
---color-button-youtube-bg: hsl(0, 100%, 45%);
---color-button-youtube-bg-hover: hsl(0, 100%, 40%);
---color-button-youtube-border: hsl(0, 100%, 40%);
---color-button-youtube-border-hover: hsl(0, 100%, 45%);
+  --color-button-discord-bg: hsl(236, 88%, 65%);
+  --color-button-discord-bg-hover: hsl(236, 52%, 52%);
+  --color-button-discord-border: hsl(236, 52%, 52%);
+  --color-button-discord-border-hover: hsl(236, 88%, 65%);
 
-/* --- Button: Disabled --- */
---color-button-disabled-bg: hsl(0, 0%, 50%);
---color-button-disabled-border: hsl(0, 0%, 65%);
+  --color-button-youtube-bg: hsl(0, 100%, 45%);
+  --color-button-youtube-bg-hover: hsl(0, 100%, 40%);
+  --color-button-youtube-border: hsl(0, 100%, 40%);
+  --color-button-youtube-border-hover: hsl(0, 100%, 45%);
+
+  --color-button-disabled-bg: hsl(0, 0%, 50%);
+  --color-button-disabled-border: hsl(0, 0%, 65%);
 
   /* Transitions */
   --transition-speed: 0.3s;
   --transition-ease: ease-in-out;
 
-  /* Medium screens (tablets) */
+  /* Breakpoints */
+  --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
-
-  /* Large screens (desktops) */
   --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-xxl: 1440px;
+}
+
+@media (hover: none) and (pointer: coarse) and (orientation: landscape) {
+  :root {
+    --header-height: 48px;
+    --hero-landscape-padding-y: var(--spacing-xl);
+    --hero-landscape-content-padding-x: var(--spacing-lg);
+    --hero-landscape-title-size: 2rem;
+    --hero-landscape-title-margin-bottom: var(--spacing-sm);
+    --hero-landscape-subtitle-size: 1rem;
+    --hero-landscape-subtitle-max-width: 700px;
+    --hero-landscape-body-margin-bottom: var(--spacing-md);
+    --hero-landscape-actions-margin-top: var(--spacing-md);
+    --section-title-landscape-size: 1.5rem;
+    --step-title-landscape-size: 1.15rem;
+    --step-description-landscape-size: 0.95rem;
+    --support-title-landscape-size: 1.5rem;
+    --support-description-landscape-size: 1rem;
+  }
 }
 
 [data-theme='light'] {
-  /* Main Palette (Light Mode Override) */
   --color-primary: hsl(271, 60%, 55%);
   --color-primary-dark: hsl(277, 60%, 40%);
   --color-primary-light: hsl(274, 60%, 65%);
@@ -137,7 +148,6 @@
   --color-secondary-dark: hsl(174, 80%, 20%);
   --color-secondary-light: hsl(174, 80%, 40%);
 
-  /* Backgrounds */
   --color-background-dark: hsl(210, 11%, 95%);
   --color-background-dark-rgb: 241, 243, 245;
   --color-background-medium: hsl(210, 16%, 98%);
@@ -145,7 +155,6 @@
   --color-background-light: hsl(0, 0%, 100%);
   --color-background-light-rgb: 255, 255, 255;
 
-  /* Text */
   --color-text-light: hsl(210, 6%, 31%);
   --color-text-light-rgb: 73, 80, 87;
   --color-text-secondary: hsl(212, 7%, 36%);
@@ -153,15 +162,12 @@
   --color-heading: hsl(210, 10%, 13%);
   --color-heading-rgb: 33, 37, 41;
 
-  /* Overlays */
   --color-overlay-start: rgba(255, 255, 255, 0.7);
   --color-overlay-end: rgba(255, 255, 255, 0.9);
 
-  /* Links */
   --color-link: var(--color-primary-dark);
   --color-link-hover: var(--color-primary);
 
-  /* Shadows */
   --box-shadow-light: 0 4px 15px rgba(var(--color-primary-rgb), 0.1);
   --box-shadow-heavy: 0 8px 25px rgba(var(--color-primary-rgb), 0.15);
 }

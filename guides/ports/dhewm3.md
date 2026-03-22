@@ -1,5 +1,5 @@
 ---
-layout: template
+layout: guide
 title: "Dhewm 3 Guide"
 permalink: /guides/ports/dhewm3-guide.html
 description: "A guide for setting up Dhewm 3 on dev mode."

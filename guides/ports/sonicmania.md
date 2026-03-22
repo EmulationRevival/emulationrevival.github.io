@@ -1,5 +1,5 @@
 ---
-layout: template
+layout: guide
 title: "Sonic Mania Guide"
 permalink: /guides/ports/sonicmania-guide.html
 description: "A guide for setting up Sonic Mania on dev mode."

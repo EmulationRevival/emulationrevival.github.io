@@ -1,0 +1,16 @@
+<section id="{{ include.slug }}-list" class="section-padded {{ include.page_class }}" aria-labelledby="{{ include.heading_id }}">
+    <div class="container-fluid">
+        <h2 id="{{ include.heading_id }}" class="text-center section-title">Available {{ include.label }}</h2>
+        <p class="text-center section-description">
+            Select any card to reveal download links and more
+            information.
+        </p>
+
+        {% include page-search.html
+            label=include.search_label
+            help_text=include.search_help_text
+            labelledby=include.heading_id
+            placeholder="Search..."
+        %}
+
+        {% include sort-dropdown.html %}
