@@ -1,4 +1,5 @@
 import {
+  loadSearchIndex,
   debounce,
   stripAccents,
   getOrCreateLiveRegion,
@@ -75,7 +76,6 @@ if (!searchInput || !autocompleteResults) {
   const activeSuggestionIndexRef = { value: -1 };
 
   let searchIndexCache = [];
-  let searchIndexPromise = null;
 
   const liveRegion = getOrCreateLiveRegion({
     id: IDS.LIVE_REGION_ID,
@@ -251,34 +251,26 @@ if (!searchInput || !autocompleteResults) {
     clearControl.sync();
   }
 
-  async function loadSearchIndex() {
-    if (searchIndexPromise) return searchIndexPromise;
+  async function hydrateSearchIndex() {
+    try {
+      const masterIndex = await loadSearchIndex(CONFIG.INDEX_PATH);
 
-    searchIndexPromise = fetch(CONFIG.INDEX_PATH)
-      .then(response => {
-        if (!response.ok) throw new Error('Index fetch failed');
-        return response.json();
-      })
-      .then(masterIndex => {
-        searchIndexCache = masterIndex
-          .map(item => ({
-            name: item.name || '',
-            description: item.description || '',
-            url: item.url || '',
-            img: item.img || '',
-            searchKey: stripAccents(`${item.name || ''} ${item.description || ''}`),
-          }))
-          .filter(item => item.url && item.name);
+      searchIndexCache = masterIndex
+        .map(item => ({
+          name: item.name || '',
+          description: item.description || '',
+          url: item.url || '',
+          img: item.img || '',
+          searchKey: stripAccents(`${item.name || ''} ${item.description || ''}`),
+        }))
+        .filter(item => item.url && item.name);
 
-        return searchIndexCache;
-      })
-      .catch(err => {
-        console.warn(`Sitewide Search: JSON index not found at ${CONFIG.INDEX_PATH}`, err);
-        searchIndexCache = [];
-        return searchIndexCache;
-      });
-
-    return searchIndexPromise;
+      return searchIndexCache;
+    } catch (err) {
+      console.warn(`Sitewide Search: JSON index not found at ${CONFIG.INDEX_PATH}`, err);
+      searchIndexCache = [];
+      return searchIndexCache;
+    }
   }
 
   function getFilteredSuggestions(query) {
@@ -438,7 +430,7 @@ if (!searchInput || !autocompleteResults) {
     mobileQuery.addListener(syncSearchAccessibility);
   }
 
-  loadSearchIndex().then(() => {
+  hydrateSearchIndex().then(() => {
     const query = searchInput.value.trim();
     if (query.length >= CONFIG.MIN_QUERY_LENGTH) {
       processInputValue(query);

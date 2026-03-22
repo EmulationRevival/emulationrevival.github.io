@@ -1,4 +1,5 @@
 import {
+  loadSearchIndex,
   debounce,
   stripAccents,
   getOrCreateLiveRegion,
@@ -81,7 +82,6 @@ if (!searchInput || !autocompleteResults) {
   const currentSuggestionsRef = { value: [] };
 
   let searchIndexCache = [];
-  let searchIndexPromise = null;
   let highlightTimeoutId = null;
 
   const elementMap = new Map();
@@ -222,44 +222,35 @@ if (!searchInput || !autocompleteResults) {
     focusAndHighlightElement(targetElement);
   }
 
-  async function loadSearchIndex() {
-    if (searchIndexPromise) return searchIndexPromise;
+  async function hydrateSearchIndex() {
+    try {
+      const masterIndex = await loadSearchIndex(CONFIG.INDEX_PATH);
+      const currentPageFile = window.location.pathname.split('/').pop() || 'index.html';
 
-    searchIndexPromise = fetch(CONFIG.INDEX_PATH)
-      .then(response => {
-        if (!response.ok) throw new Error('Index fetch failed');
-        return response.json();
-      })
-      .then(masterIndex => {
-        const currentPageFile = window.location.pathname.split('/').pop() || 'index.html';
+      const pageSpecificData = masterIndex.filter(item =>
+        item.url.includes(currentPageFile)
+      );
 
-        const pageSpecificData = masterIndex.filter(item =>
-          item.url.includes(currentPageFile)
-        );
+      searchIndexCache = pageSpecificData
+        .map(item => {
+          const elementId = item.url.split('#')[1];
+          if (!elementId) return null;
 
-        searchIndexCache = pageSpecificData
-          .map(item => {
-            const elementId = item.url.split('#')[1];
-            if (!elementId) return null;
+          return {
+            id: elementId,
+            name: item.name || '',
+            searchKey: stripAccents(`${item.name || ''} ${item.description || ''}`),
+            icon: item.img || '',
+          };
+        })
+        .filter(Boolean);
 
-            return {
-              id: elementId,
-              name: item.name || '',
-              searchKey: stripAccents(`${item.name || ''} ${item.description || ''}`),
-              icon: item.img || '',
-            };
-          })
-          .filter(Boolean);
-
-        return searchIndexCache;
-      })
-      .catch(err => {
-        console.warn('Page Search: JSON index not found or failed to load.', err);
-        searchIndexCache = [];
-        return searchIndexCache;
-      });
-
-    return searchIndexPromise;
+      return searchIndexCache;
+    } catch (err) {
+      console.warn('Page Search: JSON index not found or failed to load.', err);
+      searchIndexCache = [];
+      return searchIndexCache;
+    }
   }
 
   function getFilteredSuggestions(query) {
@@ -518,7 +509,7 @@ if (!searchInput || !autocompleteResults) {
   buildElementIndex();
   syncVisibilityCache();
 
-  loadSearchIndex().then(() => {
+  hydrateSearchIndex().then(() => {
     const query = searchInput.value.trim();
     if (query.length >= CONFIG.MIN_QUERY_LENGTH) {
       processInputValue(query);

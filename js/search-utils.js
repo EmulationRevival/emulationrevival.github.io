@@ -1,3 +1,50 @@
+let searchIndexCache = null;
+let searchIndexPromise = null;
+let searchIndexPathCache = null;
+
+export async function loadSearchIndex(indexPath = '/json/search-index.json') {
+  if (searchIndexCache && searchIndexPathCache === indexPath) {
+    return searchIndexCache;
+  }
+
+  if (searchIndexPromise && searchIndexPathCache === indexPath) {
+    return searchIndexPromise;
+  }
+
+  searchIndexPathCache = indexPath;
+
+  searchIndexPromise = fetch(indexPath, { credentials: 'same-origin' })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`Index fetch failed: ${response.status} ${response.statusText}`);
+      }
+
+      return response.json();
+    })
+    .then(data => {
+      if (!Array.isArray(data)) {
+        throw new Error('Search index payload is not an array');
+      }
+
+      searchIndexCache = data;
+      return searchIndexCache;
+    })
+    .catch(error => {
+      searchIndexCache = null;
+      searchIndexPromise = null;
+      searchIndexPathCache = null;
+      throw error;
+    });
+
+  return searchIndexPromise;
+}
+
+export function clearSearchIndexCache() {
+  searchIndexCache = null;
+  searchIndexPromise = null;
+  searchIndexPathCache = null;
+}
+
 export function debounce(fn, wait) {
   let timeoutId;
 
