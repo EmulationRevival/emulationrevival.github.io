@@ -147,18 +147,15 @@ export function clearSuggestions({
   }
 }
 
-export function resetSearchState({
+export function clearSearchUiState({
   input,
   resultsContainer,
   activeSuggestionIndexRef,
   currentSuggestionsRef,
   liveRegion,
   clearControl,
-  blur = false,
 }) {
   if (!input || !resultsContainer) return;
-
-  input.value = '';
 
   clearSuggestions({
     input,
@@ -180,6 +177,29 @@ export function resetSearchState({
   }
 
   clearControl?.sync?.();
+}
+
+export function resetSearchState({
+  input,
+  resultsContainer,
+  activeSuggestionIndexRef,
+  currentSuggestionsRef,
+  liveRegion,
+  clearControl,
+  blur = false,
+}) {
+  if (!input || !resultsContainer) return;
+
+  input.value = '';
+
+  clearSearchUiState({
+    input,
+    resultsContainer,
+    activeSuggestionIndexRef,
+    currentSuggestionsRef,
+    liveRegion,
+    clearControl,
+  });
 
   if (blur) {
     input.blur();
@@ -313,4 +333,303 @@ export function setupClearableSearchInput({
     sync,
     clear,
   };
+}
+
+export function createSearchTargetHighlighter({
+  highlightClass = 'highlighted-by-search',
+  durationMs = 2500,
+  focusSelector = '.card-link',
+} = {}) {
+  let timeoutId = null;
+  let currentElement = null;
+
+  function clear() {
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+      timeoutId = null;
+    }
+
+    if (currentElement) {
+      currentElement.classList.remove(highlightClass);
+      currentElement = null;
+    }
+  }
+
+  function focusTarget(element) {
+    if (!element) return null;
+
+    const targetToFocus = element.querySelector(focusSelector) || element;
+
+    if (targetToFocus === element) {
+      element.setAttribute('tabindex', '-1');
+    }
+
+    targetToFocus.focus({ preventScroll: true });
+
+    if (targetToFocus === element) {
+      targetToFocus.addEventListener('blur', () => {
+        targetToFocus.removeAttribute('tabindex');
+      }, { once: true });
+    }
+
+    return targetToFocus;
+  }
+
+  function highlight(element, { focus = true } = {}) {
+    if (!element) return null;
+
+    clear();
+
+    currentElement = element;
+    currentElement.classList.add(highlightClass);
+
+    if (focus) {
+      focusTarget(currentElement);
+    }
+
+    timeoutId = window.setTimeout(() => {
+      if (currentElement) {
+        currentElement.classList.remove(highlightClass);
+        currentElement = null;
+      }
+      timeoutId = null;
+    }, durationMs);
+
+    return currentElement;
+  }
+
+  return {
+    highlight,
+    clear,
+    focusTarget,
+  };
+}
+
+export function renderNoSearchResults({
+  input,
+  resultsContainer,
+  message,
+  activeSuggestionIndexRef,
+  currentSuggestionsRef,
+  liveRegion,
+  clearControl,
+  noResultsClass = 'autocomplete-no-results',
+}) {
+  if (!input || !resultsContainer) return;
+
+  const noResults = document.createElement('div');
+  noResults.className = noResultsClass;
+  noResults.textContent = message;
+
+  resultsContainer.replaceChildren(noResults);
+
+  setAutocompleteVisibility({
+    input,
+    resultsContainer,
+    visible: true,
+    activeSuggestionIndexRef,
+    currentSuggestionsRef,
+  });
+
+  input.removeAttribute('aria-activedescendant');
+
+  if (activeSuggestionIndexRef) {
+    activeSuggestionIndexRef.value = -1;
+  }
+
+  if (currentSuggestionsRef) {
+    currentSuggestionsRef.value = [];
+  }
+
+  if (liveRegion) {
+    liveRegion.textContent = message;
+  }
+
+  clearControl?.sync?.();
+}
+
+export function createSearchSuggestionNode({
+  id,
+  name,
+  image,
+  imageFallback = '/images/fallback.png',
+  dataset = {},
+  classNames = {},
+}) {
+  const {
+    suggestion = 'autocomplete-suggestion',
+    suggestionLogo = 'suggestion-logo',
+    suggestionName = 'suggestion-name',
+  } = classNames;
+
+  const item = document.createElement('div');
+  item.className = suggestion;
+  item.setAttribute('role', 'option');
+  item.setAttribute('aria-selected', 'false');
+  item.id = id;
+
+  Object.entries(dataset).forEach(([key, value]) => {
+    if (value !== undefined && value !== null && value !== '') {
+      item.dataset[key] = value;
+    }
+  });
+
+  const img = document.createElement('img');
+  img.src = image || imageFallback;
+  img.alt = name;
+  img.className = suggestionLogo;
+  img.onerror = () => {
+    img.onerror = null;
+    img.src = imageFallback;
+  };
+
+  const span = document.createElement('span');
+  span.className = suggestionName;
+  span.textContent = name;
+
+  item.append(img, span);
+
+  return item;
+}
+
+export function renderSearchSuggestionsList({
+  input,
+  resultsContainer,
+  suggestions,
+  activeSuggestionIndexRef,
+  currentSuggestionsRef,
+  liveRegion,
+  clearControl,
+  suggestionIdPrefix = 'suggestion-',
+  imageFallback = '/images/fallback.png',
+  activeClass = 'is-active',
+  classNames = {},
+  liveRegionMessage,
+  getDataset,
+}) {
+  if (!input || !resultsContainer) return;
+
+  const fragment = document.createDocumentFragment();
+
+  suggestions.forEach((suggestion, index) => {
+    const item = createSearchSuggestionNode({
+      id: `${suggestionIdPrefix}${index}`,
+      name: suggestion.name,
+      image: suggestion.icon || suggestion.img || '',
+      imageFallback,
+      dataset: typeof getDataset === 'function' ? getDataset(suggestion, index) : {},
+      classNames,
+    });
+
+    fragment.appendChild(item);
+  });
+
+  if (currentSuggestionsRef) {
+    currentSuggestionsRef.value = suggestions;
+  }
+
+  resultsContainer.replaceChildren(fragment);
+
+  setAutocompleteVisibility({
+    input,
+    resultsContainer,
+    visible: true,
+    activeSuggestionIndexRef,
+    currentSuggestionsRef,
+  });
+
+  syncAriaState({
+    input,
+    resultsContainer,
+    activeSuggestionIndexRef,
+    activeClass,
+  });
+
+  if (liveRegion && liveRegionMessage) {
+    liveRegion.textContent = liveRegionMessage;
+  }
+
+  clearControl?.sync?.();
+}
+
+export function getHeaderOffset(mainHeaderSelector = '.main-header') {
+  const header = document.querySelector(mainHeaderSelector);
+  return header ? header.offsetHeight : 0;
+}
+
+export function scrollToSearchTarget({
+  element,
+  mainHeaderSelector = '.main-header',
+  extraOffset = 20,
+  behavior = 'smooth',
+}) {
+  if (!element) return;
+
+  const headerOffset = getHeaderOffset(mainHeaderSelector);
+  const elementTop = window.scrollY + element.getBoundingClientRect().top;
+  const targetTop = elementTop - headerOffset - extraOffset;
+
+  window.scrollTo({
+    top: Math.max(0, targetTop),
+    behavior,
+  });
+}
+
+export function navigateToSearchTarget({
+  url,
+  mainHeaderSelector = '.main-header',
+  extraOffset = 20,
+  behavior = 'smooth',
+  focusSelector = '.card-link',
+  onSamePageTarget,
+  onBeforeCrossPageNavigation,
+}) {
+  if (!url) return false;
+
+  const resolvedUrl = new URL(url, window.location.origin);
+  const currentUrl = new URL(window.location.href);
+  const isSamePath = resolvedUrl.pathname === currentUrl.pathname;
+  const hasHash = resolvedUrl.hash.length > 1;
+
+  if (isSamePath && hasHash) {
+    const targetId = decodeURIComponent(resolvedUrl.hash.slice(1));
+    const targetElement = document.getElementById(targetId);
+
+    if (!targetElement) {
+      return false;
+    }
+
+    onSamePageTarget?.(targetElement, targetId);
+
+    scrollToSearchTarget({
+      element: targetElement,
+      mainHeaderSelector,
+      extraOffset,
+      behavior,
+    });
+
+    const targetToFocus = targetElement.querySelector(focusSelector) || targetElement;
+
+    if (targetToFocus === targetElement) {
+      targetElement.setAttribute('tabindex', '-1');
+    }
+
+    targetToFocus.focus({ preventScroll: true });
+
+    if (targetToFocus === targetElement) {
+      targetToFocus.addEventListener('blur', () => {
+        targetToFocus.removeAttribute('tabindex');
+      }, { once: true });
+    }
+
+    if (currentUrl.hash !== resolvedUrl.hash) {
+      window.history.pushState(null, '', resolvedUrl.pathname + resolvedUrl.hash);
+    }
+
+    return true;
+  }
+
+  onBeforeCrossPageNavigation?.();
+  window.location.assign(resolvedUrl.toString());
+  return true;
 }

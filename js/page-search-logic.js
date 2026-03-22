@@ -5,11 +5,14 @@ import {
   getOrCreateLiveRegion,
   setupComboboxAria,
   setAutocompleteVisibility,
-  clearSuggestions,
+  clearSearchUiState,
   resetSearchState,
-  syncAriaState,
   moveActiveSuggestion,
   setupClearableSearchInput,
+  createSearchTargetHighlighter,
+  renderNoSearchResults,
+  renderSearchSuggestionsList,
+  scrollToSearchTarget,
 } from './search-utils.js';
 
 const IDS = {
@@ -20,11 +23,9 @@ const IDS = {
 };
 
 const SELECTORS = {
-  HIGHLIGHTED: '.highlighted-by-search',
   MAIN_HEADER: '.main-header',
   SEARCH_CONTAINER: '.page-search-container',
   CARD: '.card',
-  CARD_LINK: '.card-link',
 };
 
 const CLASSES = {
@@ -75,7 +76,6 @@ const TEMPLATES = {
 const searchInput = document.getElementById(IDS.SEARCH_INPUT_ID);
 const autocompleteResults = document.getElementById(IDS.RESULTS_CONTAINER_ID);
 const sortSelect = document.getElementById(IDS.SORT_BY);
-const mainHeader = document.querySelector(SELECTORS.MAIN_HEADER);
 
 if (!searchInput || !autocompleteResults) {
 } else {
@@ -83,7 +83,6 @@ if (!searchInput || !autocompleteResults) {
   const currentSuggestionsRef = { value: [] };
 
   let searchIndexCache = [];
-  let highlightTimeoutId = null;
 
   const elementMap = new Map();
   const visibilityCache = new WeakMap();
@@ -91,6 +90,12 @@ if (!searchInput || !autocompleteResults) {
   const liveRegion = getOrCreateLiveRegion({
     id: IDS.LIVE_REGION_ID,
     parent: autocompleteResults.parentNode,
+  });
+
+  const targetHighlighter = createSearchTargetHighlighter({
+    highlightClass: CLASSES.HIGHLIGHT,
+    durationMs: CONFIG.HIGHLIGHT_DURATION_MS,
+    focusSelector: '.card-link',
   });
 
   setupComboboxAria({
@@ -117,6 +122,20 @@ if (!searchInput || !autocompleteResults) {
     });
   }
 
+  const clearControl = setupClearableSearchInput({
+    input: searchInput,
+    onClear: () => {
+      clearSearchUiState({
+        input: searchInput,
+        resultsContainer: autocompleteResults,
+        activeSuggestionIndexRef,
+        currentSuggestionsRef,
+        liveRegion,
+        clearControl,
+      });
+    },
+  });
+
   function resetSearchUI({ blur = false } = {}) {
     resetSearchState({
       input: searchInput,
@@ -129,84 +148,18 @@ if (!searchInput || !autocompleteResults) {
     });
   }
 
-  const clearControl = setupClearableSearchInput({
-    input: searchInput,
-    onClear: () => {
-      clearSuggestions({
-        input: searchInput,
-        resultsContainer: autocompleteResults,
-        activeSuggestionIndexRef,
-        currentSuggestionsRef,
-      });
-
-      setAutocompleteVisibility({
-        input: searchInput,
-        resultsContainer: autocompleteResults,
-        visible: false,
-        activeSuggestionIndexRef,
-        currentSuggestionsRef,
-      });
-
-      liveRegion.textContent = '';
-    },
-  });
-
-  function removeExistingHighlights() {
-    document.querySelectorAll(SELECTORS.HIGHLIGHTED).forEach(el => {
-      el.classList.remove(CLASSES.HIGHLIGHT);
-    });
-  }
-
-  function getHeaderHeight() {
-    return mainHeader ? mainHeader.offsetHeight : 0;
-  }
-
-  function scrollToElement(element, headerHeight) {
-    const offsetPosition = element.offsetTop - headerHeight - CONFIG.SCROLL_OFFSET_PX;
-
-    window.scrollTo({
-      top: Math.max(0, offsetPosition),
-      behavior: CONFIG.SCROLL_BEHAVIOR,
-    });
-  }
-
-  function focusAndHighlightElement(element) {
-    if (highlightTimeoutId) {
-      clearTimeout(highlightTimeoutId);
-      highlightTimeoutId = null;
-    }
-
-    element.classList.add(CLASSES.HIGHLIGHT);
-
-    const targetToFocus = element.querySelector(SELECTORS.CARD_LINK) || element;
-
-    if (targetToFocus === element) {
-      element.setAttribute('tabindex', '-1');
-    }
-
-    targetToFocus.focus({ preventScroll: true });
-
-    highlightTimeoutId = window.setTimeout(() => {
-      element.classList.remove(CLASSES.HIGHLIGHT);
-
-      if (targetToFocus === element) {
-        targetToFocus.addEventListener('blur', () => {
-          targetToFocus.removeAttribute('tabindex');
-        }, { once: true });
-      }
-
-      highlightTimeoutId = null;
-    }, CONFIG.HIGHLIGHT_DURATION_MS);
-  }
-
   function applyHighlightAndScroll(elementId) {
     const targetElement = elementMap.get(elementId) || document.getElementById(elementId);
     if (!targetElement) return;
 
-    removeExistingHighlights();
-    const headerHeight = getHeaderHeight();
-    scrollToElement(targetElement, headerHeight);
-    focusAndHighlightElement(targetElement);
+    scrollToSearchTarget({
+      element: targetElement,
+      mainHeaderSelector: SELECTORS.MAIN_HEADER,
+      extraOffset: CONFIG.SCROLL_OFFSET_PX,
+      behavior: CONFIG.SCROLL_BEHAVIOR,
+    });
+
+    targetHighlighter.highlight(targetElement);
   }
 
   async function hydrateSearchIndex() {
@@ -265,82 +218,40 @@ if (!searchInput || !autocompleteResults) {
 
   function renderSuggestions(filtered, query) {
     if (filtered.length === 0) {
-      const noResults = document.createElement('div');
-      noResults.className = CLASSES.NO_RESULTS;
-
-      const message = TEMPLATES.NO_RESULTS(query);
-      noResults.textContent = message;
-
-      autocompleteResults.replaceChildren(noResults);
-
-      setAutocompleteVisibility({
+      renderNoSearchResults({
         input: searchInput,
         resultsContainer: autocompleteResults,
-        visible: true,
+        message: TEMPLATES.NO_RESULTS(query),
         activeSuggestionIndexRef,
         currentSuggestionsRef,
+        liveRegion,
+        clearControl,
+        noResultsClass: CLASSES.NO_RESULTS,
       });
-
-      liveRegion.textContent = message;
-      searchInput.removeAttribute('aria-activedescendant');
-      activeSuggestionIndexRef.value = -1;
-      currentSuggestionsRef.value = [];
-      clearControl.sync();
       return;
     }
 
-    currentSuggestionsRef.value = filtered;
-
-    const fragment = document.createDocumentFragment();
-
-    for (let i = 0; i < filtered.length; i++) {
-      const entry = filtered[i];
-
-      const item = document.createElement('div');
-      item.className = CLASSES.SUGGESTION;
-      item.setAttribute('role', 'option');
-      item.setAttribute('aria-selected', 'false');
-      item.id = `${TEMPLATES.SUGGESTION_ID_PREFIX}${i}`;
-      item.dataset.entryId = entry.id;
-
-      const img = document.createElement('img');
-      img.src = entry.icon || CONFIG.IMAGE_FALLBACK;
-      img.alt = entry.name;
-      img.className = CLASSES.SUGGESTION_LOGO;
-      img.onerror = () => {
-        img.onerror = null;
-        img.src = CONFIG.IMAGE_FALLBACK;
-      };
-
-      const span = document.createElement('span');
-      span.className = CLASSES.SUGGESTION_NAME;
-      span.textContent = entry.name;
-
-      item.append(img, span);
-      fragment.appendChild(item);
-    }
-
-    autocompleteResults.replaceChildren(fragment);
-
-    setAutocompleteVisibility({
+    renderSearchSuggestionsList({
       input: searchInput,
       resultsContainer: autocompleteResults,
-      visible: true,
+      suggestions: filtered,
       activeSuggestionIndexRef,
       currentSuggestionsRef,
-    });
-
-    liveRegion.textContent =
-      `${filtered.length} suggestion${filtered.length > 1 ? 's' : ''} for "${query}" available.`;
-
-    syncAriaState({
-      input: searchInput,
-      resultsContainer: autocompleteResults,
-      activeSuggestionIndexRef,
+      liveRegion,
+      clearControl,
+      suggestionIdPrefix: TEMPLATES.SUGGESTION_ID_PREFIX,
+      imageFallback: CONFIG.IMAGE_FALLBACK,
       activeClass: CLASSES.ACTIVE,
+      classNames: {
+        suggestion: CLASSES.SUGGESTION,
+        suggestionLogo: CLASSES.SUGGESTION_LOGO,
+        suggestionName: CLASSES.SUGGESTION_NAME,
+      },
+      liveRegionMessage: `${filtered.length} suggestion${filtered.length > 1 ? 's' : ''} for "${query}" available.`,
+      getDataset: suggestion => ({
+        entryId: suggestion.id,
+      }),
     });
-
-    clearControl.sync();
   }
 
   function updateSuggestions(query) {
@@ -352,23 +263,14 @@ if (!searchInput || !autocompleteResults) {
     const query = rawValue.trim();
 
     if (query.length === 0) {
-      clearSuggestions({
+      clearSearchUiState({
         input: searchInput,
         resultsContainer: autocompleteResults,
         activeSuggestionIndexRef,
         currentSuggestionsRef,
+        liveRegion,
+        clearControl,
       });
-
-      setAutocompleteVisibility({
-        input: searchInput,
-        resultsContainer: autocompleteResults,
-        visible: false,
-        activeSuggestionIndexRef,
-        currentSuggestionsRef,
-      });
-
-      liveRegion.textContent = '';
-      clearControl.sync();
       return;
     }
 

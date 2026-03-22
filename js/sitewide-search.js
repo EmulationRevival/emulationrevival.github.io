@@ -5,11 +5,14 @@ import {
   getOrCreateLiveRegion,
   setupComboboxAria,
   setAutocompleteVisibility,
-  clearSuggestions,
+  clearSearchUiState,
   resetSearchState,
-  syncAriaState,
   moveActiveSuggestion,
   setupClearableSearchInput,
+  createSearchTargetHighlighter,
+  renderNoSearchResults,
+  renderSearchSuggestionsList,
+  navigateToSearchTarget,
 } from './search-utils.js';
 
 const IDS = {
@@ -23,6 +26,8 @@ const IDS = {
 
 const SELECTORS = {
   SEARCH_CONTAINER: '.page-search-container',
+  MAIN_HEADER: '.main-header',
+  CARD_LINK: '.card-link',
 };
 
 const CLASSES = {
@@ -33,6 +38,7 @@ const CLASSES = {
   ACTIVE: 'is-active',
   SEARCH_PANEL_ACTIVE: 'active',
   NAV_ACTIVE: 'active',
+  HIGHLIGHT: 'highlighted-by-search',
 };
 
 const KEYS = {
@@ -49,6 +55,9 @@ const CONFIG = {
   INDEX_PATH: '/json/search-index.json',
   IMAGE_FALLBACK: '/images/fallback.png',
   MOBILE_BREAKPOINT: 991,
+  SCROLL_BEHAVIOR: 'smooth',
+  SCROLL_OFFSET_PX: 20,
+  HIGHLIGHT_DURATION_MS: 2500,
 };
 
 const EVENTS = {
@@ -85,6 +94,12 @@ if (!searchInput || !autocompleteResults) {
     parent: autocompleteResults.parentNode,
   });
 
+  const targetHighlighter = createSearchTargetHighlighter({
+    highlightClass: CLASSES.HIGHLIGHT,
+    durationMs: CONFIG.HIGHLIGHT_DURATION_MS,
+    focusSelector: SELECTORS.CARD_LINK,
+  });
+
   setupComboboxAria({
     input: searchInput,
     resultsContainer: autocompleteResults,
@@ -104,23 +119,20 @@ if (!searchInput || !autocompleteResults) {
   }
 
   function clearSitewideResults() {
-    clearSuggestions({
+    clearSearchUiState({
       input: searchInput,
       resultsContainer: autocompleteResults,
       activeSuggestionIndexRef,
       currentSuggestionsRef,
+      liveRegion,
+      clearControl,
     });
-
-    setAutocompleteVisibility({
-      input: searchInput,
-      resultsContainer: autocompleteResults,
-      visible: false,
-      activeSuggestionIndexRef,
-      currentSuggestionsRef,
-    });
-
-    liveRegion.textContent = '';
   }
+
+  const clearControl = setupClearableSearchInput({
+    input: searchInput,
+    onClear: clearSitewideResults,
+  });
 
   function resetSitewideSearch({ blur = false } = {}) {
     resetSearchState({
@@ -133,11 +145,6 @@ if (!searchInput || !autocompleteResults) {
       blur,
     });
   }
-
-  const clearControl = setupClearableSearchInput({
-    input: searchInput,
-    onClear: clearSitewideResults,
-  });
 
   function syncSearchAccessibility() {
     if (!searchPanel || !searchToggle) return;
@@ -193,14 +200,31 @@ if (!searchInput || !autocompleteResults) {
 
     resetSitewideSearch();
 
-    if (isMobileViewport()) {
-      requestMobileMenuClose();
-    } else if (isDesktopSearchPanelOpen()) {
-      searchPanel.classList.remove(CLASSES.SEARCH_PANEL_ACTIVE);
-      syncSearchAccessibility();
-    }
+    navigateToSearchTarget({
+      url,
+      mainHeaderSelector: SELECTORS.MAIN_HEADER,
+      extraOffset: CONFIG.SCROLL_OFFSET_PX,
+      behavior: CONFIG.SCROLL_BEHAVIOR,
+      focusSelector: SELECTORS.CARD_LINK,
+      onSamePageTarget: targetElement => {
+        if (isMobileViewport()) {
+          requestMobileMenuClose();
+        } else if (isDesktopSearchPanelOpen()) {
+          searchPanel.classList.remove(CLASSES.SEARCH_PANEL_ACTIVE);
+          syncSearchAccessibility();
+        }
 
-    window.location.assign(url);
+        targetHighlighter.highlight(targetElement);
+      },
+      onBeforeCrossPageNavigation: () => {
+        if (isMobileViewport()) {
+          requestMobileMenuClose();
+        } else if (isDesktopSearchPanelOpen()) {
+          searchPanel.classList.remove(CLASSES.SEARCH_PANEL_ACTIVE);
+          syncSearchAccessibility();
+        }
+      },
+    });
   }
 
   function toggleSearchPanel() {
@@ -220,80 +244,40 @@ if (!searchInput || !autocompleteResults) {
 
   function renderSuggestions(filtered, query) {
     if (filtered.length === 0) {
-      const noResults = document.createElement('div');
-      noResults.className = CLASSES.NO_RESULTS;
-      noResults.textContent = TEMPLATES.NO_RESULTS(query);
-
-      autocompleteResults.replaceChildren(noResults);
-
-      setAutocompleteVisibility({
+      renderNoSearchResults({
         input: searchInput,
         resultsContainer: autocompleteResults,
-        visible: true,
+        message: TEMPLATES.NO_RESULTS(query),
         activeSuggestionIndexRef,
         currentSuggestionsRef,
+        liveRegion,
+        clearControl,
+        noResultsClass: CLASSES.NO_RESULTS,
       });
-
-      liveRegion.textContent = TEMPLATES.NO_RESULTS(query);
-      searchInput.removeAttribute('aria-activedescendant');
-      activeSuggestionIndexRef.value = -1;
-      currentSuggestionsRef.value = [];
-      clearControl.sync();
       return;
     }
 
-    currentSuggestionsRef.value = filtered;
-
-    const fragment = document.createDocumentFragment();
-
-    for (let i = 0; i < filtered.length; i++) {
-      const entry = filtered[i];
-
-      const item = document.createElement('div');
-      item.className = CLASSES.SUGGESTION;
-      item.setAttribute('role', 'option');
-      item.setAttribute('aria-selected', 'false');
-      item.id = `${TEMPLATES.SUGGESTION_ID_PREFIX}${i}`;
-      item.dataset.url = entry.url;
-
-      const img = document.createElement('img');
-      img.src = entry.img || CONFIG.IMAGE_FALLBACK;
-      img.alt = entry.name;
-      img.className = CLASSES.SUGGESTION_LOGO;
-      img.onerror = () => {
-        img.onerror = null;
-        img.src = CONFIG.IMAGE_FALLBACK;
-      };
-
-      const span = document.createElement('span');
-      span.className = CLASSES.SUGGESTION_NAME;
-      span.textContent = entry.name;
-
-      item.append(img, span);
-      fragment.appendChild(item);
-    }
-
-    autocompleteResults.replaceChildren(fragment);
-
-    setAutocompleteVisibility({
+    renderSearchSuggestionsList({
       input: searchInput,
       resultsContainer: autocompleteResults,
-      visible: true,
+      suggestions: filtered,
       activeSuggestionIndexRef,
       currentSuggestionsRef,
-    });
-
-    syncAriaState({
-      input: searchInput,
-      resultsContainer: autocompleteResults,
-      activeSuggestionIndexRef,
+      liveRegion,
+      clearControl,
+      suggestionIdPrefix: TEMPLATES.SUGGESTION_ID_PREFIX,
+      imageFallback: CONFIG.IMAGE_FALLBACK,
       activeClass: CLASSES.ACTIVE,
+      classNames: {
+        suggestion: CLASSES.SUGGESTION,
+        suggestionLogo: CLASSES.SUGGESTION_LOGO,
+        suggestionName: CLASSES.SUGGESTION_NAME,
+      },
+      liveRegionMessage: `${filtered.length} result${filtered.length > 1 ? 's' : ''} found for "${query}".`,
+      getDataset: suggestion => ({
+        url: suggestion.url,
+      }),
     });
-
-    liveRegion.textContent =
-      `${filtered.length} result${filtered.length > 1 ? 's' : ''} found for "${query}".`;
-
-    clearControl.sync();
   }
 
   async function hydrateSearchIndex() {
@@ -342,7 +326,6 @@ if (!searchInput || !autocompleteResults) {
 
     if (query.length < CONFIG.MIN_QUERY_LENGTH) {
       clearSitewideResults();
-      clearControl.sync();
       return;
     }
 
