@@ -552,13 +552,84 @@ export function renderSearchSuggestionsList({
   clearControl?.sync?.();
 }
 
-export function buildHashUrlForElementId(elementId) {
-  const currentPath = window.location.pathname || '/';
-  return `${currentPath}#${encodeURIComponent(elementId)}`;
+export function getHeaderOffset(mainHeaderSelector = '.main-header') {
+  const header = document.querySelector(mainHeaderSelector);
+  return header ? header.offsetHeight : 0;
 }
 
-export function navigateToUrl(url) {
+export function scrollToSearchTarget({
+  element,
+  mainHeaderSelector = '.main-header',
+  extraOffset = 20,
+  behavior = 'smooth',
+}) {
+  if (!element) return;
+
+  const headerOffset = getHeaderOffset(mainHeaderSelector);
+  const elementTop = window.scrollY + element.getBoundingClientRect().top;
+  const targetTop = elementTop - headerOffset - extraOffset;
+
+  window.scrollTo({
+    top: Math.max(0, targetTop),
+    behavior,
+  });
+}
+
+export function navigateToSearchTarget({
+  url,
+  mainHeaderSelector = '.main-header',
+  extraOffset = 20,
+  behavior = 'smooth',
+  focusSelector = '.card-link',
+  onSamePageTarget,
+  onBeforeCrossPageNavigation,
+}) {
   if (!url) return false;
-  window.location.assign(url);
+
+  const resolvedUrl = new URL(url, window.location.origin);
+  const currentUrl = new URL(window.location.href);
+  const isSamePath = resolvedUrl.pathname === currentUrl.pathname;
+  const hasHash = resolvedUrl.hash.length > 1;
+
+  if (isSamePath && hasHash) {
+    const targetId = decodeURIComponent(resolvedUrl.hash.slice(1));
+    const targetElement = document.getElementById(targetId);
+
+    if (!targetElement) {
+      return false;
+    }
+
+    onSamePageTarget?.(targetElement, targetId);
+
+    scrollToSearchTarget({
+      element: targetElement,
+      mainHeaderSelector,
+      extraOffset,
+      behavior,
+    });
+
+    const targetToFocus = targetElement.querySelector(focusSelector) || targetElement;
+
+    if (targetToFocus === targetElement) {
+      targetElement.setAttribute('tabindex', '-1');
+    }
+
+    targetToFocus.focus({ preventScroll: true });
+
+    if (targetToFocus === targetElement) {
+      targetToFocus.addEventListener('blur', () => {
+        targetToFocus.removeAttribute('tabindex');
+      }, { once: true });
+    }
+
+    if (currentUrl.hash !== resolvedUrl.hash) {
+      window.history.pushState(null, '', resolvedUrl.pathname + resolvedUrl.hash);
+    }
+
+    return true;
+  }
+
+  onBeforeCrossPageNavigation?.();
+  window.location.assign(resolvedUrl.toString());
   return true;
 }
