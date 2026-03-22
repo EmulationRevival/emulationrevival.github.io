@@ -1,10 +1,22 @@
-import { scheduleTask, createFocusTrap } from './ui-utils.js';
+import {
+  scheduleTask,
+  createFocusTrap,
+  scheduleHashTargetFocus,
+  markCurrentPageLinks,
+  normalizeExternalLinks,
+  initLiteYouTubeEmbeds,
+  CARD_HASH_FOCUS_OPTIONS,
+} from './ui-utils.js';
 
 const C = {
   SEL: {
     HAMBURGER: '.hamburger-menu',
     NAV_LIST: '.nav-list',
     MAIN_HEADER: '.main-header',
+    MAIN_NAV: 'nav.main-nav',
+    NAV_PAGE_LINKS: '.nav-list a, .footer-nav a',
+    EXTERNAL_LINKS: 'a[href^="http"]',
+    LITE_YOUTUBE: '.lite-youtube',
     HAS_SUBMENU_LINK: '.has-submenu > a',
     SUBMENU: '.submenu',
     DISCORD_TRIGGERS: '[data-modal-target="discord-hub"]',
@@ -31,23 +43,54 @@ const el = {
   hamburger: document.querySelector(C.SEL.HAMBURGER),
   nav: document.querySelector(C.SEL.NAV_LIST),
   header: document.querySelector(C.SEL.MAIN_HEADER),
+  mainNav: document.querySelector(C.SEL.MAIN_NAV),
   themeToggle: document.getElementById('theme-toggle'),
-  submenuLinks: document.querySelectorAll(C.SEL.HAS_SUBMENU_LINK),
-  submenus: document.querySelectorAll(C.SEL.SUBMENU),
+  submenuLinks: Array.from(document.querySelectorAll(C.SEL.HAS_SUBMENU_LINK)),
+  submenus: Array.from(document.querySelectorAll(C.SEL.SUBMENU)),
   discordModal: document.querySelector(C.SEL.DISCORD_MODAL),
   discordOverlay: document.querySelector(C.SEL.DISCORD_OVERLAY),
-  discordTriggers: document.querySelectorAll(C.SEL.DISCORD_TRIGGERS),
+  discordTriggers: Array.from(document.querySelectorAll(C.SEL.DISCORD_TRIGGERS)),
   discordClose: document.querySelector(C.SEL.DISCORD_CLOSE),
+  navPageLinks: Array.from(document.querySelectorAll(C.SEL.NAV_PAGE_LINKS)),
+  externalLinks: Array.from(document.querySelectorAll(C.SEL.EXTERNAL_LINKS)),
+  liteYoutube: Array.from(document.querySelectorAll(C.SEL.LITE_YOUTUBE)),
 };
 
 const state = {
   isMobile: window.matchMedia(`(max-width:${C.BP.MOBILE}px)`).matches,
+  activeSubmenu: null,
 };
 
 const focusTrap = createFocusTrap();
 
 let scrollLocks = 0;
 let scrollBarWidth = '0px';
+
+const submenuMap = new Map();
+const submenuByBackButton = new Map();
+const submenuByElement = new Map();
+
+for (let i = 0; i < el.submenuLinks.length; i++) {
+  const trigger = el.submenuLinks[i];
+  const submenu = trigger.parentElement?.querySelector(':scope > .submenu');
+
+  if (!submenu) continue;
+
+  const backButton = submenu.querySelector(`:scope > .${C.CLS.BACK}`);
+
+  const relation = {
+    trigger,
+    submenu,
+    backButton,
+  };
+
+  submenuMap.set(trigger, relation);
+  submenuByElement.set(submenu, relation);
+
+  if (backButton) {
+    submenuByBackButton.set(backButton, relation);
+  }
+}
 
 function setScrollLock(lock) {
   const body = document.body;
@@ -109,14 +152,70 @@ el.discordClose?.addEventListener('click', () => toggleModal(false));
 el.discordOverlay?.addEventListener('click', () => toggleModal(false));
 
 function resetSubmenus() {
-  el.submenus.forEach(menu => menu.classList.remove(C.CLS.ACTIVE));
-  el.submenuLinks.forEach(link => link.setAttribute('aria-expanded', 'false'));
+  submenuMap.forEach(({ trigger, submenu }) => {
+    submenu.classList.remove(C.CLS.ACTIVE);
+    trigger.setAttribute('aria-expanded', 'false');
+  });
+
+  state.activeSubmenu = null;
 }
 
 function notifyNavMenuState(open) {
   window.dispatchEvent(new CustomEvent(C.EVENTS.NAV_MENU_STATE_CHANGE, {
     detail: { open },
   }));
+}
+
+function closeOtherSubmenus(activeSubmenu) {
+  submenuMap.forEach(({ trigger, submenu }) => {
+    if (submenu === activeSubmenu) return;
+
+    submenu.classList.remove(C.CLS.ACTIVE);
+    trigger.setAttribute('aria-expanded', 'false');
+
+    if (state.activeSubmenu === submenu) {
+      state.activeSubmenu = null;
+    }
+  });
+}
+
+function openSubmenu(trigger, submenu) {
+  if (!state.isMobile || !trigger || !submenu) return;
+
+  if (submenu.classList.contains(C.CLS.ACTIVE)) {
+    state.activeSubmenu = submenu;
+    return;
+  }
+
+  closeOtherSubmenus(submenu);
+  submenu.classList.add(C.CLS.ACTIVE);
+  trigger.setAttribute('aria-expanded', 'true');
+  state.activeSubmenu = submenu;
+}
+
+function closeSubmenu(submenu, { restoreFocus = true } = {}) {
+  if (!submenu) return;
+
+  const relationToClose = submenuByElement.get(submenu);
+  if (!relationToClose) return;
+
+  relationToClose.submenu.classList.remove(C.CLS.ACTIVE);
+  relationToClose.trigger.setAttribute('aria-expanded', 'false');
+
+  if (state.activeSubmenu === relationToClose.submenu) {
+    state.activeSubmenu = null;
+  }
+
+  if (restoreFocus) {
+    relationToClose.trigger.focus({ preventScroll: true });
+  }
+}
+
+function closeActiveSubmenu({ restoreFocus = true } = {}) {
+  if (!state.activeSubmenu) return false;
+
+  closeSubmenu(state.activeSubmenu, { restoreFocus });
+  return true;
 }
 
 function openMenu({ focusTarget = null, activateTrap = true } = {}) {
@@ -130,9 +229,11 @@ function openMenu({ focusTarget = null, activateTrap = true } = {}) {
 
   if (!wasOpen) {
     setScrollLock(true);
+
     if (activateTrap) {
       focusTrap.activate(el.nav);
     }
+
     notifyNavMenuState(true);
   }
 
@@ -169,6 +270,7 @@ el.hamburger?.addEventListener('click', event => {
 
 window.addEventListener(C.EVENTS.REQUEST_MOBILE_SEARCH_PANEL, event => {
   if (!state.isMobile) return;
+
   openMenu({
     focusTarget: event.detail?.focusTarget || null,
     activateTrap: false,
@@ -180,47 +282,30 @@ window.addEventListener(C.EVENTS.REQUEST_CLOSE_MOBILE_MENU, () => {
   closeMenu();
 });
 
-el.submenuLinks.forEach(link => {
-  const submenu = link.parentElement?.querySelector(C.SEL.SUBMENU);
-  if (!submenu) return;
-
-  function openSubmenu(event) {
+submenuMap.forEach(({ trigger, submenu }) => {
+  function handleOpenSubmenu(event) {
     if (!state.isMobile) return;
+
     event.preventDefault();
     event.stopPropagation();
-
-    if (submenu.classList.contains(C.CLS.ACTIVE)) return;
-
-    el.submenus.forEach(menu => {
-      if (menu !== submenu) {
-        menu.classList.remove(C.CLS.ACTIVE);
-        const parentLink = menu.parentElement?.querySelector(':scope > a');
-        parentLink?.setAttribute('aria-expanded', 'false');
-      }
-    });
-
-    submenu.classList.add(C.CLS.ACTIVE);
-    link.setAttribute('aria-expanded', 'true');
+    openSubmenu(trigger, submenu);
   }
 
-  link.addEventListener('click', openSubmenu);
-  link.addEventListener('keydown', event => {
+  trigger.addEventListener('click', handleOpenSubmenu);
+  trigger.addEventListener('keydown', event => {
     if (event.key === 'Enter' || event.key === ' ') {
-      event.stopPropagation();
-      openSubmenu(event);
+      handleOpenSubmenu(event);
     }
   });
 });
 
 el.nav?.addEventListener('click', event => {
-  const back = event.target.closest(`.${C.CLS.BACK}`);
-  if (back) {
-    const submenu = back.closest(C.SEL.SUBMENU);
-    submenu?.classList.remove(C.CLS.ACTIVE);
-
-    const parentLink = submenu?.parentElement?.querySelector(':scope > a');
-    parentLink?.setAttribute('aria-expanded', 'false');
-    parentLink?.focus({ preventScroll: true });
+  const backButton = event.target.closest(`.${C.CLS.BACK}`);
+  if (backButton) {
+    const relation = submenuByBackButton.get(backButton);
+    if (relation) {
+      closeSubmenu(relation.submenu, { restoreFocus: true });
+    }
     return;
   }
 
@@ -239,13 +324,7 @@ document.addEventListener('keydown', event => {
   }
 
   if (el.nav?.classList.contains(C.CLS.ACTIVE)) {
-    const openSub = el.nav.querySelector(`${C.SEL.SUBMENU}.${C.CLS.ACTIVE}`);
-    if (openSub) {
-      openSub.classList.remove(C.CLS.ACTIVE);
-
-      const parentLink = openSub.parentElement?.querySelector(':scope > a');
-      parentLink?.setAttribute('aria-expanded', 'false');
-      parentLink?.focus({ preventScroll: true });
+    if (closeActiveSubmenu({ restoreFocus: true })) {
       return;
     }
 
@@ -254,10 +333,14 @@ document.addEventListener('keydown', event => {
 });
 
 const mq = window.matchMedia(`(max-width:${C.BP.MOBILE}px)`);
-const handleMqChange = event => {
+
+function handleMqChange(event) {
   state.isMobile = event.matches;
-  if (!state.isMobile) closeMenu();
-};
+
+  if (!state.isMobile) {
+    closeMenu();
+  }
+}
 
 if (mq.addEventListener) {
   mq.addEventListener('change', handleMqChange);
@@ -271,65 +354,39 @@ if (el.themeToggle) {
     (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 
   document.documentElement.dataset.theme = saved;
-  el.themeToggle.setAttribute('aria-pressed', saved === 'dark');
+  el.themeToggle.setAttribute('aria-pressed', String(saved === 'dark'));
 
   el.themeToggle.addEventListener('click', () => {
     const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
     document.documentElement.dataset.theme = next;
-    el.themeToggle.setAttribute('aria-pressed', next === 'dark');
+    el.themeToggle.setAttribute('aria-pressed', String(next === 'dark'));
     localStorage.setItem(C.THEME_KEY, next);
   });
 }
 
 scheduleTask(() => {
   const copyYear = document.getElementById('copyright-year');
-  if (copyYear) copyYear.textContent = new Date().getFullYear();
+  if (copyYear) {
+    copyYear.textContent = String(new Date().getFullYear());
+  }
 
-  document.querySelector('nav.main-nav')?.setAttribute('role', 'navigation');
+  el.mainNav?.setAttribute('role', 'navigation');
 
-  const path = location.pathname;
+  markCurrentPageLinks(el.navPageLinks);
+  normalizeExternalLinks(el.externalLinks, { excludeClass: 'download-link' });
+  initLiteYouTubeEmbeds(el.liteYoutube);
 
-  document.querySelectorAll('.nav-list a, .footer-nav a').forEach(link => {
-    try {
-      if (new URL(link.href, location.origin).pathname === path) {
-        link.setAttribute('aria-current', 'page');
-      }
-    } catch {}
-  });
+  scheduleHashTargetFocus(CARD_HASH_FOCUS_OPTIONS);
+});
 
-  document.querySelectorAll('a[href^="http"]').forEach(link => {
-    try {
-      if (
-        new URL(link.href).hostname !== location.hostname &&
-        !link.classList.contains('download-link')
-      ) {
-        link.target = '_blank';
-        link.rel = 'noopener noreferrer';
-      }
-    } catch {}
-  });
-
-  document.querySelectorAll('.lite-youtube').forEach(wrapper => {
-    wrapper.addEventListener(
-      'click',
-      function () {
-        const id = this.dataset.videoId;
-        if (!id) return;
-
-        const iframe = document.createElement('iframe');
-        iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
-        iframe.allow = 'autoplay; encrypted-media; picture-in-picture';
-        iframe.allowFullscreen = true;
-        iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:0';
-
-        this.innerHTML = '';
-        this.appendChild(iframe);
-      },
-      { once: true }
-    );
-  });
+window.addEventListener('hashchange', () => {
+  scheduleHashTargetFocus(CARD_HASH_FOCUS_OPTIONS);
 });
 
 window.addEventListener('pageshow', event => {
-  if (event.persisted) closeMenu();
+  if (event.persisted) {
+    closeMenu();
+  }
+
+  scheduleHashTargetFocus(CARD_HASH_FOCUS_OPTIONS);
 });

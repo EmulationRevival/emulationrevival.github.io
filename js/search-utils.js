@@ -1,3 +1,8 @@
+import {
+  CARD_HASH_FOCUS_OPTIONS,
+  scheduleHashTargetFocus,
+} from './ui-utils.js';
+
 let searchIndexCache = null;
 let searchIndexPromise = null;
 let searchIndexPathCache = null;
@@ -507,22 +512,24 @@ export function renderSearchSuggestionsList({
   liveRegionMessage,
   getDataset,
 }) {
-  if (!input || !resultsContainer) return;
+  if (!input || !resultsContainer || !Array.isArray(suggestions)) return;
 
   const fragment = document.createDocumentFragment();
 
-  suggestions.forEach((suggestion, index) => {
+  for (let i = 0; i < suggestions.length; i++) {
+    const suggestion = suggestions[i];
+
     const item = createSearchSuggestionNode({
-      id: `${suggestionIdPrefix}${index}`,
+      id: `${suggestionIdPrefix}${i}`,
       name: suggestion.name,
       image: suggestion.icon || suggestion.img || '',
       imageFallback,
-      dataset: typeof getDataset === 'function' ? getDataset(suggestion, index) : {},
+      dataset: typeof getDataset === 'function' ? getDataset(suggestion, i) : {},
       classNames,
     });
 
     fragment.appendChild(item);
-  });
+  }
 
   if (currentSuggestionsRef) {
     currentSuggestionsRef.value = suggestions;
@@ -552,84 +559,39 @@ export function renderSearchSuggestionsList({
   clearControl?.sync?.();
 }
 
-export function getHeaderOffset(mainHeaderSelector = '.main-header') {
-  const header = document.querySelector(mainHeaderSelector);
-  return header ? header.offsetHeight : 0;
+export function buildHashUrlForElementId(elementId) {
+  const currentUrl = `${window.location.pathname || '/'}${window.location.search || ''}`;
+  return `${currentUrl}#${encodeURIComponent(elementId)}`;
 }
 
-export function scrollToSearchTarget({
-  element,
-  mainHeaderSelector = '.main-header',
-  extraOffset = 20,
-  behavior = 'smooth',
-}) {
-  if (!element) return;
-
-  const headerOffset = getHeaderOffset(mainHeaderSelector);
-  const elementTop = window.scrollY + element.getBoundingClientRect().top;
-  const targetTop = elementTop - headerOffset - extraOffset;
-
-  window.scrollTo({
-    top: Math.max(0, targetTop),
-    behavior,
-  });
-}
-
-export function navigateToSearchTarget({
-  url,
-  mainHeaderSelector = '.main-header',
-  extraOffset = 20,
-  behavior = 'smooth',
-  focusSelector = '.card-link',
-  onSamePageTarget,
-  onBeforeCrossPageNavigation,
-}) {
+function isSameDocumentNavigation(url) {
   if (!url) return false;
 
-  const resolvedUrl = new URL(url, window.location.origin);
-  const currentUrl = new URL(window.location.href);
-  const isSamePath = resolvedUrl.pathname === currentUrl.pathname;
-  const hasHash = resolvedUrl.hash.length > 1;
+  try {
+    const nextUrl = new URL(url, window.location.origin);
+    const currentUrl = new URL(window.location.href);
 
-  if (isSamePath && hasHash) {
-    const targetId = decodeURIComponent(resolvedUrl.hash.slice(1));
-    const targetElement = document.getElementById(targetId);
+    return (
+      nextUrl.origin === currentUrl.origin &&
+      nextUrl.pathname === currentUrl.pathname &&
+      nextUrl.search === currentUrl.search &&
+      nextUrl.hash.length > 1
+    );
+  } catch {
+    return false;
+  }
+}
 
-    if (!targetElement) {
-      return false;
-    }
+export function navigateToUrl(url, { focusOptions = CARD_HASH_FOCUS_OPTIONS } = {}) {
+  if (!url) return false;
 
-    onSamePageTarget?.(targetElement, targetId);
+  const sameDocumentNavigation = isSameDocumentNavigation(url);
 
-    scrollToSearchTarget({
-      element: targetElement,
-      mainHeaderSelector,
-      extraOffset,
-      behavior,
-    });
+  window.location.assign(url);
 
-    const targetToFocus = targetElement.querySelector(focusSelector) || targetElement;
-
-    if (targetToFocus === targetElement) {
-      targetElement.setAttribute('tabindex', '-1');
-    }
-
-    targetToFocus.focus({ preventScroll: true });
-
-    if (targetToFocus === targetElement) {
-      targetToFocus.addEventListener('blur', () => {
-        targetToFocus.removeAttribute('tabindex');
-      }, { once: true });
-    }
-
-    if (currentUrl.hash !== resolvedUrl.hash) {
-      window.history.pushState(null, '', resolvedUrl.pathname + resolvedUrl.hash);
-    }
-
-    return true;
+  if (sameDocumentNavigation && focusOptions) {
+    scheduleHashTargetFocus(focusOptions);
   }
 
-  onBeforeCrossPageNavigation?.();
-  window.location.assign(resolvedUrl.toString());
   return true;
 }
