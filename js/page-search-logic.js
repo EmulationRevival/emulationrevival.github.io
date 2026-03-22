@@ -6,6 +6,7 @@ import {
   setupComboboxAria,
   setAutocompleteVisibility,
   clearSuggestions,
+  resetSearchState,
   syncAriaState,
   moveActiveSuggestion,
   setupClearableSearchInput,
@@ -117,29 +118,15 @@ if (!searchInput || !autocompleteResults) {
   }
 
   function resetSearchUI({ blur = false } = {}) {
-    searchInput.value = '';
-
-    clearSuggestions({
+    resetSearchState({
       input: searchInput,
       resultsContainer: autocompleteResults,
       activeSuggestionIndexRef,
       currentSuggestionsRef,
+      liveRegion,
+      clearControl,
+      blur,
     });
-
-    setAutocompleteVisibility({
-      input: searchInput,
-      resultsContainer: autocompleteResults,
-      visible: false,
-      activeSuggestionIndexRef,
-      currentSuggestionsRef,
-    });
-
-    liveRegion.textContent = '';
-    clearControl.sync();
-
-    if (blur) {
-      searchInput.blur();
-    }
   }
 
   const clearControl = setupClearableSearchInput({

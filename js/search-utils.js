@@ -147,6 +147,45 @@ export function clearSuggestions({
   }
 }
 
+export function resetSearchState({
+  input,
+  resultsContainer,
+  activeSuggestionIndexRef,
+  currentSuggestionsRef,
+  liveRegion,
+  clearControl,
+  blur = false,
+}) {
+  if (!input || !resultsContainer) return;
+
+  input.value = '';
+
+  clearSuggestions({
+    input,
+    resultsContainer,
+    activeSuggestionIndexRef,
+    currentSuggestionsRef,
+  });
+
+  setAutocompleteVisibility({
+    input,
+    resultsContainer,
+    visible: false,
+    activeSuggestionIndexRef,
+    currentSuggestionsRef,
+  });
+
+  if (liveRegion) {
+    liveRegion.textContent = '';
+  }
+
+  clearControl?.sync?.();
+
+  if (blur) {
+    input.blur();
+  }
+}
+
 export function syncAriaState({
   input,
   resultsContainer,

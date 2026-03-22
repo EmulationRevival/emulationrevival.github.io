@@ -6,6 +6,7 @@ import {
   setupComboboxAria,
   setAutocompleteVisibility,
   clearSuggestions,
+  resetSearchState,
   syncAriaState,
   moveActiveSuggestion,
   setupClearableSearchInput,
@@ -75,6 +76,7 @@ if (!searchInput || !autocompleteResults) {
 } else {
   const mobileQuery = window.matchMedia(`(max-width: ${CONFIG.MOBILE_BREAKPOINT}px)`);
   const activeSuggestionIndexRef = { value: -1 };
+  const currentSuggestionsRef = { value: [] };
 
   let searchIndexCache = [];
 
@@ -106,6 +108,7 @@ if (!searchInput || !autocompleteResults) {
       input: searchInput,
       resultsContainer: autocompleteResults,
       activeSuggestionIndexRef,
+      currentSuggestionsRef,
     });
 
     setAutocompleteVisibility({
@@ -113,19 +116,22 @@ if (!searchInput || !autocompleteResults) {
       resultsContainer: autocompleteResults,
       visible: false,
       activeSuggestionIndexRef,
+      currentSuggestionsRef,
     });
 
     liveRegion.textContent = '';
   }
 
   function resetSitewideSearch({ blur = false } = {}) {
-    searchInput.value = '';
-    clearSitewideResults();
-    clearControl.sync();
-
-    if (blur) {
-      searchInput.blur();
-    }
+    resetSearchState({
+      input: searchInput,
+      resultsContainer: autocompleteResults,
+      activeSuggestionIndexRef,
+      currentSuggestionsRef,
+      liveRegion,
+      clearControl,
+      blur,
+    });
   }
 
   const clearControl = setupClearableSearchInput({
@@ -225,14 +231,18 @@ if (!searchInput || !autocompleteResults) {
         resultsContainer: autocompleteResults,
         visible: true,
         activeSuggestionIndexRef,
+        currentSuggestionsRef,
       });
 
       liveRegion.textContent = TEMPLATES.NO_RESULTS(query);
       searchInput.removeAttribute('aria-activedescendant');
       activeSuggestionIndexRef.value = -1;
+      currentSuggestionsRef.value = [];
       clearControl.sync();
       return;
     }
+
+    currentSuggestionsRef.value = filtered;
 
     const fragment = document.createDocumentFragment();
 
@@ -270,6 +280,7 @@ if (!searchInput || !autocompleteResults) {
       resultsContainer: autocompleteResults,
       visible: true,
       activeSuggestionIndexRef,
+      currentSuggestionsRef,
     });
 
     syncAriaState({
