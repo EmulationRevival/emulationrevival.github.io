@@ -1,1 +1,541 @@
-[]
+[
+  {
+    "name": "Retroarch 3DS",
+    "description": "An experimental RetroArch build with Citra, Azahar and Panda3ds cores.",
+    "img": "/xbox-dev-mode/images/emulators/retroarch3ds.webp",
+    "url": "/xbox-dev-mode/emulators.html#retroarch-3ds",
+    "category": "Emulators"
+  },
+  {
+    "name": "Dolphin",
+    "description": "A GameCube and Wii emulator.",
+    "img": "/xbox-dev-mode/images/emulators/dolphin.webp",
+    "url": "/xbox-dev-mode/emulators.html#dolphin",
+    "category": "Emulators"
+  },
+  {
+    "name": "Flycast",
+    "description": "A multiplatform Sega Dreamcast, Naomi, Naomi 2 and Atomiswave emulator.",
+    "img": "/xbox-dev-mode/images/emulators/flycast.webp",
+    "url": "/xbox-dev-mode/emulators.html#flycast",
+    "category": "Emulators"
+  },
+  {
+    "name": "GZDoom",
+    "description": "A source port for Doom, Heretic, Hexen, and more.",
+    "img": "/xbox-dev-mode/images/emulators/gzdoom.webp",
+    "url": "/xbox-dev-mode/emulators.html#gzdoom",
+    "category": "Emulators"
+  },
+  {
+    "name": "Ikemen GO",
+    "description": "A M.U.G.E.N compatible fighting game engine.",
+    "img": "/xbox-dev-mode/images/emulators/ikemen_go.webp",
+    "url": "/xbox-dev-mode/emulators.html#ikemen-go",
+    "category": "Emulators"
+  },
+  {
+    "name": "OpenBOR",
+    "description": "A 2D side scrolling beat 'em up game engine.",
+    "img": "/xbox-dev-mode/images/emulators/openbor.webp",
+    "url": "/xbox-dev-mode/emulators.html#openbor",
+    "category": "Emulators"
+  },
+  {
+    "name": "PPSSPP",
+    "description": "A PSP emulator.",
+    "img": "/xbox-dev-mode/images/emulators/ppsspp.webp",
+    "url": "/xbox-dev-mode/emulators.html#ppsspp",
+    "category": "Emulators"
+  },
+  {
+    "name": "Raze",
+    "description": "A source port for Duke Nukem 3D, Blood, Redneck Rampage, and more.",
+    "img": "/xbox-dev-mode/images/emulators/raze.webp",
+    "url": "/xbox-dev-mode/emulators.html#raze",
+    "category": "Emulators"
+  },
+  {
+    "name": "RetroArch",
+    "description": "A multi-system emulator for classic games and consoles.",
+    "img": "/xbox-dev-mode/images/emulators/retroarch.webp",
+    "url": "/xbox-dev-mode/emulators.html#retroarch",
+    "category": "Emulators"
+  },
+  {
+    "name": "Ruffle",
+    "description": "A Flash Player emulator.",
+    "img": "/xbox-dev-mode/images/emulators/ruffle.webp",
+    "url": "/xbox-dev-mode/emulators.html#ruffle",
+    "category": "Emulators"
+  },
+  {
+    "name": "Sega Model 3",
+    "description": "A Sega Model 3 arcade emulator based on Supermodel.",
+    "img": "/xbox-dev-mode/images/emulators/supermodel.webp",
+    "url": "/xbox-dev-mode/emulators.html#supermodel",
+    "category": "Emulators"
+  },
+  {
+    "name": "Sega Model 3 G920",
+    "description": "A Sega Model 3 arcade emulator based on Supermodel, enhanced with Logitech G920 support.",
+    "img": "/xbox-dev-mode/images/emulators/supermodel_g920.webp",
+    "url": "/xbox-dev-mode/emulators.html#supermodel-g920",
+    "category": "Emulators"
+  },
+  {
+    "name": "XBSX2",
+    "description": "A Playstation 2 emulator ported from PCSX2.",
+    "img": "/xbox-dev-mode/images/emulators/xbsx2.webp",
+    "url": "/xbox-dev-mode/emulators.html#xbsx2",
+    "category": "Emulators"
+  },
+  {
+    "name": "Xenia Canary",
+    "description": "An Xbox 360 emulator now with Blades style UI.",
+    "img": "/xbox-dev-mode/images/emulators/xenia.webp",
+    "url": "/xbox-dev-mode/emulators.html#xenia-canary",
+    "category": "Emulators"
+  },
+  {
+    "name": "Castlevania Revamped",
+    "description": "The NES classic re-forged into a Metroid-style adventure.",
+    "img": "/xbox-dev-mode/images/game-ports/castlevania.webp",
+    "url": "/xbox-dev-mode/ports.html#castlevania",
+    "category": "Ports"
+  },
+  {
+    "name": "Celeste Classic",
+    "description": "The original challenging PICO-8 platformer that started it all.",
+    "img": "/xbox-dev-mode/images/game-ports/celeste.webp",
+    "url": "/xbox-dev-mode/ports.html#celeste",
+    "category": "Ports"
+  },
+  {
+    "name": "Chrono Divide",
+    "description": "A fan-made project bringing the classic RTS action of Red Alert 2 to life.",
+    "img": "/xbox-dev-mode/images/game-ports/chrono.webp",
+    "url": "/xbox-dev-mode/ports.html#chrono",
+    "category": "Ports"
+  },
+  {
+    "name": "Darkplaces",
+    "description": "An advanced open-source engine port for the original Quake.",
+    "img": "/xbox-dev-mode/images/game-ports/darkplaces.webp",
+    "url": "/xbox-dev-mode/ports.html#darkplaces",
+    "category": "Ports"
+  },
+  {
+    "name": "DevilutionX",
+    "description": "A faithful source port of Diablo and its expansion, Hellfire.",
+    "img": "/xbox-dev-mode/images/game-ports/devilutionx.webp",
+    "url": "/xbox-dev-mode/ports.html#devilutionx",
+    "category": "Ports"
+  },
+  {
+    "name": "Dhewm 3",
+    "description": "A source port of the legendary Doom 3, bringing it to UWP.",
+    "img": "/xbox-dev-mode/images/game-ports/dhewm3.webp",
+    "url": "/xbox-dev-mode/ports.html#dhewm3",
+    "category": "Ports"
+  },
+  {
+    "name": "DXX Rebirth",
+    "description": "A source port for the classic 6-degrees-of-freedom shooter, Descent.",
+    "img": "/xbox-dev-mode/images/game-ports/dxxrebirth.webp",
+    "url": "/xbox-dev-mode/ports.html#dxxrebirth",
+    "category": "Ports"
+  },
+  {
+    "name": "ioquake3",
+    "description": "The definitive open-source engine for Quake III Arena and its mods.",
+    "img": "/xbox-dev-mode/images/game-ports/ioquake3.webp",
+    "url": "/xbox-dev-mode/ports.html#ioquake3",
+    "category": "Ports"
+  },
+  {
+    "name": "Jazz² Resurrection",
+    "description": "A complete reimplementation of the classic platformer Jazz Jackrabbit 2.",
+    "img": "/xbox-dev-mode/images/game-ports/jazz2.webp",
+    "url": "/xbox-dev-mode/ports.html#jazz2",
+    "category": "Ports"
+  },
+  {
+    "name": "Maze0x72",
+    "description": "A homebrew first-person maze game created in the Unity engine.",
+    "img": "/xbox-dev-mode/images/game-ports/maze.webp",
+    "url": "/xbox-dev-mode/ports.html#maze",
+    "category": "Ports"
+  },
+  {
+    "name": "Minesweeper 3D",
+    "description": "A homebrew 3D take on the classic puzzle game Minesweeper.",
+    "img": "/xbox-dev-mode/images/game-ports/mine.webp",
+    "url": "/xbox-dev-mode/ports.html#mine",
+    "category": "Ports"
+  },
+  {
+    "name": "Open JKDF2",
+    "description": "Source port for Jedi Knight: Dark Forces II and its expansion.",
+    "img": "/xbox-dev-mode/images/game-ports/jkdf2.webp",
+    "url": "/xbox-dev-mode/ports.html#jkdf2",
+    "category": "Ports"
+  },
+  {
+    "name": "OpenLara",
+    "description": "An open-source engine for the classic Tomb Raider, playable on Xbox.",
+    "img": "/xbox-dev-mode/images/game-ports/openlara.webp",
+    "url": "/xbox-dev-mode/ports.html#openlara",
+    "category": "Ports"
+  },
+  {
+    "name": "OpenTyrian 2000",
+    "description": "Classic freeware vertical scrolling shooter via the OpenTyrian engine.",
+    "img": "/xbox-dev-mode/images/game-ports/opentyrian.webp",
+    "url": "/xbox-dev-mode/ports.html#opentyrian",
+    "category": "Ports"
+  },
+  {
+    "name": "Relic Hunters Zero",
+    "description": "A free, open-source, and action-packed top-down shooter.",
+    "img": "/xbox-dev-mode/images/game-ports/relichunters.webp",
+    "url": "/xbox-dev-mode/ports.html#relichunters",
+    "category": "Ports"
+  },
+  {
+    "name": "SDLPoP",
+    "description": "An open-source port of the original 1989 Prince of Persia.",
+    "img": "/xbox-dev-mode/images/game-ports/sdlpop.webp",
+    "url": "/xbox-dev-mode/ports.html#sdlpop",
+    "category": "Ports"
+  },
+  {
+    "name": "Snake",
+    "description": "A simple and classic implementation of the Snake game for UWP.",
+    "img": "/xbox-dev-mode/images/game-ports/snake.webp",
+    "url": "/xbox-dev-mode/ports.html#snake",
+    "category": "Ports"
+  },
+  {
+    "name": "SOH (Ship of Harkinian)",
+    "description": "A phenomenal open source port of The Legend of Zelda: Ocarina of Time.",
+    "img": "/xbox-dev-mode/images/game-ports/soh.webp",
+    "url": "/xbox-dev-mode/ports.html#soh",
+    "category": "Ports"
+  },
+  {
+    "name": "Sonic 1 Decompilation",
+    "description": "A decompilation project of the original Sonic the Hedgehog mobile remaster.",
+    "img": "/xbox-dev-mode/images/game-ports/sonic1decomp.webp",
+    "url": "/xbox-dev-mode/ports.html#sonic1decomp",
+    "category": "Ports"
+  },
+  {
+    "name": "Sonic 2 Decompilation",
+    "description": "A decompilation project of the original Sonic the Hedgehog 2 mobile remaster.",
+    "img": "/xbox-dev-mode/images/game-ports/sonic2decomp.webp",
+    "url": "/xbox-dev-mode/ports.html#sonic2decomp",
+    "category": "Ports"
+  },
+  {
+    "name": "Sonic 1 & 2 SMS Remake",
+    "description": "Modern remakes of the 8-bit Sega Master System Sonic games.",
+    "img": "/xbox-dev-mode/images/game-ports/sonicsms.webp",
+    "url": "/xbox-dev-mode/ports.html#sonicsms",
+    "category": "Ports"
+  },
+  {
+    "name": "Sonic 3 A.I.R.",
+    "description": "A fan-made widescreen remaster of Sonic 3 & Knuckles (Angel Island Revisited).",
+    "img": "/xbox-dev-mode/images/game-ports/sonic3air.webp",
+    "url": "/xbox-dev-mode/ports.html#sonic3air",
+    "category": "Ports"
+  },
+  {
+    "name": "Sonic Adventure Blast 2",
+    "description": "Fan-made game with Sonic, Tails, and Knuckles in Adventure-style gameplay.",
+    "img": "/xbox-dev-mode/images/game-ports/sab2.webp",
+    "url": "/xbox-dev-mode/ports.html#sab2",
+    "category": "Ports"
+  },
+  {
+    "name": "Sonic CD (Decompilation)",
+    "description": "A port of the Sonic CD mobile remaster via decompilation.",
+    "img": "/xbox-dev-mode/images/game-ports/soniccd.webp",
+    "url": "/xbox-dev-mode/ports.html#soniccd",
+    "category": "Ports"
+  },
+  {
+    "name": "Sonic Mania",
+    "description": "A port of the acclaimed 2D Sonic adventure via the RSDKv5 decompilation.",
+    "img": "/xbox-dev-mode/images/game-ports/sonicmania.webp",
+    "url": "/xbox-dev-mode/ports.html#sonicmania",
+    "category": "Ports"
+  },
+  {
+    "name": "Sonic Realms",
+    "description": "An impressive and ambitious fan-made Sonic game project.",
+    "img": "/xbox-dev-mode/images/game-ports/sonicrealms.webp",
+    "url": "/xbox-dev-mode/ports.html#sonicrealms",
+    "category": "Ports"
+  },
+  {
+    "name": "Sonic Ring Racers",
+    "description": "Fan-made kart racer based on Doom, formerly Dr. Robotnik's Ring Racers.",
+    "img": "/xbox-dev-mode/images/game-ports/sonicringracers.webp",
+    "url": "/xbox-dev-mode/ports.html#sonicringracers",
+    "category": "Ports"
+  },
+  {
+    "name": "Sonic Robo Blast 2",
+    "description": "A 3D Sonic fangame built on a modified Doom engine.",
+    "img": "/xbox-dev-mode/images/game-ports/srb2.webp",
+    "url": "/xbox-dev-mode/ports.html#srb2",
+    "category": "Ports"
+  },
+  {
+    "name": "Sonic Time Twisted",
+    "description": "Fan game inspired by Sonic CD & S3&K with a time travel mechanic.",
+    "img": "/xbox-dev-mode/images/game-ports/sonictimetwisted.webp",
+    "url": "/xbox-dev-mode/ports.html#sonictimetwisted",
+    "category": "Ports"
+  },
+  {
+    "name": "Sonic Unleashed Recomp",
+    "description": "An unofficial recompilation of the Xbox 360 version of Sonic Unleashed.",
+    "img": "/xbox-dev-mode/images/game-ports/sonicunleashed.webp",
+    "url": "/xbox-dev-mode/ports.html#sonicunleashed",
+    "category": "Ports"
+  },
+  {
+    "name": "Spelunky Classic HD",
+    "description": "An HD version of the acclaimed roguelike platformer with random levels.",
+    "img": "/xbox-dev-mode/images/game-ports/spelunky.webp",
+    "url": "/xbox-dev-mode/ports.html#spelunky",
+    "category": "Ports"
+  },
+  {
+    "name": "Spooky Dimensions",
+    "description": "A simple homebrew space shooter game with a spooky theme.",
+    "img": "/xbox-dev-mode/images/game-ports/spooky.webp",
+    "url": "/xbox-dev-mode/ports.html#spooky",
+    "category": "Ports"
+  },
+  {
+    "name": "Trogdor-Reburninated",
+    "description": "An enhanced recreation of the classic Homestar Runner Flash game.",
+    "img": "/xbox-dev-mode/images/game-ports/trogdor.webp",
+    "url": "/xbox-dev-mode/ports.html#trogdor",
+    "category": "Ports"
+  },
+  {
+    "name": "Tuck King of the Sky",
+    "description": "A charming and straightforward homebrew plane sky shooter.",
+    "img": "/xbox-dev-mode/images/game-ports/tuck.webp",
+    "url": "/xbox-dev-mode/ports.html#tuck",
+    "category": "Ports"
+  },
+  {
+    "name": "VVVVVV",
+    "description": "Minimalist puzzle platformer with a core gravity-flipping mechanic.",
+    "img": "/xbox-dev-mode/images/game-ports/vvvvvv.webp",
+    "url": "/xbox-dev-mode/ports.html#vvvvvv",
+    "category": "Ports"
+  },
+  {
+    "name": "Zelda 3",
+    "description": "A reverse-engineered reimplementation of The Legend of Zelda: A Link to the Past.",
+    "img": "/xbox-dev-mode/images/game-ports/zelda3.webp",
+    "url": "/xbox-dev-mode/ports.html#zelda3",
+    "category": "Ports"
+  },
+  {
+    "name": "Zelda 64 Recompiled",
+    "description": "A static recompilation of The Legend of Zelda: Majora's Mask.",
+    "img": "/xbox-dev-mode/images/game-ports/zelda64.webp",
+    "url": "/xbox-dev-mode/ports.html#zelda64",
+    "category": "Ports"
+  },
+  {
+    "name": "Quake (Zircon)",
+    "description": "An advanced open-source Quake engine port using the Zircon engine.",
+    "img": "/xbox-dev-mode/images/game-ports/zircon.webp",
+    "url": "/xbox-dev-mode/ports.html#zircon",
+    "category": "Ports"
+  },
+  {
+    "name": "DXX-Rebirth (Descent 2)",
+    "description": "A Source Port for the classic 6-degrees-of-freedom shooter, Descent 2.",
+    "img": "/xbox-dev-mode/images/game-ports/dxxrebirth2.webp",
+    "url": "/xbox-dev-mode/ports.html#dxx-rebirth-descent-2",
+    "category": "Ports"
+  },
+  {
+    "name": "2S2H (2Ship2Harkinian)",
+    "description": "A phenomenal open source port of The Legend of Zelda: Majoras Mask",
+    "img": "/xbox-dev-mode/images/game-ports/2s2h.webp",
+    "url": "/xbox-dev-mode/ports.html#ship2harkinian",
+    "category": "Ports"
+  },
+  {
+    "name": "NSMB (MarioVsLuigi)",
+    "description": "A unity-standalone 2-10 online player remake of the Mario vs. Luigi gamemode from the New Super Mario Bros DS download game",
+    "img": "/xbox-dev-mode/images/game-ports/NSMB.webp",
+    "url": "/xbox-dev-mode/ports.html#nsmb-mariovsluigi",
+    "category": "Ports"
+  },
+  {
+    "name": "USB Permissions Tool",
+    "description": "Add necessary permissions to an NTFS formatted USB drive for UWP apps.",
+    "img": "/xbox-dev-mode/images/utilities/usb-perms-tool.webp",
+    "url": "/xbox-dev-mode/utilities.html#usb-permissions-tool",
+    "category": "Utilities"
+  },
+  {
+    "name": "Durango FTP",
+    "description": "FTP Server for Xbox One/Series in Dev Mode.",
+    "img": "/xbox-dev-mode/images/utilities/ftp.webp",
+    "url": "/xbox-dev-mode/utilities.html#durangoftp",
+    "category": "Utilities"
+  },
+  {
+    "name": "Oberon Remote",
+    "description": "Remote input for Xbox consoles, use any controller with your Xbox.",
+    "img": "/xbox-dev-mode/images/utilities/oberon.webp",
+    "url": "/xbox-dev-mode/utilities.html#oberon",
+    "category": "Utilities"
+  },
+  {
+    "name": "Safe Exit",
+    "description": "Exit from dev mode safely.",
+    "img": "/xbox-dev-mode/images/utilities/safeexit.webp",
+    "url": "/xbox-dev-mode/utilities.html#safeexit",
+    "category": "Utilities"
+  },
+  {
+    "name": "Discord",
+    "description": "Chat with friends and communities.",
+    "img": "/xbox-dev-mode/images/apps/discord.webp",
+    "url": "/xbox-dev-mode/apps.html#discorduwp",
+    "category": "Apps"
+  },
+  {
+    "name": "Moonlight",
+    "description": "Stream PC games using NVIDIA GameStream or Sunshine.",
+    "img": "/xbox-dev-mode/images/apps/moonlight.webp",
+    "url": "/xbox-dev-mode/apps.html#moonlight",
+    "category": "Apps"
+  },
+  {
+    "name": "X (Formerly Twitter)",
+    "description": "The social media platform for news, updates, and conversations.",
+    "img": "/xbox-dev-mode/images/apps/xuwp.webp",
+    "url": "/xbox-dev-mode/apps.html#xuwp",
+    "category": "Apps"
+  },
+  {
+    "name": "XB Cloud Gaming",
+    "description": "Access a library of games with Game Pass.",
+    "img": "/xbox-dev-mode/images/apps/xbcloudgaming.webp",
+    "url": "/xbox-dev-mode/apps.html#xbcloudgaming",
+    "category": "Apps"
+  },
+  {
+    "name": "LaunchPass",
+    "description": "A frontend capable of launching ROMs in most emulators on Xbox.",
+    "img": "/xbox-dev-mode/images/frontends/launchpass.webp",
+    "url": "/xbox-dev-mode/frontends.html#launchpass",
+    "category": "Frontends"
+  },
+  {
+    "name": "Retro Pass",
+    "description": "A simple frontend for emulators running on Xbox.",
+    "img": "/xbox-dev-mode/images/frontends/retropass.webp",
+    "url": "/xbox-dev-mode/frontends.html#retropass",
+    "category": "Frontends"
+  },
+  {
+    "name": "Kodi",
+    "description": "Open-source home theater software.",
+    "img": "/xbox-dev-mode/images/media-apps/kodi.webp",
+    "url": "/xbox-dev-mode/media-apps.html#kodi",
+    "category": "Media Apps"
+  },
+  {
+    "name": "SoundCloud",
+    "description": "Online audio distribution and music sharing platform.",
+    "img": "/xbox-dev-mode/images/media-apps/soundcloud.webp",
+    "url": "/xbox-dev-mode/media-apps.html#soundcloud",
+    "category": "Media Apps"
+  },
+  {
+    "name": "TuneIn",
+    "description": "Live radio, sports, music, news, and podcasts.",
+    "img": "/xbox-dev-mode/images/media-apps/tunein.webp",
+    "url": "/xbox-dev-mode/media-apps.html#tunein",
+    "category": "Media Apps"
+  },
+  {
+    "name": "Twitch",
+    "description": "Live streaming platform for gamers and content creators.",
+    "img": "/xbox-dev-mode/images/media-apps/twitch.webp",
+    "url": "/xbox-dev-mode/media-apps.html#twitch",
+    "category": "Media Apps"
+  },
+  {
+    "name": "VLC Media Player",
+    "description": "Free and open-source cross-platform multimedia player.",
+    "img": "/xbox-dev-mode/images/media-apps/vlc.webp",
+    "url": "/xbox-dev-mode/media-apps.html#vlc",
+    "category": "Media Apps"
+  },
+  {
+    "name": "YouTube",
+    "description": "Online video sharing platform.",
+    "img": "/xbox-dev-mode/images/media-apps/youtube.webp",
+    "url": "/xbox-dev-mode/media-apps.html#youtube",
+    "category": "Media Apps"
+  },
+  {
+    "name": "Windows Media Player (Zune)",
+    "description": "Media player with Zune-inspired interface.",
+    "img": "/xbox-dev-mode/images/media-apps/zune.webp",
+    "url": "/xbox-dev-mode/media-apps.html#zune",
+    "category": "Media Apps"
+  },
+  {
+    "name": "Chonkystation 3",
+    "description": "An experimental PlayStation 3 emulator.",
+    "img": "/xbox-dev-mode/images/experimental-apps/chonkystation3.webp",
+    "url": "/xbox-dev-mode/experimental-apps.html#chonkystation3",
+    "category": "Experimental Apps"
+  },
+  {
+    "name": "Hedge Physics",
+    "description": "A fan-made Sonic physics engine/game demo.",
+    "img": "/xbox-dev-mode/images/experimental-apps/hedgephysics.webp",
+    "url": "/xbox-dev-mode/experimental-apps.html#hedgephysics",
+    "category": "Experimental Apps"
+  },
+  {
+    "name": "Panda3DS",
+    "description": "An experimental Nintendo 3DS emulator.",
+    "img": "/xbox-dev-mode/images/experimental-apps/panda3ds.webp",
+    "url": "/xbox-dev-mode/experimental-apps.html#panda3ds",
+    "category": "Experimental Apps"
+  },
+  {
+    "name": "SM64HD Fan Remake",
+    "description": "A fan-made SM64HD (Super Mario 64) engine/game demo.",
+    "img": "/xbox-dev-mode/images/experimental-apps/sm64hd.webp",
+    "url": "/xbox-dev-mode/experimental-apps.html#sm64hd",
+    "category": "Experimental Apps"
+  },
+  {
+    "name": "BoxedWine",
+    "description": "Run 16-bit or 32-bit Windows programs.",
+    "img": "/xbox-dev-mode/images/experimental-apps/boxedwine.webp",
+    "url": "/xbox-dev-mode/experimental-apps.html#boxedwine",
+    "category": "Experimental Apps"
+  }
+]
