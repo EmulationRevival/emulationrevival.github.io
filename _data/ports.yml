@@ -1263,7 +1263,7 @@
   setup_guide: null
   tutorial_url: null
   
-  - id: "sm64ex"
+- id: "sm64ex"
   app_id: "sm64ex"
   title: "SM64EX"
   description: "A fork of the original Super Mario 64 Port"
