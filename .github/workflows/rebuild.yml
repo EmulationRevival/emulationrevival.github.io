@@ -24,7 +24,7 @@ jobs:
           node-version: '20'
 
       - name: Install Dependencies
-        run: npm install cheerio dotenv node-fetch@2
+        run: npm install cheerio dotenv node-fetch@2 js-yaml
 
       - name: Run Build Links Script
         env:
@@ -33,9 +33,6 @@ jobs:
 
       - name: Run Build Index Script
         run: node js/build-index.js
-
-      - name: Show Generated Search Index
-        run: cat json/search-index.json
 
       - name: Run Build Previews Script
         run: node js/build-previews.js

@@ -1,41 +1,34 @@
 const fs = require('fs/promises');
 const path = require('path');
-const cheerio = require('cheerio');
+const yaml = require('js-yaml');
 
-const GRID_FILES = [
+const DATA_FILES = [
   {
-    include: '_includes/cards/emulators-grid.html',
-    page: 'xbox-dev-mode/emulators.html',
+    file: '_data/emulators.yml',
     category: 'Emulators'
   },
   {
-    include: '_includes/cards/ports-grid.html',
-    page: 'xbox-dev-mode/ports.html',
+    file: '_data/ports.yml',
     category: 'Ports'
   },
   {
-    include: '_includes/cards/utilities-grid.html',
-    page: 'xbox-dev-mode/utilities.html',
+    file: '_data/utilities.yml',
     category: 'Utilities'
   },
   {
-    include: '_includes/cards/apps-grid.html',
-    page: 'xbox-dev-mode/apps.html',
+    file: '_data/apps.yml',
     category: 'Apps'
   },
   {
-    include: '_includes/cards/frontends-grid.html',
-    page: 'xbox-dev-mode/frontends.html',
+    file: '_data/frontends.yml',
     category: 'Frontends'
   },
   {
-    include: '_includes/cards/media-apps-grid.html',
-    page: 'xbox-dev-mode/media-apps.html',
+    file: '_data/media-apps.yml',
     category: 'Media Apps'
   },
   {
-    include: '_includes/cards/experimental-apps-grid.html',
-    page: 'xbox-dev-mode/experimental-apps.html',
+    file: '_data/experimental-apps.yml',
     category: 'Experimental Apps'
   }
 ];
@@ -44,23 +37,13 @@ const ROOT_DIR = path.join(__dirname, '../');
 const JSON_DIR = path.join(ROOT_DIR, 'json');
 const OUTPUT_PATH = path.join(JSON_DIR, 'search-index.json');
 
-function normalizeText(str = '') {
-  return str.replace(/\s+/g, ' ').trim();
+function normalizeText(value = '') {
+  return String(value).replace(/\s+/g, ' ').trim();
 }
 
-function buildUrl(filePath, id) {
-  return `/${filePath}${id ? `#${id}` : ''}`;
-}
-
-function getStableId($, cardEl) {
-  const directId = $(cardEl).attr('id');
-  if (directId) return directId;
-
-  const triggerId = $(cardEl).find('[data-modal-trigger]').first().attr('data-modal-trigger');
-  if (triggerId) return triggerId;
-
-  const closestId = $(cardEl).closest('[id]').attr('id');
-  return closestId || '';
+function ensureLeadingSlash(value = '') {
+  if (!value) return '';
+  return value.startsWith('/') ? value : `/${value}`;
 }
 
 async function fileExists(filePath) {
@@ -72,50 +55,67 @@ async function fileExists(filePath) {
   }
 }
 
-async function extractGridIndex({ include, page, category }) {
-  const fullPath = path.join(ROOT_DIR, include);
+function buildEntry(item, fallbackCategory) {
+  const name = normalizeText(item.title || '');
+  const description = normalizeText(item.description || '');
+  const img = ensureLeadingSlash(normalizeText(item.image || ''));
+  const url = ensureLeadingSlash(normalizeText(item.page_url || ''));
+  const category = normalizeText(item.category || fallbackCategory || '');
+
+  if (!name || !img || !url) {
+    return null;
+  }
+
+  return {
+    name,
+    description,
+    img,
+    url,
+    category
+  };
+}
+
+async function extractDataIndex({ file, category }) {
+  const fullPath = path.join(ROOT_DIR, file);
 
   if (!(await fileExists(fullPath))) {
-    console.warn(`Skipping missing include file: ${fullPath}`);
+    console.warn(`Skipping missing data file: ${fullPath}`);
     return [];
   }
 
-  const html = await fs.readFile(fullPath, 'utf8');
-  const $ = cheerio.load(html);
+  const raw = await fs.readFile(fullPath, 'utf8');
+  const parsed = yaml.load(raw);
+
+  if (!Array.isArray(parsed)) {
+    console.warn(`Skipping invalid YAML array: ${fullPath}`);
+    return [];
+  }
+
   const entries = [];
   const seenUrls = new Set();
 
-  $('.card').each((_, el) => {
-    const $card = $(el);
-    const title = normalizeText($card.find('.card-title').first().text());
-    if (!title) return;
+  for (let i = 0; i < parsed.length; i += 1) {
+    const entry = buildEntry(parsed[i], category);
 
-    const description = normalizeText($card.find('.card-description').first().text());
-    const img = normalizeText($card.find('.card-image').first().attr('src') || '');
-    const id = getStableId($, el);
+    if (!entry) {
+      continue;
+    }
 
-    if (!id) return;
+    if (seenUrls.has(entry.url)) {
+      continue;
+    }
 
-    const url = buildUrl(page, id);
-    if (seenUrls.has(url)) return;
-    seenUrls.add(url);
-
-    entries.push({
-      name: title,
-      description,
-      img,
-      url,
-      category
-    });
-  });
+    seenUrls.add(entry.url);
+    entries.push(entry);
+  }
 
   return entries;
 }
 
 async function main() {
-  console.log('Starting search index build from _includes/cards...');
+  console.log('Starting search index build from _data YAML files...');
 
-  const pageResults = await Promise.all(GRID_FILES.map(extractGridIndex));
+  const pageResults = await Promise.all(DATA_FILES.map(extractDataIndex));
   const masterIndex = pageResults.flat();
 
   await fs.mkdir(JSON_DIR, { recursive: true });
