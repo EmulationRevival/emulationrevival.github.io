@@ -1,0 +1,179 @@
+- id: "kodi"
+  app_id: "kodi"
+  title: "Kodi"
+  description: "Open-source home theater software."
+  image: "/xbox-dev-mode/images/media-apps/kodi.webp"
+  alt: "Kodi Logo"
+  category: "Media Apps"
+  page_url: "/xbox-dev-mode/media-apps.html#kodi"
+  preview_url: "/previews/media-apps-kodi.html"
+  compatibility: "Xbox One & Series S|X"
+  requirements: []
+  features: []
+  contributors:
+    developers:
+      - name: "Team Kodi/XBMC"
+        github: "https://github.com/xbmc"
+        donations: []
+    porters: []
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "kodi"
+  setup_guide:
+    url: "https://kodi.wiki/view/Quick_start_guide"
+  tutorial_url: null
+
+- id: "soundcloud"
+  app_id: "soundcloud"
+  title: "SoundCloud"
+  description: "Online audio distribution and music sharing platform."
+  image: "/xbox-dev-mode/images/media-apps/soundcloud.webp"
+  alt: "SoundCloud Logo"
+  category: "Media Apps"
+  page_url: "/xbox-dev-mode/media-apps.html#soundcloud"
+  preview_url: "/previews/media-apps-soundcloud.html"
+  compatibility: "Xbox One & Series S|X"
+  requirements: []
+  features:
+    - "Background play"
+  contributors:
+    developers:
+      - name: "SoundCloud"
+        donations: []
+    porters: []
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "soundcloud"
+  setup_guide: null
+  tutorial_url: null
+
+- id: "tunein"
+  app_id: "tunein"
+  title: "TuneIn"
+  description: "Live radio, sports, music, news, and podcasts."
+  image: "/xbox-dev-mode/images/media-apps/tunein.webp"
+  alt: "TuneIn Logo"
+  category: "Media Apps"
+  page_url: "/xbox-dev-mode/media-apps.html#tunein"
+  preview_url: "/previews/media-apps-tunein.html"
+  compatibility: "Xbox One & Series S|X"
+  requirements: []
+  features: []
+  contributors:
+    developers:
+      - name: "TuneIn"
+        donations: []
+    porters: []
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "tunein"
+  setup_guide: null
+  tutorial_url: null
+
+- id: "twitch"
+  app_id: "twitch"
+  title: "Twitch"
+  description: "Live streaming platform for gamers and content creators."
+  image: "/xbox-dev-mode/images/media-apps/twitch.webp"
+  alt: "Twitch Logo"
+  category: "Media Apps"
+  page_url: "/xbox-dev-mode/media-apps.html#twitch"
+  preview_url: "/previews/media-apps-twitch.html"
+  compatibility: "Xbox One & Series S|X"
+  requirements: []
+  features: []
+  contributors:
+    developers:
+      - name: "Twitch Interactive (Amazon)"
+        donations: []
+    porters: []
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "twitch"
+  setup_guide: null
+  tutorial_url: null
+
+- id: "vlc"
+  app_id: "vlc"
+  title: "VLC Media Player"
+  description: "Free and open-source cross-platform multimedia player."
+  image: "/xbox-dev-mode/images/media-apps/vlc.webp"
+  alt: "VLC Logo"
+  category: "Media Apps"
+  page_url: "/xbox-dev-mode/media-apps.html#vlc"
+  preview_url: "/previews/media-apps-vlc.html"
+  compatibility: "Xbox One & Series S|X"
+  requirements:
+    - "External drive with your media files"
+  features: []
+  contributors:
+    developers:
+      - name: "VideoLAN"
+        github: "https://github.com/videolan"
+        donations: []
+    porters: []
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "vlc"
+  setup_guide: null
+  tutorial_url: null
+
+- id: "youtube"
+  app_id: "youtube"
+  title: "YouTube"
+  description: "Online video sharing platform."
+  image: "/xbox-dev-mode/images/media-apps/youtube.webp"
+  alt: "YouTube Logo"
+  category: "Media Apps"
+  page_url: "/xbox-dev-mode/media-apps.html#youtube"
+  preview_url: "/previews/media-apps-youtube.html"
+  compatibility: "Xbox One & Series S|X"
+  requirements: []
+  features:
+    - "No ads"
+  contributors:
+    developers:
+      - name: "Google"
+        donations: []
+    porters:
+      - name: "Moonpower"
+        github: "https://github.com/momo-AUX1"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/moonpower007"
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "youtube"
+  setup_guide: null
+  tutorial_url: null
+
+- id: "zune"
+  app_id: "zune"
+  title: "Windows Media Player (Zune)"
+  description: "Media player with Zune-inspired interface."
+  image: "/xbox-dev-mode/images/media-apps/zune.webp"
+  alt: "Zune Logo"
+  category: "Media Apps"
+  page_url: "/xbox-dev-mode/media-apps.html#zune"
+  preview_url: "/previews/media-apps-zune.html"
+  compatibility: "Xbox One & Series S|X"
+  requirements:
+    - "External drive with your audio files"
+  features: []
+  contributors:
+    developers:
+      - name: "Microsoft"
+        donations: []
+    porters: []
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "zune"
+  setup_guide: null
+  tutorial_url: "https://youtu.be/NE6GL6-YDu0"

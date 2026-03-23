@@ -1,19 +1,21 @@
 <header class="main-header">
     <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <div class="container header-content">
-        <a href="/index.html" class="site-logo">
+        <a href="/index.html" class="site-logo" aria-label="Emulation Revival home">
             <img src="/images/erlogo-white.webp" alt="Emulation Revival - Home" class="site-logo-img logo-dark-theme" width="600" height="192">
-            <img src="/images/erlogo-black.webp" alt="Emulation Revival - Home" class="site-logo-img logo-light-theme" width="600" height="192">
+            <img src="/images/erlogo-black.webp" alt="" aria-hidden="true" class="site-logo-img logo-light-theme" width="600" height="192">
         </a>
-        <nav class="main-nav">
+
+        <nav class="main-nav" aria-label="Primary navigation">
             <ul class="nav-list" id="main-navigation">
                 <li class="nav-search-item">
                     <div id="sitewideSearchPanel" class="header-search-panel" aria-hidden="true">
                         <div class="page-search-container header-search-container">
-                            <input 
-                                type="search" 
-                                id="sitewideSearch" 
-                                class="page-search-input" 
+                            <input
+                                type="search"
+                                id="sitewideSearch"
+                                class="page-search-input"
                                 placeholder="Search the Revival Library..."
                                 autocomplete="off"
                                 aria-label="Search the entire library"
@@ -28,50 +30,85 @@
                         </div>
                     </div>
                 </li>
-                <li class="nav-item"><a href="/index.html" class="nav-link">Home</a></li>
-                
-                <li class="nav-item has-submenu">
-                    <a href="#" class="nav-link submenu-toggle" aria-haspopup="true">Library <span class="dropdown-icon">▼</span></a>
-                    <ul class="submenu">
-                        <button type="button" class="drilldown-back" tabindex="0" aria-label="Back to previous menu">Library</button>
-                        
-                        <li class="submenu-item"><a href="/xbox-dev-mode/emulators.html" class="nav-link">Emulators</a></li>
-                        <li class="submenu-item"><a href="/xbox-dev-mode/frontends.html" class="nav-link">Frontends</a></li>
-                        <li class="submenu-item"><a href="/xbox-dev-mode/ports.html" class="nav-link">Game Ports</a></li>
-                        <li class="submenu-item"><a href="/xbox-dev-mode/apps.html" class="nav-link">Apps</a></li>
-                        <li class="submenu-item"><a href="/xbox-dev-mode/experimental-apps.html" class="nav-link">Experimental Apps</a></li>
-                        <li class="submenu-item"><a href="/xbox-dev-mode/media-apps.html" class="nav-link">Media Apps</a></li>
-                        <li class="submenu-item"><a href="/xbox-dev-mode/utilities.html" class="nav-link">Utilities</a></li>
-                    </ul>
+
+                <li class="nav-item">
+                    <a href="/index.html" class="nav-link">Home</a>
                 </li>
 
                 <li class="nav-item has-submenu">
-                    <a href="#" class="nav-link submenu-toggle" aria-haspopup="true">Guides <span class="dropdown-icon">▼</span></a>
-                    <ul class="submenu">
-                        <button type="button" class="drilldown-back" tabindex="0" aria-label="Back to previous menu">Guides</button>
-                        
-                        <li class="submenu-item"><a href="https://wiki.sternserv.xyz/docs/xbox-setup/xbox-developer-mode-setup" class="nav-link">Dev Mode Activation and Setup</a></li>
-                        <li class="submenu-item"><a href="{% link guides/devmode-bios.md %}" class="nav-link">BIOS Requirements</a></li>
-                    </ul>
+                    <button
+                        type="button"
+                        class="nav-link submenu-toggle"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        aria-controls="library-submenu"
+                    >
+                        Library <span class="dropdown-icon" aria-hidden="true">▼</span>
+                    </button>
+
+                    <div class="submenu-panel" id="library-submenu">
+                        <button type="button" class="drilldown-back" aria-label="Back to previous menu">Library</button>
+                        <ul class="submenu">
+                            <li class="submenu-item"><a href="/xbox-dev-mode/emulators.html" class="nav-link">Emulators</a></li>
+                            <li class="submenu-item"><a href="/xbox-dev-mode/frontends.html" class="nav-link">Frontends</a></li>
+                            <li class="submenu-item"><a href="/xbox-dev-mode/ports.html" class="nav-link">Game Ports</a></li>
+                            <li class="submenu-item"><a href="/xbox-dev-mode/apps.html" class="nav-link">Apps</a></li>
+                            <li class="submenu-item"><a href="/xbox-dev-mode/experimental-apps.html" class="nav-link">Experimental Apps</a></li>
+                            <li class="submenu-item"><a href="/xbox-dev-mode/media-apps.html" class="nav-link">Media Apps</a></li>
+                            <li class="submenu-item"><a href="/xbox-dev-mode/utilities.html" class="nav-link">Utilities</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item has-submenu">
+                    <button
+                        type="button"
+                        class="nav-link submenu-toggle"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        aria-controls="guides-submenu"
+                    >
+                        Guides <span class="dropdown-icon" aria-hidden="true">▼</span>
+                    </button>
+
+                    <div class="submenu-panel" id="guides-submenu">
+                        <button type="button" class="drilldown-back" aria-label="Back to previous menu">Guides</button>
+                        <ul class="submenu">
+                            <li class="submenu-item"><a href="https://wiki.sternserv.xyz/docs/xbox-setup/xbox-developer-mode-setup" class="nav-link">Dev Mode Activation and Setup</a></li>
+                            <li class="submenu-item"><a href="{% link guides/devmode-bios.md %}" class="nav-link">BIOS Requirements</a></li>
+                        </ul>
+                    </div>
                 </li>
 
                 <li class="nav-item"><a href="/compatibility.html" class="nav-link">Compatibility</a></li>
                 <li class="nav-item"><a href="/about.html" class="nav-link">About</a></li>
             </ul>
+
             <div class="nav-controls">
-                <button id="sitewideSearchToggle"
+                <button
+                    id="sitewideSearchToggle"
                     class="header-search-toggle"
                     aria-label="Open site search"
                     aria-expanded="false"
-                    aria-controls="sitewideSearchPanel">
+                    aria-controls="sitewideSearchPanel"
+                >
                     <img src="/images/search.svg" alt="" class="header-search-icon" aria-hidden="true">
                 </button>
-                <button id="theme-toggle"
+
+                <button
+                    id="theme-toggle"
                     class="theme-toggle-btn"
                     aria-label="Toggle between dark and light mode"
-                    aria-pressed="false">
-                </button>
-                <button class="hamburger-menu" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-navigation">
+                    aria-pressed="false"
+                ></button>
+
+                <button
+                    class="hamburger-menu"
+                    type="button"
+                    aria-label="Toggle navigation"
+                    aria-expanded="false"
+                    aria-controls="main-navigation"
+                >
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>

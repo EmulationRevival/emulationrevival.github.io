@@ -30,7 +30,9 @@ extra_scripts:
     %}
 
         <div class="card-grid">
-            {% include cards/emulators-grid.html %}
+            {% for card in site.data.emulators %}
+                {% include cards/card.html card=card %}
+            {% endfor %}
         </div>
     </div>
 </section>

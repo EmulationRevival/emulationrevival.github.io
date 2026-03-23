@@ -17,8 +17,9 @@ const C = {
     NAV_PAGE_LINKS: '.nav-list a, .footer-nav a',
     EXTERNAL_LINKS: 'a[href^="http"]',
     LITE_YOUTUBE: '.lite-youtube',
-    HAS_SUBMENU_LINK: '.has-submenu > a',
-    SUBMENU: '.submenu',
+    HAS_SUBMENU_TRIGGER: '.has-submenu > .submenu-toggle',
+    SUBMENU_PANEL: '.submenu-panel',
+    SUBMENU_LIST: '.submenu',
     DISCORD_TRIGGERS: '[data-modal-target="discord-hub"]',
     DISCORD_MODAL: '#discordHubModal',
     DISCORD_OVERLAY: '#discordHubOverlay',
@@ -45,8 +46,8 @@ const el = {
   header: document.querySelector(C.SEL.MAIN_HEADER),
   mainNav: document.querySelector(C.SEL.MAIN_NAV),
   themeToggle: document.getElementById('theme-toggle'),
-  submenuLinks: Array.from(document.querySelectorAll(C.SEL.HAS_SUBMENU_LINK)),
-  submenus: Array.from(document.querySelectorAll(C.SEL.SUBMENU)),
+  submenuTriggers: Array.from(document.querySelectorAll(C.SEL.HAS_SUBMENU_TRIGGER)),
+  submenuPanels: Array.from(document.querySelectorAll(C.SEL.SUBMENU_PANEL)),
   discordModal: document.querySelector(C.SEL.DISCORD_MODAL),
   discordOverlay: document.querySelector(C.SEL.DISCORD_OVERLAY),
   discordTriggers: Array.from(document.querySelectorAll(C.SEL.DISCORD_TRIGGERS)),
@@ -68,24 +69,26 @@ let scrollBarWidth = '0px';
 
 const submenuMap = new Map();
 const submenuByBackButton = new Map();
-const submenuByElement = new Map();
+const submenuByPanel = new Map();
 
-for (let i = 0; i < el.submenuLinks.length; i++) {
-  const trigger = el.submenuLinks[i];
-  const submenu = trigger.parentElement?.querySelector(':scope > .submenu');
+for (let i = 0; i < el.submenuTriggers.length; i++) {
+  const trigger = el.submenuTriggers[i];
+  const panel = trigger.parentElement?.querySelector(':scope > .submenu-panel');
 
-  if (!submenu) continue;
+  if (!panel) continue;
 
-  const backButton = submenu.querySelector(`:scope > .${C.CLS.BACK}`);
+  const submenu = panel.querySelector(':scope > .submenu');
+  const backButton = panel.querySelector(':scope > .drilldown-back');
 
   const relation = {
     trigger,
+    panel,
     submenu,
     backButton,
   };
 
   submenuMap.set(trigger, relation);
-  submenuByElement.set(submenu, relation);
+  submenuByPanel.set(panel, relation);
 
   if (backButton) {
     submenuByBackButton.set(backButton, relation);
@@ -152,8 +155,8 @@ el.discordClose?.addEventListener('click', () => toggleModal(false));
 el.discordOverlay?.addEventListener('click', () => toggleModal(false));
 
 function resetSubmenus() {
-  submenuMap.forEach(({ trigger, submenu }) => {
-    submenu.classList.remove(C.CLS.ACTIVE);
+  submenuMap.forEach(({ trigger, panel }) => {
+    panel.classList.remove(C.CLS.ACTIVE);
     trigger.setAttribute('aria-expanded', 'false');
   });
 
@@ -166,43 +169,43 @@ function notifyNavMenuState(open) {
   }));
 }
 
-function closeOtherSubmenus(activeSubmenu) {
-  submenuMap.forEach(({ trigger, submenu }) => {
-    if (submenu === activeSubmenu) return;
+function closeOtherSubmenus(activePanel) {
+  submenuMap.forEach(({ trigger, panel }) => {
+    if (panel === activePanel) return;
 
-    submenu.classList.remove(C.CLS.ACTIVE);
+    panel.classList.remove(C.CLS.ACTIVE);
     trigger.setAttribute('aria-expanded', 'false');
 
-    if (state.activeSubmenu === submenu) {
+    if (state.activeSubmenu === panel) {
       state.activeSubmenu = null;
     }
   });
 }
 
-function openSubmenu(trigger, submenu) {
-  if (!state.isMobile || !trigger || !submenu) return;
+function openSubmenu(trigger, panel) {
+  if (!state.isMobile || !trigger || !panel) return;
 
-  if (submenu.classList.contains(C.CLS.ACTIVE)) {
-    state.activeSubmenu = submenu;
+  if (panel.classList.contains(C.CLS.ACTIVE)) {
+    state.activeSubmenu = panel;
     return;
   }
 
-  closeOtherSubmenus(submenu);
-  submenu.classList.add(C.CLS.ACTIVE);
+  closeOtherSubmenus(panel);
+  panel.classList.add(C.CLS.ACTIVE);
   trigger.setAttribute('aria-expanded', 'true');
-  state.activeSubmenu = submenu;
+  state.activeSubmenu = panel;
 }
 
-function closeSubmenu(submenu, { restoreFocus = true } = {}) {
-  if (!submenu) return;
+function closeSubmenu(panel, { restoreFocus = true } = {}) {
+  if (!panel) return;
 
-  const relationToClose = submenuByElement.get(submenu);
+  const relationToClose = submenuByPanel.get(panel);
   if (!relationToClose) return;
 
-  relationToClose.submenu.classList.remove(C.CLS.ACTIVE);
+  relationToClose.panel.classList.remove(C.CLS.ACTIVE);
   relationToClose.trigger.setAttribute('aria-expanded', 'false');
 
-  if (state.activeSubmenu === relationToClose.submenu) {
+  if (state.activeSubmenu === relationToClose.panel) {
     state.activeSubmenu = null;
   }
 
@@ -282,13 +285,13 @@ window.addEventListener(C.EVENTS.REQUEST_CLOSE_MOBILE_MENU, () => {
   closeMenu();
 });
 
-submenuMap.forEach(({ trigger, submenu }) => {
+submenuMap.forEach(({ trigger, panel }) => {
   function handleOpenSubmenu(event) {
     if (!state.isMobile) return;
 
     event.preventDefault();
     event.stopPropagation();
-    openSubmenu(trigger, submenu);
+    openSubmenu(trigger, panel);
   }
 
   trigger.addEventListener('click', handleOpenSubmenu);
@@ -304,13 +307,13 @@ el.nav?.addEventListener('click', event => {
   if (backButton) {
     const relation = submenuByBackButton.get(backButton);
     if (relation) {
-      closeSubmenu(relation.submenu, { restoreFocus: true });
+      closeSubmenu(relation.panel, { restoreFocus: true });
     }
     return;
   }
 
   const link = event.target.closest('a');
-  if (!link || link.parentElement.classList.contains('has-submenu')) return;
+  if (!link || link.closest('.has-submenu')) return;
 
   closeMenu();
 });
@@ -369,8 +372,6 @@ scheduleTask(() => {
   if (copyYear) {
     copyYear.textContent = String(new Date().getFullYear());
   }
-
-  el.mainNav?.setAttribute('role', 'navigation');
 
   markCurrentPageLinks(el.navPageLinks);
   normalizeExternalLinks(el.externalLinks, { excludeClass: 'download-link' });

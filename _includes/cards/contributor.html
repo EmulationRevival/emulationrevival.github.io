@@ -1,0 +1,45 @@
+{%- assign contributor = include.contributor -%}
+{%- assign github = contributor.github | default: '' -%}
+{%- assign donations = contributor.donations | default: empty -%}
+{%- assign total_links = donations.size -%}
+{%- if github != '' -%}
+    {%- assign total_links = total_links | plus: 1 -%}
+{%- endif -%}
+
+{%- if total_links == 0 -%}
+{{ contributor.name }}
+{%- elsif total_links == 1 and github != '' -%}
+<a href="{{ github }}" class="contributor-name-link">{{ contributor.name }}</a>
+{%- else -%}
+<div class="contributor-container">
+    <a href="#" class="contributor-name-link popover-trigger">{{ contributor.name }}</a>
+    <div class="popover-menu">
+        {%- if github != '' -%}
+        <a href="{{ github }}" class="popover-link">
+            <img src="/images/github-logo.svg" alt="GitHub Logo" class="popover-icon">View on GitHub
+        </a>
+        {%- endif -%}
+
+        {%- for donation in donations -%}
+            {%- case donation.type -%}
+                {%- when 'kofi' -%}
+                <a href="{{ donation.url }}" class="popover-link">
+                    <img src="/images/kofi-logo.svg" alt="Ko-fi Logo" class="popover-icon">Support on Ko-fi
+                </a>
+                {%- when 'buymeacoffee' -%}
+                <a href="{{ donation.url }}" class="popover-link">
+                    <img src="/images/buymeacoffee-logo.svg" alt="Buy Me a Coffee Logo" class="popover-icon">Support on Buy Me a Coffee
+                </a>
+                {%- when 'paypal' -%}
+                <a href="{{ donation.url }}" class="popover-link">
+                    <img src="/images/paypal-logo.svg" alt="PayPal Logo" class="popover-icon">Support on PayPal
+                </a>
+                {%- when 'patreon' -%}
+                <a href="{{ donation.url }}" class="popover-link">
+                    <img src="/images/patreon-logo.svg" alt="Patreon Logo" class="popover-icon">Support on Patreon
+                </a>
+            {%- endcase -%}
+        {%- endfor -%}
+    </div>
+</div>
+{%- endif -%}

@@ -4,12 +4,11 @@ on:
   push:
     branches: ["main"]
   schedule:
-    # Runs at midnight UTC every day
     - cron: '0 0 * * *'
   workflow_dispatch:
 
 permissions:
-  contents: write 
+  contents: write
 
 jobs:
   build:
@@ -29,16 +28,19 @@ jobs:
 
       - name: Run Build Links Script
         env:
-          GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }} 
+          GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
         run: node build-links.js
 
       - name: Run Build Index Script
         run: node js/build-index.js
 
+      - name: Run Build Previews Script
+        run: node js/build-previews.js
+
       - name: Commit and Push Changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add json/ 
-          git commit -m "Automated update: Build links and search index" || echo "No changes to commit"
+          git add json/ previews/
+          git commit -m "Automated update: Build links, search index and preview pages" || echo "No changes to commit"
           git push

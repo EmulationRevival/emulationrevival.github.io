@@ -1,0 +1,463 @@
+- id: "retroarch-3ds"
+  app_id: "retroarch3ds"
+  title: "Retroarch 3DS"
+  description: "An experimental RetroArch build with Citra, Azahar and Panda3ds cores."
+  image: "/xbox-dev-mode/images/emulators/retroarch3ds.webp"
+  alt: "Retroarch 3DS Logo"
+  category: "Emulators"
+  page_url: "/xbox-dev-mode/emulators.html#retroarch-3ds"
+  preview_url: "/previews/emulators-retroarch-3ds.html"
+  compatibility: "Xbox Series S|X"
+  requirements: []
+  features:
+    - "Locked Citra core"
+    - "Includes Azahar and Panda3ds core"
+  contributors:
+    developers:
+      - name: "Libretro"
+        github: "https://github.com/libretro"
+        donations: []
+    porters:
+      - name: "Aerisarn"
+        github: "https://github.com/aerisarn"
+        donations: []
+    maintainers:
+      - name: "DanP"
+        github: "https://github.com/danprice142"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/danp142"
+  downloads:
+    - label: "Download"
+      asset_id: "retroarch3ds"
+  setup_guide: null
+  tutorial_url: "https://youtu.be/hiJwHE18L9I"
+
+- id: "dolphin"
+  app_id: "dolphin"
+  title: "Dolphin"
+  description: "A GameCube and Wii emulator."
+  image: "/xbox-dev-mode/images/emulators/dolphin.webp"
+  alt: "Dolphin Logo"
+  category: "Emulators"
+  page_url: "/xbox-dev-mode/emulators.html#dolphin"
+  preview_url: "/previews/emulators-dolphin.html"
+  compatibility: "Xbox One & Series S|X"
+  requirements:
+    - "Xbox language must be set to English US for controller input"
+  features: []
+  contributors:
+    developers:
+      - name: "Dolphin Team"
+        github: "https://github.com/dolphin-emu"
+        donations: []
+    porters:
+      - name: "Sir Mangler"
+        github: "https://github.com/SirMangler"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/sirmangler"
+    maintainers:
+      - name: "Stern"
+        github: "https://github.com/SternXD"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/stern"
+  downloads:
+    - label: "Download"
+      asset_id: "dolphin"
+  setup_guide:
+    url: "https://wiki.sternserv.xyz/docs/emulation/dolphin-guide"
+  tutorial_url: "https://youtu.be/F1NQKHcQhbQ"
+
+- id: "flycast"
+  app_id: "flycast"
+  title: "Flycast"
+  description: "A multiplatform Sega Dreamcast, Naomi, Naomi 2 and Atomiswave emulator."
+  image: "/xbox-dev-mode/images/emulators/flycast.webp"
+  alt: "Flycast Logo"
+  category: "Emulators"
+  page_url: "/xbox-dev-mode/emulators.html#flycast"
+  preview_url: "/previews/emulators-flycast.html"
+  compatibility: "Xbox One & Series S|X"
+  requirements:
+    - "BIOS optional"
+  features: []
+  contributors:
+    developers:
+      - name: "Flyinghead"
+        github: "https://github.com/flyinghead"
+        donations:
+          - type: "buymeacoffee"
+            url: "https://buymeacoffee.com/hhwtpernwq"
+    porters: []
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "flycast"
+  setup_guide:
+    url: "https://wiki.sternserv.xyz/docs/emulation/flycast-guide"
+  tutorial_url: "https://youtu.be/nALdeQgfm_o"
+
+- id: "gzdoom"
+  app_id: "gzdoom"
+  title: "GZDoom"
+  description: "A source port for Doom, Heretic, Hexen, and more."
+  image: "/xbox-dev-mode/images/emulators/gzdoom.webp"
+  alt: "GZDoom Logo"
+  category: "Emulators"
+  page_url: "/xbox-dev-mode/emulators.html#gzdoom"
+  preview_url: "/previews/emulators-gzdoom.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "IWAD files needed (doom.wad etc)"
+  features: []
+  contributors:
+    developers:
+      - name: "ZDoom Team"
+        github: "https://github.com/ZDoom"
+        donations: []
+    porters:
+      - name: "Aerisarn"
+        github: "https://github.com/aerisarn"
+        donations: []
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "gzdoom"
+  setup_guide:
+    url: "https://wiki.sternserv.xyz/docs/apps/gzdoom-guide"
+  tutorial_url: "https://youtu.be/M1LX8MifJhM"
+
+- id: "ikemen-go"
+  app_id: "ikemen"
+  title: "Ikemen GO"
+  description: "A M.U.G.E.N compatible fighting game engine."
+  image: "/xbox-dev-mode/images/emulators/ikemen_go.webp"
+  alt: "Ikemen GO Logo"
+  category: "Emulators"
+  page_url: "/xbox-dev-mode/emulators.html#ikemen-go"
+  preview_url: "/previews/emulators-ikemen-go.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "Game packs"
+  features: []
+  contributors:
+    developers:
+      - name: "Ikemen Engine Team"
+        github: "https://github.com/ikemen-engine"
+        donations: []
+    porters:
+      - name: "Worleydl"
+        github: "https://github.com/worleydl"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/worleydl"
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "ikemen"
+  setup_guide: null
+  tutorial_url: "https://youtu.be/QSz755_O6NY"
+
+- id: "openbor"
+  app_id: "openbor"
+  title: "OpenBOR"
+  description: "A 2D side scrolling beat 'em up game engine."
+  image: "/xbox-dev-mode/images/emulators/openbor.webp"
+  alt: "OpenBOR Logo"
+  category: "Emulators"
+  page_url: "/xbox-dev-mode/emulators.html#openbor"
+  preview_url: "/previews/emulators-openbor.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "Game paks on a USB drive (NTFS formatted with special permissions)"
+  features: []
+  contributors:
+    developers:
+      - name: "OpenBOR Team"
+        github: "https://github.com/DCurrent/openbor"
+        donations: []
+    porters:
+      - name: "Worleydl"
+        github: "https://github.com/worleydl"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/worleydl"
+    maintainers: []
+  downloads:
+    - label: "OpenBOR Emulator"
+      asset_id: "openbor1"
+    - label: "Legacy OpenBOR Emulator"
+      asset_id: "openbor2"
+  setup_guide:
+    url: "/guides/emulators/openbor-guide.html"
+  tutorial_url: "https://youtu.be/V5gR-y9urgA"
+
+- id: "ppsspp"
+  app_id: "ppsspp"
+  title: "PPSSPP"
+  description: "A PSP emulator."
+  image: "/xbox-dev-mode/images/emulators/ppsspp.webp"
+  alt: "PPSSPP Logo"
+  category: "Emulators"
+  page_url: "/xbox-dev-mode/emulators.html#ppsspp"
+  preview_url: "/previews/emulators-ppsspp.html"
+  compatibility: "Xbox One & Series S|X"
+  requirements: []
+  features: []
+  contributors:
+    developers:
+      - name: "Henrik Rydgård"
+        github: "https://github.com/hrydgard"
+        donations: []
+    porters: []
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "ppsspp"
+  setup_guide:
+    url: "https://wiki.sternserv.xyz/docs/emulation/ppsspp-guide"
+  tutorial_url: "https://youtu.be/-iK8KfewWok"
+
+- id: "raze"
+  app_id: "raze"
+  title: "Raze"
+  description: "A source port for Duke Nukem 3D, Blood, Redneck Rampage, and more."
+  image: "/xbox-dev-mode/images/emulators/raze.webp"
+  alt: "Raze Logo"
+  category: "Emulators"
+  page_url: "/xbox-dev-mode/emulators.html#raze"
+  preview_url: "/previews/emulators-raze.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "Game files"
+  features: []
+  contributors:
+    developers:
+      - name: "ZDoom Team"
+        github: "https://github.com/ZDoom"
+        donations: []
+    porters:
+      - name: "Aerisarn"
+        github: "https://github.com/aerisarn"
+        donations: []
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "raze"
+  setup_guide:
+    url: "https://wiki.sternserv.xyz/docs/apps/razeuwp-guide"
+  tutorial_url: "https://youtu.be/odxBpuR9Yog"
+
+- id: "retroarch"
+  app_id: "retroarch"
+  title: "RetroArch"
+  description: "A multi-system emulator for classic games and consoles."
+  image: "/xbox-dev-mode/images/emulators/retroarch.webp"
+  alt: "RetroArch Logo"
+  category: "Emulators"
+  page_url: "/xbox-dev-mode/emulators.html#retroarch"
+  preview_url: "/previews/emulators-retroarch.html"
+  compatibility: "Xbox One & Series S|X"
+  requirements: []
+  features: []
+  contributors:
+    developers:
+      - name: "Libretro"
+        github: "https://github.com/libretro"
+        donations: []
+    porters: []
+    maintainers:
+      - name: "TRW"
+        github: "https://github.com/TheRhysWyrill"
+        donations:
+          - type: "paypal"
+            url: "https://www.paypal.com/donate/?hosted_button_id=5PBT87FAGSBSE"
+  downloads:
+    - label: "RetroArch - Xbox One No Cores"
+      asset_id: "retroarch1"
+    - label: "RetroArch - Xbox One All Cores"
+      asset_id: "retroarch2"
+    - label: "RetroArch - Xbox Series No Cores"
+      asset_id: "retroarch3"
+    - label: "RetroArch - Xbox Series All Cores"
+      asset_id: "retroarch4"
+  setup_guide:
+    url: "https://wiki.sternserv.xyz/docs/emulation/retroarch-guide"
+  tutorial_url: "https://youtu.be/cy2oDaqIHG0"
+
+- id: "ruffle"
+  app_id: "ruffle"
+  title: "Ruffle"
+  description: "A Flash Player emulator."
+  image: "/xbox-dev-mode/images/emulators/ruffle.webp"
+  alt: "Ruffle Logo"
+  category: "Emulators"
+  page_url: "/xbox-dev-mode/emulators.html#ruffle"
+  preview_url: "/previews/emulators-ruffle.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "Games must be on a USB drive (NTFS formatted with special permissions)"
+  features: []
+  contributors:
+    developers:
+      - name: "Ruffle Team"
+        github: "https://github.com/ruffle-rs"
+        donations: []
+    porters:
+      - name: "Moonpower"
+        github: "https://github.com/momo-AUX1"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/moonpower007"
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "ruffle"
+  setup_guide: null
+  tutorial_url: null
+
+- id: "supermodel"
+  app_id: "supermodel"
+  title: "Sega Model 3"
+  description: "A Sega Model 3 arcade emulator based on Supermodel."
+  image: "/xbox-dev-mode/images/emulators/supermodel.webp"
+  alt: "Sega Model 3 Logo"
+  category: "Emulators"
+  page_url: "/xbox-dev-mode/emulators.html#supermodel"
+  preview_url: "/previews/emulators-supermodel.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "Dependency file"
+  features: []
+  contributors:
+    developers:
+      - name: "Supermodel Team"
+        github: "https://github.com/trzy/Supermodel"
+        donations: []
+    porters:
+      - name: "Aerisarn"
+        github: "https://github.com/aerisarn"
+        donations: []
+    maintainers:
+      - name: "Poopbird4k"
+        github: "https://github.com/poopbird4k"
+        donations: []
+  downloads:
+    - label: "Sega Model 3 - Emulator"
+      asset_id: "supermodel1"
+    - label: "Sega Model 3 - Dependency File"
+      asset_id: "supermodel2"
+  setup_guide:
+    url: "/guides/emulators/segamodel3-guide.html"
+  tutorial_url: "https://youtu.be/VOJ1IKj0API"
+
+- id: "supermodel-g920"
+  app_id: "superg"
+  title: "Sega Model 3 G920"
+  description: "A Sega Model 3 arcade emulator based on Supermodel, enhanced with Logitech G920 support."
+  image: "/xbox-dev-mode/images/emulators/supermodel_g920.webp"
+  alt: "Sega Model 3 G920 Logo"
+  category: "Emulators"
+  page_url: "/xbox-dev-mode/emulators.html#supermodel-g920"
+  preview_url: "/previews/emulators-supermodel-g920.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "Dependency file, Logitech G920 wheel"
+  features: []
+  contributors:
+    developers:
+      - name: "Supermodel Team"
+        github: "https://github.com/trzy/Supermodel"
+        donations: []
+    porters:
+      - name: "Aerisarn"
+        github: "https://github.com/aerisarn"
+        donations: []
+    maintainers:
+      - name: "Poopbird4k"
+        github: "https://github.com/poopbird4k"
+        donations: []
+  downloads:
+    - label: "Sega Model 3 G920 - Emulator"
+      asset_id: "superg1"
+    - label: "Sega Model 3 G920 - Dependency File"
+      asset_id: "superg2"
+  setup_guide:
+    url: "/guides/emulators/segamodel3g920-guide.html"
+  tutorial_url: "https://youtu.be/8fKWM-4Q46k"
+
+- id: "xbsx2"
+  app_id: "xbsx2"
+  title: "XBSX2"
+  description: "A Playstation 2 emulator ported from PCSX2."
+  image: "/xbox-dev-mode/images/emulators/xbsx2.webp"
+  alt: "XBSX2 Logo"
+  category: "Emulators"
+  page_url: "/xbox-dev-mode/emulators.html#xbsx2"
+  preview_url: "/previews/emulators-xbsx2.html"
+  compatibility: "Xbox One & Series S|X"
+  requirements:
+    - "PS2 BIOS needed"
+  features: []
+  contributors:
+    developers:
+      - name: "PCSX2 Team"
+        github: "https://github.com/PCSX2"
+        donations: []
+    porters:
+      - name: "Sir Mangler"
+        github: "https://github.com/SirMangler"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/sirmangler"
+    maintainers:
+      - name: "Stern"
+        github: "https://github.com/SternXD"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/stern"
+  downloads:
+    - label: "Xbox One"
+      asset_id: "xbsx2_xb1"
+    - label: "Xbox Series"
+      asset_id: "xbsx2_series"
+  setup_guide:
+    url: "https://wiki.sternserv.xyz/docs/emulation/xbsx2-guide"
+  tutorial_url: "https://youtu.be/hyX-qd84E_w"
+
+- id: "xenia-canary"
+  app_id: "xeniaCanary"
+  title: "Xenia Canary"
+  description: "An Xbox 360 emulator now with Blades style UI."
+  image: "/xbox-dev-mode/images/emulators/xenia.webp"
+  alt: "Xenia Canary Logo"
+  category: "Emulators"
+  page_url: "/xbox-dev-mode/emulators.html#xenia-canary"
+  preview_url: "/previews/emulators-xenia-canary.html"
+  compatibility: "Xbox Series S|X"
+  requirements: []
+  features: []
+  contributors:
+    developers:
+      - name: "Xenia Project"
+        github: "https://github.com/xenia-project"
+        donations: []
+    porters:
+      - name: "Sir Mangler"
+        github: "https://github.com/SirMangler"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/sirmangler"
+    maintainers:
+      - name: "DanP"
+        github: "https://github.com/danprice142"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/danp142"
+  downloads:
+    - label: "Download"
+      asset_id: "xenia"
+  setup_guide: null
+  tutorial_url: "https://youtu.be/rXAWYeJ0yRw"

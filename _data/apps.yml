@@ -1,0 +1,119 @@
+- id: "discorduwp"
+  app_id: "discorduwp"
+  title: "Discord"
+  description: "Chat with friends and communities."
+  image: "/xbox-dev-mode/images/apps/discord.webp"
+  alt: "Discord Logo"
+  category: "Apps"
+  page_url: "/xbox-dev-mode/apps.html#discorduwp"
+  preview_url: "/previews/apps-discorduwp.html"
+  compatibility: "Xbox One & Series S|X"
+  requirements:
+    - "Discord account"
+    - "Install all 5 dependencies"
+  features: []
+  contributors:
+    developers:
+      - name: "Moonpower"
+        github: "https://github.com/momo-AUX1"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/moonpower007"
+    porters: []
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "discorduwp"
+  setup_guide: null
+  tutorial_url: null
+
+- id: "moonlight"
+  app_id: "moonlight"
+  title: "Moonlight"
+  description: "Stream PC games using NVIDIA GameStream or Sunshine."
+  image: "/xbox-dev-mode/images/apps/moonlight.webp"
+  alt: "Moonlight Logo"
+  category: "Apps"
+  page_url: "/xbox-dev-mode/apps.html#moonlight"
+  preview_url: "/previews/apps-moonlight.html"
+  compatibility: "Xbox One & Series S|X"
+  requirements:
+    - "Host PC with NVIDIA GPU (GameStream) or Sunshine"
+    - "Install both dependencies"
+  features: []
+  contributors:
+    developers:
+      - name: "Moonlight Game Streaming Project"
+        github: "https://github.com/moonlight-stream"
+        donations: []
+    porters:
+      - name: "TheElixZammuto"
+        github: "https://github.com/TheElixZammuto"
+        donations: []
+    maintainers: []
+  downloads:
+    - label: "Moonlight App"
+      asset_id: "moonlight1"
+    - label: "Moonlight - Dependency file 1"
+      asset_id: "moonlight2"
+    - label: "Moonlight - Dependency file 2"
+      asset_id: "moonlight3"
+  setup_guide: null
+  tutorial_url: null
+
+- id: "xuwp"
+  app_id: "xuwp"
+  title: "X (Formerly Twitter)"
+  description: "The social media platform for news, updates, and conversations."
+  image: "/xbox-dev-mode/images/apps/xuwp.webp"
+  alt: "X (formerly Twitter) Logo"
+  category: "Apps"
+  page_url: "/xbox-dev-mode/apps.html#xuwp"
+  preview_url: "/previews/apps-xuwp.html"
+  compatibility: "Xbox One & Series S|X"
+  requirements:
+    - "Install all 5 dependencies"
+  features: []
+  contributors:
+    developers:
+      - name: "Moonpower"
+        github: "https://github.com/momo-AUX1"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/moonpower007"
+    porters: []
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "xuwp"
+  setup_guide: null
+  tutorial_url: null
+
+- id: "xbcloudgaming"
+  app_id: "xbcloudgaming"
+  title: "XB Cloud Gaming"
+  description: "Access a library of games with Game Pass."
+  image: "/xbox-dev-mode/images/apps/xbcloudgaming.webp"
+  alt: "XB Cloud Gaming Logo"
+  category: "Apps"
+  page_url: "/xbox-dev-mode/apps.html#xbcloudgaming"
+  preview_url: "/previews/apps-xbcloudgaming.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "Active Game Pass subscription"
+    - "Install all 3 dependencies"
+  features: []
+  contributors:
+    developers:
+      - name: "DanP"
+        github: "https://github.com/danprice142"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/danp142"
+    porters: []
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "xbcloudgaming"
+  setup_guide: null
+  tutorial_url: null

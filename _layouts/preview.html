@@ -1,0 +1,133 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title | escape }} - Emulation Revival</title>
+    <meta name="description" content="{{ page.description | escape }}">
+    <meta name="robots" content="{{ page.robots | default: 'noindex, follow' }}">
+
+    <link rel="canonical" href="{{ page.target_url | absolute_url }}">
+    <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
+    <link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
+
+    <meta property="og:site_name" content="Emulation Revival">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ page.og_title | default: page.title | escape }}">
+    <meta property="og:description" content="{{ page.og_description | default: page.description | escape }}">
+    <meta property="og:image" content="{{ page.image | absolute_url }}">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ page.og_title | default: page.title | escape }}">
+    <meta name="twitter:description" content="{{ page.og_description | default: page.description | escape }}">
+    <meta name="twitter:image" content="{{ page.image | absolute_url }}">
+
+    <meta http-equiv="refresh" content="0; url={{ page.target_url | relative_url }}">
+
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            background: #121212;
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 24px;
+        }
+
+        .preview-shell {
+            width: 100%;
+            max-width: 720px;
+            text-align: center;
+        }
+
+        .preview-card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            background: #2c2c2c;
+            border: 1px solid #1a1a1a;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .preview-image {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            background: #1a1a1a;
+        }
+
+        .preview-content {
+            padding: 16px;
+        }
+
+        .preview-title {
+            margin: 0 0 8px;
+            font-size: 1.5rem;
+            line-height: 1.2;
+            color: #ffffff;
+        }
+
+        .preview-description {
+            margin: 0;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #e0e0e0;
+        }
+
+        .preview-meta {
+            margin-top: 16px;
+            font-size: 0.95rem;
+            color: #b0b0b0;
+        }
+
+        .preview-link {
+            color: #8a2be2;
+        }
+    </style>
+
+    <script>
+        window.location.replace({{ page.target_url | relative_url | jsonify }});
+    </script>
+</head>
+<body>
+    <main class="preview-shell">
+        <a href="{{ page.target_url | relative_url }}" class="preview-card">
+            <img
+                src="{{ page.image | relative_url }}"
+                alt="{{ page.title | escape }}"
+                class="preview-image"
+                width="1280"
+                height="720"
+            >
+            <div class="preview-content">
+                <h1 class="preview-title">{{ page.title }}</h1>
+                <p class="preview-description">{{ page.description }}</p>
+            </div>
+        </a>
+
+        <p class="preview-meta">
+            Redirecting to
+            <a href="{{ page.target_url | relative_url }}" class="preview-link">{{ page.target_url }}</a>
+        </p>
+
+        <noscript>
+            <p class="preview-meta">
+                JavaScript is disabled. Open the link above.
+            </p>
+        </noscript>
+    </main>
+</body>
+</html>

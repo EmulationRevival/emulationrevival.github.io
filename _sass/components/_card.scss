@@ -20,13 +20,13 @@
   overflow: hidden;
 }
 
-.card[hidden] {
-  display: none !important;
-}
-
 .card:focus-within {
   outline: 2px solid var(--color-primary);
   transition: outline-color 0.3s ease;
+}
+
+.card[hidden] {
+  display: none !important;
 }
 
 .card-link {
@@ -90,14 +90,14 @@
   z-index: 1000;
   opacity: 0;
   visibility: hidden;
-  transition: opacity var(--transition-speed) var(--transition-ease),
-              visibility 0s var(--transition-speed);
+  transition: opacity 0.18s ease-out,
+              visibility 0s 0.18s;
 }
 
 .modal-overlay.active {
   opacity: 1;
   visibility: visible;
-  transition: opacity var(--transition-speed) var(--transition-ease);
+  transition: opacity 0.18s ease-out;
 }
 
 .modal {
@@ -112,7 +112,7 @@
   display: flex;
   flex-direction: column;
   overflow: visible;
-  transform: translate(-50%, -50%) scale(0.95);
+  transform: translate(-50%, -50%) scale(0.985);
   background-color: var(--color-background-medium);
   border-radius: var(--border-radius-md);
   border: 2px solid var(--color-primary-dark);
@@ -120,9 +120,9 @@
   z-index: 1001;
   opacity: 0;
   visibility: hidden;
-  transition: opacity var(--transition-speed) var(--transition-ease),
-              visibility 0s var(--transition-speed),
-              transform var(--transition-speed) var(--transition-ease);
+  transition: opacity 0.18s ease-out,
+              visibility 0s 0.18s,
+              transform 0.18s ease-out;
 }
 
 .modal.active {
@@ -215,6 +215,16 @@
 .info-list li {
   margin-bottom: var(--spacing-xs);
   color: var(--color-text-secondary);
+}
+
+.info-list ul {
+  margin: 0.375rem 0 0 1.25rem;
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+.info-list ul li::marker {
+  color: var(--color-primary);
 }
 
 .info-list a {

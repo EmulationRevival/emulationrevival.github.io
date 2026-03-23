@@ -1,0 +1,126 @@
+<div class="card" id="{{ include.card.id }}">
+    <a
+        href="{{ include.card.preview_url | default: include.card.page_url }}"
+        class="card-link"
+        data-modal-trigger="{{ include.card.id }}"
+        data-target-url="{{ include.card.page_url }}"
+    >
+        <div class="card-image-container">
+            <img
+                src="{{ include.card.image }}"
+                alt="{% if include.card.alt != blank %}{{ include.card.alt }}{% else %}{{ include.card.title }} Logo{% endif %}"
+                class="card-image"
+            >
+        </div>
+        <div class="card-content">
+            <h3 class="card-title" id="{{ include.card.id }}-title">{{ include.card.title }}</h3>
+            <p class="card-description">{{ include.card.description }}</p>
+        </div>
+    </a>
+
+    <div class="card-modal-content" data-modal-id="{{ include.card.id }}" style="display: none;">
+        <ul class="info-list">
+            <li class="app-version" data-app-id="{{ include.card.app_id }}">
+                <strong>Version:</strong> <span class="val">Checking...</span>
+            </li>
+            <li class="app-release-date" data-app-id="{{ include.card.app_id }}">
+                <strong>Release date:</strong> <span class="val">Checking...</span>
+            </li>
+
+            {%- assign developers = include.card.contributors.developers | default: empty -%}
+            {%- if developers.size > 0 -%}
+            <li>
+                <strong>{% if developers.size > 1 %}Developers{% else %}Developer{% endif %}:</strong> {% for person in developers %}{% include cards/contributor.html contributor=person %}{% unless forloop.last %} &amp; {% endunless %}{% endfor %}
+            </li>
+            {%- endif -%}
+
+            {%- assign porters = include.card.contributors.porters | default: empty -%}
+            {%- if porters.size > 0 -%}
+            <li>
+                <strong>UWP Port by:</strong> {% for person in porters %}{% include cards/contributor.html contributor=person %}{% unless forloop.last %} &amp; {% endunless %}{% endfor %}
+            </li>
+            {%- endif -%}
+
+            {%- assign maintainers = include.card.contributors.maintainers | default: empty -%}
+            {%- if maintainers.size > 0 -%}
+            <li>
+                <strong>Maintained by:</strong> {% for person in maintainers %}{% include cards/contributor.html contributor=person %}{% unless forloop.last %} &amp; {% endunless %}{% endfor %}
+            </li>
+            {%- endif -%}
+
+            {%- if include.card.compatibility != blank -%}
+            <li><strong>Compatibility:</strong> {{ include.card.compatibility }}</li>
+            {%- endif -%}
+
+            {%- assign requirements = include.card.requirements | default: empty -%}
+            {%- if requirements.size > 0 -%}
+                {%- if requirements.size == 1 -%}
+                <li><strong>Requires:</strong> {{ requirements[0] }}</li>
+                {%- else -%}
+                <li>
+                    <strong>Requires:</strong>
+                    <ul>
+                        {%- for item in requirements -%}
+                        <li>{{ item }}</li>
+                        {%- endfor -%}
+                    </ul>
+                </li>
+                {%- endif -%}
+            {%- endif -%}
+
+            {%- assign features = include.card.features | default: empty -%}
+            {%- if features.size > 0 -%}
+                {%- if features.size == 1 -%}
+                <li><strong>Features:</strong> {{ features[0] }}</li>
+                {%- else -%}
+                <li>
+                    <strong>Features:</strong>
+                    <ul>
+                        {%- for item in features -%}
+                        <li>{{ item }}</li>
+                        {%- endfor -%}
+                    </ul>
+                </li>
+                {%- endif -%}
+            {%- endif -%}
+        </ul>
+
+        <div class="card-actions">
+            {%- assign downloads = include.card.downloads | default: empty -%}
+            {%- if downloads.size > 1 -%}
+            <details class="action-dropdown">
+                <summary class="btn btn-primary">Download ▼</summary>
+                <ul class="dropdown-menu">
+                    {%- for download in downloads -%}
+                    <li>
+                        <a
+                            href="#"
+                            class="download-link"
+                            data-app-id="{{ include.card.app_id }}"
+                            data-asset-id="{{ download.asset_id }}"
+                        >{{ download.label }}</a>
+                    </li>
+                    {%- endfor -%}
+                </ul>
+            </details>
+            {%- elsif downloads.size == 1 -%}
+            <a
+                href="#"
+                class="btn btn-primary download-link"
+                data-app-id="{{ include.card.app_id }}"
+                data-asset-id="{{ downloads[0].asset_id }}"
+            >{{ downloads[0].label | default: 'Download' }}</a>
+            {%- endif -%}
+
+            {%- assign setup_guide_url = include.card.setup_guide.url | to_s | strip -%}
+            {%- if include.card.setup_guide and setup_guide_url != '' and setup_guide_url != 'null' -%}
+            <a href="{{ setup_guide_url }}" class="btn btn-info">Setup Guide</a>
+            {%- endif -%}
+
+            {%- assign tutorial_url = include.card.tutorial_url | to_s | strip -%}
+            {%- if tutorial_url != '' and tutorial_url != 'null' -%}
+            <a href="{{ tutorial_url }}" class="btn btn-youtube">Watch Tutorial</a>
+            {%- endif -%}
+        </div>
+    </div>
+</div>

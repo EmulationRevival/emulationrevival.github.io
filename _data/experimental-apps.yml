@@ -1,0 +1,148 @@
+- id: "chonkystation3"
+  app_id: "chonkystation3"
+  title: "Chonkystation 3"
+  description: "An experimental PlayStation 3 emulator."
+  image: "/xbox-dev-mode/images/experimental-apps/chonkystation3.webp"
+  alt: "Chonkystation 3 Logo"
+  category: "Experimental Apps"
+  page_url: "/xbox-dev-mode/experimental-apps.html#chonkystation3"
+  preview_url: "/previews/experimental-apps-chonkystation3.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "Decrypted .elf roms"
+    - "Install all 3 dependencies"
+  features: []
+  contributors:
+    developers:
+      - name: "Liuk7071"
+        github: "https://github.com/liuk7071"
+        donations: []
+    porters:
+      - name: "Moonpower"
+        github: "https://github.com/momo-AUX1"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/moonpower007"
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "chonkystation3"
+  setup_guide:
+    url: "https://wiki.sternserv.xyz/docs/emulation/chonkystation3-guide"
+  tutorial_url: "https://youtu.be/_Q6EPH-SH48"
+
+- id: "hedgephysics"
+  app_id: "hedgephysics"
+  title: "Hedge Physics"
+  description: "A fan-made Sonic physics engine/game demo."
+  image: "/xbox-dev-mode/images/experimental-apps/hedgephysics.webp"
+  alt: "Hedge Physics Logo"
+  category: "Experimental Apps"
+  page_url: "/xbox-dev-mode/experimental-apps.html#hedgephysics"
+  preview_url: "/previews/experimental-apps-hedgephysics.html"
+  compatibility: "Xbox One & Series S|X"
+  requirements: []
+  features: []
+  contributors:
+    developers:
+      - name: "LakeFeperd"
+        github: "https://forums.sonicretro.org/index.php?threads/1-0-final-hedge-physics-3d-sonic-engine-on-unity.36171/"
+        donations: []
+    porters: []
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "hedgephysics"
+  setup_guide:
+    url: "/guides/experimentalapps/hedgephysics-guide.html"
+  tutorial_url: null
+
+- id: "panda3ds"
+  app_id: "panda3ds"
+  title: "Panda3DS"
+  description: "An experimental Nintendo 3DS emulator."
+  image: "/xbox-dev-mode/images/experimental-apps/panda3ds.webp"
+  alt: "Panda3DS Logo"
+  category: "Experimental Apps"
+  page_url: "/xbox-dev-mode/experimental-apps.html#panda3ds"
+  preview_url: "/previews/experimental-apps-panda3ds.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "Install all 3 dependencies"
+  features: []
+  contributors:
+    developers:
+      - name: "Wheremyfoodat"
+        github: "https://github.com/wheremyfoodat"
+        donations: []
+    porters:
+      - name: "Moonpower"
+        github: "https://github.com/momo-AUX1"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/moonpower007"
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "panda3ds"
+  setup_guide:
+    url: "https://wiki.sternserv.xyz/docs/emulation/panda3ds-guide"
+  tutorial_url: "https://youtu.be/8n2m8TL3thY"
+
+- id: "sm64hd"
+  app_id: "sm64hd"
+  title: "SM64HD Fan Remake"
+  description: "A fan-made SM64HD (Super Mario 64) engine/game demo."
+  image: "/xbox-dev-mode/images/experimental-apps/sm64hd.webp"
+  alt: "SM64HD Fan Remake Logo"
+  category: "Experimental Apps"
+  page_url: "/xbox-dev-mode/experimental-apps.html#sm64hd"
+  preview_url: "/previews/experimental-apps-sm64hd.html"
+  compatibility: "Xbox One & Series S|X"
+  requirements: []
+  features: []
+  contributors:
+    developers:
+      - name: "Jerry Starke"
+        github: "https://github.com/JerrySM64"
+        donations: []
+    porters: []
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "sm64hd"
+  setup_guide:
+    url: "/guides/experimentalapps/sm64hd-guide.html"
+  tutorial_url: null
+
+- id: "boxedwine"
+  app_id: "boxedwine"
+  title: "BoxedWine"
+  description: "Run 16-bit or 32-bit Windows programs."
+  image: "/xbox-dev-mode/images/experimental-apps/boxedwine.webp"
+  alt: "BoxedWine Logo"
+  category: "Experimental Apps"
+  page_url: "/xbox-dev-mode/experimental-apps.html#boxedwine"
+  preview_url: "/previews/experimental-apps-boxedwine.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "External Drive to store your zipped programs"
+  features: []
+  contributors:
+    developers:
+      - name: "Danoon2"
+        github: "https://github.com/danoon2"
+        donations: []
+    porters:
+      - name: "Moonpower"
+        github: "https://github.com/momo-AUX1"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/moonpower007"
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "boxedwine"
+  setup_guide:
+    url: "https://wiki.sternserv.xyz/docs/apps/boxedwine-guide"
+  tutorial_url: "https://youtu.be/R9nr7kDSJpo"

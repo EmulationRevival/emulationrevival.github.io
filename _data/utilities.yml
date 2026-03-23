@@ -1,0 +1,106 @@
+- id: "usb-permissions-tool"
+  app_id: "usbPermissionsTool"
+  title: "USB Permissions Tool"
+  description: "Add necessary permissions to an NTFS formatted USB drive for UWP apps."
+  image: "/xbox-dev-mode/images/utilities/usb-perms-tool.webp"
+  alt: "USB Permissions Tool Logo"
+  category: "Utilities"
+  page_url: "/xbox-dev-mode/utilities.html#usb-permissions-tool"
+  preview_url: "/previews/utilities-usb-permissions-tool.html"
+  compatibility: "Windows OS"
+  requirements:
+    - "External USB drive formatted as NTFS"
+  features: []
+  contributors:
+    developers:
+      - name: "YTReviveMe"
+        github: "https://github.com/YTReviveMe"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/reviveme"
+    porters: []
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "usbpermtool"
+  setup_guide: null
+  tutorial_url: null
+
+- id: "durangoftp"
+  app_id: "durangoftp"
+  title: "Durango FTP"
+  description: "FTP Server for Xbox One/Series in Dev Mode."
+  image: "/xbox-dev-mode/images/utilities/ftp.webp"
+  alt: "Durango FTP Logo"
+  category: "Utilities"
+  page_url: "/xbox-dev-mode/utilities.html#durangoftp"
+  preview_url: "/previews/utilities-durangoftp.html"
+  compatibility: "Xbox One & Series S|X"
+  requirements: []
+  features:
+    - "FTP access is currently unreliable and may not work for all users."
+  contributors:
+    developers:
+      - name: "Dantes-Dungeon"
+        github: "https://github.com/Dantes-Dungeon"
+        donations: []
+    porters: []
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "durangoftp"
+  setup_guide: null
+  tutorial_url: "https://youtu.be/bLaWsX5vwts"
+
+- id: "oberon"
+  app_id: "oberon"
+  title: "Oberon Remote"
+  description: "Remote input for Xbox consoles, use any controller with your Xbox."
+  image: "/xbox-dev-mode/images/utilities/oberon.webp"
+  alt: "Oberon Remote Logo"
+  category: "Utilities"
+  page_url: "/xbox-dev-mode/utilities.html#oberon"
+  preview_url: "/previews/utilities-oberon.html"
+  compatibility: "Xbox One & Series S|X"
+  requirements:
+    - "A separate device running Android, Windows, macOS or Linux"
+  features: []
+  contributors:
+    developers:
+      - name: "SamsidParty"
+        github: "https://github.com/SamsidParty"
+        donations: []
+    porters: []
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "oberon"
+  setup_guide:
+    url: "https://www.samsidparty.com/docs/software/oberon-remote/setup-guide"
+  tutorial_url: null
+
+- id: "safeexit"
+  app_id: "safeexit"
+  title: "Safe Exit"
+  description: "Exit from dev mode safely."
+  image: "/xbox-dev-mode/images/utilities/safeexit.webp"
+  alt: "Safe Exit Logo"
+  category: "Utilities"
+  page_url: "/xbox-dev-mode/utilities.html#safeexit"
+  preview_url: "/previews/utilities-safeexit.html"
+  compatibility: "Xbox One & Series S|X"
+  requirements: []
+  features:
+    - "This app is likely redundant now, as dev mode defaults to keeping sideloaded apps on exit."
+  contributors:
+    developers:
+      - name: "Dantes-Dungeon"
+        github: "https://github.com/Dantes-Dungeon"
+        donations: []
+    porters: []
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "safeexit"
+  setup_guide: null
+  tutorial_url: "https://youtu.be/Qlr2R8ZkMEw"

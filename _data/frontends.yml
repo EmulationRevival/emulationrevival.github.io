@@ -1,0 +1,65 @@
+- id: "launchpass"
+  app_id: "launchpass"
+  title: "LaunchPass"
+  description: "A frontend capable of launching ROMs in most emulators on Xbox."
+  image: "/xbox-dev-mode/images/frontends/launchpass.webp"
+  alt: "LaunchPass Logo"
+  category: "Frontends"
+  page_url: "/xbox-dev-mode/frontends.html#launchpass"
+  preview_url: "/previews/frontends-launchpass.html"
+  compatibility: "Xbox One & Series S|X"
+  requirements:
+    - "Install all 4 dependencies"
+    - "Supported emulators"
+    - "External storage for content library"
+    - "PC for setup with LaunchBox"
+  features: []
+  contributors:
+    developers:
+      - name: "Misunderstood-Wookiee"
+        github: "https://github.com/Misunderstood-Wookiee"
+        donations: []
+      - name: "DanP"
+        github: "https://github.com/danprice142"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/danp142"
+    porters: []
+    maintainers: []
+  downloads:
+    - label: "LaunchPass"
+      asset_id: "launchpass1"
+    - label: "LaunchPass - Dependency files"
+      asset_id: "launchpass2"
+  setup_guide:
+    url: "https://wiki.sternserv.xyz/docs/apps/launchpass-guide"
+  tutorial_url: "https://youtu.be/1Qo2tqwA5qI"
+
+- id: "retropass"
+  app_id: "retropass"
+  title: "Retro Pass"
+  description: "A simple frontend for emulators running on Xbox."
+  image: "/xbox-dev-mode/images/frontends/retropass.webp"
+  alt: "Retro Pass Logo"
+  category: "Frontends"
+  page_url: "/xbox-dev-mode/frontends.html#retropass"
+  preview_url: "/previews/frontends-retropass.html"
+  compatibility: "Xbox One & Series S|X"
+  requirements:
+    - "Install all 5 (x64) dependencies"
+    - "Supported emulators"
+    - "External storage for content library"
+    - "PC for setup with LaunchBox or EmulationStation"
+  features: []
+  contributors:
+    developers:
+      - name: "Retropassdev"
+        github: "https://github.com/retropassdev"
+        donations: []
+    porters: []
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "retropass"
+  setup_guide: null
+  tutorial_url: "https://youtu.be/eaStAmBhnaE"
