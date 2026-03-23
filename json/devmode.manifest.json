@@ -944,5 +944,17 @@
         "assetPattern": "NSMB-MarioVsLuigi_*.msix"
       }
     ]
+  },
+  "sm64ex": {
+    "name": "SM64EX",
+    "type": "static",
+    "version": "1.0.0.0",
+    "releaseDate": "2026-03-23",
+    "assets": [
+      {
+        "id": "sm64ex",
+        "url": "https://drive.google.com/uc?export=download&id=1eU6yNDh2uZ4cQdoEIOFT1R42cJk2SVUh"
+      }
+    ]
   }
 }
