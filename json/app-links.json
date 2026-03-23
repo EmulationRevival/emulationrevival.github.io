@@ -944,5 +944,16 @@
         "url": "https://github.com/YTReviveMe/NSMB-MarioVsLuigi-UWP/releases/download/v2.0.4.1/NSMB-MarioVsLuigi_1.0.1.0_x64.msix"
       }
     ]
+  },
+  "sm64ex": {
+    "name": "SM64EX",
+    "version": "1.0.0.0",
+    "releaseDate": "2026-03-23",
+    "assets": [
+      {
+        "id": "sm64ex",
+        "url": "https://drive.google.com/uc?export=download&id=1eU6yNDh2uZ4cQdoEIOFT1R42cJk2SVUh"
+      }
+    ]
   }
 }
