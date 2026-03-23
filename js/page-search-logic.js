@@ -18,7 +18,6 @@ const IDS = {
   SEARCH_INPUT_ID: 'pageSearchInput',
   RESULTS_CONTAINER_ID: 'pageAutocompleteResults',
   LIVE_REGION_ID: 'autocompleteLiveRegion',
-  SORT_BY: 'sortBy',
 };
 
 const SELECTORS = {
@@ -39,7 +38,6 @@ const EVENTS = {
   CLICK: 'click',
   KEYDOWN: 'keydown',
   FOCUS: 'focus',
-  CHANGE: 'change',
 };
 
 const KEYS = {
@@ -67,7 +65,6 @@ const TEMPLATES = {
 
 const searchInput = document.getElementById(IDS.SEARCH_INPUT_ID);
 const autocompleteResults = document.getElementById(IDS.RESULTS_CONTAINER_ID);
-const sortSelect = document.getElementById(IDS.SORT_BY);
 
 if (!searchInput || !autocompleteResults) {
 } else {
@@ -77,7 +74,6 @@ if (!searchInput || !autocompleteResults) {
   let searchIndexCache = [];
 
   const elementMap = new Map();
-  const visibilityCache = new WeakMap();
 
   const liveRegion = getOrCreateLiveRegion({
     id: IDS.LIVE_REGION_ID,
@@ -97,14 +93,7 @@ if (!searchInput || !autocompleteResults) {
     document.querySelectorAll(SELECTORS.CARD).forEach(card => {
       if (card.id) {
         elementMap.set(card.id, card);
-        visibilityCache.set(card, card.offsetParent !== null);
       }
-    });
-  }
-
-  function syncVisibilityCache() {
-    elementMap.forEach(element => {
-      visibilityCache.set(element, element.offsetParent !== null);
     });
   }
 
@@ -191,7 +180,7 @@ if (!searchInput || !autocompleteResults) {
 
       const element = elementMap.get(entry.id);
       if (!element) continue;
-      if (!visibilityCache.get(element)) continue;
+      if (element.hidden) continue;
 
       results.push(entry);
     }
@@ -352,19 +341,7 @@ if (!searchInput || !autocompleteResults) {
     }
   });
 
-  if (sortSelect) {
-    sortSelect.addEventListener(EVENTS.CHANGE, () => {
-      syncVisibilityCache();
-
-      const query = searchInput.value.trim();
-      if (query.length > 0) {
-        processInputValue(query);
-      }
-    });
-  }
-
   buildElementIndex();
-  syncVisibilityCache();
 
   hydrateSearchIndex().then(() => {
     const query = searchInput.value.trim();

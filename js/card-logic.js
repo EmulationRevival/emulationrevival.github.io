@@ -1,8 +1,5 @@
 import { scheduleTask, createFocusTrap } from './ui-utils.js';
 
-// =========================
-// CONFIG
-// =========================
 const C = {
   URL: {
     VERSION: '/json/version.json',
@@ -26,6 +23,7 @@ const C = {
 
     BTN: '.download-link',
     DROPDOWN: '.action-dropdown',
+    ACTION_DROPDOWN: '.action-dropdown',
     POPOVER_TRIGGER: '.popover-trigger',
     POPOVER_MENU: '.popover-menu',
 
@@ -59,6 +57,7 @@ const C = {
   CLASSES: {
     ACTIVE: 'active',
     MODAL_HEADER_THUMB: 'modal-header-thumb',
+    EMPTY_MESSAGE: 'card-grid-empty-message',
   },
 
   SORT_TYPES: {
@@ -74,6 +73,7 @@ const C = {
   TXT: {
     UNKNOWN: 'Unknown',
     DL_PREFIX: 'Download',
+    EMPTY: 'No cards available.',
   },
 
   ARIA: {
@@ -96,9 +96,6 @@ function sortNeedsHydratedDates(sortType) {
   return sortType === C.SORT_TYPES.NEWEST || sortType === C.SORT_TYPES.OLDEST;
 }
 
-// =========================
-// STATE
-// =========================
 const state = {
   dataPromise: null,
   lastOpenedCardTrigger: null,
@@ -118,9 +115,6 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', {
   day: 'numeric',
 });
 
-// =========================
-// DOM CACHE
-// =========================
 const dom = {
   cards: Array.from(document.querySelectorAll(C.SEL.CARD)),
   versions: Array.from(document.querySelectorAll(C.SEL.VERSION)),
@@ -139,6 +133,8 @@ const dom = {
   mainHeader: document.querySelector(C.SEL.MAIN_HEADER),
   mainContent: document.querySelector(C.SEL.MAIN_CONTENT),
   mainFooter: document.querySelector(C.SEL.MAIN_FOOTER),
+
+  emptyMessage: null,
 };
 
 dom.gameDetailModalHeader = dom.gameDetailModal?.querySelector(C.SEL.MODAL_HEADER);
@@ -149,9 +145,6 @@ const backgroundElementsToInert = [
   dom.mainFooter,
 ].filter(Boolean);
 
-// =========================
-// PREBIND STATIC RELATIONSHIPS
-// =========================
 function bindStaticDom() {
   dom.cards.forEach(card => {
     const titleEl = card.querySelector(C.SEL.CARD_TITLE);
@@ -169,11 +162,14 @@ function bindStaticDom() {
       hasBadge: false,
       titleText: normalizeText(titleEl?.textContent || ''),
       dateMs: 0,
+      compatibilityText: normalizeText(infoList?.textContent || ''),
     });
 
     if (versionEl) {
       const appId = versionEl.getAttribute(C.ATTR.APP);
-      if (appId) cardMap.set(appId, card);
+      if (appId) {
+        cardMap.set(appId, card);
+      }
     }
 
     if (modalContent) {
@@ -201,9 +197,6 @@ function bindStaticDom() {
   });
 }
 
-// =========================
-// DATA FETCH / HYDRATE
-// =========================
 function preprocessAppData(data) {
   for (const app of Object.values(data)) {
     if (app.assets) {
@@ -235,7 +228,9 @@ function hydrateCards(data) {
 
     const meta = domMeta.get(el);
     if (info.version && info.version !== C.TXT.UNKNOWN) {
-      if (meta?.valEl) meta.valEl.textContent = info.version;
+      if (meta?.valEl) {
+        meta.valEl.textContent = info.version;
+      }
     } else {
       el.style.display = 'none';
     }
@@ -321,9 +316,6 @@ async function fetchAppData({ rerender = true } = {}) {
   return state.dataPromise;
 }
 
-// =========================
-// SORT / FILTER
-// =========================
 function rebuildParsedCardsData() {
   state.parsedCardsData = dom.cards.map(card => {
     const meta = domMeta.get(card);
@@ -332,9 +324,36 @@ function rebuildParsedCardsData() {
       element: card,
       title: meta?.titleText || '',
       date: meta?.dateMs || 0,
-      compatibility: meta?.infoListText || '',
+      compatibility: meta?.compatibilityText || '',
     };
   });
+}
+
+function cardMatchesFilter(cardData, sortType) {
+  if (sortType === C.SORT_TYPES.XBOX_ONE) {
+    return cardData.compatibility.includes('xbox one');
+  }
+
+  if (sortType === C.SORT_TYPES.XBOX_SERIES) {
+    return cardData.compatibility.includes('series s|x');
+  }
+
+  return true;
+}
+
+function getEmptyMessage() {
+  if (!dom.cardGrid) return null;
+
+  if (dom.emptyMessage) {
+    return dom.emptyMessage;
+  }
+
+  dom.emptyMessage = document.createElement('div');
+  dom.emptyMessage.className = C.CLASSES.EMPTY_MESSAGE;
+  dom.emptyMessage.textContent = C.TXT.EMPTY;
+  dom.emptyMessage.hidden = true;
+
+  return dom.emptyMessage;
 }
 
 function handleSortAndFilter() {
@@ -342,44 +361,52 @@ function handleSortAndFilter() {
 
   const sortType = dom.sortSelect?.value || C.SORT_TYPES.DEFAULT;
 
-  const processedData = state.parsedCardsData
-    .filter(data => {
-      if (sortType === C.SORT_TYPES.XBOX_ONE) return data.compatibility.includes('Xbox One');
-      if (sortType === C.SORT_TYPES.XBOX_SERIES) return data.compatibility.includes('Series S|X');
-      return true;
-    })
-    .sort((a, b) => {
-      if (sortType === C.SORT_TYPES.NEWEST) return b.date - a.date;
-      if (sortType === C.SORT_TYPES.OLDEST) return a.date - b.date;
-      if (sortType === C.SORT_TYPES.REVERSE_ALPHABETICAL) return b.title.localeCompare(a.title);
-      return a.title.localeCompare(b.title);
-    });
+  const processedData = [...state.parsedCardsData].sort((a, b) => {
+    if (sortType === C.SORT_TYPES.NEWEST) return b.date - a.date;
+    if (sortType === C.SORT_TYPES.OLDEST) return a.date - b.date;
+    if (sortType === C.SORT_TYPES.REVERSE_ALPHABETICAL) return b.title.localeCompare(a.title);
+    return a.title.localeCompare(b.title);
+  });
 
   const fragment = document.createDocumentFragment();
-  processedData.forEach(item => fragment.appendChild(item.element));
+  let visibleCount = 0;
+
+  for (let i = 0; i < processedData.length; i += 1) {
+    const item = processedData[i];
+    const shouldShow = cardMatchesFilter(item, sortType);
+
+    item.element.hidden = !shouldShow;
+    item.element.setAttribute('aria-hidden', shouldShow ? 'false' : 'true');
+
+    if (shouldShow) {
+      visibleCount += 1;
+    }
+
+    fragment.appendChild(item.element);
+  }
+
+  const emptyMsg = getEmptyMessage();
+  if (emptyMsg) {
+    emptyMsg.hidden = visibleCount !== 0;
+    fragment.appendChild(emptyMsg);
+  }
 
   dom.cardGrid.replaceChildren(fragment);
-
-  if (processedData.length === 0) {
-    const emptyMsg = document.createElement('div');
-    emptyMsg.className = 'card-grid-empty-message';
-    emptyMsg.textContent = 'No cards available.';
-    dom.cardGrid.appendChild(emptyMsg);
-  }
 }
 
-// =========================
-// MODAL
-// =========================
 function updateModalHeaderThumb(cardElement) {
   const existingThumb = dom.gameDetailModalHeader?.querySelector(`.${C.CLASSES.MODAL_HEADER_THUMB}`);
-  if (existingThumb) existingThumb.remove();
+  if (existingThumb) {
+    existingThumb.remove();
+  }
 
   const meta = domMeta.get(cardElement);
   const title = meta?.titleEl?.textContent || '';
   const imageSource = meta?.imgEl;
 
-  if (dom.gameDetailModalTitle) dom.gameDetailModalTitle.textContent = title;
+  if (dom.gameDetailModalTitle) {
+    dom.gameDetailModalTitle.textContent = title;
+  }
 
   if (imageSource && dom.gameDetailModalHeader) {
     const thumb = document.createElement('img');
@@ -447,9 +474,6 @@ function closeGameDetailModal() {
   }
 }
 
-// =========================
-// DOWNLOADS
-// =========================
 function initAriaLabels() {
   dom.buttons.forEach(btn => {
     if (btn.hasAttribute(C.ATTR.ARIA)) return;
@@ -512,9 +536,6 @@ async function handleDownloadClick(btn) {
   }
 }
 
-// =========================
-// EVENTS
-// =========================
 function handleDocumentClick(event) {
   const { target } = event;
 
@@ -571,7 +592,9 @@ function handleDocumentClick(event) {
 
 function handleDocumentKeydown(event) {
   if (dom.gameDetailModal?.classList.contains(C.CLASSES.ACTIVE)) {
-    if (event.key === 'Escape') closeGameDetailModal();
+    if (event.key === 'Escape') {
+      closeGameDetailModal();
+    }
     return;
   }
 
@@ -585,9 +608,6 @@ function handleDocumentKeydown(event) {
   }
 }
 
-// =========================
-// INIT
-// =========================
 function init() {
   if (!dom.cardGrid) return;
 
@@ -610,10 +630,15 @@ function init() {
   const initialSortType = dom.sortSelect?.value || C.SORT_TYPES.DEFAULT;
 
   if (sortNeedsHydratedDates(initialSortType)) {
-    if (dom.cardGrid) dom.cardGrid.style.visibility = 'hidden';
+    if (dom.cardGrid) {
+      dom.cardGrid.style.visibility = 'hidden';
+    }
 
     fetchAppData({ rerender: true }).finally(() => {
-      if (dom.cardGrid) dom.cardGrid.style.visibility = '';
+      if (dom.cardGrid) {
+        dom.cardGrid.style.visibility = '';
+      }
+
       if (!state.dataPromise) {
         rebuildParsedCardsData();
         handleSortAndFilter();

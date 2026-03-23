@@ -20,6 +20,10 @@
   overflow: hidden;
 }
 
+.card[hidden] {
+  display: none !important;
+}
+
 .card:focus-within {
   outline: 2px solid var(--color-primary);
   transition: outline-color 0.3s ease;
