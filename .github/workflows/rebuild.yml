@@ -34,6 +34,9 @@ jobs:
       - name: Run Build Index Script
         run: node js/build-index.js
 
+      - name: Show Generated Search Index
+        run: cat json/search-index.json
+
       - name: Run Build Previews Script
         run: node js/build-previews.js
 
