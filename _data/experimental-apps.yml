@@ -57,38 +57,6 @@
     url: "/guides/experimentalapps/hedgephysics-guide.html"
   tutorial_url: null
 
-- id: "panda3ds"
-  app_id: "panda3ds"
-  title: "Panda3DS"
-  description: "An experimental Nintendo 3DS emulator"
-  image: "/xbox-dev-mode/images/experimental-apps/panda3ds.webp"
-  alt: "Panda3DS Logo"
-  category: "Experimental Apps"
-  page_url: "/xbox-dev-mode/experimental-apps.html#panda3ds"
-  preview_url: "/previews/experimental-apps-panda3ds.html"
-  compatibility: "Xbox Series S|X"
-  requirements:
-    - "Install all 3 dependencies"
-  features: []
-  contributors:
-    developers:
-      - name: "Wheremyfoodat"
-        github: "https://github.com/wheremyfoodat"
-        donations: []
-    porters:
-      - name: "Moonpower"
-        github: "https://github.com/momo-AUX1"
-        donations:
-          - type: "kofi"
-            url: "https://ko-fi.com/moonpower007"
-    maintainers: []
-  downloads:
-    - label: "Download"
-      asset_id: "panda3ds"
-  setup_guide:
-    url: "https://wiki.sternserv.xyz/docs/emulation/panda3ds-guide"
-  tutorial_url: "https://youtu.be/8n2m8TL3thY"
-
 - id: "sm64hd"
   app_id: "sm64hd"
   title: "SM64HD Fan Remake"
