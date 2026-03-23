@@ -888,12 +888,12 @@
   },
   "panda3ds": {
     "name": "Panda3DS",
-    "version": "Alpha",
-    "releaseDate": "2025-04-26",
+    "version": "1.0.1",
+    "releaseDate": "2026-03-23",
     "assets": [
       {
         "id": "panda3ds",
-        "url": "https://drive.google.com/uc?export=download&id=18rpPV5w4urNPSiBtasFMaM-SdS_ESQqW"
+        "url": "https://drive.google.com/uc?export=download&id=1erbMfw1J3t5tekI7UihNme-adO5L84Ki"
       }
     ]
   },
