@@ -98,6 +98,13 @@
     "category": "Emulators"
   },
   {
+    "name": "Panda3DS",
+    "description": "An Nintendo 3DS emulator",
+    "img": "/xbox-dev-mode/images/emulators/panda3ds.webp",
+    "url": "/xbox-dev-mode/emulators.html#panda3ds",
+    "category": "Emulators"
+  },
+  {
     "name": "Castlevania Revamped",
     "description": "The NES classic re-forged into a Metroid-style adventure",
     "img": "/xbox-dev-mode/images/game-ports/castlevania.webp",
@@ -522,13 +529,6 @@
     "description": "A fan-made Sonic physics engine/game demo",
     "img": "/xbox-dev-mode/images/experimental-apps/hedgephysics.webp",
     "url": "/xbox-dev-mode/experimental-apps.html#hedgephysics",
-    "category": "Experimental Apps"
-  },
-  {
-    "name": "Panda3DS",
-    "description": "An experimental Nintendo 3DS emulator",
-    "img": "/xbox-dev-mode/images/experimental-apps/panda3ds.webp",
-    "url": "/xbox-dev-mode/experimental-apps.html#panda3ds",
     "category": "Experimental Apps"
   },
   {
