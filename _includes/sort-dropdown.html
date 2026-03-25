@@ -1,12 +1,31 @@
-<div class="sort-controls">
-    <div class="sort-dropdown">
-        <label for="sortBy">Sort by:</label>
-        <select id="sortBy">
-            <option value="default">Alphabetically</option>
-            <option value="newest">Release Date (Newest)</option>
-            <option value="oldest">Release Date (Oldest)</option>
-            <option value="xbox-series">Xbox Series X|S</option>
-            <option value="xbox-one">Xbox One</option>
+<div class="sort-controls" aria-label="Sort and filter controls">
+    <div class="sort-dropdown sort-dropdown--sort">
+        <label class="visually-hidden" for="sortField">Sort by</label>
+        <div class="sort-field-combo">
+            <select id="sortField">
+                <option value="release-date" selected>Newest</option>
+                <option value="title">A–Z</option>
+            </select>
+            <button
+                type="button"
+                id="sortDirection"
+                class="sort-direction-button"
+                data-sort-direction="desc"
+                aria-label="Sort descending"
+                title="Sort descending"
+                aria-pressed="false">
+                <span aria-hidden="true" class="sort-direction-icon">↓</span>
+                <span data-sort-direction-label>Descending</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="sort-dropdown sort-dropdown--select sort-dropdown--filter">
+        <label class="visually-hidden" for="compatibilityFilter">Filter by compatibility</label>
+        <select id="compatibilityFilter">
+            <option value="all" selected>All</option>
+            <option value="xbox-one">XB1</option>
+            <option value="xbox-series">X|S</option>
         </select>
     </div>
 </div>

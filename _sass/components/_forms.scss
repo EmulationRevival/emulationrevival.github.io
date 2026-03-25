@@ -1,50 +1,69 @@
 .form-wrapper {
   display: flex;
   justify-content: center;
-  padding: var(--spacing-xl) 0;
-  width: 100%;
+  inline-size: 100%;
+  padding-block: var(--spacing-xl);
   background-color: var(--color-background-dark);
 }
 
 .contact-form-wrapper {
-  padding-top: var(--spacing-md);
+  padding-block-start: var(--spacing-md);
 }
 
 .google-form-iframe {
-  width: 100%;
-  max-width: 850px;
-  height: 1000px;
-  border: 2px solid var(--color-secondary);
+  display: block;
+  inline-size: 100%;
+  max-inline-size: 850px;
+  min-block-size: 1000px;
+  border: var(--border-width-md) solid var(--color-secondary);
   border-radius: var(--border-radius-md);
-  box-shadow: 0 0 20px rgba(var(--color-secondary-rgb), 0.2);
   background-color: #ffffff;
+  box-shadow: 0 0 20px rgba(var(--color-secondary-rgb), 0.2);
+  overflow: hidden;
 }
 
 .contact-form-iframe {
-  max-width: 1000px;
+  max-inline-size: 1000px;
+}
+
+@media (min-width: 768px) {
+  .form-wrapper {
+    padding-block: var(--spacing-xxl);
+  }
 }
 
 @media (max-width: 768px) {
   .google-form-iframe {
-    height: 1200px;
-    border-left: none;
-    border-right: none;
+    min-block-size: 1200px;
+    border-inline: 0;
     border-radius: 0;
-  }
-}
-
-@media (max-width: 767px) and (orientation: landscape) {
-  .google-form-iframe {
-    height: 900px;
   }
 }
 
 @media (hover: none) and (pointer: coarse) and (orientation: landscape) {
   .contact-form-wrapper {
-    padding-top: var(--spacing-sm);
+    padding-block-start: var(--spacing-sm);
+  }
+
+  .google-form-iframe {
+    min-block-size: 900px;
   }
 
   .contact-form-iframe {
-    height: 720px;
+    min-block-size: 720px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .google-form-iframe {
+    scroll-behavior: auto;
+  }
+}
+
+@media (forced-colors: active) {
+  .google-form-iframe {
+    border-color: CanvasText;
+    box-shadow: none;
+    forced-color-adjust: auto;
   }
 }

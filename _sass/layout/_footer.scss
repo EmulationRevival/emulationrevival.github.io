@@ -1,22 +1,33 @@
 .main-footer {
     background-color: var(--color-background-medium);
-    padding: var(--spacing-lg) 0 var(--spacing-sm) 0;
+    padding-block: var(--spacing-md) var(--spacing-xs);
     color: var(--color-text-secondary);
-    font-size: 0.9em;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: var(--font-size-body-sm);
     text-align: center;
+    border-block-start: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.footer-content {
+.main-footer > .container {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.footer-top {
+    display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--spacing-md);
+    gap: var(--spacing-sm);
+}
+
+.footer-bottom {
+    inline-size: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .footer-logo {
-    margin-bottom: var(--spacing-sm);
+    margin: 0;
 }
 
 .footer-logo .logo-text {
@@ -29,37 +40,65 @@
 .footer-nav ul {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-xs);
-    margin-bottom: var(--spacing-sm);
     align-items: center;
+    gap: 0;
+    margin: 0;
     padding: 0;
     list-style: none;
 }
 
 .footer-nav a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-block-size: 40px;
+    padding-block: 0;
+    padding-inline: var(--spacing-sm);
     color: var(--color-text-secondary);
     text-decoration: none;
-    transition: color var(--transition-speed) var(--transition-ease);
-    padding: var(--spacing-xs) 0;
-    display: inline-block;
+    transition:
+        color var(--transition-speed) var(--transition-ease),
+        background-color var(--transition-speed) var(--transition-ease),
+        transform var(--transition-speed-fast) var(--transition-ease-emphasized);
+    -webkit-tap-highlight-color: transparent;
 }
 
 .social-links {
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     gap: var(--spacing-sm);
-    margin-bottom: var(--spacing-sm);
+    margin: 0;
+    padding: 0;
+}
+
+.social-links a,
+.footer-modal-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-inline-size: 40px;
+    min-block-size: 40px;
+    padding: 0;
+    line-height: 0;
+    border-radius: 50%;
+    -webkit-tap-highlight-color: transparent;
+    transition:
+        background-color var(--transition-speed) var(--transition-ease),
+        transform var(--transition-speed-fast) var(--transition-ease-emphasized);
 }
 
 .social-links a {
-    display: inline-block;
-    line-height: 0;
+    color: inherit;
+    text-decoration: none;
 }
 
 .social-links img {
-    width: 24px;
-    height: 24px;
+    inline-size: 24px;
+    block-size: 24px;
     border-radius: 50%;
-    transition: transform var(--transition-speed) var(--transition-ease);
+    transition: transform var(--transition-speed-fast) var(--transition-ease-emphasized);
 }
 
 [data-theme='light'] .social-links img {
@@ -67,100 +106,109 @@
 }
 
 .copyright {
-    width: 100%;
+    inline-size: 100%;
+    margin: 0;
+    padding-block-start: var(--spacing-xs);
+    border-block-start: 1px solid rgba(255, 255, 255, 0.03);
     text-align: center;
-    padding-top: var(--spacing-sm);
-    border-top: 1px solid rgba(255, 255, 255, 0.03);
-    margin-top: var(--spacing-sm);
-}
-
-.footer-nav a:focus-visible {
-    color: var(--color-accent);
-    outline: none;
-}
-
-.social-links a:focus-visible img {
-    transform: translateY(-3px) scale(1.1);
-}
-
-.footer-modal-trigger:focus-visible img {
-    transform: translateY(-3px) scale(1.1);
 }
 
 .footer-nav a:focus-visible,
 .social-links a:focus-visible,
 .footer-modal-trigger:focus-visible {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 3px;
-    border-radius: 2px;
+    outline: 2px solid var(--color-focus-ring);
+    outline-offset: 2px;
+    box-shadow: none;
+}
+
+.footer-nav a:focus:not(:focus-visible),
+.social-links a:focus:not(:focus-visible),
+.footer-modal-trigger:focus:not(:focus-visible) {
+    outline: none;
+    box-shadow: none;
+}
+
+.footer-nav a:focus-visible {
+    color: var(--color-accent);
+}
+
+.social-links a:focus-visible img,
+.footer-modal-trigger:focus-visible img {
+    transform: scale(1.08);
 }
 
 @media (hover: hover) and (pointer: fine) {
     .footer-nav a:hover {
         color: var(--color-accent);
+        transform: var(--transform-lift-sm);
     }
 
-    .social-links a:hover img {
-        transform: translateY(-3px) scale(1.1);
+    .social-links a:hover,
+    .footer-modal-trigger:hover {
+        background-color: rgba(var(--color-primary-rgb), 0.12);
+        transform: var(--transform-lift-sm);
     }
 
+    .social-links a:hover img,
     .footer-modal-trigger:hover img {
-        transform: translateY(-3px) scale(1.1);
+        transform: scale(1.08);
     }
 }
 
 .footer-nav [aria-current="page"] {
-    font-weight: bold;
-    color: var(--color-accent);
     position: relative;
+    color: var(--color-accent);
+    font-weight: 700;
 }
 
 .footer-nav [aria-current="page"]::after {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
+    inset-inline: var(--spacing-sm);
+    inset-block-end: 0.7rem;
+    block-size: 2px;
     background-color: var(--color-accent);
+    border-radius: 999px;
 }
 
 .footer-modal-trigger {
     background: none;
     border: none;
-    padding: 0;
     cursor: pointer;
-    display: inline-block;
-    line-height: 0;
-    transition: transform var(--transition-speed) var(--transition-ease);
 }
 
 .discord-grid {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-md);
-    padding: 0 var(--spacing-md);
+    padding-inline: var(--spacing-md);
 }
 
 .discord-grid .btn-discord {
-    width: 100%;
+    inline-size: 100%;
     justify-content: center;
-    padding: var(--spacing-md);
 }
 
 #discordHubModal .modal-header-thumb {
-    width: 32px;
-    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 32px;
+    block-size: 32px;
+    margin-inline-end: var(--spacing-sm);
     background: transparent;
     border: none;
     box-shadow: none;
-    margin-right: var(--spacing-sm);
 }
 
 #discordHubModal .modal-header-thumb img {
-    width: 100%;
-    height: 100%;
+    inline-size: 100%;
+    block-size: 100%;
     object-fit: contain;
+}
+
+[data-theme='light'] #discordHubModal .modal-header-thumb img {
+    filter: invert(1);
 }
 
 #discordHubModal .modal-header {
@@ -168,101 +216,222 @@
 }
 
 #discordHubModal .modal-header-title {
-    margin: 0;
-    line-height: 1;
-    display: flex;
-    align-items: center;
-}
-
-#discordHubModal .modal-header-thumb {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex: 1 1 auto;
+    margin: 0;
+    color: var(--color-heading);
+    font-size: 1.2em;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
 }
 
 @media print {
     .main-footer {
-        border-top: 1px solid #ddd;
+        border-block-start: 1px solid #ddd;
     }
 }
 
 @media (min-width: 768px) {
     .main-footer {
+        padding-block: var(--spacing-sm);
         text-align: left;
     }
 
-    .footer-content {
-        flex-direction: row;
-        align-items: flex-start;
-        justify-content: space-between;
+    .main-footer > .container {
+        gap: var(--spacing-sm);
+    }
+
+    .footer-top {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+        align-items: center;
+        gap: var(--spacing-lg);
+        min-block-size: 44px;
+    }
+
+    .footer-logo {
+        justify-self: start;
+        align-self: center;
+    }
+
+    .footer-nav {
+        justify-self: center;
+        align-self: center;
     }
 
     .footer-nav ul {
-        align-items: flex-start;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+    }
+
+    .footer-nav li {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .footer-nav li + li::before {
+        content: "•";
+        margin-inline: var(--spacing-xl);
+        color: var(--color-text-secondary);
+    }
+
+    .social-links {
+        justify-self: end;
+        align-self: center;
+        justify-content: flex-end;
+    }
+
+    .footer-bottom {
+        inline-size: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .copyright {
+        white-space: nowrap;
     }
 }
 
 @media (hover: none) and (pointer: coarse) and (orientation: landscape) {
     .main-footer {
-        padding: var(--spacing-lg) 0 var(--spacing-sm) 0;
+        padding-block: var(--spacing-xs);
+        text-align: center;
         font-size: 0.8em;
     }
 
-    .footer-content {
+    .main-footer > .container {
+        gap: var(--spacing-xs);
+    }
+
+    .footer-top {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+        align-items: center;
         gap: var(--spacing-md);
+        min-block-size: 40px;
     }
 
     .footer-logo {
-        margin-bottom: var(--spacing-sm);
+        justify-self: start;
+        align-self: center;
     }
 
     .site-logo-img {
-        width: 120px;
+        inline-size: 120px;
+    }
+
+    .footer-nav {
+        justify-self: center;
+        align-self: center;
     }
 
     .footer-nav ul {
-        gap: var(--spacing-xs);
-        margin-bottom: var(--spacing-sm);
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+    }
+
+    .footer-nav li {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .footer-nav li + li::before {
+        content: "•";
+        margin-inline: var(--spacing-md);
+        color: var(--color-text-secondary);
     }
 
     .footer-nav a {
-        padding: 2px 0;
+        min-block-size: 40px;
+        padding-inline: var(--spacing-xs);
         font-size: 0.95em;
     }
 
     .social-links {
-        gap: var(--spacing-sm);
-        margin-bottom: var(--spacing-sm);
+        justify-self: end;
+        align-self: center;
+        justify-content: flex-end;
     }
 
     .social-links img {
-        width: 20px;
-        height: 20px;
+        inline-size: 20px;
+        block-size: 20px;
+    }
+
+    .footer-bottom {
+        inline-size: 100%;
+        display: flex;
+        justify-content: center;
     }
 
     .copyright {
-        padding-top: var(--spacing-sm);
-        margin-top: var(--spacing-sm);
+        padding-block-start: var(--spacing-xs);
         font-size: 0.95em;
+        white-space: nowrap;
     }
 
     .discord-grid {
         gap: var(--spacing-sm);
-        padding: 0 var(--spacing-sm);
-    }
-
-    .discord-grid .btn-discord {
-        padding: var(--spacing-sm) var(--spacing-md);
-        font-size: 0.95em;
+        padding-inline: var(--spacing-sm);
     }
 
     #discordHubModal .modal-header-thumb {
-        width: 28px;
-        height: 28px;
-        margin-right: var(--spacing-xs);
+        inline-size: 28px;
+        block-size: 28px;
+        margin-inline-end: var(--spacing-xs);
     }
 
     #discordHubModal .modal-header-title {
         font-size: 1rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .footer-nav a,
+    .social-links a,
+    .footer-modal-trigger,
+    .social-links img {
+        transition: none !important;
+        transform: none !important;
+    }
+}
+
+@media (forced-colors: active) {
+    .footer-nav a,
+    .social-links a,
+    .footer-modal-trigger {
+        forced-color-adjust: auto;
+        color: CanvasText;
+        background-color: Canvas;
+        box-shadow: none;
+    }
+
+    .footer-nav a:focus-visible,
+    .social-links a:focus-visible,
+    .footer-modal-trigger:focus-visible {
+        outline-color: Highlight;
+        box-shadow: none;
+    }
+
+    .footer-nav [aria-current="page"] {
+        color: LinkText;
+    }
+
+    .footer-nav [aria-current="page"]::after {
+        background-color: Highlight;
+    }
+
+    .copyright,
+    .main-footer {
+        border-color: CanvasText;
     }
 }

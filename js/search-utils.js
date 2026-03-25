@@ -227,15 +227,19 @@ export function syncAriaState({
     return;
   }
 
+  const activeIndex = activeSuggestionIndexRef.value;
+
   for (let i = 0; i < nodes.length; i++) {
-    const isActive = i === 0;
+    const isActive = i === activeIndex;
     nodes[i].setAttribute('aria-selected', isActive ? 'true' : 'false');
     nodes[i].classList.toggle(activeClass, isActive);
+  }
 
-    if (isActive) {
-      activeSuggestionIndexRef.value = 0;
-      input.setAttribute('aria-activedescendant', nodes[i].id);
-    }
+  if (activeIndex >= 0 && activeIndex < nodes.length) {
+    input.setAttribute('aria-activedescendant', nodes[activeIndex].id);
+  } else {
+    activeSuggestionIndexRef.value = -1;
+    input.removeAttribute('aria-activedescendant');
   }
 }
 
@@ -252,16 +256,16 @@ export function moveActiveSuggestion({
   if (!nodes.length) return;
 
   if (activeSuggestionIndexRef.value < 0) {
-    activeSuggestionIndexRef.value = 0;
-  }
-
-  nodes[activeSuggestionIndexRef.value].setAttribute('aria-selected', 'false');
-  nodes[activeSuggestionIndexRef.value].classList.remove(activeClass);
-
-  if (direction === 'down') {
-    activeSuggestionIndexRef.value = (activeSuggestionIndexRef.value + 1) % nodes.length;
+    activeSuggestionIndexRef.value = direction === 'down' ? 0 : nodes.length - 1;
   } else {
-    activeSuggestionIndexRef.value = (activeSuggestionIndexRef.value - 1 + nodes.length) % nodes.length;
+    nodes[activeSuggestionIndexRef.value].setAttribute('aria-selected', 'false');
+    nodes[activeSuggestionIndexRef.value].classList.remove(activeClass);
+
+    if (direction === 'down') {
+      activeSuggestionIndexRef.value = (activeSuggestionIndexRef.value + 1) % nodes.length;
+    } else {
+      activeSuggestionIndexRef.value = (activeSuggestionIndexRef.value - 1 + nodes.length) % nodes.length;
+    }
   }
 
   const next = nodes[activeSuggestionIndexRef.value];
@@ -533,6 +537,10 @@ export function renderSearchSuggestionsList({
 
   if (currentSuggestionsRef) {
     currentSuggestionsRef.value = suggestions;
+  }
+
+  if (activeSuggestionIndexRef) {
+    activeSuggestionIndexRef.value = -1;
   }
 
   resultsContainer.replaceChildren(fragment);

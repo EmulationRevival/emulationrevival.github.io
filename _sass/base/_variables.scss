@@ -1,6 +1,9 @@
 :root {
   --header-height: 96px;
 
+  /* Typography */
+  --font-primary: 'Oxanium', sans-serif;
+
   /* Main Palette */
   --color-primary: hsl(271, 76%, 52%);
   --color-primary-rgb: 138, 43, 226;
@@ -8,12 +11,13 @@
   --color-primary-dark-rgb: 106, 26, 160;
   --color-primary-light: hsl(274, 78%, 77%);
   --color-primary-light-rgb: 195, 153, 240;
-  --color-secondary: hsl(174, 100%, 48%);
-  --color-secondary-rgb: 0, 245, 212;
+
+  --color-secondary: hsl(174, 100%, 42%);
+  --color-secondary-rgb: 0, 214, 193;
   --color-secondary-dark: hsl(174, 100%, 18%);
   --color-secondary-dark-rgb: 0, 91, 81;
-  --color-secondary-light: hsl(174, 95%, 69%);
-  --color-secondary-light-rgb: 102, 250, 230;
+  --color-secondary-light: hsl(174, 88%, 62%);
+  --color-secondary-light-rgb: 73, 243, 223;
 
   /* Backgrounds */
   --color-background-dark: hsl(0, 0%, 7%);
@@ -26,34 +30,64 @@
   /* Text */
   --color-text-light: hsl(0, 0%, 88%);
   --color-text-light-rgb: 224, 224, 224;
-  --color-text-button: hsl(0, 0%, 88%);
-  --color-text-button-rgb: 224, 224, 224;
-  --color-text-secondary: hsl(0, 0%, 69%);
-  --color-text-secondary-rgb: 176, 176, 176;
+  --color-text-button: hsl(0, 0%, 96%);
+  --color-text-button-rgb: 245, 245, 245;
+  --color-text-secondary: hsl(0, 0%, 72%);
+  --color-text-secondary-rgb: 184, 184, 184;
   --color-heading: hsl(0, 0%, 100%);
   --color-heading-rgb: 255, 255, 255;
 
   /* Links */
-  --color-link: var(--color-info);
+  --color-link: hsl(192, 77%, 48%);
+  --color-link-rgb: 28, 183, 216;
   --color-link-hover: var(--color-secondary-light);
 
   /* UI Accents & Status */
   --color-accent: var(--color-primary);
   --color-accent-hover: var(--color-primary-dark);
-  --color-success: hsl(134, 61%, 41%);
-  --color-success-rgb: 40, 167, 69;
-  --color-warning: hsl(45, 100%, 51%);
-  --color-warning-rgb: 255, 193, 7;
-  --color-error: hsl(354, 70%, 54%);
-  --color-error-rgb: 220, 53, 69;
+  --color-success: hsl(142, 61%, 38%);
+  --color-success-rgb: 38, 156, 82;
+  --color-warning: hsl(42, 100%, 52%);
+  --color-warning-rgb: 255, 184, 10;
+  --color-error: hsl(354, 70%, 56%);
+  --color-error-rgb: 222, 64, 80;
   --color-info: hsl(192, 77%, 41%);
   --color-info-rgb: 23, 162, 184;
+  --color-coming-soon: hsl(39, 76%, 48%);
+  --color-coming-soon-rgb: 215, 145, 29;
+  --color-new-update: hsl(145, 64%, 36%);
+  --color-new-update-rgb: 33, 151, 83;
+
+  /* Borders */
+  --color-border: hsl(0, 0%, 27%);
+  --color-border-rgb: 68, 68, 68;
+  --color-border-light: hsl(240, 2%, 23%);
+  --color-border-light-rgb: 58, 58, 62;
+  --color-border-strong: hsl(0, 0%, 34%);
+  --color-border-strong-rgb: 87, 87, 87;
+
+  /* Surfaces */
+  --color-surface-elevated: hsl(0, 0%, 20%);
+  --color-surface-elevated-rgb: 51, 51, 51;
+  --color-surface-muted: hsl(0, 0%, 14%);
+  --color-surface-muted-rgb: 36, 36, 36;
 
   /* Overlays */
   --color-overlay-start: rgba(0, 0, 0, 0.6);
-  --color-overlay-end: rgba(0, 0, 0, 0.8);
+  --color-overlay-end: rgba(0, 0, 0, 0.82);
+
+  /* Focus */
+  --color-focus-ring: var(--color-primary-dark);
+  --color-focus-ring-rgb: var(--color-primary-dark-rgb);
+  --color-focus-ring-offset: var(--color-background-dark);
+  --color-focus-ring-inner: rgba(var(--color-focus-ring-rgb), 0.28);
+
+  /* Selection */
+  --color-selection-bg: rgba(var(--color-primary-rgb), 0.32);
+  --color-selection-text: var(--color-heading);
 
   /* Spacing */
+  --spacing-2xs: 2px;
   --spacing-xs: 4px;
   --spacing-sm: 8px;
   --spacing-md: 16px;
@@ -62,63 +96,118 @@
   --spacing-xxl: 64px;
   --spacing-xxxl: 96px;
 
-  /* Borders & Shadows */
+  /* Layout */
+  --container-max-width: 1600px;
+  --container-content-max-width: 1200px;
+  --container-reading-max-width: 900px;
+  --touch-target-min: 44px;
+  --popover-gap: 8px;
+
+  /* Borders & Radius */
   --border-radius-xs: 2px;
   --border-radius-sm: 4px;
   --border-radius-md: 8px;
-  --color-border: hsl(0, 0%, 27%);
-  --color-border-rgb: 68, 68, 68;
-  --color-border-light: hsl(240, 2%, 23%);
-  --color-border-light-rgb: 58, 58, 62;
+  --border-radius-lg: 12px;
+  --border-width-sm: 1px;
+  --border-width-md: 2px;
+
+  /* Shadows */
   --box-shadow-light: 0 4px 15px rgba(0, 0, 0, 0.2);
   --box-shadow-heavy: 0 8px 25px rgba(0, 0, 0, 0.4);
-  --popover-gap: 8px;
+  --box-shadow-focus: 0 0 0 3px var(--color-focus-ring-inner);
 
-  --color-button-text: hsl(0, 0%, 88%);
+  /* Buttons */
+  --color-button-text: var(--color-text-button);
 
-  --color-button-primary-bg: hsl(271, 76%, 52%);
-  --color-button-primary-bg-hover: hsl(277, 72%, 36%);
-  --color-button-primary-border: hsl(277, 72%, 36%);
-  --color-button-primary-border-hover: hsl(271, 76%, 52%);
+  --color-button-primary-bg: var(--color-primary);
+  --color-button-primary-bg-hover: hsl(271, 76%, 46%);
+  --color-button-primary-border: hsl(277, 72%, 34%);
+  --color-button-primary-border-hover: hsl(271, 76%, 46%);
 
   --color-button-secondary-bg: hsl(0, 0%, 25%);
-  --color-button-secondary-bg-hover: hsl(0, 0%, 40%);
-  --color-button-secondary-border: hsl(0, 0%, 25%);
+  --color-button-secondary-bg-hover: hsl(0, 0%, 34%);
+  --color-button-secondary-border: hsl(0, 0%, 31%);
   --color-button-secondary-border-hover: hsl(0, 0%, 40%);
 
   --color-button-download-bg: hsl(174, 100%, 28%);
-  --color-button-download-bg-hover: hsl(174, 100%, 18%);
+  --color-button-download-bg-hover: hsl(174, 100%, 22%);
   --color-button-download-border: hsl(174, 100%, 18%);
-  --color-button-download-border-hover: hsl(174, 100%, 28%);
+  --color-button-download-border-hover: hsl(174, 100%, 24%);
 
   --color-button-info-bg: hsl(192, 77%, 33%);
-  --color-button-info-bg-hover: hsl(192, 77%, 25%);
-  --color-button-info-border: hsl(192, 77%, 25%);
-  --color-button-info-border-hover: hsl(192, 77%, 33%);
+  --color-button-info-bg-hover: hsl(192, 77%, 27%);
+  --color-button-info-border: hsl(192, 77%, 24%);
+  --color-button-info-border-hover: hsl(192, 77%, 29%);
 
   --color-button-discord-bg: hsl(236, 88%, 65%);
-  --color-button-discord-bg-hover: hsl(236, 52%, 52%);
+  --color-button-discord-bg-hover: hsl(236, 58%, 56%);
   --color-button-discord-border: hsl(236, 52%, 52%);
-  --color-button-discord-border-hover: hsl(236, 88%, 65%);
+  --color-button-discord-border-hover: hsl(236, 64%, 58%);
 
   --color-button-youtube-bg: hsl(0, 100%, 45%);
   --color-button-youtube-bg-hover: hsl(0, 100%, 40%);
-  --color-button-youtube-border: hsl(0, 100%, 40%);
-  --color-button-youtube-border-hover: hsl(0, 100%, 45%);
+  --color-button-youtube-border: hsl(0, 100%, 36%);
+  --color-button-youtube-border-hover: hsl(0, 100%, 42%);
 
-  --color-button-disabled-bg: hsl(0, 0%, 50%);
-  --color-button-disabled-border: hsl(0, 0%, 65%);
+  --color-button-disabled-bg: hsl(0, 0%, 42%);
+  --color-button-disabled-border: hsl(0, 0%, 52%);
 
-  /* Transitions */
+  /* Motion */
+  --transition-speed-fast: 0.18s;
   --transition-speed: 0.3s;
-  --transition-ease: ease-in-out;
+  --transition-speed-slow: 0.45s;
+  --transition-ease: cubic-bezier(0.2, 0, 0, 1);
+  --transition-ease-emphasized: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --transform-lift-sm: translate3d(0, -2px, 0);
+  --transform-lift-md: translate3d(0, -4px, 0);
+  --transform-scale-sm: scale(1.02);
+
+  /* Viewport Safety */
+  --viewport-height: 100vh;
+  --viewport-height-stable: 100svh;
+  --viewport-height-dynamic: 100dvh;
 
   /* Breakpoints */
+  --breakpoint-xs: 360px;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
   --breakpoint-xxl: 1440px;
+
+  /* Landscape Hero Tokens */
+  --hero-landscape-padding-y: var(--spacing-xl);
+  --hero-landscape-content-padding-x: var(--spacing-lg);
+  --hero-landscape-title-size: 2rem;
+  --hero-landscape-title-margin-bottom: var(--spacing-sm);
+  --hero-landscape-subtitle-size: 1rem;
+  --hero-landscape-subtitle-max-width: 700px;
+  --hero-landscape-body-margin-bottom: var(--spacing-md);
+  --hero-landscape-actions-margin-top: var(--spacing-md);
+  --section-title-landscape-size: 1.5rem;
+  --step-title-landscape-size: 1.15rem;
+  --step-description-landscape-size: 0.95rem;
+  --support-title-landscape-size: 1.5rem;
+  --support-description-landscape-size: 1rem;
+}
+
+@supports not (color: color-mix(in srgb, black 50%, white 50%)) {
+  :root {
+    --color-surface-elevated: hsl(0, 0%, 19%);
+    --color-surface-muted: hsl(0, 0%, 15%);
+  }
+}
+
+@supports not (height: 100dvh) {
+  :root {
+    --viewport-height-dynamic: 100vh;
+  }
+}
+
+@supports not (height: 100svh) {
+  :root {
+    --viewport-height-stable: 100vh;
+  }
 }
 
 @media (hover: none) and (pointer: coarse) and (orientation: landscape) {
@@ -142,11 +231,18 @@
 
 [data-theme='light'] {
   --color-primary: hsl(271, 60%, 55%);
+  --color-primary-rgb: 137, 71, 209;
   --color-primary-dark: hsl(277, 60%, 40%);
-  --color-primary-light: hsl(274, 60%, 65%);
+  --color-primary-dark-rgb: 112, 41, 163;
+  --color-primary-light: hsl(274, 60%, 68%);
+  --color-primary-light-rgb: 176, 124, 223;
+
   --color-secondary: hsl(174, 80%, 30%);
+  --color-secondary-rgb: 15, 138, 126;
   --color-secondary-dark: hsl(174, 80%, 20%);
-  --color-secondary-light: hsl(174, 80%, 40%);
+  --color-secondary-dark-rgb: 10, 92, 84;
+  --color-secondary-light: hsl(174, 70%, 38%);
+  --color-secondary-light-rgb: 29, 165, 151;
 
   --color-background-dark: hsl(210, 11%, 95%);
   --color-background-dark-rgb: 241, 243, 245;
@@ -155,19 +251,74 @@
   --color-background-light: hsl(0, 0%, 100%);
   --color-background-light-rgb: 255, 255, 255;
 
-  --color-text-light: hsl(210, 6%, 31%);
-  --color-text-light-rgb: 73, 80, 87;
-  --color-text-secondary: hsl(212, 7%, 36%);
-  --color-text-secondary-rgb: 90, 97, 104;
+  --color-text-light: hsl(210, 10%, 24%);
+  --color-text-light-rgb: 55, 61, 67;
+  --color-text-button: hsl(0, 0%, 98%);
+  --color-text-button-rgb: 250, 250, 250;
+  --color-text-secondary: hsl(212, 8%, 34%);
+  --color-text-secondary-rgb: 84, 91, 99;
   --color-heading: hsl(210, 10%, 13%);
   --color-heading-rgb: 33, 37, 41;
 
-  --color-overlay-start: rgba(255, 255, 255, 0.7);
-  --color-overlay-end: rgba(255, 255, 255, 0.9);
+  --color-link: hsl(271, 60%, 40%);
+  --color-link-rgb: 112, 41, 163;
+  --color-link-hover: hsl(174, 70%, 30%);
 
-  --color-link: var(--color-primary-dark);
-  --color-link-hover: var(--color-primary);
+  --color-border: hsl(210, 14%, 82%);
+  --color-border-rgb: 201, 207, 212;
+  --color-border-light: hsl(210, 14%, 88%);
+  --color-border-light-rgb: 222, 226, 230;
+  --color-border-strong: hsl(210, 10%, 72%);
+  --color-border-strong-rgb: 173, 181, 189;
+
+  --color-surface-elevated: hsl(210, 17%, 96%);
+  --color-surface-elevated-rgb: 244, 246, 248;
+  --color-surface-muted: hsl(210, 20%, 93%);
+  --color-surface-muted-rgb: 235, 239, 242;
+
+  --color-overlay-start: rgba(255, 255, 255, 0.72);
+  --color-overlay-end: rgba(255, 255, 255, 0.92);
+
+  --color-focus-ring: var(--color-primary);
+  --color-focus-ring-rgb: var(--color-primary-rgb);
+  --color-focus-ring-offset: hsl(0, 0%, 100%);
+  --color-focus-ring-inner: rgba(var(--color-focus-ring-rgb), 0.18);
+
+  --color-selection-bg: rgba(var(--color-primary-rgb), 0.22);
+  --color-selection-text: var(--color-heading);
 
   --box-shadow-light: 0 4px 15px rgba(var(--color-primary-rgb), 0.1);
   --box-shadow-heavy: 0 8px 25px rgba(var(--color-primary-rgb), 0.15);
+  --box-shadow-focus: 0 0 0 3px var(--color-focus-ring-inner);
+
+  --color-button-primary-bg: var(--color-primary);
+  --color-button-primary-bg-hover: hsl(271, 60%, 48%);
+  --color-button-primary-border: hsl(277, 60%, 38%);
+  --color-button-primary-border-hover: hsl(271, 60%, 48%);
+
+  --color-button-secondary-bg: hsl(210, 14%, 90%);
+  --color-button-secondary-bg-hover: hsl(210, 12%, 84%);
+  --color-button-secondary-border: hsl(210, 10%, 74%);
+  --color-button-secondary-border-hover: hsl(210, 10%, 66%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-speed-fast: 0.01ms;
+    --transition-speed: 0.01ms;
+    --transition-speed-slow: 0.01ms;
+    --transform-lift-sm: none;
+    --transform-lift-md: none;
+    --transform-scale-sm: none;
+  }
+}
+
+@media (forced-colors: active) {
+  :root {
+    --color-focus-ring: Highlight;
+    --color-focus-ring-offset: Canvas;
+    --box-shadow-light: none;
+    --box-shadow-heavy: none;
+    --box-shadow-focus: none;
+  }
 }

@@ -1,46 +1,56 @@
 .btn {
-    display: inline-block;
-    padding: var(--spacing-md) var(--spacing-lg);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    min-block-size: var(--touch-target-min);
+    min-inline-size: var(--touch-target-min);
+    padding-block: calc(var(--spacing-sm) + var(--spacing-2xs));
+    padding-inline: var(--spacing-lg);
     border-radius: var(--border-radius-md);
     font-family: var(--font-primary);
     font-weight: 600;
-    font-size: 1em;
+    font-size: var(--font-size-body);
+    line-height: 1.2;
     text-align: center;
-    cursor: pointer;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: var(--letter-spacing-label);
     position: relative;
     box-sizing: border-box;
-    border: 1.5px solid;
+    border: var(--border-width-sm) solid;
     color: var(--color-button-text);
     background-color: var(--color-button-primary-bg);
     border-color: var(--color-button-primary-border);
-    transition: background-color var(--transition-speed) var(--transition-ease),
-                color var(--transition-speed) var(--transition-ease),
-                border-color var(--transition-speed) var(--transition-ease),
-                transform var(--transition-speed) var(--transition-ease);
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    text-decoration: none;
+    vertical-align: middle;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    transform: translate3d(0, 0, 0);
+    transition:
+        background-color var(--transition-speed) var(--transition-ease),
+        color var(--transition-speed) var(--transition-ease),
+        border-color var(--transition-speed) var(--transition-ease),
+        box-shadow var(--transition-speed) var(--transition-ease),
+        transform var(--transition-speed-fast) var(--transition-ease-emphasized),
+        opacity var(--transition-speed) var(--transition-ease);
 }
 
-/* Base Focus State */
 .btn:focus-visible {
     color: var(--color-button-text);
-    transform: translateY(-1.5px);
-    outline: 2px solid var(--color-button-primary-bg-hover);
+    outline: 2px solid var(--color-focus-ring);
     outline-offset: 2px;
+    box-shadow: none;
+    transform: var(--transform-lift-sm);
 }
 
-@media (forced-colors: active) {
-    .btn {
-        border: 2px solid ButtonText;
-    }
-
-    .btn:focus {
-        border-color: Highlight;
-        outline: none;
-    }
+.btn:focus:not(:focus-visible) {
+    outline: none;
+    box-shadow: none;
 }
 
-/* Button Variants */
 .btn-primary {
     background-color: var(--color-button-primary-bg);
     border-color: var(--color-button-primary-border);
@@ -84,9 +94,6 @@
 .btn-discord {
     background-color: var(--color-button-discord-bg);
     border-color: var(--color-button-discord-border);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
 }
 
 .btn-discord:focus-visible {
@@ -104,11 +111,10 @@
     border-color: var(--color-button-youtube-border-hover);
 }
 
-/* Desktop-Only Hover States */
 @media (hover: hover) and (pointer: fine) {
     .btn:hover {
         color: var(--color-button-text);
-        transform: translateY(-1.5px);
+        transform: var(--transform-lift-sm);
     }
 
     .btn-primary:hover {
@@ -142,9 +148,9 @@
     }
 }
 
-/* Disabled & Utility States */
 .btn-disabled,
-.btn:disabled {
+.btn:disabled,
+.btn[aria-disabled='true'] {
     opacity: 0.6;
     cursor: not-allowed;
     background-color: var(--color-button-disabled-bg);
@@ -155,49 +161,56 @@
     box-shadow: none;
 }
 
-@media (forced-colors: active) {
-    .btn-disabled,
-    .btn:disabled {
-        opacity: 1;
-        background-color: GrayText !important;
-        color: ButtonFace !important;
-        border-color: GrayText !important;
-    }
+.btn .icon {
+    inline-size: 24px;
+    block-size: 24px;
+    flex-shrink: 0;
+    vertical-align: middle;
 }
 
 .emulator-links {
     display: flex;
     flex-wrap: wrap;
     gap: var(--spacing-md);
-    margin-top: var(--spacing-lg);
+    margin-block-start: var(--spacing-lg);
     justify-content: center;
+    align-items: stretch;
 }
 
-.btn .icon {
-    width: 24px;
-    height: 24px;
-    vertical-align: middle;
+.emulator-links .btn {
+    flex: 0 1 auto;
+}
+
+@media (min-width: 576px) {
+    .btn {
+        padding-inline: var(--spacing-xl);
+    }
+}
+
+@media (min-width: 768px) {
+    .emulator-links {
+        gap: var(--spacing-lg);
+    }
 }
 
 @media (hover: none) and (pointer: coarse) and (orientation: landscape) {
     .btn {
-        padding: var(--spacing-sm) var(--spacing-md);
-        font-size: 0.9em;
+        min-block-size: 40px;
+        min-inline-size: 40px;
+        padding-block: var(--spacing-sm);
+        padding-inline: var(--spacing-md);
+        font-size: var(--font-size-body-sm);
         letter-spacing: 0.03em;
     }
 
-    .btn-discord {
-        gap: var(--spacing-sm);
-    }
-
     .btn .icon {
-        width: 20px;
-        height: 20px;
+        inline-size: 20px;
+        block-size: 20px;
     }
 
     .emulator-links {
         gap: var(--spacing-sm);
-        margin-top: var(--spacing-md);
+        margin-block-start: var(--spacing-md);
     }
 }
 
@@ -207,5 +220,30 @@
     .btn:focus-visible {
         transition: none !important;
         transform: none !important;
+    }
+}
+
+@media (forced-colors: active) {
+    .btn {
+        background-color: ButtonFace;
+        border-color: ButtonText;
+        color: ButtonText;
+        box-shadow: none;
+        forced-color-adjust: auto;
+    }
+
+    .btn:focus-visible {
+        outline-color: Highlight;
+        border-color: Highlight;
+        box-shadow: none;
+    }
+
+    .btn-disabled,
+    .btn:disabled,
+    .btn[aria-disabled='true'] {
+        opacity: 1;
+        background-color: GrayText;
+        color: ButtonFace;
+        border-color: GrayText;
     }
 }

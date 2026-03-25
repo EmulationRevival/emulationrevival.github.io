@@ -1,38 +1,219 @@
 :root {
-    --font-primary: 'Oxanium', sans-serif;
+    --font-size-body: 1rem;
+    --font-size-body-lg: 1.0625rem;
+    --font-size-body-sm: 0.9375rem;
+    --font-size-label: 0.875rem;
+    --font-size-caption: 0.8125rem;
+    --font-size-h1: clamp(2.125rem, calc(1.85rem + 1.4vw), 3.5rem);
+    --font-size-h2: clamp(1.75rem, calc(1.55rem + 1vw), 2.5rem);
+    --font-size-h3: clamp(1.5rem, calc(1.38rem + 0.6vw), 1.875rem);
+    --font-size-h4: clamp(1.25rem, calc(1.18rem + 0.35vw), 1.5rem);
+    --font-size-h5: clamp(1.125rem, calc(1.08rem + 0.2vw), 1.25rem);
+    --font-size-h6: 1rem;
+    --line-height-tight: 1.15;
+    --line-height-heading: 1.2;
+    --line-height-body: 1.65;
+    --line-height-relaxed: 1.75;
+    --letter-spacing-heading: 0.01em;
+    --letter-spacing-label: 0.04em;
+    --measure-reading: 68ch;
 }
 
-h1, h2, h3, h4, h5, h6 {
+html {
+    font-size: 100%;
+}
+
+body {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
+    color: var(--color-text-light);
+    text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--font-primary);
     font-weight: 700;
     color: var(--color-heading);
-    margin-bottom: var(--spacing-md);
-    line-height: 1.2;
+    margin-block-end: var(--spacing-md);
+    line-height: var(--line-height-heading);
+    letter-spacing: var(--letter-spacing-heading);
+    text-wrap: balance;
 }
 
 h1 {
-  font-size: clamp(2.25rem, calc(1.5rem + 3vw), 3.5rem);
+    font-size: var(--font-size-h1);
+    line-height: var(--line-height-tight);
 }
 
 h2 {
-  font-size: clamp(1.75rem, calc(1.25rem + 2vw), 2.5rem);
+    font-size: var(--font-size-h2);
 }
 
 h3 {
-  font-size: clamp(1.5rem, calc(1.2rem + 1vw), 1.8rem);
+    font-size: var(--font-size-h3);
+}
+
+h4 {
+    font-size: var(--font-size-h4);
+}
+
+h5 {
+    font-size: var(--font-size-h5);
+}
+
+h6 {
+    font-size: var(--font-size-h6);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-label);
 }
 
 p {
     font-family: var(--font-primary);
-    font-size: 1.1em;
-    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
+    margin-block-end: var(--spacing-md);
     color: var(--color-text-light);
-}
-
-strong {
-    font-weight: 700;
+    max-inline-size: var(--measure-reading);
+    text-wrap: pretty;
 }
 
 p:last-child {
-    margin-bottom: 0;
+    margin-block-end: 0;
+}
+
+strong,
+b {
+    font-weight: 700;
+    color: var(--color-heading);
+}
+
+em,
+i {
+    font-style: italic;
+}
+
+small {
+    font-size: var(--font-size-body-sm);
+}
+
+sub,
+sup {
+    font-size: 0.75em;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sub {
+    inset-block-end: -0.25em;
+}
+
+sup {
+    inset-block-start: -0.5em;
+}
+
+a {
+    color: var(--color-link);
+    text-decoration-line: underline;
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.16em;
+    text-decoration-color: rgba(var(--color-link-rgb), 0.45);
+    transition:
+        color var(--transition-speed) var(--transition-ease),
+        text-decoration-color var(--transition-speed) var(--transition-ease);
+}
+
+a strong,
+a b {
+    color: currentColor;
+}
+
+@supports not (text-wrap: balance) {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        overflow-wrap: break-word;
+    }
+}
+
+@supports not (text-wrap: pretty) {
+    p {
+        overflow-wrap: break-word;
+    }
+}
+
+@media (hover: hover) and (pointer: fine) {
+    a:hover {
+        color: var(--color-link-hover);
+        text-decoration-color: currentColor;
+    }
+}
+
+@media (min-width: 768px) {
+    :root {
+        --font-size-body: var(--font-size-body-lg);
+        --measure-reading: 72ch;
+    }
+}
+
+@media (min-width: 1200px) {
+    :root {
+        --measure-reading: 75ch;
+    }
+}
+
+@media (hover: none) and (pointer: coarse) and (orientation: landscape) {
+    :root {
+        --font-size-body: 0.9375rem;
+        --font-size-h1: 2rem;
+        --font-size-h2: 1.625rem;
+        --font-size-h3: 1.375rem;
+        --font-size-h4: 1.1875rem;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-block-end: var(--spacing-sm);
+    }
+
+    p {
+        margin-block-end: var(--spacing-sm);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    a {
+        transition: none;
+    }
+}
+
+@media (forced-colors: active) {
+    a {
+        color: LinkText;
+        text-decoration-color: currentColor;
+    }
+
+    strong,
+    b,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: CanvasText;
+    }
 }

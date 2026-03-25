@@ -1,6 +1,8 @@
 const IDS = {
-  GRID: 'recent-updates-grid',
-  SECTION: 'recent-updates-section',
+  RECENT_GRID: 'recent-updates-grid',
+  RECENT_SECTION: 'recent-updates-section',
+  UPCOMING_GRID: 'coming-soon-grid',
+  UPCOMING_SECTION: 'coming-soon-section',
 };
 
 const CONFIG = {
@@ -10,6 +12,13 @@ const CONFIG = {
   IMAGE_FALLBACK: '/images/fallback.png',
   RECENT_WINDOW_MS: 30 * 24 * 60 * 60 * 1000,
 };
+
+const dateFormatter = new Intl.DateTimeFormat('en-US', {
+  timeZone: 'UTC',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
 
 const state = {
   inFlightPromise: null,
@@ -28,13 +37,9 @@ function buildFetchUrls() {
   };
 }
 
-function createRecentCard(app) {
+function createHomepageCard(app, { isUpcoming = false } = {}) {
   const card = document.createElement('div');
   card.className = 'card';
-
-  const link = document.createElement('a');
-  link.href = app.url;
-  link.className = 'card-link';
 
   const imageContainer = document.createElement('div');
   imageContainer.className = 'card-image-container';
@@ -60,14 +65,30 @@ function createRecentCard(app) {
   description.textContent = app.description || '';
 
   content.append(title, description);
-  imageContainer.append(img);
+  imageContainer.appendChild(img);
+
+  if (isUpcoming) {
+    if (app.releaseDateText) {
+      const releaseDate = document.createElement('p');
+      releaseDate.className = 'card-description';
+      releaseDate.textContent = `Releases ${app.releaseDateText}`;
+      content.appendChild(releaseDate);
+    }
+
+    card.append(imageContainer, content);
+    return card;
+  }
+
+  const link = document.createElement('a');
+  link.href = app.url;
+  link.className = 'card-link';
   link.append(imageContainer, content);
   card.appendChild(link);
 
   return card;
 }
 
-async function fetchRecentUpdateData() {
+async function fetchHomepageData() {
   const { searchIndexUrl, versionUrl } = buildFetchUrls();
   const fetchOpts = { cache: 'no-store' };
 
@@ -94,15 +115,26 @@ async function fetchRecentUpdateData() {
   return { searchIndex, appData };
 }
 
-function computeRecentApps(searchIndex, appData) {
+function buildSearchMap(searchIndex) {
   const searchMap = new Map();
 
   for (const item of searchIndex) {
     const key = normalizeName(item.name);
-    if (key) searchMap.set(key, item);
+    if (key) {
+      searchMap.set(key, item);
+    }
   }
 
-  const cutoff = Date.now() - CONFIG.RECENT_WINDOW_MS;
+  return searchMap;
+}
+
+function formatReleaseDate(timestamp) {
+  return dateFormatter.format(timestamp);
+}
+
+function computeRecentApps(searchMap, appData) {
+  const now = Date.now();
+  const cutoff = now - CONFIG.RECENT_WINDOW_MS;
   const recentApps = [];
 
   for (const info of Object.values(appData)) {
@@ -110,6 +142,7 @@ function computeRecentApps(searchIndex, appData) {
 
     const timestamp = Date.parse(info.releaseDate);
     if (!Number.isFinite(timestamp)) continue;
+    if (timestamp > now) continue;
     if (timestamp < cutoff) continue;
 
     const searchData = searchMap.get(normalizeName(info.name));
@@ -128,11 +161,60 @@ function computeRecentApps(searchIndex, appData) {
   return recentApps;
 }
 
-async function loadRecentUpdates() {
-  const grid = document.getElementById(IDS.GRID);
-  const section = document.getElementById(IDS.SECTION);
+function computeUpcomingApps(searchMap, appData) {
+  const now = Date.now();
+  const upcomingApps = [];
 
+  for (const info of Object.values(appData)) {
+    if (!info?.releaseDate || info.releaseDate === 'Unknown') continue;
+
+    const timestamp = Date.parse(info.releaseDate);
+    if (!Number.isFinite(timestamp)) continue;
+    if (timestamp <= now) continue;
+
+    const searchData = searchMap.get(normalizeName(info.name));
+    if (!searchData) continue;
+
+    upcomingApps.push({
+      timestamp,
+      url: searchData.url,
+      img: searchData.img,
+      name: searchData.name,
+      description: searchData.description || '',
+      releaseDateText: formatReleaseDate(timestamp),
+    });
+  }
+
+  upcomingApps.sort((a, b) => a.timestamp - b.timestamp);
+  return upcomingApps;
+}
+
+function renderCardSection(grid, section, apps, options = {}) {
   if (!grid || !section) return;
+
+  if (apps.length === 0) {
+    grid.replaceChildren();
+    section.style.display = 'none';
+    return;
+  }
+
+  const fragment = document.createDocumentFragment();
+
+  for (const app of apps) {
+    fragment.appendChild(createHomepageCard(app, options));
+  }
+
+  grid.replaceChildren(fragment);
+  section.style.display = 'block';
+}
+
+async function loadHomepageSections() {
+  const recentGrid = document.getElementById(IDS.RECENT_GRID);
+  const recentSection = document.getElementById(IDS.RECENT_SECTION);
+  const upcomingGrid = document.getElementById(IDS.UPCOMING_GRID);
+  const upcomingSection = document.getElementById(IDS.UPCOMING_SECTION);
+
+  if (!recentGrid || !recentSection) return;
 
   if (state.inFlightPromise) return state.inFlightPromise;
 
@@ -140,26 +222,17 @@ async function loadRecentUpdates() {
 
   state.inFlightPromise = (async () => {
     try {
-      const { searchIndex, appData } = await fetchRecentUpdateData();
-      const recentApps = computeRecentApps(searchIndex, appData);
+      const { searchIndex, appData } = await fetchHomepageData();
+      const searchMap = buildSearchMap(searchIndex);
+      const recentApps = computeRecentApps(searchMap, appData);
+      const upcomingApps = computeUpcomingApps(searchMap, appData);
 
       if (token !== state.renderToken) return;
 
-      if (recentApps.length === 0) {
-        grid.replaceChildren();
-        section.style.display = 'none';
-        return;
-      }
-
-      const fragment = document.createDocumentFragment();
-      for (const app of recentApps) {
-        fragment.appendChild(createRecentCard(app));
-      }
-
-      grid.replaceChildren(fragment);
-      section.style.display = 'block';
+      renderCardSection(recentGrid, recentSection, recentApps);
+      renderCardSection(upcomingGrid, upcomingSection, upcomingApps, { isUpcoming: true });
     } catch (error) {
-      console.error('Failed to load recent updates:', error);
+      console.error('Failed to load homepage sections:', error);
     } finally {
       state.inFlightPromise = null;
     }
@@ -168,12 +241,10 @@ async function loadRecentUpdates() {
   return state.inFlightPromise;
 }
 
-// --- INITIAL LOAD (module-safe) ---
-loadRecentUpdates();
+loadHomepageSections();
 
-// --- BFCache restore ---
 window.addEventListener('pageshow', event => {
   if (event.persisted) {
-    loadRecentUpdates();
+    loadHomepageSections();
   }
 });

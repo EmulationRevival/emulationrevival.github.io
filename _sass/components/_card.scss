@@ -1,195 +1,316 @@
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 2fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--spacing-lg);
-  margin-top: var(--spacing-lg);
+  margin-block-start: var(--spacing-lg);
   align-items: stretch;
 }
 
 .card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   background-color: var(--color-background-light);
   border: 1px solid var(--color-background-medium);
   border-radius: var(--border-radius-md);
   box-shadow: var(--box-shadow-light);
-  transition: transform var(--transition-speed) var(--transition-ease),
-              box-shadow var(--transition-speed) var(--transition-ease);
   outline: 2px solid transparent;
-  outline-offset: 2px;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+  outline-offset: 1px;
+  transform: translate3d(0, 0, 0);
+  transition:
+    transform var(--transition-speed-fast) var(--transition-ease-emphasized),
+    box-shadow var(--transition-speed) var(--transition-ease),
+    border-color var(--transition-speed) var(--transition-ease),
+    opacity var(--transition-speed) var(--transition-ease),
+    outline-color var(--transition-speed) var(--transition-ease);
 }
 
 .card:focus-within {
-  outline: 2px solid var(--color-primary);
-  transition: outline-color 0.3s ease;
+  outline-color: var(--color-focus-ring);
+  box-shadow: var(--box-shadow-light);
+}
+
+.card[data-release-state="upcoming"]:focus-within {
+  outline-color: var(--color-coming-soon);
+}
+
+.card[data-release-state="recent"]:focus-within {
+  outline-color: var(--color-new-update);
 }
 
 .card[hidden] {
   display: none !important;
 }
 
+.card[id] {
+  scroll-margin-top: calc(var(--header-height) + var(--spacing-md));
+}
+
 .card-link {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  text-decoration: none;
+  block-size: 100%;
   color: inherit;
+  text-decoration: none;
 }
 
 .card-link:focus-visible {
   outline: none;
 }
 
-.card[id] {
-  scroll-margin-top: calc(var(--header-height) + var(--spacing-md));
-}
-
 .card-image-container {
   position: relative;
-  width: 100%;
+  inline-size: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
+  background-color: var(--color-background-medium);
 }
 
 .card-image {
-  width: 100%;
-  height: 100%;
+  inline-size: 100%;
+  block-size: 100%;
   object-fit: cover;
-  transition: transform 400ms ease;
+  transform: translate3d(0, 0, 0);
+  transition:
+    transform var(--transition-speed) var(--transition-ease),
+    filter var(--transition-speed) var(--transition-ease),
+    opacity var(--transition-speed) var(--transition-ease);
 }
 
 .card-content {
-  padding: var(--spacing-md);
-  border-top: 1px solid var(--color-background-medium);
-  flex-grow: 1;
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
+  padding: var(--spacing-md);
+  border-block-start: 1px solid var(--color-background-medium);
 }
 
 .card-title {
-  font-family: var(--font-primary);
-  font-size: 1.5em;
+  margin-block-end: var(--spacing-sm);
   color: var(--color-heading);
-  margin-bottom: var(--spacing-sm);
-  white-space: nowrap;
+  font-family: var(--font-primary);
+  font-size: clamp(1.25rem, calc(1.15rem + 0.4vw), 1.5rem);
+  line-height: 1.25;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .card-description {
-  font-size: 1em;
-  color: var(--color-text-light);
   flex-grow: 1;
+  color: var(--color-text-light);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+}
+
+.card[data-release-state="upcoming"] {
+  border-color: var(--color-coming-soon);
+}
+
+.card[data-release-state="upcoming"] .card-image {
+  filter: saturate(0.9) brightness(0.82);
+}
+
+.card[data-release-state="upcoming"] .card-content {
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--color-background-light) 92%, var(--color-coming-soon) 8%),
+      var(--color-background-light)
+    );
+}
+
+.card[data-release-state="recent"] {
+  border-color: var(--color-new-update);
+}
+
+.card[data-release-state="recent"] .card-content {
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--color-background-light) 92%, var(--color-new-update) 8%),
+      var(--color-background-light)
+    );
+}
+
+@supports not (color: color-mix(in srgb, black 50%, white 50%)) {
+  .card[data-release-state="upcoming"] .card-content {
+    background: var(--color-background-light);
+  }
+
+  .card[data-release-state="recent"] .card-content {
+    background: var(--color-background-light);
+  }
+}
+
+.coming-soon-badge,
+.new-update-badge {
+  position: absolute;
+  inset-block-start: var(--spacing-sm);
+  inset-inline-end: var(--spacing-sm);
+  z-index: 6;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-block-size: 2rem;
+  max-inline-size: calc(100% - (var(--spacing-sm) * 2));
+  padding-block-start: 0.3rem;
+  padding-block-end: 0.2rem;
+  padding-inline: 0.75rem;
+  overflow: hidden;
+  border-radius: 999px;
+  color: var(--color-button-text);
+  font-family: var(--font-primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: var(--letter-spacing-label);
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow: var(--box-shadow-heavy);
+  pointer-events: none;
+}
+
+.coming-soon-badge {
+  background-color: var(--color-coming-soon);
+}
+
+.new-update-badge {
+  background-color: var(--color-new-update);
 }
 
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background-color: var(--color-overlay-start);
   z-index: 1000;
+  background-color: var(--color-overlay-start);
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.18s ease-out,
-              visibility 0s 0.18s;
+  transition:
+    opacity var(--transition-speed-fast) var(--transition-ease),
+    visibility 0s var(--transition-speed-fast);
 }
 
 .modal-overlay.active {
   opacity: 1;
   visibility: visible;
-  transition: opacity 0.18s ease-out;
+  transition: opacity var(--transition-speed-fast) var(--transition-ease);
 }
 
 .modal {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  width: calc(100% - (var(--spacing-lg) * 2));
-  max-width: 550px;
-  max-height: calc(100vh - (var(--spacing-lg) * 2));
-  max-height: calc(100svh - (var(--spacing-lg) * 2));
-  max-height: calc(100dvh - (var(--spacing-lg) * 2));
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  z-index: 1001;
   display: flex;
   flex-direction: column;
+  inline-size: calc(100% - (var(--spacing-lg) * 2));
+  max-inline-size: 550px;
+  max-block-size: calc(var(--viewport-height) - (var(--spacing-lg) * 2));
+  max-block-size: calc(var(--viewport-height-stable) - (var(--spacing-lg) * 2));
+  max-block-size: calc(var(--viewport-height-dynamic) - (var(--spacing-lg) * 2));
   overflow: visible;
-  transform: translate(-50%, -50%) scale(0.985);
   background-color: var(--color-background-medium);
-  border-radius: var(--border-radius-md);
   border: 2px solid var(--color-primary-dark);
+  border-radius: var(--border-radius-md);
   box-shadow: var(--box-shadow-heavy);
-  z-index: 1001;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.18s ease-out,
-              visibility 0s 0.18s,
-              transform 0.18s ease-out;
+  transform: translate3d(-50%, -50%, 0) scale(0.985);
+  transition:
+    opacity var(--transition-speed-fast) var(--transition-ease),
+    visibility 0s var(--transition-speed-fast),
+    transform var(--transition-speed-fast) var(--transition-ease-emphasized),
+    border-color var(--transition-speed) var(--transition-ease);
+}
+
+.modal[data-release-state="upcoming"] {
+  border-color: var(--color-coming-soon);
+}
+
+.modal[data-release-state="recent"] {
+  border-color: var(--color-new-update);
 }
 
 .modal.active {
   opacity: 1;
   visibility: visible;
-  transform: translate(-50%, -50%) scale(1);
+  transform: translate3d(-50%, -50%, 0) scale(1);
 }
 
 .modal-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   gap: var(--spacing-md);
-  padding: var(--spacing-md);
-  border-bottom: 1px solid var(--color-background-light);
   flex-shrink: 0;
+  padding: var(--spacing-md);
+  border-block-end: 1px solid var(--color-background-light);
 }
 
 .modal-title {
   flex-grow: 1;
   margin: 0;
+  color: var(--color-heading);
   font-size: 1.2em;
   text-align: center;
-  color: var(--color-heading);
 }
 
 .modal-header-thumb {
   flex-shrink: 0;
+  block-size: 50px;
   aspect-ratio: 16 / 9;
-  height: 50px;
-  object-fit: cover;
-  border-radius: var(--border-radius-sm);
-  background-color: rgba(0, 0, 0, 0.1);
   padding: 2px;
+  object-fit: cover;
+  background-color: rgba(0, 0, 0, 0.1);
   border: 1px solid var(--color-background-light);
+  border-radius: var(--border-radius-sm);
 }
 
 .modal-close-button {
-  background: none;
-  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-inline-size: var(--touch-target-min);
+  min-block-size: var(--touch-target-min);
+  padding: 0;
+  color: var(--color-text-secondary);
   font-size: 2.2rem;
   line-height: 1;
-  color: var(--color-text-secondary);
+  background: none;
+  border: none;
+  border-radius: 50%;
   cursor: pointer;
-  padding: 0.25rem;
   flex-shrink: 0;
+  transform: translate3d(0, 0, 0);
+  transition:
+    transform var(--transition-speed-fast) var(--transition-ease-emphasized),
+    color var(--transition-speed) var(--transition-ease),
+    background-color var(--transition-speed) var(--transition-ease);
 }
 
 .modal-close-button:focus-visible {
   color: var(--color-heading);
-  transform: rotate(90deg) scale(1.1);
-  transition: transform var(--transition-speed) var(--transition-ease),
-              color var(--transition-speed) var(--transition-ease);
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+  box-shadow: none;
+  transform: rotate(90deg) scale(1.04);
 }
 
 .modal-body {
-  padding: var(--spacing-lg);
   display: flex;
+  flex: 1 1 auto;
   flex-direction: column;
   gap: var(--spacing-md);
-  flex: 1 1 auto;
-  min-height: 0;
+  min-block-size: 0;
+  padding: var(--spacing-lg);
   overflow: visible;
 }
 
 #gameDetailModalBody .info-list {
-  margin-top: 0;
+  margin-block-start: 0;
 }
 
 #gameDetailModalBody .card-actions {
@@ -197,29 +318,30 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: var(--spacing-sm);
-  margin-top: var(--spacing-md);
+  margin-block-start: var(--spacing-md);
 }
 
 #gameDetailModalBody .card-actions .btn,
 #gameDetailModalBody .action-dropdown {
-  width: auto;
+  inline-size: auto;
 }
 
 .info-list {
-  list-style-type: none;
-  padding-left: 0;
-  margin-bottom: var(--spacing-md);
-  font-size: 0.9em;
+  margin-block-end: var(--spacing-md);
+  padding-inline-start: 0;
+  font-size: 0.95em;
+  list-style: none;
 }
 
 .info-list li {
-  margin-bottom: var(--spacing-xs);
+  margin-block-end: var(--spacing-xs);
   color: var(--color-text-secondary);
 }
 
 .info-list ul {
-  margin: 0.375rem 0 0 1.25rem;
-  padding-left: 1.25rem;
+  margin-block-start: 0.375rem;
+  margin-inline-start: 1.25rem;
+  padding-inline-start: 1.25rem;
   list-style: disc;
 }
 
@@ -232,25 +354,33 @@
   text-decoration: none;
 }
 
+[data-theme='light'] .info-list a,
+[data-theme='light'] .contributor-name-link.popover-trigger {
+  color: var(--color-primary-dark);
+}
+
 .action-dropdown {
   position: relative;
 }
 
 .action-dropdown .dropdown-menu {
   position: absolute;
-  top: calc(100% + var(--popover-gap));
-  left: 50%;
-  transform: translateX(-50%);
-  width: max-content;
-  min-width: 100%;
-  background-color: var(--color-background-light);
-  border: 1px solid var(--color-primary-light);
-  border-radius: var(--border-radius-sm);
-  box-shadow: var(--box-shadow-heavy);
-  padding: var(--spacing-sm) 0;
+  inset-block-start: calc(100% + var(--popover-gap));
+  inset-inline-start: 50%;
   z-index: 1020;
-  list-style-type: none;
   display: none;
+  inline-size: max-content;
+  min-inline-size: 100%;
+  padding: var(--spacing-xs);
+  list-style: none;
+  background-color: var(--color-surface-elevated);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--border-radius-md);
+  box-shadow:
+    0 0 0 1px rgba(var(--color-heading-rgb), 0.06),
+    0 10px 24px rgba(0, 0, 0, 0.5),
+    0 2px 8px rgba(0, 0, 0, 0.32);
+  transform: translate3d(-50%, 0, 0);
 }
 
 .action-dropdown[open] .dropdown-menu {
@@ -258,20 +388,31 @@
 }
 
 .action-dropdown .dropdown-menu li a {
-  display: block;
-  padding: var(--spacing-sm) var(--spacing-md);
+  display: flex;
+  align-items: center;
+  min-block-size: var(--touch-target-min);
+  padding-block: var(--spacing-sm);
+  padding-inline: var(--spacing-sm);
   color: var(--color-text-light);
   text-decoration: none;
   white-space: nowrap;
-  transition: background-color var(--transition-speed) var(--transition-ease),
-              color var(--transition-speed) var(--transition-ease);
+  border-radius: var(--border-radius-sm);
+  transition:
+    background-color var(--transition-speed) var(--transition-ease),
+    color var(--transition-speed) var(--transition-ease);
+}
+
+.action-dropdown .dropdown-menu li a:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+  box-shadow: none;
 }
 
 #gameDetailModalBody .action-dropdown .dropdown-menu,
 .card-actions .action-dropdown .dropdown-menu {
-  top: calc(100% + var(--popover-gap));
-  left: 50%;
-  transform: translateX(-50%);
+  inset-block-start: calc(100% + var(--popover-gap));
+  inset-inline-start: 50%;
+  transform: translate3d(-50%, 0, 0);
 }
 
 .contributor-container {
@@ -287,19 +428,22 @@
 }
 
 .popover-menu {
-  display: none;
   position: absolute;
-  top: calc(100% + var(--popover-gap));
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: var(--color-background-light);
-  border-radius: var(--border-radius-sm);
-  box-shadow: var(--box-shadow-heavy);
+  inset-block-start: calc(100% + var(--popover-gap));
+  inset-inline-start: 50%;
   z-index: 1010;
-  width: max-content;
-  max-width: min(280px, calc(100vw - 32px));
+  display: none;
+  inline-size: max-content;
+  max-inline-size: min(280px, calc(100vw - 32px));
   padding: var(--spacing-xs);
-  border: 1px solid var(--color-primary-light);
+  background-color: var(--color-surface-elevated);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--border-radius-md);
+  box-shadow:
+    0 0 0 1px rgba(var(--color-heading-rgb), 0.06),
+    0 10px 24px rgba(0, 0, 0, 0.5),
+    0 2px 8px rgba(0, 0, 0, 0.32);
+  transform: translate3d(-50%, 0, 0);
 }
 
 .popover-menu.active {
@@ -309,56 +453,143 @@
 .popover-link {
   display: flex;
   align-items: center;
-  padding: var(--spacing-sm);
+  min-block-size: var(--touch-target-min);
+  padding-block: var(--spacing-sm);
+  padding-inline: var(--spacing-sm);
   color: var(--color-text-light);
   text-decoration: none;
-  border-radius: var(--border-radius-xs);
-  transition: background-color var(--transition-speed) var(--transition-ease);
+  border-radius: var(--border-radius-sm);
+  transition:
+    background-color var(--transition-speed) var(--transition-ease),
+    color var(--transition-speed) var(--transition-ease);
+}
+
+.popover-link:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+  box-shadow: none;
 }
 
 .popover-icon {
-  width: 18px;
-  height: 18px;
-  margin-right: var(--spacing-sm);
+  inline-size: 18px;
+  block-size: 18px;
+  margin-inline-end: var(--spacing-sm);
 }
 
 [data-theme='light'] .popover-icon[src*="github-logo.svg"] {
   filter: invert(1);
 }
 
+.card[data-release-state="upcoming"] .action-dropdown .dropdown-menu,
+.modal[data-release-state="upcoming"] .action-dropdown .dropdown-menu,
+.card[data-release-state="upcoming"] .popover-menu,
+.modal[data-release-state="upcoming"] .popover-menu {
+  border-color: var(--color-coming-soon);
+}
+
+.card[data-release-state="recent"] .action-dropdown .dropdown-menu,
+.modal[data-release-state="recent"] .action-dropdown .dropdown-menu,
+.card[data-release-state="recent"] .popover-menu,
+.modal[data-release-state="recent"] .popover-menu {
+  border-color: var(--color-new-update);
+}
+
 .download-link[data-loading="1"] {
-  pointer-events: none;
   position: relative;
   color: transparent !important;
+  pointer-events: none;
 }
 
 .download-link[data-loading="1"]::after {
   content: "Loading...";
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  inset-inline-start: 50%;
+  inset-block-start: 50%;
   color: var(--color-button-text);
   white-space: nowrap;
+  transform: translate3d(-50%, -50%, 0);
 }
 
-.new-update-badge {
+.is-upcoming-action,
+.download-link.is-upcoming-action,
+.action-dropdown summary.is-upcoming-action,
+#gameDetailModalBody .is-upcoming-action {
+  cursor: not-allowed !important;
+  opacity: 0.72;
+  pointer-events: none;
+}
+
+.download-link.is-upcoming-action,
+.action-dropdown summary.is-upcoming-action,
+#gameDetailModalBody .download-link.is-upcoming-action,
+#gameDetailModalBody .action-dropdown summary.is-upcoming-action {
+  position: relative;
+  color: var(--color-heading);
+  background-color: color-mix(in srgb, var(--color-background-light) 84%, var(--color-coming-soon) 16%);
+  border-color: var(--color-coming-soon);
+}
+
+.download-link.is-upcoming-action::before,
+.action-dropdown summary.is-upcoming-action::before,
+#gameDetailModalBody .download-link.is-upcoming-action::before,
+#gameDetailModalBody .action-dropdown summary.is-upcoming-action::before {
+  content: "";
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
+  border-radius: inherit;
   pointer-events: none;
-  z-index: 5;
+  background:
+    linear-gradient(
+      135deg,
+      transparent calc(50% - 10px),
+      color-mix(in srgb, var(--color-coming-soon) 38%, transparent) calc(50% - 10px),
+      color-mix(in srgb, var(--color-coming-soon) 38%, transparent) calc(50% + 10px),
+      transparent calc(50% + 10px)
+    );
+}
+
+@supports not (color: color-mix(in srgb, black 50%, white 50%)) {
+  .card[data-release-state="upcoming"] .card-content {
+    background: var(--color-background-light);
+  }
+
+  .card[data-release-state="recent"] .card-content {
+    background: var(--color-background-light);
+  }
+
+  .download-link.is-upcoming-action,
+  .action-dropdown summary.is-upcoming-action,
+  #gameDetailModalBody .download-link.is-upcoming-action,
+  #gameDetailModalBody .action-dropdown summary.is-upcoming-action {
+    background-color: var(--color-background-light);
+  }
+
+  .download-link.is-upcoming-action::before,
+  .action-dropdown summary.is-upcoming-action::before,
+  #gameDetailModalBody .download-link.is-upcoming-action::before,
+  #gameDetailModalBody .action-dropdown summary.is-upcoming-action::before {
+    background: none;
+  }
+}
+
+.action-dropdown:has(summary.is-upcoming-action) .dropdown-menu,
+#gameDetailModalBody .action-dropdown:has(summary.is-upcoming-action) .dropdown-menu {
+  display: none !important;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
-    transform: translateY(-5px);
+    transform: var(--transform-lift-md);
     box-shadow: var(--box-shadow-heavy);
   }
 
@@ -366,25 +597,37 @@
     transform: scale(1.05);
   }
 
+  .card[data-release-state="upcoming"]:hover .card-image,
+  .card[data-release-state="recent"]:hover .card-image {
+    transform: scale(1.03);
+  }
+
   .modal-close-button:hover {
     color: var(--color-heading);
-    transform: rotate(90deg) scale(1.1);
-    transition: transform var(--transition-speed) var(--transition-ease),
-                color var(--transition-speed) var(--transition-ease);
+    background-color: rgba(var(--color-primary-rgb), 0.12);
+    transform: rotate(90deg) scale(1.04);
   }
 
   .info-list a:hover {
     text-decoration: underline;
   }
 
-  .action-dropdown .dropdown-menu li a:hover {
-    background-color: var(--color-primary);
-    color: #E0E0E0;
+  .action-dropdown .dropdown-menu li a:hover,
+  .popover-link:hover {
+    color: var(--color-heading);
+    background-color: rgba(var(--color-primary-rgb), 0.18);
   }
 
-  .popover-link:hover {
-    background-color: var(--color-primary);
-    color: #E0E0E0;
+  .download-link.is-upcoming-action:hover,
+  .action-dropdown summary.is-upcoming-action:hover {
+    color: var(--color-heading);
+    background-color: color-mix(in srgb, var(--color-background-light) 84%, var(--color-coming-soon) 16%);
+  }
+}
+
+@media (min-width: 576px) {
+  .card-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
 }
 
@@ -397,7 +640,8 @@
   }
 
   .card-grid .card {
-    width: 420px;
+    inline-size: 420px;
+    max-inline-size: 100%;
   }
 }
 
@@ -411,8 +655,8 @@
   }
 
   .card-grid .card {
-    width: calc((100% - (var(--spacing-md) * 2)) / 3);
-    min-width: 0;
+    inline-size: calc((100% - (var(--spacing-md) * 2)) / 3);
+    min-inline-size: 0;
   }
 
   .card-title {
@@ -427,28 +671,40 @@
     font-size: 0.95em;
   }
 
+  .coming-soon-badge,
+  .new-update-badge {
+    inset-block-start: var(--spacing-xs);
+    inset-inline-end: var(--spacing-xs);
+    min-block-size: 1.75rem;
+    padding-block-start: 0.24rem;
+    padding-block-end: 0.16rem;
+    padding-inline: 0.6rem;
+    font-size: 0.72rem;
+  }
+
   .modal {
-    width: calc(100% - (var(--spacing-md) * 2));
-    max-width: 720px;
-    max-height: calc(100vh - (var(--spacing-md) * 2));
-    max-height: calc(100svh - (var(--spacing-md) * 2));
-    max-height: calc(100dvh - (var(--spacing-md) * 2));
+    inline-size: calc(100% - (var(--spacing-md) * 2));
+    max-inline-size: 720px;
+    max-block-size: calc(var(--viewport-height) - (var(--spacing-md) * 2));
+    max-block-size: calc(var(--viewport-height-stable) - (var(--spacing-md) * 2));
+    max-block-size: calc(var(--viewport-height-dynamic) - (var(--spacing-md) * 2));
     overflow: hidden;
   }
 
   .modal-header {
-    padding: var(--spacing-sm) var(--spacing-md);
+    padding-block: var(--spacing-sm);
+    padding-inline: var(--spacing-md);
   }
 
   .modal-body {
     padding: var(--spacing-sm);
     overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
   }
 
   .modal-header-thumb {
-    height: 40px;
+    block-size: 40px;
   }
 
   .modal-title {
@@ -467,7 +723,7 @@
   }
 
   #gameDetailModalBody .info-list {
-    margin-bottom: 0;
+    margin-block-end: 0;
   }
 
   #gameDetailModalBody .card-actions {
@@ -477,32 +733,107 @@
     justify-content: flex-start;
     flex-wrap: nowrap;
     gap: var(--spacing-sm);
-    margin-top: 0;
-    min-width: 160px;
+    margin-block-start: 0;
+    min-inline-size: 160px;
   }
 
   #gameDetailModalBody .card-actions .btn,
   #gameDetailModalBody .card-actions .action-dropdown {
-    width: 100%;
+    inline-size: 100%;
   }
 
   #gameDetailModalBody .action-dropdown .dropdown-menu {
-    left: auto;
-    right: 100%;
-    top: 0;
-    bottom: auto;
+    inset-block-start: 0;
+    inset-inline-start: auto;
+    inset-inline-end: 100%;
+    margin-inline-end: var(--popover-gap);
     transform: none;
-    margin: 0 var(--popover-gap) 0 0;
   }
 
   .popover-menu {
-    top: 50%;
-    left: calc(100% + var(--popover-gap));
-    transform: translateY(-50%);
-    max-width: min(260px, calc(100vw - 32px));
+    inset-block-start: 50%;
+    inset-inline-start: calc(100% + var(--popover-gap));
+    max-inline-size: min(260px, calc(100vw - 32px));
+    transform: translate3d(0, -50%, 0);
   }
 
   .action-dropdown .dropdown-menu li a {
     font-size: 0.9em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .card-image,
+  .modal-overlay,
+  .modal,
+  .modal-close-button,
+  .action-dropdown .dropdown-menu li a,
+  .popover-link,
+  .download-link[data-loading="1"]::after,
+  .coming-soon-badge,
+  .new-update-badge {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+@media (forced-colors: active) {
+  .card,
+  .modal,
+  .modal-overlay,
+  .action-dropdown .dropdown-menu,
+  .popover-menu,
+  .coming-soon-badge,
+  .new-update-badge {
+    forced-color-adjust: auto;
+    background-color: Canvas;
+    color: CanvasText;
+    border-color: CanvasText;
+    box-shadow: none;
+  }
+
+  .card:focus-within,
+  .modal-close-button:focus-visible,
+  .action-dropdown .dropdown-menu li a:focus-visible,
+  .popover-link:focus-visible {
+    outline-color: Highlight;
+    box-shadow: none;
+  }
+
+  .card-image,
+  .modal-header-thumb {
+    filter: none;
+  }
+
+  .coming-soon-badge,
+  .new-update-badge {
+    background-color: Highlight;
+    color: HighlightText;
+  }
+
+  .action-dropdown .dropdown-menu li a:hover,
+  .popover-link:hover,
+  .action-dropdown .dropdown-menu li a:focus-visible,
+  .popover-link:focus-visible {
+    background-color: Highlight;
+    color: HighlightText;
+  }
+
+  .download-link.is-upcoming-action,
+  .action-dropdown summary.is-upcoming-action,
+  #gameDetailModalBody .download-link.is-upcoming-action,
+  #gameDetailModalBody .action-dropdown summary.is-upcoming-action {
+    background-color: Canvas;
+    color: GrayText;
+    border-color: GrayText;
+  }
+
+  .download-link.is-upcoming-action::before,
+  .action-dropdown summary.is-upcoming-action::before,
+  #gameDetailModalBody .download-link.is-upcoming-action::before,
+  #gameDetailModalBody .action-dropdown summary.is-upcoming-action::before {
+    background: none;
   }
 }

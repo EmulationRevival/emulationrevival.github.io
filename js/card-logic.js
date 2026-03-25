@@ -36,6 +36,9 @@ const C = {
 
   IDS: {
     SORT_BY: 'sortBy',
+    SORT_FIELD: 'sortField',
+    SORT_DIRECTION: 'sortDirection',
+    COMPATIBILITY_FILTER: 'compatibilityFilter',
     GAME_DETAIL_MODAL: 'gameDetailModal',
     GAME_DETAIL_MODAL_OVERLAY: 'gameDetailModalOverlay',
     GAME_DETAIL_MODAL_CLOSE: 'gameDetailModalClose',
@@ -47,17 +50,23 @@ const C = {
     APP: 'data-app-id',
     ASSET: 'data-asset-id',
     ARIA: 'aria-label',
+    RELEASE_STATE: 'data-release-state',
+    DISABLED: 'aria-disabled',
   },
 
   DATASET: {
     MODAL_TRIGGER: 'modalTrigger',
     MODAL_ID: 'modalId',
+    SORT_DIRECTION_LABEL: 'sortDirectionLabel',
   },
 
   CLASSES: {
     ACTIVE: 'active',
     MODAL_HEADER_THUMB: 'modal-header-thumb',
     EMPTY_MESSAGE: 'card-grid-empty-message',
+    COMING_SOON_BADGE: 'coming-soon-badge',
+    NEW_UPDATE_BADGE: 'new-update-badge',
+    UPCOMING_ACTION: 'is-upcoming-action',
   },
 
   SORT_TYPES: {
@@ -70,10 +79,33 @@ const C = {
     DEFAULT: 'default',
   },
 
+  SORT_FIELDS: {
+    RELEASE_DATE: 'release-date',
+    TITLE: 'title',
+  },
+
+  SORT_DIRECTIONS: {
+    ASC: 'asc',
+    DESC: 'desc',
+  },
+
+  FILTERS: {
+    ALL: 'all',
+    XBOX_ONE: 'xbox-one',
+    XBOX_SERIES: 'xbox-series',
+  },
+
   TXT: {
     UNKNOWN: 'Unknown',
     DL_PREFIX: 'Download',
     EMPTY: 'No cards available.',
+    COMING_SOON: 'Coming Soon',
+    NEW_UPDATE: 'New Update',
+    UPCOMING_ALERT: 'This item is not available yet.',
+    SORT_DIRECTION_ASC: 'Sort ascending',
+    SORT_DIRECTION_DESC: 'Sort descending',
+    SORT_DIRECTION_ASC_SHORT: 'Ascending',
+    SORT_DIRECTION_DESC_SHORT: 'Descending',
   },
 
   ARIA: {
@@ -82,9 +114,13 @@ const C = {
     FALSE: 'false',
   },
 
-  FILE_EXT: /\.(zip|msixbundle|msix|appx|exe|apk|7z|rar|tar|gz|dmg|pdf|mp3|mp4|avi|mov|jpg|jpeg|png|gif|webp|svg|docx?|xlsx?|pptx?|iso|bin|img|msi|deb|rpm|sh|bat|ps1|ini|cfg|ctl|json|txt|xml|csv)$/i,
+  RELEASE_STATE: {
+    LIVE: 'live',
+    UPCOMING: 'upcoming',
+    RECENT: 'recent',
+  },
 
-  BADGE_SRC: '/images/new-update.svg',
+  FILE_EXT: /\.(zip|msixbundle|msix|appx|exe|apk|7z|rar|tar|gz|dmg|pdf|mp3|mp4|avi|mov|jpg|jpeg|png|gif|webp|svg|docx?|xlsx?|pptx?|iso|bin|img|msi|deb|rpm|sh|bat|ps1|ini|cfg|ctl|json|txt|xml|csv)$/i,
   THIRTY_DAYS_MS: 30 * 24 * 60 * 60 * 1000,
 };
 
@@ -92,8 +128,68 @@ function normalizeText(str = '') {
   return str.toLowerCase().trim();
 }
 
-function sortNeedsHydratedDates(sortType) {
-  return sortType === C.SORT_TYPES.NEWEST || sortType === C.SORT_TYPES.OLDEST;
+function sortNeedsHydratedDates(sortField) {
+  return sortField === C.SORT_FIELDS.RELEASE_DATE;
+}
+
+function isValidSortField(value) {
+  return value === C.SORT_FIELDS.RELEASE_DATE || value === C.SORT_FIELDS.TITLE;
+}
+
+function isValidSortDirection(value) {
+  return value === C.SORT_DIRECTIONS.ASC || value === C.SORT_DIRECTIONS.DESC;
+}
+
+function isValidCompatibilityFilter(value) {
+  return value === C.FILTERS.ALL || value === C.FILTERS.XBOX_ONE || value === C.FILTERS.XBOX_SERIES;
+}
+
+function mapLegacySortType(sortType) {
+  if (sortType === C.SORT_TYPES.NEWEST) {
+    return {
+      sortField: C.SORT_FIELDS.RELEASE_DATE,
+      sortDirection: C.SORT_DIRECTIONS.DESC,
+      compatibilityFilter: C.FILTERS.ALL,
+    };
+  }
+
+  if (sortType === C.SORT_TYPES.OLDEST) {
+    return {
+      sortField: C.SORT_FIELDS.RELEASE_DATE,
+      sortDirection: C.SORT_DIRECTIONS.ASC,
+      compatibilityFilter: C.FILTERS.ALL,
+    };
+  }
+
+  if (sortType === C.SORT_TYPES.REVERSE_ALPHABETICAL) {
+    return {
+      sortField: C.SORT_FIELDS.TITLE,
+      sortDirection: C.SORT_DIRECTIONS.DESC,
+      compatibilityFilter: C.FILTERS.ALL,
+    };
+  }
+
+  if (sortType === C.SORT_TYPES.XBOX_ONE) {
+    return {
+      sortField: C.SORT_FIELDS.TITLE,
+      sortDirection: C.SORT_DIRECTIONS.ASC,
+      compatibilityFilter: C.FILTERS.XBOX_ONE,
+    };
+  }
+
+  if (sortType === C.SORT_TYPES.XBOX_SERIES) {
+    return {
+      sortField: C.SORT_FIELDS.TITLE,
+      sortDirection: C.SORT_DIRECTIONS.ASC,
+      compatibilityFilter: C.FILTERS.XBOX_SERIES,
+    };
+  }
+
+  return {
+    sortField: C.SORT_FIELDS.TITLE,
+    sortDirection: C.SORT_DIRECTIONS.ASC,
+    compatibilityFilter: C.FILTERS.ALL,
+  };
 }
 
 const state = {
@@ -101,6 +197,9 @@ const state = {
   lastOpenedCardTrigger: null,
   activePopover: null,
   parsedCardsData: [],
+  sortField: C.SORT_FIELDS.RELEASE_DATE,
+  sortDirection: C.SORT_DIRECTIONS.DESC,
+  compatibilityFilter: C.FILTERS.ALL,
 };
 
 const domMeta = new WeakMap();
@@ -122,7 +221,10 @@ const dom = {
   buttons: Array.from(document.querySelectorAll(C.SEL.BTN)),
 
   cardGrid: document.querySelector(C.SEL.CARD_GRID),
-  sortSelect: document.getElementById(C.IDS.SORT_BY),
+  sortFieldSelect: document.getElementById(C.IDS.SORT_FIELD),
+  sortDirectionButton: document.getElementById(C.IDS.SORT_DIRECTION),
+  compatibilityFilterSelect: document.getElementById(C.IDS.COMPATIBILITY_FILTER),
+  legacySortSelect: document.getElementById(C.IDS.SORT_BY),
 
   gameDetailModal: document.getElementById(C.IDS.GAME_DETAIL_MODAL),
   gameDetailModalOverlay: document.getElementById(C.IDS.GAME_DETAIL_MODAL_OVERLAY),
@@ -160,9 +262,11 @@ function bindStaticDom() {
       imgContainer,
       infoListText: infoList?.textContent || '',
       hasBadge: false,
+      hasComingSoonBadge: false,
       titleText: normalizeText(titleEl?.textContent || ''),
       dateMs: 0,
       compatibilityText: normalizeText(infoList?.textContent || ''),
+      releaseState: C.RELEASE_STATE.LIVE,
     });
 
     if (versionEl) {
@@ -193,6 +297,7 @@ function bindStaticDom() {
       card: btn.closest(C.SEL.CARD),
       isDropdown: !!btn.closest(C.SEL.DROPDOWN),
       loading: false,
+      originalText: btn.textContent.trim(),
     });
   });
 }
@@ -214,6 +319,190 @@ function preprocessAppData(data) {
       }
     }
   }
+}
+
+function setCardReleaseState(card, releaseState) {
+  const cardMeta = domMeta.get(card);
+  if (!cardMeta) return;
+
+  cardMeta.releaseState = releaseState;
+  card.setAttribute(C.ATTR.RELEASE_STATE, releaseState);
+}
+
+function ensureComingSoonBadge(cardMeta) {
+  if (!cardMeta?.imgContainer || cardMeta.hasComingSoonBadge) return;
+
+  const badge = document.createElement('div');
+  badge.className = C.CLASSES.COMING_SOON_BADGE;
+  badge.textContent = C.TXT.COMING_SOON;
+  cardMeta.imgContainer.appendChild(badge);
+  cardMeta.hasComingSoonBadge = true;
+}
+
+function removeComingSoonBadge(cardMeta) {
+  if (!cardMeta?.imgContainer || !cardMeta.hasComingSoonBadge) return;
+
+  const badge = cardMeta.imgContainer.querySelector(`.${C.CLASSES.COMING_SOON_BADGE}`);
+  badge?.remove();
+  cardMeta.hasComingSoonBadge = false;
+}
+
+function ensureNewUpdateBadge(cardMeta) {
+  if (!cardMeta?.imgContainer || cardMeta.hasBadge) return;
+
+  const badge = document.createElement('div');
+  badge.className = C.CLASSES.NEW_UPDATE_BADGE;
+  badge.textContent = C.TXT.NEW_UPDATE;
+  cardMeta.imgContainer.appendChild(badge);
+  cardMeta.hasBadge = true;
+}
+
+function removeNewUpdateBadge(cardMeta) {
+  if (!cardMeta?.imgContainer || !cardMeta.hasBadge) return;
+
+  const badge = cardMeta.imgContainer.querySelector(`.${C.CLASSES.NEW_UPDATE_BADGE}`);
+  badge?.remove();
+  cardMeta.hasBadge = false;
+}
+
+function setButtonUpcomingState(btn, isUpcoming) {
+  const meta = domMeta.get(btn);
+  if (!meta) return;
+
+  if (!meta.originalText) {
+    meta.originalText = btn.textContent.trim();
+  }
+
+  if (isUpcoming) {
+    btn.classList.add(C.CLASSES.UPCOMING_ACTION);
+    btn.setAttribute(C.ATTR.DISABLED, C.ARIA.TRUE);
+    btn.setAttribute('tabindex', '-1');
+    btn.textContent = C.TXT.COMING_SOON;
+  } else {
+    btn.classList.remove(C.CLASSES.UPCOMING_ACTION);
+    btn.removeAttribute(C.ATTR.DISABLED);
+    btn.removeAttribute('tabindex');
+    btn.textContent = meta.originalText || btn.textContent;
+  }
+}
+
+function setDropdownUpcomingState(dropdown, isUpcoming) {
+  if (!dropdown) return;
+
+  const summary = dropdown.querySelector('summary');
+  const links = dropdown.querySelectorAll('.download-link');
+
+  if (summary) {
+    if (!summary.dataset.originalText) {
+      summary.dataset.originalText = summary.textContent.trim();
+    }
+
+    if (isUpcoming) {
+      summary.classList.add(C.CLASSES.UPCOMING_ACTION);
+      summary.setAttribute(C.ATTR.DISABLED, C.ARIA.TRUE);
+      summary.textContent = C.TXT.COMING_SOON;
+    } else {
+      summary.classList.remove(C.CLASSES.UPCOMING_ACTION);
+      summary.removeAttribute(C.ATTR.DISABLED);
+      summary.textContent = summary.dataset.originalText || summary.textContent;
+    }
+  }
+
+  links.forEach(link => setButtonUpcomingState(link, isUpcoming));
+
+  if (isUpcoming) {
+    dropdown.removeAttribute('open');
+  }
+}
+
+function syncCardActionState(card) {
+  const cardMeta = domMeta.get(card);
+  if (!cardMeta) return;
+
+  const isUpcoming = cardMeta.releaseState === C.RELEASE_STATE.UPCOMING;
+  const actionsRoot = card.querySelector(C.SEL.CARD_MODAL_CONTENT);
+
+  if (!actionsRoot) return;
+
+  const directButtons = actionsRoot.querySelectorAll(`${C.SEL.BTN}:not(${C.SEL.DROPDOWN} ${C.SEL.BTN})`);
+  const dropdowns = actionsRoot.querySelectorAll(C.SEL.DROPDOWN);
+
+  directButtons.forEach(btn => setButtonUpcomingState(btn, isUpcoming));
+  dropdowns.forEach(dropdown => setDropdownUpcomingState(dropdown, isUpcoming));
+}
+
+function syncModalActionState() {
+  if (!dom.gameDetailModalBody) return;
+
+  const activeCard = state.lastOpenedCardTrigger?.closest(C.SEL.CARD);
+  if (!activeCard) return;
+
+  const cardMeta = domMeta.get(activeCard);
+  const isUpcoming = cardMeta?.releaseState === C.RELEASE_STATE.UPCOMING;
+
+  const directButtons = dom.gameDetailModalBody.querySelectorAll(`${C.SEL.BTN}:not(${C.SEL.DROPDOWN} ${C.SEL.BTN})`);
+  const dropdowns = dom.gameDetailModalBody.querySelectorAll(C.SEL.DROPDOWN);
+
+  directButtons.forEach(btn => {
+    if (!btn.dataset.originalText) {
+      btn.dataset.originalText = btn.textContent.trim();
+    }
+
+    if (isUpcoming) {
+      btn.classList.add(C.CLASSES.UPCOMING_ACTION);
+      btn.setAttribute(C.ATTR.DISABLED, C.ARIA.TRUE);
+      btn.setAttribute('tabindex', '-1');
+      btn.textContent = C.TXT.COMING_SOON;
+    } else {
+      btn.classList.remove(C.CLASSES.UPCOMING_ACTION);
+      btn.removeAttribute(C.ATTR.DISABLED);
+      btn.removeAttribute('tabindex');
+      btn.textContent = btn.dataset.originalText || btn.textContent;
+    }
+  });
+
+  dropdowns.forEach(dropdown => {
+    const summary = dropdown.querySelector('summary');
+    const links = dropdown.querySelectorAll('.download-link');
+
+    if (summary) {
+      if (!summary.dataset.originalText) {
+        summary.dataset.originalText = summary.textContent.trim();
+      }
+
+      if (isUpcoming) {
+        summary.classList.add(C.CLASSES.UPCOMING_ACTION);
+        summary.setAttribute(C.ATTR.DISABLED, C.ARIA.TRUE);
+        summary.textContent = C.TXT.COMING_SOON;
+      } else {
+        summary.classList.remove(C.CLASSES.UPCOMING_ACTION);
+        summary.removeAttribute(C.ATTR.DISABLED);
+        summary.textContent = summary.dataset.originalText || summary.textContent;
+      }
+    }
+
+    links.forEach(link => {
+      if (!link.dataset.originalText) {
+        link.dataset.originalText = link.textContent.trim();
+      }
+
+      if (isUpcoming) {
+        link.classList.add(C.CLASSES.UPCOMING_ACTION);
+        link.setAttribute(C.ATTR.DISABLED, C.ARIA.TRUE);
+        link.setAttribute('tabindex', '-1');
+        link.textContent = C.TXT.COMING_SOON;
+      } else {
+        link.classList.remove(C.CLASSES.UPCOMING_ACTION);
+        link.removeAttribute(C.ATTR.DISABLED);
+        link.removeAttribute('tabindex');
+        link.textContent = link.dataset.originalText || link.textContent;
+      }
+    });
+
+    if (isUpcoming) {
+      dropdown.removeAttribute('open');
+    }
+  });
 }
 
 function hydrateCards(data) {
@@ -259,22 +548,24 @@ function hydrateCards(data) {
         if (cardMeta) {
           cardMeta.dateMs = ms;
 
+          const isUpcoming = ms > now;
           const timeDiff = now - ms;
-          if (
-            timeDiff >= 0 &&
-            timeDiff < C.THIRTY_DAYS_MS &&
-            cardMeta.imgContainer &&
-            !cardMeta.hasBadge
-          ) {
-            cardMeta.hasBadge = true;
 
-            const badge = document.createElement('img');
-            badge.src = C.BADGE_SRC;
-            badge.alt = 'New Update';
-            badge.className = 'new-update-badge';
-
-            cardMeta.imgContainer.appendChild(badge);
+          if (isUpcoming) {
+            setCardReleaseState(card, C.RELEASE_STATE.UPCOMING);
+            removeNewUpdateBadge(cardMeta);
+            ensureComingSoonBadge(cardMeta);
+          } else if (timeDiff >= 0 && timeDiff < C.THIRTY_DAYS_MS) {
+            setCardReleaseState(card, C.RELEASE_STATE.RECENT);
+            removeComingSoonBadge(cardMeta);
+            ensureNewUpdateBadge(cardMeta);
+          } else {
+            setCardReleaseState(card, C.RELEASE_STATE.LIVE);
+            removeComingSoonBadge(cardMeta);
+            removeNewUpdateBadge(cardMeta);
           }
+
+          syncCardActionState(card);
         }
       }
     } else {
@@ -325,20 +616,39 @@ function rebuildParsedCardsData() {
       title: meta?.titleText || '',
       date: meta?.dateMs || 0,
       compatibility: meta?.compatibilityText || '',
+      releaseState: meta?.releaseState || C.RELEASE_STATE.LIVE,
     };
   });
 }
 
-function cardMatchesFilter(cardData, sortType) {
-  if (sortType === C.SORT_TYPES.XBOX_ONE) {
+function cardMatchesFilter(cardData) {
+  if (state.compatibilityFilter === C.FILTERS.XBOX_ONE) {
     return cardData.compatibility.includes('xbox one');
   }
 
-  if (sortType === C.SORT_TYPES.XBOX_SERIES) {
+  if (state.compatibilityFilter === C.FILTERS.XBOX_SERIES) {
     return cardData.compatibility.includes('series s|x');
   }
 
   return true;
+}
+
+function compareCardsByTitle(a, b) {
+  return a.title.localeCompare(b.title);
+}
+
+function compareCardsByDate(a, b) {
+  const dateDiff = a.date - b.date;
+  if (dateDiff !== 0) return dateDiff;
+  return compareCardsByTitle(a, b);
+}
+
+function compareCardData(a, b) {
+  const baseResult = state.sortField === C.SORT_FIELDS.RELEASE_DATE
+    ? compareCardsByDate(a, b)
+    : compareCardsByTitle(a, b);
+
+  return state.sortDirection === C.SORT_DIRECTIONS.DESC ? baseResult * -1 : baseResult;
 }
 
 function getEmptyMessage() {
@@ -356,32 +666,90 @@ function getEmptyMessage() {
   return dom.emptyMessage;
 }
 
+function updateSortDirectionButton() {
+  const button = dom.sortDirectionButton;
+  if (!button) return;
+
+  const isAscending = state.sortDirection === C.SORT_DIRECTIONS.ASC;
+  const shortLabel = isAscending ? C.TXT.SORT_DIRECTION_ASC_SHORT : C.TXT.SORT_DIRECTION_DESC_SHORT;
+  const fullLabel = isAscending ? C.TXT.SORT_DIRECTION_ASC : C.TXT.SORT_DIRECTION_DESC;
+
+  button.setAttribute('aria-label', fullLabel);
+  button.setAttribute('title', fullLabel);
+  button.setAttribute('aria-pressed', String(isAscending));
+  button.dataset.sortDirection = state.sortDirection;
+
+  const labelTarget = button.querySelector('[data-sort-direction-label]');
+  if (labelTarget) {
+    labelTarget.textContent = shortLabel;
+  }
+}
+
+function syncControlsFromState() {
+  if (dom.sortFieldSelect) {
+    dom.sortFieldSelect.value = state.sortField;
+  }
+
+  if (dom.compatibilityFilterSelect) {
+    dom.compatibilityFilterSelect.value = state.compatibilityFilter;
+  }
+
+  updateSortDirectionButton();
+}
+
+function initializeControlState() {
+  if (dom.sortFieldSelect || dom.sortDirectionButton || dom.compatibilityFilterSelect) {
+    if (dom.sortFieldSelect && isValidSortField(dom.sortFieldSelect.value)) {
+      state.sortField = dom.sortFieldSelect.value;
+    }
+
+    if (dom.compatibilityFilterSelect && isValidCompatibilityFilter(dom.compatibilityFilterSelect.value)) {
+      state.compatibilityFilter = dom.compatibilityFilterSelect.value;
+    }
+
+    const initialDirection = dom.sortDirectionButton?.dataset.sortDirection;
+    if (isValidSortDirection(initialDirection)) {
+      state.sortDirection = initialDirection;
+    }
+
+    syncControlsFromState();
+    return;
+  }
+
+  const legacySortType = dom.legacySortSelect?.value || C.SORT_TYPES.NEWEST;
+  const mappedState = mapLegacySortType(legacySortType);
+
+  state.sortField = mappedState.sortField;
+  state.sortDirection = mappedState.sortDirection;
+  state.compatibilityFilter = mappedState.compatibilityFilter;
+}
+
 function handleSortAndFilter() {
   if (!dom.cardGrid) return;
 
-  const sortType = dom.sortSelect?.value || C.SORT_TYPES.DEFAULT;
+  const processedData = state.parsedCardsData
+    .filter(cardMatchesFilter)
+    .sort(compareCardData);
 
-  const processedData = [...state.parsedCardsData].sort((a, b) => {
-    if (sortType === C.SORT_TYPES.NEWEST) return b.date - a.date;
-    if (sortType === C.SORT_TYPES.OLDEST) return a.date - b.date;
-    if (sortType === C.SORT_TYPES.REVERSE_ALPHABETICAL) return b.title.localeCompare(a.title);
-    return a.title.localeCompare(b.title);
-  });
-
+  const visibleItems = new Set(processedData);
   const fragment = document.createDocumentFragment();
   let visibleCount = 0;
 
   for (let i = 0; i < processedData.length; i += 1) {
     const item = processedData[i];
-    const shouldShow = cardMatchesFilter(item, sortType);
 
-    item.element.hidden = !shouldShow;
-    item.element.setAttribute('aria-hidden', shouldShow ? 'false' : 'true');
+    item.element.hidden = false;
+    item.element.setAttribute('aria-hidden', 'false');
+    visibleCount += 1;
+    fragment.appendChild(item.element);
+  }
 
-    if (shouldShow) {
-      visibleCount += 1;
-    }
+  for (let i = 0; i < state.parsedCardsData.length; i += 1) {
+    const item = state.parsedCardsData[i];
+    if (visibleItems.has(item)) continue;
 
+    item.element.hidden = true;
+    item.element.setAttribute('aria-hidden', 'true');
     fragment.appendChild(item.element);
   }
 
@@ -392,6 +760,41 @@ function handleSortAndFilter() {
   }
 
   dom.cardGrid.replaceChildren(fragment);
+}
+
+function handleSortFieldChange(event) {
+  const nextValue = event.target.value;
+  if (!isValidSortField(nextValue)) return;
+
+  state.sortField = nextValue;
+  handleSortAndFilter();
+}
+
+function handleCompatibilityFilterChange(event) {
+  const nextValue = event.target.value;
+  if (!isValidCompatibilityFilter(nextValue)) return;
+
+  state.compatibilityFilter = nextValue;
+  handleSortAndFilter();
+}
+
+function handleSortDirectionToggle() {
+  state.sortDirection = state.sortDirection === C.SORT_DIRECTIONS.DESC
+    ? C.SORT_DIRECTIONS.ASC
+    : C.SORT_DIRECTIONS.DESC;
+
+  updateSortDirectionButton();
+  handleSortAndFilter();
+}
+
+function handleLegacySortChange(event) {
+  const mappedState = mapLegacySortType(event.target.value);
+
+  state.sortField = mappedState.sortField;
+  state.sortDirection = mappedState.sortDirection;
+  state.compatibilityFilter = mappedState.compatibilityFilter;
+
+  handleSortAndFilter();
 }
 
 function updateModalHeaderThumb(cardElement) {
@@ -446,6 +849,14 @@ function openGameDetailModal(cardLink) {
 
   updateModalHeaderThumb(cardElement);
 
+  const cardMeta = domMeta.get(cardElement);
+  dom.gameDetailModal.setAttribute(
+    C.ATTR.RELEASE_STATE,
+    cardMeta?.releaseState || C.RELEASE_STATE.LIVE
+  );
+
+  syncModalActionState();
+
   dom.gameDetailModalOverlay?.classList.add(C.CLASSES.ACTIVE);
   dom.gameDetailModal.classList.add(C.CLASSES.ACTIVE);
 
@@ -457,6 +868,7 @@ function closeGameDetailModal() {
 
   dom.gameDetailModalOverlay?.classList.remove(C.CLASSES.ACTIVE);
   dom.gameDetailModal.classList.remove(C.CLASSES.ACTIVE);
+  dom.gameDetailModal.removeAttribute(C.ATTR.RELEASE_STATE);
 
   window.dispatchEvent(new CustomEvent('requestScrollLock', { detail: { lock: false } }));
 
@@ -497,11 +909,20 @@ async function handleDownloadClick(btn) {
       card: btn.closest(C.SEL.CARD),
       isDropdown: !!btn.closest(C.SEL.DROPDOWN),
       loading: false,
+      originalText: btn.textContent.trim(),
     });
   }
 
   const meta = domMeta.get(btn);
   if (meta.loading) return;
+
+  const card = meta.card || btn.closest(C.SEL.CARD);
+  const cardMeta = card ? domMeta.get(card) : null;
+
+  if (cardMeta?.releaseState === C.RELEASE_STATE.UPCOMING) {
+    alert(C.TXT.UPCOMING_ALERT);
+    return;
+  }
 
   const appId = btn.getAttribute(C.ATTR.APP);
   const assetId = btn.getAttribute(C.ATTR.ASSET);
@@ -539,8 +960,19 @@ async function handleDownloadClick(btn) {
 function handleDocumentClick(event) {
   const { target } = event;
 
+  const dropdownSummary = target.closest('.action-dropdown summary');
+  if (dropdownSummary && dropdownSummary.classList.contains(C.CLASSES.UPCOMING_ACTION)) {
+    event.preventDefault();
+    return;
+  }
+
   const downloadBtn = target.closest(C.SEL.BTN);
   if (downloadBtn) {
+    if (downloadBtn.classList.contains(C.CLASSES.UPCOMING_ACTION)) {
+      event.preventDefault();
+      return;
+    }
+
     event.preventDefault();
     handleDownloadClick(downloadBtn);
     return;
@@ -612,11 +1044,16 @@ function init() {
   if (!dom.cardGrid) return;
 
   bindStaticDom();
+  initializeControlState();
 
   dom.gameDetailModal?.setAttribute('role', 'dialog');
   dom.gameDetailModal?.setAttribute('aria-modal', 'true');
 
-  dom.sortSelect?.addEventListener('change', handleSortAndFilter);
+  dom.sortFieldSelect?.addEventListener('change', handleSortFieldChange);
+  dom.sortDirectionButton?.addEventListener('click', handleSortDirectionToggle);
+  dom.compatibilityFilterSelect?.addEventListener('change', handleCompatibilityFilterChange);
+  dom.legacySortSelect?.addEventListener('change', handleLegacySortChange);
+
   dom.gameDetailModalOverlay?.addEventListener('click', closeGameDetailModal);
   dom.gameDetailModalCloseBtn?.addEventListener('click', closeGameDetailModal);
 
@@ -627,9 +1064,7 @@ function init() {
 
   rebuildParsedCardsData();
 
-  const initialSortType = dom.sortSelect?.value || C.SORT_TYPES.DEFAULT;
-
-  if (sortNeedsHydratedDates(initialSortType)) {
+  if (sortNeedsHydratedDates(state.sortField)) {
     if (dom.cardGrid) {
       dom.cardGrid.style.visibility = 'hidden';
     }
