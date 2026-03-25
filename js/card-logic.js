@@ -1,4 +1,5 @@
 import { scheduleTask, createFocusTrap } from './ui-utils.js';
+import { restoreHashTargetAfterRender } from './search-utils.js';
 
 const C = {
   URL: {
@@ -1078,10 +1079,23 @@ function init() {
         rebuildParsedCardsData();
         handleSortAndFilter();
       }
+
+      scheduleTask(() => {
+        restoreHashTargetAfterRender({
+          focusSelector: C.SEL.CARD_LINK,
+        });
+      });
     });
   } else {
     handleSortAndFilter();
-    fetchAppData({ rerender: false });
+
+    fetchAppData({ rerender: false }).finally(() => {
+      scheduleTask(() => {
+        restoreHashTargetAfterRender({
+          focusSelector: C.SEL.CARD_LINK,
+        });
+      });
+    });
   }
 }
 

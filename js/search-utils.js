@@ -572,6 +572,47 @@ export function buildHashUrlForElementId(elementId) {
   return `${currentUrl}#${encodeURIComponent(elementId)}`;
 }
 
+export function restoreHashTargetAfterRender({
+  hash = window.location.hash,
+  focusSelector = '.card-link',
+  scrollBehavior = 'auto',
+  scrollBlock = 'start',
+} = {}) {
+  if (!hash || hash.length < 2) return null;
+
+  let elementId = '';
+
+  try {
+    elementId = decodeURIComponent(hash.slice(1));
+  } catch {
+    elementId = hash.slice(1);
+  }
+
+  if (!elementId) return null;
+
+  const target = document.getElementById(elementId);
+  if (!target || target.hidden) return null;
+
+  const focusTarget = target.querySelector(focusSelector) || target;
+
+  target.scrollIntoView({
+    behavior: scrollBehavior,
+    block: scrollBlock,
+    inline: 'nearest',
+  });
+
+  if (focusTarget === target) {
+    target.setAttribute('tabindex', '-1');
+    target.addEventListener('blur', () => {
+      target.removeAttribute('tabindex');
+    }, { once: true });
+  }
+
+  focusTarget.focus({ preventScroll: true });
+
+  return target;
+}
+
 function isSameDocumentNavigation(url) {
   if (!url) return false;
 
