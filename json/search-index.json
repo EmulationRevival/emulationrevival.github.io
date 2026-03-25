@@ -392,6 +392,13 @@
     "category": "Ports"
   },
   {
+    "name": "SM64EX",
+    "description": "A fork of the original Super Mario 64 Port",
+    "img": "/xbox-dev-mode/images/game-ports/sm64ex.webp",
+    "url": "/xbox-dev-mode/ports.html#sm64ex",
+    "category": "Ports"
+  },
+  {
     "name": "USB Permissions Tool",
     "description": "Add necessary permissions to an NTFS formatted USB drive for UWP apps",
     "img": "/xbox-dev-mode/images/utilities/usb-perms-tool.webp",
