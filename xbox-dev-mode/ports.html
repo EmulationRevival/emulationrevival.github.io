@@ -30,7 +30,8 @@ extra_scripts:
     %}
 
         <div class="card-grid">
-            {% for card in site.data.ports %}
+            {% assign sorted_ports = site.data.ports | sort_natural: "title" %}
+            {% for card in sorted_ports %}
                 {% include cards/card.html card=card %}
             {% endfor %}
         </div>

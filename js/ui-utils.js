@@ -149,7 +149,14 @@ export function focusElementSafely(element, { focusSelector = '' } = {}) {
 export function resolveHashTarget(hash = window.location.hash) {
   if (typeof hash !== 'string' || hash.length <= 1) return null;
 
-  const id = decodeURIComponent(hash.slice(1));
+  let id = '';
+
+  try {
+    id = decodeURIComponent(hash.slice(1));
+  } catch {
+    id = hash.slice(1);
+  }
+
   if (!id) return null;
 
   return document.getElementById(id);

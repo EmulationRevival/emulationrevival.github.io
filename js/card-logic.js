@@ -1,5 +1,4 @@
 import { scheduleTask, createFocusTrap } from './ui-utils.js';
-import { restoreHashTargetAfterRender } from './search-utils.js';
 
 const C = {
   URL: {
@@ -198,8 +197,8 @@ const state = {
   lastOpenedCardTrigger: null,
   activePopover: null,
   parsedCardsData: [],
-  sortField: C.SORT_FIELDS.RELEASE_DATE,
-  sortDirection: C.SORT_DIRECTIONS.DESC,
+  sortField: C.SORT_FIELDS.TITLE,
+  sortDirection: C.SORT_DIRECTIONS.ASC,
   compatibilityFilter: C.FILTERS.ALL,
 };
 
@@ -717,7 +716,7 @@ function initializeControlState() {
     return;
   }
 
-  const legacySortType = dom.legacySortSelect?.value || C.SORT_TYPES.NEWEST;
+  const legacySortType = dom.legacySortSelect?.value || C.SORT_TYPES.DEFAULT;
   const mappedState = mapLegacySortType(legacySortType);
 
   state.sortField = mappedState.sortField;
@@ -1079,23 +1078,10 @@ function init() {
         rebuildParsedCardsData();
         handleSortAndFilter();
       }
-
-      scheduleTask(() => {
-        restoreHashTargetAfterRender({
-          focusSelector: C.SEL.CARD_LINK,
-        });
-      });
     });
   } else {
     handleSortAndFilter();
-
-    fetchAppData({ rerender: false }).finally(() => {
-      scheduleTask(() => {
-        restoreHashTargetAfterRender({
-          focusSelector: C.SEL.CARD_LINK,
-        });
-      });
-    });
+    fetchAppData({ rerender: false });
   }
 }
 

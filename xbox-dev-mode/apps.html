@@ -30,7 +30,8 @@ extra_scripts:
     %}
 
         <div class="card-grid">
-            {% for card in site.data.apps %}
+            {% assign sorted_apps = site.data.apps | sort_natural: "title" %}
+            {% for card in sorted_apps %}
                 {% include cards/card.html card=card %}
             {% endfor %}
         </div>

@@ -16,14 +16,14 @@
   features: []
   contributors:
     developers:
-      - name: "Misunderstood-Wookiee"
-        github: "https://github.com/Misunderstood-Wookiee"
-        donations: []
       - name: "DanP"
         github: "https://github.com/danprice142"
         donations:
           - type: "kofi"
             url: "https://ko-fi.com/danp142"
+      - name: "Misunderstood-Wookiee"
+        github: "https://github.com/Misunderstood-Wookiee"
+        donations: []
     porters: []
     maintainers: []
   downloads:

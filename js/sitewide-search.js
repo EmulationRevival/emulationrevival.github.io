@@ -184,7 +184,7 @@ if (!searchInput || !autocompleteResults) {
   function navigateToSuggestion(url) {
     if (!url) return;
 
-    resetSitewideSearch();
+    resetSitewideSearch({ blur: isMobileViewport() });
 
     if (isMobileViewport()) {
       requestMobileMenuClose();
@@ -282,12 +282,10 @@ if (!searchInput || !autocompleteResults) {
       if (!item.searchKey.includes(normalizedQuery)) continue;
 
       results.push(item);
-
-      if (results.length >= CONFIG.MAX_SUGGESTIONS) break;
     }
 
     results.sort((a, b) => a.name.localeCompare(b.name));
-    return results;
+    return results.slice(0, CONFIG.MAX_SUGGESTIONS);
   }
 
   function processInputValue(rawValue) {

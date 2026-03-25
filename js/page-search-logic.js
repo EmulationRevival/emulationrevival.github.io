@@ -126,7 +126,7 @@ if (!searchInput || !autocompleteResults) {
   function navigateToSuggestionById(elementId) {
     if (!elementId) return;
 
-    resetSearchUI();
+    resetSearchUI({ blur: true });
     navigateToUrl(buildHashUrlForElementId(elementId));
   }
 

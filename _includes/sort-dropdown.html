@@ -3,19 +3,19 @@
         <label class="visually-hidden" for="sortField">Sort by</label>
         <div class="sort-field-combo">
             <select id="sortField">
-                <option value="release-date" selected>Newest</option>
-                <option value="title">A–Z</option>
+                <option value="title" selected>A–Z</option>
+                <option value="release-date">Newest</option>
             </select>
             <button
                 type="button"
                 id="sortDirection"
                 class="sort-direction-button"
-                data-sort-direction="desc"
-                aria-label="Sort descending"
-                title="Sort descending"
-                aria-pressed="false">
+                data-sort-direction="asc"
+                aria-label="Sort ascending"
+                title="Sort ascending"
+                aria-pressed="true">
                 <span aria-hidden="true" class="sort-direction-icon">↓</span>
-                <span data-sort-direction-label>Descending</span>
+                <span data-sort-direction-label>Ascending</span>
             </button>
         </div>
     </div>

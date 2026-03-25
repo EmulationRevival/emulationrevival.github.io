@@ -1,8 +1,3 @@
-import {
-  CARD_HASH_FOCUS_OPTIONS,
-  scheduleHashTargetFocus,
-} from './ui-utils.js';
-
 let searchIndexCache = null;
 let searchIndexPromise = null;
 let searchIndexPathCache = null;
@@ -613,34 +608,9 @@ export function restoreHashTargetAfterRender({
   return target;
 }
 
-function isSameDocumentNavigation(url) {
+export function navigateToUrl(url) {
   if (!url) return false;
-
-  try {
-    const nextUrl = new URL(url, window.location.origin);
-    const currentUrl = new URL(window.location.href);
-
-    return (
-      nextUrl.origin === currentUrl.origin &&
-      nextUrl.pathname === currentUrl.pathname &&
-      nextUrl.search === currentUrl.search &&
-      nextUrl.hash.length > 1
-    );
-  } catch {
-    return false;
-  }
-}
-
-export function navigateToUrl(url, { focusOptions = CARD_HASH_FOCUS_OPTIONS } = {}) {
-  if (!url) return false;
-
-  const sameDocumentNavigation = isSameDocumentNavigation(url);
 
   window.location.assign(url);
-
-  if (sameDocumentNavigation && focusOptions) {
-    scheduleHashTargetFocus(focusOptions);
-  }
-
   return true;
 }
