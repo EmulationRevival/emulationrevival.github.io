@@ -28,6 +28,7 @@ const C = {
   CLS: {
     ACTIVE: 'active',
     BACK: 'drilldown-back',
+    NO_SCROLL: 'no-scroll',
   },
   BP: {
     MOBILE: 992,
@@ -65,7 +66,6 @@ const state = {
 const focusTrap = createFocusTrap();
 
 let scrollLocks = 0;
-let scrollBarWidth = '0px';
 
 const submenuMap = new Map();
 const submenuByBackButton = new Map();
@@ -97,25 +97,27 @@ for (let i = 0; i < el.submenuTriggers.length; i++) {
 
 function setScrollLock(lock) {
   const body = document.body;
-  if (!body) return;
+  const root = document.documentElement;
+  if (!body || !root) return;
 
   if (lock) {
     if (scrollLocks === 0) {
-      scrollBarWidth = `${window.innerWidth - document.documentElement.clientWidth}px`;
+      const width = Math.max(0, window.innerWidth - root.clientWidth);
+      root.style.setProperty('--scrollbar-width', `${width}px`);
+      body.classList.add(C.CLS.NO_SCROLL);
     }
-    scrollLocks++;
-  } else if (scrollLocks > 0) {
-    scrollLocks--;
+
+    scrollLocks += 1;
+    return;
   }
 
   if (scrollLocks > 0) {
-    body.style.overflow = 'hidden';
-    body.style.paddingRight = scrollBarWidth;
-    if (el.header) el.header.style.paddingRight = scrollBarWidth;
-  } else {
-    body.style.overflow = '';
-    body.style.paddingRight = '';
-    if (el.header) el.header.style.paddingRight = '';
+    scrollLocks -= 1;
+  }
+
+  if (scrollLocks === 0) {
+    body.classList.remove(C.CLS.NO_SCROLL);
+    root.style.setProperty('--scrollbar-width', '0px');
   }
 }
 
