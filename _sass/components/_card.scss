@@ -645,7 +645,7 @@
   }
 }
 
-@media (hover: none) and (pointer: coarse) and (orientation: landscape) {
+@media (hover: none) and (pointer: coarse) and (orientation: landscape) and (min-width: 576px) {
   .card-grid {
     display: flex;
     flex-wrap: wrap;
