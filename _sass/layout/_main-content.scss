@@ -69,46 +69,6 @@ main {
   background-color: var(--color-background-medium);
 }
 
-.intro-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: var(--spacing-xxl);
-  align-items: center;
-  text-align: center;
-}
-
-.intro-image {
-  text-align: center;
-}
-
-.console-image {
-  display: block;
-  max-inline-size: min(100%, 400px);
-  block-size: auto;
-  margin-inline: auto;
-  border-radius: var(--border-radius-md);
-  box-shadow: var(--box-shadow-heavy);
-}
-
-.image-caption {
-  margin-block-start: var(--spacing-sm);
-  color: var(--color-text-secondary);
-  font-size: var(--font-size-body-sm);
-  font-style: italic;
-}
-
-.image-attribution {
-  display: block;
-  margin-block-start: var(--spacing-sm);
-  color: var(--color-text-secondary);
-  font-size: var(--font-size-caption);
-  line-height: 1.4;
-}
-
-.emulator-details-section {
-  background-color: var(--color-background-dark);
-}
-
 .info-text {
   text-align: center;
 }
@@ -155,36 +115,8 @@ main {
   margin-block-start: var(--spacing-md);
 }
 
-.guide-step .step-icon {
-  align-self: center;
-  inline-size: 100px;
-  block-size: 100px;
-  margin-block-start: var(--spacing-md);
-  object-fit: cover;
-}
-
-.enhancements-and-troubleshooting-section {
-  background-color: var(--color-background-dark);
-}
-
 .dual-column-grid > div + div {
   margin-block-start: var(--spacing-xxl);
-}
-
-.support-cta {
-  margin-block-start: var(--spacing-xxl);
-  padding: var(--spacing-xl);
-  text-align: center;
-  border: 1px solid var(--color-border);
-  border-radius: var(--border-radius-md);
-  background-color: var(--color-background-light);
-  box-shadow: var(--box-shadow-light);
-}
-
-.support-cta p {
-  margin-block-start: 0;
-  margin-block-end: var(--spacing-lg);
-  font-size: var(--font-size-body);
 }
 
 .discord-cta-container {
@@ -544,11 +476,6 @@ main {
     block-size: 60dvh;
   }
 
-  .intro-grid {
-    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
-    text-align: start;
-  }
-
   .dual-column-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -720,7 +647,6 @@ main {
 
 @media (forced-colors: active) {
   .guide-step,
-  .support-cta,
   .content-panel,
   .video-wrapper.lite-youtube,
   .lite-play-btn,
