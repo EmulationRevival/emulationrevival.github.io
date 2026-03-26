@@ -44,7 +44,7 @@
 }
 
 .card[id] {
-  scroll-margin-top: calc(var(--header-height) + var(--spacing-md));
+  scroll-margin-top: var(--spacing-md);
 }
 
 .card-link {
