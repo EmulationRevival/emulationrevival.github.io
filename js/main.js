@@ -28,7 +28,6 @@ const C = {
   CLS: {
     ACTIVE: 'active',
     BACK: 'drilldown-back',
-    NO_SCROLL: 'no-scroll',
   },
   BP: {
     MOBILE: 992,
@@ -97,27 +96,18 @@ for (let i = 0; i < el.submenuTriggers.length; i++) {
 
 function setScrollLock(lock) {
   const body = document.body;
-  const root = document.documentElement;
-  if (!body || !root) return;
+  if (!body) return;
 
   if (lock) {
-    if (scrollLocks === 0) {
-      const width = Math.max(0, window.innerWidth - root.clientWidth);
-      root.style.setProperty('--scrollbar-width', `${width}px`);
-      body.classList.add(C.CLS.NO_SCROLL);
-    }
-
     scrollLocks += 1;
-    return;
-  }
-
-  if (scrollLocks > 0) {
+  } else if (scrollLocks > 0) {
     scrollLocks -= 1;
   }
 
-  if (scrollLocks === 0) {
-    body.classList.remove(C.CLS.NO_SCROLL);
-    root.style.setProperty('--scrollbar-width', '0px');
+  if (scrollLocks > 0) {
+    body.classList.add('no-scroll');
+  } else {
+    body.classList.remove('no-scroll');
   }
 }
 
