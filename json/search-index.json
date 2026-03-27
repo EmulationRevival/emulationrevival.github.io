@@ -406,6 +406,20 @@
     "category": "Ports"
   },
   {
+    "name": "Descent 3",
+    "description": "This is the first release of the community port of Descent 3",
+    "img": "/xbox-dev-mode/images/game-ports/descent3.webp",
+    "url": "/xbox-dev-mode/ports.html#descent-3",
+    "category": "Ports"
+  },
+  {
+    "name": "Inferno",
+    "description": "Inferno is a single player remaster of the 1995 classic Descent 1",
+    "img": "/xbox-dev-mode/images/game-ports/inferno.webp",
+    "url": "/xbox-dev-mode/ports.html#inferno",
+    "category": "Ports"
+  },
+  {
     "name": "USB Permissions Tool",
     "description": "Add necessary permissions to an NTFS formatted USB drive for UWP apps",
     "img": "/xbox-dev-mode/images/utilities/usb-perms-tool.webp",
