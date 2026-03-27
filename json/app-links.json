@@ -130,7 +130,7 @@
   },
   "xbsx2": {
     "name": "XBSX2",
-    "version": "v2.0.8.5",
+    "version": "2.0.8.5",
     "releaseDate": "2026-02-18",
     "assets": [
       {
@@ -156,7 +156,7 @@
   },
   "flycast": {
     "name": "Flycast",
-    "version": "v2.6",
+    "version": "2.6",
     "releaseDate": "2026-01-10",
     "assets": [
       {
@@ -223,7 +223,7 @@
   },
   "supermodel": {
     "name": "Supermodel",
-    "version": "v1.0.0.4",
+    "version": "1.0.0.4",
     "releaseDate": "2024-03-03",
     "assets": [
       {
@@ -238,7 +238,7 @@
   },
   "superg": {
     "name": "Supermodel-G920",
-    "version": "v1.0.0.4",
+    "version": "1.0.0.4",
     "releaseDate": "2024-03-03",
     "assets": [
       {
@@ -378,7 +378,7 @@
   },
   "dhewm3": {
     "name": "Dhewm 3",
-    "version": "uwp-1.5.4",
+    "version": "1.5.4",
     "releaseDate": "2025-08-22",
     "assets": [
       {
@@ -408,7 +408,7 @@
   },
   "ioquake3": {
     "name": "ioquake3",
-    "version": "uwp-v1.0.0",
+    "version": "1.0.0",
     "releaseDate": "2024-08-13",
     "assets": [
       {
@@ -456,7 +456,7 @@
   },
   "jkdf2": {
     "name": "Open JKDF2",
-    "version": "uwp-alpha",
+    "version": "1.0.0",
     "releaseDate": "2024-04-29",
     "assets": [
       {
@@ -501,7 +501,7 @@
   },
   "relichunters": {
     "name": "Relic Hunters Zero",
-    "version": "v1.0.0",
+    "version": "1.0.0",
     "releaseDate": "2022-07-28",
     "assets": [
       {
@@ -534,7 +534,7 @@
   },
   "soh": {
     "name": "Ship of Harkinian",
-    "version": "uwp-9.1.0",
+    "version": "9.1.0",
     "releaseDate": "2025-10-22",
     "assets": [
       {
@@ -571,7 +571,7 @@
   },
   "sonic1sms": {
     "name": "Sonic 1 SMS Remake",
-    "version": "v1.9.2-xbox",
+    "version": "1.9.2",
     "releaseDate": "2022-09-16",
     "assets": [
       {
@@ -582,7 +582,7 @@
   },
   "sonic2sms": {
     "name": "Sonic 2 SMS Remake",
-    "version": "v2.9.2-xbox",
+    "version": "2.9.2",
     "releaseDate": "2022-10-07",
     "assets": [
       {
@@ -604,7 +604,7 @@
   },
   "sab2": {
     "name": "Sonic Adventure Blast 2",
-    "version": "v1.0.0",
+    "version": "1.0.0",
     "releaseDate": "2025-01-19",
     "assets": [
       {
@@ -652,7 +652,7 @@
   },
   "ringracers": {
     "name": "Sonic Ring Racers",
-    "version": "uwp-initial",
+    "version": "2.3",
     "releaseDate": "2024-05-29",
     "assets": [
       {
@@ -748,7 +748,7 @@
   },
   "vvvvvv": {
     "name": "VVVVVV",
-    "version": "v2.3.6.0",
+    "version": "2.3.6.0",
     "releaseDate": "2023-05-06",
     "assets": [
       {
@@ -796,7 +796,7 @@
   },
   "launchpass": {
     "name": "Launchpass",
-    "version": "v2.2.0",
+    "version": "2.2.0",
     "releaseDate": "2023-05-21",
     "assets": [
       {
@@ -811,7 +811,7 @@
   },
   "retropass": {
     "name": "Retropass",
-    "version": "RetroPass_v1.12.0",
+    "version": "12.0",
     "releaseDate": "2024-04-16",
     "assets": [
       {
@@ -833,7 +833,7 @@
   },
   "durangoftp": {
     "name": "Durango FTP",
-    "version": "v1.2.1",
+    "version": "1.2.1",
     "releaseDate": "2022-09-28",
     "assets": [
       {
@@ -925,7 +925,7 @@
   },
   "2s2h": {
     "name": "2Ship2Harkinian",
-    "version": "0.1.0-uwp",
+    "version": "0.1.0",
     "releaseDate": "2025-12-14",
     "assets": [
       {
@@ -936,7 +936,7 @@
   },
   "nsmb": {
     "name": "NSMB (MarioVsLuigi)",
-    "version": "v2.0.4.1",
+    "version": "2.0.4.1",
     "releaseDate": "2025-11-11",
     "assets": [
       {
