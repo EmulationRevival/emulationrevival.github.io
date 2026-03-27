@@ -622,15 +622,15 @@
     url: "/guides/ports/sonic2decomp-guide.html"
   tutorial_url: null
 
-- id: "sonicsms"
+- id: "sonic-1-sms-remake"
   app_id: "sonic1sms"
-  title: "Sonic 1 & 2 SMS Remake"
-  description: "Modern remakes of the 8-bit Sega Master System Sonic games"
-  image: "/xbox-dev-mode/images/game-ports/sonicsms.webp"
-  alt: "Sonic 1&2 SMS Logo"
+  title: "Sonic 1 SMS Remake"
+  description: "Modern remake of the 8-bit Sega Master System Sonic game"
+  image: "/xbox-dev-mode/images/game-ports/sonic1sms.webp"
+  alt: "Sonic 1 SMS Remake Logo"
   category: "Ports"
-  page_url: "/xbox-dev-mode/ports.html#sonicsms"
-  preview_url: "/previews/ports-sonicsms.html"
+  page_url: "/xbox-dev-mode/ports.html#sonic-1-sms-remake"
+  preview_url: "/previews/ports-sonic-1-sms-remake.html"
   compatibility: "Xbox One & Series S|X"
   requirements: []
   features: []
@@ -644,9 +644,35 @@
         donations: []
     maintainers: []
   downloads:
-    - label: "Sonic 1 SMS Remake"
+    - label: "Download"
       asset_id: "sonic1sms"
-    - label: "Sonic 2 SMS Remake"
+  setup_guide:
+    url: "/guides/ports/sonicsms-guide.html"
+  tutorial_url: "https://youtu.be/TZrGjgB5iMo"
+  
+- id: "sonic-2-sms-remake"
+  app_id: "sonic2sms"
+  title: "Sonic 2 SMS Remake"
+  description: "Modern remake of the 8-bit Sega Master System Sonic game"
+  image: "/xbox-dev-mode/images/game-ports/sonic2sms.webp"
+  alt: "Sonic 2 SMS Remake Logo"
+  category: "Ports"
+  page_url: "/xbox-dev-mode/ports.html#sonic-2-sms-remake"
+  preview_url: "/previews/ports-sonic-2-sms-remake.html"
+  compatibility: "Xbox One & Series S|X"
+  requirements: []
+  features: []
+  contributors:
+    developers:
+      - name: "Creative Araya"
+        donations: []
+    porters:
+      - name: "MDashK"
+        github: "https://github.com/MDashK"
+        donations: []
+    maintainers: []
+  downloads:
+    - label: "Download"
       asset_id: "sonic2sms"
   setup_guide:
     url: "/guides/ports/sonicsms-guide.html"
