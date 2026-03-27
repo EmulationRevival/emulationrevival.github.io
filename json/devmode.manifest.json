@@ -218,17 +218,18 @@
     ]
   },
   "ppsspp": {
-    "name": "PPSSPP",
-    "type": "static",
-    "version": "1.20.3",
-    "releaseDate": "2026-03-15",
-    "assets": [
-      {
-        "id": "ppsspp",
-        "url": "https://www.ppsspp.org/files/1_20_3/ppsspp_uwp.zip"
-      }
-    ]
-  },
+  "name": "PPSSPP",
+  "type": "githubVersionedStatic",
+  "repo": "hrydgard/ppsspp",
+  "version": "1.20.2",
+  "releaseDate": "2026-03-03",
+  "assets": [
+    {
+      "id": "ppsspp",
+      "urlTemplate": "https://www.ppsspp.org/files/{version_underscored}/ppsspp_uwp.zip"
+    }
+  ]
+},
   "supermodel": {
     "name": "Supermodel",
     "repo": "poopbird4k/Supermodel-uwp-gl",
