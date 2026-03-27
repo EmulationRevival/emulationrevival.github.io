@@ -14,6 +14,7 @@ const VERSION_FILE = path.join(OUTPUT_DIR, 'version.json');
 const FETCH_TIMEOUT_MS = 15000;
 const RETRY_ATTEMPTS = 2;
 const RETRY_DELAY_MS = 1000;
+const RELEASES_PER_PAGE = 100;
 
 const FAILURE_TYPES = {
     FETCH: 'fetch-failure',
@@ -21,7 +22,6 @@ const FAILURE_TYPES = {
     RELEASE_FILTER: 'release-filter-miss',
     ASSET_MISS: 'asset-miss',
     PARTIAL_ASSET_MISS: 'partial-asset-miss',
-    VERSION_URL_BUILD: 'versioned-url-build-failure',
     VERSION_URL_CHECK: 'versioned-url-check-failure',
     VALIDATION: 'validation-failure',
     WRITE: 'write-failure'
@@ -205,20 +205,6 @@ function getReleaseTextSources(release) {
     ].filter(item => item.value);
 }
 
-function selectReleaseVersionSource(release, config) {
-    const versionSource = config.versionSource || 'auto';
-
-    if (versionSource === 'tag') {
-        return release.tag_name || release.name || 'Unknown';
-    }
-
-    if (versionSource === 'name') {
-        return release.name || release.tag_name || 'Unknown';
-    }
-
-    return release.tag_name || release.name || 'Unknown';
-}
-
 function extractRegexVersionCandidate(text, regexString) {
     if (typeof text !== 'string' || !text) {
         return null;
@@ -314,6 +300,33 @@ function scoreVersionCandidate(candidate, source, text) {
     return score;
 }
 
+function compareSemanticVersions(a, b) {
+    const aNormalized = normalizeVersion(a);
+    const bNormalized = normalizeVersion(b);
+
+    const aIsVersion = /^\d+(?:\.\d+)+$/.test(aNormalized);
+    const bIsVersion = /^\d+(?:\.\d+)+$/.test(bNormalized);
+
+    if (aIsVersion && bIsVersion) {
+        const aParts = aNormalized.split('.').map(Number);
+        const bParts = bNormalized.split('.').map(Number);
+        const maxLength = Math.max(aParts.length, bParts.length);
+
+        for (let i = 0; i < maxLength; i += 1) {
+            const aValue = Number.isFinite(aParts[i]) ? aParts[i] : 0;
+            const bValue = Number.isFinite(bParts[i]) ? bParts[i] : 0;
+
+            if (aValue !== bValue) {
+                return aValue - bValue;
+            }
+        }
+
+        return 0;
+    }
+
+    return aNormalized.localeCompare(bNormalized, undefined, { numeric: true, sensitivity: 'base' });
+}
+
 function getSmartAutoVersion(release) {
     const sources = getReleaseTextSources(release);
     const candidates = [];
@@ -334,7 +347,18 @@ function getSmartAutoVersion(release) {
         return null;
     }
 
-    candidates.sort((a, b) => b.score - a.score || b.value.length - a.value.length);
+    candidates.sort((a, b) => {
+        if (b.score !== a.score) {
+            return b.score - a.score;
+        }
+
+        const versionCompare = compareSemanticVersions(b.value, a.value);
+        if (versionCompare !== 0) {
+            return versionCompare;
+        }
+
+        return b.value.length - a.value.length;
+    });
 
     return candidates[0].value || null;
 }
@@ -369,7 +393,19 @@ function extractDisplayVersion(release, config) {
         }
 
         if (regexCandidates.length) {
-            regexCandidates.sort((a, b) => b.score - a.score || b.value.length - a.value.length);
+            regexCandidates.sort((a, b) => {
+                if (b.score !== a.score) {
+                    return b.score - a.score;
+                }
+
+                const versionCompare = compareSemanticVersions(b.value, a.value);
+                if (versionCompare !== 0) {
+                    return versionCompare;
+                }
+
+                return b.value.length - a.value.length;
+            });
+
             return regexCandidates[0].value;
         }
     }
@@ -388,6 +424,15 @@ function extractDisplayVersion(release, config) {
     }
 
     return release.tag_name || release.name || 'Unknown';
+}
+
+function resolveReleaseDate(config, resolvedVersion, release) {
+    const overrideDate = config.releaseDateOverrides?.[resolvedVersion];
+    if (typeof overrideDate === 'string' && overrideDate.trim()) {
+        return overrideDate;
+    }
+
+    return getReleaseDate(release);
 }
 
 function filterReleases(allReleases, config) {
@@ -413,7 +458,86 @@ function filterReleases(allReleases, config) {
     return filtered;
 }
 
-async function fetchLatestStableRelease(repo, config, headers, releaseCache, summary) {
+function chooseBestReleaseFromFiltered(filteredReleases, config) {
+    if (!Array.isArray(filteredReleases) || !filteredReleases.length) {
+        return null;
+    }
+
+    const decorated = filteredReleases.map(release => {
+        const resolvedVersion = extractDisplayVersion(release, config) || 'Unknown';
+        const publishedAt = typeof release?.published_at === 'string'
+            ? Date.parse(release.published_at)
+            : NaN;
+        const createdAt = typeof release?.created_at === 'string'
+            ? Date.parse(release.created_at)
+            : NaN;
+        const dateValue = Number.isFinite(publishedAt)
+            ? publishedAt
+            : (Number.isFinite(createdAt) ? createdAt : 0);
+
+        return {
+            release,
+            resolvedVersion,
+            dateValue
+        };
+    });
+
+    decorated.sort((a, b) => {
+        const semanticCompare = compareSemanticVersions(b.resolvedVersion, a.resolvedVersion);
+        if (semanticCompare !== 0) {
+            return semanticCompare;
+        }
+
+        return b.dateValue - a.dateValue;
+    });
+
+    return decorated[0].release;
+}
+
+async function fetchAllReleases(repo, headers) {
+    let page = 1;
+    const allReleases = [];
+
+    while (true) {
+        const apiUrl = `https://api.github.com/repos/${repo}/releases?per_page=${RELEASES_PER_PAGE}&page=${page}`;
+
+        let response;
+
+        try {
+            response = await fetchWithRetry(apiUrl, { headers });
+        } catch (error) {
+            error.failureType = FAILURE_TYPES.FETCH;
+            throw error;
+        }
+
+        if (!response.ok) {
+            const error = new Error(`API request failed: ${response.status}`);
+            error.failureType = FAILURE_TYPES.FETCH;
+            error.status = response.status;
+            throw error;
+        }
+
+        const pageReleases = await response.json();
+
+        if (!Array.isArray(pageReleases)) {
+            const error = new Error('Invalid releases response.');
+            error.failureType = FAILURE_TYPES.FETCH;
+            throw error;
+        }
+
+        allReleases.push(...pageReleases);
+
+        if (pageReleases.length < RELEASES_PER_PAGE) {
+            break;
+        }
+
+        page += 1;
+    }
+
+    return allReleases;
+}
+
+async function fetchBestMatchingRelease(repo, config, headers, releaseCache, summary) {
     const cacheKey = JSON.stringify({
         repo,
         allowPrerelease: config.allowPrerelease === true,
@@ -433,27 +557,9 @@ async function fetchLatestStableRelease(repo, config, headers, releaseCache, sum
         return cachedRelease;
     }
 
-    const apiUrl = `https://api.github.com/repos/${repo}/releases`;
+    const allReleases = await fetchAllReleases(repo, headers);
 
-    let response;
-
-    try {
-        response = await fetchWithRetry(apiUrl, { headers });
-    } catch (error) {
-        error.failureType = FAILURE_TYPES.FETCH;
-        throw error;
-    }
-
-    if (!response.ok) {
-        const error = new Error(`API request failed: ${response.status}`);
-        error.failureType = FAILURE_TYPES.FETCH;
-        error.status = response.status;
-        throw error;
-    }
-
-    const allReleases = await response.json();
-
-    if (!Array.isArray(allReleases) || !allReleases.length) {
+    if (!allReleases.length) {
         const error = new Error('No releases found.');
         error.failureType = FAILURE_TYPES.NO_RELEASES;
         throw error;
@@ -467,10 +573,17 @@ async function fetchLatestStableRelease(repo, config, headers, releaseCache, sum
         throw error;
     }
 
-    const latestRelease = filteredReleases[0];
-    releaseCache.set(cacheKey, latestRelease);
+    const bestRelease = chooseBestReleaseFromFiltered(filteredReleases, config);
 
-    return latestRelease;
+    if (!bestRelease) {
+        const error = new Error('Could not determine the best matching release.');
+        error.failureType = FAILURE_TYPES.RELEASE_FILTER;
+        throw error;
+    }
+
+    releaseCache.set(cacheKey, bestRelease);
+
+    return bestRelease;
 }
 
 function getFallbackEntry(appId, config, previousOutput) {
@@ -528,6 +641,30 @@ function throwValidationError(message) {
     throw error;
 }
 
+function validateReleaseDateOverrides(appId, releaseDateOverrides) {
+    if (releaseDateOverrides === undefined) {
+        return;
+    }
+
+    if (!releaseDateOverrides || typeof releaseDateOverrides !== 'object' || Array.isArray(releaseDateOverrides)) {
+        throwValidationError(`App '${appId}' has invalid releaseDateOverrides.`);
+    }
+
+    for (const [version, date] of Object.entries(releaseDateOverrides)) {
+        if (typeof version !== 'string' || !version.trim()) {
+            throwValidationError(`App '${appId}' has an invalid releaseDateOverrides key.`);
+        }
+
+        if (typeof date !== 'string' || !date.trim()) {
+            throwValidationError(`App '${appId}' has an invalid releaseDateOverrides date for version '${version}'.`);
+        }
+
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+            throwValidationError(`App '${appId}' has a non-ISO releaseDateOverrides date for version '${version}'.`);
+        }
+    }
+}
+
 function validateManifest(manifest) {
     if (!manifest || typeof manifest !== 'object' || Array.isArray(manifest)) {
         throwValidationError('Manifest root must be an object.');
@@ -551,11 +688,7 @@ function validateManifest(manifest) {
         for (const assetConfig of config.assets) {
             validateAssetConfig(appId, assetConfig, assetIds);
 
-            if (config.type === 'static') {
-                if (typeof assetConfig.url !== 'string' || !assetConfig.url.trim()) {
-                    throwValidationError(`Static app '${appId}' asset '${assetConfig.id}' is missing a valid url.`);
-                }
-            } else if (config.type === 'githubVersionedStatic') {
+            if (config.type === 'githubVersionedStatic') {
                 if (typeof config.repo !== 'string' || !config.repo.trim()) {
                     throwValidationError(`Versioned static app '${appId}' is missing a valid repo.`);
                 }
@@ -610,6 +743,8 @@ function validateManifest(manifest) {
                 throwValidationError(`App '${appId}' has invalid versionRegex.`);
             }
         }
+
+        validateReleaseDateOverrides(appId, config.releaseDateOverrides);
     }
 }
 
@@ -682,7 +817,6 @@ function incrementFailure(summary, failureType) {
 function createSummary() {
     return {
         totalApps: 0,
-        staticEntries: 0,
         githubEntries: 0,
         versionedStaticEntries: 0,
         cachedRepoHits: 0,
@@ -699,34 +833,27 @@ function entryString(entry) {
     return JSON.stringify(entry);
 }
 
-async function processStaticApp(appId, config, finalJsonOutput) {
-    finalJsonOutput[appId].version = config.version || 'Unknown';
-    finalJsonOutput[appId].releaseDate = config.releaseDate || 'Unknown';
-    finalJsonOutput[appId].assets = cloneAssets(config.assets);
-    console.log('  - Static links processed.');
-}
-
 async function processGithubReleaseAssetsApp(appId, config, finalJsonOutput, headers, releaseCache, summary) {
-    const latestRelease = await fetchLatestStableRelease(config.repo, config, headers, releaseCache, summary);
+    const bestRelease = await fetchBestMatchingRelease(config.repo, config, headers, releaseCache, summary);
 
-    if (!latestRelease) {
+    if (!bestRelease) {
         const error = new Error('Could not determine a release.');
         error.failureType = FAILURE_TYPES.NO_RELEASES;
         throw error;
     }
 
     console.log(
-        `  - Found release: '${latestRelease.name || latestRelease.tag_name}'`
+        `  - Found release: '${bestRelease.name || bestRelease.tag_name}'`
     );
 
-    const displayVersion = extractDisplayVersion(latestRelease, config);
-    const releaseDate = getReleaseDate(latestRelease);
+    const resolvedVersion = extractDisplayVersion(bestRelease, config) || 'Unknown';
+    const releaseDate = resolveReleaseDate(config, resolvedVersion, bestRelease);
 
-    finalJsonOutput[appId].version = displayVersion || 'Unknown';
+    finalJsonOutput[appId].version = resolvedVersion;
     finalJsonOutput[appId].releaseDate = releaseDate;
 
-    const releaseAssets = Array.isArray(latestRelease.assets)
-        ? latestRelease.assets
+    const releaseAssets = Array.isArray(bestRelease.assets)
+        ? bestRelease.assets
         : [];
 
     const resolvedAssets = [];
@@ -755,13 +882,13 @@ async function processGithubReleaseAssetsApp(appId, config, finalJsonOutput, hea
     const requireAllAssets = getRequireAllAssets(config);
 
     if (resolvedAssets.length === 0) {
-        const error = new Error('No expected assets were found in latest release.');
+        const error = new Error('No expected assets were found in best matching release.');
         error.failureType = FAILURE_TYPES.ASSET_MISS;
         throw error;
     }
 
     if (requireAllAssets && resolvedAssets.length !== config.assets.length) {
-        const error = new Error('One or more expected assets were not found in latest release.');
+        const error = new Error('One or more expected assets were not found in best matching release.');
         error.failureType = FAILURE_TYPES.PARTIAL_ASSET_MISS;
         throw error;
     }
@@ -770,21 +897,21 @@ async function processGithubReleaseAssetsApp(appId, config, finalJsonOutput, hea
 }
 
 async function processGithubVersionedStaticApp(appId, config, finalJsonOutput, headers, releaseCache, previousOutput, summary) {
-    const latestRelease = await fetchLatestStableRelease(config.repo, config, headers, releaseCache, summary);
+    const bestRelease = await fetchBestMatchingRelease(config.repo, config, headers, releaseCache, summary);
 
-    if (!latestRelease) {
+    if (!bestRelease) {
         const error = new Error('Could not determine a release.');
         error.failureType = FAILURE_TYPES.NO_RELEASES;
         throw error;
     }
 
     console.log(
-        `  - Found release: '${latestRelease.name || latestRelease.tag_name}'`
+        `  - Found release: '${bestRelease.name || bestRelease.tag_name}'`
     );
 
-    const rawReleaseVersion = extractDisplayVersion(latestRelease, config);
+    const rawReleaseVersion = extractDisplayVersion(bestRelease, config);
     const normalizedReleaseVersion = normalizeVersion(rawReleaseVersion);
-    const releaseDate = getReleaseDate(latestRelease);
+    const releaseDate = resolveReleaseDate(config, normalizedReleaseVersion, bestRelease);
     const resolvedAssets = [];
 
     for (const assetConfig of config.assets) {
@@ -838,7 +965,6 @@ async function processGithubVersionedStaticApp(appId, config, finalJsonOutput, h
 function printSummary(summary) {
     console.log('\n--- Run Summary ---');
     console.log(`Total apps processed: ${summary.totalApps}`);
-    console.log(`Static entries: ${summary.staticEntries}`);
     console.log(`GitHub release entries: ${summary.githubEntries}`);
     console.log(`GitHub versioned static entries: ${summary.versionedStaticEntries}`);
     console.log(`Cached repo hits: ${summary.cachedRepoHits}`);
@@ -900,9 +1026,7 @@ async function main() {
     for (const [appId, config] of Object.entries(manifest)) {
         summary.totalApps += 1;
 
-        if (config.type === 'static') {
-            summary.staticEntries += 1;
-        } else if (config.type === 'githubVersionedStatic') {
+        if (config.type === 'githubVersionedStatic') {
             summary.versionedStaticEntries += 1;
         } else {
             summary.githubEntries += 1;
@@ -918,9 +1042,7 @@ async function main() {
         };
 
         try {
-            if (config.type === 'static') {
-                await processStaticApp(appId, config, finalJsonOutput);
-            } else if (config.type === 'githubVersionedStatic') {
+            if (config.type === 'githubVersionedStatic') {
                 await processGithubVersionedStaticApp(
                     appId,
                     config,
@@ -976,7 +1098,6 @@ async function main() {
             fs.mkdirSync(OUTPUT_DIR, { recursive: true });
         }
 
-        const nextOutputString = stableStringify(finalJsonOutput);
         const previousCanonicalString = stableStringify(previousOutput);
         const nextCanonicalString = stableStringify(finalJsonOutput);
 
@@ -987,7 +1108,7 @@ async function main() {
             return;
         }
 
-        writeFileAtomic(OUTPUT_FILE, nextOutputString);
+        writeFileAtomic(OUTPUT_FILE, nextCanonicalString);
 
         const versionData = {
             version: Date.now()

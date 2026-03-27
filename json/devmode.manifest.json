@@ -19,121 +19,161 @@
   },
   "discorduwp": {
     "name": "Discord UWP",
-    "type": "static",
-    "version": "Unknown",
-    "releaseDate": "2024-10-16",
+    "repo": "EmulationRevival/emulationrevival-downloads",
+    "releaseTagRegex": "^discord-",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "releaseDateOverrides": {
+      "1.0.1.0": "2024-10-16"
+    },
     "assets": [
       {
         "id": "discorduwp",
-        "url": "https://drive.google.com/uc?export=download&id=13qvqqpDsuHGznBpUITiV6W50Ng3pqyex"
+        "assetPattern": "Discord-UWP-*.zip"
       }
     ]
   },
   "xuwp": {
     "name": "X UWP",
-    "type": "static",
-    "version": "Unknown",
-    "releaseDate": "2024-12-01",
+    "repo": "EmulationRevival/emulationrevival-downloads",
+    "releaseTagRegex": "^x-",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "releaseDateOverrides": {
+      "1.0.1.0": "2024-12-01"
+    },
     "assets": [
       {
         "id": "xuwp",
-        "url": "https://drive.google.com/uc?export=download&id=13vqMwvw1GejeElQ_62A1i1QRPylJma71"
+        "assetPattern": "X-UWP-*.zip"
       }
     ]
   },
   "xbcloudgaming": {
     "name": "XB Cloud Gaming",
-    "type": "static",
-    "version": "Unknown",
-    "releaseDate": "2024-11-27",
+    "repo": "EmulationRevival/emulationrevival-downloads",
+    "releaseTagRegex": "^xb-cloud-gaming-",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "releaseDateOverrides": {
+      "1.0.1.0": "2024-11-27"
+    },
     "assets": [
       {
         "id": "xbcloudgaming",
-        "url": "https://drive.google.com/uc?export=download&id=144V8fmPZBXklRYgfphkxbBt_dSKhkKuL"
+        "assetPattern": "XB-Cloud-Gaming-UWP-*.zip"
       }
     ]
   },
   "kodi": {
     "name": "Kodi",
-    "type": "static",
-    "version": "Unknown",
-    "releaseDate": "2022-10-29",
+    "repo": "EmulationRevival/emulationrevival-downloads",
+    "releaseTagRegex": "^kodi-",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "releaseDateOverrides": {
+      "21.0.0.0": "2022-10-29"
+    },
     "assets": [
       {
         "id": "kodi",
-        "url": "https://drive.google.com/uc?export=download&id=14YQNJ5FwlRnzdo5otCdp8l0dhLIDVR9V"
+        "assetPattern": "Kodi-UWP-*.msix"
       }
     ]
   },
   "soundcloud": {
     "name": "SoundCloud",
-    "type": "static",
-    "version": "Unknown",
-    "releaseDate": "2024-02-21",
+    "repo": "EmulationRevival/emulationrevival-downloads",
+    "releaseTagRegex": "^soundcloud-",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "releaseDateOverrides": {
+      "1.1.36.0": "2024-02-21"
+    },
     "assets": [
       {
         "id": "soundcloud",
-        "url": "https://drive.google.com/uc?export=download&id=15Gf3gHcW3EK1zAF3_7_fZjUTG81fJBZC"
+        "assetPattern": "SoundCloud-UWP-*.appx"
       }
     ]
   },
   "tunein": {
     "name": "TuneIn Radio",
-    "type": "static",
-    "version": "Unknown",
-    "releaseDate": "2024-11-21",
+    "repo": "EmulationRevival/emulationrevival-downloads",
+    "releaseTagRegex": "^tuneinradio-",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "releaseDateOverrides": {
+      "4.0.7.0": "2024-11-21"
+    },
     "assets": [
       {
         "id": "tunein",
-        "url": "https://drive.google.com/uc?export=download&id=1515UGixciiCsNilnqnqrDwUydUoDf5YP"
+        "assetPattern": "TuneInRadio-UWP-*.appxbundle"
       }
     ]
   },
   "twitch": {
     "name": "Twitch",
-    "type": "static",
-    "version": "Unknown",
-    "releaseDate": "2024-12-01",
+    "repo": "EmulationRevival/emulationrevival-downloads",
+    "releaseTagRegex": "^twitch-",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "releaseDateOverrides": {
+      "0.0.9800.0": "2024-12-01"
+    },
     "assets": [
       {
         "id": "twitch",
-        "url": "https://drive.google.com/uc?export=download&id=14rv08APMZMEmQd6VTNl-Rt4bA8XxBti4"
+        "assetPattern": "Twitch-UWP-*.zip"
       }
     ]
   },
   "vlc": {
     "name": "VLC Media Player",
-    "type": "static",
-    "version": "Unknown",
-    "releaseDate": "2024-11-22",
+    "repo": "EmulationRevival/emulationrevival-downloads",
+    "releaseTagRegex": "^vlc-",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "releaseDateOverrides": {
+      "3.2.1.0": "2024-11-22"
+    },
     "assets": [
       {
         "id": "vlc",
-        "url": "https://drive.google.com/uc?export=download&id=14VQd7q-nUe-mIjOiCttJnWgWv1nQ4zk1"
+        "assetPattern": "VLC-UWP-*.zip"
       }
     ]
   },
   "youtube": {
     "name": "YouTube",
-    "type": "static",
-    "version": "Unknown",
-    "releaseDate": "2024-10-20",
+    "repo": "EmulationRevival/emulationrevival-downloads",
+    "releaseTagRegex": "^youtube-",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "releaseDateOverrides": {
+      "1.0.19.0": "2024-10-20"
+    },
     "assets": [
       {
         "id": "youtube",
-        "url": "https://drive.google.com/uc?export=download&id=14EVGDFL3x8jGbIuCfVHMqhXja5xQquyT"
+        "assetPattern": "YouTube-UWP-*.zip"
       }
     ]
   },
   "zune": {
     "name": "Zune",
-    "type": "static",
-    "version": "Unknown",
-    "releaseDate": "2024-02-21",
+    "repo": "EmulationRevival/emulationrevival-downloads",
+    "releaseTagRegex": "^zunemusic-",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "releaseDateOverrides": {
+      "11.2310.8.0": "2024-02-21"
+    },
     "assets": [
       {
         "id": "zune",
-        "url": "https://drive.google.com/uc?export=download&id=15_ZOR4F4fXW8WCBTiDYpkbymdhTfJxUg"
+        "assetPattern": "ZuneMusic-UWP-*.Msixbundle"
       }
     ]
   },
@@ -173,28 +213,36 @@
   },
   "xeniaCanary": {
     "name": "Xenia Canary",
-    "type": "static",
-    "version": "1.1.7",
-    "releaseDate": "2026-03-15",
+    "repo": "EmulationRevival/emulationrevival-downloads",
+    "releaseTagRegex": "^xenia-canary-",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "releaseDateOverrides": {
+      "1.1.7.0": "2026-03-15"
+    },
     "assets": [
       {
         "id": "xenia",
-        "url": "https://drive.google.com/uc?export=download&id=13dZbf9XNiYgRcxLSrgMNUyf8sddZviFU"
+        "assetPattern": "xenia-canary-uwp_*.appxbundle"
       }
     ]
   },
   "retroarch3ds": {
-    "name": "Retroarch 3DS",
-    "type": "static",
-    "version": "1.0.1.0",
-    "releaseDate": "2026-03-16",
-    "assets": [
-      {
-        "id": "retroarch3ds",
-        "url": "https://github.com/YTReviveMe/RetroArch-uwp/releases/download/Citra-Alpha-RetroArch/RetroArch-3ds-Alpha_1.0.1.0_x64.msix"
-      }
-    ]
+  "name": "Retroarch 3DS",
+  "repo": "EmulationRevival/emulationrevival-downloads",
+  "releaseTagRegex": "^retroarch-3ds-",
+  "versionSource": "auto",
+  "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+  "releaseDateOverrides": {
+    "1.0.1.0": "2026-03-16"
   },
+  "assets": [
+    {
+      "id": "retroarch3ds",
+      "assetPattern": "RetroArch-3ds-UWP_*.msix"
+    }
+  ]
+},
   "retroarch": {
     "name": "RetroArch",
     "repo": "XboxEmulationHub/RetroArch",
@@ -218,18 +266,18 @@
     ]
   },
   "ppsspp": {
-  "name": "PPSSPP",
-  "type": "githubVersionedStatic",
-  "repo": "hrydgard/ppsspp",
-  "version": "1.20.2",
-  "releaseDate": "2026-03-03",
-  "assets": [
-    {
-      "id": "ppsspp",
-      "urlTemplate": "https://www.ppsspp.org/files/{version_underscored}/ppsspp_uwp.zip"
-    }
-  ]
-},
+    "name": "PPSSPP",
+    "type": "githubVersionedStatic",
+    "repo": "hrydgard/ppsspp",
+    "version": "1.20.3",
+    "releaseDate": "2026-03-15",
+    "assets": [
+      {
+        "id": "ppsspp",
+        "urlTemplate": "https://www.ppsspp.org/files/{version_underscored}/ppsspp_uwp.zip"
+      }
+    ]
+  },
   "supermodel": {
     "name": "Supermodel",
     "repo": "poopbird4k/Supermodel-uwp-gl",
@@ -260,41 +308,53 @@
   },
   "ruffle": {
     "name": "Ruffle",
-    "type": "static",
-    "version": "Unknown",
-    "releaseDate": "2024-06-22",
+    "repo": "EmulationRevival/emulationrevival-downloads",
+    "releaseTagRegex": "^ruffle-",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "releaseDateOverrides": {
+      "1.2.32.0": "2024-06-22"
+    },
     "assets": [
       {
         "id": "ruffle",
-        "url": "https://drive.google.com/uc?export=download&id=16PJ4EVXwz1ljaYMd43S61k5cHzr2X8EW"
+        "assetPattern": "Ruffle-UWP-*.zip"
       }
     ]
   },
   "openbor": {
     "name": "OpenBOR",
-    "type": "static",
-    "version": "Unknown",
-    "releaseDate": "2024-06-18",
+    "repo": "EmulationRevival/emulationrevival-downloads",
+    "releaseTagRegex": "^openbor-",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "releaseDateOverrides": {
+      "1.0.1.0": "2024-06-18"
+    },
     "assets": [
       {
         "id": "openbor1",
-        "url": "https://drive.google.com/uc?export=download&id=16Cmq95PWfLzmOinKNnxo1Zdg2FLVw4Rx"
+        "assetPattern": "openbor-UWP_*.msixbundle"
       },
       {
         "id": "openbor2",
-        "url": "https://drive.google.com/uc?export=download&id=16LDIuP3l9kki4cwgv33u6_fW7QEI0eAr"
+        "assetPattern": "openbor-legacy-UWP_*.msixbundle"
       }
     ]
   },
   "ikemen": {
     "name": "Ikemen-GO",
-    "type": "static",
-    "version": "Unknown",
-    "releaseDate": "2024-08-26",
+    "repo": "EmulationRevival/emulationrevival-downloads",
+    "releaseTagRegex": "^ikemen-go-",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "releaseDateOverrides": {
+      "1.0.6.0": "2024-08-26"
+    },
     "assets": [
       {
         "id": "ikemen",
-        "url": "https://archive.org/download/ikemen-go-uwp/Ikemen-GO-UWP.zip"
+        "assetPattern": "Ikemen-GO-UWP-*.zip"
       }
     ]
   },
@@ -320,25 +380,33 @@
   },
   "boxedwine": {
     "name": "BoxedWine",
-    "type": "static",
-    "version": "Alpha",
-    "releaseDate": "2024-10-31",
+    "repo": "EmulationRevival/emulationrevival-downloads",
+    "releaseTagRegex": "^boxedwine-",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "releaseDateOverrides": {
+      "1.0.3.0": "2024-10-31"
+    },
     "assets": [
       {
         "id": "boxedwine",
-        "url": "https://drive.google.com/uc?export=download&id=1KUllCnxRIW24Rk-2hyhoWVNB0Ak48MSS"
+        "assetPattern": "Boxedwine-UWP-*.zip"
       }
     ]
   },
   "castlevania": {
     "name": "Castlevania Revamped",
-    "type": "static",
-    "version": "Unknown",
-    "releaseDate": "2024-09-12",
+    "repo": "EmulationRevival/emulationrevival-downloads",
+    "releaseTagRegex": "^cvr-",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "releaseDateOverrides": {
+      "1.0.0.0": "2024-09-12"
+    },
     "assets": [
       {
         "id": "castlevania",
-        "url": "https://drive.google.com/uc?export=download&id=16hBZME-610jsTGKmwTU8ZmBH6xd6InNF"
+        "assetPattern": "CVR-UWP-*.zip"
       }
     ]
   },
@@ -354,25 +422,33 @@
   },
   "chrono": {
     "name": "Chrono Divide",
-    "type": "static",
-    "version": "Unknown",
-    "releaseDate": "2024-06-27",
+    "repo": "EmulationRevival/emulationrevival-downloads",
+    "releaseTagRegex": "^chrono-divide-",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "releaseDateOverrides": {
+      "1.0.12.0": "2024-06-27"
+    },
     "assets": [
       {
         "id": "chrono",
-        "url": "https://drive.google.com/uc?export=download&id=16hJY3G0jjdK-bwxuVCSpcrEevVPAwxCq"
+        "assetPattern": "ChronoDivide-UWP-*.zip"
       }
     ]
   },
   "darkplaces": {
     "name": "Darkplaces Quake",
-    "type": "static",
-    "version": "Unknown",
-    "releaseDate": "2024-06-07",
+    "repo": "EmulationRevival/emulationrevival-downloads",
+    "releaseTagRegex": "^darkplaces-",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "releaseDateOverrides": {
+      "1.0.1.0": "2024-06-07"
+    },
     "assets": [
       {
         "id": "darkplaces",
-        "url": "https://drive.google.com/uc?export=download&id=16j7MGY_2pen4WmZJ6zV6CyuGZyDsjjXJ"
+        "assetPattern": "Darkplaces-UWP-*.zip"
       }
     ]
   },
@@ -440,25 +516,33 @@
   },
   "maze": {
     "name": "Maze0x72",
-    "type": "static",
-    "version": "Unknown",
-    "releaseDate": "2024-12-21",
+    "repo": "EmulationRevival/emulationrevival-downloads",
+    "releaseTagRegex": "^maze0x72-",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "releaseDateOverrides": {
+      "1.0.1.0": "2024-12-21"
+    },
     "assets": [
       {
         "id": "maze",
-        "url": "https://drive.google.com/uc?export=download&id=18YKPvE4mHfXLgQoY-V0XUy_scyqOaJDE"
+        "assetPattern": "Maze0x72-UWP_*.appxbundle"
       }
     ]
   },
   "mine": {
     "name": "Minesweeper",
-    "type": "static",
-    "version": "Unknown",
-    "releaseDate": "2024-12-27",
+    "repo": "EmulationRevival/emulationrevival-downloads",
+    "releaseTagRegex": "^minesweeper3d-",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "releaseDateOverrides": {
+      "1.0.1.0": "2024-12-27"
+    },
     "assets": [
       {
         "id": "mine",
-        "url": "https://drive.google.com/uc?export=download&id=18TiEEa25OX0bRZMBWRykXnWdiM1ERfhI"
+        "assetPattern": "MineSweeper3D-UWP_*.msix"
       }
     ]
   },
@@ -492,17 +576,21 @@
   },
   "opentyrian": {
     "name": "OpenTyrian 2000",
-    "type": "static",
-    "version": "Unknown",
-    "releaseDate": "2024-11-28",
+    "repo": "EmulationRevival/emulationrevival-downloads",
+    "releaseTagRegex": "^opentyrian2000-",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "releaseDateOverrides": {
+      "1.0.0.0": "2024-11-28"
+    },
     "assets": [
       {
         "id": "opentyrian1",
-        "url": "https://drive.google.com/uc?export=download&id=175wee2D5xoB60z4O15Ld-7mB3Xg7XF0w"
+        "assetPattern": "OpenTyrian2000-UWP_*.msix"
       },
       {
         "id": "opentyrian2",
-        "url": "https://drive.google.com/uc?export=download&id=176CtEHJWqaokRRb6DoWBEP0ykv0PoAeY"
+        "assetPattern": "Tyrian2000-Freeware-Data.zip"
       }
     ]
   },
@@ -528,13 +616,17 @@
   },
   "snake": {
     "name": "Snake UWP",
-    "type": "static",
-    "version": "Unknown",
-    "releaseDate": "2024-06-21",
+    "repo": "EmulationRevival/emulationrevival-downloads",
+    "releaseTagRegex": "^snake-",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "releaseDateOverrides": {
+      "1.0.0.0": "2024-06-21"
+    },
     "assets": [
       {
         "id": "snake",
-        "url": "https://drive.google.com/uc?export=download&id=17NweU0yfh32Na9zqqyw18jLxAeFBsjNn"
+        "assetPattern": "Snake-UWP-*.zip"
       }
     ]
   },
@@ -554,25 +646,33 @@
   },
   "sonic1decomp": {
     "name": "Sonic 1 Decompilation",
-    "type": "static",
-    "version": "Unknown",
-    "releaseDate": "2021-01-18",
+    "repo": "EmulationRevival/emulationrevival-downloads",
+    "releaseTagRegex": "^sonic1decomp-",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "releaseDateOverrides": {
+      "1.0.9.0": "2021-01-18"
+    },
     "assets": [
       {
         "id": "sonic1decomp",
-        "url": "https://drive.google.com/uc?export=download&id=17W0bUAji5ybPFEosQmnFsl0kiryGwuNZ"
+        "assetPattern": "Sonic1Decomp-UWP_*.appxbundle"
       }
     ]
   },
   "sonic2decomp": {
     "name": "Sonic 2 Decompilation",
-    "type": "static",
-    "version": "Unknown",
-    "releaseDate": "2021-01-18",
+    "repo": "EmulationRevival/emulationrevival-downloads",
+    "releaseTagRegex": "^sonic2decomp-",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "releaseDateOverrides": {
+      "1.0.9.0": "2021-01-18"
+    },
     "assets": [
       {
         "id": "sonic2decomp",
-        "url": "https://drive.google.com/uc?export=download&id=17auj4RzbrRLvCSxTpDFejgi-qC_RugPz"
+        "assetPattern": "Sonic2Decomp-UWP_*.appxbundle"
       }
     ]
   },
@@ -598,13 +698,17 @@
   },
   "sonic3air": {
     "name": "Sonic 3 A.I.R",
-    "type": "static",
-    "version": "Unknown",
-    "releaseDate": "2024-09-04",
+    "repo": "EmulationRevival/emulationrevival-downloads",
+    "releaseTagRegex": "^sonic3air-",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "releaseDateOverrides": {
+      "1.0.2.0": "2024-09-04"
+    },
     "assets": [
       {
         "id": "sonic3air",
-        "url": "https://drive.google.com/uc?export=download&id=17jnUlMM76ztcac76zuNutyuYmIX9U0_4"
+        "assetPattern": "SonicAir-UWP-*.zip"
       }
     ]
   },
@@ -624,13 +728,17 @@
   },
   "soniccd": {
     "name": "Sonic CD Decompilation",
-    "type": "static",
-    "version": "Unknown",
-    "releaseDate": "2021-02-07",
+    "repo": "EmulationRevival/emulationrevival-downloads",
+    "releaseTagRegex": "^sonic-cd-decomp-",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "releaseDateOverrides": {
+      "1.0.21.0": "2021-02-07"
+    },
     "assets": [
       {
         "id": "soniccd",
-        "url": "https://drive.google.com/uc?export=download&id=17yUkyPnQtmixv1OMFQYF2ngmHnEUpLHo"
+        "assetPattern": "SonicCDDecomp-UWP_*.appxbundle"
       }
     ]
   },
@@ -646,13 +754,17 @@
   },
   "sonicrealms": {
     "name": "Sonic Realms",
-    "type": "static",
-    "version": "Unknown",
-    "releaseDate": "2024-06-21",
+    "repo": "EmulationRevival/emulationrevival-downloads",
+    "releaseTagRegex": "^sonic-realms-",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "releaseDateOverrides": {
+      "1.0.0.0": "2024-06-21"
+    },
     "assets": [
       {
         "id": "sonicrealms",
-        "url": "https://drive.google.com/uc?export=download&id=18ARq0oWTgrQA3aR3XB588NxTHhRiN-uA"
+        "assetPattern": "Sonic-Realms-UWP-*.zip"
       }
     ]
   },
@@ -682,13 +794,17 @@
   },
   "sonictimetwisted": {
     "name": "Sonic Time Twisted",
-    "type": "static",
-    "version": "Unknown",
-    "releaseDate": "2022-05-07",
+    "repo": "EmulationRevival/emulationrevival-downloads",
+    "releaseTagRegex": "^sonic-time-twisted-",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "releaseDateOverrides": {
+      "1.1.2.0": "2022-05-07"
+    },
     "assets": [
       {
         "id": "sonictimetwisted",
-        "url": "https://drive.google.com/uc?export=download&id=18EkopK5SPQbHdCRJKLsuLdg9hIJ0osPG"
+        "assetPattern": "Sonic-Time-Twisted-UWP-*.appx"
       }
     ]
   },
@@ -708,49 +824,65 @@
   },
   "spelunky": {
     "name": "Spelunky Classic HD",
-    "type": "static",
-    "version": "Unknown",
-    "releaseDate": "2024-06-21",
+    "repo": "EmulationRevival/emulationrevival-downloads",
+    "releaseTagRegex": "^spelunky-classic-hd-",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "releaseDateOverrides": {
+      "1.0.0.0": "2024-06-21"
+    },
     "assets": [
       {
         "id": "spelunky",
-        "url": "https://drive.google.com/uc?export=download&id=18H7b2ydAMej7ynhODvqCBWmFO2uXPVki"
+        "assetPattern": "Spelunky-Classic-HD-UWP-*.appx"
       }
     ]
   },
   "spooky": {
     "name": "Spooky Dimensions",
-    "type": "static",
-    "version": "Unknown",
-    "releaseDate": "2024-06-21",
+    "repo": "EmulationRevival/emulationrevival-downloads",
+    "releaseTagRegex": "^spooky-dimensions-",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "releaseDateOverrides": {
+      "1.0.0.0": "2024-06-21"
+    },
     "assets": [
       {
         "id": "spooky",
-        "url": "https://drive.google.com/uc?export=download&id=18HuPIq-zBBVAWR5ilAxp_2ZdNLoL2EOz"
+        "assetPattern": "Spooky-Dimensions-UWP-*.appx"
       }
     ]
   },
   "trogdor": {
     "name": "Trogdor Reburninated",
-    "type": "static",
-    "version": "Unknown",
-    "releaseDate": "2022-12-03",
+    "repo": "EmulationRevival/emulationrevival-downloads",
+    "releaseTagRegex": "^trogdor-reburninated-",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "releaseDateOverrides": {
+      "2.0.0.0": "2022-12-03"
+    },
     "assets": [
       {
         "id": "trogdor",
-        "url": "https://drive.google.com/uc?export=download&id=18M9myT6bF1zVHh2UTH8zgXojcM8DC7iu"
+        "assetPattern": "Trogdor-Reburninated-UWP_*.appx"
       }
     ]
   },
   "tuck": {
     "name": "Tuck King of the Sky",
-    "type": "static",
-    "version": "Unknown",
-    "releaseDate": "2023-09-01",
+    "repo": "EmulationRevival/emulationrevival-downloads",
+    "releaseTagRegex": "^tuck-king-of-the-sky-",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "releaseDateOverrides": {
+      "1.0.0.0": "2023-09-01"
+    },
     "assets": [
       {
         "id": "tuck",
-        "url": "https://drive.google.com/uc?export=download&id=18aRcIzrd-ME--wwiuPQqtxNDo4g6JMRB"
+        "assetPattern": "Tuck-UWP-*.zip"
       }
     ]
   },
@@ -770,13 +902,17 @@
   },
   "zircon": {
     "name": "Zircon Quake",
-    "type": "static",
-    "version": "Unknown",
-    "releaseDate": "2024-06-07",
+    "repo": "EmulationRevival/emulationrevival-downloads",
+    "releaseTagRegex": "^zircon-",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "releaseDateOverrides": {
+      "1.0.5.0": "2024-06-07"
+    },
     "assets": [
       {
         "id": "zircon",
-        "url": "https://drive.google.com/uc?export=download&id=18PQOAYOoZCgJQJJXVA_XZwcdJg9jXzpX"
+        "assetPattern": "Zircon-UWP-*.zip"
       }
     ]
   },
@@ -866,49 +1002,65 @@
   },
   "chonkystation3": {
     "name": "ChonkyStation3",
-    "type": "static",
-    "version": "Unknown",
-    "releaseDate": "2025-03-07",
+    "repo": "EmulationRevival/emulationrevival-downloads",
+    "releaseTagRegex": "^chonkystation3-",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "releaseDateOverrides": {
+      "1.0.2.0": "2025-03-07"
+    },
     "assets": [
       {
         "id": "chonkystation3",
-        "url": "https://drive.google.com/uc?export=download&id=18dxFEL2Ofv1kiN-pHZE-Zci_Woa3cPdm"
+        "assetPattern": "ChonkyStation-UWP-*.zip"
       }
     ]
   },
   "hedgephysics": {
     "name": "Hedge Physics",
-    "type": "static",
-    "version": "Unknown",
-    "releaseDate": "2024-11-29",
+    "repo": "EmulationRevival/emulationrevival-downloads",
+    "releaseTagRegex": "^hedgephysics-",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "releaseDateOverrides": {
+      "1.2.3.0": "2024-11-29"
+    },
     "assets": [
       {
         "id": "hedgephysics",
-        "url": "https://drive.google.com/uc?export=download&id=170OC29cIE_kZjQNM6y3OtBK7B2EOqMgM"
+        "assetPattern": "HedgePhysics-UWP-*.zip"
       }
     ]
   },
   "panda3ds": {
     "name": "Panda3DS",
-    "type": "static",
-    "version": "1.0.1",
-    "releaseDate": "2026-03-23",
+    "repo": "EmulationRevival/emulationrevival-downloads",
+    "releaseTagRegex": "^panda3ds-",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "releaseDateOverrides": {
+      "1.0.4.0": "2026-03-23"
+    },
     "assets": [
       {
         "id": "panda3ds",
-        "url": "https://drive.google.com/uc?export=download&id=1erbMfw1J3t5tekI7UihNme-adO5L84Ki"
+        "assetPattern": "Panda3DS-UWP-*.zip"
       }
     ]
   },
   "sm64hd": {
     "name": "SM64HD fan remake",
-    "type": "static",
-    "version": "Unknown",
-    "releaseDate": "2018-12-17",
+    "repo": "EmulationRevival/emulationrevival-downloads",
+    "releaseTagRegex": "^sm64hd-",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "releaseDateOverrides": {
+      "1.0.1.0": "2018-12-17"
+    },
     "assets": [
       {
         "id": "sm64hd",
-        "url": "https://drive.google.com/uc?export=download&id=18cFjR6Y9nNVzzcTkAlTXxjfgNeheKso0"
+        "assetPattern": "SM64HD-UWP-*.zip"
       }
     ]
   },
@@ -948,13 +1100,17 @@
   },
   "sm64ex": {
     "name": "SM64EX",
-    "type": "static",
-    "version": "1.0.0.0",
-    "releaseDate": "2026-03-26",
+    "repo": "EmulationRevival/emulationrevival-downloads",
+    "releaseTagRegex": "^sm64ex-",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "releaseDateOverrides": {
+      "1.0.0.0": "2026-03-26"
+    },
     "assets": [
       {
         "id": "sm64ex",
-        "url": "https://drive.google.com/uc?export=download&id=1v69A38ZgQaC5sKi9Z_YyJethDgNUWsnH"
+        "assetPattern": "sm64ex-UWP-*.zip"
       }
     ]
   }
