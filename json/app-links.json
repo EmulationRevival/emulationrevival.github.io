@@ -20,111 +20,111 @@
   },
   "discorduwp": {
     "name": "Discord UWP",
-    "version": "Unknown",
+    "version": "1.0.1.0",
     "releaseDate": "2024-10-16",
     "assets": [
       {
         "id": "discorduwp",
-        "url": "https://drive.google.com/uc?export=download&id=13qvqqpDsuHGznBpUITiV6W50Ng3pqyex"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/discord-1.0.1.0/Discord-UWP-1.0.1.0.zip"
       }
     ]
   },
   "xuwp": {
     "name": "X UWP",
-    "version": "Unknown",
+    "version": "1.0.1.0",
     "releaseDate": "2024-12-01",
     "assets": [
       {
         "id": "xuwp",
-        "url": "https://drive.google.com/uc?export=download&id=13vqMwvw1GejeElQ_62A1i1QRPylJma71"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/x-1.0.1.0/X-UWP-1.0.1.0.zip"
       }
     ]
   },
   "xbcloudgaming": {
     "name": "XB Cloud Gaming",
-    "version": "Unknown",
+    "version": "1.0.1.0",
     "releaseDate": "2024-11-27",
     "assets": [
       {
         "id": "xbcloudgaming",
-        "url": "https://drive.google.com/uc?export=download&id=144V8fmPZBXklRYgfphkxbBt_dSKhkKuL"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/xb-cloud-gaming-1.0.1.0/XB-Cloud-Gaming-UWP-1.0.1.0.zip"
       }
     ]
   },
   "kodi": {
     "name": "Kodi",
-    "version": "Unknown",
+    "version": "21.0.0.0",
     "releaseDate": "2022-10-29",
     "assets": [
       {
         "id": "kodi",
-        "url": "https://drive.google.com/uc?export=download&id=14YQNJ5FwlRnzdo5otCdp8l0dhLIDVR9V"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/kodi-21.0.0.0/Kodi-UWP-21.0.0.0.msix"
       }
     ]
   },
   "soundcloud": {
     "name": "SoundCloud",
-    "version": "Unknown",
+    "version": "1.1.36.0",
     "releaseDate": "2024-02-21",
     "assets": [
       {
         "id": "soundcloud",
-        "url": "https://drive.google.com/uc?export=download&id=15Gf3gHcW3EK1zAF3_7_fZjUTG81fJBZC"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/soundcloud-1.1.36.0/SoundCloud-UWP-1.1.36.0.appx"
       }
     ]
   },
   "tunein": {
     "name": "TuneIn Radio",
-    "version": "Unknown",
+    "version": "4.0.7.0",
     "releaseDate": "2024-11-21",
     "assets": [
       {
         "id": "tunein",
-        "url": "https://drive.google.com/uc?export=download&id=1515UGixciiCsNilnqnqrDwUydUoDf5YP"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/tuneinradio-4.0.7.0/TuneInRadio-UWP-4.0.7.0.appxbundle"
       }
     ]
   },
   "twitch": {
     "name": "Twitch",
-    "version": "Unknown",
+    "version": "0.0.9800.0",
     "releaseDate": "2024-12-01",
     "assets": [
       {
         "id": "twitch",
-        "url": "https://drive.google.com/uc?export=download&id=14rv08APMZMEmQd6VTNl-Rt4bA8XxBti4"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/twitch-0.0.9800.0/Twitch-UWP-0.0.9800.0.zip"
       }
     ]
   },
   "vlc": {
     "name": "VLC Media Player",
-    "version": "Unknown",
+    "version": "3.2.1.0",
     "releaseDate": "2024-11-22",
     "assets": [
       {
         "id": "vlc",
-        "url": "https://drive.google.com/uc?export=download&id=14VQd7q-nUe-mIjOiCttJnWgWv1nQ4zk1"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/vlc-3.2.1.0/VLC-UWP-3.2.1.0.zip"
       }
     ]
   },
   "youtube": {
     "name": "YouTube",
-    "version": "Unknown",
+    "version": "1.0.19.0",
     "releaseDate": "2024-10-20",
     "assets": [
       {
         "id": "youtube",
-        "url": "https://drive.google.com/uc?export=download&id=14EVGDFL3x8jGbIuCfVHMqhXja5xQquyT"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/youtube-1.0.19.0/YouTube-UWP-1.0.19.0.zip"
       }
     ]
   },
   "zune": {
     "name": "Zune",
-    "version": "Unknown",
+    "version": "11.2310.8.0",
     "releaseDate": "2024-02-21",
     "assets": [
       {
         "id": "zune",
-        "url": "https://drive.google.com/uc?export=download&id=15_ZOR4F4fXW8WCBTiDYpkbymdhTfJxUg"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/zunemusic-11.2310.8.0/ZuneMusic-UWP-11.2310.8.0.Msixbundle"
       }
     ]
   },
@@ -167,12 +167,12 @@
   },
   "xeniaCanary": {
     "name": "Xenia Canary",
-    "version": "1.1.7",
+    "version": "1.1.7.0",
     "releaseDate": "2026-03-15",
     "assets": [
       {
         "id": "xenia",
-        "url": "https://drive.google.com/uc?export=download&id=13dZbf9XNiYgRcxLSrgMNUyf8sddZviFU"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/xenia-canary-1.1.7.0/xenia-canary-uwp_1.1.7.0_x64.appxbundle"
       }
     ]
   },
@@ -183,30 +183,30 @@
     "assets": [
       {
         "id": "retroarch3ds",
-        "url": "https://github.com/YTReviveMe/RetroArch-uwp/releases/download/Citra-Alpha-RetroArch/RetroArch-3ds-Alpha_1.0.1.0_x64.msix"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/retroarch-3ds-1.0.1.0/RetroArch-3ds-UWP_1.0.1.0_x64.msix"
       }
     ]
   },
   "retroarch": {
     "name": "RetroArch",
-    "version": "03-20-2026",
-    "releaseDate": "2026-03-20",
+    "version": "11-22-2025",
+    "releaseDate": "2025-11-22",
     "assets": [
       {
         "id": "retroarch1",
-        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/03-20-2026/RetroArch-XboxOne.appx"
+        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/11-22-2025/RetroArch-XboxOne.appx"
       },
       {
         "id": "retroarch2",
-        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/03-20-2026/RetroArch-XboxOne-AllCores.appx"
+        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/11-22-2025/RetroArch-XboxOne-AllCores.appx"
       },
       {
         "id": "retroarch3",
-        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/03-20-2026/RetroArch-SeriesConsoles.appx"
+        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/11-22-2025/RetroArch-SeriesConsoles.appx"
       },
       {
         "id": "retroarch4",
-        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/03-20-2026/RetroArch-SeriesConsoles-AllCores.appx"
+        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/11-22-2025/RetroArch-SeriesConsoles-AllCores.appx"
       }
     ]
   },
@@ -253,38 +253,38 @@
   },
   "ruffle": {
     "name": "Ruffle",
-    "version": "Unknown",
+    "version": "1.2.32.0",
     "releaseDate": "2024-06-22",
     "assets": [
       {
         "id": "ruffle",
-        "url": "https://drive.google.com/uc?export=download&id=16PJ4EVXwz1ljaYMd43S61k5cHzr2X8EW"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/ruffle-1.2.32.0/Ruffle-UWP-1.2.32.0.zip"
       }
     ]
   },
   "openbor": {
     "name": "OpenBOR",
-    "version": "Unknown",
+    "version": "1.0.1.0",
     "releaseDate": "2024-06-18",
     "assets": [
       {
         "id": "openbor1",
-        "url": "https://drive.google.com/uc?export=download&id=16Cmq95PWfLzmOinKNnxo1Zdg2FLVw4Rx"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/openbor-1.0.1.0/openbor-UWP_1.0.1.0_x64.msixbundle"
       },
       {
         "id": "openbor2",
-        "url": "https://drive.google.com/uc?export=download&id=16LDIuP3l9kki4cwgv33u6_fW7QEI0eAr"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/openbor-1.0.1.0/openbor-legacy-UWP_1.0.1.0_x64-1.msixbundle"
       }
     ]
   },
   "ikemen": {
     "name": "Ikemen-GO",
-    "version": "Unknown",
+    "version": "1.0.6.0",
     "releaseDate": "2024-08-26",
     "assets": [
       {
         "id": "ikemen",
-        "url": "https://archive.org/download/ikemen-go-uwp/Ikemen-GO-UWP.zip"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/ikemen-go-1.0.6.0/Ikemen-GO-UWP-1.0.6.0.zip"
       }
     ]
   },
@@ -312,23 +312,23 @@
   },
   "boxedwine": {
     "name": "BoxedWine",
-    "version": "Alpha",
+    "version": "1.0.3.0",
     "releaseDate": "2024-10-31",
     "assets": [
       {
         "id": "boxedwine",
-        "url": "https://drive.google.com/uc?export=download&id=1KUllCnxRIW24Rk-2hyhoWVNB0Ak48MSS"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/boxedwine-1.0.3.0/Boxedwine-UWP-1.0.3.0.zip"
       }
     ]
   },
   "castlevania": {
     "name": "Castlevania Revamped",
-    "version": "Unknown",
+    "version": "1.0.0.0",
     "releaseDate": "2024-09-12",
     "assets": [
       {
         "id": "castlevania",
-        "url": "https://drive.google.com/uc?export=download&id=16hBZME-610jsTGKmwTU8ZmBH6xd6InNF"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/cvr-1.0.0.0/CVR-UWP-1.0.0.0.zip"
       }
     ]
   },
@@ -345,23 +345,23 @@
   },
   "chrono": {
     "name": "Chrono Divide",
-    "version": "Unknown",
+    "version": "1.0.12.0",
     "releaseDate": "2024-06-27",
     "assets": [
       {
         "id": "chrono",
-        "url": "https://drive.google.com/uc?export=download&id=16hJY3G0jjdK-bwxuVCSpcrEevVPAwxCq"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/chrono-divide-1.0.12.0/ChronoDivide-UWP-1.0.12.0.zip"
       }
     ]
   },
   "darkplaces": {
     "name": "Darkplaces Quake",
-    "version": "Unknown",
+    "version": "1.0.1.0",
     "releaseDate": "2024-06-07",
     "assets": [
       {
         "id": "darkplaces",
-        "url": "https://drive.google.com/uc?export=download&id=16j7MGY_2pen4WmZJ6zV6CyuGZyDsjjXJ"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/darkplaces-1.0.1.0/Darkplaces-UWP-1.0.1.0.zip"
       }
     ]
   },
@@ -378,16 +378,16 @@
   },
   "dhewm3": {
     "name": "Dhewm 3",
-    "version": "1.5.4",
-    "releaseDate": "2025-08-22",
+    "version": "hdr-alpha",
+    "releaseDate": "2024-02-07",
     "assets": [
       {
         "id": "dhewm3app",
-        "url": "https://github.com/worleydl/dhewm3-uwp/releases/download/uwp-1.5.4/dhewm3-uwp_1.5.4.0_x64.msixbundle"
+        "url": "https://github.com/worleydl/dhewm3-uwp/releases/download/hdr-alpha/dhewm3-uwp_1.0.1.0_x64.msixbundle"
       },
       {
         "id": "dhewm3dep",
-        "url": "https://github.com/worleydl/dhewm3-uwp/releases/download/uwp-1.5.4/Microsoft.VCLibs.x64.14.00.appx"
+        "url": "https://github.com/worleydl/dhewm3-uwp/releases/download/hdr-alpha/Microsoft.VCLibs.x64.14.00.appx"
       }
     ]
   },
@@ -434,23 +434,23 @@
   },
   "maze": {
     "name": "Maze0x72",
-    "version": "Unknown",
+    "version": "1.0.1.0",
     "releaseDate": "2024-12-21",
     "assets": [
       {
         "id": "maze",
-        "url": "https://drive.google.com/uc?export=download&id=18YKPvE4mHfXLgQoY-V0XUy_scyqOaJDE"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/maze0x72-1.0.1.0/Maze0x72-UWP_1.0.1.0_x64.appxbundle"
       }
     ]
   },
   "mine": {
     "name": "Minesweeper",
-    "version": "Unknown",
+    "version": "1.0.1.0",
     "releaseDate": "2024-12-27",
     "assets": [
       {
         "id": "mine",
-        "url": "https://drive.google.com/uc?export=download&id=18TiEEa25OX0bRZMBWRykXnWdiM1ERfhI"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/minesweeper3d-1.0.1.0/MineSweeper3D-UWP_1.0.1.0_x64.msix"
       }
     ]
   },
@@ -486,16 +486,16 @@
   },
   "opentyrian": {
     "name": "OpenTyrian 2000",
-    "version": "Unknown",
+    "version": "1.0.0.0",
     "releaseDate": "2024-11-28",
     "assets": [
       {
         "id": "opentyrian1",
-        "url": "https://drive.google.com/uc?export=download&id=175wee2D5xoB60z4O15Ld-7mB3Xg7XF0w"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/opentyrian2000-1.0.0.0/OpenTyrian2000-UWP_1.0.0.0_x64.msix"
       },
       {
         "id": "opentyrian2",
-        "url": "https://drive.google.com/uc?export=download&id=176CtEHJWqaokRRb6DoWBEP0ykv0PoAeY"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/opentyrian2000-1.0.0.0/Tyrian2000-Freeware-Data.zip"
       }
     ]
   },
@@ -523,12 +523,12 @@
   },
   "snake": {
     "name": "Snake UWP",
-    "version": "Unknown",
+    "version": "1.0.0.0",
     "releaseDate": "2024-06-21",
     "assets": [
       {
         "id": "snake",
-        "url": "https://drive.google.com/uc?export=download&id=17NweU0yfh32Na9zqqyw18jLxAeFBsjNn"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/snake-1.0.0.0/Snake-UWP-1.0.0.0.zip"
       }
     ]
   },
@@ -549,23 +549,23 @@
   },
   "sonic1decomp": {
     "name": "Sonic 1 Decompilation",
-    "version": "Unknown",
+    "version": "1.0.9.0",
     "releaseDate": "2021-01-18",
     "assets": [
       {
         "id": "sonic1decomp",
-        "url": "https://drive.google.com/uc?export=download&id=17W0bUAji5ybPFEosQmnFsl0kiryGwuNZ"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/sonic1decomp-1.0.9.0/Sonic1Decomp-UWP_1.0.9.0_x64.appxbundle"
       }
     ]
   },
   "sonic2decomp": {
     "name": "Sonic 2 Decompilation",
-    "version": "Unknown",
+    "version": "1.0.9.0",
     "releaseDate": "2021-01-18",
     "assets": [
       {
         "id": "sonic2decomp",
-        "url": "https://drive.google.com/uc?export=download&id=17auj4RzbrRLvCSxTpDFejgi-qC_RugPz"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/sonic2decomp-1.0.9.0/Sonic2Decomp-UWP_1.0.9.0_x64.appxbundle"
       }
     ]
   },
@@ -593,12 +593,12 @@
   },
   "sonic3air": {
     "name": "Sonic 3 A.I.R",
-    "version": "Unknown",
+    "version": "1.0.2.0",
     "releaseDate": "2024-09-04",
     "assets": [
       {
         "id": "sonic3air",
-        "url": "https://drive.google.com/uc?export=download&id=17jnUlMM76ztcac76zuNutyuYmIX9U0_4"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/sonic3air-1.0.2.0/SonicAir-UWP-1.0.2.0.zip"
       }
     ]
   },
@@ -619,12 +619,12 @@
   },
   "soniccd": {
     "name": "Sonic CD Decompilation",
-    "version": "Unknown",
+    "version": "1.0.21.0",
     "releaseDate": "2021-02-07",
     "assets": [
       {
         "id": "soniccd",
-        "url": "https://drive.google.com/uc?export=download&id=17yUkyPnQtmixv1OMFQYF2ngmHnEUpLHo"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/sonic-cd-decomp-1.0.21.0/SonicCDDecomp-UWP_1.0.21.0_x64.appxbundle"
       }
     ]
   },
@@ -641,12 +641,12 @@
   },
   "sonicrealms": {
     "name": "Sonic Realms",
-    "version": "Unknown",
+    "version": "1.0.0.0",
     "releaseDate": "2024-06-21",
     "assets": [
       {
         "id": "sonicrealms",
-        "url": "https://drive.google.com/uc?export=download&id=18ARq0oWTgrQA3aR3XB588NxTHhRiN-uA"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/sonic-realms-1.0.0.0/Sonic-Realms-UWP-1.0.0.0.zip"
       }
     ]
   },
@@ -678,12 +678,12 @@
   },
   "sonictimetwisted": {
     "name": "Sonic Time Twisted",
-    "version": "Unknown",
+    "version": "1.1.2.0",
     "releaseDate": "2022-05-07",
     "assets": [
       {
         "id": "sonictimetwisted",
-        "url": "https://drive.google.com/uc?export=download&id=18EkopK5SPQbHdCRJKLsuLdg9hIJ0osPG"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/sonic-time-twisted-1.1.2.0/Sonic-Time-Twisted-UWP-1.1.2.0.appx"
       }
     ]
   },
@@ -704,45 +704,45 @@
   },
   "spelunky": {
     "name": "Spelunky Classic HD",
-    "version": "Unknown",
+    "version": "1.0.0.0",
     "releaseDate": "2024-06-21",
     "assets": [
       {
         "id": "spelunky",
-        "url": "https://drive.google.com/uc?export=download&id=18H7b2ydAMej7ynhODvqCBWmFO2uXPVki"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/spelunky-classic-hd-1.0.0.0/Spelunky-Classic-HD-UWP-1.0.0.0.appx"
       }
     ]
   },
   "spooky": {
     "name": "Spooky Dimensions",
-    "version": "Unknown",
+    "version": "1.0.0.0",
     "releaseDate": "2024-06-21",
     "assets": [
       {
         "id": "spooky",
-        "url": "https://drive.google.com/uc?export=download&id=18HuPIq-zBBVAWR5ilAxp_2ZdNLoL2EOz"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/spooky-dimensions-1.0.0.0/Spooky-Dimensions-UWP-1.0.0.0.appx"
       }
     ]
   },
   "trogdor": {
     "name": "Trogdor Reburninated",
-    "version": "Unknown",
+    "version": "2.0.0.0",
     "releaseDate": "2022-12-03",
     "assets": [
       {
         "id": "trogdor",
-        "url": "https://drive.google.com/uc?export=download&id=18M9myT6bF1zVHh2UTH8zgXojcM8DC7iu"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/trogdor-reburninated-2.0.0.0/Trogdor-Reburninated-UWP_2.0.0.0_x64.appx"
       }
     ]
   },
   "tuck": {
     "name": "Tuck King of the Sky",
-    "version": "Unknown",
+    "version": "1.0.0.0",
     "releaseDate": "2023-09-01",
     "assets": [
       {
         "id": "tuck",
-        "url": "https://drive.google.com/uc?export=download&id=18aRcIzrd-ME--wwiuPQqtxNDo4g6JMRB"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/tuck-king-of-the-sky-1.0.0.0/Tuck-UWP-1.0.0.0.zip"
       }
     ]
   },
@@ -763,12 +763,12 @@
   },
   "zircon": {
     "name": "Zircon Quake",
-    "version": "Unknown",
+    "version": "1.0.5.0",
     "releaseDate": "2024-06-07",
     "assets": [
       {
         "id": "zircon",
-        "url": "https://drive.google.com/uc?export=download&id=18PQOAYOoZCgJQJJXVA_XZwcdJg9jXzpX"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/zircon-1.0.5.0/Zircon-UWP-1.0.5.0.zip"
       }
     ]
   },
@@ -866,45 +866,45 @@
   },
   "chonkystation3": {
     "name": "ChonkyStation3",
-    "version": "Unknown",
+    "version": "1.0.2.0",
     "releaseDate": "2025-03-07",
     "assets": [
       {
         "id": "chonkystation3",
-        "url": "https://drive.google.com/uc?export=download&id=18dxFEL2Ofv1kiN-pHZE-Zci_Woa3cPdm"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/chonkystation3-1.0.2.0/ChonkyStation-UWP-1.0.2.0.zip"
       }
     ]
   },
   "hedgephysics": {
     "name": "Hedge Physics",
-    "version": "Unknown",
+    "version": "1.2.3.0",
     "releaseDate": "2024-11-29",
     "assets": [
       {
         "id": "hedgephysics",
-        "url": "https://drive.google.com/uc?export=download&id=170OC29cIE_kZjQNM6y3OtBK7B2EOqMgM"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/hedgephysics-1.2.3.0/HedgePhysics-UWP-1.2.3.0.zip"
       }
     ]
   },
   "panda3ds": {
     "name": "Panda3DS",
-    "version": "1.0.1",
+    "version": "1.0.4.0",
     "releaseDate": "2026-03-23",
     "assets": [
       {
         "id": "panda3ds",
-        "url": "https://drive.google.com/uc?export=download&id=1erbMfw1J3t5tekI7UihNme-adO5L84Ki"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/panda3ds-1.0.4.0/Panda3DS-UWP-1.0.4.0.zip"
       }
     ]
   },
   "sm64hd": {
     "name": "SM64HD fan remake",
-    "version": "Unknown",
+    "version": "1.0.1.0",
     "releaseDate": "2018-12-17",
     "assets": [
       {
         "id": "sm64hd",
-        "url": "https://drive.google.com/uc?export=download&id=18cFjR6Y9nNVzzcTkAlTXxjfgNeheKso0"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/sm64hd-1.0.1.0/SM64HD-UWP-1.0.1.0.zip"
       }
     ]
   },
@@ -952,7 +952,7 @@
     "assets": [
       {
         "id": "sm64ex",
-        "url": "https://drive.google.com/uc?export=download&id=1v69A38ZgQaC5sKi9Z_YyJethDgNUWsnH"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/sm64ex-1.0.0.0/sm64ex-UWP-1.0.0.0.zip"
       }
     ]
   }
