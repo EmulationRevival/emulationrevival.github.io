@@ -117,18 +117,51 @@ async function fetchLatestStableRelease(repo, headers, releaseCache) {
     return latestStableRelease;
 }
 
-function getExistingStaticFallback(config) {
+function cloneAssets(assets) {
+    if (!Array.isArray(assets)) {
+        return [];
+    }
+
+    return assets.map(asset => ({ ...asset }));
+}
+
+function getFallbackEntry(appId, config, previousOutput) {
+    const previousEntry = previousOutput[appId];
+
+    if (previousEntry) {
+        return {
+            name: previousEntry.name || config.name,
+            version: previousEntry.version || config.version || 'Unknown',
+            releaseDate: previousEntry.releaseDate || config.releaseDate || 'Unknown',
+            assets: cloneAssets(previousEntry.assets)
+        };
+    }
+
     return {
+        name: config.name,
         version: config.version || 'Unknown',
         releaseDate: config.releaseDate || 'Unknown',
-        assets: Array.isArray(config.assets) ? config.assets : []
+        assets: cloneAssets(config.assets)
     };
+}
+
+function applyFallbackEntry(appId, config, finalJsonOutput, previousOutput, message) {
+    const fallback = getFallbackEntry(appId, config, previousOutput);
+
+    finalJsonOutput[appId] = {
+        name: fallback.name,
+        version: fallback.version,
+        releaseDate: fallback.releaseDate,
+        assets: fallback.assets
+    };
+
+    console.warn(message);
 }
 
 async function processStaticApp(appId, config, finalJsonOutput) {
     finalJsonOutput[appId].version = config.version || 'Unknown';
     finalJsonOutput[appId].releaseDate = config.releaseDate || 'Unknown';
-    finalJsonOutput[appId].assets = Array.isArray(config.assets) ? config.assets : [];
+    finalJsonOutput[appId].assets = cloneAssets(config.assets);
     console.log('  - Static links processed.');
 }
 
@@ -153,13 +186,15 @@ async function processGithubReleaseAssetsApp(appId, config, finalJsonOutput, hea
         ? latestStableRelease.assets
         : [];
 
+    const resolvedAssets = [];
+
     for (const assetConfig of config.assets) {
         const foundAsset = releaseAssets.find(asset =>
             nameMatchesPattern(asset.name, assetConfig.assetPattern)
         );
 
         if (foundAsset) {
-            finalJsonOutput[appId].assets.push({
+            resolvedAssets.push({
                 id: assetConfig.id,
                 url: foundAsset.browser_download_url
             });
@@ -173,10 +208,15 @@ async function processGithubReleaseAssetsApp(appId, config, finalJsonOutput, hea
             );
         }
     }
+
+    if (resolvedAssets.length !== config.assets.length || resolvedAssets.length === 0) {
+        throw new Error('One or more expected assets were not found in latest release.');
+    }
+
+    finalJsonOutput[appId].assets = resolvedAssets;
 }
 
-async function processGithubVersionedStaticApp(appId, config, finalJsonOutput, headers, releaseCache) {
-    const fallback = getExistingStaticFallback(config);
+async function processGithubVersionedStaticApp(appId, config, finalJsonOutput, headers, releaseCache, previousOutput) {
     const latestStableRelease = await fetchLatestStableRelease(config.repo, headers, releaseCache);
 
     if (!latestStableRelease) {
@@ -229,10 +269,13 @@ async function processGithubVersionedStaticApp(appId, config, finalJsonOutput, h
         return;
     }
 
-    finalJsonOutput[appId].version = fallback.version;
-    finalJsonOutput[appId].releaseDate = fallback.releaseDate;
-    finalJsonOutput[appId].assets = fallback.assets;
-    console.warn('  - ⚠️ Falling back to existing manifest values.');
+    applyFallbackEntry(
+        appId,
+        config,
+        finalJsonOutput,
+        previousOutput,
+        '  - ⚠️ Falling back to previous working values.'
+    );
 }
 
 async function main() {
@@ -244,6 +287,18 @@ async function main() {
     }
 
     const manifest = JSON.parse(fs.readFileSync(MANIFEST_FILE, 'utf-8'));
+
+    let previousOutput = {};
+
+    if (fs.existsSync(OUTPUT_FILE)) {
+        try {
+            previousOutput = JSON.parse(fs.readFileSync(OUTPUT_FILE, 'utf-8'));
+            console.log(`Loaded previous output from: ${OUTPUT_FILE}`);
+        } catch (error) {
+            console.warn(`⚠️ Could not read previous output file: ${error.message}`);
+        }
+    }
+
     const finalJsonOutput = {};
     const releaseCache = new Map();
 
@@ -277,7 +332,8 @@ async function main() {
                     config,
                     finalJsonOutput,
                     headers,
-                    releaseCache
+                    releaseCache,
+                    previousOutput
                 );
                 continue;
             }
@@ -294,13 +350,13 @@ async function main() {
                 `  - ❌ ERROR processing repo '${config.repo || config.name}': ${error.message}`
             );
 
-            if (config.type === 'static' || config.type === 'githubVersionedStatic') {
-                const fallback = getExistingStaticFallback(config);
-                finalJsonOutput[appId].version = fallback.version;
-                finalJsonOutput[appId].releaseDate = fallback.releaseDate;
-                finalJsonOutput[appId].assets = fallback.assets;
-                console.warn('  - ⚠️ Preserved existing manifest values.');
-            }
+            applyFallbackEntry(
+                appId,
+                config,
+                finalJsonOutput,
+                previousOutput,
+                '  - ⚠️ Preserved previous working values.'
+            );
         }
     }
 
