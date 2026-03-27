@@ -577,7 +577,7 @@ function hydrateCards(data) {
 async function fetchAppData({ rerender = true } = {}) {
   if (state.dataPromise) return state.dataPromise;
 
-  state.dataPromise = fetch(`${C.URL.VERSION}?cb=${Date.now()}`)
+  state.dataPromise = fetch(C.URL.VERSION, { cache: 'no-store' })
     .then(r => {
       if (!r.ok) throw new Error('Version fetch failed');
       return r.json();
