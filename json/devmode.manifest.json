@@ -1113,5 +1113,39 @@
         "assetPattern": "sm64ex-UWP-*.zip"
       }
     ]
+  },
+  "descent3": {
+    "name": "Descent 3",
+    "repo": "worleydl/Descent3-dev",
+    "releaseTagRegex": "^v",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "assets": [
+      {
+        "id": "descent3",
+        "assetPattern": "descent3-uwp_*_x64.msixbundle"
+      }
+    ]
+  },
+  "inferno": {
+    "name": "Inferno",
+    "repo": "worleydl/Inferno-uwp",
+    "releaseTagRegex": "^uwp-alpha",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "assets": [
+      {
+        "id": "inferno",
+        "assetPattern": "inferno-uwp_*_x64.msixbundle"
+      },
+      {
+        "id": "inferno-dep",
+        "assetPattern": "Microsoft.VCLibs.x*.appx"
+      },
+      {
+        "id": "inferno-assets",
+        "assetPattern": "external-assets.zip"
+      }
+    ]
   }
 }

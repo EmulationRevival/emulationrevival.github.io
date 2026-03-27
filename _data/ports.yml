@@ -1320,3 +1320,72 @@
       asset_id: "sm64ex"
   setup_guide: null
   tutorial_url: null
+  
+- id: "descent-3"
+  app_id: "descent3"
+  title: "Descent 3"
+  description: "This is the first release of the community port of Descent 3"
+  image: "/xbox-dev-mode/images/game-ports/descent3.webp"
+  alt: "Descent 3 Logo"
+  category: "Ports"
+  page_url: "/xbox-dev-mode/ports.html#descent-3"
+  preview_url: "/previews/ports-descent-3.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "Descent 3 game assets"
+  features: []
+  contributors:
+    developers:
+      - name: "DescentDevelopers"
+        github: "https://github.com/DescentDevelopers"
+        donations: []
+    porters:
+      - name: "Worleydl"
+        github: "https://github.com/worleydl"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/worleydl"
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "descent3"
+  setup_guide:
+    url: "/guides/ports/descent3-guide.html"
+  tutorial_url: null
+  
+- id: "inferno"
+  app_id: "inferno"
+  title: "Inferno"
+  description: "Inferno is a single player remaster of the 1995 classic Descent 1"
+  image: "/xbox-dev-mode/images/game-ports/inferno.webp"
+  alt: "Inferno Logo"
+  category: "Ports"
+  page_url: "/xbox-dev-mode/ports.html#inferno"
+  preview_url: "/previews/ports-inferno.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "Included external-assets.zip"
+    - "Dependency file"
+  features: []
+  contributors:
+    developers:
+      - name: "nbayazes"
+        github: "https://github.com/nbayazes"
+        donations: []
+    porters:
+      - name: "Worleydl"
+        github: "https://github.com/worleydl"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/worleydl"
+    maintainers: []
+  downloads:
+    - label: "Inferno"
+      asset_id: "inferno"
+    - label: "Dependency File"
+      asset_id: "inferno-dep"
+    - label: "External Assets"
+      asset_id: "inferno-assets"
+  setup_guide:
+    url: "/guides/ports/inferno-guide.html"
+  tutorial_url: null
