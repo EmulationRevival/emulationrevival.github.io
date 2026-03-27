@@ -245,10 +245,17 @@
     "category": "Ports"
   },
   {
-    "name": "Sonic 1 & 2 SMS Remake",
-    "description": "Modern remakes of the 8-bit Sega Master System Sonic games",
-    "img": "/xbox-dev-mode/images/game-ports/sonicsms.webp",
-    "url": "/xbox-dev-mode/ports.html#sonicsms",
+    "name": "Sonic 1 SMS Remake",
+    "description": "Modern remake of the 8-bit Sega Master System Sonic game",
+    "img": "/xbox-dev-mode/images/game-ports/sonic1sms.webp",
+    "url": "/xbox-dev-mode/ports.html#sonic-1-sms-remake",
+    "category": "Ports"
+  },
+  {
+    "name": "Sonic 2 SMS Remake",
+    "description": "Modern remake of the 8-bit Sega Master System Sonic game",
+    "img": "/xbox-dev-mode/images/game-ports/sonic2sms.webp",
+    "url": "/xbox-dev-mode/ports.html#sonic-2-sms-remake",
     "category": "Ports"
   },
   {
