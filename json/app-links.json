@@ -1,8 +1,9 @@
 {
   "moonlight": {
     "name": "Moonlight",
-    "version": "1.18.0",
+    "version": "1.18.0.0",
     "releaseDate": "2026-01-11",
+    "firstReleaseDate": "2023-10-17",
     "assets": [
       {
         "id": "moonlight1",
@@ -22,6 +23,7 @@
     "name": "Discord UWP",
     "version": "1.0.1.0",
     "releaseDate": "2024-10-16",
+    "firstReleaseDate": "2024-10-16",
     "assets": [
       {
         "id": "discorduwp",
@@ -33,6 +35,7 @@
     "name": "X UWP",
     "version": "1.0.1.0",
     "releaseDate": "2024-12-01",
+    "firstReleaseDate": "2024-12-01",
     "assets": [
       {
         "id": "xuwp",
@@ -44,6 +47,7 @@
     "name": "XB Cloud Gaming",
     "version": "1.0.1.0",
     "releaseDate": "2024-11-27",
+    "firstReleaseDate": "2024-11-27",
     "assets": [
       {
         "id": "xbcloudgaming",
@@ -55,6 +59,7 @@
     "name": "Kodi",
     "version": "21.0.0.0",
     "releaseDate": "2022-10-29",
+    "firstReleaseDate": "2022-10-29",
     "assets": [
       {
         "id": "kodi",
@@ -66,6 +71,7 @@
     "name": "SoundCloud",
     "version": "1.1.36.0",
     "releaseDate": "2024-02-21",
+    "firstReleaseDate": "2024-02-21",
     "assets": [
       {
         "id": "soundcloud",
@@ -77,6 +83,7 @@
     "name": "TuneIn Radio",
     "version": "4.0.7.0",
     "releaseDate": "2024-11-21",
+    "firstReleaseDate": "2024-11-21",
     "assets": [
       {
         "id": "tunein",
@@ -88,6 +95,7 @@
     "name": "Twitch",
     "version": "0.0.9800.0",
     "releaseDate": "2024-12-01",
+    "firstReleaseDate": "2024-12-01",
     "assets": [
       {
         "id": "twitch",
@@ -99,6 +107,7 @@
     "name": "VLC Media Player",
     "version": "3.2.1.0",
     "releaseDate": "2024-11-22",
+    "firstReleaseDate": "2024-11-22",
     "assets": [
       {
         "id": "vlc",
@@ -110,6 +119,7 @@
     "name": "YouTube",
     "version": "1.0.19.0",
     "releaseDate": "2024-10-20",
+    "firstReleaseDate": "2024-10-20",
     "assets": [
       {
         "id": "youtube",
@@ -121,6 +131,7 @@
     "name": "Zune",
     "version": "11.2310.8.0",
     "releaseDate": "2024-02-21",
+    "firstReleaseDate": "2024-02-21",
     "assets": [
       {
         "id": "zune",
@@ -132,6 +143,7 @@
     "name": "XBSX2",
     "version": "2.0.8.5",
     "releaseDate": "2026-02-18",
+    "firstReleaseDate": "2026-02-18",
     "assets": [
       {
         "id": "xbsx2_series",
@@ -147,6 +159,7 @@
     "name": "Dolphin",
     "version": "1.1.9.0",
     "releaseDate": "2025-04-27",
+    "firstReleaseDate": "2025-04-27",
     "assets": [
       {
         "id": "dolphin",
@@ -158,6 +171,7 @@
     "name": "Flycast",
     "version": "2.6",
     "releaseDate": "2026-01-10",
+    "firstReleaseDate": "2021-05-28",
     "assets": [
       {
         "id": "flycast",
@@ -169,6 +183,7 @@
     "name": "Xenia Canary",
     "version": "1.1.7.0",
     "releaseDate": "2026-03-15",
+    "firstReleaseDate": "2023-02-04",
     "assets": [
       {
         "id": "xenia",
@@ -180,6 +195,7 @@
     "name": "Retroarch 3DS",
     "version": "1.0.1.0",
     "releaseDate": "2026-03-16",
+    "firstReleaseDate": "2024-02-25",
     "assets": [
       {
         "id": "retroarch3ds",
@@ -189,24 +205,25 @@
   },
   "retroarch": {
     "name": "RetroArch",
-    "version": "11-22-2025",
-    "releaseDate": "2025-11-22",
+    "version": "03-20-2026",
+    "releaseDate": "2026-03-20",
+    "firstReleaseDate": "2025-02-05",
     "assets": [
       {
         "id": "retroarch1",
-        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/11-22-2025/RetroArch-XboxOne.appx"
+        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/03-20-2026/RetroArch-XboxOne.appx"
       },
       {
         "id": "retroarch2",
-        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/11-22-2025/RetroArch-XboxOne-AllCores.appx"
+        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/03-20-2026/RetroArch-XboxOne-AllCores.appx"
       },
       {
         "id": "retroarch3",
-        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/11-22-2025/RetroArch-SeriesConsoles.appx"
+        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/03-20-2026/RetroArch-SeriesConsoles.appx"
       },
       {
         "id": "retroarch4",
-        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/11-22-2025/RetroArch-SeriesConsoles-AllCores.appx"
+        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/03-20-2026/RetroArch-SeriesConsoles-AllCores.appx"
       }
     ]
   },
@@ -214,6 +231,7 @@
     "name": "PPSSPP",
     "version": "1.20.3",
     "releaseDate": "2026-03-15",
+    "firstReleaseDate": "2014-02-15",
     "assets": [
       {
         "id": "ppsspp",
@@ -223,8 +241,9 @@
   },
   "supermodel": {
     "name": "Supermodel",
-    "version": "1.0.0.4",
+    "version": "1.0.0.1",
     "releaseDate": "2024-03-03",
+    "firstReleaseDate": "2024-03-03",
     "assets": [
       {
         "id": "supermodel1",
@@ -238,8 +257,9 @@
   },
   "superg": {
     "name": "Supermodel-G920",
-    "version": "1.0.0.4",
+    "version": "1.0.0.3",
     "releaseDate": "2024-03-03",
+    "firstReleaseDate": "2024-03-03",
     "assets": [
       {
         "id": "superg1",
@@ -255,6 +275,7 @@
     "name": "Ruffle",
     "version": "1.2.32.0",
     "releaseDate": "2024-06-22",
+    "firstReleaseDate": "2024-06-22",
     "assets": [
       {
         "id": "ruffle",
@@ -266,6 +287,7 @@
     "name": "OpenBOR",
     "version": "1.0.1.0",
     "releaseDate": "2024-06-18",
+    "firstReleaseDate": "2024-06-18",
     "assets": [
       {
         "id": "openbor1",
@@ -281,6 +303,7 @@
     "name": "Ikemen-GO",
     "version": "1.0.6.0",
     "releaseDate": "2024-08-26",
+    "firstReleaseDate": "2024-08-26",
     "assets": [
       {
         "id": "ikemen",
@@ -290,8 +313,9 @@
   },
   "gzdoom": {
     "name": "GZDoom",
-    "version": "1.0.7",
+    "version": "1.0.7.0",
     "releaseDate": "2024-04-05",
+    "firstReleaseDate": "2024-04-03",
     "assets": [
       {
         "id": "gzdoom",
@@ -301,8 +325,9 @@
   },
   "raze": {
     "name": "Raze",
-    "version": "1.0.22",
+    "version": "1.0.22.0",
     "releaseDate": "2024-03-29",
+    "firstReleaseDate": "2024-03-29",
     "assets": [
       {
         "id": "raze",
@@ -314,6 +339,7 @@
     "name": "BoxedWine",
     "version": "1.0.3.0",
     "releaseDate": "2024-10-31",
+    "firstReleaseDate": "2024-10-31",
     "assets": [
       {
         "id": "boxedwine",
@@ -325,6 +351,7 @@
     "name": "Castlevania Revamped",
     "version": "1.0.0.0",
     "releaseDate": "2024-09-12",
+    "firstReleaseDate": "2024-09-12",
     "assets": [
       {
         "id": "castlevania",
@@ -336,6 +363,7 @@
     "name": "Celeste Classic",
     "version": "1.0.2.0",
     "releaseDate": "2022-11-26",
+    "firstReleaseDate": "2022-11-26",
     "assets": [
       {
         "id": "celeste",
@@ -347,6 +375,7 @@
     "name": "Chrono Divide",
     "version": "1.0.12.0",
     "releaseDate": "2024-06-27",
+    "firstReleaseDate": "2024-06-27",
     "assets": [
       {
         "id": "chrono",
@@ -358,6 +387,7 @@
     "name": "Darkplaces Quake",
     "version": "1.0.1.0",
     "releaseDate": "2024-06-07",
+    "firstReleaseDate": "2024-06-07",
     "assets": [
       {
         "id": "darkplaces",
@@ -369,6 +399,7 @@
     "name": "DevilutionX",
     "version": "1.5.5",
     "releaseDate": "2025-10-30",
+    "firstReleaseDate": "2019-03-17",
     "assets": [
       {
         "id": "devilutionx",
@@ -378,23 +409,25 @@
   },
   "dhewm3": {
     "name": "Dhewm 3",
-    "version": "hdr-alpha",
-    "releaseDate": "2024-02-07",
+    "version": "1.5.4.0",
+    "releaseDate": "2025-08-22",
+    "firstReleaseDate": "2024-02-07",
     "assets": [
       {
         "id": "dhewm3app",
-        "url": "https://github.com/worleydl/dhewm3-uwp/releases/download/hdr-alpha/dhewm3-uwp_1.0.1.0_x64.msixbundle"
+        "url": "https://github.com/worleydl/dhewm3-uwp/releases/download/uwp-1.5.4/dhewm3-uwp_1.5.4.0_x64.msixbundle"
       },
       {
         "id": "dhewm3dep",
-        "url": "https://github.com/worleydl/dhewm3-uwp/releases/download/hdr-alpha/Microsoft.VCLibs.x64.14.00.appx"
+        "url": "https://github.com/worleydl/dhewm3-uwp/releases/download/uwp-1.5.4/Microsoft.VCLibs.x64.14.00.appx"
       }
     ]
   },
   "dxxrebirth": {
     "name": "DXX Rebirth",
-    "version": "release-alpha",
+    "version": "1.0.3.0",
     "releaseDate": "2024-05-15",
+    "firstReleaseDate": "2024-05-15",
     "assets": [
       {
         "id": "dxxrebirth1",
@@ -408,8 +441,9 @@
   },
   "ioquake3": {
     "name": "ioquake3",
-    "version": "1.0.0",
+    "version": "1.0.0.0",
     "releaseDate": "2024-08-13",
+    "firstReleaseDate": "2024-08-13",
     "assets": [
       {
         "id": "ioquake3app",
@@ -425,6 +459,7 @@
     "name": "Jazz 2 Resurrection",
     "version": "3.5.0",
     "releaseDate": "2026-01-08",
+    "firstReleaseDate": "2018-03-24",
     "assets": [
       {
         "id": "jazz2",
@@ -436,6 +471,7 @@
     "name": "Maze0x72",
     "version": "1.0.1.0",
     "releaseDate": "2024-12-21",
+    "firstReleaseDate": "2024-12-21",
     "assets": [
       {
         "id": "maze",
@@ -447,6 +483,7 @@
     "name": "Minesweeper",
     "version": "1.0.1.0",
     "releaseDate": "2024-12-27",
+    "firstReleaseDate": "2024-12-27",
     "assets": [
       {
         "id": "mine",
@@ -456,8 +493,9 @@
   },
   "jkdf2": {
     "name": "Open JKDF2",
-    "version": "1.0.0",
+    "version": "1.0.0.0",
     "releaseDate": "2024-04-29",
+    "firstReleaseDate": "2024-04-29",
     "assets": [
       {
         "id": "jkdf2app",
@@ -477,6 +515,7 @@
     "name": "OpenLara",
     "version": "latest",
     "releaseDate": "2019-01-11",
+    "firstReleaseDate": "2016-11-26",
     "assets": [
       {
         "id": "openlara",
@@ -488,6 +527,7 @@
     "name": "OpenTyrian 2000",
     "version": "1.0.0.0",
     "releaseDate": "2024-11-28",
+    "firstReleaseDate": "2024-11-28",
     "assets": [
       {
         "id": "opentyrian1",
@@ -503,6 +543,7 @@
     "name": "Relic Hunters Zero",
     "version": "1.0.0",
     "releaseDate": "2022-07-28",
+    "firstReleaseDate": "2022-07-28",
     "assets": [
       {
         "id": "relichunters",
@@ -514,6 +555,7 @@
     "name": "SDLPoP",
     "version": "1.0.0.0",
     "releaseDate": "2021-05-23",
+    "firstReleaseDate": "2021-05-23",
     "assets": [
       {
         "id": "sdlpop",
@@ -525,6 +567,7 @@
     "name": "Snake UWP",
     "version": "1.0.0.0",
     "releaseDate": "2024-06-21",
+    "firstReleaseDate": "2024-06-21",
     "assets": [
       {
         "id": "snake",
@@ -534,8 +577,9 @@
   },
   "soh": {
     "name": "Ship of Harkinian",
-    "version": "9.1.0",
+    "version": "9.1.0.0",
     "releaseDate": "2025-10-22",
+    "firstReleaseDate": "2024-04-07",
     "assets": [
       {
         "id": "soh1",
@@ -551,6 +595,7 @@
     "name": "Sonic 1 Decompilation",
     "version": "1.0.9.0",
     "releaseDate": "2021-01-18",
+    "firstReleaseDate": "2021-01-18",
     "assets": [
       {
         "id": "sonic1decomp",
@@ -562,6 +607,7 @@
     "name": "Sonic 2 Decompilation",
     "version": "1.0.9.0",
     "releaseDate": "2021-01-18",
+    "firstReleaseDate": "2021-01-18",
     "assets": [
       {
         "id": "sonic2decomp",
@@ -573,6 +619,7 @@
     "name": "Sonic 1 SMS Remake",
     "version": "1.9.2",
     "releaseDate": "2022-09-16",
+    "firstReleaseDate": "2022-09-16",
     "assets": [
       {
         "id": "sonic1sms",
@@ -584,6 +631,7 @@
     "name": "Sonic 2 SMS Remake",
     "version": "2.9.2",
     "releaseDate": "2022-10-07",
+    "firstReleaseDate": "2022-10-07",
     "assets": [
       {
         "id": "sonic2sms",
@@ -595,6 +643,7 @@
     "name": "Sonic 3 A.I.R",
     "version": "1.0.2.0",
     "releaseDate": "2024-09-04",
+    "firstReleaseDate": "2024-09-04",
     "assets": [
       {
         "id": "sonic3air",
@@ -604,8 +653,9 @@
   },
   "sab2": {
     "name": "Sonic Adventure Blast 2",
-    "version": "1.0.0",
+    "version": "1.0.0.0",
     "releaseDate": "2025-01-19",
+    "firstReleaseDate": "2025-01-19",
     "assets": [
       {
         "id": "sab2app",
@@ -621,6 +671,7 @@
     "name": "Sonic CD Decompilation",
     "version": "1.0.21.0",
     "releaseDate": "2021-02-07",
+    "firstReleaseDate": "2021-02-07",
     "assets": [
       {
         "id": "soniccd",
@@ -630,8 +681,9 @@
   },
   "sonicmania": {
     "name": "Sonic Mania",
-    "version": "1.4.0",
+    "version": "1.4.0.0",
     "releaseDate": "2024-07-13",
+    "firstReleaseDate": "2024-07-13",
     "assets": [
       {
         "id": "sonicmania",
@@ -643,6 +695,7 @@
     "name": "Sonic Realms",
     "version": "1.0.0.0",
     "releaseDate": "2024-06-21",
+    "firstReleaseDate": "2024-06-21",
     "assets": [
       {
         "id": "sonicrealms",
@@ -652,8 +705,9 @@
   },
   "ringracers": {
     "name": "Sonic Ring Racers",
-    "version": "2.3",
+    "version": "1.0.0.0",
     "releaseDate": "2024-05-29",
+    "firstReleaseDate": "2024-05-29",
     "assets": [
       {
         "id": "ringracers1",
@@ -669,6 +723,7 @@
     "name": "Sonic Robo Blast 2",
     "version": "1.0.213",
     "releaseDate": "2024-04-08",
+    "firstReleaseDate": "2024-04-08",
     "assets": [
       {
         "id": "srb2",
@@ -680,6 +735,7 @@
     "name": "Sonic Time Twisted",
     "version": "1.1.2.0",
     "releaseDate": "2022-05-07",
+    "firstReleaseDate": "2022-05-07",
     "assets": [
       {
         "id": "sonictimetwisted",
@@ -689,8 +745,9 @@
   },
   "unleashed": {
     "name": "Sonic Unleashed Recomp",
-    "version": "Beta",
+    "version": "1.0.3.0",
     "releaseDate": "2025-03-26",
+    "firstReleaseDate": "2025-03-26",
     "assets": [
       {
         "id": "unleashed1",
@@ -706,6 +763,7 @@
     "name": "Spelunky Classic HD",
     "version": "1.0.0.0",
     "releaseDate": "2024-06-21",
+    "firstReleaseDate": "2024-06-21",
     "assets": [
       {
         "id": "spelunky",
@@ -717,6 +775,7 @@
     "name": "Spooky Dimensions",
     "version": "1.0.0.0",
     "releaseDate": "2024-06-21",
+    "firstReleaseDate": "2024-06-21",
     "assets": [
       {
         "id": "spooky",
@@ -728,6 +787,7 @@
     "name": "Trogdor Reburninated",
     "version": "2.0.0.0",
     "releaseDate": "2022-12-03",
+    "firstReleaseDate": "2022-12-03",
     "assets": [
       {
         "id": "trogdor",
@@ -739,6 +799,7 @@
     "name": "Tuck King of the Sky",
     "version": "1.0.0.0",
     "releaseDate": "2023-09-01",
+    "firstReleaseDate": "2023-09-01",
     "assets": [
       {
         "id": "tuck",
@@ -750,6 +811,7 @@
     "name": "VVVVVV",
     "version": "2.3.6.0",
     "releaseDate": "2023-05-06",
+    "firstReleaseDate": "2023-05-06",
     "assets": [
       {
         "id": "vvvvvv1",
@@ -765,6 +827,7 @@
     "name": "Zircon Quake",
     "version": "1.0.5.0",
     "releaseDate": "2024-06-07",
+    "firstReleaseDate": "2024-06-07",
     "assets": [
       {
         "id": "zircon",
@@ -776,6 +839,7 @@
     "name": "Zelda 3",
     "version": "1.0.1.0",
     "releaseDate": "2022-12-03",
+    "firstReleaseDate": "2022-10-15",
     "assets": [
       {
         "id": "zelda3",
@@ -785,8 +849,9 @@
   },
   "zelda64": {
     "name": "Zelda 64 Recomp",
-    "version": "1.2.0",
+    "version": "1.2.0.0",
     "releaseDate": "2025-05-04",
+    "firstReleaseDate": "2025-05-04",
     "assets": [
       {
         "id": "zelda64",
@@ -796,8 +861,9 @@
   },
   "launchpass": {
     "name": "Launchpass",
-    "version": "2.2.0",
+    "version": "2.2.0.0",
     "releaseDate": "2023-05-21",
+    "firstReleaseDate": "2023-05-21",
     "assets": [
       {
         "id": "launchpass1",
@@ -811,8 +877,9 @@
   },
   "retropass": {
     "name": "Retropass",
-    "version": "12.0",
+    "version": "1.12.0",
     "releaseDate": "2024-04-16",
+    "firstReleaseDate": "2022-03-05",
     "assets": [
       {
         "id": "retropass",
@@ -822,8 +889,9 @@
   },
   "usbPermissionsTool": {
     "name": "USB Permissions Tool",
-    "version": "v1",
+    "version": "1",
     "releaseDate": "2026-03-07",
+    "firstReleaseDate": "2026-03-07",
     "assets": [
       {
         "id": "usbpermtool",
@@ -833,8 +901,9 @@
   },
   "durangoftp": {
     "name": "Durango FTP",
-    "version": "1.2.1",
+    "version": "1.0.3.0",
     "releaseDate": "2022-09-28",
+    "firstReleaseDate": "2021-10-25",
     "assets": [
       {
         "id": "durangoftp",
@@ -846,6 +915,7 @@
     "name": "Oberon Remote",
     "version": "1.2.0",
     "releaseDate": "2025-03-18",
+    "firstReleaseDate": "2025-03-10",
     "assets": [
       {
         "id": "oberon",
@@ -857,6 +927,7 @@
     "name": "Safe Exit",
     "version": "1.0.0.1",
     "releaseDate": "2023-04-09",
+    "firstReleaseDate": "2023-02-22",
     "assets": [
       {
         "id": "safeexit",
@@ -868,6 +939,7 @@
     "name": "ChonkyStation3",
     "version": "1.0.2.0",
     "releaseDate": "2025-03-07",
+    "firstReleaseDate": "2025-03-07",
     "assets": [
       {
         "id": "chonkystation3",
@@ -879,6 +951,7 @@
     "name": "Hedge Physics",
     "version": "1.2.3.0",
     "releaseDate": "2024-11-29",
+    "firstReleaseDate": "2024-11-29",
     "assets": [
       {
         "id": "hedgephysics",
@@ -890,6 +963,7 @@
     "name": "Panda3DS",
     "version": "1.0.4.0",
     "releaseDate": "2026-03-23",
+    "firstReleaseDate": "2025-04-26",
     "assets": [
       {
         "id": "panda3ds",
@@ -901,6 +975,7 @@
     "name": "SM64HD fan remake",
     "version": "1.0.1.0",
     "releaseDate": "2018-12-17",
+    "firstReleaseDate": "2018-12-17",
     "assets": [
       {
         "id": "sm64hd",
@@ -910,8 +985,9 @@
   },
   "dxxdescent2": {
     "name": "DXX-Rebirth (Descent 2)",
-    "version": "release-alpha",
+    "version": "1.0.3.0",
     "releaseDate": "2024-05-15",
+    "firstReleaseDate": "2024-05-15",
     "assets": [
       {
         "id": "dxxdescent2",
@@ -927,6 +1003,7 @@
     "name": "2Ship2Harkinian",
     "version": "0.1.0",
     "releaseDate": "2025-12-14",
+    "firstReleaseDate": "2025-12-14",
     "assets": [
       {
         "id": "2s2h",
@@ -936,8 +1013,9 @@
   },
   "nsmb": {
     "name": "NSMB (MarioVsLuigi)",
-    "version": "2.0.4.1",
+    "version": "1.0.1.0",
     "releaseDate": "2025-11-11",
+    "firstReleaseDate": "2025-01-11",
     "assets": [
       {
         "id": "nsmb",
@@ -949,6 +1027,7 @@
     "name": "SM64EX",
     "version": "1.0.0.0",
     "releaseDate": "2026-03-26",
+    "firstReleaseDate": "2026-03-26",
     "assets": [
       {
         "id": "sm64ex",
@@ -958,8 +1037,9 @@
   },
   "descent3": {
     "name": "Descent 3",
-    "version": "1.6.0",
+    "version": "1.6.0.0",
     "releaseDate": "2026-03-21",
+    "firstReleaseDate": "2026-03-21",
     "assets": [
       {
         "id": "descent3",
@@ -969,8 +1049,9 @@
   },
   "inferno": {
     "name": "Inferno",
-    "version": "uwp-alpha",
+    "version": "0.4.2.1",
     "releaseDate": "2026-03-22",
+    "firstReleaseDate": "2026-03-22",
     "assets": [
       {
         "id": "inferno",
