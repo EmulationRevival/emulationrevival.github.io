@@ -47,10 +47,6 @@
   display: none !important;
 }
 
-.card[id] {
-  scroll-margin-top: var(--spacing-md);
-}
-
 .card-link {
   display: flex;
   flex-direction: column;
