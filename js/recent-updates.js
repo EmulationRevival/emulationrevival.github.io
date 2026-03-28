@@ -17,15 +17,6 @@ const CONFIG = {
 
 const TXT = {
   UNKNOWN: 'Unknown',
-  COMING_SOON: 'Coming Soon',
-  NEW_RELEASE: 'New Release',
-  NEW_UPDATE: 'New Update',
-};
-
-const RELEASE_STATE = {
-  UPCOMING: 'upcoming',
-  NEW_RELEASE: 'new-release',
-  RECENT_UPDATE: 'recent-update',
 };
 
 const dateFormatter = new Intl.DateTimeFormat('en-US', {
@@ -65,22 +56,9 @@ function parseUtcDateMs(value) {
   return Number.isFinite(timestamp) ? timestamp : NaN;
 }
 
-function appendBadge(imageContainer, label, className) {
-  if (!imageContainer || !label || !className) return;
-
-  const badge = document.createElement('div');
-  badge.className = className;
-  badge.textContent = label;
-  imageContainer.appendChild(badge);
-}
-
 function createHomepageCard(app, { isUpcoming = false } = {}) {
   const card = document.createElement('div');
   card.className = 'card';
-
-  if (app.releaseState) {
-    card.dataset.releaseState = app.releaseState;
-  }
 
   const imageContainer = document.createElement('div');
   imageContainer.className = 'card-image-container';
@@ -95,14 +73,6 @@ function createHomepageCard(app, { isUpcoming = false } = {}) {
   };
 
   imageContainer.appendChild(img);
-
-  if (app.releaseState === RELEASE_STATE.UPCOMING) {
-    appendBadge(imageContainer, TXT.COMING_SOON, 'coming-soon-badge');
-  } else if (app.releaseState === RELEASE_STATE.NEW_RELEASE) {
-    appendBadge(imageContainer, TXT.NEW_RELEASE, 'new-release-badge');
-  } else if (app.releaseState === RELEASE_STATE.RECENT_UPDATE) {
-    appendBadge(imageContainer, TXT.NEW_UPDATE, 'new-update-badge');
-  }
 
   const content = document.createElement('div');
   content.className = 'card-content';
@@ -199,7 +169,6 @@ function computeUpcomingApps(searchMap, appData) {
       name: searchData.name,
       description: searchData.description || '',
       releaseDateText: formatReleaseDate(timestamp),
-      releaseState: RELEASE_STATE.UPCOMING,
     });
   }
 
@@ -234,7 +203,6 @@ function computeNewReleaseApps(searchMap, appData) {
       img: searchData.img,
       name: searchData.name,
       description: searchData.description || '',
-      releaseState: RELEASE_STATE.NEW_RELEASE,
     });
   }
 
@@ -269,7 +237,6 @@ function computeRecentlyUpdatedApps(searchMap, appData) {
       img: searchData.img,
       name: searchData.name,
       description: searchData.description || '',
-      releaseState: RELEASE_STATE.RECENT_UPDATE,
     });
   }
 
