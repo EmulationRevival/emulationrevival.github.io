@@ -65,6 +65,7 @@ const C = {
     MODAL_HEADER_THUMB: 'modal-header-thumb',
     EMPTY_MESSAGE: 'card-grid-empty-message',
     COMING_SOON_BADGE: 'coming-soon-badge',
+    NEW_RELEASE_BADGE: 'new-release-badge',
     NEW_UPDATE_BADGE: 'new-update-badge',
     UPCOMING_ACTION: 'is-upcoming-action',
   },
@@ -100,6 +101,7 @@ const C = {
     DL_PREFIX: 'Download',
     EMPTY: 'No cards available.',
     COMING_SOON: 'Coming Soon',
+    NEW_RELEASE: 'New Release',
     NEW_UPDATE: 'New Update',
     UPCOMING_ALERT: 'This item is not available yet.',
     SORT_DIRECTION_ASC: 'Sort ascending',
@@ -117,7 +119,8 @@ const C = {
   RELEASE_STATE: {
     LIVE: 'live',
     UPCOMING: 'upcoming',
-    RECENT: 'recent',
+    NEW_RELEASE: 'new-release',
+    RECENT_UPDATE: 'recent-update',
   },
 
   FILE_EXT: /\.(zip|msixbundle|msix|appx|exe|apk|7z|rar|tar|gz|dmg|pdf|mp3|mp4|avi|mov|jpg|jpeg|png|gif|webp|svg|docx?|xlsx?|pptx?|iso|bin|img|msi|deb|rpm|sh|bat|ps1|ini|cfg|ctl|json|txt|xml|csv)$/i,
@@ -261,10 +264,12 @@ function bindStaticDom() {
       imgEl,
       imgContainer,
       infoListText: infoList?.textContent || '',
-      hasBadge: false,
       hasComingSoonBadge: false,
+      hasNewReleaseBadge: false,
+      hasNewUpdateBadge: false,
       titleText: normalizeText(titleEl?.textContent || ''),
       dateMs: 0,
+      firstReleaseMs: 0,
       compatibilityText: normalizeText(infoList?.textContent || ''),
       releaseState: C.RELEASE_STATE.LIVE,
     });
@@ -318,6 +323,13 @@ function preprocessAppData(data) {
         app._releaseMs = parsedMs;
       }
     }
+
+    if (app.firstReleaseDate && app.firstReleaseDate !== C.TXT.UNKNOWN) {
+      const parsedFirstReleaseMs = Date.parse(app.firstReleaseDate);
+      if (Number.isFinite(parsedFirstReleaseMs)) {
+        app._firstReleaseMs = parsedFirstReleaseMs;
+      }
+    }
   }
 }
 
@@ -347,22 +359,40 @@ function removeComingSoonBadge(cardMeta) {
   cardMeta.hasComingSoonBadge = false;
 }
 
+function ensureNewReleaseBadge(cardMeta) {
+  if (!cardMeta?.imgContainer || cardMeta.hasNewReleaseBadge) return;
+
+  const badge = document.createElement('div');
+  badge.className = C.CLASSES.NEW_RELEASE_BADGE;
+  badge.textContent = C.TXT.NEW_RELEASE;
+  cardMeta.imgContainer.appendChild(badge);
+  cardMeta.hasNewReleaseBadge = true;
+}
+
+function removeNewReleaseBadge(cardMeta) {
+  if (!cardMeta?.imgContainer || !cardMeta.hasNewReleaseBadge) return;
+
+  const badge = cardMeta.imgContainer.querySelector(`.${C.CLASSES.NEW_RELEASE_BADGE}`);
+  badge?.remove();
+  cardMeta.hasNewReleaseBadge = false;
+}
+
 function ensureNewUpdateBadge(cardMeta) {
-  if (!cardMeta?.imgContainer || cardMeta.hasBadge) return;
+  if (!cardMeta?.imgContainer || cardMeta.hasNewUpdateBadge) return;
 
   const badge = document.createElement('div');
   badge.className = C.CLASSES.NEW_UPDATE_BADGE;
   badge.textContent = C.TXT.NEW_UPDATE;
   cardMeta.imgContainer.appendChild(badge);
-  cardMeta.hasBadge = true;
+  cardMeta.hasNewUpdateBadge = true;
 }
 
 function removeNewUpdateBadge(cardMeta) {
-  if (!cardMeta?.imgContainer || !cardMeta.hasBadge) return;
+  if (!cardMeta?.imgContainer || !cardMeta.hasNewUpdateBadge) return;
 
   const badge = cardMeta.imgContainer.querySelector(`.${C.CLASSES.NEW_UPDATE_BADGE}`);
   badge?.remove();
-  cardMeta.hasBadge = false;
+  cardMeta.hasNewUpdateBadge = false;
 }
 
 function setButtonUpcomingState(btn, isUpcoming) {
@@ -531,6 +561,7 @@ function hydrateCards(data) {
     if (!info) return;
 
     const ms = info._releaseMs;
+    const firstReleaseMs = info._firstReleaseMs;
     const meta = domMeta.get(el);
 
     if (Number.isFinite(ms)) {
@@ -547,21 +578,33 @@ function hydrateCards(data) {
         const cardMeta = domMeta.get(card);
         if (cardMeta) {
           cardMeta.dateMs = ms;
+          cardMeta.firstReleaseMs = Number.isFinite(firstReleaseMs) ? firstReleaseMs : 0;
 
           const isUpcoming = ms > now;
           const timeDiff = now - ms;
+          const firstReleaseDiff = Number.isFinite(firstReleaseMs) ? now - firstReleaseMs : NaN;
+          const isNewRelease = Number.isFinite(firstReleaseDiff) && firstReleaseDiff >= 0 && firstReleaseDiff < C.THIRTY_DAYS_MS;
+          const isRecentUpdate = !isNewRelease && timeDiff >= 0 && timeDiff < C.THIRTY_DAYS_MS;
 
           if (isUpcoming) {
             setCardReleaseState(card, C.RELEASE_STATE.UPCOMING);
-            removeNewUpdateBadge(cardMeta);
             ensureComingSoonBadge(cardMeta);
-          } else if (timeDiff >= 0 && timeDiff < C.THIRTY_DAYS_MS) {
-            setCardReleaseState(card, C.RELEASE_STATE.RECENT);
+            removeNewReleaseBadge(cardMeta);
+            removeNewUpdateBadge(cardMeta);
+          } else if (isNewRelease) {
+            setCardReleaseState(card, C.RELEASE_STATE.NEW_RELEASE);
             removeComingSoonBadge(cardMeta);
+            ensureNewReleaseBadge(cardMeta);
+            removeNewUpdateBadge(cardMeta);
+          } else if (isRecentUpdate) {
+            setCardReleaseState(card, C.RELEASE_STATE.RECENT_UPDATE);
+            removeComingSoonBadge(cardMeta);
+            removeNewReleaseBadge(cardMeta);
             ensureNewUpdateBadge(cardMeta);
           } else {
             setCardReleaseState(card, C.RELEASE_STATE.LIVE);
             removeComingSoonBadge(cardMeta);
+            removeNewReleaseBadge(cardMeta);
             removeNewUpdateBadge(cardMeta);
           }
 

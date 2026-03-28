@@ -26,6 +26,9 @@
     "releaseDateOverrides": {
       "1.0.1.0": "2024-10-16"
     },
+    "firstReleaseDateOverrides": {
+      "1.0.1.0": "2024-10-16"
+    },
     "assets": [
       {
         "id": "discorduwp",
@@ -40,6 +43,9 @@
     "versionSource": "auto",
     "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
     "releaseDateOverrides": {
+      "1.0.1.0": "2024-12-01"
+    },
+    "firstReleaseDateOverrides": {
       "1.0.1.0": "2024-12-01"
     },
     "assets": [
@@ -58,6 +64,9 @@
     "releaseDateOverrides": {
       "1.0.1.0": "2024-11-27"
     },
+    "firstReleaseDateOverrides": {
+      "1.0.1.0": "2024-11-27"
+    },
     "assets": [
       {
         "id": "xbcloudgaming",
@@ -72,6 +81,9 @@
     "versionSource": "auto",
     "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
     "releaseDateOverrides": {
+      "21.0.0.0": "2022-10-29"
+    },
+    "firstReleaseDateOverrides": {
       "21.0.0.0": "2022-10-29"
     },
     "assets": [
@@ -90,6 +102,9 @@
     "releaseDateOverrides": {
       "1.1.36.0": "2024-02-21"
     },
+    "firstReleaseDateOverrides": {
+      "1.1.36.0": "2024-02-21"
+    },
     "assets": [
       {
         "id": "soundcloud",
@@ -104,6 +119,9 @@
     "versionSource": "auto",
     "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
     "releaseDateOverrides": {
+      "4.0.7.0": "2024-11-21"
+    },
+    "firstReleaseDateOverrides": {
       "4.0.7.0": "2024-11-21"
     },
     "assets": [
@@ -122,6 +140,9 @@
     "releaseDateOverrides": {
       "0.0.9800.0": "2024-12-01"
     },
+    "firstReleaseDateOverrides": {
+      "0.0.9800.0": "2024-12-01"
+    },
     "assets": [
       {
         "id": "twitch",
@@ -136,6 +157,9 @@
     "versionSource": "auto",
     "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
     "releaseDateOverrides": {
+      "3.2.1.0": "2024-11-22"
+    },
+    "firstReleaseDateOverrides": {
       "3.2.1.0": "2024-11-22"
     },
     "assets": [
@@ -154,6 +178,9 @@
     "releaseDateOverrides": {
       "1.0.19.0": "2024-10-20"
     },
+    "firstReleaseDateOverrides": {
+      "1.0.19.0": "2024-10-20"
+    },
     "assets": [
       {
         "id": "youtube",
@@ -168,6 +195,9 @@
     "versionSource": "auto",
     "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
     "releaseDateOverrides": {
+      "11.2310.8.0": "2024-02-21"
+    },
+    "firstReleaseDateOverrides": {
       "11.2310.8.0": "2024-02-21"
     },
     "assets": [
@@ -220,6 +250,9 @@
     "releaseDateOverrides": {
       "1.1.7.0": "2026-03-15"
     },
+    "firstReleaseDateOverrides": {
+      "1.1.7.0": "2023-02-04"
+    },
     "assets": [
       {
         "id": "xenia",
@@ -228,21 +261,24 @@
     ]
   },
   "retroarch3ds": {
-  "name": "Retroarch 3DS",
-  "repo": "EmulationRevival/emulationrevival-downloads",
-  "releaseTagRegex": "^retroarch-3ds-",
-  "versionSource": "auto",
-  "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
-  "releaseDateOverrides": {
-    "1.0.1.0": "2026-03-16"
+    "name": "Retroarch 3DS",
+    "repo": "EmulationRevival/emulationrevival-downloads",
+    "releaseTagRegex": "^retroarch-3ds-",
+    "versionSource": "auto",
+    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
+    "releaseDateOverrides": {
+      "1.0.1.0": "2026-03-16"
+    },
+    "firstReleaseDateOverrides": {
+      "1.0.1.0": "2024-02-25"
+    },
+    "assets": [
+      {
+        "id": "retroarch3ds",
+        "assetPattern": "RetroArch-3ds-UWP_*.msix"
+      }
+    ]
   },
-  "assets": [
-    {
-      "id": "retroarch3ds",
-      "assetPattern": "RetroArch-3ds-UWP_*.msix"
-    }
-  ]
-},
   "retroarch": {
     "name": "RetroArch",
     "repo": "XboxEmulationHub/RetroArch",
@@ -315,6 +351,9 @@
     "releaseDateOverrides": {
       "1.2.32.0": "2024-06-22"
     },
+    "firstReleaseDateOverrides": {
+      "1.2.32.0": "2024-06-22"
+    },
     "assets": [
       {
         "id": "ruffle",
@@ -329,6 +368,9 @@
     "versionSource": "auto",
     "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
     "releaseDateOverrides": {
+      "1.0.1.0": "2024-06-18"
+    },
+    "firstReleaseDateOverrides": {
       "1.0.1.0": "2024-06-18"
     },
     "assets": [
@@ -349,6 +391,9 @@
     "versionSource": "auto",
     "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
     "releaseDateOverrides": {
+      "1.0.6.0": "2024-08-26"
+    },
+    "firstReleaseDateOverrides": {
       "1.0.6.0": "2024-08-26"
     },
     "assets": [
@@ -387,6 +432,9 @@
     "releaseDateOverrides": {
       "1.0.3.0": "2024-10-31"
     },
+    "firstReleaseDateOverrides": {
+      "1.0.3.0": "2024-10-31"
+    },
     "assets": [
       {
         "id": "boxedwine",
@@ -401,6 +449,9 @@
     "versionSource": "auto",
     "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
     "releaseDateOverrides": {
+      "1.0.0.0": "2024-09-12"
+    },
+    "firstReleaseDateOverrides": {
       "1.0.0.0": "2024-09-12"
     },
     "assets": [
@@ -429,6 +480,9 @@
     "releaseDateOverrides": {
       "1.0.12.0": "2024-06-27"
     },
+    "firstReleaseDateOverrides": {
+      "1.0.12.0": "2024-06-27"
+    },
     "assets": [
       {
         "id": "chrono",
@@ -443,6 +497,9 @@
     "versionSource": "auto",
     "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
     "releaseDateOverrides": {
+      "1.0.1.0": "2024-06-07"
+    },
+    "firstReleaseDateOverrides": {
       "1.0.1.0": "2024-06-07"
     },
     "assets": [
@@ -523,6 +580,9 @@
     "releaseDateOverrides": {
       "1.0.1.0": "2024-12-21"
     },
+    "firstReleaseDateOverrides": {
+      "1.0.1.0": "2024-12-21"
+    },
     "assets": [
       {
         "id": "maze",
@@ -537,6 +597,9 @@
     "versionSource": "auto",
     "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
     "releaseDateOverrides": {
+      "1.0.1.0": "2024-12-27"
+    },
+    "firstReleaseDateOverrides": {
       "1.0.1.0": "2024-12-27"
     },
     "assets": [
@@ -583,6 +646,9 @@
     "releaseDateOverrides": {
       "1.0.0.0": "2024-11-28"
     },
+    "firstReleaseDateOverrides": {
+      "1.0.0.0": "2024-11-28"
+    },
     "assets": [
       {
         "id": "opentyrian1",
@@ -623,6 +689,9 @@
     "releaseDateOverrides": {
       "1.0.0.0": "2024-06-21"
     },
+    "firstReleaseDateOverrides": {
+      "1.0.0.0": "2024-06-21"
+    },
     "assets": [
       {
         "id": "snake",
@@ -653,6 +722,9 @@
     "releaseDateOverrides": {
       "1.0.9.0": "2021-01-18"
     },
+    "firstReleaseDateOverrides": {
+      "1.0.9.0": "2021-01-18"
+    },
     "assets": [
       {
         "id": "sonic1decomp",
@@ -667,6 +739,9 @@
     "versionSource": "auto",
     "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
     "releaseDateOverrides": {
+      "1.0.9.0": "2021-01-18"
+    },
+    "firstReleaseDateOverrides": {
       "1.0.9.0": "2021-01-18"
     },
     "assets": [
@@ -705,6 +780,9 @@
     "releaseDateOverrides": {
       "1.0.2.0": "2024-09-04"
     },
+    "firstReleaseDateOverrides": {
+      "1.0.2.0": "2024-09-04"
+    },
     "assets": [
       {
         "id": "sonic3air",
@@ -735,6 +813,9 @@
     "releaseDateOverrides": {
       "1.0.21.0": "2021-02-07"
     },
+    "firstReleaseDateOverrides": {
+      "1.0.21.0": "2021-02-07"
+    },
     "assets": [
       {
         "id": "soniccd",
@@ -759,6 +840,9 @@
     "versionSource": "auto",
     "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
     "releaseDateOverrides": {
+      "1.0.0.0": "2024-06-21"
+    },
+    "firstReleaseDateOverrides": {
       "1.0.0.0": "2024-06-21"
     },
     "assets": [
@@ -801,6 +885,9 @@
     "releaseDateOverrides": {
       "1.1.2.0": "2022-05-07"
     },
+    "firstReleaseDateOverrides": {
+      "1.1.2.0": "2022-05-07"
+    },
     "assets": [
       {
         "id": "sonictimetwisted",
@@ -831,6 +918,9 @@
     "releaseDateOverrides": {
       "1.0.0.0": "2024-06-21"
     },
+    "firstReleaseDateOverrides": {
+      "1.0.0.0": "2024-06-21"
+    },
     "assets": [
       {
         "id": "spelunky",
@@ -845,6 +935,9 @@
     "versionSource": "auto",
     "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
     "releaseDateOverrides": {
+      "1.0.0.0": "2024-06-21"
+    },
+    "firstReleaseDateOverrides": {
       "1.0.0.0": "2024-06-21"
     },
     "assets": [
@@ -863,6 +956,9 @@
     "releaseDateOverrides": {
       "2.0.0.0": "2022-12-03"
     },
+    "firstReleaseDateOverrides": {
+      "2.0.0.0": "2022-12-03"
+    },
     "assets": [
       {
         "id": "trogdor",
@@ -877,6 +973,9 @@
     "versionSource": "auto",
     "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
     "releaseDateOverrides": {
+      "1.0.0.0": "2023-09-01"
+    },
+    "firstReleaseDateOverrides": {
       "1.0.0.0": "2023-09-01"
     },
     "assets": [
@@ -907,6 +1006,9 @@
     "versionSource": "auto",
     "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
     "releaseDateOverrides": {
+      "1.0.5.0": "2024-06-07"
+    },
+    "firstReleaseDateOverrides": {
       "1.0.5.0": "2024-06-07"
     },
     "assets": [
@@ -1009,6 +1111,9 @@
     "releaseDateOverrides": {
       "1.0.2.0": "2025-03-07"
     },
+    "firstReleaseDateOverrides": {
+      "1.0.2.0": "2025-03-07"
+    },
     "assets": [
       {
         "id": "chonkystation3",
@@ -1023,6 +1128,9 @@
     "versionSource": "auto",
     "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
     "releaseDateOverrides": {
+      "1.2.3.0": "2024-11-29"
+    },
+    "firstReleaseDateOverrides": {
       "1.2.3.0": "2024-11-29"
     },
     "assets": [
@@ -1041,6 +1149,9 @@
     "releaseDateOverrides": {
       "1.0.4.0": "2026-03-23"
     },
+    "firstReleaseDateOverrides": {
+      "1.0.4.0": "2025-04-26"
+    },
     "assets": [
       {
         "id": "panda3ds",
@@ -1055,6 +1166,9 @@
     "versionSource": "auto",
     "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
     "releaseDateOverrides": {
+      "1.0.1.0": "2018-12-17"
+    },
+    "firstReleaseDateOverrides": {
       "1.0.1.0": "2018-12-17"
     },
     "assets": [
@@ -1107,6 +1221,9 @@
     "releaseDateOverrides": {
       "1.0.0.0": "2026-03-26"
     },
+    "firstReleaseDateOverrides": {
+      "1.0.0.0": "2026-03-26"
+    },
     "assets": [
       {
         "id": "sm64ex",
@@ -1117,9 +1234,6 @@
   "descent3": {
     "name": "Descent 3",
     "repo": "worleydl/Descent3-dev",
-    "releaseTagRegex": "^v",
-    "versionSource": "auto",
-    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
     "assets": [
       {
         "id": "descent3",
@@ -1130,9 +1244,6 @@
   "inferno": {
     "name": "Inferno",
     "repo": "worleydl/Inferno-uwp",
-    "releaseTagRegex": "^uwp-alpha",
-    "versionSource": "auto",
-    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
     "assets": [
       {
         "id": "inferno",

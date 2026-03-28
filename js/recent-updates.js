@@ -1,8 +1,10 @@
 const IDS = {
-  RECENT_GRID: 'recent-updates-grid',
-  RECENT_SECTION: 'recent-updates-section',
   UPCOMING_GRID: 'coming-soon-grid',
   UPCOMING_SECTION: 'coming-soon-section',
+  NEW_RELEASE_GRID: 'new-release-grid',
+  NEW_RELEASE_SECTION: 'new-release-section',
+  RECENT_GRID: 'recent-updates-grid',
+  RECENT_SECTION: 'recent-updates-section',
 };
 
 const CONFIG = {
@@ -11,6 +13,19 @@ const CONFIG = {
   APP_LINKS_PATH: '/json/app-links.json',
   IMAGE_FALLBACK: '/images/fallback.png',
   RECENT_WINDOW_MS: 30 * 24 * 60 * 60 * 1000,
+};
+
+const TXT = {
+  UNKNOWN: 'Unknown',
+  COMING_SOON: 'Coming Soon',
+  NEW_RELEASE: 'New Release',
+  NEW_UPDATE: 'New Update',
+};
+
+const RELEASE_STATE = {
+  UPCOMING: 'upcoming',
+  NEW_RELEASE: 'new-release',
+  RECENT_UPDATE: 'recent-update',
 };
 
 const dateFormatter = new Intl.DateTimeFormat('en-US', {
@@ -37,9 +52,35 @@ function buildFetchUrls() {
   };
 }
 
+function formatReleaseDate(timestamp) {
+  return dateFormatter.format(timestamp);
+}
+
+function parseUtcDateMs(value) {
+  if (typeof value !== 'string' || !value || value === TXT.UNKNOWN) {
+    return NaN;
+  }
+
+  const timestamp = Date.parse(value);
+  return Number.isFinite(timestamp) ? timestamp : NaN;
+}
+
+function appendBadge(imageContainer, label, className) {
+  if (!imageContainer || !label || !className) return;
+
+  const badge = document.createElement('div');
+  badge.className = className;
+  badge.textContent = label;
+  imageContainer.appendChild(badge);
+}
+
 function createHomepageCard(app, { isUpcoming = false } = {}) {
   const card = document.createElement('div');
   card.className = 'card';
+
+  if (app.releaseState) {
+    card.dataset.releaseState = app.releaseState;
+  }
 
   const imageContainer = document.createElement('div');
   imageContainer.className = 'card-image-container';
@@ -53,6 +94,16 @@ function createHomepageCard(app, { isUpcoming = false } = {}) {
     img.src = CONFIG.IMAGE_FALLBACK;
   };
 
+  imageContainer.appendChild(img);
+
+  if (app.releaseState === RELEASE_STATE.UPCOMING) {
+    appendBadge(imageContainer, TXT.COMING_SOON, 'coming-soon-badge');
+  } else if (app.releaseState === RELEASE_STATE.NEW_RELEASE) {
+    appendBadge(imageContainer, TXT.NEW_RELEASE, 'new-release-badge');
+  } else if (app.releaseState === RELEASE_STATE.RECENT_UPDATE) {
+    appendBadge(imageContainer, TXT.NEW_UPDATE, 'new-update-badge');
+  }
+
   const content = document.createElement('div');
   content.className = 'card-content';
 
@@ -65,7 +116,6 @@ function createHomepageCard(app, { isUpcoming = false } = {}) {
   description.textContent = app.description || '';
 
   content.append(title, description);
-  imageContainer.appendChild(img);
 
   if (isUpcoming) {
     if (app.releaseDateText) {
@@ -128,47 +178,14 @@ function buildSearchMap(searchIndex) {
   return searchMap;
 }
 
-function formatReleaseDate(timestamp) {
-  return dateFormatter.format(timestamp);
-}
-
-function computeRecentApps(searchMap, appData) {
-  const now = Date.now();
-  const cutoff = now - CONFIG.RECENT_WINDOW_MS;
-  const recentApps = [];
-
-  for (const info of Object.values(appData)) {
-    if (!info?.releaseDate || info.releaseDate === 'Unknown') continue;
-
-    const timestamp = Date.parse(info.releaseDate);
-    if (!Number.isFinite(timestamp)) continue;
-    if (timestamp > now) continue;
-    if (timestamp < cutoff) continue;
-
-    const searchData = searchMap.get(normalizeName(info.name));
-    if (!searchData) continue;
-
-    recentApps.push({
-      timestamp,
-      url: searchData.url,
-      img: searchData.img,
-      name: searchData.name,
-      description: searchData.description || '',
-    });
-  }
-
-  recentApps.sort((a, b) => b.timestamp - a.timestamp);
-  return recentApps;
-}
-
 function computeUpcomingApps(searchMap, appData) {
   const now = Date.now();
   const upcomingApps = [];
 
   for (const info of Object.values(appData)) {
-    if (!info?.releaseDate || info.releaseDate === 'Unknown') continue;
+    if (!info?.releaseDate || info.releaseDate === TXT.UNKNOWN) continue;
 
-    const timestamp = Date.parse(info.releaseDate);
+    const timestamp = parseUtcDateMs(info.releaseDate);
     if (!Number.isFinite(timestamp)) continue;
     if (timestamp <= now) continue;
 
@@ -182,11 +199,82 @@ function computeUpcomingApps(searchMap, appData) {
       name: searchData.name,
       description: searchData.description || '',
       releaseDateText: formatReleaseDate(timestamp),
+      releaseState: RELEASE_STATE.UPCOMING,
     });
   }
 
   upcomingApps.sort((a, b) => a.timestamp - b.timestamp);
   return upcomingApps;
+}
+
+function computeNewReleaseApps(searchMap, appData) {
+  const now = Date.now();
+  const cutoff = now - CONFIG.RECENT_WINDOW_MS;
+  const newReleaseApps = [];
+
+  for (const info of Object.values(appData)) {
+    if (!info?.releaseDate || info.releaseDate === TXT.UNKNOWN) continue;
+    if (!info?.firstReleaseDate || info.firstReleaseDate === TXT.UNKNOWN) continue;
+
+    const releaseTimestamp = parseUtcDateMs(info.releaseDate);
+    const firstReleaseTimestamp = parseUtcDateMs(info.firstReleaseDate);
+
+    if (!Number.isFinite(releaseTimestamp) || !Number.isFinite(firstReleaseTimestamp)) continue;
+    if (releaseTimestamp > now) continue;
+    if (firstReleaseTimestamp > now) continue;
+    if (firstReleaseTimestamp < cutoff) continue;
+
+    const searchData = searchMap.get(normalizeName(info.name));
+    if (!searchData) continue;
+
+    newReleaseApps.push({
+      timestamp: releaseTimestamp,
+      firstReleaseTimestamp,
+      url: searchData.url,
+      img: searchData.img,
+      name: searchData.name,
+      description: searchData.description || '',
+      releaseState: RELEASE_STATE.NEW_RELEASE,
+    });
+  }
+
+  newReleaseApps.sort((a, b) => b.timestamp - a.timestamp);
+  return newReleaseApps;
+}
+
+function computeRecentlyUpdatedApps(searchMap, appData) {
+  const now = Date.now();
+  const cutoff = now - CONFIG.RECENT_WINDOW_MS;
+  const recentlyUpdatedApps = [];
+
+  for (const info of Object.values(appData)) {
+    if (!info?.releaseDate || info.releaseDate === TXT.UNKNOWN) continue;
+
+    const releaseTimestamp = parseUtcDateMs(info.releaseDate);
+    if (!Number.isFinite(releaseTimestamp)) continue;
+    if (releaseTimestamp > now) continue;
+    if (releaseTimestamp < cutoff) continue;
+
+    const firstReleaseTimestamp = parseUtcDateMs(info.firstReleaseDate);
+    if (Number.isFinite(firstReleaseTimestamp) && firstReleaseTimestamp >= cutoff) {
+      continue;
+    }
+
+    const searchData = searchMap.get(normalizeName(info.name));
+    if (!searchData) continue;
+
+    recentlyUpdatedApps.push({
+      timestamp: releaseTimestamp,
+      url: searchData.url,
+      img: searchData.img,
+      name: searchData.name,
+      description: searchData.description || '',
+      releaseState: RELEASE_STATE.RECENT_UPDATE,
+    });
+  }
+
+  recentlyUpdatedApps.sort((a, b) => b.timestamp - a.timestamp);
+  return recentlyUpdatedApps;
 }
 
 function renderCardSection(grid, section, apps, options = {}) {
@@ -209,12 +297,16 @@ function renderCardSection(grid, section, apps, options = {}) {
 }
 
 async function loadHomepageSections() {
-  const recentGrid = document.getElementById(IDS.RECENT_GRID);
-  const recentSection = document.getElementById(IDS.RECENT_SECTION);
   const upcomingGrid = document.getElementById(IDS.UPCOMING_GRID);
   const upcomingSection = document.getElementById(IDS.UPCOMING_SECTION);
+  const newReleaseGrid = document.getElementById(IDS.NEW_RELEASE_GRID);
+  const newReleaseSection = document.getElementById(IDS.NEW_RELEASE_SECTION);
+  const recentGrid = document.getElementById(IDS.RECENT_GRID);
+  const recentSection = document.getElementById(IDS.RECENT_SECTION);
 
-  if (!recentGrid || !recentSection) return;
+  if (!upcomingGrid || !upcomingSection || !newReleaseGrid || !newReleaseSection || !recentGrid || !recentSection) {
+    return;
+  }
 
   if (state.inFlightPromise) return state.inFlightPromise;
 
@@ -224,13 +316,16 @@ async function loadHomepageSections() {
     try {
       const { searchIndex, appData } = await fetchHomepageData();
       const searchMap = buildSearchMap(searchIndex);
-      const recentApps = computeRecentApps(searchMap, appData);
+
       const upcomingApps = computeUpcomingApps(searchMap, appData);
+      const newReleaseApps = computeNewReleaseApps(searchMap, appData);
+      const recentlyUpdatedApps = computeRecentlyUpdatedApps(searchMap, appData);
 
       if (token !== state.renderToken) return;
 
-      renderCardSection(recentGrid, recentSection, recentApps);
       renderCardSection(upcomingGrid, upcomingSection, upcomingApps, { isUpcoming: true });
+      renderCardSection(newReleaseGrid, newReleaseSection, newReleaseApps);
+      renderCardSection(recentGrid, recentSection, recentlyUpdatedApps);
     } catch (error) {
       console.error('Failed to load homepage sections:', error);
     } finally {

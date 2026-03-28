@@ -35,7 +35,11 @@
   outline-color: var(--color-coming-soon);
 }
 
-.card[data-release-state="recent"]:focus-within {
+.card[data-release-state="new-release"]:focus-within {
+  outline-color: var(--color-new-release);
+}
+
+.card[data-release-state="recent-update"]:focus-within {
   outline-color: var(--color-new-update);
 }
 
@@ -121,11 +125,24 @@
     );
 }
 
-.card[data-release-state="recent"] {
+.card[data-release-state="new-release"] {
+  border-color: var(--color-new-release);
+}
+
+.card[data-release-state="new-release"] .card-content {
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--color-background-light) 92%, var(--color-new-release) 8%),
+      var(--color-background-light)
+    );
+}
+
+.card[data-release-state="recent-update"] {
   border-color: var(--color-new-update);
 }
 
-.card[data-release-state="recent"] .card-content {
+.card[data-release-state="recent-update"] .card-content {
   background:
     linear-gradient(
       180deg,
@@ -135,6 +152,7 @@
 }
 
 .coming-soon-badge,
+.new-release-badge,
 .new-update-badge {
   position: absolute;
   inset-block-start: var(--spacing-sm);
@@ -165,6 +183,10 @@
 
 .coming-soon-badge {
   background-color: var(--color-coming-soon);
+}
+
+.new-release-badge {
+  background-color: var(--color-new-release);
 }
 
 .new-update-badge {
@@ -220,7 +242,11 @@
   border-color: var(--color-coming-soon);
 }
 
-.modal[data-release-state="recent"] {
+.modal[data-release-state="new-release"] {
+  border-color: var(--color-new-release);
+}
+
+.modal[data-release-state="recent-update"] {
   border-color: var(--color-new-update);
 }
 
@@ -477,10 +503,17 @@
   border-color: var(--color-coming-soon);
 }
 
-.card[data-release-state="recent"] .action-dropdown .dropdown-menu,
-.modal[data-release-state="recent"] .action-dropdown .dropdown-menu,
-.card[data-release-state="recent"] .popover-menu,
-.modal[data-release-state="recent"] .popover-menu {
+.card[data-release-state="new-release"] .action-dropdown .dropdown-menu,
+.modal[data-release-state="new-release"] .action-dropdown .dropdown-menu,
+.card[data-release-state="new-release"] .popover-menu,
+.modal[data-release-state="new-release"] .popover-menu {
+  border-color: var(--color-new-release);
+}
+
+.card[data-release-state="recent-update"] .action-dropdown .dropdown-menu,
+.modal[data-release-state="recent-update"] .action-dropdown .dropdown-menu,
+.card[data-release-state="recent-update"] .popover-menu,
+.modal[data-release-state="recent-update"] .popover-menu {
   border-color: var(--color-new-update);
 }
 
@@ -543,7 +576,11 @@
     background: var(--color-background-light);
   }
 
-  .card[data-release-state="recent"] .card-content {
+  .card[data-release-state="new-release"] .card-content {
+    background: var(--color-background-light);
+  }
+
+  .card[data-release-state="recent-update"] .card-content {
     background: var(--color-background-light);
   }
 
@@ -578,7 +615,8 @@
   }
 
   .card[data-release-state="upcoming"]:hover .card-image,
-  .card[data-release-state="recent"]:hover .card-image {
+  .card[data-release-state="new-release"]:hover .card-image,
+  .card[data-release-state="recent-update"]:hover .card-image {
     transform: scale(1.03);
   }
 
@@ -652,6 +690,7 @@
   }
 
   .coming-soon-badge,
+  .new-release-badge,
   .new-update-badge {
     inset-block-start: var(--spacing-xs);
     inset-inline-end: var(--spacing-xs);
@@ -752,6 +791,7 @@
   .popover-link,
   .download-link[data-loading="1"]::after,
   .coming-soon-badge,
+  .new-release-badge,
   .new-update-badge {
     transition: none !important;
     animation: none !important;
@@ -766,6 +806,7 @@
   .action-dropdown .dropdown-menu,
   .popover-menu,
   .coming-soon-badge,
+  .new-release-badge,
   .new-update-badge {
     forced-color-adjust: auto;
     background-color: Canvas;
@@ -788,6 +829,7 @@
   }
 
   .coming-soon-badge,
+  .new-release-badge,
   .new-update-badge {
     background-color: Highlight;
     color: HighlightText;

@@ -15,6 +15,7 @@ const FETCH_TIMEOUT_MS = 15000;
 const RETRY_ATTEMPTS = 2;
 const RETRY_DELAY_MS = 1000;
 const RELEASES_PER_PAGE = 100;
+const MIRROR_REPO = 'EmulationRevival/emulationrevival-downloads';
 
 const FAILURE_TYPES = {
     FETCH: 'fetch-failure',
@@ -28,12 +29,17 @@ const FAILURE_TYPES = {
 };
 
 function nameMatchesPattern(assetName, pattern) {
+    if (typeof assetName !== 'string' || !assetName || typeof pattern !== 'string' || !pattern) {
+        return false;
+    }
+
     const regex = new RegExp(
         `^${pattern
             .replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
             .replace(/\\\*/g, '.*')}$`,
         'i'
     );
+
     return regex.test(assetName);
 }
 
@@ -43,6 +49,10 @@ function normalizeVersion(version) {
     }
 
     return version.trim().replace(/^v/i, '') || 'Unknown';
+}
+
+function isSemanticVersion(value) {
+    return /^\d+(?:\.\d+)+$/.test(normalizeVersion(value));
 }
 
 function getReleaseDate(release) {
@@ -60,7 +70,7 @@ function getReleaseDate(release) {
 function buildVersionedStaticUrl(assetConfig, releaseVersion) {
     const normalizedVersion = normalizeVersion(releaseVersion);
 
-    if (!assetConfig || !assetConfig.urlTemplate) {
+    if (!assetConfig || typeof assetConfig.urlTemplate !== 'string' || !assetConfig.urlTemplate) {
         return null;
     }
 
@@ -206,7 +216,7 @@ function getReleaseTextSources(release) {
 }
 
 function extractRegexVersionCandidate(text, regexString) {
-    if (typeof text !== 'string' || !text) {
+    if (typeof text !== 'string' || !text || typeof regexString !== 'string' || !regexString) {
         return null;
     }
 
@@ -230,9 +240,9 @@ function getDefaultVersionCandidates(text) {
     }
 
     const patterns = [
-        /\bv?(\d+\.\d+\.\d+\.\d+)\b/g,
-        /\bv?(\d+\.\d+\.\d+)\b/g,
-        /\bv?(\d+\.\d+)\b/g
+        /(?<![\d.])v?(\d+\.\d+\.\d+\.\d+)(?![\d.])/gi,
+        /(?<![\d.])v?(\d+\.\d+\.\d+)(?![\d.])/gi,
+        /(?<![\d.])v?(\d+\.\d+)(?![\d.])/gi
     ];
 
     const seen = new Set();
@@ -243,12 +253,14 @@ function getDefaultVersionCandidates(text) {
 
         for (const match of matches) {
             const candidate = match[1] || match[0];
-            if (!candidate || seen.has(candidate)) {
+            const normalized = normalizeVersion(candidate);
+
+            if (!normalized || normalized === 'Unknown' || seen.has(normalized)) {
                 continue;
             }
 
-            seen.add(candidate);
-            results.push(candidate);
+            seen.add(normalized);
+            results.push(normalized);
         }
     }
 
@@ -261,8 +273,7 @@ function scoreVersionCandidate(candidate, source, text) {
     }
 
     let score = 0;
-
-    const normalized = candidate.replace(/^v/i, '');
+    const normalized = normalizeVersion(candidate);
     const segments = normalized.split('.').filter(Boolean).length;
 
     if (/^\d+\.\d+\.\d+\.\d+$/.test(normalized)) {
@@ -275,16 +286,18 @@ function scoreVersionCandidate(candidate, source, text) {
 
     score += segments * 10;
 
-    if (source === 'name') {
+    if (source === 'primary-asset') {
+        score += 90;
+    } else if (source === 'asset') {
+        score += 60;
+    } else if (source === 'name') {
         score += 25;
-    }
-
-    if (source === 'tag') {
+    } else if (source === 'tag') {
         score += 10;
     }
 
     if (typeof text === 'string') {
-        if (new RegExp(`\\bv?${candidate.replace(/\./g, '\\.')}\\b`, 'i').test(text)) {
+        if (new RegExp(`(?<![\\d.])v?${normalized.replace(/\./g, '\\.')}(?![\\d.])`, 'i').test(text)) {
             score += 10;
         }
 
@@ -363,19 +376,136 @@ function getSmartAutoVersion(release) {
     return candidates[0].value || null;
 }
 
+function getReleaseAssets(release) {
+    return Array.isArray(release?.assets) ? release.assets : [];
+}
+
+function getMatchedAssetsForRelease(release, config) {
+    const releaseAssets = getReleaseAssets(release);
+    const manifestAssets = Array.isArray(config?.assets) ? config.assets : [];
+
+    return manifestAssets.map((assetConfig, index) => {
+        const matchedAsset = releaseAssets.find(asset =>
+            nameMatchesPattern(asset?.name, assetConfig?.assetPattern)
+        );
+
+        return {
+            index,
+            assetConfig,
+            matchedAsset: matchedAsset || null,
+            isPrimary: index === 0
+        };
+    });
+}
+
+function extractVersionCandidatesFromAssetName(assetName, config, sourceLabel) {
+    if (typeof assetName !== 'string' || !assetName) {
+        return [];
+    }
+
+    const candidates = [];
+
+    if (typeof config?.versionRegex === 'string' && config.versionRegex.trim()) {
+        const regexCandidate = extractRegexVersionCandidate(assetName, config.versionRegex);
+        if (regexCandidate) {
+            const normalized = normalizeVersion(regexCandidate);
+            candidates.push({
+                value: normalized,
+                source: sourceLabel,
+                score: scoreVersionCandidate(normalized, sourceLabel, assetName) + 50
+            });
+        }
+    }
+
+    const defaultCandidates = getDefaultVersionCandidates(assetName);
+    for (const candidate of defaultCandidates) {
+        candidates.push({
+            value: candidate,
+            source: sourceLabel,
+            score: scoreVersionCandidate(candidate, sourceLabel, assetName)
+        });
+    }
+
+    return candidates;
+}
+
+function extractVersionFromMatchedAssets(release, config) {
+    if (config?.type === 'githubVersionedStatic') {
+        return null;
+    }
+
+    const matchedEntries = getMatchedAssetsForRelease(release, config);
+    if (!matchedEntries.length) {
+        return null;
+    }
+
+    const candidates = [];
+
+    const primaryMatch = matchedEntries.find(entry => entry.isPrimary && entry.matchedAsset);
+    if (primaryMatch && typeof primaryMatch.matchedAsset.name === 'string') {
+        candidates.push(
+            ...extractVersionCandidatesFromAssetName(
+                primaryMatch.matchedAsset.name,
+                config,
+                'primary-asset'
+            )
+        );
+    }
+
+    for (const entry of matchedEntries) {
+        if (!entry.matchedAsset || entry.isPrimary || typeof entry.matchedAsset.name !== 'string') {
+            continue;
+        }
+
+        candidates.push(
+            ...extractVersionCandidatesFromAssetName(
+                entry.matchedAsset.name,
+                config,
+                'asset'
+            )
+        );
+    }
+
+    if (!candidates.length) {
+        return null;
+    }
+
+    candidates.sort((a, b) => {
+        if (b.score !== a.score) {
+            return b.score - a.score;
+        }
+
+        const versionCompare = compareSemanticVersions(b.value, a.value);
+        if (versionCompare !== 0) {
+            return versionCompare;
+        }
+
+        return b.value.length - a.value.length;
+    });
+
+    return candidates[0].value || null;
+}
+
 function extractDisplayVersion(release, config) {
     const versionSource = config.versionSource || 'auto';
     const sources = getReleaseTextSources(release);
 
+    if (versionSource === 'auto') {
+        const assetCandidate = extractVersionFromMatchedAssets(release, config);
+        if (assetCandidate) {
+            return assetCandidate;
+        }
+    }
+
     if (typeof config.versionRegex === 'string' && config.versionRegex.trim()) {
         if (versionSource === 'tag') {
             const candidate = extractRegexVersionCandidate(release.tag_name || '', config.versionRegex);
-            return candidate || (release.tag_name || release.name || 'Unknown');
+            return normalizeVersion(candidate || release.tag_name || release.name || 'Unknown');
         }
 
         if (versionSource === 'name') {
             const candidate = extractRegexVersionCandidate(release.name || '', config.versionRegex);
-            return candidate || (release.name || release.tag_name || 'Unknown');
+            return normalizeVersion(candidate || release.name || release.tag_name || 'Unknown');
         }
 
         const regexCandidates = [];
@@ -384,10 +514,11 @@ function extractDisplayVersion(release, config) {
             const candidate = extractRegexVersionCandidate(sourceEntry.value, config.versionRegex);
 
             if (candidate) {
+                const normalized = normalizeVersion(candidate);
                 regexCandidates.push({
-                    value: candidate,
+                    value: normalized,
                     source: sourceEntry.source,
-                    score: scoreVersionCandidate(candidate, sourceEntry.source, sourceEntry.value) + 50
+                    score: scoreVersionCandidate(normalized, sourceEntry.source, sourceEntry.value) + 50
                 });
             }
         }
@@ -411,11 +542,11 @@ function extractDisplayVersion(release, config) {
     }
 
     if (versionSource === 'tag') {
-        return release.tag_name || release.name || 'Unknown';
+        return normalizeVersion(release.tag_name || release.name || 'Unknown');
     }
 
     if (versionSource === 'name') {
-        return release.name || release.tag_name || 'Unknown';
+        return normalizeVersion(release.name || release.tag_name || 'Unknown');
     }
 
     const smartCandidate = getSmartAutoVersion(release);
@@ -423,7 +554,7 @@ function extractDisplayVersion(release, config) {
         return smartCandidate;
     }
 
-    return release.tag_name || release.name || 'Unknown';
+    return normalizeVersion(release.tag_name || release.name || 'Unknown');
 }
 
 function resolveReleaseDate(config, resolvedVersion, release) {
@@ -435,9 +566,24 @@ function resolveReleaseDate(config, resolvedVersion, release) {
     return getReleaseDate(release);
 }
 
+function resolveFirstReleaseDate(config, resolvedVersion, release) {
+    const overrideDate = config.firstReleaseDateOverrides?.[resolvedVersion];
+    if (typeof overrideDate === 'string' && overrideDate.trim()) {
+        return overrideDate;
+    }
+
+    return getReleaseDate(release);
+}
+
+function shouldApplyReleaseTagRegex(config) {
+    return config?.repo === MIRROR_REPO
+        && typeof config.releaseTagRegex === 'string'
+        && config.releaseTagRegex.trim().length > 0;
+}
+
 function filterReleases(allReleases, config) {
     const allowPrerelease = config.allowPrerelease === true;
-    const releaseTagRegex = typeof config.releaseTagRegex === 'string' && config.releaseTagRegex.trim()
+    const releaseTagRegex = shouldApplyReleaseTagRegex(config)
         ? new RegExp(config.releaseTagRegex)
         : null;
 
@@ -458,13 +604,12 @@ function filterReleases(allReleases, config) {
     return filtered;
 }
 
-function chooseBestReleaseFromFiltered(filteredReleases, config) {
-    if (!Array.isArray(filteredReleases) || !filteredReleases.length) {
-        return null;
-    }
-
-    const decorated = filteredReleases.map(release => {
-        const resolvedVersion = extractDisplayVersion(release, config) || 'Unknown';
+function decorateFilteredReleases(filteredReleases, config) {
+    return filteredReleases.map(release => {
+        const matchedAssets = getMatchedAssetsForRelease(release, config);
+        const matchedAssetsCount = matchedAssets.filter(entry => entry.matchedAsset).length;
+        const matchedPrimaryAsset = matchedAssets.find(entry => entry.isPrimary && entry.matchedAsset) || null;
+        const hasPrimaryAsset = Boolean(matchedPrimaryAsset);
         const publishedAt = typeof release?.published_at === 'string'
             ? Date.parse(release.published_at)
             : NaN;
@@ -475,23 +620,98 @@ function chooseBestReleaseFromFiltered(filteredReleases, config) {
             ? publishedAt
             : (Number.isFinite(createdAt) ? createdAt : 0);
 
+        const resolvedVersion = extractDisplayVersion(release, config) || 'Unknown';
+
         return {
             release,
             resolvedVersion,
-            dateValue
+            dateValue,
+            isSemanticVersion: isSemanticVersion(resolvedVersion),
+            matchedAssets,
+            matchedAssetsCount,
+            hasPrimaryAsset,
+            matchedAllAssets: matchedAssets.length > 0 && matchedAssetsCount === matchedAssets.length
         };
     });
+}
 
-    decorated.sort((a, b) => {
-        const semanticCompare = compareSemanticVersions(b.resolvedVersion, a.resolvedVersion);
-        if (semanticCompare !== 0) {
-            return semanticCompare;
+function chooseBestDecoratedRelease(decoratedReleases, config) {
+    if (!Array.isArray(decoratedReleases) || !decoratedReleases.length) {
+        return null;
+    }
+
+    const candidatesWithPrimary = decoratedReleases.filter(entry => entry.hasPrimaryAsset);
+    const candidates = candidatesWithPrimary.length ? candidatesWithPrimary : decoratedReleases;
+    const useMirrorSorting = config?.repo === MIRROR_REPO;
+
+    const sorted = [...candidates].sort((a, b) => {
+        if (b.matchedAssetsCount !== a.matchedAssetsCount) {
+            return b.matchedAssetsCount - a.matchedAssetsCount;
         }
 
-        return b.dateValue - a.dateValue;
+        if (a.hasPrimaryAsset !== b.hasPrimaryAsset) {
+            return a.hasPrimaryAsset ? -1 : 1;
+        }
+
+        if (a.matchedAllAssets !== b.matchedAllAssets) {
+            return a.matchedAllAssets ? -1 : 1;
+        }
+
+        if (useMirrorSorting && a.isSemanticVersion && b.isSemanticVersion) {
+            const semanticCompare = compareSemanticVersions(b.resolvedVersion, a.resolvedVersion);
+            if (semanticCompare !== 0) {
+                return semanticCompare;
+            }
+
+            return b.dateValue - a.dateValue;
+        }
+
+        if (b.dateValue !== a.dateValue) {
+            return b.dateValue - a.dateValue;
+        }
+
+        if (a.isSemanticVersion && b.isSemanticVersion) {
+            return compareSemanticVersions(b.resolvedVersion, a.resolvedVersion);
+        }
+
+        if (a.isSemanticVersion !== b.isSemanticVersion) {
+            return a.isSemanticVersion ? -1 : 1;
+        }
+
+        return String(b.resolvedVersion).localeCompare(String(a.resolvedVersion), undefined, {
+            numeric: true,
+            sensitivity: 'base'
+        });
     });
 
-    return decorated[0].release;
+    return sorted[0];
+}
+
+function chooseFirstDecoratedRelease(decoratedReleases) {
+    if (!Array.isArray(decoratedReleases) || !decoratedReleases.length) {
+        return null;
+    }
+
+    const sorted = [...decoratedReleases].sort((a, b) => {
+        if (a.dateValue !== b.dateValue) {
+            return a.dateValue - b.dateValue;
+        }
+
+        if (a.isSemanticVersion && b.isSemanticVersion) {
+            return compareSemanticVersions(a.resolvedVersion, b.resolvedVersion);
+        }
+
+        if (a.isSemanticVersion !== b.isSemanticVersion) {
+            return a.isSemanticVersion ? -1 : 1;
+        }
+
+        return String(a.resolvedVersion).localeCompare(String(b.resolvedVersion), undefined, {
+            numeric: true,
+            sensitivity: 'base'
+        });
+    });
+
+    return sorted[0];
 }
 
 async function fetchAllReleases(repo, headers) {
@@ -537,24 +757,28 @@ async function fetchAllReleases(repo, headers) {
     return allReleases;
 }
 
-async function fetchBestMatchingRelease(repo, config, headers, releaseCache, summary) {
+async function fetchMatchingReleaseData(repo, config, headers, releaseCache, summary) {
     const cacheKey = JSON.stringify({
         repo,
         allowPrerelease: config.allowPrerelease === true,
-        releaseTagRegex: config.releaseTagRegex || '',
+        applyReleaseTagRegex: shouldApplyReleaseTagRegex(config),
+        releaseTagRegex: shouldApplyReleaseTagRegex(config) ? config.releaseTagRegex : '',
         versionSource: config.versionSource || 'auto',
-        versionRegex: config.versionRegex || ''
+        versionRegex: config.versionRegex || '',
+        assetPatterns: Array.isArray(config.assets)
+            ? config.assets.map(asset => asset.assetPattern || asset.urlTemplate || '')
+            : []
     });
 
     if (releaseCache.has(cacheKey)) {
-        const cachedRelease = releaseCache.get(cacheKey);
+        const cachedReleaseData = releaseCache.get(cacheKey);
 
-        if (cachedRelease) {
-            console.log(`  - Using cached release for '${repo}'`);
+        if (cachedReleaseData) {
+            console.log(`  - Using cached release data for '${repo}'`);
             summary.cachedRepoHits += 1;
         }
 
-        return cachedRelease;
+        return cachedReleaseData;
     }
 
     const allReleases = await fetchAllReleases(repo, headers);
@@ -573,17 +797,26 @@ async function fetchBestMatchingRelease(repo, config, headers, releaseCache, sum
         throw error;
     }
 
-    const bestRelease = chooseBestReleaseFromFiltered(filteredReleases, config);
+    const decoratedReleases = decorateFilteredReleases(filteredReleases, config);
+    const bestReleaseData = chooseBestDecoratedRelease(decoratedReleases, config);
+    const firstReleaseData = chooseFirstDecoratedRelease(decoratedReleases);
 
-    if (!bestRelease) {
-        const error = new Error('Could not determine the best matching release.');
+    if (!bestReleaseData || !firstReleaseData) {
+        const error = new Error('Could not determine matching release history.');
         error.failureType = FAILURE_TYPES.RELEASE_FILTER;
         throw error;
     }
 
-    releaseCache.set(cacheKey, bestRelease);
+    const releaseData = {
+        bestRelease: bestReleaseData.release,
+        bestVersion: bestReleaseData.resolvedVersion,
+        firstRelease: firstReleaseData.release,
+        firstVersion: firstReleaseData.resolvedVersion
+    };
 
-    return bestRelease;
+    releaseCache.set(cacheKey, releaseData);
+
+    return releaseData;
 }
 
 function getFallbackEntry(appId, config, previousOutput) {
@@ -594,6 +827,7 @@ function getFallbackEntry(appId, config, previousOutput) {
             name: previousEntry.name || config.name,
             version: previousEntry.version || config.version || 'Unknown',
             releaseDate: previousEntry.releaseDate || config.releaseDate || 'Unknown',
+            firstReleaseDate: previousEntry.firstReleaseDate || previousEntry.releaseDate || config.releaseDate || 'Unknown',
             assets: cloneAssets(previousEntry.assets)
         };
     }
@@ -602,6 +836,7 @@ function getFallbackEntry(appId, config, previousOutput) {
         name: config.name,
         version: config.version || 'Unknown',
         releaseDate: config.releaseDate || 'Unknown',
+        firstReleaseDate: config.firstReleaseDate || config.releaseDate || 'Unknown',
         assets: cloneAssets(config.assets)
     };
 }
@@ -613,6 +848,7 @@ function applyFallbackEntry(appId, config, finalJsonOutput, previousOutput, mess
         name: fallback.name,
         version: fallback.version,
         releaseDate: fallback.releaseDate,
+        firstReleaseDate: fallback.firstReleaseDate,
         assets: fallback.assets
     };
 
@@ -641,26 +877,26 @@ function throwValidationError(message) {
     throw error;
 }
 
-function validateReleaseDateOverrides(appId, releaseDateOverrides) {
-    if (releaseDateOverrides === undefined) {
+function validateDateOverrideMap(appId, fieldName, overrideMap) {
+    if (overrideMap === undefined) {
         return;
     }
 
-    if (!releaseDateOverrides || typeof releaseDateOverrides !== 'object' || Array.isArray(releaseDateOverrides)) {
-        throwValidationError(`App '${appId}' has invalid releaseDateOverrides.`);
+    if (!overrideMap || typeof overrideMap !== 'object' || Array.isArray(overrideMap)) {
+        throwValidationError(`App '${appId}' has invalid ${fieldName}.`);
     }
 
-    for (const [version, date] of Object.entries(releaseDateOverrides)) {
+    for (const [version, date] of Object.entries(overrideMap)) {
         if (typeof version !== 'string' || !version.trim()) {
-            throwValidationError(`App '${appId}' has an invalid releaseDateOverrides key.`);
+            throwValidationError(`App '${appId}' has an invalid ${fieldName} key.`);
         }
 
         if (typeof date !== 'string' || !date.trim()) {
-            throwValidationError(`App '${appId}' has an invalid releaseDateOverrides date for version '${version}'.`);
+            throwValidationError(`App '${appId}' has an invalid ${fieldName} date for version '${version}'.`);
         }
 
         if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
-            throwValidationError(`App '${appId}' has a non-ISO releaseDateOverrides date for version '${version}'.`);
+            throwValidationError(`App '${appId}' has a non-ISO ${fieldName} date for version '${version}'.`);
         }
     }
 }
@@ -744,7 +980,8 @@ function validateManifest(manifest) {
             }
         }
 
-        validateReleaseDateOverrides(appId, config.releaseDateOverrides);
+        validateDateOverrideMap(appId, 'releaseDateOverrides', config.releaseDateOverrides);
+        validateDateOverrideMap(appId, 'firstReleaseDateOverrides', config.firstReleaseDateOverrides);
     }
 }
 
@@ -768,6 +1005,10 @@ function validateOutputSchema(output) {
 
         if (typeof entry.releaseDate !== 'string') {
             throwValidationError(`Output entry '${appId}' has invalid releaseDate.`);
+        }
+
+        if (typeof entry.firstReleaseDate !== 'string') {
+            throwValidationError(`Output entry '${appId}' has invalid firstReleaseDate.`);
         }
 
         if (!Array.isArray(entry.assets)) {
@@ -834,28 +1075,28 @@ function entryString(entry) {
 }
 
 async function processGithubReleaseAssetsApp(appId, config, finalJsonOutput, headers, releaseCache, summary) {
-    const bestRelease = await fetchBestMatchingRelease(config.repo, config, headers, releaseCache, summary);
+    const releaseData = await fetchMatchingReleaseData(config.repo, config, headers, releaseCache, summary);
+    const bestRelease = releaseData.bestRelease;
+    const firstRelease = releaseData.firstRelease;
 
-    if (!bestRelease) {
-        const error = new Error('Could not determine a release.');
+    if (!bestRelease || !firstRelease) {
+        const error = new Error('Could not determine release history.');
         error.failureType = FAILURE_TYPES.NO_RELEASES;
         throw error;
     }
 
-    console.log(
-        `  - Found release: '${bestRelease.name || bestRelease.tag_name}'`
-    );
+    console.log(`  - Found release: '${bestRelease.name || bestRelease.tag_name}'`);
 
-    const resolvedVersion = extractDisplayVersion(bestRelease, config) || 'Unknown';
+    const resolvedVersion = releaseData.bestVersion || extractDisplayVersion(bestRelease, config) || 'Unknown';
+    const firstResolvedVersion = releaseData.firstVersion || extractDisplayVersion(firstRelease, config) || 'Unknown';
     const releaseDate = resolveReleaseDate(config, resolvedVersion, bestRelease);
+    const firstReleaseDate = resolveFirstReleaseDate(config, firstResolvedVersion, firstRelease);
 
     finalJsonOutput[appId].version = resolvedVersion;
     finalJsonOutput[appId].releaseDate = releaseDate;
+    finalJsonOutput[appId].firstReleaseDate = firstReleaseDate;
 
-    const releaseAssets = Array.isArray(bestRelease.assets)
-        ? bestRelease.assets
-        : [];
-
+    const releaseAssets = getReleaseAssets(bestRelease);
     const resolvedAssets = [];
 
     for (const assetConfig of config.assets) {
@@ -869,13 +1110,9 @@ async function processGithubReleaseAssetsApp(appId, config, finalJsonOutput, hea
                 url: foundAsset.browser_download_url
             });
 
-            console.log(
-                `    - Found asset for '${assetConfig.id}': ${foundAsset.name}`
-            );
+            console.log(`    - Found asset for '${assetConfig.id}': ${foundAsset.name}`);
         } else {
-            console.warn(
-                `    - ⚠️ Missing asset for '${assetConfig.id}' with pattern '${assetConfig.assetPattern}'`
-            );
+            console.warn(`    - ⚠️ Missing asset for '${assetConfig.id}' with pattern '${assetConfig.assetPattern}'`);
         }
     }
 
@@ -897,30 +1134,33 @@ async function processGithubReleaseAssetsApp(appId, config, finalJsonOutput, hea
 }
 
 async function processGithubVersionedStaticApp(appId, config, finalJsonOutput, headers, releaseCache, previousOutput, summary) {
-    const bestRelease = await fetchBestMatchingRelease(config.repo, config, headers, releaseCache, summary);
+    const releaseData = await fetchMatchingReleaseData(config.repo, config, headers, releaseCache, summary);
+    const bestRelease = releaseData.bestRelease;
+    const firstRelease = releaseData.firstRelease;
 
-    if (!bestRelease) {
-        const error = new Error('Could not determine a release.');
+    if (!bestRelease || !firstRelease) {
+        const error = new Error('Could not determine release history.');
         error.failureType = FAILURE_TYPES.NO_RELEASES;
         throw error;
     }
 
-    console.log(
-        `  - Found release: '${bestRelease.name || bestRelease.tag_name}'`
-    );
+    console.log(`  - Found release: '${bestRelease.name || bestRelease.tag_name}'`);
 
-    const rawReleaseVersion = extractDisplayVersion(bestRelease, config);
+    const rawReleaseVersion = releaseData.bestVersion || extractDisplayVersion(bestRelease, config) || config.version || 'Unknown';
     const normalizedReleaseVersion = normalizeVersion(rawReleaseVersion);
+    const firstRawReleaseVersion = releaseData.firstVersion || extractDisplayVersion(firstRelease, config) || rawReleaseVersion;
+    const normalizedFirstReleaseVersion = normalizeVersion(firstRawReleaseVersion);
+
     const releaseDate = resolveReleaseDate(config, normalizedReleaseVersion, bestRelease);
+    const firstReleaseDate = resolveFirstReleaseDate(config, normalizedFirstReleaseVersion, firstRelease);
+
     const resolvedAssets = [];
 
     for (const assetConfig of config.assets) {
         const resolvedUrl = buildVersionedStaticUrl(assetConfig, normalizedReleaseVersion);
 
         if (!resolvedUrl) {
-            console.warn(
-                `    - ⚠️ Could not build URL for '${assetConfig.id}'`
-            );
+            console.warn(`    - ⚠️ Could not build URL for '${assetConfig.id}'`);
             continue;
         }
 
@@ -932,13 +1172,9 @@ async function processGithubVersionedStaticApp(appId, config, finalJsonOutput, h
                 url: resolvedUrl
             });
 
-            console.log(
-                `    - Verified versioned static asset for '${assetConfig.id}': ${resolvedUrl}`
-            );
+            console.log(`    - Verified versioned static asset for '${assetConfig.id}': ${resolvedUrl}`);
         } else {
-            console.warn(
-                `    - ⚠️ URL check failed for '${assetConfig.id}': ${resolvedUrl}`
-            );
+            console.warn(`    - ⚠️ URL check failed for '${assetConfig.id}': ${resolvedUrl}`);
         }
     }
 
@@ -958,7 +1194,9 @@ async function processGithubVersionedStaticApp(appId, config, finalJsonOutput, h
 
     finalJsonOutput[appId].version = normalizedReleaseVersion;
     finalJsonOutput[appId].releaseDate = releaseDate;
+    finalJsonOutput[appId].firstReleaseDate = firstReleaseDate;
     finalJsonOutput[appId].assets = resolvedAssets;
+
     console.log('  - Versioned static links processed.');
 }
 
@@ -1038,6 +1276,7 @@ async function main() {
             name: config.name,
             version: 'Unknown',
             releaseDate: 'Unknown',
+            firstReleaseDate: 'Unknown',
             assets: []
         };
 
@@ -1067,9 +1306,7 @@ async function main() {
             incrementFailure(summary, failureType);
             summary.failureEntries += 1;
 
-            console.error(
-                `  - ❌ ${failureType} for '${config.repo || config.name}': ${error.message}`
-            );
+            console.error(`  - ❌ ${failureType} for '${config.repo || config.name}': ${error.message}`);
 
             applyFallbackEntry(
                 appId,
@@ -1130,9 +1367,7 @@ async function main() {
             ? FAILURE_TYPES.WRITE
             : classifyError(error);
 
-        console.error(
-            `\n\n❌ ${failureType}: ${error.message}`
-        );
+        console.error(`\n\n❌ ${failureType}: ${error.message}`);
     }
 }
 
