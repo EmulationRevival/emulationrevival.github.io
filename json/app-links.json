@@ -955,5 +955,35 @@
         "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/sm64ex-1.0.0.0/sm64ex-UWP-1.0.0.0.zip"
       }
     ]
+  },
+  "descent3": {
+    "name": "Descent 3",
+    "version": "1.6.0",
+    "releaseDate": "2026-03-21",
+    "assets": [
+      {
+        "id": "descent3",
+        "url": "https://github.com/worleydl/Descent3-dev/releases/download/v1.6.0-nightly/descent3-uwp_1.6.0.0_x64.msixbundle"
+      }
+    ]
+  },
+  "inferno": {
+    "name": "Inferno",
+    "version": "uwp-alpha",
+    "releaseDate": "2026-03-22",
+    "assets": [
+      {
+        "id": "inferno",
+        "url": "https://github.com/worleydl/Inferno-uwp/releases/download/uwp-alpha/inferno-uwp_0.4.2.1_x64.msixbundle"
+      },
+      {
+        "id": "inferno-dep",
+        "url": "https://github.com/worleydl/Inferno-uwp/releases/download/uwp-alpha/Microsoft.VCLibs.x64.14.00.appx"
+      },
+      {
+        "id": "inferno-assets",
+        "url": "https://github.com/worleydl/Inferno-uwp/releases/download/uwp-alpha/external-assets.zip"
+      }
+    ]
   }
 }
