@@ -2,41 +2,39 @@
 layout: null
 permalink: /sitemap.xml
 ---
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  {% assign seen_urls = '' | split: '' %}
-  {% assign content_items = site.pages | concat: site.documents %}
-
-  {% for item in content_items %}
-    {% assign item_url = item.url | replace: 'index.html', '' %}
-    {% assign last_char = item_url | slice: -1, 1 %}
-
-    {% assign is_content_page = false %}
-    {% if item_url == '/' %}
-      {% assign is_content_page = true %}
-    {% elsif last_char == '/' %}
-      {% assign is_content_page = true %}
-    {% elsif item_url contains '.html' %}
-      {% assign is_content_page = true %}
-    {% endif %}
-
-    {% unless item.noindex == true
-      or item_url == '/404.html'
-      or item_url == '/sitemap.xml'
-      or item_url contains '/guides/'
-      or item_url contains '/previews/'
-      or is_content_page == false
-    %}
-      {% unless seen_urls contains item_url %}
-  <url>
-    <loc>{{ item_url | absolute_url }}</loc>
-    {% if item.last_modified_at %}
-    <lastmod>{{ item.last_modified_at | date_to_xmlschema }}</lastmod>
-    {% elsif item.date %}
-    <lastmod>{{ item.date | date_to_xmlschema }}</lastmod>
-    {% endif %}
-  </url>
-        {% assign seen_urls = seen_urls | push: item_url %}
-      {% endunless %}
-    {% endunless %}
-  {% endfor %}
+{%- assign seen_urls = '' | split: '' -%}
+{%- assign content_items = site.pages | concat: site.documents -%}
+{%- for item in content_items -%}
+  {%- assign item_url = item.url | replace: 'index.html', '' -%}
+  {%- assign last_char = item_url | slice: -1, 1 -%}
+  {%- assign is_content_page = false -%}
+  {%- if item_url == '/' -%}
+    {%- assign is_content_page = true -%}
+  {%- elsif last_char == '/' -%}
+    {%- assign is_content_page = true -%}
+  {%- elsif item_url contains '.html' -%}
+    {%- assign is_content_page = true -%}
+  {%- endif -%}
+  {%- unless item.noindex == true
+    or item_url == '/404.html'
+    or item_url == '/sitemap.xml'
+    or item_url contains '/guides/'
+    or item_url contains '/previews/'
+    or is_content_page == false
+  -%}
+    {%- unless seen_urls contains item_url -%}
+<url>
+  <loc>{{ item_url | absolute_url }}</loc>
+  {%- if item.last_modified_at -%}
+  <lastmod>{{ item.last_modified_at | date_to_xmlschema }}</lastmod>
+  {%- elsif item.date -%}
+  <lastmod>{{ item.date | date_to_xmlschema }}</lastmod>
+  {%- endif -%}
+</url>
+      {%- assign seen_urls = seen_urls | push: item_url -%}
+    {%- endunless -%}
+  {%- endunless -%}
+{%- endfor -%}
 </urlset>
