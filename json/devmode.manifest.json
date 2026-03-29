@@ -1258,5 +1258,15 @@
         "assetPattern": "external-assets.zip"
       }
     ]
+  },
+  "burgerdoom": {
+    "name": "BurgerDoom",
+    "repo": "SternXD/BurgerDoom",
+    "assets": [
+      {
+        "id": "burgerdoom",
+        "assetPattern": "BurgerDoom_*.zip"
+      }
+    ]
   }
 }

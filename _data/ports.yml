@@ -1389,3 +1389,35 @@
   setup_guide:
     url: "/guides/ports/inferno-guide.html"
   tutorial_url: null
+  
+- id: "burgerdoom"
+  app_id: "burgerdoom"
+  title: "BurgerDoom"
+  description: "A backport & remaster of 3DO DOOM"
+  image: "/xbox-dev-mode/images/game-ports/burgerdoom.webp"
+  alt: "BurgerDoom Logo"
+  category: "Ports"
+  page_url: "/xbox-dev-mode/ports.html#burgerdoom"
+  preview_url: "/previews/ports-burgerdoom.html"
+  compatibility: "Xbox One & Series S|X"
+  requirements:
+    - "A valid Doom3DO.img file"
+  features: []
+  contributors:
+    developers:
+      - name: "atsb"
+        github: "https://github.com/atsb"
+        donations: []
+    porters:
+      - name: "Stern"
+        github: "https://github.com/SternXD"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/stern"
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "burgerdoom"
+  setup_guide:
+    url: "/guides/ports/burgerdoom-guide.html"
+  tutorial_url: null
