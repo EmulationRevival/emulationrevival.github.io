@@ -4,6 +4,7 @@ title: "Sonic CD (Decompilation) Guide"
 permalink: /guides/ports/soniccd-guide.html
 description: "A guide for setting up Sonic CD (Decompilation) on dev mode."
 author: "MewLew"
+noindex: true
 ---
 
 ### Requirements

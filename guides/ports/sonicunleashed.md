@@ -4,6 +4,7 @@ title: "Sonic Unleashed Recompiled Guide"
 permalink: /guides/ports/sonicunleashedrecomp-guide.html
 description: "A guide for setting up Sonic Unleashed Recompiled on dev mode."
 author: "Jeen"
+noindex: true
 ---
 
 This guide provides instructions for installing and setting up the "Sonic Unleashed Recompiled" fan project (UWP port by WorleyDL) on an Xbox Series S/X console running in Developer Mode. It also covers how to set up mods using HedgeModManager

@@ -4,6 +4,7 @@ title: "VVVVVV (V6) Guide"
 permalink: /guides/ports/vvvvvv-guide.html
 description: "A guide for setting up VVVVVV (V6) on dev mode."
 author: "MewLew"
+noindex: true
 ---
 
 > The provided `.appx` is precompiled with assets from the **VVVVVV Make and Play Edition**, with explicit permission from Terry Cavanagh.

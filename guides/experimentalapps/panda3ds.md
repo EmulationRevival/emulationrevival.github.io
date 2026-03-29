@@ -4,6 +4,7 @@ title: "Panda3DS Guide"
 permalink: /guides/experimentalapps/panda3ds-guide.html
 description: "A guide for setting up Panda3DS on dev mode."
 author: "Jeen"
+noindex: true
 ---
 
 This guide provides instructions for installing and setting up Panda3DS, a Nintendo 3DS emulator, on an Xbox Series S/X console running in Developer Mode.

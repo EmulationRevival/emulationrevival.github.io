@@ -4,6 +4,7 @@ title: "Zelda 3 Guide"
 permalink: /guides/ports/zelda3-guide.html
 description: "A guide for setting up Zelda 3 on dev mode."
 author: "MewLew"
+noindex: true
 ---
 
 ### Requirements

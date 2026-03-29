@@ -4,6 +4,7 @@ title: "Inferno Guide"
 permalink: /guides/ports/inferno-guide.html
 description: "A guide for setting up Inferno on dev mode."
 author: "Worleydl"
+noindex: true
 ---
 
 This is a port of Inferno for UWP.

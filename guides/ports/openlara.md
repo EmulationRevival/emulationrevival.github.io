@@ -4,6 +4,7 @@ title: "OpenLara Guide"
 permalink: /guides/ports/openlara-guide.html
 description: "A guide for setting up OpenLara on dev mode."
 author: "MewLew"
+noindex: true
 ---
 
 ### Extracting Game Assets  

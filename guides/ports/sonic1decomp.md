@@ -4,6 +4,7 @@ title: "Sonic 1 Decompilation Guide"
 permalink: /guides/ports/sonic1decomp-guide.html
 description: "A guide for setting up Sonic 1 Decompilation on dev mode."
 author: "MewLew"
+noindex: true
 ---
 
 ### Requirements

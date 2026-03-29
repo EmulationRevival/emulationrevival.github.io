@@ -4,6 +4,7 @@ title: "XBSX2 Guide"
 permalink: /guides/emulators/xbsx2-guide.html
 description: "A guide for setting up XBSX2 on dev mode."
 author: "Stern/Jeen"
+noindex: true
 ---
 
 XBSX2 is an emulator that allows you to play PlayStation 2 (PS2) games on your Xbox Series X/S, taking advantage of the hardware to provide smooth gameplay with features such as:

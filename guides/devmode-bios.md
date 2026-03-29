@@ -4,6 +4,7 @@ title: "Xbox Dev Mode BIOS Requirements"
 permalink: /guides/devmode-bios.html
 description: "Comprehensive BIOS and firmware requirements for emulators used in Xbox Dev Mode."
 author: "MewLew"
+noindex: true
 ---
 
 # Overview

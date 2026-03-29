@@ -4,6 +4,7 @@ title: "SM64HD Fan Remake (Super Mario 64) Guide"
 permalink: /guides/experimentalapps/sm64hd-guide.html
 description: "A guide for setting up SM64HD Fan Remake (Super Mario 64) on dev mode."
 author: "MewLew"
+noindex: true
 ---
 
 > This project was a continuation of the Super Mario 64 HD Remake developed in the Unity Engine. However, it has been archived due to years of inactivity and the advancements of the SM64 Decompilation Project. If you're interested in reviving or building upon it, feel free to fork the repository.

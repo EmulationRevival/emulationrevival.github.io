@@ -4,6 +4,7 @@ title: "BoxedWine Guide"
 permalink: /guides/emulators/boxedwine-guide.html
 description: "A guide for setting up BoxedWine on dev mode."
 author: "Jeen"
+noindex: true
 ---
 
 # Installing and Using BoxedWine on Xbox (Developer Mode) 

@@ -4,6 +4,7 @@ title: "Zircon (Quake) Guide"
 permalink: /guides/ports/zircon-guide.html
 description: "A guide for setting up Zircon (Quake) on dev mode."
 author: "MewLew"
+noindex: true
 ---
 
 ### Requirements

@@ -3,6 +3,7 @@ layout: guide
 title: "Sega Model 3 G920 Guide"
 permalink: /guides/emulators/segamodel3g920-guide.html
 description: "A guide for setting up Sega Model 3 G920 on dev mode."
+noindex: true
 ---
 
 ### Requirements:

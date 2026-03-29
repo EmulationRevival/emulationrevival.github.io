@@ -4,6 +4,7 @@ title: "Darkplaces (Quake) UWP Edition Guide"
 permalink: /guides/ports/darkplaces-guide.html
 description: "A guide for setting up Darkplaces (Quake) UWP Edition on dev mode."
 author: "MewLew"
+noindex: true
 ---
 
 ### Requirements

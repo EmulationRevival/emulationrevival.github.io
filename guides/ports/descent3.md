@@ -4,6 +4,7 @@ title: "Descent 3 Guide"
 permalink: /guides/ports/descent3-guide.html
 description: "A guide for setting up Descent 3 on dev mode."
 author: "MewLew"
+noindex: true
 ---
 
 ## Important Notes

@@ -4,6 +4,7 @@ title: "DXX Rebirth Guide"
 permalink: /guides/ports/dxxrebirth-guide.html
 description: "A guide for setting up DXX Rebirth on dev mode."
 author: "MewLew"
+noindex: true
 ---
 
 ### Requirements:

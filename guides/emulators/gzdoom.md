@@ -4,6 +4,7 @@ title: "GZDoom Guide"
 permalink: /guides/emulators/gzdoom-guide.html
 description: "A guide for setting up GZDoom on dev mode."
 author: "MewLew"
+noindex: true
 ---
 
 ## **External Drive Setup**  

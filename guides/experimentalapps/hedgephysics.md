@@ -4,6 +4,7 @@ title: "Hedge Physics Guide"
 permalink: /guides/experimentalapps/hedgephysics-guide.html
 description: "A guide for setting up Hedge Physics on dev mode."
 author: "MewLew"
+noindex: true
 ---
 
 ### Install Hedge Physics:

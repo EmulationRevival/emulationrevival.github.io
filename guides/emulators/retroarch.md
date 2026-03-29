@@ -4,6 +4,7 @@ title: "RetroArch Guide (Mesa/Angle for Xbox)"
 permalink: /guides/emulators/retroarch-guide.html
 description: "A guide for setting up RetroArch on dev mode."
 author: "Mango/Stern/Jeen"
+noindex: true
 ---
 
 This guide provides instructions for installing and setting up RetroArch (Mesa for Xbox Series X|S, Angle for Xbox One) on consoles running in Developer Mode.

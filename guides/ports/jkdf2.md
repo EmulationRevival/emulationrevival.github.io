@@ -4,6 +4,7 @@ title: "Open JKDF2 Guide"
 permalink: /guides/ports/jkdf2-guide.html
 description: "A guide for setting up Open JKDF2 on dev mode."
 author: "MewLew"
+noindex: true
 ---
 
 ### Requirements

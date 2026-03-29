@@ -4,6 +4,7 @@ title: "Trogdor Reburninated Guide"
 permalink: /guides/ports/trogdor-guide.html
 description: "A guide for setting up Trogdor Reburninated on dev mode."
 author: "MewLew"
+noindex: true
 ---
 
 ### Install Trogdor-Reburninated

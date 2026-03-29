@@ -4,6 +4,7 @@ title: "Sonic Realms Guide"
 permalink: /guides/ports/sonicrealms-guide.html
 description: "A guide for setting up Sonic Realms on dev mode."
 author: "MewLew"
+noindex: true
 ---
 
 > Sonic Realms is a **free, open-source 2D Sonic development kit** built using the Unity engine.  

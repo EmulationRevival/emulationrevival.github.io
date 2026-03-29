@@ -4,6 +4,7 @@ title: "Sonic 1 & 2 SMS remakes Guide"
 permalink: /guides/ports/sonicsms-guide.html
 description: "A guide for setting up Sonic 1 & 2 SMS remakes on dev mode."
 author: "MewLew"
+noindex: true
 ---
 
 ### Install Sonic 1 SMS Remake

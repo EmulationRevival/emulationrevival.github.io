@@ -3,6 +3,7 @@ layout: guide
 title: "LaunchPass Guide"
 permalink: /guides/frontends/launchpass-guide.html
 description: "A guide for setting up LaunchPass on dev mode."
+noindex: true
 ---
 
 # What is LaunchPass?

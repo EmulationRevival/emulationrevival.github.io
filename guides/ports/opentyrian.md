@@ -4,6 +4,7 @@ title: "OpenTyrian 2000 Guide"
 permalink: /guides/ports/opentyrian-guide.html
 description: "A guide for setting up OpenTyrian 2000 on dev mode."
 author: "MewLew"
+noindex: true
 ---
 
 ### Internal Setup
