@@ -420,6 +420,13 @@
     "category": "Ports"
   },
   {
+    "name": "BurgerDoom",
+    "description": "A backport & remaster of 3DO DOOM",
+    "img": "/xbox-dev-mode/images/game-ports/burgerdoom.webp",
+    "url": "/xbox-dev-mode/ports.html#burgerdoom",
+    "category": "Ports"
+  },
+  {
     "name": "USB Permissions Tool",
     "description": "Add necessary permissions to an NTFS formatted USB drive for UWP apps",
     "img": "/xbox-dev-mode/images/utilities/usb-perms-tool.webp",
