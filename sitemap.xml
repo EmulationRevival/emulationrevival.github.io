@@ -1,0 +1,24 @@
+---
+layout: null
+permalink: /sitemap.xml
+---
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {% assign pages_to_include = site.html_pages | concat: site.pages | concat: site.documents %}
+
+  {% for item in pages_to_include %}
+    {% assign item_url = item.url | replace: 'index.html', '' %}
+
+    {% unless item_url contains '/guides/' or item_url contains '/previews/' or item.noindex == true %}
+      {% if item_url and item_url != '/404.html' %}
+  <url>
+    <loc>{{ item_url | absolute_url }}</loc>
+    {% if item.date %}
+    <lastmod>{{ item.date | date_to_xmlschema }}</lastmod>
+    {% endif %}
+  </url>
+      {% endif %}
+    {% endunless %}
+  {% endfor %}
+</urlset>
