@@ -1066,5 +1066,17 @@
         "url": "https://github.com/worleydl/Inferno-uwp/releases/download/uwp-alpha/external-assets.zip"
       }
     ]
+  },
+  "burgerdoom": {
+    "name": "BurgerDoom",
+    "version": "1.1.0",
+    "releaseDate": "2026-03-29",
+    "firstReleaseDate": "2026-03-29",
+    "assets": [
+      {
+        "id": "burgerdoom",
+        "url": "https://github.com/SternXD/BurgerDoom/releases/download/1.1.0-uwp/BurgerDoom_1.1.0.0.zip"
+      }
+    ]
   }
 }
