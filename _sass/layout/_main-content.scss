@@ -494,18 +494,24 @@ main {
 
 @media (min-width: 992px) {
   .hero-section {
-    min-block-size: 34rem;
-    padding-block: var(--spacing-xxxl);
+    min-block-size: auto;
+    block-size: 60svh;
+    block-size: 60dvh;
+    padding-block: 0;
   }
 
   .error-page-section {
-    min-block-size: 70vh;
-    padding-block: var(--spacing-xxl);
+    min-block-size: calc(100vh - var(--header-height));
+    min-block-size: calc(100svh - var(--header-height));
+    min-block-size: calc(100dvh - var(--header-height));
+    padding-block: 0;
   }
 
   .error-section {
-    min-block-size: 32rem;
-    padding: var(--spacing-xxxl) var(--spacing-xl);
+    min-block-size: calc(100vh - 200px);
+    min-block-size: calc(100svh - 200px);
+    min-block-size: calc(100dvh - 200px);
+    padding: var(--spacing-lg);
   }
 
   .hero-content {

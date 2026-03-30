@@ -24,6 +24,7 @@ const C = {
     DISCORD_MODAL: '#discordHubModal',
     DISCORD_OVERLAY: '#discordHubOverlay',
     DISCORD_CLOSE: '#discordHubClose',
+    THEME_COLOR_META: 'meta[name="theme-color"]',
   },
   CLS: {
     ACTIVE: 'active',
@@ -33,6 +34,14 @@ const C = {
     MOBILE: 992,
   },
   THEME_KEY: 'theme',
+  THEME: {
+    DARK: 'dark',
+    LIGHT: 'light',
+  },
+  THEME_COLORS: {
+    DARK: 'hsl(0, 0%, 10%)',
+    LIGHT: 'hsl(210, 16%, 98%)',
+  },
   EVENTS: {
     REQUEST_MOBILE_SEARCH_PANEL: 'requestMobileSearchPanel',
     NAV_MENU_STATE_CHANGE: 'navMenuStateChange',
@@ -46,6 +55,7 @@ const el = {
   header: document.querySelector(C.SEL.MAIN_HEADER),
   mainNav: document.querySelector(C.SEL.MAIN_NAV),
   themeToggle: document.getElementById('theme-toggle'),
+  themeColorMeta: document.querySelector(C.SEL.THEME_COLOR_META),
   submenuTriggers: Array.from(document.querySelectorAll(C.SEL.HAS_SUBMENU_TRIGGER)),
   submenuPanels: Array.from(document.querySelectorAll(C.SEL.SUBMENU_PANEL)),
   discordModal: document.querySelector(C.SEL.DISCORD_MODAL),
@@ -109,6 +119,26 @@ function setScrollLock(lock) {
   } else {
     body.classList.remove('no-scroll');
   }
+}
+
+function getThemeColor(theme) {
+  return theme === C.THEME.LIGHT ? C.THEME_COLORS.LIGHT : C.THEME_COLORS.DARK;
+}
+
+function syncThemeColorMeta(theme) {
+  if (!el.themeColorMeta) return;
+  el.themeColorMeta.setAttribute('content', getThemeColor(theme));
+}
+
+function applyTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  syncThemeColorMeta(theme);
+
+  if (el.themeToggle) {
+    el.themeToggle.setAttribute('aria-pressed', String(theme === C.THEME.DARK));
+  }
+
+  localStorage.setItem(C.THEME_KEY, theme);
 }
 
 window.addEventListener('requestScrollLock', event => {
@@ -346,17 +376,21 @@ if (mq.addEventListener) {
 if (el.themeToggle) {
   const saved =
     localStorage.getItem(C.THEME_KEY) ||
-    (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    (matchMedia('(prefers-color-scheme: dark)').matches ? C.THEME.DARK : C.THEME.LIGHT);
 
-  document.documentElement.dataset.theme = saved;
-  el.themeToggle.setAttribute('aria-pressed', String(saved === 'dark'));
+  applyTheme(saved);
 
   el.themeToggle.addEventListener('click', () => {
-    const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-    document.documentElement.dataset.theme = next;
-    el.themeToggle.setAttribute('aria-pressed', String(next === 'dark'));
-    localStorage.setItem(C.THEME_KEY, next);
+    const next = document.documentElement.dataset.theme === C.THEME.DARK ? C.THEME.LIGHT : C.THEME.DARK;
+    applyTheme(next);
   });
+} else {
+  const currentTheme =
+    document.documentElement.dataset.theme ||
+    localStorage.getItem(C.THEME_KEY) ||
+    (matchMedia('(prefers-color-scheme: dark)').matches ? C.THEME.DARK : C.THEME.LIGHT);
+
+  syncThemeColorMeta(currentTheme);
 }
 
 scheduleTask(() => {

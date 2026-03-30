@@ -2,9 +2,9 @@
   "name": "Emulation Revival",
   "short_name": "EmuRevival",
   "start_url": "/",
-  "display": "fullscreen",
+  "display": "standalone",
   "background_color": "#121212",
-  "theme_color": "#8a2be2",
+  "theme_color": "#1a1a1a",
   "description": "Your ultimate hub for Xbox Emulation",
   "icons": [
     {
