@@ -946,6 +946,28 @@ function initAriaLabels() {
   });
 }
 
+function resolveUrlType(url) {
+  try {
+    const resolved = new URL(url, window.location.origin);
+    const isSameOrigin = resolved.origin === window.location.origin;
+    const isFile = C.FILE_EXT.test(resolved.pathname);
+
+    return {
+      href: resolved.href,
+      isSameOrigin,
+      isFile,
+      isInternalPage: isSameOrigin && !isFile,
+    };
+  } catch {
+    return {
+      href: url,
+      isSameOrigin: false,
+      isFile: C.FILE_EXT.test(url),
+      isInternalPage: false,
+    };
+  }
+}
+
 async function handleDownloadClick(btn) {
   if (!domMeta.has(btn)) {
     domMeta.set(btn, {
@@ -993,10 +1015,12 @@ async function handleDownloadClick(btn) {
     return;
   }
 
-  if (C.FILE_EXT.test(url)) {
-    window.location.assign(url);
+  const resolvedUrl = resolveUrlType(url);
+
+  if (resolvedUrl.isFile || resolvedUrl.isInternalPage) {
+    window.location.assign(resolvedUrl.href);
   } else {
-    window.open(url, '_blank', 'noopener,noreferrer');
+    window.open(resolvedUrl.href, '_blank', 'noopener,noreferrer');
   }
 }
 
