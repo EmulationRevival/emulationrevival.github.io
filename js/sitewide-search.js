@@ -50,6 +50,9 @@ const CONFIG = {
   INDEX_PATH: '/json/search-index.json',
   IMAGE_FALLBACK: '/images/fallback.png',
   MOBILE_BREAKPOINT: 991,
+  EXCLUDED_URL_PREFIXES: [
+    '/xbox-dev-mode/emulators/gzdoom/prebuilt-mods.html',
+  ],
 };
 
 const EVENTS = {
@@ -249,6 +252,31 @@ if (!searchInput || !autocompleteResults) {
     });
   }
 
+  function normalizeUrlPath(url) {
+    if (!url) return '';
+
+    try {
+      const parsed = new URL(url, window.location.origin);
+      return parsed.pathname;
+    } catch {
+      return String(url).split('#')[0].split('?')[0];
+    }
+  }
+
+  function isExcludedFromSitewideSearch(url) {
+    const normalizedPath = normalizeUrlPath(url);
+    if (!normalizedPath) return false;
+
+    for (let i = 0; i < CONFIG.EXCLUDED_URL_PREFIXES.length; i += 1) {
+      const excludedPrefix = CONFIG.EXCLUDED_URL_PREFIXES[i];
+      if (normalizedPath.startsWith(excludedPrefix)) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
   async function hydrateSearchIndex() {
     try {
       const masterIndex = await loadSearchIndex(CONFIG.INDEX_PATH);
@@ -261,7 +289,8 @@ if (!searchInput || !autocompleteResults) {
           img: item.img || '',
           searchKey: stripAccents(`${item.name || ''} ${item.description || ''}`),
         }))
-        .filter(item => item.url && item.name);
+        .filter(item => item.url && item.name)
+        .filter(item => !isExcludedFromSitewideSearch(item.url));
 
       return searchIndexCache;
     } catch (err) {
