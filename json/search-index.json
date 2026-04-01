@@ -572,5 +572,124 @@
     "img": "/xbox-dev-mode/images/experimental-apps/boxedwine.webp",
     "url": "/xbox-dev-mode/experimental-apps.html#boxedwine",
     "category": "Experimental Apps"
+  },
+  {
+    "name": "ABYSM 2",
+    "description": "An action-adventure total conversion for GZDoom inspired by Diablo, Dark Souls, and Strife.",
+    "img": "/xbox-dev-mode/images/gzdoom-mods/abysm2.webp",
+    "url": "/xbox-dev-mode/emulators/gzdoom/prebuilt-mods.html#abysm2",
+    "category": "GZDoom Mods"
+  },
+  {
+    "name": "Aliens Eradication TC",
+    "description": "A GZDoom mod built from Kontra Kommando’s Aliens-themed work, inspired by Alien Trilogy and Ultimate DOOM.",
+    "img": "/xbox-dev-mode/images/gzdoom-mods/aliens-eradication.webp",
+    "url": "/xbox-dev-mode/emulators/gzdoom/prebuilt-mods.html#aliens-eradication",
+    "category": "GZDoom Mods"
+  },
+  {
+    "name": "Ashes 2063",
+    "description": "A post-apocalyptic total conversion blending Build-style maps, fast combat, and influences from Fallout and S.T.A.L.K.E.R.",
+    "img": "/xbox-dev-mode/images/gzdoom-mods/ashes.webp",
+    "url": "/xbox-dev-mode/emulators/gzdoom/prebuilt-mods.html#ashes",
+    "category": "GZDoom Mods"
+  },
+  {
+    "name": "BLOOM",
+    "description": "A crossover mod that fuses the worlds, weapons, and style of Blood and DOOM into one GZDoom experience.",
+    "img": "/xbox-dev-mode/images/gzdoom-mods/bloom.webp",
+    "url": "/xbox-dev-mode/emulators/gzdoom/prebuilt-mods.html#bloom",
+    "category": "GZDoom Mods"
+  },
+  {
+    "name": "Brutal DOOM",
+    "description": "A famous GZDoom mod that makes DOOM faster, harder, louder, and far more violent.",
+    "img": "/xbox-dev-mode/images/gzdoom-mods/brutal-doom.webp",
+    "url": "/xbox-dev-mode/emulators/gzdoom/prebuilt-mods.html#brutal-doom",
+    "category": "GZDoom Mods"
+  },
+  {
+    "name": "Brutal Wolfenstein 3D",
+    "description": "A total conversion that reimagines the original Wolfenstein 3D episodes and Spear of Destiny in GZDoom.",
+    "img": "/xbox-dev-mode/images/gzdoom-mods/brutal-wolfenstein3d.webp",
+    "url": "/xbox-dev-mode/emulators/gzdoom/prebuilt-mods.html#brutal-wolfenstein3d",
+    "category": "GZDoom Mods"
+  },
+  {
+    "name": "Castlevania: Simon's Destiny",
+    "description": "A first-person reimagining of the original NES Castlevania with nostalgic design and brand-new gameplay.",
+    "img": "/xbox-dev-mode/images/gzdoom-mods/castlevania-simon.webp",
+    "url": "/xbox-dev-mode/emulators/gzdoom/prebuilt-mods.html#castlevania-simon",
+    "category": "GZDoom Mods"
+  },
+  {
+    "name": "DOOM",
+    "description": "The classic demon-slaying FPS that defined the genre, playable through GZDoom with modern source port features.",
+    "img": "/xbox-dev-mode/images/gzdoom-mods/doom.webp",
+    "url": "/xbox-dev-mode/emulators/gzdoom/prebuilt-mods.html#doom",
+    "category": "GZDoom Mods"
+  },
+  {
+    "name": "The Golden Souls",
+    "description": "A colorful platformer-inspired DOOM II mod influenced by Super Mario, with new mechanics and whimsical worlds.",
+    "img": "/xbox-dev-mode/images/gzdoom-mods/golden-souls.webp",
+    "url": "/xbox-dev-mode/emulators/gzdoom/prebuilt-mods.html#golden-souls",
+    "category": "GZDoom Mods"
+  },
+  {
+    "name": "Halo DOOM",
+    "description": "A Halo-inspired weapon mod for GZDoom featuring a large sandbox, Spartan classes, and broad addon compatibility.",
+    "img": "/xbox-dev-mode/images/gzdoom-mods/halodoom.webp",
+    "url": "/xbox-dev-mode/emulators/gzdoom/prebuilt-mods.html#halodoom",
+    "category": "GZDoom Mods"
+  },
+  {
+    "name": "Heretic",
+    "description": "Raven Software’s dark fantasy FPS, bringing magic, monsters, and medieval combat to the classic DOOM-style formula.",
+    "img": "/xbox-dev-mode/images/gzdoom-mods/heretic.webp",
+    "url": "/xbox-dev-mode/emulators/gzdoom/prebuilt-mods.html#heretic",
+    "category": "GZDoom Mods"
+  },
+  {
+    "name": "HeXen",
+    "description": "A darker fantasy shooter from Raven Software with hub-based progression, classes, and more complex combat than Heretic.",
+    "img": "/xbox-dev-mode/images/gzdoom-mods/hexen.webp",
+    "url": "/xbox-dev-mode/emulators/gzdoom/prebuilt-mods.html#hexen",
+    "category": "GZDoom Mods"
+  },
+  {
+    "name": "Operation Body Count",
+    "description": "A total conversion episode with objective-based maps, custom enemies, and weapons, remaking the Capstone shooter.",
+    "img": "/xbox-dev-mode/images/gzdoom-mods/operation-body-count.webp",
+    "url": "/xbox-dev-mode/emulators/gzdoom/prebuilt-mods.html#operation-body-count",
+    "category": "GZDoom Mods"
+  },
+  {
+    "name": "SIREN",
+    "description": "A slower, more perilous GZDoom mod inspired by Aliens, built around atmosphere, tension, and bespoke story-driven levels.",
+    "img": "/xbox-dev-mode/images/gzdoom-mods/siren.webp",
+    "url": "/xbox-dev-mode/emulators/gzdoom/prebuilt-mods.html#siren",
+    "category": "GZDoom Mods"
+  },
+  {
+    "name": "Strife",
+    "description": "A story-driven shooter-RPG hybrid blending DOOM-style action with quests, dialogue, and a larger connected world.",
+    "img": "/xbox-dev-mode/images/gzdoom-mods/strife.webp",
+    "url": "/xbox-dev-mode/emulators/gzdoom/prebuilt-mods.html#strife",
+    "category": "GZDoom Mods"
+  },
+  {
+    "name": "Total Chaos Director's Cut",
+    "description": "A survival horror total conversion for DOOM II focused on atmosphere, isolation, and brutal close-quarters tension.",
+    "img": "/xbox-dev-mode/images/gzdoom-mods/total-chaos.webp",
+    "url": "/xbox-dev-mode/emulators/gzdoom/prebuilt-mods.html#total-chaos",
+    "category": "GZDoom Mods"
+  },
+  {
+    "name": "Wolfenstein 3D TC",
+    "description": "A GZDoom total conversion recreating the classic Wolfenstein 3D experience with modern source port support.",
+    "img": "/xbox-dev-mode/images/gzdoom-mods/wolfenstein3d-tc.webp",
+    "url": "/xbox-dev-mode/emulators/gzdoom/prebuilt-mods.html#wolfenstein3d-tc",
+    "category": "GZDoom Mods"
   }
 ]

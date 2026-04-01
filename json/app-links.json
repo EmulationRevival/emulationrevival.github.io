@@ -320,6 +320,10 @@
       {
         "id": "gzdoom",
         "url": "https://github.com/aerisarn/gzdoom-uwp/releases/download/1.0.7/zdoom_1.0.7.0_x64.msixbundle"
+      },
+      {
+        "id": "gzdoom-mods",
+        "url": "/xbox-dev-mode/emulators/gzdoom/prebuilt-mods.html"
       }
     ]
   },
@@ -721,7 +725,7 @@
   },
   "srb2": {
     "name": "Sonic Robo Blast 2",
-    "version": "1.0.213",
+    "version": "1.0.213.0",
     "releaseDate": "2024-04-08",
     "firstReleaseDate": "2024-04-08",
     "assets": [
@@ -1069,13 +1073,269 @@
   },
   "burgerdoom": {
     "name": "BurgerDoom",
-    "version": "1.1.0",
+    "version": "1.1.0.0",
     "releaseDate": "2026-03-29",
     "firstReleaseDate": "2026-03-29",
     "assets": [
       {
         "id": "burgerdoom",
         "url": "https://github.com/SternXD/BurgerDoom/releases/download/1.1.0-uwp/BurgerDoom_1.1.0.0.zip"
+      }
+    ]
+  },
+  "abysm2": {
+    "name": "ABYSM 2",
+    "version": "1.0.7.0",
+    "releaseDate": "2024-06-24",
+    "firstReleaseDate": "2024-06-24",
+    "assets": [
+      {
+        "id": "abysm2",
+        "url": "https://github.com/YTReviveMe/gzdoom-uwp-pre-modded-apps/releases/download/1.0.0.0/ABYSM2-powered-by-GZDOOM-v1.0.7.0.appx"
+      },
+      {
+        "id": "abysm2-mod",
+        "url": "https://www.moddb.com/mods/aliens-eradication-tc"
+      }
+    ]
+  },
+  "aliens-eradication": {
+    "name": "Aliens Eradication TC",
+    "version": "1.0.7.0",
+    "releaseDate": "2024-06-24",
+    "firstReleaseDate": "2024-06-24",
+    "assets": [
+      {
+        "id": "aliens-eradication",
+        "url": "https://github.com/YTReviveMe/gzdoom-uwp-pre-modded-apps/releases/download/1.0.0.0/AliensEradicationTC-powered-by-GZDOOM-v1.0.7.0.appx"
+      },
+      {
+        "id": "aliens-eradication-mod",
+        "url": "https://www.moddb.com/mods/aliens-eradication-tc/"
+      }
+    ]
+  },
+  "ashes": {
+    "name": "Ashes 2063",
+    "version": "1.0.7.0",
+    "releaseDate": "2024-06-24",
+    "firstReleaseDate": "2024-06-24",
+    "assets": [
+      {
+        "id": "ashes",
+        "url": "https://github.com/YTReviveMe/gzdoom-uwp-pre-modded-apps/releases/download/1.0.0.0/Ashes2063-powered-by-GZDOOM-v1.0.7.0.appx"
+      },
+      {
+        "id": "ashes-mod",
+        "url": "https://www.moddb.com/mods/ashes-2063"
+      }
+    ]
+  },
+  "bloom": {
+    "name": "BLOOM",
+    "version": "1.0.7.0",
+    "releaseDate": "2024-06-24",
+    "firstReleaseDate": "2024-06-24",
+    "assets": [
+      {
+        "id": "bloom",
+        "url": "https://github.com/YTReviveMe/gzdoom-uwp-pre-modded-apps/releases/download/1.0.0.0/BLOOM-powered-by-GZDOOM-v1.0.7.0.appx"
+      },
+      {
+        "id": "bloom-mod",
+        "url": "https://www.moddb.com/mods/bloom-doomblood-crossover"
+      }
+    ]
+  },
+  "brutal-doom": {
+    "name": "Brutal DOOM",
+    "version": "1.0.7.0",
+    "releaseDate": "2024-06-24",
+    "firstReleaseDate": "2024-06-24",
+    "assets": [
+      {
+        "id": "brutal-doom",
+        "url": "https://github.com/YTReviveMe/gzdoom-uwp-pre-modded-apps/releases/download/1.0.0.0/BrutalDOOM-powered-by-GZDOOM-v1.0.7.0.appx"
+      },
+      {
+        "id": "brutal-doom-mod",
+        "url": "https://www.moddb.com/mods/brutal-doom"
+      }
+    ]
+  },
+  "brutal-wolfenstein3d": {
+    "name": "Brutal Wolfenstein 3D",
+    "version": "1.0.7.0",
+    "releaseDate": "2024-06-24",
+    "firstReleaseDate": "2024-06-24",
+    "assets": [
+      {
+        "id": "brutal-wolfenstein3d",
+        "url": "https://github.com/YTReviveMe/gzdoom-uwp-pre-modded-apps/releases/download/1.0.0.0/BrutalWolfenstein3D-powered-by-GZDOOM-v1.0.7.0.appx"
+      },
+      {
+        "id": "brutal-wolfenstein3d-mod",
+        "url": "https://www.moddb.com/mods/brutal-wolfenstein-3d"
+      }
+    ]
+  },
+  "castlevania-simon": {
+    "name": "Castlevania: Simon's Destiny",
+    "version": "1.0.7.0",
+    "releaseDate": "2024-06-24",
+    "firstReleaseDate": "2024-06-24",
+    "assets": [
+      {
+        "id": "castlevania-simon",
+        "url": "https://github.com/YTReviveMe/gzdoom-uwp-pre-modded-apps/releases/download/1.0.0.0/CastlevaniaSimonsDestiny-powered-by-GZDOOM-v1.0.7.0.appx"
+      },
+      {
+        "id": "castlevania-simon-mod",
+        "url": "https://forum.zdoom.org/viewtopic.php?t=57800"
+      }
+    ]
+  },
+  "doom": {
+    "name": "DOOM",
+    "version": "1.0.7.0",
+    "releaseDate": "2024-06-24",
+    "firstReleaseDate": "2024-06-24",
+    "assets": [
+      {
+        "id": "doom",
+        "url": "https://github.com/YTReviveMe/gzdoom-uwp-pre-modded-apps/releases/download/1.0.0.0/DOOM-powered-by-GZDOOM-v1.0.7.0.appx"
+      }
+    ]
+  },
+  "golden-souls": {
+    "name": "The Golden Souls",
+    "version": "1.0.7.0",
+    "releaseDate": "2024-06-24",
+    "firstReleaseDate": "2024-06-24",
+    "assets": [
+      {
+        "id": "golden-souls",
+        "url": "https://github.com/YTReviveMe/gzdoom-uwp-pre-modded-apps/releases/download/1.0.0.0/TheGoldenSouls-powered-by-GZDOOM-v1.0.7.0.appx"
+      },
+      {
+        "id": "golden-souls-mod",
+        "url": "https://batandy.itch.io/goldensouls"
+      }
+    ]
+  },
+  "halodoom": {
+    "name": "Halo DOOM",
+    "version": "1.0.7.0",
+    "releaseDate": "2024-06-24",
+    "firstReleaseDate": "2024-06-24",
+    "assets": [
+      {
+        "id": "halodoom",
+        "url": "https://github.com/YTReviveMe/gzdoom-uwp-pre-modded-apps/releases/download/1.0.0.0/HaloDOOM-powered-by-GZDOOM-v1.0.7.0.appx"
+      },
+      {
+        "id": "halodoom-mod",
+        "url": "https://www.moddb.com/mods/halo-doom-evolved"
+      }
+    ]
+  },
+  "heretic": {
+    "name": "Heretic",
+    "version": "1.0.7.0",
+    "releaseDate": "2024-06-24",
+    "firstReleaseDate": "2024-06-24",
+    "assets": [
+      {
+        "id": "heretic",
+        "url": "https://github.com/YTReviveMe/gzdoom-uwp-pre-modded-apps/releases/download/1.0.0.0/Heretic-powered-by-GZDOOM-v1.0.7.0.appx"
+      }
+    ]
+  },
+  "hexen": {
+    "name": "HeXen",
+    "version": "1.0.7.0",
+    "releaseDate": "2024-06-24",
+    "firstReleaseDate": "2024-06-24",
+    "assets": [
+      {
+        "id": "hexen",
+        "url": "https://github.com/YTReviveMe/gzdoom-uwp-pre-modded-apps/releases/download/1.0.0.0/HeXen-powered-by-GZDOOM-v1.0.7.0.appx"
+      }
+    ]
+  },
+  "operation-body-count": {
+    "name": "Operation Body Count",
+    "version": "1.0.7.0",
+    "releaseDate": "2024-06-24",
+    "firstReleaseDate": "2024-06-24",
+    "assets": [
+      {
+        "id": "operation-body-count",
+        "url": "https://github.com/YTReviveMe/gzdoom-uwp-pre-modded-apps/releases/download/1.0.0.0/OperationBodyCount-powered-by-GZDOOM-v1.0.7.0.appx"
+      },
+      {
+        "id": "operation-body-count-mod",
+        "url": "https://mikestoybox.net/2017/10/18/operation-body-count/"
+      }
+    ]
+  },
+  "siren": {
+    "name": "SIREN",
+    "version": "1.0.7.0",
+    "releaseDate": "2024-06-24",
+    "firstReleaseDate": "2024-06-24",
+    "assets": [
+      {
+        "id": "siren",
+        "url": "https://github.com/YTReviveMe/gzdoom-uwp-pre-modded-apps/releases/download/1.0.0.0/SIREN-powered-by-GZDOOM-v1.0.7.0.appx"
+      },
+      {
+        "id": "siren-mod",
+        "url": "https://www.moddb.com/mods/siren-doom-tc"
+      }
+    ]
+  },
+  "strife": {
+    "name": "Strife",
+    "version": "1.0.7.0",
+    "releaseDate": "2024-06-24",
+    "firstReleaseDate": "2024-06-24",
+    "assets": [
+      {
+        "id": "strife",
+        "url": "https://github.com/YTReviveMe/gzdoom-uwp-pre-modded-apps/releases/download/1.0.0.0/Strife-powered-by-GZDOOM-v1.0.7.0.appx"
+      }
+    ]
+  },
+  "total-chaos": {
+    "name": "Total Chaos Director's Cut",
+    "version": "1.0.7.0",
+    "releaseDate": "2024-06-24",
+    "firstReleaseDate": "2024-06-24",
+    "assets": [
+      {
+        "id": "total-chaos",
+        "url": "https://github.com/YTReviveMe/gzdoom-uwp-pre-modded-apps/releases/download/1.0.0.0/TotalChaosDirectorsCut-powered-by-GZDOOM-v1.0.7.0.appx"
+      },
+      {
+        "id": "total-chaos-mod",
+        "url": "https://www.moddb.com/mods/total-chaos"
+      }
+    ]
+  },
+  "wolfenstein3d-tc": {
+    "name": "Wolfenstein 3D TC",
+    "version": "1.0.7.0",
+    "releaseDate": "2024-06-24",
+    "firstReleaseDate": "2024-06-24",
+    "assets": [
+      {
+        "id": "wolfenstein3d-tc",
+        "url": "https://github.com/YTReviveMe/gzdoom-uwp-pre-modded-apps/releases/download/1.0.0.0/Wolfenstein3DTC-powered-by-GZDOOM-v1.0.7.0.appx"
+      },
+      {
+        "id": "wolfenstein3d-tc-mod",
+        "url": "https://www.afadoomer.com/wolf3d/default.php"
       }
     ]
   }
