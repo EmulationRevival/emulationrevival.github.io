@@ -1,0 +1,49 @@
+---
+layout: default
+title: GZDoom Prebuilt Mods for Xbox Dev Mode - Emulation Revival
+description: Browse and download prebuilt GZDoom mod packages for Xbox Developer Mode, including total conversions, gameplay mods, and ready-to-install custom builds.
+use_sitewide_search: true
+use_card_modal: true
+card_modal_title: GZDoom Mod Details
+extra_scripts:
+  - /js/card-logic.js
+  - /js/page-search-logic.js
+---
+
+<main id="main-content">
+    {% include page-hero.html
+         hero_class="emulators-page-hero"
+         aria_label="GZDoom prebuilt mods for Xbox Developer Mode"
+         title="Xbox Dev Mode: GZDoom Prebuilt Mods"
+         title_class="emulators-page-title"
+         description="Browse special pre-modded GZDoom builds for Xbox Developer Mode, letting each game run as its own standalone app. Premade USB folders include installation notes, game-file lists, and portable configs, while optional AIO Packs bundle curated texture, voxel, music, and graphics upgrades for supported games."
+         description_class="emulators-page-description"
+         primary_button_text="Premade USB Folders"
+         primary_button_url="https://github.com/YTReviveMe/gzdoom-uwp-pre-modded-apps/releases/download/1.0.0.0/Premade-USB-Folders.zip"
+         secondary_button_text="AIO Pack"
+         secondary_button_url="https://github.com/YTReviveMe/gzdoom-uwp-pre-modded-apps/releases/download/1.0.0.0/AIO.Packs.rar"
+     %}
+
+    {% include card-page-section-start.html
+        slug="gzdoom-mods"
+        page_class="emulators-page-section gzdoom-mods-page-section"
+        heading_id="gzdoom-mods-list-heading"
+        label="GZDoom Prebuilt Mods"
+        search_label="Search GZDoom prebuilt mods on this page:"
+        search_help_text="Search by mod title"
+    %}
+
+        <div class="card-grid">
+            {% assign sorted_gzdoom_mods = site.data.gzdoom-mods | sort_natural: "title" %}
+            {% for card in sorted_gzdoom_mods %}
+                {% include cards/card.html card=card %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+    {% include discord-cta.html
+        text="Need help with setup or mod compatibility? Join our Discord community."
+        text_class="gzdoom-mods-cta-text"
+    %}
+</main>

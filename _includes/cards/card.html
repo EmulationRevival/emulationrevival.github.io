@@ -34,10 +34,24 @@
             </li>
             {%- endif -%}
 
+            {%- assign mod_authors = include.card.contributors.mod_authors | default: empty -%}
+            {%- if mod_authors.size > 0 -%}
+            <li>
+                <strong>{% if mod_authors.size > 1 %}Mod Authors{% else %}Mod Author{% endif %}:</strong> {% for person in mod_authors %}{% include cards/contributor.html contributor=person %}{% unless forloop.last %} &amp; {% endunless %}{% endfor %}
+            </li>
+            {%- endif -%}
+
             {%- assign porters = include.card.contributors.porters | default: empty -%}
             {%- if porters.size > 0 -%}
             <li>
                 <strong>UWP Port by:</strong> {% for person in porters %}{% include cards/contributor.html contributor=person %}{% unless forloop.last %} &amp; {% endunless %}{% endfor %}
+            </li>
+            {%- endif -%}
+
+            {%- assign prebuilt_by = include.card.contributors.prebuilt_by | default: empty -%}
+            {%- if prebuilt_by.size > 0 -%}
+            <li>
+                <strong>Prebuilt by:</strong> {% for person in prebuilt_by %}{% include cards/contributor.html contributor=person %}{% unless forloop.last %} &amp; {% endunless %}{% endfor %}
             </li>
             {%- endif -%}
 

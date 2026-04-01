@@ -5,14 +5,17 @@
     "assets": [
       {
         "id": "moonlight1",
+        "sourceType": "github",
         "assetPattern": "moonlight-xbox-dx_*.msixbundle"
       },
       {
         "id": "moonlight2",
+        "sourceType": "github",
         "assetPattern": "Microsoft.UI.Xaml.2.7.appx"
       },
       {
         "id": "moonlight3",
+        "sourceType": "github",
         "assetPattern": "Microsoft.VCLibs.x64.14.00.appx"
       }
     ]
@@ -32,6 +35,7 @@
     "assets": [
       {
         "id": "discorduwp",
+        "sourceType": "github",
         "assetPattern": "Discord-UWP-*.zip"
       }
     ]
@@ -51,6 +55,7 @@
     "assets": [
       {
         "id": "xuwp",
+        "sourceType": "github",
         "assetPattern": "X-UWP-*.zip"
       }
     ]
@@ -70,6 +75,7 @@
     "assets": [
       {
         "id": "xbcloudgaming",
+        "sourceType": "github",
         "assetPattern": "XB-Cloud-Gaming-UWP-*.zip"
       }
     ]
@@ -89,6 +95,7 @@
     "assets": [
       {
         "id": "kodi",
+        "sourceType": "github",
         "assetPattern": "Kodi-UWP-*.msix"
       }
     ]
@@ -108,6 +115,7 @@
     "assets": [
       {
         "id": "soundcloud",
+        "sourceType": "github",
         "assetPattern": "SoundCloud-UWP-*.appx"
       }
     ]
@@ -127,6 +135,7 @@
     "assets": [
       {
         "id": "tunein",
+        "sourceType": "github",
         "assetPattern": "TuneInRadio-UWP-*.appxbundle"
       }
     ]
@@ -146,6 +155,7 @@
     "assets": [
       {
         "id": "twitch",
+        "sourceType": "github",
         "assetPattern": "Twitch-UWP-*.zip"
       }
     ]
@@ -165,6 +175,7 @@
     "assets": [
       {
         "id": "vlc",
+        "sourceType": "github",
         "assetPattern": "VLC-UWP-*.zip"
       }
     ]
@@ -184,6 +195,7 @@
     "assets": [
       {
         "id": "youtube",
+        "sourceType": "github",
         "assetPattern": "YouTube-UWP-*.zip"
       }
     ]
@@ -203,6 +215,7 @@
     "assets": [
       {
         "id": "zune",
+        "sourceType": "github",
         "assetPattern": "ZuneMusic-UWP-*.Msixbundle"
       }
     ]
@@ -213,10 +226,12 @@
     "assets": [
       {
         "id": "xbsx2_series",
+        "sourceType": "github",
         "assetPattern": "*AVX2.msixbundle"
       },
       {
         "id": "xbsx2_xb1",
+        "sourceType": "github",
         "assetPattern": "*SSE4.msixbundle"
       }
     ]
@@ -227,6 +242,7 @@
     "assets": [
       {
         "id": "dolphin",
+        "sourceType": "github",
         "assetPattern": "DolphinWinRT_*.msix"
       }
     ]
@@ -237,6 +253,7 @@
     "assets": [
       {
         "id": "flycast",
+        "sourceType": "github",
         "assetPattern": "flycast-*.appx"
       }
     ]
@@ -256,6 +273,7 @@
     "assets": [
       {
         "id": "xenia",
+        "sourceType": "github",
         "assetPattern": "xenia-canary-uwp_*.appxbundle"
       }
     ]
@@ -275,6 +293,7 @@
     "assets": [
       {
         "id": "retroarch3ds",
+        "sourceType": "github",
         "assetPattern": "RetroArch-3ds-UWP_*.msix"
       }
     ]
@@ -285,18 +304,22 @@
     "assets": [
       {
         "id": "retroarch1",
+        "sourceType": "github",
         "assetPattern": "RetroArch-XboxOne.appx"
       },
       {
         "id": "retroarch2",
+        "sourceType": "github",
         "assetPattern": "RetroArch-XboxOne-AllCores.appx"
       },
       {
         "id": "retroarch3",
+        "sourceType": "github",
         "assetPattern": "RetroArch-SeriesConsoles.appx"
       },
       {
         "id": "retroarch4",
+        "sourceType": "github",
         "assetPattern": "RetroArch-SeriesConsoles-AllCores.appx"
       }
     ]
@@ -320,10 +343,12 @@
     "assets": [
       {
         "id": "supermodel1",
+        "sourceType": "github",
         "assetPattern": "SegaModel3-powered-by-SuperModel-*.appx"
       },
       {
         "id": "supermodel2",
+        "sourceType": "github",
         "assetPattern": "Microsoft.VCLibs.x64.14.00.appx"
       }
     ]
@@ -334,10 +359,12 @@
     "assets": [
       {
         "id": "superg1",
+        "sourceType": "github",
         "assetPattern": "SegaModel3-G920-powered-by-SuperModel-*.appx"
       },
       {
         "id": "superg2",
+        "sourceType": "github",
         "assetPattern": "Microsoft.VCLibs.x64.14.00.appx"
       }
     ]
@@ -357,6 +384,7 @@
     "assets": [
       {
         "id": "ruffle",
+        "sourceType": "github",
         "assetPattern": "Ruffle-UWP-*.zip"
       }
     ]
@@ -376,10 +404,12 @@
     "assets": [
       {
         "id": "openbor1",
+        "sourceType": "github",
         "assetPattern": "openbor-UWP_*.msixbundle"
       },
       {
         "id": "openbor2",
+        "sourceType": "github",
         "assetPattern": "openbor-legacy-UWP_*.msixbundle"
       }
     ]
@@ -399,6 +429,7 @@
     "assets": [
       {
         "id": "ikemen",
+        "sourceType": "github",
         "assetPattern": "Ikemen-GO-UWP-*.zip"
       }
     ]
@@ -409,7 +440,13 @@
     "assets": [
       {
         "id": "gzdoom",
-        "assetPattern": "zdoom_*.msixbundle"
+        "sourceType": "github",
+        "assetPattern": "zdoom_*_x64.msixbundle"
+      },
+      {
+        "id": "gzdoom-mods",
+        "sourceType": "static",
+        "url": "/xbox-dev-mode/emulators/gzdoom/prebuilt-mods.html"
       }
     ]
   },
@@ -419,6 +456,7 @@
     "assets": [
       {
         "id": "raze",
+        "sourceType": "github",
         "assetPattern": "raze_*.msixbundle"
       }
     ]
@@ -438,6 +476,7 @@
     "assets": [
       {
         "id": "boxedwine",
+        "sourceType": "github",
         "assetPattern": "Boxedwine-UWP-*.zip"
       }
     ]
@@ -457,6 +496,7 @@
     "assets": [
       {
         "id": "castlevania",
+        "sourceType": "github",
         "assetPattern": "CVR-UWP-*.zip"
       }
     ]
@@ -467,6 +507,7 @@
     "assets": [
       {
         "id": "celeste",
+        "sourceType": "github",
         "assetPattern": "CelesteClassic-UWP_*.zip"
       }
     ]
@@ -486,6 +527,7 @@
     "assets": [
       {
         "id": "chrono",
+        "sourceType": "github",
         "assetPattern": "ChronoDivide-UWP-*.zip"
       }
     ]
@@ -505,6 +547,7 @@
     "assets": [
       {
         "id": "darkplaces",
+        "sourceType": "github",
         "assetPattern": "Darkplaces-UWP-*.zip"
       }
     ]
@@ -515,6 +558,7 @@
     "assets": [
       {
         "id": "devilutionx",
+        "sourceType": "github",
         "assetPattern": "devilutionx-xbox-one-series.zip"
       }
     ]
@@ -525,10 +569,12 @@
     "assets": [
       {
         "id": "dhewm3app",
+        "sourceType": "github",
         "assetPattern": "dhewm3-uwp_*.msixbundle"
       },
       {
         "id": "dhewm3dep",
+        "sourceType": "github",
         "assetPattern": "Microsoft.VCLibs.x64.14.00.appx"
       }
     ]
@@ -539,10 +585,12 @@
     "assets": [
       {
         "id": "dxxrebirth1",
+        "sourceType": "github",
         "assetPattern": "dxx-rebirth-uwp_*.msixbundle"
       },
       {
         "id": "dxxrebirth2",
+        "sourceType": "github",
         "assetPattern": "Microsoft.VCLibs.x64.14.00.appx"
       }
     ]
@@ -553,10 +601,12 @@
     "assets": [
       {
         "id": "ioquake3app",
+        "sourceType": "github",
         "assetPattern": "uwp_*_rebundle_x64.msixbundle"
       },
       {
         "id": "ioquake3dep",
+        "sourceType": "github",
         "assetPattern": "Microsoft.VCLibs.x64.14.00.appx"
       }
     ]
@@ -567,6 +617,7 @@
     "assets": [
       {
         "id": "jazz2",
+        "sourceType": "github",
         "assetPattern": "Jazz2_*_UWP.zip"
       }
     ]
@@ -586,6 +637,7 @@
     "assets": [
       {
         "id": "maze",
+        "sourceType": "github",
         "assetPattern": "Maze0x72-UWP_*.appxbundle"
       }
     ]
@@ -605,6 +657,7 @@
     "assets": [
       {
         "id": "mine",
+        "sourceType": "github",
         "assetPattern": "MineSweeper3D-UWP_*.msix"
       }
     ]
@@ -615,14 +668,17 @@
     "assets": [
       {
         "id": "jkdf2app",
+        "sourceType": "github",
         "assetPattern": "openjkdf2-uwp_*.msixbundle"
       },
       {
         "id": "jkdf2dep",
+        "sourceType": "github",
         "assetPattern": "Microsoft.VCLibs.x64.14.00.appx"
       },
       {
         "id": "jkdf2ctl",
+        "sourceType": "github",
         "assetPattern": "xbone.ctl"
       }
     ]
@@ -633,6 +689,7 @@
     "assets": [
       {
         "id": "openlara",
+        "sourceType": "github",
         "assetPattern": "OpenLara_xb1.zip"
       }
     ]
@@ -652,10 +709,12 @@
     "assets": [
       {
         "id": "opentyrian1",
+        "sourceType": "github",
         "assetPattern": "OpenTyrian2000-UWP_*.msix"
       },
       {
         "id": "opentyrian2",
+        "sourceType": "github",
         "assetPattern": "Tyrian2000-Freeware-Data.zip"
       }
     ]
@@ -666,6 +725,7 @@
     "assets": [
       {
         "id": "relichunters",
+        "sourceType": "github",
         "assetPattern": "RelicHuntersZero.appx"
       }
     ]
@@ -676,6 +736,7 @@
     "assets": [
       {
         "id": "sdlpop",
+        "sourceType": "github",
         "assetPattern": "sdlpop.appx"
       }
     ]
@@ -695,6 +756,7 @@
     "assets": [
       {
         "id": "snake",
+        "sourceType": "github",
         "assetPattern": "Snake-UWP-*.zip"
       }
     ]
@@ -705,10 +767,12 @@
     "assets": [
       {
         "id": "soh1",
+        "sourceType": "github",
         "assetPattern": "soh*.msixbundle"
       },
       {
         "id": "soh2",
+        "sourceType": "github",
         "assetPattern": "Microsoft.VCLibs.x64.14.00.appx"
       }
     ]
@@ -728,6 +792,7 @@
     "assets": [
       {
         "id": "sonic1decomp",
+        "sourceType": "github",
         "assetPattern": "Sonic1Decomp-UWP_*.appxbundle"
       }
     ]
@@ -747,6 +812,7 @@
     "assets": [
       {
         "id": "sonic2decomp",
+        "sourceType": "github",
         "assetPattern": "Sonic2Decomp-UWP_*.appxbundle"
       }
     ]
@@ -757,6 +823,7 @@
     "assets": [
       {
         "id": "sonic1sms",
+        "sourceType": "github",
         "assetPattern": "Sonic1SMSRemake.appx"
       }
     ]
@@ -767,6 +834,7 @@
     "assets": [
       {
         "id": "sonic2sms",
+        "sourceType": "github",
         "assetPattern": "Sonic2SMSRemake.appx"
       }
     ]
@@ -786,6 +854,7 @@
     "assets": [
       {
         "id": "sonic3air",
+        "sourceType": "github",
         "assetPattern": "SonicAir-UWP-*.zip"
       }
     ]
@@ -796,10 +865,12 @@
     "assets": [
       {
         "id": "sab2app",
+        "sourceType": "github",
         "assetPattern": "SAB2_*.msixbundle"
       },
       {
         "id": "sab2dep",
+        "sourceType": "github",
         "assetPattern": "Microsoft.VCLibs.x64.14.00.appx"
       }
     ]
@@ -819,6 +890,7 @@
     "assets": [
       {
         "id": "soniccd",
+        "sourceType": "github",
         "assetPattern": "SonicCDDecomp-UWP_*.appxbundle"
       }
     ]
@@ -829,6 +901,7 @@
     "assets": [
       {
         "id": "sonicmania",
+        "sourceType": "github",
         "assetPattern": "RSDKv5-UWP_*.appx"
       }
     ]
@@ -848,6 +921,7 @@
     "assets": [
       {
         "id": "sonicrealms",
+        "sourceType": "github",
         "assetPattern": "Sonic-Realms-UWP-*.zip"
       }
     ]
@@ -858,10 +932,12 @@
     "assets": [
       {
         "id": "ringracers1",
+        "sourceType": "github",
         "assetPattern": "uwp_*.msixbundle"
       },
       {
         "id": "ringracers2",
+        "sourceType": "github",
         "assetPattern": "Microsoft.VCLibs.x64.14.00.appx"
       }
     ]
@@ -872,6 +948,7 @@
     "assets": [
       {
         "id": "srb2",
+        "sourceType": "github",
         "assetPattern": "SRB2SDL2_*.zip"
       }
     ]
@@ -891,6 +968,7 @@
     "assets": [
       {
         "id": "sonictimetwisted",
+        "sourceType": "github",
         "assetPattern": "Sonic-Time-Twisted-UWP-*.appx"
       }
     ]
@@ -901,10 +979,12 @@
     "assets": [
       {
         "id": "unleashed1",
+        "sourceType": "github",
         "assetPattern": "Unleashed*.msixbundle"
       },
       {
         "id": "unleashed2",
+        "sourceType": "github",
         "assetPattern": "Microsoft.VCLibs.x64.14.00.appx"
       }
     ]
@@ -924,6 +1004,7 @@
     "assets": [
       {
         "id": "spelunky",
+        "sourceType": "github",
         "assetPattern": "Spelunky-Classic-HD-UWP-*.appx"
       }
     ]
@@ -943,6 +1024,7 @@
     "assets": [
       {
         "id": "spooky",
+        "sourceType": "github",
         "assetPattern": "Spooky-Dimensions-UWP-*.appx"
       }
     ]
@@ -962,6 +1044,7 @@
     "assets": [
       {
         "id": "trogdor",
+        "sourceType": "github",
         "assetPattern": "Trogdor-Reburninated-UWP_*.appx"
       }
     ]
@@ -981,6 +1064,7 @@
     "assets": [
       {
         "id": "tuck",
+        "sourceType": "github",
         "assetPattern": "Tuck-UWP-*.zip"
       }
     ]
@@ -991,10 +1075,12 @@
     "assets": [
       {
         "id": "vvvvvv1",
+        "sourceType": "github",
         "assetPattern": "VVVVVV-*.appx"
       },
       {
         "id": "vvvvvv2",
+        "sourceType": "github",
         "assetPattern": "Microsoft.VCLibs.x64.14.00.appx"
       }
     ]
@@ -1014,6 +1100,7 @@
     "assets": [
       {
         "id": "zircon",
+        "sourceType": "github",
         "assetPattern": "Zircon-UWP-*.zip"
       }
     ]
@@ -1024,6 +1111,7 @@
     "assets": [
       {
         "id": "zelda3",
+        "sourceType": "github",
         "assetPattern": "zelda3_*.zip"
       }
     ]
@@ -1034,6 +1122,7 @@
     "assets": [
       {
         "id": "zelda64",
+        "sourceType": "github",
         "assetPattern": "recomp_*.msixbundle"
       }
     ]
@@ -1044,10 +1133,12 @@
     "assets": [
       {
         "id": "launchpass1",
+        "sourceType": "github",
         "assetPattern": "LaunchPass_*.msixbundle"
       },
       {
         "id": "launchpass2",
+        "sourceType": "github",
         "assetPattern": "Dependencies_x64.zip"
       }
     ]
@@ -1058,6 +1149,7 @@
     "assets": [
       {
         "id": "retropass",
+        "sourceType": "github",
         "assetPattern": "RetroPass_*.zip"
       }
     ]
@@ -1068,6 +1160,7 @@
     "assets": [
       {
         "id": "usbpermtool",
+        "sourceType": "github",
         "assetPattern": "Xbox.UWP.Drive.Permission.Tool.exe"
       }
     ]
@@ -1078,6 +1171,7 @@
     "assets": [
       {
         "id": "durangoftp",
+        "sourceType": "github",
         "assetPattern": "DurangoFTP_*.msix"
       }
     ]
@@ -1088,6 +1182,7 @@
     "assets": [
       {
         "id": "oberon",
+        "sourceType": "github",
         "assetPattern": "Oberon.Msixbundle"
       }
     ]
@@ -1098,6 +1193,7 @@
     "assets": [
       {
         "id": "safeexit",
+        "sourceType": "github",
         "assetPattern": "SafeExitRelease.zip"
       }
     ]
@@ -1117,6 +1213,7 @@
     "assets": [
       {
         "id": "chonkystation3",
+        "sourceType": "github",
         "assetPattern": "ChonkyStation-UWP-*.zip"
       }
     ]
@@ -1136,6 +1233,7 @@
     "assets": [
       {
         "id": "hedgephysics",
+        "sourceType": "github",
         "assetPattern": "HedgePhysics-UWP-*.zip"
       }
     ]
@@ -1155,6 +1253,7 @@
     "assets": [
       {
         "id": "panda3ds",
+        "sourceType": "github",
         "assetPattern": "Panda3DS-UWP-*.zip"
       }
     ]
@@ -1174,6 +1273,7 @@
     "assets": [
       {
         "id": "sm64hd",
+        "sourceType": "github",
         "assetPattern": "SM64HD-UWP-*.zip"
       }
     ]
@@ -1184,10 +1284,12 @@
     "assets": [
       {
         "id": "dxxdescent2",
+        "sourceType": "github",
         "assetPattern": "d2x-rebirth-uwp_*.msixbundle"
       },
       {
         "id": "dxxdescent2dep",
+        "sourceType": "github",
         "assetPattern": "Microsoft.VCLibs.x64.14.00.appx"
       }
     ]
@@ -1198,6 +1300,7 @@
     "assets": [
       {
         "id": "2s2h",
+        "sourceType": "github",
         "assetPattern": "2ship2harkinian*.msixbundle"
       }
     ]
@@ -1208,6 +1311,7 @@
     "assets": [
       {
         "id": "nsmb",
+        "sourceType": "github",
         "assetPattern": "NSMB-MarioVsLuigi_*.msix"
       }
     ]
@@ -1227,6 +1331,7 @@
     "assets": [
       {
         "id": "sm64ex",
+        "sourceType": "github",
         "assetPattern": "sm64ex-UWP-*.zip"
       }
     ]
@@ -1237,6 +1342,7 @@
     "assets": [
       {
         "id": "descent3",
+        "sourceType": "github",
         "assetPattern": "descent3-uwp_*_x64.msixbundle"
       }
     ]
@@ -1247,14 +1353,17 @@
     "assets": [
       {
         "id": "inferno",
+        "sourceType": "github",
         "assetPattern": "inferno-uwp_*_x64.msixbundle"
       },
       {
         "id": "inferno-dep",
+        "sourceType": "github",
         "assetPattern": "Microsoft.VCLibs.x*.appx"
       },
       {
         "id": "inferno-assets",
+        "sourceType": "github",
         "assetPattern": "external-assets.zip"
       }
     ]
@@ -1265,7 +1374,260 @@
     "assets": [
       {
         "id": "burgerdoom",
+        "sourceType": "github",
         "assetPattern": "BurgerDoom_*.zip"
+      }
+    ]
+  },
+  "abysm2": {
+    "name": "ABYSM 2",
+    "repo": "YTReviveMe/gzdoom-uwp-pre-modded-apps",
+    "assets": [
+      {
+        "id": "abysm2",
+        "sourceType": "github",
+        "assetPattern": "ABYSM2-powered-by-GZDOOM-v*.appx"
+      },
+      {
+        "id": "abysm2-mod",
+        "sourceType": "static",
+        "url": "https://www.moddb.com/mods/aliens-eradication-tc"
+      }
+    ]
+  },
+  "aliens-eradication": {
+    "name": "Aliens Eradication TC",
+    "repo": "YTReviveMe/gzdoom-uwp-pre-modded-apps",
+    "assets": [
+      {
+        "id": "aliens-eradication",
+        "sourceType": "github",
+        "assetPattern": "AliensEradicationTC-powered-by-GZDOOM-v*.appx"
+      },
+      {
+        "id": "aliens-eradication-mod",
+        "sourceType": "static",
+        "url": "https://www.moddb.com/mods/aliens-eradication-tc/"
+      }
+    ]
+  },
+  "ashes": {
+    "name": "Ashes 2063",
+    "repo": "YTReviveMe/gzdoom-uwp-pre-modded-apps",
+    "assets": [
+      {
+        "id": "ashes",
+        "sourceType": "github",
+        "assetPattern": "Ashes2063-powered-by-GZDOOM-v*.appx"
+      },
+      {
+        "id": "ashes-mod",
+        "sourceType": "static",
+        "url": "https://www.moddb.com/mods/ashes-2063"
+      }
+    ]
+  },
+  "bloom": {
+    "name": "BLOOM",
+    "repo": "YTReviveMe/gzdoom-uwp-pre-modded-apps",
+    "assets": [
+      {
+        "id": "bloom",
+        "sourceType": "github",
+        "assetPattern": "BLOOM-powered-by-GZDOOM-v*.appx"
+      },
+      {
+        "id": "bloom-mod",
+        "sourceType": "static",
+        "url": "https://www.moddb.com/mods/bloom-doomblood-crossover"
+      }
+    ]
+  },
+  "brutal-doom": {
+    "name": "Brutal DOOM",
+    "repo": "YTReviveMe/gzdoom-uwp-pre-modded-apps",
+    "assets": [
+      {
+        "id": "brutal-doom",
+        "sourceType": "github",
+        "assetPattern": "BrutalDOOM-powered-by-GZDOOM-v*.appx"
+      },
+      {
+        "id": "brutal-doom-mod",
+        "sourceType": "static",
+        "url": "https://www.moddb.com/mods/brutal-doom"
+      }
+    ]
+  },
+  "brutal-wolfenstein3d": {
+    "name": "Brutal Wolfenstein 3D",
+    "repo": "YTReviveMe/gzdoom-uwp-pre-modded-apps",
+    "assets": [
+      {
+        "id": "brutal-wolfenstein3d",
+        "sourceType": "github",
+        "assetPattern": "BrutalWolfenstein3D-powered-by-GZDOOM-v*.appx"
+      },
+      {
+        "id": "brutal-wolfenstein3d-mod",
+        "sourceType": "static",
+        "url": "https://www.moddb.com/mods/brutal-wolfenstein-3d"
+      }
+    ]
+  },
+  "castlevania-simon": {
+    "name": "Castlevania: Simon's Destiny",
+    "repo": "YTReviveMe/gzdoom-uwp-pre-modded-apps",
+    "assets": [
+      {
+        "id": "castlevania-simon",
+        "sourceType": "github",
+        "assetPattern": "CastlevaniaSimonsDestiny-powered-by-GZDOOM-v*.appx"
+      },
+      {
+        "id": "castlevania-simon-mod",
+        "sourceType": "static",
+        "url": "https://forum.zdoom.org/viewtopic.php?t=57800"
+      }
+    ]
+  },
+  "doom": {
+    "name": "DOOM",
+    "repo": "YTReviveMe/gzdoom-uwp-pre-modded-apps",
+    "assets": [
+      {
+        "id": "doom",
+        "sourceType": "github",
+        "assetPattern": "DOOM-powered-by-GZDOOM-v*.appx"
+      }
+    ]
+  },
+  "golden-souls": {
+    "name": "The Golden Souls",
+    "repo": "YTReviveMe/gzdoom-uwp-pre-modded-apps",
+    "assets": [
+      {
+        "id": "golden-souls",
+        "sourceType": "github",
+        "assetPattern": "TheGoldenSouls-powered-by-GZDOOM-v*.appx"
+      },
+      {
+        "id": "golden-souls-mod",
+        "sourceType": "static",
+        "url": "https://batandy.itch.io/goldensouls"
+      }
+    ]
+  },
+  "halodoom": {
+    "name": "Halo DOOM",
+    "repo": "YTReviveMe/gzdoom-uwp-pre-modded-apps",
+    "assets": [
+      {
+        "id": "halodoom",
+        "sourceType": "github",
+        "assetPattern": "HaloDOOM-powered-by-GZDOOM-v*.appx"
+      },
+      {
+        "id": "halodoom-mod",
+        "sourceType": "static",
+        "url": "https://www.moddb.com/mods/halo-doom-evolved"
+      }
+    ]
+  },
+  "heretic": {
+    "name": "Heretic",
+    "repo": "YTReviveMe/gzdoom-uwp-pre-modded-apps",
+    "assets": [
+      {
+        "id": "heretic",
+        "sourceType": "github",
+        "assetPattern": "Heretic-powered-by-GZDOOM-v*.appx"
+      }
+    ]
+  },
+  "hexen": {
+    "name": "HeXen",
+    "repo": "YTReviveMe/gzdoom-uwp-pre-modded-apps",
+    "assets": [
+      {
+        "id": "hexen",
+        "sourceType": "github",
+        "assetPattern": "HeXen-powered-by-GZDOOM-v*.appx"
+      }
+    ]
+  },
+  "operation-body-count": {
+    "name": "Operation Body Count",
+    "repo": "YTReviveMe/gzdoom-uwp-pre-modded-apps",
+    "assets": [
+      {
+        "id": "operation-body-count",
+        "sourceType": "github",
+        "assetPattern": "OperationBodyCount-powered-by-GZDOOM-v*.appx"
+      },
+      {
+        "id": "operation-body-count-mod",
+        "sourceType": "static",
+        "url": "https://mikestoybox.net/2017/10/18/operation-body-count/"
+      }
+    ]
+  },
+  "siren": {
+    "name": "SIREN",
+    "repo": "YTReviveMe/gzdoom-uwp-pre-modded-apps",
+    "assets": [
+      {
+        "id": "siren",
+        "sourceType": "github",
+        "assetPattern": "SIREN-powered-by-GZDOOM-v*.appx"
+      },
+      {
+        "id": "siren-mod",
+        "sourceType": "static",
+        "url": "https://www.moddb.com/mods/siren-doom-tc"
+      }
+    ]
+  },
+  "strife": {
+    "name": "Strife",
+    "repo": "YTReviveMe/gzdoom-uwp-pre-modded-apps",
+    "assets": [
+      {
+        "id": "strife",
+        "sourceType": "github",
+        "assetPattern": "Strife-powered-by-GZDOOM-v*.appx"
+      }
+    ]
+  },
+  "total-chaos": {
+    "name": "Total Chaos Director's Cut",
+    "repo": "YTReviveMe/gzdoom-uwp-pre-modded-apps",
+    "assets": [
+      {
+        "id": "total-chaos",
+        "sourceType": "github",
+        "assetPattern": "TotalChaosDirectorsCut-powered-by-GZDOOM-v*.appx"
+      },
+      {
+        "id": "total-chaos-mod",
+        "sourceType": "static",
+        "url": "https://www.moddb.com/mods/total-chaos"
+      }
+    ]
+  },
+  "wolfenstein3d-tc": {
+    "name": "Wolfenstein 3D TC",
+    "repo": "YTReviveMe/gzdoom-uwp-pre-modded-apps",
+    "assets": [
+      {
+        "id": "wolfenstein3d-tc",
+        "sourceType": "github",
+        "assetPattern": "Wolfenstein3DTC-powered-by-GZDOOM-v*.appx"
+      },
+      {
+        "id": "wolfenstein3d-tc-mod",
+        "sourceType": "static",
+        "url": "https://www.afadoomer.com/wolf3d/default.php"
       }
     ]
   }

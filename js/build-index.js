@@ -30,6 +30,10 @@ const DATA_FILES = [
   {
     file: '_data/experimental-apps.yml',
     category: 'Experimental Apps'
+  },
+  {
+    file: '_data/gzdoom-mods.yml',
+    category: 'GZDoom Mods'
   }
 ];
 

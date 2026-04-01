@@ -1,0 +1,512 @@
+- id: "abysm2"
+  app_id: "abysm2"
+  title: "ABYSM 2"
+  description: "An action-adventure total conversion for GZDoom inspired by Diablo, Dark Souls, and Strife."
+  image: "/xbox-dev-mode/images/gzdoom-mods/abysm2.webp"
+  alt: "ABYSM 2 Logo"
+  category: "GZDoom Mods"
+  page_url: "/xbox-dev-mode/emulators/gzdoom/prebuilt-mods.html#abysm2"
+  preview_url: "/previews/prebuilt-mods-abysm2.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "doom2.wad"
+    - "Abysm 2 - Infernal Contract - v1.3.2.pk3"
+  features: []
+  contributors:
+    mod_authors:
+      - name: "Donnel Enriquez (Jazzmaster9)"
+        donations: []
+    prebuilt_by:
+      - name: "poopbird4k"
+        github: "https://github.com/poopbird4k"
+        donations: []
+  downloads:
+    - label: "Abysm 2 Prebuild"
+      asset_id: "abysm2"
+    - label: "Mod Link"
+      asset_id: "abysm2-mod"
+  setup_guide: null
+  tutorial_url: null
+
+- id: "aliens-eradication"
+  app_id: "aliens-eradication"
+  title: "Aliens Eradication TC"
+  description: "A GZDoom mod built from Kontra Kommando’s Aliens-themed work, inspired by Alien Trilogy and Ultimate DOOM."
+  image: "/xbox-dev-mode/images/gzdoom-mods/aliens-eradication.webp"
+  alt: "Aliens Eradication TC Logo"
+  category: "GZDoom Mods"
+  page_url: "/xbox-dev-mode/emulators/gzdoom/prebuilt-mods.html#aliens-eradication"
+  preview_url: "/previews/prebuilt-mods-aliens-eradication.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "doom2.wad"
+    - "ALIENS_ERADICATION_TC_2_0.pk3"
+    - "ERADICATION_MAPSET_2_0.wad"
+  features: []
+  contributors:
+    mod_authors:
+      - name: "Kontra Kommando"
+        donations: []
+      - name: "Payload Games"
+        donations: []
+    prebuilt_by:
+      - name: "poopbird4k"
+        github: "https://github.com/poopbird4k"
+        donations: []
+  downloads:
+    - label: "Aliens Eradication Prebuild"
+      asset_id: "aliens-eradication"
+    - label: "Mod Link"
+      asset_id: "aliens-eradication-mod"
+  setup_guide: null
+  tutorial_url: null
+
+- id: "ashes"
+  app_id: "ashes"
+  title: "Ashes 2063"
+  description: "A post-apocalyptic total conversion blending Build-style maps, fast combat, and influences from Fallout and S.T.A.L.K.E.R."
+  image: "/xbox-dev-mode/images/gzdoom-mods/ashes.webp"
+  alt: "Ashes 2063 Logo"
+  category: "GZDoom Mods"
+  page_url: "/xbox-dev-mode/emulators/gzdoom/prebuilt-mods.html#ashes"
+  preview_url: "/previews/prebuilt-mods-ashes.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "doom2.wad"
+    - "Ashes2063Maps115.wad"
+    - "Ashes2063Mod115.pk3"
+  features: []
+  contributors:
+    mod_authors:
+      - name: "Ashes Dev Group"
+        donations: []
+    prebuilt_by:
+      - name: "poopbird4k"
+        github: "https://github.com/poopbird4k"
+        donations: []
+  downloads:
+    - label: "Ashes Rebuild"
+      asset_id: "ashes"
+    - label: "Mod Link"
+      asset_id: "ashes-mod"
+  setup_guide: null
+  tutorial_url: null
+
+- id: "bloom"
+  app_id: "bloom"
+  title: "BLOOM"
+  description: "A crossover mod that fuses the worlds, weapons, and style of Blood and DOOM into one GZDoom experience."
+  image: "/xbox-dev-mode/images/gzdoom-mods/bloom.webp"
+  alt: "BLOOM Logo"
+  category: "GZDoom Mods"
+  page_url: "/xbox-dev-mode/emulators/gzdoom/prebuilt-mods.html#bloom"
+  preview_url: "/previews/prebuilt-mods-bloom.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "doom2.wad"
+    - "bloom.pk3"
+    - "/Cards/ folder"
+  features: []
+  contributors:
+    mod_authors:
+      - name: "Bloom Team"
+        donations: []
+    prebuilt_by:
+      - name: "poopbird4k"
+        github: "https://github.com/poopbird4k"
+        donations: []
+  downloads:
+    - label: "BLOOM Rebuild"
+      asset_id: "bloom"
+    - label: "Mod Link"
+      asset_id: "bloom-mod"
+  setup_guide: null
+  tutorial_url: null
+
+- id: "brutal-doom"
+  app_id: "brutal-doom"
+  title: "Brutal DOOM"
+  description: "A famous GZDoom mod that makes DOOM faster, harder, louder, and far more violent."
+  image: "/xbox-dev-mode/images/gzdoom-mods/brutal-doom.webp"
+  alt: "Brutal DOOM Logo"
+  category: "GZDoom Mods"
+  page_url: "/xbox-dev-mode/emulators/gzdoom/prebuilt-mods.html#brutal-doom"
+  preview_url: "/previews/prebuilt-mods-brutal-doom.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "doom2.wad"
+    - "brutalv21.pk3"
+  features: []
+  contributors:
+    mod_authors:
+      - name: "Sergeant Mark IV"
+        donations: []
+    prebuilt_by:
+      - name: "poopbird4k"
+        github: "https://github.com/poopbird4k"
+        donations: []
+  downloads:
+    - label: "Brutal DOOM Prebuild"
+      asset_id: "brutal-doom"
+    - label: "Mod Link"
+      asset_id: "brutal-doom-mod"
+  setup_guide: null
+  tutorial_url: null
+
+- id: "brutal-wolfenstein3d"
+  app_id: "brutal-wolfenstein3d"
+  title: "Brutal Wolfenstein 3D"
+  description: "A total conversion that reimagines the original Wolfenstein 3D episodes and Spear of Destiny in GZDoom."
+  image: "/xbox-dev-mode/images/gzdoom-mods/brutal-wolfenstein3d.webp"
+  alt: "Brutal Wolfenstein 3D Logo"
+  category: "GZDoom Mods"
+  page_url: "/xbox-dev-mode/emulators/gzdoom/prebuilt-mods.html#brutal-wolfenstein3d"
+  preview_url: "/previews/prebuilt-mods-brutal-wolfenstein3d.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "doom2.wad"
+    - "BW.pk3"
+  features: []
+  contributors:
+    mod_authors:
+      - name: "Zio McCall"
+        donations: []
+    prebuilt_by:
+      - name: "poopbird4k"
+        github: "https://github.com/poopbird4k"
+        donations: []
+  downloads:
+    - label: "Brutal Wolfenstein 3D Prebuild"
+      asset_id: "brutal-wolfenstein3d"
+    - label: "Mod Link"
+      asset_id: "brutal-wolfenstein3d-mod"
+  setup_guide: null
+  tutorial_url: null
+
+- id: "castlevania-simon"
+  app_id: "castlevania-simon"
+  title: "Castlevania: Simon's Destiny"
+  description: "A first-person reimagining of the original NES Castlevania with nostalgic design and brand-new gameplay."
+  image: "/xbox-dev-mode/images/gzdoom-mods/castlevania-simon.webp"
+  alt: "Castlevania Simon's Destiny Logo"
+  category: "GZDoom Mods"
+  page_url: "/xbox-dev-mode/emulators/gzdoom/prebuilt-mods.html#castlevania-simon"
+  preview_url: "/previews/prebuilt-mods-castlevania-simon.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "Castlevania.ipk3"
+  features: []
+  contributors:
+    mod_authors:
+      - name: "Batandy"
+        donations: []
+    prebuilt_by:
+      - name: "poopbird4k"
+        github: "https://github.com/poopbird4k"
+        donations: []
+  downloads:
+    - label: "Castlevania: Simon's Destiny Prebuild"
+      asset_id: "castlevania-simon"
+    - label: "Mod Link"
+      asset_id: "castlevania-simon-mod"
+  setup_guide: null
+  tutorial_url: null
+
+- id: "doom"
+  app_id: "doom"
+  title: "DOOM"
+  description: "The classic demon-slaying FPS that defined the genre, playable through GZDoom with modern source port features."
+  image: "/xbox-dev-mode/images/gzdoom-mods/doom.webp"
+  alt: "DOOM Logo"
+  category: "GZDoom Mods"
+  page_url: "/xbox-dev-mode/emulators/gzdoom/prebuilt-mods.html#doom"
+  preview_url: "/previews/prebuilt-mods-doom.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "One supported IWAD: doom.wad, doom2.wad, plutonia.wad, or tnt.wad"
+    - "Optional: sigil_v1_21.wad and sigil_ii_v1_0.wad"
+    - "Optional recommended add-ons are linked in the premade USB folders: doom_mus.pk3, doom2_mus.pk3, tnt_mus.pk3, doom_ntp.pk3, and VoxelDoom_v_2.3.pk3"
+  features: []
+  contributors:
+    mod_authors:
+      - name: "id Software"
+        donations: []
+    prebuilt_by:
+      - name: "poopbird4k"
+        github: "https://github.com/poopbird4k"
+        donations: []
+  downloads:
+    - label: "Download"
+      asset_id: "doom"
+  setup_guide: null
+  tutorial_url: null
+
+- id: "golden-souls"
+  app_id: "golden-souls"
+  title: "The Golden Souls"
+  description: "A colorful platformer-inspired DOOM II mod influenced by Super Mario, with new mechanics and whimsical worlds."
+  image: "/xbox-dev-mode/images/gzdoom-mods/golden-souls.webp"
+  alt: "The Golden Souls Logo"
+  category: "GZDoom Mods"
+  page_url: "/xbox-dev-mode/emulators/gzdoom/prebuilt-mods.html#golden-souls"
+  preview_url: "/previews/prebuilt-mods-golden-souls.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "doom2.wad"
+    - "GoldenSouls_Remastered_V1.0_hotfix.pk3"
+  features: []
+  contributors:
+    mod_authors:
+      - name: "Batandy"
+        donations: []
+    prebuilt_by:
+      - name: "poopbird4k"
+        github: "https://github.com/poopbird4k"
+        donations: []
+  downloads:
+    - label: "The Golden Souls Prebuild"
+      asset_id: "golden-souls"
+    - label: "Mod Link"
+      asset_id: "golden-souls-mod"
+  setup_guide: null
+  tutorial_url: null
+
+- id: "halodoom"
+  app_id: "halodoom"
+  title: "Halo DOOM"
+  description: "A Halo-inspired weapon mod for GZDoom featuring a large sandbox, Spartan classes, and broad addon compatibility."
+  image: "/xbox-dev-mode/images/gzdoom-mods/halodoom.webp"
+  alt: "Halo DOOM Logo"
+  category: "GZDoom Mods"
+  page_url: "/xbox-dev-mode/emulators/gzdoom/prebuilt-mods.html#halodoom"
+  preview_url: "/previews/prebuilt-mods-halodoom.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "doom2.wad"
+    - "HDE Season 3.9.pk3"
+  features: []
+  contributors:
+    mod_authors:
+      - name: "HDE Team"
+        donations: []
+    prebuilt_by:
+      - name: "poopbird4k"
+        github: "https://github.com/poopbird4k"
+        donations: []
+  downloads:
+    - label: "Halo DOOM Prebuild"
+      asset_id: "halodoom"
+    - label: "Mod Link"
+      asset_id: "halodoom-mod"
+  setup_guide: null
+  tutorial_url: null
+
+- id: "heretic"
+  app_id: "heretic"
+  title: "Heretic"
+  description: "Raven Software’s dark fantasy FPS, bringing magic, monsters, and medieval combat to the classic DOOM-style formula."
+  image: "/xbox-dev-mode/images/gzdoom-mods/heretic.webp"
+  alt: "Heretic Logo"
+  category: "GZDoom Mods"
+  page_url: "/xbox-dev-mode/emulators/gzdoom/prebuilt-mods.html#heretic"
+  preview_url: "/previews/prebuilt-mods-heretic.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "heretic.wad"
+    - "Optional recommended add-ons are linked in the premade USB folders: heretic_mus.pk3, heretic_ntp.pk3, heretic_vox.pk3, and sfxogg.wad"
+  features: []
+  contributors:
+    mod_authors:
+      - name: "Raven Software"
+        donations: []
+    prebuilt_by:
+      - name: "poopbird4k"
+        github: "https://github.com/poopbird4k"
+        donations: []
+  downloads:
+    - label: "Download"
+      asset_id: "heretic"
+  setup_guide: null
+  tutorial_url: null
+
+- id: "hexen"
+  app_id: "hexen"
+  title: "HeXen"
+  description: "A darker fantasy shooter from Raven Software with hub-based progression, classes, and more complex combat than Heretic."
+  image: "/xbox-dev-mode/images/gzdoom-mods/hexen.webp"
+  alt: "HeXen Logo"
+  category: "GZDoom Mods"
+  page_url: "/xbox-dev-mode/emulators/gzdoom/prebuilt-mods.html#hexen"
+  preview_url: "/previews/prebuilt-mods-hexen.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "hexen.wad"
+    - "Optional recommended add-ons are linked in the premade USB folders: hexen_mus.pk3 and hexen_ntp.pk3"
+  features: []
+  contributors:
+    mod_authors:
+      - name: "Raven Software"
+        donations: []
+    prebuilt_by:
+      - name: "poopbird4k"
+        github: "https://github.com/poopbird4k"
+        donations: []
+  downloads:
+    - label: "Download"
+      asset_id: "hexen"
+  setup_guide: null
+  tutorial_url: null
+
+- id: "operation-body-count"
+  app_id: "operation-body-count"
+  title: "Operation Body Count"
+  description: "A total conversion episode with objective-based maps, custom enemies, and weapons, remaking the Capstone shooter."
+  image: "/xbox-dev-mode/images/gzdoom-mods/operation-body-count.webp"
+  alt: "Operation Body Count Logo"
+  category: "GZDoom Mods"
+  page_url: "/xbox-dev-mode/emulators/gzdoom/prebuilt-mods.html#operation-body-count"
+  preview_url: "/previews/prebuilt-mods-operation-body-count.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "doom2.wad"
+    - "obcfull.pk3"
+    - "obc mission select.wad"
+  features: []
+  contributors:
+    mod_authors:
+      - name: "Mike MacDee (Impie)"
+        donations: []
+    prebuilt_by:
+      - name: "poopbird4k"
+        github: "https://github.com/poopbird4k"
+        donations: []
+  downloads:
+    - label: "Operation Body Count Prebuild"
+      asset_id: "operation-body-count"
+    - label: "Mod Link"
+      asset_id: "operation-body-count-mod"
+  setup_guide: null
+  tutorial_url: null
+
+- id: "siren"
+  app_id: "siren"
+  title: "SIREN"
+  description: "A slower, more perilous GZDoom mod inspired by Aliens, built around atmosphere, tension, and bespoke story-driven levels."
+  image: "/xbox-dev-mode/images/gzdoom-mods/siren.webp"
+  alt: "SIREN Logo"
+  category: "GZDoom Mods"
+  page_url: "/xbox-dev-mode/emulators/gzdoom/prebuilt-mods.html#siren"
+  preview_url: "/previews/prebuilt-mods-siren.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "doom2.wad"
+    - "Siren - C -0.85.pk3"
+  features: []
+  contributors:
+    mod_authors:
+      - name: "DitheredOutput"
+        donations: []
+    prebuilt_by:
+      - name: "poopbird4k"
+        github: "https://github.com/poopbird4k"
+        donations: []
+  downloads:
+    - label: "SIREN Prebuild"
+      asset_id: "siren"
+    - label: "Mod Link"
+      asset_id: "siren-mod"
+  setup_guide: null
+  tutorial_url: null
+
+- id: "strife"
+  app_id: "strife"
+  title: "Strife"
+  description: "A story-driven shooter-RPG hybrid blending DOOM-style action with quests, dialogue, and a larger connected world."
+  image: "/xbox-dev-mode/images/gzdoom-mods/strife.webp"
+  alt: "Strife Logo"
+  category: "GZDoom Mods"
+  page_url: "/xbox-dev-mode/emulators/gzdoom/prebuilt-mods.html#strife"
+  preview_url: "/previews/prebuilt-mods-strife.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "strife1.wad"
+    - "voices.wad"
+    - "Optional recommended add-on is linked in the premade USB folders: strife_mus.pk3"
+  features: []
+  contributors:
+    mod_authors:
+      - name: "Rogue Entertainment"
+        donations: []
+    prebuilt_by:
+      - name: "poopbird4k"
+        github: "https://github.com/poopbird4k"
+        donations: []
+  downloads:
+    - label: "Download"
+      asset_id: "strife"
+  setup_guide: null
+  tutorial_url: null
+
+- id: "total-chaos"
+  app_id: "total-chaos"
+  title: "Total Chaos Director's Cut"
+  description: "A survival horror total conversion for DOOM II focused on atmosphere, isolation, and brutal close-quarters tension."
+  image: "/xbox-dev-mode/images/gzdoom-mods/total-chaos.webp"
+  alt: "Total Chaos Logo"
+  category: "GZDoom Mods"
+  page_url: "/xbox-dev-mode/emulators/gzdoom/prebuilt-mods.html#total-chaos"
+  preview_url: "/previews/prebuilt-mods-total-chaos.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "totalchaos.pk3"
+    - "zd_extra.pk3"
+    - "doom.wad fake IWAD"
+    - "No separate IWAD required"
+  features: []
+  contributors:
+    mod_authors:
+      - name: "Sam Prebble (wadaholic)"
+        donations: []
+    prebuilt_by:
+      - name: "poopbird4k"
+        github: "https://github.com/poopbird4k"
+        donations: []
+  downloads:
+    - label: "Total Chaos Prebuild"
+      asset_id: "total-chaos"
+    - label: "Mod Link"
+      asset_id: "total-chaos-mod"
+  setup_guide:
+    url: "https://wiki.sternserv.xyz/docs/apps/gzdoom-guide"
+  tutorial_url: null
+
+- id: "wolfenstein3d-tc"
+  app_id: "wolfenstein3d-tc"
+  title: "Wolfenstein 3D TC"
+  description: "A GZDoom total conversion recreating the classic Wolfenstein 3D experience with modern source port support."
+  image: "/xbox-dev-mode/images/gzdoom-mods/wolfenstein3d-tc.webp"
+  alt: "Wolfenstein 3D TC Logo"
+  category: "GZDoom Mods"
+  page_url: "/xbox-dev-mode/emulators/gzdoom/prebuilt-mods.html#wolfenstein3d-tc"
+  preview_url: "/previews/prebuilt-mods-wolfenstein3d-tc.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "wolf3d.ipk3"
+    - "One supported data set: GAMEMAPS.WL6, GAMEMAPS.SOD, GAMEMAPS.SD2, or GAMEMAPS.SD3"
+    - "No separate IWAD required"
+  features: []
+  contributors:
+    mod_authors:
+      - name: "AFADoomer"
+        donations: []
+    prebuilt_by:
+      - name: "poopbird4k"
+        github: "https://github.com/poopbird4k"
+        donations: []
+  downloads:
+    - label: "Wolfenstein 3D TC Prebuild"
+      asset_id: "wolfenstein3d-tc"
+    - label: "Mod Link"
+      asset_id: "wolfenstein3d-tc-mod"
+  setup_guide: null
+  tutorial_url: null

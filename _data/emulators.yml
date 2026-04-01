@@ -123,8 +123,10 @@
         donations: []
     maintainers: []
   downloads:
-    - label: "Download"
+    - label: "GZDoom"
       asset_id: "gzdoom"
+    - label: "Browse Prebuilt Mods"
+      asset_id: "gzdoom-mods"
   setup_guide:
     url: "https://wiki.sternserv.xyz/docs/apps/gzdoom-guide"
   tutorial_url: "https://youtu.be/M1LX8MifJhM"

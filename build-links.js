@@ -24,6 +24,7 @@ const FAILURE_TYPES = {
     ASSET_MISS: 'asset-miss',
     PARTIAL_ASSET_MISS: 'partial-asset-miss',
     VERSION_URL_CHECK: 'versioned-url-check-failure',
+    STATIC_URL_CHECK: 'static-url-check-failure',
     VALIDATION: 'validation-failure',
     WRITE: 'write-failure'
 };
@@ -240,9 +241,9 @@ function getDefaultVersionCandidates(text) {
     }
 
     const patterns = [
-        /(?<![\d.])v?(\d+\.\d+\.\d+\.\d+)(?![\d.])/gi,
-        /(?<![\d.])v?(\d+\.\d+\.\d+)(?![\d.])/gi,
-        /(?<![\d.])v?(\d+\.\d+)(?![\d.])/gi
+        /(?<![\d.])v?(\d+\.\d+\.\d+\.\d+)(?!\d)/gi,
+        /(?<![\d.])v?(\d+\.\d+\.\d+)(?!\d)/gi,
+        /(?<![\d.])v?(\d+\.\d+)(?!\d)/gi
     ];
 
     const seen = new Set();
@@ -297,7 +298,7 @@ function scoreVersionCandidate(candidate, source, text) {
     }
 
     if (typeof text === 'string') {
-        if (new RegExp(`(?<![\\d.])v?${normalized.replace(/\./g, '\\.')}(?![\\d.])`, 'i').test(text)) {
+        if (new RegExp(`(?<![\\d.])v?${normalized.replace(/\./g, '\\.')}(?!\\d)`, 'i').test(text)) {
             score += 10;
         }
 
@@ -380,9 +381,37 @@ function getReleaseAssets(release) {
     return Array.isArray(release?.assets) ? release.assets : [];
 }
 
+function getGithubManifestAssets(config) {
+    if (!Array.isArray(config?.assets)) {
+        return [];
+    }
+
+    return config.assets.filter(assetConfig =>
+        assetConfig
+        && typeof assetConfig === 'object'
+        && assetConfig.sourceType === 'github'
+        && typeof assetConfig.assetPattern === 'string'
+        && assetConfig.assetPattern.trim()
+    );
+}
+
+function getStaticManifestAssets(config) {
+    if (!Array.isArray(config?.assets)) {
+        return [];
+    }
+
+    return config.assets.filter(assetConfig =>
+        assetConfig
+        && typeof assetConfig === 'object'
+        && assetConfig.sourceType === 'static'
+        && typeof assetConfig.url === 'string'
+        && assetConfig.url.trim()
+    );
+}
+
 function getMatchedAssetsForRelease(release, config) {
     const releaseAssets = getReleaseAssets(release);
-    const manifestAssets = Array.isArray(config?.assets) ? config.assets : [];
+    const manifestAssets = getGithubManifestAssets(config);
 
     return manifestAssets.map((assetConfig, index) => {
         const matchedAsset = releaseAssets.find(asset =>
@@ -430,10 +459,6 @@ function extractVersionCandidatesFromAssetName(assetName, config, sourceLabel) {
 }
 
 function extractVersionFromMatchedAssets(release, config) {
-    if (config?.type === 'githubVersionedStatic') {
-        return null;
-    }
-
     const matchedEntries = getMatchedAssetsForRelease(release, config);
     if (!matchedEntries.length) {
         return null;
@@ -765,9 +790,7 @@ async function fetchMatchingReleaseData(repo, config, headers, releaseCache, sum
         releaseTagRegex: shouldApplyReleaseTagRegex(config) ? config.releaseTagRegex : '',
         versionSource: config.versionSource || 'auto',
         versionRegex: config.versionRegex || '',
-        assetPatterns: Array.isArray(config.assets)
-            ? config.assets.map(asset => asset.assetPattern || asset.urlTemplate || '')
-            : []
+        githubAssetPatterns: getGithubManifestAssets(config).map(asset => asset.assetPattern || '')
     });
 
     if (releaseCache.has(cacheKey)) {
@@ -827,7 +850,7 @@ function getFallbackEntry(appId, config, previousOutput) {
             name: previousEntry.name || config.name,
             version: previousEntry.version || config.version || 'Unknown',
             releaseDate: previousEntry.releaseDate || config.releaseDate || 'Unknown',
-            firstReleaseDate: previousEntry.firstReleaseDate || previousEntry.releaseDate || config.releaseDate || 'Unknown',
+            firstReleaseDate: previousEntry.firstReleaseDate || previousEntry.releaseDate || config.firstReleaseDate || config.releaseDate || 'Unknown',
             assets: cloneAssets(previousEntry.assets)
         };
     }
@@ -837,7 +860,7 @@ function getFallbackEntry(appId, config, previousOutput) {
         version: config.version || 'Unknown',
         releaseDate: config.releaseDate || 'Unknown',
         firstReleaseDate: config.firstReleaseDate || config.releaseDate || 'Unknown',
-        assets: cloneAssets(config.assets)
+        assets: []
     };
 }
 
@@ -856,7 +879,7 @@ function applyFallbackEntry(appId, config, finalJsonOutput, previousOutput, mess
 }
 
 function validateAssetConfig(appId, assetConfig, assetIds) {
-    if (!assetConfig || typeof assetConfig !== 'object') {
+    if (!assetConfig || typeof assetConfig !== 'object' || Array.isArray(assetConfig)) {
         throwValidationError(`App '${appId}' has an invalid asset entry.`);
     }
 
@@ -932,13 +955,27 @@ function validateManifest(manifest) {
                 if (typeof assetConfig.urlTemplate !== 'string' || !assetConfig.urlTemplate.trim()) {
                     throwValidationError(`Versioned static app '${appId}' asset '${assetConfig.id}' is missing a valid urlTemplate.`);
                 }
-            } else {
-                if (typeof config.repo !== 'string' || !config.repo.trim()) {
-                    throwValidationError(`GitHub app '${appId}' is missing a valid repo.`);
-                }
 
+                continue;
+            }
+
+            if (typeof config.repo !== 'string' || !config.repo.trim()) {
+                throwValidationError(`App '${appId}' is missing a valid repo.`);
+            }
+
+            if (!['github', 'static'].includes(assetConfig.sourceType)) {
+                throwValidationError(`App '${appId}' asset '${assetConfig.id}' has invalid sourceType '${assetConfig.sourceType}'.`);
+            }
+
+            if (assetConfig.sourceType === 'github') {
                 if (typeof assetConfig.assetPattern !== 'string' || !assetConfig.assetPattern.trim()) {
-                    throwValidationError(`GitHub app '${appId}' asset '${assetConfig.id}' is missing a valid assetPattern.`);
+                    throwValidationError(`App '${appId}' GitHub asset '${assetConfig.id}' is missing a valid assetPattern.`);
+                }
+            }
+
+            if (assetConfig.sourceType === 'static') {
+                if (typeof assetConfig.url !== 'string' || !assetConfig.url.trim()) {
+                    throwValidationError(`App '${appId}' static asset '${assetConfig.id}' is missing a valid url.`);
                 }
             }
         }
@@ -1074,7 +1111,106 @@ function entryString(entry) {
     return JSON.stringify(entry);
 }
 
+async function resolveGithubAssetsForRelease(config, bestRelease) {
+    const releaseAssets = getReleaseAssets(bestRelease);
+    const githubAssets = getGithubManifestAssets(config);
+    const resolvedAssets = [];
+
+    for (const assetConfig of githubAssets) {
+        const foundAsset = releaseAssets.find(asset =>
+            nameMatchesPattern(asset.name, assetConfig.assetPattern)
+        );
+
+        if (foundAsset) {
+            resolvedAssets.push({
+                id: assetConfig.id,
+                url: foundAsset.browser_download_url
+            });
+
+            console.log(`    - Found GitHub asset for '${assetConfig.id}': ${foundAsset.name}`);
+        } else {
+            console.warn(`    - ⚠️ Missing GitHub asset for '${assetConfig.id}' with pattern '${assetConfig.assetPattern}'`);
+        }
+    }
+
+    return resolvedAssets;
+}
+
+async function resolveStaticAssetsForConfig(config) {
+    const staticAssets = getStaticManifestAssets(config);
+    const resolvedAssets = [];
+
+    for (const assetConfig of staticAssets) {
+        const resolvedUrl = typeof assetConfig.url === 'string' ? assetConfig.url.trim() : '';
+
+        if (!resolvedUrl) {
+            console.warn(`    - ⚠️ Missing static URL for '${assetConfig.id}'`);
+            continue;
+        }
+
+        resolvedAssets.push({
+            id: assetConfig.id,
+            url: resolvedUrl
+        });
+
+        console.log(`    - Using static asset for '${assetConfig.id}': ${resolvedUrl}`);
+    }
+
+    return resolvedAssets;
+}
+
+function validateResolvedAssetCounts(config, resolvedGithubAssets, resolvedStaticAssets) {
+    const githubAssets = getGithubManifestAssets(config);
+    const staticAssets = getStaticManifestAssets(config);
+    const requireAllAssets = getRequireAllAssets(config);
+
+    if (githubAssets.length > 0 && resolvedGithubAssets.length === 0) {
+        const error = new Error('No expected GitHub assets were found in best matching release.');
+        error.failureType = FAILURE_TYPES.ASSET_MISS;
+        throw error;
+    }
+
+    if (requireAllAssets && githubAssets.length > 0 && resolvedGithubAssets.length !== githubAssets.length) {
+        const error = new Error('One or more expected GitHub assets were not found in best matching release.');
+        error.failureType = FAILURE_TYPES.PARTIAL_ASSET_MISS;
+        throw error;
+    }
+
+    if (staticAssets.length > 0 && resolvedStaticAssets.length === 0) {
+        const error = new Error('No static assets were defined.');
+        error.failureType = FAILURE_TYPES.STATIC_URL_CHECK;
+        throw error;
+    }
+
+    if (requireAllAssets && staticAssets.length > 0 && resolvedStaticAssets.length !== staticAssets.length) {
+        const error = new Error('One or more static assets are missing URLs.');
+        error.failureType = FAILURE_TYPES.STATIC_URL_CHECK;
+        throw error;
+    }
+
+    if (resolvedGithubAssets.length === 0 && resolvedStaticAssets.length === 0) {
+        const error = new Error('No assets could be resolved.');
+        error.failureType = FAILURE_TYPES.ASSET_MISS;
+        throw error;
+    }
+}
+
 async function processGithubReleaseAssetsApp(appId, config, finalJsonOutput, headers, releaseCache, summary) {
+    const githubAssets = getGithubManifestAssets(config);
+    const staticAssets = getStaticManifestAssets(config);
+
+    if (!githubAssets.length && staticAssets.length) {
+        finalJsonOutput[appId].version = normalizeVersion(config.version || 'Unknown');
+        finalJsonOutput[appId].releaseDate = config.releaseDate || 'Unknown';
+        finalJsonOutput[appId].firstReleaseDate = config.firstReleaseDate || config.releaseDate || 'Unknown';
+
+        const resolvedStaticAssets = await resolveStaticAssetsForConfig(config);
+        validateResolvedAssetCounts(config, [], resolvedStaticAssets);
+        finalJsonOutput[appId].assets = resolvedStaticAssets;
+        console.log('  - Static-only assets processed inside standard manifest entry.');
+        return;
+    }
+
     const releaseData = await fetchMatchingReleaseData(config.repo, config, headers, releaseCache, summary);
     const bestRelease = releaseData.bestRelease;
     const firstRelease = releaseData.firstRelease;
@@ -1096,44 +1232,18 @@ async function processGithubReleaseAssetsApp(appId, config, finalJsonOutput, hea
     finalJsonOutput[appId].releaseDate = releaseDate;
     finalJsonOutput[appId].firstReleaseDate = firstReleaseDate;
 
-    const releaseAssets = getReleaseAssets(bestRelease);
-    const resolvedAssets = [];
+    const resolvedGithubAssets = await resolveGithubAssetsForRelease(config, bestRelease);
+    const resolvedStaticAssets = await resolveStaticAssetsForConfig(config);
 
-    for (const assetConfig of config.assets) {
-        const foundAsset = releaseAssets.find(asset =>
-            nameMatchesPattern(asset.name, assetConfig.assetPattern)
-        );
+    validateResolvedAssetCounts(config, resolvedGithubAssets, resolvedStaticAssets);
 
-        if (foundAsset) {
-            resolvedAssets.push({
-                id: assetConfig.id,
-                url: foundAsset.browser_download_url
-            });
-
-            console.log(`    - Found asset for '${assetConfig.id}': ${foundAsset.name}`);
-        } else {
-            console.warn(`    - ⚠️ Missing asset for '${assetConfig.id}' with pattern '${assetConfig.assetPattern}'`);
-        }
-    }
-
-    const requireAllAssets = getRequireAllAssets(config);
-
-    if (resolvedAssets.length === 0) {
-        const error = new Error('No expected assets were found in best matching release.');
-        error.failureType = FAILURE_TYPES.ASSET_MISS;
-        throw error;
-    }
-
-    if (requireAllAssets && resolvedAssets.length !== config.assets.length) {
-        const error = new Error('One or more expected assets were not found in best matching release.');
-        error.failureType = FAILURE_TYPES.PARTIAL_ASSET_MISS;
-        throw error;
-    }
-
-    finalJsonOutput[appId].assets = resolvedAssets;
+    finalJsonOutput[appId].assets = [
+        ...resolvedGithubAssets,
+        ...resolvedStaticAssets
+    ];
 }
 
-async function processGithubVersionedStaticApp(appId, config, finalJsonOutput, headers, releaseCache, previousOutput, summary) {
+async function processGithubVersionedStaticApp(appId, config, finalJsonOutput, headers, releaseCache, summary) {
     const releaseData = await fetchMatchingReleaseData(config.repo, config, headers, releaseCache, summary);
     const bestRelease = releaseData.bestRelease;
     const firstRelease = releaseData.firstRelease;
@@ -1203,7 +1313,7 @@ async function processGithubVersionedStaticApp(appId, config, finalJsonOutput, h
 function printSummary(summary) {
     console.log('\n--- Run Summary ---');
     console.log(`Total apps processed: ${summary.totalApps}`);
-    console.log(`GitHub release entries: ${summary.githubEntries}`);
+    console.log(`GitHub release / mixed entries: ${summary.githubEntries}`);
     console.log(`GitHub versioned static entries: ${summary.versionedStaticEntries}`);
     console.log(`Cached repo hits: ${summary.cachedRepoHits}`);
     console.log(`Changed entries: ${summary.changedEntries}`);
@@ -1288,7 +1398,6 @@ async function main() {
                     finalJsonOutput,
                     headers,
                     releaseCache,
-                    previousOutput,
                     summary
                 );
             } else {

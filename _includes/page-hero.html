@@ -16,5 +16,17 @@
     <div class="container-fluid hero-content">
         <h1 class="hero-title{% if include.title_class %} {{ include.title_class }}{% endif %}">{{ include.title }}</h1>
         <p class="hero-subtitle{% if include.description_class %} {{ include.description_class }}{% endif %}">{{ include.description }}</p>
+
+        {% if include.primary_button_text or include.secondary_button_text %}
+        <div class="emulator-links hero-actions">
+            {% if include.primary_button_text and include.primary_button_url %}
+            <a href="{{ include.primary_button_url }}" class="btn btn-primary">{{ include.primary_button_text }}</a>
+            {% endif %}
+            {% if include.secondary_button_text and include.secondary_button_url %}
+            <a href="{{ include.secondary_button_url }}" class="btn btn-info">{{ include.secondary_button_text }}</a>
+            {% endif %}
+        </div>
+        {% endif %}
+
     </div>
 </section>
