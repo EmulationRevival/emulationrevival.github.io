@@ -1289,38 +1289,6 @@
   setup_guide: null
   tutorial_url: null
   
-- id: "sm64ex"
-  app_id: "sm64ex"
-  title: "SM64EX"
-  description: "A fork of the original Super Mario 64 Port"
-  image: "/xbox-dev-mode/images/game-ports/sm64ex.webp"
-  alt: "SM64EX Logo"
-  category: "Ports"
-  page_url: "/xbox-dev-mode/ports.html#sm64ex"
-  preview_url: "/previews/ports-sm64ex.html"
-  compatibility: "Xbox Series S|X"
-  requirements:
-    - "Compile SM64EX on PC with your rom"
-    - "Generated base.zip file"
-  features: []
-  contributors:
-    developers:
-      - name: "sm64pc"
-        github: "https://github.com/sm64pc"
-        donations: []
-    porters:
-      - name: "Moonpower"
-        github: "https://github.com/momo-AUX1"
-        donations:
-          - type: "kofi"
-            url: "https://ko-fi.com/moonpower007"
-    maintainers: []
-  downloads:
-    - label: "Download"
-      asset_id: "sm64ex"
-  setup_guide: null
-  tutorial_url: null
-  
 - id: "descent-3"
   app_id: "descent3"
   title: "Descent 3"

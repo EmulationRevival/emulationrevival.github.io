@@ -1238,26 +1238,6 @@
       }
     ]
   },
-  "panda3ds": {
-    "name": "Panda3DS",
-    "repo": "EmulationRevival/emulationrevival-downloads",
-    "releaseTagRegex": "^panda3ds-",
-    "versionSource": "auto",
-    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
-    "releaseDateOverrides": {
-      "1.0.4.0": "2026-03-23"
-    },
-    "firstReleaseDateOverrides": {
-      "1.0.4.0": "2025-04-26"
-    },
-    "assets": [
-      {
-        "id": "panda3ds",
-        "sourceType": "github",
-        "assetPattern": "Panda3DS-UWP-*.zip"
-      }
-    ]
-  },
   "sm64hd": {
     "name": "SM64HD fan remake",
     "repo": "EmulationRevival/emulationrevival-downloads",
@@ -1313,26 +1293,6 @@
         "id": "nsmb",
         "sourceType": "github",
         "assetPattern": "NSMB-MarioVsLuigi_*.msix"
-      }
-    ]
-  },
-  "sm64ex": {
-    "name": "SM64EX",
-    "repo": "EmulationRevival/emulationrevival-downloads",
-    "releaseTagRegex": "^sm64ex-",
-    "versionSource": "auto",
-    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
-    "releaseDateOverrides": {
-      "1.0.0.0": "2026-03-26"
-    },
-    "firstReleaseDateOverrides": {
-      "1.0.0.0": "2026-03-26"
-    },
-    "assets": [
-      {
-        "id": "sm64ex",
-        "sourceType": "github",
-        "assetPattern": "sm64ex-UWP-*.zip"
       }
     ]
   },
