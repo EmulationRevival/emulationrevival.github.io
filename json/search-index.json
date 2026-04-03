@@ -98,13 +98,6 @@
     "category": "Emulators"
   },
   {
-    "name": "Panda3DS",
-    "description": "An Nintendo 3DS emulator",
-    "img": "/xbox-dev-mode/images/emulators/panda3ds.webp",
-    "url": "/xbox-dev-mode/emulators.html#panda3ds",
-    "category": "Emulators"
-  },
-  {
     "name": "Castlevania Revamped",
     "description": "The NES classic re-forged into a Metroid-style adventure",
     "img": "/xbox-dev-mode/images/game-ports/castlevania.webp",
@@ -396,13 +389,6 @@
     "description": "A unity-standalone 2-10 online player remake of the Mario vs. Luigi gamemode from the New Super Mario Bros DS download game",
     "img": "/xbox-dev-mode/images/game-ports/NSMB.webp",
     "url": "/xbox-dev-mode/ports.html#nsmb-mariovsluigi",
-    "category": "Ports"
-  },
-  {
-    "name": "SM64EX",
-    "description": "A fork of the original Super Mario 64 Port",
-    "img": "/xbox-dev-mode/images/game-ports/sm64ex.webp",
-    "url": "/xbox-dev-mode/ports.html#sm64ex",
     "category": "Ports"
   },
   {
