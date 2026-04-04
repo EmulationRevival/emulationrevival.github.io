@@ -181,13 +181,13 @@
   },
   "xeniaCanary": {
     "name": "Xenia Canary",
-    "version": "1.1.7.0",
-    "releaseDate": "2026-03-15",
+    "version": "1.1.7.1",
+    "releaseDate": "2026-04-04",
     "firstReleaseDate": "2023-02-04",
     "assets": [
       {
         "id": "xenia",
-        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/xenia-canary-1.1.7.0/xenia-canary-uwp_1.1.7.0_x64.appxbundle"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/xenia-canary-1.1.7.1/xenia-canary-uwp_1.1.7.1_x64.appxbundle"
       }
     ]
   },
@@ -963,18 +963,6 @@
       }
     ]
   },
-  "panda3ds": {
-    "name": "Panda3DS",
-    "version": "1.0.4.0",
-    "releaseDate": "2026-03-23",
-    "firstReleaseDate": "2025-04-26",
-    "assets": [
-      {
-        "id": "panda3ds",
-        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/panda3ds-1.0.4.0/Panda3DS-UWP-1.0.4.0.zip"
-      }
-    ]
-  },
   "sm64hd": {
     "name": "SM64HD fan remake",
     "version": "1.0.1.0",
@@ -1024,18 +1012,6 @@
       {
         "id": "nsmb",
         "url": "https://github.com/YTReviveMe/NSMB-MarioVsLuigi-UWP/releases/download/v2.0.4.1/NSMB-MarioVsLuigi_1.0.1.0_x64.msix"
-      }
-    ]
-  },
-  "sm64ex": {
-    "name": "SM64EX",
-    "version": "1.0.0.0",
-    "releaseDate": "2026-03-26",
-    "firstReleaseDate": "2026-03-26",
-    "assets": [
-      {
-        "id": "sm64ex",
-        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/sm64ex-1.0.0.0/sm64ex-UWP-1.0.0.0.zip"
       }
     ]
   },
