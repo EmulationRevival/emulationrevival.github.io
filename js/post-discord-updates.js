@@ -150,6 +150,11 @@ function findSearchIndexEntryForApp(appId, appEntry, searchIndex) {
   return null;
 }
 
+function buildRolePrefix() {
+  const roleId = String(process.env.DISCORD_ROLE_ID || '').trim();
+  return roleId ? `<@&${roleId}> ` : '';
+}
+
 function buildDiscordMessageForChange(change, searchIndex, previewLookup) {
   const appEntry = change.currentEntry;
   const searchEntry = findSearchIndexEntryForApp(change.appId, appEntry, searchIndex);
@@ -159,9 +164,10 @@ function buildDiscordMessageForChange(change, searchIndex, previewLookup) {
     return '';
   }
 
+  const rolePrefix = buildRolePrefix();
   const heading = change.type === 'new'
-    ? `**${appEntry.name || change.appId}** is now available`
-    : `**${appEntry.name || change.appId}** has been updated`;
+    ? `${rolePrefix}**${appEntry.name || change.appId}** is now available`
+    : `${rolePrefix}**${appEntry.name || change.appId}** has been updated`;
 
   return [
     heading,
@@ -174,6 +180,17 @@ function buildDiscordMessageForChange(change, searchIndex, previewLookup) {
 }
 
 async function postToDiscord(webhookUrl, content) {
+  const roleId = String(process.env.DISCORD_ROLE_ID || '').trim();
+
+  const allowedMentions = roleId
+    ? {
+        parse: [],
+        roles: [roleId],
+      }
+    : {
+        parse: [],
+      };
+
   const response = await fetch(webhookUrl, {
     method: 'POST',
     headers: {
@@ -181,9 +198,7 @@ async function postToDiscord(webhookUrl, content) {
     },
     body: JSON.stringify({
       content,
-      allowed_mentions: {
-        parse: [],
-      },
+      allowed_mentions: allowedMentions,
     }),
   });
 
@@ -197,7 +212,7 @@ async function main() {
   const previousPath = process.argv[2];
   const currentPath = process.argv[3];
   const searchIndexPath = process.argv[4];
-  const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
+  const webhookUrl = String(process.env.DISCORD_WEBHOOK_URL || '').trim();
 
   if (!previousPath || !currentPath || !searchIndexPath) {
     throw new Error('Usage: node js/post-discord-updates.js <previous-app-links.json> <current-app-links.json> <search-index.json>');

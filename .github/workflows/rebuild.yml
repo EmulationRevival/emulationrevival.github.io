@@ -43,6 +43,7 @@ jobs:
       - name: Post Discord Updates
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          DISCORD_ROLE_ID: ${{ secrets.DISCORD_ROLE_ID }}
         run: node js/post-discord-updates.js /tmp/app-links.previous.json json/app-links.json json/search-index.json
 
       - name: Commit and Push Changes
