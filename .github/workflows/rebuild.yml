@@ -26,6 +26,9 @@ jobs:
       - name: Install Dependencies
         run: npm install cheerio dotenv node-fetch@2 js-yaml
 
+      - name: Backup previous app-links
+        run: cp json/app-links.json /tmp/app-links.previous.json || echo "{}" > /tmp/app-links.previous.json
+
       - name: Run Build Links Script
         env:
           GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -36,6 +39,11 @@ jobs:
 
       - name: Run Build Previews Script
         run: node js/build-previews.js
+
+      - name: Post Discord Updates
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: node js/post-discord-updates.js /tmp/app-links.previous.json json/app-links.json json/search-index.json
 
       - name: Commit and Push Changes
         run: |
