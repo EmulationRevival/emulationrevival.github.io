@@ -1419,5 +1419,5 @@
     - label: "Dependency File"
       asset_id: "sm64coopd-dep"
   setup_guide:
-    url: "/guides/ports/sm64coopdx.html"
+    url: "/guides/ports/sm64coopdx-guide.html"
   tutorial_url: null
