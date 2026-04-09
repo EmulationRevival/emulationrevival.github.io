@@ -1314,5 +1314,21 @@
         "url": "https://www.afadoomer.com/wolf3d/default.php"
       }
     ]
+  },
+  "sm64coopdx": {
+    "name": "Sm64coopdx",
+    "version": "0.1.0.0",
+    "releaseDate": "2026-04-09",
+    "firstReleaseDate": "2026-04-09",
+    "assets": [
+      {
+        "id": "sm64coopdx",
+        "url": "https://github.com/caorthann-celt/sm64coopdx-uwp/releases/download/v0.1.0.0/sm64coopdx-uwp_0.1.0.0_x64.msix"
+      },
+      {
+        "id": "sm64coopd-dep",
+        "url": "https://github.com/caorthann-celt/sm64coopdx-uwp/releases/download/v0.1.0.0/Microsoft.VCLibs.x64.14.00.appx"
+      }
+    ]
   }
 }
