@@ -1389,3 +1389,35 @@
   setup_guide:
     url: "/guides/ports/burgerdoom-guide.html"
   tutorial_url: null
+  
+- id: "sm64coopdx"
+  app_id: "sm64coopdx"
+  title: "sm64coopdx"
+  description: "An unofficial port of sm64coopdx"
+  image: "/xbox-dev-mode/images/game-ports/sm64coopdx.webp"
+  alt: "sm64coopdx Logo"
+  category: "Ports"
+  page_url: "/xbox-dev-mode/ports.html#sm64coopdx"
+  preview_url: "/previews/ports-sm64coopdx.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "baserom.us.z64"
+  features: []
+  contributors:
+    developers:
+      - name: "Coop Deluxe"
+        github: "https://github.com/coop-deluxe"
+        donations: []
+    porters:
+      - name: "Caorthann"
+        github: "https://github.com/caorthann-celt"
+        donations: []
+    maintainers: []
+  downloads:
+    - label: "sm64coopdx-uwp"
+      asset_id: "sm64coopdx"
+    - label: "Dependency File"
+      asset_id: "sm64coopd-dep"
+  setup_guide:
+    url: "/guides/ports/sm64coopdx.md"
+  tutorial_url: null

@@ -1590,5 +1590,21 @@
         "url": "https://www.afadoomer.com/wolf3d/default.php"
       }
     ]
+  },
+  "sm64coopdx": {
+    "name": "Sm64coopdx",
+    "repo": "caorthann-celt/sm64coopdx-uwp",
+    "assets": [
+      {
+        "id": "sm64coopdx",
+        "sourceType": "github",
+        "assetPattern": "sm64coopdx-uwp_*_x64.msix"
+      },
+      {
+        "id": "sm64coopd-dep",
+        "sourceType": "github",
+        "assetPattern": "Microsoft.VCLibs.x*.appx"
+      }
+    ]
   }
 }
