@@ -40,12 +40,6 @@ jobs:
       - name: Run Build Previews Script
         run: node js/build-previews.js
 
-      - name: Post Discord Updates
-        env:
-          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          DISCORD_ROLE_ID: ${{ secrets.DISCORD_ROLE_ID }}
-        run: node js/post-discord-updates.js /tmp/app-links.previous.json json/app-links.json json/search-index.json
-
       - name: Commit and Push Changes
         run: |
           git config --global user.name "github-actions[bot]"
@@ -53,3 +47,12 @@ jobs:
           git add json/ previews/
           git commit -m "Automated update: Build links, search index and preview pages" || echo "No changes to commit"
           git push
+
+      - name: Wait for GitHub Pages to catch up
+        run: sleep 90
+
+      - name: Post Discord Updates
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          DISCORD_ROLE_ID: ${{ secrets.DISCORD_ROLE_ID }}
+        run: node js/post-discord-updates.js /tmp/app-links.previous.json json/app-links.json json/search-index.json
