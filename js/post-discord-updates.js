@@ -152,7 +152,7 @@ function findSearchIndexEntryForApp(appId, appEntry, searchIndex) {
 
 function buildRolePrefix() {
   const roleId = String(process.env.DISCORD_ROLE_ID || '').trim();
-  return roleId ? `<@&${roleId}> ` : '';
+  return roleId ? `<@&${roleId}>` : '';
 }
 
 function buildDiscordMessageForChange(change, searchIndex, previewLookup) {
@@ -166,17 +166,25 @@ function buildDiscordMessageForChange(change, searchIndex, previewLookup) {
 
   const rolePrefix = buildRolePrefix();
   const heading = change.type === 'new'
-    ? `${rolePrefix}**${appEntry.name || change.appId}** is now available`
-    : `${rolePrefix}**${appEntry.name || change.appId}** has been updated`;
+    ? `**${appEntry.name || change.appId}** is now available`
+    : `**${appEntry.name || change.appId}** has been updated`;
 
-  return [
+  const lines = [];
+
+  if (rolePrefix) {
+    lines.push(rolePrefix, '');
+  }
+
+  lines.push(
     heading,
     '',
     `Version: ${appEntry.version || 'Unknown'}`,
     `Released: ${appEntry.releaseDate || 'Unknown'}`,
     '',
-    previewUrl,
-  ].join('\n');
+    `[**DOWNLOAD**](${previewUrl})`,
+  );
+
+  return lines.join('\n');
 }
 
 async function postToDiscord(webhookUrl, content) {
