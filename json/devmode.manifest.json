@@ -1606,5 +1606,21 @@
         "assetPattern": "Microsoft.VCLibs.x*.appx"
       }
     ]
+  },
+  "celeste64": {
+    "name": "Celeste64",
+    "repo": "worleydl/Celeste64-uwp",
+    "assets": [
+      {
+        "id": "celeste64",
+        "sourceType": "github",
+        "assetPattern": "celeste64_uwp_*_x64.msix"
+      },
+      {
+        "id": "celeste64-dep",
+        "sourceType": "github",
+        "assetPattern": "Microsoft.VCLibs.x*.appx"
+      }
+    ]
   }
 }

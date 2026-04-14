@@ -1421,3 +1421,38 @@
   setup_guide:
     url: "/guides/ports/sm64coopdx-guide.html"
   tutorial_url: null
+  
+- id: "celeste64"
+  app_id: "celeste64"
+  title: "Celeste64"
+  description: "An unofficial port of Celeste 64: Fragments of the Mountain, a game made by the original Celeste developers in under 2 weeks for Celeste's 6th Anniversary"
+  image: "/xbox-dev-mode/images/game-ports/celeste64.webp"
+  alt: "Celeste64 Logo"
+  category: "Ports"
+  page_url: "/xbox-dev-mode/ports.html#celeste64"
+  preview_url: "/previews/ports-celeste64.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "External Drive"
+    - "Content folder from repo"
+  features: []
+  contributors:
+    developers:
+      - name: "EXOK"
+        github: "https://github.com/EXOK"
+        donations: []
+    porters:
+      - name: "Worleydl"
+        github: "https://github.com/worleydl"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/worleydl"
+    maintainers: []
+  downloads:
+    - label: "Celeste64"
+      asset_id: "celeste64"
+    - label: "Dependency File"
+      asset_id: "celeste64-dep"
+  setup_guide:
+    url: "/guides/ports/celeste64-guide.html"
+  tutorial_url: null
