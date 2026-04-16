@@ -205,25 +205,25 @@
   },
   "retroarch": {
     "name": "RetroArch",
-    "version": "03-20-2026",
-    "releaseDate": "2026-03-20",
+    "version": "04-15-2026",
+    "releaseDate": "2026-04-15",
     "firstReleaseDate": "2025-02-05",
     "assets": [
       {
         "id": "retroarch1",
-        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/03-20-2026/RetroArch-XboxOne.appx"
+        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/04-15-2026/RetroArch-XboxOne.appx"
       },
       {
         "id": "retroarch2",
-        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/03-20-2026/RetroArch-XboxOne-AllCores.appx"
+        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/04-15-2026/RetroArch-XboxOne-AllCores.appx"
       },
       {
         "id": "retroarch3",
-        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/03-20-2026/RetroArch-SeriesConsoles.appx"
+        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/04-15-2026/RetroArch-SeriesConsoles.appx"
       },
       {
         "id": "retroarch4",
-        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/03-20-2026/RetroArch-SeriesConsoles-AllCores.appx"
+        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/04-15-2026/RetroArch-SeriesConsoles-AllCores.appx"
       }
     ]
   },
