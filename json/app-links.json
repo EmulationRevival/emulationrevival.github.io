@@ -205,25 +205,25 @@
   },
   "retroarch": {
     "name": "RetroArch",
-    "version": "03-20-2026",
-    "releaseDate": "2026-03-20",
+    "version": "04-15-2026",
+    "releaseDate": "2026-04-15",
     "firstReleaseDate": "2025-02-05",
     "assets": [
       {
         "id": "retroarch1",
-        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/03-20-2026/RetroArch-XboxOne.appx"
+        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/04-15-2026/RetroArch-XboxOne.appx"
       },
       {
         "id": "retroarch2",
-        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/03-20-2026/RetroArch-XboxOne-AllCores.appx"
+        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/04-15-2026/RetroArch-XboxOne-AllCores.appx"
       },
       {
         "id": "retroarch3",
-        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/03-20-2026/RetroArch-SeriesConsoles.appx"
+        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/04-15-2026/RetroArch-SeriesConsoles.appx"
       },
       {
         "id": "retroarch4",
-        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/03-20-2026/RetroArch-SeriesConsoles-AllCores.appx"
+        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/04-15-2026/RetroArch-SeriesConsoles-AllCores.appx"
       }
     ]
   },
@@ -1328,6 +1328,22 @@
       {
         "id": "sm64coopd-dep",
         "url": "https://github.com/caorthann-celt/sm64coopdx-uwp/releases/download/v0.3.0.0/Microsoft.VCLibs.x64.14.00.appx"
+      }
+    ]
+  },
+  "celeste64": {
+    "name": "Celeste64",
+    "version": "1.1.1.0",
+    "releaseDate": "2026-04-14",
+    "firstReleaseDate": "2026-04-14",
+    "assets": [
+      {
+        "id": "celeste64",
+        "url": "https://github.com/worleydl/Celeste64-uwp/releases/download/uwp-initial/celeste64_uwp_1.1.1.0_x64.msix"
+      },
+      {
+        "id": "celeste64-dep",
+        "url": "https://github.com/worleydl/Celeste64-uwp/releases/download/uwp-initial/Microsoft.VCLibs.x64.14.00.appx"
       }
     ]
   }

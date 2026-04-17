@@ -420,6 +420,13 @@
     "category": "Ports"
   },
   {
+    "name": "Celeste64",
+    "description": "An unofficial port of Celeste 64: Fragments of the Mountain, a game made by the original Celeste developers in under 2 weeks for Celeste's 6th Anniversary",
+    "img": "/xbox-dev-mode/images/game-ports/celeste64.webp",
+    "url": "/xbox-dev-mode/ports.html#celeste64",
+    "category": "Ports"
+  },
+  {
     "name": "USB Permissions Tool",
     "description": "Add necessary permissions to an NTFS formatted USB drive for UWP apps",
     "img": "/xbox-dev-mode/images/utilities/usb-perms-tool.webp",
