@@ -1622,5 +1622,16 @@
         "assetPattern": "Microsoft.VCLibs.x*.appx"
       }
     ]
+  },
+  "perfectDark": {
+    "name": "Perfect Dark",
+    "repo": "YTReviveMe/pd64-uwp",
+    "assets": [
+      {
+        "id": "perfectdark",
+        "sourceType": "github",
+        "assetPattern": "pd64-uwp_*_x64.msixbundle"
+      }
+    ]
   }
 }

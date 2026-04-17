@@ -1420,7 +1420,7 @@
       asset_id: "sm64coopd-dep"
   setup_guide:
     url: "/guides/ports/sm64coopdx-guide.html"
-  tutorial_url: null
+  tutorial_url: "https://youtu.be/wI7UhhINGLE"
   
 - id: "celeste64"
   app_id: "celeste64"
@@ -1455,4 +1455,41 @@
       asset_id: "celeste64-dep"
   setup_guide:
     url: "/guides/ports/celeste64-guide.html"
+  tutorial_url: "https://youtu.be/FrSMeczl0wk"
+  
+- id: "perfect-dark"
+  app_id: "perfectDark"
+  title: "Perfect Dark"
+  description: "An unofficial port of Perfect Dark decompilation"
+  image: "/xbox-dev-mode/images/game-ports/perfectdark.webp"
+  alt: "Perfect Dark Logo"
+  category: "Ports"
+  page_url: "/xbox-dev-mode/ports.html#perfect-dark"
+  preview_url: "/previews/ports-perfect-dark.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "Perfect dark N64 rom"
+  features: []
+  contributors:
+    developers:
+      - name: "fgsfds"
+        github: "https://github.com/fgsfdsfgs"
+        donations: []
+    porters:
+      - name: "Worleydl"
+        github: "https://github.com/worleydl"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/worleydl"
+    maintainers:
+      - name: "ReviveMe"
+        github: "https://github.com/YTReviveMe"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/reviveme"
+  downloads:
+    - label: "Download"
+      asset_id: "perfectdark"
+  setup_guide:
+    url: "/guides/ports/perfectdark-guide.html"
   tutorial_url: null
