@@ -1346,5 +1346,17 @@
         "url": "https://github.com/worleydl/Celeste64-uwp/releases/download/uwp-initial/Microsoft.VCLibs.x64.14.00.appx"
       }
     ]
+  },
+  "perfectDark": {
+    "name": "Perfect Dark",
+    "version": "1.0.1.0",
+    "releaseDate": "2026-04-17",
+    "firstReleaseDate": "2026-04-17",
+    "assets": [
+      {
+        "id": "perfectdark",
+        "url": "https://github.com/YTReviveMe/pd64-uwp/releases/download/Beta/pd64-uwp_1.0.1.0_x64.msixbundle"
+      }
+    ]
   }
 }

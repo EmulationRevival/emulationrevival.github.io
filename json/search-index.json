@@ -427,6 +427,13 @@
     "category": "Ports"
   },
   {
+    "name": "Perfect Dark",
+    "description": "An unofficial port of Perfect Dark decompilation",
+    "img": "/xbox-dev-mode/images/game-ports/perfectdark.webp",
+    "url": "/xbox-dev-mode/ports.html#perfect-dark",
+    "category": "Ports"
+  },
+  {
     "name": "USB Permissions Tool",
     "description": "Add necessary permissions to an NTFS formatted USB drive for UWP apps",
     "img": "/xbox-dev-mode/images/utilities/usb-perms-tool.webp",
