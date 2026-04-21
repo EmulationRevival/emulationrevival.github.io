@@ -644,14 +644,18 @@
     ]
   },
   "sonic3air": {
-    "name": "Sonic 3 A.I.R",
-    "version": "1.0.2.0",
-    "releaseDate": "2024-09-04",
-    "firstReleaseDate": "2024-09-04",
+    "name": "Sonic 3 A.I.R.",
+    "version": "1.0.0.0",
+    "releaseDate": "2026-04-21",
+    "firstReleaseDate": "2026-04-21",
     "assets": [
       {
         "id": "sonic3air",
-        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/sonic3air-1.0.2.0/SonicAir-UWP-1.0.2.0.zip"
+        "url": "https://github.com/caorthann-celt/sonic3air-uwp/releases/download/v1.0.0.0/sonic3air-uwp_1.0.0.0_x64.msix"
+      },
+      {
+        "id": "sonic3air-dep",
+        "url": "https://github.com/caorthann-celt/sonic3air-uwp/releases/download/v1.0.0.0/Microsoft.VCLibs.x64.14.00.appx"
       }
     ]
   },
