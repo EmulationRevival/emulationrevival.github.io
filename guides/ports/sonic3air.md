@@ -7,38 +7,28 @@ author: "MewLew"
 noindex: true
 ---
 
-### Requirements
-- **Xbox Series S/X**.
-- **External Drive** - Required to store your game file.
-- **Game (`Sonic_Knuckles_wSonic3.bin`) file** - Follow this **[guide](<https://gamebanana.com/tuts/14939>)** to dump your game.
+### 1. Obtain the Game ROM
+- Refer to the following documentation for instructions on how to obtain your ROM if you do not have the delisted *Sonic 3 & Knuckles* on Steam:
+  [Sonic 3 & Knuckles ROM Guide](https://docs.google.com/document/d/1oSud8dJHvdfrYbkGCfllAOp3JuTks7z4K5SwtVkXkx0/edit?usp=sharing)
 
-### Install the Sonic A.I.R. App
-1. Unzip the `Sonic Air.zip` file.
-2. Install the `air_1.0.2.0_x64_Debug.msixbundle` via the dev portal.
-   - Install all **5** included dependencies.
-   
-### Launch Sonic A.I.R
-1. Choose **Select File (UWP)**. 
-2. Navigate to your external drive:
-   - Select your `Sonic_Knuckles_wSonic3.bin`
-3. Restart Sonic A.I.R. to enable controller support:
-   - Press the **Xbox button**, hover over **air**, press **Start**, and choose **Quit**.
-   - Launch **Sonic A.I.R.**
+### 2. Install the Sonic 3 A.I.R. App
+- Install the app package via the Xbox Dev Portal.
+- Install the included dependency file.
 
-### Controls
-   - **D-Pad**: Character movement.  
-   - **A / B / X**: Jump or spin dash (all buttons serve the same purpose).  
-   - **Hold Y**: Fast-forward cutscenes.
+### 3. Add the ROM to Xbox
+- Once you have obtained your ROM (named `Sonic_Knuckles_wSonic3.bin`), place it in **one** of these locations:
+  - The app's **LocalState** folder using the Xbox Dev Portal file explorer.
+  - An external drive at the specific path: `E:\Sonic3AIR`.
+
+### 4. Launch and Initial Setup
+1. Launch the app on your Xbox Series console.
+2. On first launch, the game will automatically generate the following folders:
+   - `data`
+   - `storage`
+   - `mods`
+3. **Storage Behavior:** - If the ROM is found on your external drive (`E:\Sonic3AIR`), that location becomes the active root for saves, mods, and config files.
+   - If no ROM is found there, the game defaults to **LocalState**.
 
 ### Additional Notes
-- If the game starts in a bordered window:
-  1. Open **Settings** on your Xbox.
-  2. Navigate to **General** > **TV & display options**.
-  3. Go to **Advanced** > **Video fidelity & overscan**.
-  4. Disable the **Apps can add a border** option under **Overscan border**.
-- Mods are not supported.  
-- Use the left stick to move the cursor to the edge of the screen to hide it.  
-- Select **Options** from the title screen to adjust various settings, such as:  
-  - Enabling scanlines.  
-  - Changing difficulty levels.  
-  - Activating infinite lives.
+- **Remastered Audio:** The audio download is functional and will save to whichever storage root is active.
+- **Controller Support:** Full support and rebinding are available in-game.

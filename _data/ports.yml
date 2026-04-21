@@ -689,9 +689,7 @@
   preview_url: "/previews/ports-sonic3air.html"
   compatibility: "Xbox Series S|X"
   requirements:
-    - "External Drive"
     - "Sonic_Knuckles_wSonic3.bin file"
-    - "5 dependency files"
   features: []
   contributors:
     developers:
@@ -699,18 +697,18 @@
         github: "https://github.com/Eukaryot"
         donations: []
     porters:
-      - name: "Moonpower"
-        github: "https://github.com/momo-AUX1"
-        donations:
-          - type: "kofi"
-            url: "https://ko-fi.com/moonpower007"
+      - name: "Caorthann"
+        github: "https://github.com/caorthann-celt"
+        donations: []
     maintainers: []
   downloads:
-    - label: "Download"
+    - label: "Sonic 3 A.I.R."
       asset_id: "sonic3air"
+    - label: "Dependency File"
+      asset_id: "sonic3air-dep"
   setup_guide:
     url: "/guides/ports/sonic3air-guide.html"
-  tutorial_url: "https://youtu.be/ujOgzotfnbc"
+  tutorial_url: null
 
 - id: "sab2"
   app_id: "sab2"
