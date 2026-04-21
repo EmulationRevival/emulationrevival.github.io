@@ -708,7 +708,7 @@
       asset_id: "sonic3air-dep"
   setup_guide:
     url: "/guides/ports/sonic3air-guide.html"
-  tutorial_url: null
+  tutorial_url: "https://youtu.be/UkWvhQp5d34"
 
 - id: "sab2"
   app_id: "sab2"
