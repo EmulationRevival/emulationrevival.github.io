@@ -645,17 +645,17 @@
   },
   "sonic3air": {
     "name": "Sonic 3 A.I.R.",
-    "version": "1.0.0.0",
-    "releaseDate": "2026-04-21",
+    "version": "1.0.1.0",
+    "releaseDate": "2026-04-23",
     "firstReleaseDate": "2026-04-21",
     "assets": [
       {
         "id": "sonic3air",
-        "url": "https://github.com/caorthann-celt/sonic3air-uwp/releases/download/v1.0.0.0/sonic3air-uwp_1.0.0.0_x64.msix"
+        "url": "https://github.com/caorthann-celt/sonic3air-uwp/releases/download/v1.0.1.0/sonic3air-uwp_1.0.1.0_x64.msix"
       },
       {
         "id": "sonic3air-dep",
-        "url": "https://github.com/caorthann-celt/sonic3air-uwp/releases/download/v1.0.0.0/Microsoft.VCLibs.x64.14.00.appx"
+        "url": "https://github.com/caorthann-celt/sonic3air-uwp/releases/download/v1.0.1.0/Microsoft.VCLibs.x64.14.00.appx"
       }
     ]
   },
