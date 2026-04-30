@@ -434,6 +434,13 @@
     "category": "Ports"
   },
   {
+    "name": "SuperTuxKart",
+    "description": "An unofficial UWP port of SuperTuxKart for Xbox",
+    "img": "/xbox-dev-mode/images/game-ports/supertuxkart.webp",
+    "url": "/xbox-dev-mode/ports.html#supertuxkart",
+    "category": "Ports"
+  },
+  {
     "name": "USB Permissions Tool",
     "description": "Add necessary permissions to an NTFS formatted USB drive for UWP apps",
     "img": "/xbox-dev-mode/images/utilities/usb-perms-tool.webp",
