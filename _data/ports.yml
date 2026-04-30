@@ -1491,3 +1491,34 @@
   setup_guide:
     url: "/guides/ports/perfectdark-guide.html"
   tutorial_url: "https://youtu.be/gqHAOztcpY0"
+  
+- id: "supertuxkart"
+  app_id: "supertuxkart"
+  title: "SuperTuxKart"
+  description: "An unofficial UWP port of SuperTuxKart for Xbox"
+  image: "/xbox-dev-mode/images/game-ports/supertuxkart.webp"
+  alt: "SuperTuxKart Logo"
+  category: "Ports"
+  page_url: "/xbox-dev-mode/ports.html#supertuxkart"
+  preview_url: "/previews/ports-supertuxkart.html"
+  compatibility: "Xbox Series S|X"
+  requirements: []
+  features: []
+  contributors:
+    developers:
+      - name: "SuperTuxKart"
+        github: "https://github.com/supertuxkart"
+        donations: []
+    porters:
+      - name: "Caorthann"
+        github: "https://github.com/caorthann-celt"
+        donations: []
+    maintainers: []
+  downloads:
+    - label: "SuperTuxKart"
+      asset_id: "stk-uwp"
+    - label: "Dependency File"
+      asset_id: "stk-dep"
+  setup_guide:
+    url: "/guides/ports/supertuxkart-guide.html"
+  tutorial_url: null

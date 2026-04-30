@@ -1629,5 +1629,21 @@
         "assetPattern": "pd64-uwp_*_x64.msixbundle"
       }
     ]
+  },
+  "supertuxkart": {
+    "name": "SuperTuxKart",
+    "repo": "caorthann-celt/stk-uwp",
+    "assets": [
+      {
+        "id": "stk-uwp",
+        "sourceType": "github",
+        "assetPattern": "supertuxkart_*_x64.msix"
+      },
+      {
+        "id": "stk-dep",
+        "sourceType": "github",
+        "assetPattern": "Microsoft.VCLibs.x*.appx"
+      }
+    ]
   }
 }
