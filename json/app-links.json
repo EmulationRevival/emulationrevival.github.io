@@ -1362,5 +1362,21 @@
         "url": "https://github.com/YTReviveMe/pd64-uwp/releases/download/Beta/pd64-uwp_1.0.1.0_x64.msixbundle"
       }
     ]
+  },
+  "supertuxkart": {
+    "name": "SuperTuxKart",
+    "version": "1.0.0.0",
+    "releaseDate": "2026-04-29",
+    "firstReleaseDate": "2026-04-29",
+    "assets": [
+      {
+        "id": "stk-uwp",
+        "url": "https://github.com/caorthann-celt/stk-uwp/releases/download/v1.0.0.0/supertuxkart_1.0.0.0_x64.msix"
+      },
+      {
+        "id": "stk-dep",
+        "url": "https://github.com/caorthann-celt/stk-uwp/releases/download/v1.0.0.0/Microsoft.VCLibs.x64.14.00.appx"
+      }
+    ]
   }
 }
