@@ -441,6 +441,13 @@
     "category": "Ports"
   },
   {
+    "name": "Starfox 64: Recompiled",
+    "description": "Static recompilation of Starfox 64 for UWP",
+    "img": "/xbox-dev-mode/images/game-ports/starfox64.webp",
+    "url": "/xbox-dev-mode/ports.html#starfox-64-recompiled",
+    "category": "Ports"
+  },
+  {
     "name": "USB Permissions Tool",
     "description": "Add necessary permissions to an NTFS formatted USB drive for UWP apps",
     "img": "/xbox-dev-mode/images/utilities/usb-perms-tool.webp",
