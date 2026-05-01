@@ -1378,5 +1378,21 @@
         "url": "https://github.com/caorthann-celt/stk-uwp/releases/download/v1.0.0.0/Microsoft.VCLibs.x64.14.00.appx"
       }
     ]
+  },
+  "starfox64Recompiled": {
+    "name": "Starfox 64: Recompiled",
+    "version": "1.0.3.0",
+    "releaseDate": "2026-05-01",
+    "firstReleaseDate": "2026-05-01",
+    "assets": [
+      {
+        "id": "starfox64",
+        "url": "https://github.com/YTReviveMe/Starfox64Recomp-uwp/releases/download/v1.0.3/sf64-uwp_1.0.3.0_x64.msixbundle"
+      },
+      {
+        "id": "starfox64-mod",
+        "url": "https://github.com/YTReviveMe/Starfox64Recomp-uwp/releases/download/v1.0.3/sf64_recomp_mod_Dev_Cheats.zip"
+      }
+    ]
   }
 }
