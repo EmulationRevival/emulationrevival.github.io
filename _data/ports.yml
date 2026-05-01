@@ -1522,3 +1522,42 @@
   setup_guide:
     url: "/guides/ports/supertuxkart-guide.html"
   tutorial_url: null
+  
+- id: "starfox-64-recompiled"
+  app_id: "starfox64Recompiled"
+  title: "Starfox 64: Recompiled"
+  description: "Static recompilation of Starfox 64 for UWP"
+  image: "/xbox-dev-mode/images/game-ports/starfox64.webp"
+  alt: "Starfox 64: Recompiled Logo"
+  category: "Ports"
+  page_url: "/xbox-dev-mode/ports.html#starfox-64-recompiled"
+  preview_url: "/previews/ports-starfox-64-recompiled.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "US v1.1 Star Fox 64 N64 ROM"
+  features: []
+  contributors:
+    developers:
+      - name: "Sonicdcer"
+        github: "https://github.com/sonicdcer"
+        donations: []
+    porters:
+      - name: "Worleydl"
+        github: "https://github.com/worleydl"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/worleydl"
+    maintainers:
+      - name: "ReviveMe"
+        github: "https://github.com/YTReviveMe"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/reviveme"
+  downloads:
+    - label: "Starfox 64: Recompiled"
+      asset_id: "starfox64"
+    - label: "Dev Cheats Mod"
+      asset_id: "starfox64-mod"
+  setup_guide:
+    url: "/guides/ports/starfox64-guide.html"
+  tutorial_url: null

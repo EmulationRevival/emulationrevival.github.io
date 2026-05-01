@@ -1645,5 +1645,21 @@
         "assetPattern": "Microsoft.VCLibs.x*.appx"
       }
     ]
+  },
+  "starfox64Recompiled": {
+    "name": "Starfox 64: Recompiled",
+    "repo": "YTReviveMe/Starfox64Recomp-uwp",
+    "assets": [
+      {
+        "id": "starfox64",
+        "sourceType": "github",
+        "assetPattern": "sf64-uwp_*_x64.msixbundle"
+      },
+      {
+        "id": "starfox64-mod",
+        "sourceType": "github",
+        "assetPattern": "sf64_recomp_mod_Dev_Cheats.zip"
+      }
+    ]
   }
 }
