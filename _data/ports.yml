@@ -1561,3 +1561,38 @@
   setup_guide:
     url: "/guides/ports/starfox64-guide.html"
   tutorial_url: "https://youtu.be/6qdw5TM2cjI"
+  
+- id: "spacecadetpinball"
+  app_id: "spacecadetpinball"
+  title: "SpaceCadetPinball"
+  description: "Decompilation of 3D Pinball for Windows (Unofficial UWP)"
+  image: "/xbox-dev-mode/images/game-ports/spacecadetpinball.webp"
+  alt: "SpaceCadetPinball Logo"
+  category: "Ports"
+  page_url: "/xbox-dev-mode/ports.html#spacecadetpinball"
+  preview_url: "/previews/ports-spacecadetpinball.html"
+  compatibility: "Xbox One & Series S|X"
+  requirements:
+    - "Original game resources (not included)"
+    - "Supports data files from Windows and Full Tilt versions of the game."
+  features: []
+  contributors:
+    developers:
+      - name: "k4zmu2a"
+        github: "https://github.com/k4zmu2a"
+        donations: []
+    porters:
+      - name: "ReviveMe"
+        github: "https://github.com/YTReviveMe"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/reviveme"
+    maintainers: []
+  downloads:
+    - label: "SpaceCadetPinball"
+      asset_id: "spacecadetpinball"
+    - label: "Dependency File"
+      asset_id: "spacecadetpinball-dep"
+  setup_guide:
+    url: "/guides/ports/spacecadetpinball-guide.html"
+  tutorial_url: null

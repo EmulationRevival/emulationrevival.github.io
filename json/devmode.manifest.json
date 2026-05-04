@@ -1661,5 +1661,21 @@
         "assetPattern": "sf64_recomp_mod_Dev_Cheats.zip"
       }
     ]
+  },
+  "spacecadetpinball": {
+    "name": "SpaceCadetPinball",
+    "repo": "YTReviveMe/SpaceCadetPinball-UWP",
+    "assets": [
+      {
+        "id": "spacecadetpinball",
+        "sourceType": "github",
+        "assetPattern": "SpaceCadetPinballUWP_*_x64.msixbundle"
+      },
+      {
+        "id": "spacecadetpinball-dep",
+        "sourceType": "github",
+        "assetPattern": "Microsoft.VCLibs.x*.appx"
+      }
+    ]
   }
 }
