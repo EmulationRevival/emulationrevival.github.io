@@ -1394,5 +1394,21 @@
         "url": "https://github.com/YTReviveMe/Starfox64Recomp-uwp/releases/download/v1.0.3/sf64_recomp_mod_Dev_Cheats.zip"
       }
     ]
+  },
+  "spacecadetpinball": {
+    "name": "SpaceCadetPinball",
+    "version": "1.0.0.34",
+    "releaseDate": "2026-05-04",
+    "firstReleaseDate": "2026-05-04",
+    "assets": [
+      {
+        "id": "spacecadetpinball",
+        "url": "https://github.com/YTReviveMe/SpaceCadetPinball-UWP/releases/download/1.0.0.34/SpaceCadetPinballUWP_1.0.0.34_x64.msixbundle"
+      },
+      {
+        "id": "spacecadetpinball-dep",
+        "url": "https://github.com/YTReviveMe/SpaceCadetPinball-UWP/releases/download/1.0.0.34/Microsoft.VCLibs.x64.14.00.appx"
+      }
+    ]
   }
 }
