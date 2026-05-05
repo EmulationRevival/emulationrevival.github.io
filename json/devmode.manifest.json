@@ -1669,7 +1669,7 @@
       {
         "id": "spacecadetpinball",
         "sourceType": "github",
-        "assetPattern": "SpaceCadetPinballUWP_*_x64.msixbundle"
+        "assetPattern": "SpaceCadetPinballUWP_*_x64_Debug.msixbundle"
       },
       {
         "id": "spacecadetpinball-dep",
