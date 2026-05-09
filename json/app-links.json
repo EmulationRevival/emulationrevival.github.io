@@ -1407,7 +1407,7 @@
       },
       {
         "id": "spacecadetpinball-dep",
-        "url": "https://github.com/YTReviveMe/SpaceCadetPinball-UWP/releases/download/1.0.0.34/Microsoft.VCLibs.x64.14.00.appx"
+        "url": "https://github.com/YTReviveMe/SpaceCadetPinball-UWP/releases/download/1.0.0.34/Microsoft.VCLibs.x64.Debug.14.00.appx"
       }
     ]
   }
