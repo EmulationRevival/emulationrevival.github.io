@@ -1397,17 +1397,17 @@
   },
   "spacecadetpinball": {
     "name": "SpaceCadetPinball",
-    "version": "1.0.0.34",
+    "version": "1.0.1.33",
     "releaseDate": "2026-05-04",
     "firstReleaseDate": "2026-05-04",
     "assets": [
       {
         "id": "spacecadetpinball",
-        "url": "https://github.com/YTReviveMe/SpaceCadetPinball-UWP/releases/download/1.0.0.34/SpaceCadetPinballUWP_1.0.0.34_x64.msixbundle"
+        "url": "https://github.com/YTReviveMe/SpaceCadetPinball-UWP/releases/download/1.0.0.34/SpaceCadetPinballUWP_1.0.1.33_x64_Debug.msixbundle"
       },
       {
         "id": "spacecadetpinball-dep",
-        "url": "https://github.com/YTReviveMe/SpaceCadetPinball-UWP/releases/download/1.0.0.34/Microsoft.VCLibs.x64.14.00.appx"
+        "url": "https://github.com/YTReviveMe/SpaceCadetPinball-UWP/releases/download/1.0.0.34/Microsoft.VCLibs.x64.Debug.14.00.appx"
       }
     ]
   }
