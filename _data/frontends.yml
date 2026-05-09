@@ -31,6 +31,7 @@
       asset_id: "launchpass1"
     - label: "LaunchPass - Dependency files"
       asset_id: "launchpass2"
+  source_code_url: "https://github.com/Misunderstood-Wookiee/LaunchPass"
   setup_guide:
     url: "https://wiki.sternserv.xyz/docs/apps/launchpass-guide"
   tutorial_url: "https://youtu.be/1Qo2tqwA5qI"
@@ -61,5 +62,6 @@
   downloads:
     - label: "Download"
       asset_id: "retropass"
+  source_code_url: "https://github.com/retropassdev/RetroPass"
   setup_guide: null
   tutorial_url: "https://youtu.be/eaStAmBhnaE"

@@ -66,6 +66,7 @@
   downloads:
     - label: "Download"
       asset_id: "dolphin"
+  source_code_url: "https://github.com/SternXD/dolphin"
   setup_guide:
     url: "https://wiki.sternserv.xyz/docs/emulation/dolphin-guide"
   tutorial_url: "https://youtu.be/F1NQKHcQhbQ"
@@ -95,6 +96,7 @@
   downloads:
     - label: "Download"
       asset_id: "flycast"
+  source_code_url: "https://github.com/flyinghead/flycast"
   setup_guide:
     url: "https://wiki.sternserv.xyz/docs/emulation/flycast-guide"
   tutorial_url: "https://youtu.be/nALdeQgfm_o"
@@ -127,6 +129,7 @@
       asset_id: "gzdoom"
     - label: "Browse Prebuilt Mods"
       asset_id: "gzdoom-mods"
+  source_code_url: "https://github.com/aerisarn/gzdoom-uwp"
   setup_guide:
     url: "https://wiki.sternserv.xyz/docs/apps/gzdoom-guide"
   tutorial_url: "https://youtu.be/M1LX8MifJhM"
@@ -248,6 +251,7 @@
   downloads:
     - label: "Download"
       asset_id: "raze"
+  source_code_url: "https://github.com/aerisarn/Raze-uwp"
   setup_guide:
     url: "https://wiki.sternserv.xyz/docs/apps/razeuwp-guide"
   tutorial_url: "https://youtu.be/odxBpuR9Yog"
@@ -285,6 +289,7 @@
       asset_id: "retroarch3"
     - label: "RetroArch - Xbox Series All Cores"
       asset_id: "retroarch4"
+  source_code_url: "https://github.com/XboxEmulationHub/RetroArch"
   setup_guide:
     url: "https://wiki.sternserv.xyz/docs/emulation/retroarch-guide"
   tutorial_url: "https://youtu.be/cy2oDaqIHG0"
@@ -351,6 +356,7 @@
       asset_id: "supermodel1"
     - label: "Sega Model 3 - Dependency File"
       asset_id: "supermodel2"
+  source_code_url: "https://github.com/poopbird4k/Supermodel-uwp-gl"
   setup_guide:
     url: "/guides/emulators/segamodel3-guide.html"
   tutorial_url: "https://youtu.be/VOJ1IKj0API"
@@ -386,6 +392,7 @@
       asset_id: "superg1"
     - label: "Sega Model 3 G920 - Dependency File"
       asset_id: "superg2"
+  source_code_url: "https://github.com/poopbird4k/Supermodel-uwp-gl"
   setup_guide:
     url: "/guides/emulators/segamodel3g920-guide.html"
   tutorial_url: "https://youtu.be/8fKWM-4Q46k"
@@ -425,6 +432,7 @@
       asset_id: "xbsx2_xb1"
     - label: "Xbox Series"
       asset_id: "xbsx2_series"
+  source_code_url: "https://github.com/XboxEmulationHub/XBSX2"
   setup_guide:
     url: "https://wiki.sternserv.xyz/docs/emulation/xbsx2-guide"
   tutorial_url: "https://youtu.be/hyX-qd84E_w"
@@ -461,5 +469,6 @@
   downloads:
     - label: "Download"
       asset_id: "xenia"
+  source_code_url: "https://github.com/danprice142/xenia-canary-uwp"
   setup_guide: null
   tutorial_url: "https://youtu.be/rXAWYeJ0yRw"

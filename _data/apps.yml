@@ -58,6 +58,7 @@
       asset_id: "moonlight2"
     - label: "Moonlight - Dependency file 2"
       asset_id: "moonlight3"
+  source_code_url: "https://github.com/TheElixZammuto/moonlight-xbox"
   setup_guide: null
   tutorial_url: null
 

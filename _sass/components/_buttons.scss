@@ -111,6 +111,16 @@
     border-color: var(--color-button-youtube-border-hover);
 }
 
+.btn-source {
+    background-color: var(--color-button-source-bg);
+    border-color: var(--color-button-source-border);
+}
+
+.btn-source:focus-visible {
+    background-color: var(--color-button-source-bg-hover);
+    border-color: var(--color-button-source-border-hover);
+}
+
 @media (hover: hover) and (pointer: fine) {
     .btn:hover {
         color: var(--color-button-text);
@@ -145,6 +155,11 @@
     .btn-youtube:hover {
         background-color: var(--color-button-youtube-bg-hover);
         border-color: var(--color-button-youtube-border-hover);
+    }
+    
+    .btn-source:hover {
+        background-color: var(--color-button-source-bg-hover);
+        border-color: var(--color-button-source-border-hover);
     }
 }
 

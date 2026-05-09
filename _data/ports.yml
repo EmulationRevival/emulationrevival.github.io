@@ -53,6 +53,7 @@
   downloads:
     - label: "Download"
       asset_id: "celeste"
+  source_code_url: "https://github.com/Xbox-Homebrew/ccleste"
   setup_guide:
     url: "/guides/ports/celeste-guide.html"
   tutorial_url: null
@@ -146,6 +147,7 @@
   downloads:
     - label: "Download"
       asset_id: "devilutionx"
+  source_code_url: "https://github.com/diasurgical/DevilutionX"
   setup_guide:
     url: "/guides/ports/devilutionx-guide.html"
   tutorial_url: null
@@ -182,6 +184,7 @@
       asset_id: "dhewm3app"
     - label: "Dhewm 3 - Dependency file"
       asset_id: "dhewm3dep"
+  source_code_url: "https://github.com/worleydl/dhewm3-uwp"
   setup_guide:
     url: "/guides/ports/dhewm3-guide.html"
   tutorial_url: null
@@ -218,6 +221,7 @@
       asset_id: "dxxrebirth1"
     - label: "DXX Rebirth - Dependency"
       asset_id: "dxxrebirth2"
+  source_code_url: "https://github.com/worleydl/dxx-rebirth-uwp"
   setup_guide:
     url: "/guides/ports/dxxrebirth-guide.html"
   tutorial_url: "https://youtu.be/10z7nGZD1lM"
@@ -254,6 +258,7 @@
       asset_id: "ioquake3app"
     - label: "ioquake3 - Dependency"
       asset_id: "ioquake3dep"
+  source_code_url: "https://github.com/worleydl/ioq3-uwp"
   setup_guide:
     url: "/guides/ports/ioquake3-guide.html"
   tutorial_url: "https://youtu.be/xYi8FM633-o"
@@ -281,6 +286,7 @@
   downloads:
     - label: "Download"
       asset_id: "jazz2"
+  source_code_url: "https://github.com/deathkiller/jazz2"
   setup_guide:
     url: "/guides/ports/jazz2-guide.html"
   tutorial_url: null
@@ -382,6 +388,7 @@
       asset_id: "jkdf2dep"
     - label: "Open JKDF2 - Controller profile"
       asset_id: "jkdf2ctl"
+  source_code_url: "https://github.com/worleydl/OpenJKDF2-uwp"
   setup_guide:
     url: "/guides/ports/jkdf2-guide.html"
   tutorial_url: null
@@ -409,6 +416,7 @@
   downloads:
     - label: "Download"
       asset_id: "openlara"
+  source_code_url: "https://github.com/XProger/OpenLara"
   setup_guide:
     url: "/guides/ports/openlara-guide.html"
   tutorial_url: null
@@ -468,6 +476,7 @@
   downloads:
     - label: "Download"
       asset_id: "relichunters"
+  source_code_url: "https://github.com/MDashK/Relic-Hunters-Zero-Xbox"
   setup_guide:
     url: "/guides/ports/relichunters-guide.html"
   tutorial_url: null
@@ -497,6 +506,7 @@
   downloads:
     - label: "Download"
       asset_id: "sdlpop"
+  source_code_url: "https://github.com/Xbox-Homebrew/SDLPoP"
   setup_guide:
     url: "/guides/ports/sdlpop-guide.html"
   tutorial_url: null
@@ -558,6 +568,7 @@
       asset_id: "soh1"
     - label: "SOH (Ship of Harkinian) - Dependency file"
       asset_id: "soh2"
+  source_code_url: "https://github.com/worleydl/shipdev"
   setup_guide:
     url: "/guides/ports/soh-guide.html"
   tutorial_url: "https://youtu.be/Yl3LQ4ODtGU"
@@ -646,6 +657,7 @@
   downloads:
     - label: "Download"
       asset_id: "sonic1sms"
+  source_code_url: "https://github.com/MDashK/sonic-1-sms-remake-xbox"
   setup_guide:
     url: "/guides/ports/sonicsms-guide.html"
   tutorial_url: "https://youtu.be/TZrGjgB5iMo"
@@ -674,6 +686,7 @@
   downloads:
     - label: "Download"
       asset_id: "sonic2sms"
+  source_code_url: "https://github.com/MDashK/sonic-2-sms-remake-xbox"
   setup_guide:
     url: "/guides/ports/sonicsms-guide.html"
   tutorial_url: "https://youtu.be/TZrGjgB5iMo"
@@ -706,6 +719,7 @@
       asset_id: "sonic3air"
     - label: "Dependency File"
       asset_id: "sonic3air-dep"
+  source_code_url: "https://github.com/caorthann-celt/sonic3air-uwp"
   setup_guide:
     url: "/guides/ports/sonic3air-guide.html"
   tutorial_url: "https://youtu.be/UkWvhQp5d34"
@@ -741,6 +755,7 @@
       asset_id: "sab2app"
     - label: "Sonic Adventure Blast 2 - Dependency file"
       asset_id: "sab2dep"
+  source_code_url: "https://github.com/worleydl/SAB2-uwp"
   setup_guide:
     url: "https://wiki.sternserv.xyz/docs/apps/sonic-adventure-blast2-uwp"
   tutorial_url: null
@@ -798,6 +813,7 @@
   downloads:
     - label: "Download"
       asset_id: "sonicmania"
+  source_code_url: "https://github.com/izzy2lost/RSDKv5-Decompilation"
   setup_guide:
     url: "/guides/ports/sonicmania-guide.html"
   tutorial_url: "https://youtu.be/ujOgzotfnbc"
@@ -861,6 +877,7 @@
       asset_id: "ringracers1"
     - label: "Sonic Ring Racers - Dependency file"
       asset_id: "ringracers2"
+  source_code_url: "https://github.com/worleydl/ringracers-uwp"
   setup_guide:
     url: "/guides/ports/sonicringracers-guide.html"
   tutorial_url: null
@@ -889,6 +906,7 @@
   downloads:
     - label: "Download"
       asset_id: "srb2"
+  source_code_url: "https://github.com/aerisarn/srb2-uwp"
   setup_guide:
     url: "/guides/ports/sonicroboblast2-guide.html"
   tutorial_url: null
@@ -948,6 +966,7 @@
       asset_id: "unleashed1"
     - label: "Sonic Unleashed Recomp - Dependency file"
       asset_id: "unleashed2"
+  source_code_url: "https://github.com/YTReviveMe/UnleashedRecomp-uwp"
   setup_guide:
     url: "https://wiki.sternserv.xyz/docs/apps/sonic-unleashed-recompiled"
   tutorial_url: null
@@ -1084,6 +1103,7 @@
       asset_id: "vvvvvv1"
     - label: "VVVVVV - Dependency file"
       asset_id: "vvvvvv2"
+  source_code_url: "https://github.com/poopbird4k/DURANGO-V6"
   setup_guide:
     url: "/guides/ports/vvvvvv-guide.html"
   tutorial_url: null
@@ -1115,6 +1135,7 @@
   downloads:
     - label: "Download"
       asset_id: "zelda3"
+  source_code_url: "https://github.com/tunip3/zelda3"
   setup_guide:
     url: "/guides/ports/zelda3-guide.html"
   tutorial_url: null
@@ -1148,6 +1169,7 @@
   downloads:
     - label: "Download"
       asset_id: "zelda64"
+  source_code_url: "https://github.com/YTReviveMe/Zelda64Recomp-uwp"
   setup_guide:
     url: "/guides/ports/zelda64-guide.html"
   tutorial_url: null
@@ -1216,6 +1238,7 @@
       asset_id: "dxxdescent2"
     - label: "Dependency file"
       asset_id: "dxxdescent2dep"
+  source_code_url: "https://github.com/worleydl/dxx-rebirth-uwp"
   setup_guide: null
   tutorial_url: null
 
@@ -1253,6 +1276,7 @@
   downloads:
     - label: "Download"
       asset_id: "2s2h"
+  source_code_url: "https://github.com/SternXD/2ship2harkinian-uwp"
   setup_guide: null
   tutorial_url: "https://youtu.be/opvXgNhadEk"
 
@@ -1284,6 +1308,7 @@
   downloads:
     - label: "Download"
       asset_id: "nsmb"
+  source_code_url: "https://github.com/YTReviveMe/NSMB-MarioVsLuigi-UWP"
   setup_guide: null
   tutorial_url: null
   
@@ -1315,6 +1340,7 @@
   downloads:
     - label: "Download"
       asset_id: "descent3"
+  source_code_url: "https://github.com/worleydl/Descent3-dev"
   setup_guide:
     url: "/guides/ports/descent3-guide.html"
   tutorial_url: null
@@ -1352,6 +1378,7 @@
       asset_id: "inferno-dep"
     - label: "External Assets"
       asset_id: "inferno-assets"
+  source_code_url: "https://github.com/worleydl/Inferno-uwp"
   setup_guide:
     url: "/guides/ports/inferno-guide.html"
   tutorial_url: null
@@ -1384,6 +1411,7 @@
   downloads:
     - label: "Download"
       asset_id: "burgerdoom"
+  source_code_url: "https://github.com/SternXD/BurgerDoom"
   setup_guide:
     url: "/guides/ports/burgerdoom-guide.html"
   tutorial_url: null
@@ -1416,6 +1444,7 @@
       asset_id: "sm64coopdx"
     - label: "Dependency File"
       asset_id: "sm64coopd-dep"
+  source_code_url: "https://github.com/caorthann-celt/sm64coopdx-uwp"
   setup_guide:
     url: "/guides/ports/sm64coopdx-guide.html"
   tutorial_url: "https://youtu.be/wI7UhhINGLE"
@@ -1451,6 +1480,7 @@
       asset_id: "celeste64"
     - label: "Dependency File"
       asset_id: "celeste64-dep"
+  source_code_url: "https://github.com/worleydl/Celeste64-uwp"
   setup_guide:
     url: "/guides/ports/celeste64-guide.html"
   tutorial_url: "https://youtu.be/FrSMeczl0wk"
@@ -1488,6 +1518,7 @@
   downloads:
     - label: "Download"
       asset_id: "perfectdark"
+  source_code_url: "https://github.com/YTReviveMe/pd64-uwp"
   setup_guide:
     url: "/guides/ports/perfectdark-guide.html"
   tutorial_url: "https://youtu.be/gqHAOztcpY0"
@@ -1519,6 +1550,7 @@
       asset_id: "stk-uwp"
     - label: "Dependency File"
       asset_id: "stk-dep"
+  source_code_url: "https://github.com/caorthann-celt/stk-uwp"
   setup_guide:
     url: "/guides/ports/supertuxkart-guide.html"
   tutorial_url: null
@@ -1558,6 +1590,7 @@
       asset_id: "starfox64"
     - label: "Dev Cheats Mod"
       asset_id: "starfox64-mod"
+  source_code_url: "https://github.com/YTReviveMe/Starfox64Recomp-uwp"
   setup_guide:
     url: "/guides/ports/starfox64-guide.html"
   tutorial_url: "https://youtu.be/6qdw5TM2cjI"
@@ -1593,6 +1626,7 @@
       asset_id: "spacecadetpinball"
     - label: "Dependency File"
       asset_id: "spacecadetpinball-dep"
+  source_code_url: "https://github.com/YTReviveMe/SpaceCadetPinball-UWP/tree/UWP-Xbox"
   setup_guide:
     url: "/guides/ports/spacecadetpinball-guide.html"
   tutorial_url: null

@@ -1,4 +1,4 @@
-<div class="card" id="{{ include.card.id }}">
+l<div class="card" id="{{ include.card.id }}">
     <a
         href="{{ include.card.preview_url | default: include.card.page_url }}"
         class="card-link"
@@ -124,6 +124,16 @@
                 data-app-id="{{ include.card.app_id }}"
                 data-asset-id="{{ downloads[0].asset_id }}"
             >{{ downloads[0].label | default: 'Download' }}</a>
+            {%- endif -%}
+
+            {%- assign source_code_url = include.card.source_code_url | to_s | strip -%}
+            {%- if source_code_url != '' and source_code_url != 'null' -%}
+            <a
+                href="{{ source_code_url }}"
+                class="btn btn-source source-code-link"
+                target="_blank"
+                rel="noopener noreferrer"
+            >Source Code</a>
             {%- endif -%}
 
             {%- assign setup_guide_url = include.card.setup_guide.url | to_s | strip -%}
