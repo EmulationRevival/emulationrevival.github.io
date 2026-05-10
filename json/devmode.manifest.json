@@ -1677,5 +1677,16 @@
         "assetPattern": "Microsoft.VCLibs.x*.appx"
       }
     ]
+  },
+  "tailsAdventureRemake": {
+    "name": "Tails Adventure Remake",
+    "repo": "YTReviveMe/tails-adventure-UWP",
+    "assets": [
+      {
+        "id": "tailsadventure",
+        "sourceType": "github",
+        "assetPattern": "TailsUWP_*_x64.msix"
+      }
+    ]
   }
 }

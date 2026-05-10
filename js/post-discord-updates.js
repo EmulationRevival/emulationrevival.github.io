@@ -402,7 +402,7 @@ function buildDiscordMessageForChange(change, searchIndex, previewLookup) {
   );
 
   if (releaseNotesUrl) {
-    lines.push(`[**RELEASE NOTES**](${releaseNotesUrl})`);
+    lines.push(`[**RELEASE NOTES**](<${releaseNotesUrl}>)`);
   }
 
   return lines.join('\n');

@@ -8,8 +8,8 @@ noindex: true
 ---
 
 ### Install the Tails Adventure Remake App
+
 - Install the included `.msixbundle` via the Xbox Dev Portal.
-- Install the included dependency file.
 
 ## Internal Storage Setup
 
@@ -74,32 +74,55 @@ The game checks this external path:
 `Pinkails over Tails V2\`  
 `Another Mod Folder\`  
 
-## mods.ini Rules
+## mods.ini Setup
 
-`mods.ini` controls which mods are enabled and the order they load in.
+`mods.ini` controls which mods are enabled.
 
-Each mod needs its own section:
+The file uses a simple `Mod Folder Name=Value` format.
 
-`[Pinkails over Tails V2]`  
-`enabled=true`  
-`priority=100`  
+Use:
 
-- `enabled=true` turns the mod on.
-- `enabled=false` turns the mod off.
-- If `enabled` is missing, the mod defaults to disabled.
-- `priority` controls load order.
-- Higher priority mods load later and can override lower priority mods.
-- The section name must exactly match the mod folder name.
+`1` to enable a mod.  
+`0` to disable a mod.
+
+Example:
+
+```ini
+; Tails Adventure Remake mods config
+; 1=true (enabled), 0=false (disabled)
+; Edit values below and relaunch the game.
+
+Pinkails over Tails V2=1
+Another Mod Folder=0
+```
+
+The mod name on the left must exactly match the mod folder name.
 
 Correct:
 
 `Folder: Pinkails over Tails V2`  
-`mods.ini: [Pinkails over Tails V2]`  
+`mods.ini: Pinkails over Tails V2=1`  
 
 Incorrect:
 
 `Folder: Pinkails over Tails V2`  
-`mods.ini: [Pinkails over tails v2]`  
+`mods.ini: Pinkails over tails v2=1`  
+
+## Enabling a Mod
+
+To enable a mod, set its value to `1`:
+
+```ini
+Pinkails over Tails V2=1
+```
+
+## Disabling a Mod
+
+To disable a mod, set its value to `0`:
+
+```ini
+Pinkails over Tails V2=0
+```
 
 ## Additional Notes
 
@@ -110,4 +133,5 @@ Incorrect:
 
 - The game checks internal storage first, then checks the external USB path.
 - If `mods.ini` does not exist and the selected mod root is writable, the game will create one automatically.
-- If a mod does not load, check that the mod folder name and the `mods.ini` section name match exactly.
+- If a mod does not load, check that the mod folder name and the `mods.ini` entry match exactly.
+- After editing `mods.ini`, relaunch the game.

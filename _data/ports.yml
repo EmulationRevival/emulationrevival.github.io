@@ -1631,3 +1631,33 @@
   setup_guide:
     url: "/guides/ports/spacecadetpinball-guide.html"
   tutorial_url: null
+
+- id: "tails-adventure-remake"
+  app_id: "tailsAdventureRemake"
+  title: "Tails Adventure Remake"
+  description: "Tails Adventure remade from the ground up for PC and Android (Unofficial UWP)"
+  image: "/xbox-dev-mode/images/game-ports/tails-adventure.webp"
+  alt: "Tails Adventure Remake Logo"
+  category: "Ports"
+  page_url: "/xbox-dev-mode/ports.html#tails-adventure-remake"
+  preview_url: "/previews/ports-tails-adventure-remake.html"
+  compatibility: "Xbox Series S|X"
+  requirements: []
+  features: []
+  contributors:
+    developers:
+      - name: "Mechakotik"
+        github: "https://github.com/mechakotik"
+        donations: []
+    porters:
+      - name: "ReviveMe"
+        github: "https://github.com/YTReviveMe"
+        donations: []
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "tailsadventure"
+  source_code_url: "https://github.com/YTReviveMe/tails-adventure-UWP"
+  setup_guide:
+    url: "/guides/ports/tailsadventure-guide.html"
+  tutorial_url: null
