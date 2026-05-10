@@ -1544,5 +1544,19 @@
     ],
     "releaseNotesUrl": "https://github.com/YTReviveMe/SpaceCadetPinball-UWP/releases/tag/1.0.0.34",
     "releaseTag": "1.0.0.34"
+  },
+  "tailsAdventureRemake": {
+    "name": "Tails Adventure Remake",
+    "version": "1.0.1.13",
+    "releaseDate": "2026-05-10",
+    "firstReleaseDate": "2026-05-10",
+    "assets": [
+      {
+        "id": "tailsadventure",
+        "url": "https://github.com/YTReviveMe/tails-adventure-UWP/releases/download/UWP/TailsUWP_1.0.1.13_x64.msix"
+      }
+    ],
+    "releaseNotesUrl": "https://github.com/YTReviveMe/tails-adventure-UWP/releases/tag/UWP",
+    "releaseTag": "UWP"
   }
 }
