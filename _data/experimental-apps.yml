@@ -28,7 +28,7 @@
     - label: "Download"
       asset_id: "chonkystation3"
   setup_guide:
-    url: "https://wiki.sternserv.xyz/docs/emulation/chonkystation3-guide"
+    url: "https://wiki.sternserv.xyz/docs/experimental/chonkystation3-guide"
   tutorial_url: "https://youtu.be/_Q6EPH-SH48"
 
 - id: "hedgephysics"
@@ -112,5 +112,5 @@
     - label: "Download"
       asset_id: "boxedwine"
   setup_guide:
-    url: "https://wiki.sternserv.xyz/docs/apps/boxedwine-guide"
+    url: "https://wiki.sternserv.xyz/docs/emulation/boxedwine-guide"
   tutorial_url: "https://youtu.be/R9nr7kDSJpo"

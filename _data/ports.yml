@@ -757,7 +757,7 @@
       asset_id: "sab2dep"
   source_code_url: "https://github.com/worleydl/SAB2-uwp"
   setup_guide:
-    url: "https://wiki.sternserv.xyz/docs/apps/sonic-adventure-blast2-uwp"
+    url: "https://wiki.sternserv.xyz/docs/ports/sonic-adventure-blast2-uwp-guide"
   tutorial_url: null
 
 - id: "soniccd"
@@ -968,7 +968,7 @@
       asset_id: "unleashed2"
   source_code_url: "https://github.com/YTReviveMe/UnleashedRecomp-uwp"
   setup_guide:
-    url: "https://wiki.sternserv.xyz/docs/apps/sonic-unleashed-recompiled"
+    url: "https://wiki.sternserv.xyz/docs/ports/sonic-unleashed-recompiled-guide"
   tutorial_url: null
 
 - id: "spelunky"

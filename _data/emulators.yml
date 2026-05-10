@@ -131,7 +131,7 @@
       asset_id: "gzdoom-mods"
   source_code_url: "https://github.com/aerisarn/gzdoom-uwp"
   setup_guide:
-    url: "https://wiki.sternserv.xyz/docs/apps/gzdoom-guide"
+    url: "https://wiki.sternserv.xyz/docs/ports/gzdoom-guide"
   tutorial_url: "https://youtu.be/M1LX8MifJhM"
 
 - id: "ikemen-go"
@@ -254,7 +254,7 @@
       asset_id: "raze"
   source_code_url: "https://github.com/aerisarn/Raze-uwp"
   setup_guide:
-    url: "https://wiki.sternserv.xyz/docs/apps/razeuwp-guide"
+    url: "https://wiki.sternserv.xyz/docs/ports/razeuwp-guide"
   tutorial_url: "https://youtu.be/odxBpuR9Yog"
 
 - id: "retroarch"
