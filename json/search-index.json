@@ -462,6 +462,13 @@
     "category": "Ports"
   },
   {
+    "name": "Nazi Zombies: Portable",
+    "description": "An unofficial port of Nazi Zombies: Portable",
+    "img": "/xbox-dev-mode/images/game-ports/nzp.webp",
+    "url": "/xbox-dev-mode/ports.html#nazi-zombies-portable",
+    "category": "Ports"
+  },
+  {
     "name": "USB Permissions Tool",
     "description": "Add necessary permissions to an NTFS formatted USB drive for UWP apps",
     "img": "/xbox-dev-mode/images/utilities/usb-perms-tool.webp",

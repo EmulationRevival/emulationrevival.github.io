@@ -1558,5 +1558,23 @@
     ],
     "releaseNotesUrl": "https://github.com/YTReviveMe/tails-adventure-UWP/releases/tag/UWP",
     "releaseTag": "UWP"
+  },
+  "naziZombiesPortable": {
+    "name": "Nazi Zombies: Portable",
+    "version": "1.0.0.13",
+    "releaseDate": "2026-05-10",
+    "firstReleaseDate": "2026-05-10",
+    "assets": [
+      {
+        "id": "nzp",
+        "url": "https://github.com/caorthann-celt/nzp-uwp/releases/download/v1.0.0.13/nzportable.uwp_1.0.0.13_x64.msix"
+      },
+      {
+        "id": "nzp-dep",
+        "url": "https://github.com/caorthann-celt/nzp-uwp/releases/download/v1.0.0.13/Microsoft.VCLibs.x64.14.00.appx"
+      }
+    ],
+    "releaseNotesUrl": "https://github.com/caorthann-celt/nzp-uwp/releases/tag/v1.0.0.13",
+    "releaseTag": "v1.0.0.13"
   }
 }
