@@ -17,7 +17,9 @@
         "id": "moonlight3",
         "url": "https://github.com/TheElixZammuto/moonlight-xbox/releases/download/1.18.0/Microsoft.VCLibs.x64.14.00.appx"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/TheElixZammuto/moonlight-xbox/releases/tag/1.18.0",
+    "releaseTag": "1.18.0"
   },
   "discorduwp": {
     "name": "Discord UWP",
@@ -153,7 +155,9 @@
         "id": "xbsx2_xb1",
         "url": "https://github.com/XboxEmulationHub/XBSX2/releases/download/v2.0.8.5/XBSX2_2.0.8.5_x64_SSE4.msixbundle"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/XboxEmulationHub/XBSX2/releases/tag/v2.0.8.5",
+    "releaseTag": "v2.0.8.5"
   },
   "dolphin": {
     "name": "Dolphin",
@@ -165,7 +169,9 @@
         "id": "dolphin",
         "url": "https://github.com/SternXD/dolphin/releases/download/1.1.9.0/DolphinWinRT_1.1.9.0_x64.msix"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/SternXD/dolphin/releases/tag/1.1.9.0",
+    "releaseTag": "1.1.9.0"
   },
   "flycast": {
     "name": "Flycast",
@@ -177,7 +183,9 @@
         "id": "flycast",
         "url": "https://github.com/flyinghead/flycast/releases/download/v2.6/flycast-2.6.appx"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/flyinghead/flycast/releases/tag/v2.6",
+    "releaseTag": "v2.6"
   },
   "xeniaCanary": {
     "name": "Xenia Canary",
@@ -225,7 +233,9 @@
         "id": "retroarch4",
         "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/04-15-2026/RetroArch-SeriesConsoles-AllCores.appx"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/XboxEmulationHub/RetroArch/releases/tag/04-15-2026",
+    "releaseTag": "04-15-2026"
   },
   "ppsspp": {
     "name": "PPSSPP",
@@ -237,7 +247,9 @@
         "id": "ppsspp",
         "url": "https://www.ppsspp.org/files/1_20_3/ppsspp_uwp.zip"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/hrydgard/ppsspp/releases/tag/v1.20.3",
+    "releaseTag": "v1.20.3"
   },
   "supermodel": {
     "name": "Supermodel",
@@ -253,7 +265,9 @@
         "id": "supermodel2",
         "url": "https://github.com/poopbird4k/Supermodel-uwp-gl/releases/download/v1.0.0.4/Microsoft.VCLibs.x64.14.00.appx"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/poopbird4k/Supermodel-uwp-gl/releases/tag/v1.0.0.4",
+    "releaseTag": "v1.0.0.4"
   },
   "superg": {
     "name": "Supermodel-G920",
@@ -269,7 +283,9 @@
         "id": "superg2",
         "url": "https://github.com/poopbird4k/Supermodel-uwp-gl/releases/download/v1.0.0.4/Microsoft.VCLibs.x64.14.00.appx"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/poopbird4k/Supermodel-uwp-gl/releases/tag/v1.0.0.4",
+    "releaseTag": "v1.0.0.4"
   },
   "ruffle": {
     "name": "Ruffle",
@@ -325,7 +341,9 @@
         "id": "gzdoom-mods",
         "url": "/xbox-dev-mode/emulators/gzdoom/prebuilt-mods.html"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/aerisarn/gzdoom-uwp/releases/tag/1.0.7",
+    "releaseTag": "1.0.7"
   },
   "raze": {
     "name": "Raze",
@@ -337,7 +355,9 @@
         "id": "raze",
         "url": "https://github.com/aerisarn/Raze-uwp/releases/download/1.0.22/raze_1.0.22.0_x64.msixbundle"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/aerisarn/Raze-uwp/releases/tag/1.0.22",
+    "releaseTag": "1.0.22"
   },
   "boxedwine": {
     "name": "BoxedWine",
@@ -373,7 +393,9 @@
         "id": "celeste",
         "url": "https://github.com/Xbox-Homebrew/ccleste/releases/download/1.0.2.0/CelesteClassic-UWP_1.0.2.0_Test.zip"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/Xbox-Homebrew/ccleste/releases/tag/1.0.2.0",
+    "releaseTag": "1.0.2.0"
   },
   "chrono": {
     "name": "Chrono Divide",
@@ -409,7 +431,9 @@
         "id": "devilutionx",
         "url": "https://github.com/diasurgical/DevilutionX/releases/download/1.5.5/devilutionx-xbox-one-series.zip"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/diasurgical/DevilutionX/releases/tag/1.5.5",
+    "releaseTag": "1.5.5"
   },
   "dhewm3": {
     "name": "Dhewm 3",
@@ -425,7 +449,9 @@
         "id": "dhewm3dep",
         "url": "https://github.com/worleydl/dhewm3-uwp/releases/download/uwp-1.5.4/Microsoft.VCLibs.x64.14.00.appx"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/worleydl/dhewm3-uwp/releases/tag/uwp-1.5.4",
+    "releaseTag": "uwp-1.5.4"
   },
   "dxxrebirth": {
     "name": "DXX Rebirth",
@@ -441,7 +467,9 @@
         "id": "dxxrebirth2",
         "url": "https://github.com/worleydl/dxx-rebirth-uwp/releases/download/release-alpha/Microsoft.VCLibs.x64.14.00.appx"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/worleydl/dxx-rebirth-uwp/releases/tag/release-alpha",
+    "releaseTag": "release-alpha"
   },
   "ioquake3": {
     "name": "ioquake3",
@@ -457,7 +485,9 @@
         "id": "ioquake3dep",
         "url": "https://github.com/worleydl/ioq3-uwp/releases/download/uwp-v1.0.0/Microsoft.VCLibs.x64.14.00.appx"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/worleydl/ioq3-uwp/releases/tag/uwp-v1.0.0",
+    "releaseTag": "uwp-v1.0.0"
   },
   "jazz2": {
     "name": "Jazz 2 Resurrection",
@@ -469,7 +499,9 @@
         "id": "jazz2",
         "url": "https://github.com/deathkiller/jazz2/releases/download/3.5.0/Jazz2_3.5.0_UWP.zip"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/deathkiller/jazz2/releases/tag/3.5.0",
+    "releaseTag": "3.5.0"
   },
   "maze": {
     "name": "Maze0x72",
@@ -513,7 +545,9 @@
         "id": "jkdf2ctl",
         "url": "https://github.com/worleydl/OpenJKDF2-uwp/releases/download/uwp-alpha/xbone.ctl"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/worleydl/OpenJKDF2-uwp/releases/tag/uwp-alpha",
+    "releaseTag": "uwp-alpha"
   },
   "openlara": {
     "name": "OpenLara",
@@ -525,7 +559,9 @@
         "id": "openlara",
         "url": "https://github.com/XProger/OpenLara/releases/download/latest/OpenLara_xb1.zip"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/XProger/OpenLara/releases/tag/latest",
+    "releaseTag": "latest"
   },
   "opentyrian": {
     "name": "OpenTyrian 2000",
@@ -553,7 +589,9 @@
         "id": "relichunters",
         "url": "https://github.com/MDashK/Relic-Hunters-Zero-Xbox/releases/download/v1.0.0/RelicHuntersZero.appx"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/MDashK/Relic-Hunters-Zero-Xbox/releases/tag/v1.0.0",
+    "releaseTag": "v1.0.0"
   },
   "sdlpop": {
     "name": "SDLPoP",
@@ -565,7 +603,9 @@
         "id": "sdlpop",
         "url": "https://github.com/Xbox-Homebrew/SDLPoP/releases/download/1.0.0.0/sdlpop.appx"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/Xbox-Homebrew/SDLPoP/releases/tag/1.0.0.0",
+    "releaseTag": "1.0.0.0"
   },
   "snake": {
     "name": "Snake UWP",
@@ -593,7 +633,9 @@
         "id": "soh2",
         "url": "https://github.com/worleydl/shipdev/releases/download/uwp-9.1.0/Microsoft.VCLibs.x64.14.00.appx"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/worleydl/shipdev/releases/tag/uwp-9.1.0",
+    "releaseTag": "uwp-9.1.0"
   },
   "sonic1decomp": {
     "name": "Sonic 1 Decompilation",
@@ -629,7 +671,9 @@
         "id": "sonic1sms",
         "url": "https://github.com/MDashK/sonic-1-sms-remake-xbox/releases/download/v1.9.2-xbox/Sonic1SMSRemake.appx"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/MDashK/sonic-1-sms-remake-xbox/releases/tag/v1.9.2-xbox",
+    "releaseTag": "v1.9.2-xbox"
   },
   "sonic2sms": {
     "name": "Sonic 2 SMS Remake",
@@ -641,7 +685,9 @@
         "id": "sonic2sms",
         "url": "https://github.com/MDashK/sonic-2-sms-remake-xbox/releases/download/v2.9.2-xbox/Sonic2SMSRemake.appx"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/MDashK/sonic-2-sms-remake-xbox/releases/tag/v2.9.2-xbox",
+    "releaseTag": "v2.9.2-xbox"
   },
   "sonic3air": {
     "name": "Sonic 3 A.I.R.",
@@ -657,7 +703,9 @@
         "id": "sonic3air-dep",
         "url": "https://github.com/caorthann-celt/sonic3air-uwp/releases/download/v1.0.1.0/Microsoft.VCLibs.x64.14.00.appx"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/caorthann-celt/sonic3air-uwp/releases/tag/v1.0.1.0",
+    "releaseTag": "v1.0.1.0"
   },
   "sab2": {
     "name": "Sonic Adventure Blast 2",
@@ -673,7 +721,9 @@
         "id": "sab2dep",
         "url": "https://github.com/worleydl/SAB2-uwp/releases/download/v1.0.0/Microsoft.VCLibs.x64.14.00.appx"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/worleydl/SAB2-uwp/releases/tag/v1.0.0",
+    "releaseTag": "v1.0.0"
   },
   "soniccd": {
     "name": "Sonic CD Decompilation",
@@ -697,7 +747,9 @@
         "id": "sonicmania",
         "url": "https://github.com/izzy2lost/RSDKv5-Decompilation/releases/download/1.4.0/RSDKv5-UWP_1.4.0.0_x64.appx"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/izzy2lost/RSDKv5-Decompilation/releases/tag/1.4.0",
+    "releaseTag": "1.4.0"
   },
   "sonicrealms": {
     "name": "Sonic Realms",
@@ -725,7 +777,9 @@
         "id": "ringracers2",
         "url": "https://github.com/worleydl/ringracers-uwp/releases/download/uwp-initial/Microsoft.VCLibs.x64.14.00.appx"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/worleydl/ringracers-uwp/releases/tag/uwp-initial",
+    "releaseTag": "uwp-initial"
   },
   "srb2": {
     "name": "Sonic Robo Blast 2",
@@ -737,7 +791,9 @@
         "id": "srb2",
         "url": "https://github.com/aerisarn/srb2-uwp/releases/download/1.0.213/SRB2SDL2_1.0.213.0.zip"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/aerisarn/srb2-uwp/releases/tag/1.0.213",
+    "releaseTag": "1.0.213"
   },
   "sonictimetwisted": {
     "name": "Sonic Time Twisted",
@@ -765,7 +821,9 @@
         "id": "unleashed2",
         "url": "https://github.com/YTReviveMe/UnleashedRecomp-uwp/releases/download/Beta/Microsoft.VCLibs.x64.14.00.appx"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/YTReviveMe/UnleashedRecomp-uwp/releases/tag/Beta",
+    "releaseTag": "Beta"
   },
   "spelunky": {
     "name": "Spelunky Classic HD",
@@ -829,7 +887,9 @@
         "id": "vvvvvv2",
         "url": "https://github.com/poopbird4k/DURANGO-V6/releases/download/v2.3.6.0/Microsoft.VCLibs.x64.14.00.appx"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/poopbird4k/DURANGO-V6/releases/tag/v2.3.6.0",
+    "releaseTag": "v2.3.6.0"
   },
   "zircon": {
     "name": "Zircon Quake",
@@ -853,7 +913,9 @@
         "id": "zelda3",
         "url": "https://github.com/tunip3/zelda3/releases/download/1.0.1.0/zelda3_1.0.1.0_Test.zip"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/tunip3/zelda3/releases/tag/1.0.1.0",
+    "releaseTag": "1.0.1.0"
   },
   "zelda64": {
     "name": "Zelda 64 Recomp",
@@ -865,7 +927,9 @@
         "id": "zelda64",
         "url": "https://github.com/YTReviveMe/Zelda64Recomp-uwp/releases/download/1.2.0/recomp_1.2.0.0_x64.msixbundle"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/YTReviveMe/Zelda64Recomp-uwp/releases/tag/1.2.0",
+    "releaseTag": "1.2.0"
   },
   "launchpass": {
     "name": "Launchpass",
@@ -881,7 +945,9 @@
         "id": "launchpass2",
         "url": "https://github.com/Misunderstood-Wookiee/LaunchPass/releases/download/v2.2.0/Dependencies_x64.zip"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/Misunderstood-Wookiee/LaunchPass/releases/tag/v2.2.0",
+    "releaseTag": "v2.2.0"
   },
   "retropass": {
     "name": "Retropass",
@@ -893,7 +959,9 @@
         "id": "retropass",
         "url": "https://github.com/retropassdev/RetroPass/releases/download/RetroPass_v1.12.0/RetroPass_v1.12.0.zip"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/retropassdev/RetroPass/releases/tag/RetroPass_v1.12.0",
+    "releaseTag": "RetroPass_v1.12.0"
   },
   "usbPermissionsTool": {
     "name": "USB Permissions Tool",
@@ -905,7 +973,9 @@
         "id": "usbpermtool",
         "url": "https://github.com/YTReviveMe/Xbox-UWP-Permission-Tool/releases/download/v1/Xbox.UWP.Drive.Permission.Tool.exe"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/YTReviveMe/Xbox-UWP-Permission-Tool/releases/tag/v1",
+    "releaseTag": "v1"
   },
   "durangoftp": {
     "name": "Durango FTP",
@@ -917,7 +987,9 @@
         "id": "durangoftp",
         "url": "https://github.com/Dantes-Dungeon/DURANGO-FTP/releases/download/v1.2.1/DurangoFTP_1.0.3.0_x64.msix"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/Dantes-Dungeon/DURANGO-FTP/releases/tag/v1.2.1",
+    "releaseTag": "v1.2.1"
   },
   "oberon": {
     "name": "Oberon Remote",
@@ -929,7 +1001,9 @@
         "id": "oberon",
         "url": "https://github.com/SamsidParty/OberonRemote/releases/download/1.2.0/Oberon.Msixbundle"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/SamsidParty/OberonRemote/releases/tag/1.2.0",
+    "releaseTag": "1.2.0"
   },
   "safeexit": {
     "name": "Safe Exit",
@@ -941,7 +1015,9 @@
         "id": "safeexit",
         "url": "https://github.com/Dantes-Dungeon/safe-exit/releases/download/1.0.0.1/SafeExitRelease.zip"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/Dantes-Dungeon/safe-exit/releases/tag/1.0.0.1",
+    "releaseTag": "1.0.0.1"
   },
   "chonkystation3": {
     "name": "ChonkyStation3",
@@ -993,7 +1069,9 @@
         "id": "dxxdescent2dep",
         "url": "https://github.com/worleydl/dxx-rebirth-uwp/releases/download/release-alpha/Microsoft.VCLibs.x64.14.00.appx"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/worleydl/dxx-rebirth-uwp/releases/tag/release-alpha",
+    "releaseTag": "release-alpha"
   },
   "2s2h": {
     "name": "2Ship2Harkinian",
@@ -1005,7 +1083,9 @@
         "id": "2s2h",
         "url": "https://github.com/SternXD/2ship2harkinian-uwp/releases/download/0.1.0-uwp/2ship2harkinian.msixbundle"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/SternXD/2ship2harkinian-uwp/releases/tag/0.1.0-uwp",
+    "releaseTag": "0.1.0-uwp"
   },
   "nsmb": {
     "name": "NSMB (MarioVsLuigi)",
@@ -1017,7 +1097,9 @@
         "id": "nsmb",
         "url": "https://github.com/YTReviveMe/NSMB-MarioVsLuigi-UWP/releases/download/v2.0.4.1/NSMB-MarioVsLuigi_1.0.1.0_x64.msix"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/YTReviveMe/NSMB-MarioVsLuigi-UWP/releases/tag/v2.0.4.1",
+    "releaseTag": "v2.0.4.1"
   },
   "descent3": {
     "name": "Descent 3",
@@ -1029,7 +1111,9 @@
         "id": "descent3",
         "url": "https://github.com/worleydl/Descent3-dev/releases/download/v1.6.0-nightly/descent3-uwp_1.6.0.0_x64.msixbundle"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/worleydl/Descent3-dev/releases/tag/v1.6.0-nightly",
+    "releaseTag": "v1.6.0-nightly"
   },
   "inferno": {
     "name": "Inferno",
@@ -1049,7 +1133,9 @@
         "id": "inferno-assets",
         "url": "https://github.com/worleydl/Inferno-uwp/releases/download/uwp-alpha/external-assets.zip"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/worleydl/Inferno-uwp/releases/tag/uwp-alpha",
+    "releaseTag": "uwp-alpha"
   },
   "burgerdoom": {
     "name": "BurgerDoom",
@@ -1061,7 +1147,9 @@
         "id": "burgerdoom",
         "url": "https://github.com/SternXD/BurgerDoom/releases/download/1.1.0-uwp/BurgerDoom_1.1.0.0.zip"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/SternXD/BurgerDoom/releases/tag/1.1.0-uwp",
+    "releaseTag": "1.1.0-uwp"
   },
   "abysm2": {
     "name": "ABYSM 2",
@@ -1077,7 +1165,9 @@
         "id": "abysm2-mod",
         "url": "https://www.moddb.com/mods/aliens-eradication-tc"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/YTReviveMe/gzdoom-uwp-pre-modded-apps/releases/tag/1.0.0.0",
+    "releaseTag": "1.0.0.0"
   },
   "aliens-eradication": {
     "name": "Aliens Eradication TC",
@@ -1093,7 +1183,9 @@
         "id": "aliens-eradication-mod",
         "url": "https://www.moddb.com/mods/aliens-eradication-tc/"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/YTReviveMe/gzdoom-uwp-pre-modded-apps/releases/tag/1.0.0.0",
+    "releaseTag": "1.0.0.0"
   },
   "ashes": {
     "name": "Ashes 2063",
@@ -1109,7 +1201,9 @@
         "id": "ashes-mod",
         "url": "https://www.moddb.com/mods/ashes-2063"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/YTReviveMe/gzdoom-uwp-pre-modded-apps/releases/tag/1.0.0.0",
+    "releaseTag": "1.0.0.0"
   },
   "bloom": {
     "name": "BLOOM",
@@ -1125,7 +1219,9 @@
         "id": "bloom-mod",
         "url": "https://www.moddb.com/mods/bloom-doomblood-crossover"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/YTReviveMe/gzdoom-uwp-pre-modded-apps/releases/tag/1.0.0.0",
+    "releaseTag": "1.0.0.0"
   },
   "brutal-doom": {
     "name": "Brutal DOOM",
@@ -1141,7 +1237,9 @@
         "id": "brutal-doom-mod",
         "url": "https://www.moddb.com/mods/brutal-doom"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/YTReviveMe/gzdoom-uwp-pre-modded-apps/releases/tag/1.0.0.0",
+    "releaseTag": "1.0.0.0"
   },
   "brutal-wolfenstein3d": {
     "name": "Brutal Wolfenstein 3D",
@@ -1157,7 +1255,9 @@
         "id": "brutal-wolfenstein3d-mod",
         "url": "https://www.moddb.com/mods/brutal-wolfenstein-3d"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/YTReviveMe/gzdoom-uwp-pre-modded-apps/releases/tag/1.0.0.0",
+    "releaseTag": "1.0.0.0"
   },
   "castlevania-simon": {
     "name": "Castlevania: Simon's Destiny",
@@ -1173,7 +1273,9 @@
         "id": "castlevania-simon-mod",
         "url": "https://forum.zdoom.org/viewtopic.php?t=57800"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/YTReviveMe/gzdoom-uwp-pre-modded-apps/releases/tag/1.0.0.0",
+    "releaseTag": "1.0.0.0"
   },
   "doom": {
     "name": "DOOM",
@@ -1185,7 +1287,9 @@
         "id": "doom",
         "url": "https://github.com/YTReviveMe/gzdoom-uwp-pre-modded-apps/releases/download/1.0.0.0/DOOM-powered-by-GZDOOM-v1.0.7.0.appx"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/YTReviveMe/gzdoom-uwp-pre-modded-apps/releases/tag/1.0.0.0",
+    "releaseTag": "1.0.0.0"
   },
   "golden-souls": {
     "name": "The Golden Souls",
@@ -1201,7 +1305,9 @@
         "id": "golden-souls-mod",
         "url": "https://batandy.itch.io/goldensouls"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/YTReviveMe/gzdoom-uwp-pre-modded-apps/releases/tag/1.0.0.0",
+    "releaseTag": "1.0.0.0"
   },
   "halodoom": {
     "name": "Halo DOOM",
@@ -1217,7 +1323,9 @@
         "id": "halodoom-mod",
         "url": "https://www.moddb.com/mods/halo-doom-evolved"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/YTReviveMe/gzdoom-uwp-pre-modded-apps/releases/tag/1.0.0.0",
+    "releaseTag": "1.0.0.0"
   },
   "heretic": {
     "name": "Heretic",
@@ -1229,7 +1337,9 @@
         "id": "heretic",
         "url": "https://github.com/YTReviveMe/gzdoom-uwp-pre-modded-apps/releases/download/1.0.0.0/Heretic-powered-by-GZDOOM-v1.0.7.0.appx"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/YTReviveMe/gzdoom-uwp-pre-modded-apps/releases/tag/1.0.0.0",
+    "releaseTag": "1.0.0.0"
   },
   "hexen": {
     "name": "HeXen",
@@ -1241,7 +1351,9 @@
         "id": "hexen",
         "url": "https://github.com/YTReviveMe/gzdoom-uwp-pre-modded-apps/releases/download/1.0.0.0/HeXen-powered-by-GZDOOM-v1.0.7.0.appx"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/YTReviveMe/gzdoom-uwp-pre-modded-apps/releases/tag/1.0.0.0",
+    "releaseTag": "1.0.0.0"
   },
   "operation-body-count": {
     "name": "Operation Body Count",
@@ -1257,7 +1369,9 @@
         "id": "operation-body-count-mod",
         "url": "https://mikestoybox.net/2017/10/18/operation-body-count/"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/YTReviveMe/gzdoom-uwp-pre-modded-apps/releases/tag/1.0.0.0",
+    "releaseTag": "1.0.0.0"
   },
   "siren": {
     "name": "SIREN",
@@ -1273,7 +1387,9 @@
         "id": "siren-mod",
         "url": "https://www.moddb.com/mods/siren-doom-tc"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/YTReviveMe/gzdoom-uwp-pre-modded-apps/releases/tag/1.0.0.0",
+    "releaseTag": "1.0.0.0"
   },
   "strife": {
     "name": "Strife",
@@ -1285,7 +1401,9 @@
         "id": "strife",
         "url": "https://github.com/YTReviveMe/gzdoom-uwp-pre-modded-apps/releases/download/1.0.0.0/Strife-powered-by-GZDOOM-v1.0.7.0.appx"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/YTReviveMe/gzdoom-uwp-pre-modded-apps/releases/tag/1.0.0.0",
+    "releaseTag": "1.0.0.0"
   },
   "total-chaos": {
     "name": "Total Chaos Director's Cut",
@@ -1301,7 +1419,9 @@
         "id": "total-chaos-mod",
         "url": "https://www.moddb.com/mods/total-chaos"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/YTReviveMe/gzdoom-uwp-pre-modded-apps/releases/tag/1.0.0.0",
+    "releaseTag": "1.0.0.0"
   },
   "wolfenstein3d-tc": {
     "name": "Wolfenstein 3D TC",
@@ -1317,7 +1437,9 @@
         "id": "wolfenstein3d-tc-mod",
         "url": "https://www.afadoomer.com/wolf3d/default.php"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/YTReviveMe/gzdoom-uwp-pre-modded-apps/releases/tag/1.0.0.0",
+    "releaseTag": "1.0.0.0"
   },
   "sm64coopdx": {
     "name": "Sm64coopdx",
@@ -1333,7 +1455,9 @@
         "id": "sm64coopd-dep",
         "url": "https://github.com/caorthann-celt/sm64coopdx-uwp/releases/download/v1.0.0.0/Microsoft.VCLibs.x64.14.00.appx"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/caorthann-celt/sm64coopdx-uwp/releases/tag/v1.0.0.0",
+    "releaseTag": "v1.0.0.0"
   },
   "celeste64": {
     "name": "Celeste64",
@@ -1349,7 +1473,9 @@
         "id": "celeste64-dep",
         "url": "https://github.com/worleydl/Celeste64-uwp/releases/download/uwp-initial/Microsoft.VCLibs.x64.14.00.appx"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/worleydl/Celeste64-uwp/releases/tag/uwp-initial",
+    "releaseTag": "uwp-initial"
   },
   "perfectDark": {
     "name": "Perfect Dark",
@@ -1361,7 +1487,9 @@
         "id": "perfectdark",
         "url": "https://github.com/YTReviveMe/pd64-uwp/releases/download/Beta/pd64-uwp_1.0.1.0_x64.msixbundle"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/YTReviveMe/pd64-uwp/releases/tag/Beta",
+    "releaseTag": "Beta"
   },
   "supertuxkart": {
     "name": "SuperTuxKart",
@@ -1377,7 +1505,9 @@
         "id": "stk-dep",
         "url": "https://github.com/caorthann-celt/stk-uwp/releases/download/v1.0.0.0/Microsoft.VCLibs.x64.14.00.appx"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/caorthann-celt/stk-uwp/releases/tag/v1.0.0.0",
+    "releaseTag": "v1.0.0.0"
   },
   "starfox64Recompiled": {
     "name": "Starfox 64: Recompiled",
@@ -1393,7 +1523,9 @@
         "id": "starfox64-mod",
         "url": "https://github.com/YTReviveMe/Starfox64Recomp-uwp/releases/download/v1.0.3/sf64_recomp_mod_Dev_Cheats.zip"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/YTReviveMe/Starfox64Recomp-uwp/releases/tag/v1.0.3",
+    "releaseTag": "v1.0.3"
   },
   "spacecadetpinball": {
     "name": "SpaceCadetPinball",
@@ -1409,6 +1541,8 @@
         "id": "spacecadetpinball-dep",
         "url": "https://github.com/YTReviveMe/SpaceCadetPinball-UWP/releases/download/1.0.0.34/Microsoft.VCLibs.x64.Debug.14.00.appx"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/YTReviveMe/SpaceCadetPinball-UWP/releases/tag/1.0.0.34",
+    "releaseTag": "1.0.0.34"
   }
 }
