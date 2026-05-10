@@ -606,6 +606,30 @@ function shouldApplyReleaseTagRegex(config) {
         && config.releaseTagRegex.trim().length > 0;
 }
 
+function shouldExposeReleaseNotesUrl(config) {
+    return typeof config?.repo === 'string'
+        && config.repo.trim()
+        && config.repo !== MIRROR_REPO;
+}
+
+function getReleaseNotesUrl(config, release) {
+    if (!shouldExposeReleaseNotesUrl(config)) {
+        return '';
+    }
+
+    if (typeof release?.html_url === 'string' && release.html_url.trim()) {
+        return release.html_url.trim();
+    }
+
+    const tagName = typeof release?.tag_name === 'string' ? release.tag_name.trim() : '';
+
+    if (tagName) {
+        return `https://github.com/${config.repo}/releases/tag/${encodeURIComponent(tagName)}`;
+    }
+
+    return `https://github.com/${config.repo}/releases/latest`;
+}
+
 function filterReleases(allReleases, config) {
     const allowPrerelease = config.allowPrerelease === true;
     const releaseTagRegex = shouldApplyReleaseTagRegex(config)
@@ -851,6 +875,8 @@ function getFallbackEntry(appId, config, previousOutput) {
             version: previousEntry.version || config.version || 'Unknown',
             releaseDate: previousEntry.releaseDate || config.releaseDate || 'Unknown',
             firstReleaseDate: previousEntry.firstReleaseDate || previousEntry.releaseDate || config.firstReleaseDate || config.releaseDate || 'Unknown',
+            releaseNotesUrl: previousEntry.releaseNotesUrl || config.releaseNotesUrl || '',
+            releaseTag: previousEntry.releaseTag || config.releaseTag || '',
             assets: cloneAssets(previousEntry.assets)
         };
     }
@@ -860,6 +886,8 @@ function getFallbackEntry(appId, config, previousOutput) {
         version: config.version || 'Unknown',
         releaseDate: config.releaseDate || 'Unknown',
         firstReleaseDate: config.firstReleaseDate || config.releaseDate || 'Unknown',
+        releaseNotesUrl: config.releaseNotesUrl || '',
+        releaseTag: config.releaseTag || '',
         assets: []
     };
 }
@@ -874,6 +902,14 @@ function applyFallbackEntry(appId, config, finalJsonOutput, previousOutput, mess
         firstReleaseDate: fallback.firstReleaseDate,
         assets: fallback.assets
     };
+
+    if (fallback.releaseNotesUrl) {
+        finalJsonOutput[appId].releaseNotesUrl = fallback.releaseNotesUrl;
+    }
+
+    if (fallback.releaseTag) {
+        finalJsonOutput[appId].releaseTag = fallback.releaseTag;
+    }
 
     console.warn(message);
 }
@@ -1232,6 +1268,15 @@ async function processGithubReleaseAssetsApp(appId, config, finalJsonOutput, hea
     finalJsonOutput[appId].releaseDate = releaseDate;
     finalJsonOutput[appId].firstReleaseDate = firstReleaseDate;
 
+    const releaseNotesUrl = getReleaseNotesUrl(config, bestRelease);
+    if (releaseNotesUrl) {
+        finalJsonOutput[appId].releaseNotesUrl = releaseNotesUrl;
+    }
+
+    if (shouldExposeReleaseNotesUrl(config) && typeof bestRelease.tag_name === 'string' && bestRelease.tag_name.trim()) {
+        finalJsonOutput[appId].releaseTag = bestRelease.tag_name.trim();
+    }
+
     const resolvedGithubAssets = await resolveGithubAssetsForRelease(config, bestRelease);
     const resolvedStaticAssets = await resolveStaticAssetsForConfig(config);
 
@@ -1305,6 +1350,16 @@ async function processGithubVersionedStaticApp(appId, config, finalJsonOutput, h
     finalJsonOutput[appId].version = normalizedReleaseVersion;
     finalJsonOutput[appId].releaseDate = releaseDate;
     finalJsonOutput[appId].firstReleaseDate = firstReleaseDate;
+
+    const releaseNotesUrl = getReleaseNotesUrl(config, bestRelease);
+    if (releaseNotesUrl) {
+        finalJsonOutput[appId].releaseNotesUrl = releaseNotesUrl;
+    }
+
+    if (shouldExposeReleaseNotesUrl(config) && typeof bestRelease.tag_name === 'string' && bestRelease.tag_name.trim()) {
+        finalJsonOutput[appId].releaseTag = bestRelease.tag_name.trim();
+    }
+
     finalJsonOutput[appId].assets = resolvedAssets;
 
     console.log('  - Versioned static links processed.');

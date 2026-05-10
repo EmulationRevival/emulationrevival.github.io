@@ -1097,6 +1097,7 @@
         donations: []
     maintainers:
       - name: "Poopbird4k"
+        github: "https://github.com/poopbird4k"
         donations: []
   downloads:
     - label: "VVVVVV"

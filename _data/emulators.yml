@@ -221,6 +221,7 @@
   downloads:
     - label: "Download"
       asset_id: "ppsspp"
+  source_code_url: "https://github.com/hrydgard/ppsspp"
   setup_guide:
     url: "https://wiki.sternserv.xyz/docs/emulation/ppsspp-guide"
   tutorial_url: "https://youtu.be/-iK8KfewWok"

@@ -4,6 +4,7 @@ const { setTimeout: delay } = require('timers/promises');
 
 const SITE_ORIGIN = 'https://emulationrevival.github.io';
 const POST_DELAY_MS = 1000;
+const MIRROR_REPO = 'EmulationRevival/emulationrevival-downloads';
 
 function slugify(value = '') {
   return String(value)
@@ -20,6 +21,109 @@ function normalizePathname(url = '') {
   } catch {
     return '/';
   }
+}
+
+function normalizeRepoPath(repoPath = '') {
+  const value = String(repoPath || '').trim();
+
+  if (!value) {
+    return '';
+  }
+
+  const githubUrlMatch = value.match(/^https:\/\/github\.com\/([^/]+\/[^/#?]+)(?:[/?#].*)?$/i);
+  if (githubUrlMatch) {
+    return githubUrlMatch[1];
+  }
+
+  const repoMatch = value.match(/^([^/\s]+\/[^/\s]+)$/);
+  if (repoMatch) {
+    return repoMatch[1];
+  }
+
+  return '';
+}
+
+function isMirrorRepo(repoPath = '') {
+  return normalizeRepoPath(repoPath).toLowerCase() === MIRROR_REPO.toLowerCase();
+}
+
+function extractGitHubRepoFromUrl(url = '') {
+  const match = String(url || '').trim().match(/^https:\/\/github\.com\/([^/]+\/[^/#?]+)(?:[/?#].*)?$/i);
+  return match ? match[1] : '';
+}
+
+function isGitHubReleaseUrl(url = '') {
+  return /^https:\/\/github\.com\/[^/]+\/[^/]+\/releases\/(?:tag\/[^/?#]+|latest)(?:[?#].*)?$/i.test(String(url || '').trim());
+}
+
+function getOrdinalSuffix(day) {
+  if (!Number.isInteger(day) || day < 1 || day > 31) {
+    return '';
+  }
+
+  const lastTwoDigits = day % 100;
+
+  if (lastTwoDigits >= 11 && lastTwoDigits <= 13) {
+    return 'th';
+  }
+
+  switch (day % 10) {
+    case 1:
+      return 'st';
+    case 2:
+      return 'nd';
+    case 3:
+      return 'rd';
+    default:
+      return 'th';
+  }
+}
+
+function formatDisplayDate(value = '') {
+  const rawValue = String(value || '').trim();
+
+  if (!rawValue || rawValue === 'Unknown') {
+    return 'Unknown';
+  }
+
+  const isoMatch = rawValue.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+
+  if (!isoMatch) {
+    return rawValue;
+  }
+
+  const year = Number.parseInt(isoMatch[1], 10);
+  const month = Number.parseInt(isoMatch[2], 10);
+  const day = Number.parseInt(isoMatch[3], 10);
+
+  if (
+    !Number.isInteger(year) ||
+    !Number.isInteger(month) ||
+    !Number.isInteger(day) ||
+    month < 1 ||
+    month > 12 ||
+    day < 1 ||
+    day > 31
+  ) {
+    return rawValue;
+  }
+
+  const date = new Date(Date.UTC(year, month - 1, day));
+
+  if (
+    date.getUTCFullYear() !== year ||
+    date.getUTCMonth() !== month - 1 ||
+    date.getUTCDate() !== day
+  ) {
+    return rawValue;
+  }
+
+  const monthName = date.toLocaleString('en-GB', {
+    month: 'long',
+    timeZone: 'UTC',
+  });
+
+  return `${monthName} ${day}${getOrdinalSuffix(day)}, ${year}`;
 }
 
 function buildPreviewPath(entry, usedSlugs) {
@@ -155,10 +259,123 @@ function buildRolePrefix() {
   return roleId ? `<@&${roleId}>` : '';
 }
 
+function getExplicitReleaseNotesUrl(appEntry) {
+  const candidateUrls = [
+    appEntry?.releaseNotesUrl,
+    appEntry?.release_notes_url,
+    appEntry?.changelogUrl,
+    appEntry?.changelog_url,
+    appEntry?.releaseUrl,
+    appEntry?.release_url,
+    appEntry?.html_url,
+    appEntry?.githubReleaseUrl,
+    appEntry?.github_release_url,
+    appEntry?.latestReleaseUrl,
+    appEntry?.latest_release_url,
+    appEntry?.release?.html_url,
+    appEntry?.latestRelease?.html_url,
+  ];
+
+  for (let i = 0; i < candidateUrls.length; i += 1) {
+    const url = String(candidateUrls[i] || '').trim();
+
+    if (isGitHubReleaseUrl(url)) {
+      return url;
+    }
+  }
+
+  return '';
+}
+
+function getReleaseTag(appEntry) {
+  const candidateTags = [
+    appEntry?.releaseTag,
+    appEntry?.release_tag,
+    appEntry?.tagName,
+    appEntry?.tag_name,
+    appEntry?.tag,
+    appEntry?.latestRelease?.tag_name,
+    appEntry?.release?.tag_name,
+  ];
+
+  for (let i = 0; i < candidateTags.length; i += 1) {
+    const tag = String(candidateTags[i] || '').trim();
+
+    if (tag) {
+      return tag;
+    }
+  }
+
+  return '';
+}
+
+function getGitHubRepoPath(appEntry) {
+  const candidateRepos = [
+    appEntry?.repo,
+    appEntry?.repository,
+    appEntry?.githubRepo,
+    appEntry?.github_repo,
+    appEntry?.sourceRepo,
+    appEntry?.source_repo,
+    appEntry?.sourceCodeRepo,
+    appEntry?.source_code_repo,
+  ];
+
+  for (let i = 0; i < candidateRepos.length; i += 1) {
+    const repoPath = normalizeRepoPath(candidateRepos[i]);
+
+    if (repoPath) {
+      return repoPath;
+    }
+  }
+
+  const candidateUrls = [
+    appEntry?.sourceCodeUrl,
+    appEntry?.source_code_url,
+    appEntry?.github,
+    appEntry?.homepage,
+    appEntry?.projectUrl,
+    appEntry?.project_url,
+  ];
+
+  for (let i = 0; i < candidateUrls.length; i += 1) {
+    const repoPath = extractGitHubRepoFromUrl(candidateUrls[i]);
+
+    if (repoPath) {
+      return repoPath;
+    }
+  }
+
+  return '';
+}
+
+function buildReleaseNotesUrl(appEntry) {
+  const explicitUrl = getExplicitReleaseNotesUrl(appEntry);
+
+  if (explicitUrl) {
+    return explicitUrl;
+  }
+
+  const repoPath = getGitHubRepoPath(appEntry);
+
+  if (!repoPath || isMirrorRepo(repoPath)) {
+    return '';
+  }
+
+  const releaseTag = getReleaseTag(appEntry);
+
+  if (releaseTag) {
+    return `https://github.com/${repoPath}/releases/tag/${encodeURIComponent(releaseTag)}`;
+  }
+
+  return `https://github.com/${repoPath}/releases/latest`;
+}
+
 function buildDiscordMessageForChange(change, searchIndex, previewLookup) {
   const appEntry = change.currentEntry;
   const searchEntry = findSearchIndexEntryForApp(change.appId, appEntry, searchIndex);
   const previewUrl = searchEntry ? previewLookup.get(searchEntry.url) : '';
+  const releaseNotesUrl = buildReleaseNotesUrl(appEntry);
 
   if (!previewUrl) {
     return '';
@@ -179,10 +396,14 @@ function buildDiscordMessageForChange(change, searchIndex, previewLookup) {
     heading,
     '',
     `Version: ${appEntry.version || 'Unknown'}`,
-    `Released: ${appEntry.releaseDate || 'Unknown'}`,
+    `Released: ${formatDisplayDate(appEntry.releaseDate)}`,
     '',
     `[**DOWNLOAD**](${previewUrl})`,
   );
+
+  if (releaseNotesUrl) {
+    lines.push(`[**RELEASE NOTES**](${releaseNotesUrl})`);
+  }
 
   return lines.join('\n');
 }
