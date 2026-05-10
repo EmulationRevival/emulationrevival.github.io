@@ -196,7 +196,7 @@
     - label: "Legacy OpenBOR Emulator"
       asset_id: "openbor2"
   setup_guide:
-    url: "/guides/emulators/openbor-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/openbor-guide"
   tutorial_url: "https://youtu.be/V5gR-y9urgA"
 
 - id: "ppsspp"
@@ -359,7 +359,7 @@
       asset_id: "supermodel2"
   source_code_url: "https://github.com/poopbird4k/Supermodel-uwp-gl"
   setup_guide:
-    url: "/guides/emulators/segamodel3-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/emulation/segamodel3-guide"
   tutorial_url: "https://youtu.be/VOJ1IKj0API"
 
 - id: "supermodel-g920"
@@ -395,7 +395,7 @@
       asset_id: "superg2"
   source_code_url: "https://github.com/poopbird4k/Supermodel-uwp-gl"
   setup_guide:
-    url: "/guides/emulators/segamodel3g920-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/emulation/segamodel3-g920-guide"
   tutorial_url: "https://youtu.be/8fKWM-4Q46k"
 
 - id: "xbsx2"

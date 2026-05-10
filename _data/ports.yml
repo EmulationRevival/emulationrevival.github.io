@@ -26,7 +26,7 @@
     - label: "Download"
       asset_id: "castlevania"
   setup_guide:
-    url: "/guides/ports/castlevania-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/castlevania-guide"
   tutorial_url: null
 
 - id: "celeste"
@@ -55,7 +55,7 @@
       asset_id: "celeste"
   source_code_url: "https://github.com/Xbox-Homebrew/ccleste"
   setup_guide:
-    url: "/guides/ports/celeste-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/celeste-guide"
   tutorial_url: null
 
 - id: "chrono"
@@ -88,7 +88,7 @@
     - label: "Download"
       asset_id: "chrono"
   setup_guide:
-    url: "/guides/ports/chronodivide-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/chronodivide-guide"
   tutorial_url: null
 
 - id: "darkplaces"
@@ -121,7 +121,7 @@
     - label: "Download"
       asset_id: "darkplaces"
   setup_guide:
-    url: "/guides/ports/darkplaces-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/darkplaces-guide"
   tutorial_url: null
 
 - id: "devilutionx"
@@ -149,7 +149,7 @@
       asset_id: "devilutionx"
   source_code_url: "https://github.com/diasurgical/DevilutionX"
   setup_guide:
-    url: "/guides/ports/devilutionx-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/devilutionx-guide"
   tutorial_url: null
 
 - id: "dhewm3"
@@ -186,7 +186,7 @@
       asset_id: "dhewm3dep"
   source_code_url: "https://github.com/worleydl/dhewm3-uwp"
   setup_guide:
-    url: "/guides/ports/dhewm3-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/dhewm3-guide"
   tutorial_url: null
 
 - id: "dxxrebirth"
@@ -223,7 +223,7 @@
       asset_id: "dxxrebirth2"
   source_code_url: "https://github.com/worleydl/dxx-rebirth-uwp"
   setup_guide:
-    url: "/guides/ports/dxxrebirth-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/dxxrebirth-guide"
   tutorial_url: "https://youtu.be/10z7nGZD1lM"
 
 - id: "ioquake3"
@@ -260,7 +260,7 @@
       asset_id: "ioquake3dep"
   source_code_url: "https://github.com/worleydl/ioq3-uwp"
   setup_guide:
-    url: "/guides/ports/ioquake3-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/ioquake3-guide"
   tutorial_url: "https://youtu.be/xYi8FM633-o"
 
 - id: "jazz2"
@@ -288,7 +288,7 @@
       asset_id: "jazz2"
   source_code_url: "https://github.com/deathkiller/jazz2"
   setup_guide:
-    url: "/guides/ports/jazz2-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/jazz2-guide"
   tutorial_url: null
 
 - id: "maze"
@@ -319,7 +319,7 @@
     - label: "Download"
       asset_id: "maze"
   setup_guide:
-    url: "/guides/ports/maze-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/maze-guide"
   tutorial_url: null
 
 - id: "mine"
@@ -350,7 +350,7 @@
     - label: "Download"
       asset_id: "mine"
   setup_guide:
-    url: "/guides/ports/mine-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/mine-guide"
   tutorial_url: null
 
 - id: "jkdf2"
@@ -390,7 +390,7 @@
       asset_id: "jkdf2ctl"
   source_code_url: "https://github.com/worleydl/OpenJKDF2-uwp"
   setup_guide:
-    url: "/guides/ports/jkdf2-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/jkdf2-guide"
   tutorial_url: null
 
 - id: "openlara"
@@ -418,7 +418,7 @@
       asset_id: "openlara"
   source_code_url: "https://github.com/XProger/OpenLara"
   setup_guide:
-    url: "/guides/ports/openlara-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/openlara-guide"
   tutorial_url: null
 
 - id: "opentyrian"
@@ -450,7 +450,7 @@
     - label: "Tyrian freeware data"
       asset_id: "opentyrian2"
   setup_guide:
-    url: "/guides/ports/opentyrian-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/opentyrian-guide"
   tutorial_url: null
 
 - id: "relichunters"
@@ -478,7 +478,7 @@
       asset_id: "relichunters"
   source_code_url: "https://github.com/MDashK/Relic-Hunters-Zero-Xbox"
   setup_guide:
-    url: "/guides/ports/relichunters-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/relichunters-guide"
   tutorial_url: null
 
 - id: "sdlpop"
@@ -508,7 +508,7 @@
       asset_id: "sdlpop"
   source_code_url: "https://github.com/Xbox-Homebrew/SDLPoP"
   setup_guide:
-    url: "/guides/ports/sdlpop-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/sdlpop-guide"
   tutorial_url: null
 
 - id: "snake"
@@ -533,7 +533,7 @@
     - label: "Download"
       asset_id: "snake"
   setup_guide:
-    url: "/guides/ports/snake-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/snake-guide"
   tutorial_url: null
 
 - id: "soh"
@@ -570,7 +570,7 @@
       asset_id: "soh2"
   source_code_url: "https://github.com/worleydl/shipdev"
   setup_guide:
-    url: "/guides/ports/soh-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/soh-guide"
   tutorial_url: "https://youtu.be/Yl3LQ4ODtGU"
 
 - id: "sonic1decomp"
@@ -600,7 +600,7 @@
     - label: "Download"
       asset_id: "sonic1decomp"
   setup_guide:
-    url: "/guides/ports/sonic1decomp-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/sonic1decomp-guide"
   tutorial_url: null
 
 - id: "sonic2decomp"
@@ -630,7 +630,7 @@
     - label: "Download"
       asset_id: "sonic2decomp"
   setup_guide:
-    url: "/guides/ports/sonic2decomp-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/sonic2decomp-guide"
   tutorial_url: null
 
 - id: "sonic-1-sms-remake"
@@ -659,7 +659,7 @@
       asset_id: "sonic1sms"
   source_code_url: "https://github.com/MDashK/sonic-1-sms-remake-xbox"
   setup_guide:
-    url: "/guides/ports/sonicsms-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/sonicsms-guide"
   tutorial_url: "https://youtu.be/TZrGjgB5iMo"
   
 - id: "sonic-2-sms-remake"
@@ -688,7 +688,7 @@
       asset_id: "sonic2sms"
   source_code_url: "https://github.com/MDashK/sonic-2-sms-remake-xbox"
   setup_guide:
-    url: "/guides/ports/sonicsms-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/sonicsms-guide"
   tutorial_url: "https://youtu.be/TZrGjgB5iMo"
 
 - id: "sonic3air"
@@ -721,7 +721,7 @@
       asset_id: "sonic3air-dep"
   source_code_url: "https://github.com/caorthann-celt/sonic3air-uwp"
   setup_guide:
-    url: "/guides/ports/sonic3air-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/sonic3air-guide"
   tutorial_url: "https://youtu.be/UkWvhQp5d34"
 
 - id: "sab2"
@@ -784,7 +784,7 @@
     - label: "Download"
       asset_id: "soniccd"
   setup_guide:
-    url: "/guides/ports/soniccd-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/soniccd-guide"
   tutorial_url: null
 
 - id: "sonicmania"
@@ -815,7 +815,7 @@
       asset_id: "sonicmania"
   source_code_url: "https://github.com/izzy2lost/RSDKv5-Decompilation"
   setup_guide:
-    url: "/guides/ports/sonicmania-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/sonicmania-guide"
   tutorial_url: "https://youtu.be/ujOgzotfnbc"
 
 - id: "sonicrealms"
@@ -842,7 +842,7 @@
     - label: "Download"
       asset_id: "sonicrealms"
   setup_guide:
-    url: "/guides/ports/sonicrealms-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/sonicrealms-guide"
   tutorial_url: null
 
 - id: "sonicringracers"
@@ -879,7 +879,7 @@
       asset_id: "ringracers2"
   source_code_url: "https://github.com/worleydl/ringracers-uwp"
   setup_guide:
-    url: "/guides/ports/sonicringracers-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/sonicringracers-guide"
   tutorial_url: null
 
 - id: "srb2"
@@ -908,7 +908,7 @@
       asset_id: "srb2"
   source_code_url: "https://github.com/aerisarn/srb2-uwp"
   setup_guide:
-    url: "/guides/ports/sonicroboblast2-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/sonicroboblast2-guide"
   tutorial_url: null
 
 - id: "sonictimetwisted"
@@ -934,7 +934,7 @@
     - label: "Download"
       asset_id: "sonictimetwisted"
   setup_guide:
-    url: "/guides/ports/sonictimetwisted-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/sonictimetwisted-guide"
   tutorial_url: null
 
 - id: "sonicunleashed"
@@ -996,7 +996,7 @@
     - label: "Download"
       asset_id: "spelunky"
   setup_guide:
-    url: "/guides/ports/spelunky-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/spelunky-guide"
   tutorial_url: null
 
 - id: "spooky"
@@ -1021,7 +1021,7 @@
     - label: "Download"
       asset_id: "spooky"
   setup_guide:
-    url: "/guides/ports/spookydimensions-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/spookydimensions-guide"
   tutorial_url: null
 
 - id: "trogdor"
@@ -1047,7 +1047,7 @@
     - label: "Download"
       asset_id: "trogdor"
   setup_guide:
-    url: "/guides/ports/trogdor-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/trogdor-guide"
   tutorial_url: null
 
 - id: "tuck"
@@ -1106,7 +1106,7 @@
       asset_id: "vvvvvv2"
   source_code_url: "https://github.com/poopbird4k/DURANGO-V6"
   setup_guide:
-    url: "/guides/ports/vvvvvv-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/vvvvvv-guide"
   tutorial_url: null
 
 - id: "zelda3"
@@ -1138,7 +1138,7 @@
       asset_id: "zelda3"
   source_code_url: "https://github.com/tunip3/zelda3"
   setup_guide:
-    url: "/guides/ports/zelda3-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/zelda3-guide"
   tutorial_url: null
 
 - id: "zelda64"
@@ -1172,7 +1172,7 @@
       asset_id: "zelda64"
   source_code_url: "https://github.com/YTReviveMe/Zelda64Recomp-uwp"
   setup_guide:
-    url: "/guides/ports/zelda64-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/zelda64-guide"
   tutorial_url: null
 
 - id: "zircon"
@@ -1204,7 +1204,7 @@
     - label: "Download"
       asset_id: "zircon"
   setup_guide:
-    url: "/guides/ports/zircon-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/zircon-guide"
   tutorial_url: null
 
 - id: "dxx-rebirth-descent-2"
@@ -1343,7 +1343,7 @@
       asset_id: "descent3"
   source_code_url: "https://github.com/worleydl/Descent3-dev"
   setup_guide:
-    url: "/guides/ports/descent3-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/descent3-guide"
   tutorial_url: null
   
 - id: "inferno"
@@ -1381,7 +1381,7 @@
       asset_id: "inferno-assets"
   source_code_url: "https://github.com/worleydl/Inferno-uwp"
   setup_guide:
-    url: "/guides/ports/inferno-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/inferno-guide"
   tutorial_url: null
   
 - id: "burgerdoom"
@@ -1414,7 +1414,7 @@
       asset_id: "burgerdoom"
   source_code_url: "https://github.com/SternXD/BurgerDoom"
   setup_guide:
-    url: "/guides/ports/burgerdoom-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/doom3do-guide"
   tutorial_url: null
   
 - id: "sm64coopdx"
@@ -1447,7 +1447,7 @@
       asset_id: "sm64coopd-dep"
   source_code_url: "https://github.com/caorthann-celt/sm64coopdx-uwp"
   setup_guide:
-    url: "/guides/ports/sm64coopdx-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/sm64coopdx-guide"
   tutorial_url: "https://youtu.be/wI7UhhINGLE"
   
 - id: "celeste64"
@@ -1483,7 +1483,7 @@
       asset_id: "celeste64-dep"
   source_code_url: "https://github.com/worleydl/Celeste64-uwp"
   setup_guide:
-    url: "/guides/ports/celeste64-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/celeste64-guide"
   tutorial_url: "https://youtu.be/FrSMeczl0wk"
   
 - id: "perfect-dark"
@@ -1521,7 +1521,7 @@
       asset_id: "perfectdark"
   source_code_url: "https://github.com/YTReviveMe/pd64-uwp"
   setup_guide:
-    url: "/guides/ports/perfectdark-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/perfectdark-guide"
   tutorial_url: "https://youtu.be/gqHAOztcpY0"
   
 - id: "supertuxkart"
@@ -1553,7 +1553,7 @@
       asset_id: "stk-dep"
   source_code_url: "https://github.com/caorthann-celt/stk-uwp"
   setup_guide:
-    url: "/guides/ports/supertuxkart-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/supertuxkart-guide"
   tutorial_url: null
   
 - id: "starfox-64-recompiled"
@@ -1593,7 +1593,7 @@
       asset_id: "starfox64-mod"
   source_code_url: "https://github.com/YTReviveMe/Starfox64Recomp-uwp"
   setup_guide:
-    url: "/guides/ports/starfox64-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/starfox64-guide"
   tutorial_url: "https://youtu.be/6qdw5TM2cjI"
   
 - id: "spacecadetpinball"
@@ -1629,7 +1629,7 @@
       asset_id: "spacecadetpinball-dep"
   source_code_url: "https://github.com/YTReviveMe/SpaceCadetPinball-UWP/tree/UWP-Xbox"
   setup_guide:
-    url: "/guides/ports/spacecadetpinball-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/spacecadetpinball-guide"
   tutorial_url: null
 
 - id: "tails-adventure-remake"
@@ -1661,7 +1661,7 @@
       asset_id: "tailsadventure"
   source_code_url: "https://github.com/YTReviveMe/tails-adventure-UWP"
   setup_guide:
-    url: "/guides/ports/tailsadventure-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/tailsadventure-guide"
   tutorial_url: null
   
 - id: "nazi-zombies-portable"
@@ -1693,5 +1693,5 @@
       asset_id: "nzp-dep"
   source_code_url: "https://github.com/caorthann-celt/nzp-uwp"
   setup_guide:
-    url: "/guides/ports/nzp-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/ports/nzp-guide"
   tutorial_url: null

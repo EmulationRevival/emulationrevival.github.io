@@ -54,7 +54,7 @@
     - label: "Download"
       asset_id: "hedgephysics"
   setup_guide:
-    url: "/guides/experimentalapps/hedgephysics-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/experimental/hedgephysics-guide"
   tutorial_url: null
 
 - id: "sm64hd"
@@ -80,7 +80,7 @@
     - label: "Download"
       asset_id: "sm64hd"
   setup_guide:
-    url: "/guides/experimentalapps/sm64hd-guide.html"
+    url: "https://wiki.sternserv.xyz/docs/experimental/sm64hd-guide"
   tutorial_url: null
 
 - id: "boxedwine"
