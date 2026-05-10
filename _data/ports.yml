@@ -1663,3 +1663,35 @@
   setup_guide:
     url: "/guides/ports/tailsadventure-guide.html"
   tutorial_url: null
+  
+- id: "nazi-zombies-portable"
+  app_id: "naziZombiesPortable"
+  title: "Nazi Zombies: Portable"
+  description: "An unofficial port of Nazi Zombies: Portable"
+  image: "/xbox-dev-mode/images/game-ports/nzp.webp"
+  alt: "Nazi Zombies: Portable Logo"
+  category: "Ports"
+  page_url: "/xbox-dev-mode/ports.html#nazi-zombies-portable"
+  preview_url: "/previews/ports-nazi-zombies-portable.html"
+  compatibility: "Xbox Series S|X"
+  requirements: []
+  features: []
+  contributors:
+    developers:
+      - name: "NZ:P Team"
+        github: "https://github.com/nzp-team"
+        donations: []
+    porters:
+      - name: "Caorthann"
+        github: "https://github.com/caorthann-celt"
+        donations: []
+    maintainers: []
+  downloads:
+    - label: "Nazi Zombies: Portable"
+      asset_id: "nzp"
+    - label: "Dependency File"
+      asset_id: "nzp-dep"
+  source_code_url: "https://github.com/caorthann-celt/nzp-uwp"
+  setup_guide:
+    url: "/guides/ports/nzp-guide.html"
+  tutorial_url: null

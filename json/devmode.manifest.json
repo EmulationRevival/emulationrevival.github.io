@@ -1688,5 +1688,21 @@
         "assetPattern": "TailsUWP_*_x64.msix"
       }
     ]
+  },
+  "naziZombiesPortable": {
+    "name": "Nazi Zombies: Portable",
+    "repo": "caorthann-celt/nzp-uwp",
+    "assets": [
+      {
+        "id": "nzp",
+        "sourceType": "github",
+        "assetPattern": "nzportable.uwp_*_x64.msix"
+      },
+      {
+        "id": "nzp-dep",
+        "sourceType": "github",
+        "assetPattern": "Microsoft.VCLibs.x*.appx"
+      }
+    ]
   }
 }
