@@ -1139,7 +1139,7 @@
           - type: "kofi"
             url: "https://ko-fi.com/reviveme"
   downloads:
-    - label: "Zelda3"
+    - label: "Zelda 3"
       asset_id: "zelda3"
     - label: "Dependency File"
       asset_id: "zelda3-dep"

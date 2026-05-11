@@ -1104,6 +1104,9 @@
   "zelda3": {
     "name": "Zelda 3",
     "repo": "YTReviveMe/zelda3",
+    "firstReleaseDateOverrides": {
+      "1.0.2.0": "2022-10-15"
+    },
     "assets": [
       {
         "id": "zelda3",
