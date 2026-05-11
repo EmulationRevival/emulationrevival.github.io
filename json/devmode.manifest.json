@@ -1103,12 +1103,17 @@
   },
   "zelda3": {
     "name": "Zelda 3",
-    "repo": "tunip3/zelda3",
+    "repo": "YTReviveMe/zelda3",
     "assets": [
       {
         "id": "zelda3",
         "sourceType": "github",
-        "assetPattern": "zelda3_*.zip"
+        "assetPattern": "zelda3_*_x64.msixbundle"
+      },
+      {
+        "id": "zelda3-dep",
+        "sourceType": "github",
+        "assetPattern": "Microsoft.VCLibs.x*.appx"
       }
     ]
   },

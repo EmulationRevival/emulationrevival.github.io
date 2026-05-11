@@ -1121,7 +1121,7 @@
   compatibility: "Xbox One & Series S|X"
   requirements:
     - "A zelda3.sfc (US) rom"
-    - "Dependency file"
+    - "zelda3_assets.dat"
   features: []
   contributors:
     developers:
@@ -1132,11 +1132,18 @@
       - name: "Tunip3"
         github: "https://github.com/tunip3"
         donations: []
-    maintainers: []
+    maintainers:
+      - name: "ReviveMe"
+        github: "https://github.com/YTReviveMe"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/reviveme"
   downloads:
-    - label: "Download"
+    - label: "Zelda3"
       asset_id: "zelda3"
-  source_code_url: "https://github.com/tunip3/zelda3"
+    - label: "Dependency File"
+      asset_id: "zelda3-dep"
+  source_code_url: "https://github.com/YTReviveMe/zelda3"
   setup_guide:
     url: "https://wiki.sternserv.xyz/docs/ports/zelda3-guide"
   tutorial_url: null
