@@ -905,17 +905,21 @@
   },
   "zelda3": {
     "name": "Zelda 3",
-    "version": "1.0.1.0",
-    "releaseDate": "2022-12-03",
-    "firstReleaseDate": "2022-10-15",
+    "version": "1.0.2.0",
+    "releaseDate": "2026-05-11",
+    "firstReleaseDate": "2026-05-11",
     "assets": [
       {
         "id": "zelda3",
-        "url": "https://github.com/tunip3/zelda3/releases/download/1.0.1.0/zelda3_1.0.1.0_Test.zip"
+        "url": "https://github.com/YTReviveMe/zelda3/releases/download/1.0.2.0/zelda3_1.0.2.0_x64.msixbundle"
+      },
+      {
+        "id": "zelda3-dep",
+        "url": "https://github.com/YTReviveMe/zelda3/releases/download/1.0.2.0/Microsoft.VCLibs.x64.14.00.appx"
       }
     ],
-    "releaseNotesUrl": "https://github.com/tunip3/zelda3/releases/tag/1.0.1.0",
-    "releaseTag": "1.0.1.0"
+    "releaseNotesUrl": "https://github.com/YTReviveMe/zelda3/releases/tag/1.0.2.0",
+    "releaseTag": "1.0.2.0"
   },
   "zelda64": {
     "name": "Zelda 64 Recomp",
