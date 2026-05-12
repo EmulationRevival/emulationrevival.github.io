@@ -1712,5 +1712,16 @@
         "assetPattern": "Microsoft.VCLibs.x*.appx"
       }
     ]
+  },
+  "duskUwp": {
+    "name": "Dusk UWP",
+    "repo": "SternXD/dusk-uwp",
+    "assets": [
+      {
+        "id": "duskuwp",
+        "sourceType": "github",
+        "assetPattern": "dusk-uwp_*.zip"
+      }
+    ]
   }
 }
