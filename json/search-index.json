@@ -469,6 +469,13 @@
     "category": "Ports"
   },
   {
+    "name": "Dusk UWP",
+    "description": "Dusk, a Decompilation Port of Zelda: Twilight Princess",
+    "img": "/xbox-dev-mode/images/game-ports/dusk-uwp.webp",
+    "url": "/xbox-dev-mode/ports.html#dusk-uwp",
+    "category": "Ports"
+  },
+  {
     "name": "USB Permissions Tool",
     "description": "Add necessary permissions to an NTFS formatted USB drive for UWP apps",
     "img": "/xbox-dev-mode/images/utilities/usb-perms-tool.webp",

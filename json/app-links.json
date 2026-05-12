@@ -1580,5 +1580,19 @@
     ],
     "releaseNotesUrl": "https://github.com/caorthann-celt/nzp-uwp/releases/tag/v1.0.0.13",
     "releaseTag": "v1.0.0.13"
+  },
+  "duskUwp": {
+    "name": "Dusk UWP",
+    "version": "1.0.1.0",
+    "releaseDate": "2026-05-11",
+    "firstReleaseDate": "2026-05-11",
+    "assets": [
+      {
+        "id": "duskuwp",
+        "url": "https://github.com/SternXD/dusk-uwp/releases/download/uwp-1.0.1.0/dusk-uwp_1.0.1.0.zip"
+      }
+    ],
+    "releaseNotesUrl": "https://github.com/SternXD/dusk-uwp/releases/tag/uwp-1.0.1.0",
+    "releaseTag": "uwp-1.0.1.0"
   }
 }
