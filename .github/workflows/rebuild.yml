@@ -56,3 +56,19 @@ jobs:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
           DISCORD_ROLE_ID: ${{ secrets.DISCORD_ROLE_ID }}
         run: node js/post-discord-updates.js /tmp/app-links.previous.json json/app-links.json json/search-index.json
+
+      - name: Sync Discord Forum Posts
+        env:
+          DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
+        run: node js/sync-discord-forum-posts.js
+
+      - name: Commit Discord Forum Registry
+        run: |
+          if git diff --quiet -- json/discord-forum-posts.json; then
+            echo "No Discord forum registry changes."
+            exit 0
+          fi
+
+          git add json/discord-forum-posts.json
+          git commit -m "Update Discord forum post registry"
+          git push
