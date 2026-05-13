@@ -211,10 +211,10 @@ function formatContributor(contributor) {
   }
 
   if (isHttpUrl(github)) {
-    return `[${name}](<${github}>)`;
+    return `[**${name}**](<${github}>)`;
   }
 
-  return name;
+  return `**${name}**`;
 }
 
 function getFormattedContributors(contributors) {
@@ -306,7 +306,7 @@ function buildLinksSection(product, manifestEntry) {
   const setupGuideUrl = getNestedUrl(product.setup_guide);
   const tutorialUrl = normalizeText(product.tutorial_url);
 
-  rows.push(`- ⬇️ [**Download**](<${previewUrl || SITE_ORIGIN}>)`);
+  rows.push(`- ⬇️ [**Download**](${previewUrl || SITE_ORIGIN})`);
 
   if (sourceCodeUrl) {
     rows.push(`- 🔗 [**Source Code**](<${sourceCodeUrl}>)`);
@@ -392,7 +392,7 @@ function truncateDiscordContent(content, product) {
     '**Full details exceeded Discord’s 2000 character message limit.**',
     '',
     '🔗 **Links**',
-    `- ⬇️ [**Download**](<${previewUrl || SITE_ORIGIN}>)`,
+    `- ⬇️ [**Download**](${previewUrl || SITE_ORIGIN})`,
     '- ❓ [**Support**](<https://discord.com/channels/1024833470020722760/1104148545688326195>)',
   ].join('\n');
 

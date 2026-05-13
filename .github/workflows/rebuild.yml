@@ -44,9 +44,15 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
           git add json/ previews/
-          git commit -m "Automated update: Build links, search index and preview pages" || echo "No changes to commit"
-          git push
+
+          if git diff --cached --quiet; then
+            echo "No build changes to commit."
+          else
+            git commit -m "Automated update: Build links, search index and preview pages"
+            git push
+          fi
 
       - name: Wait for GitHub Pages to catch up
         run: sleep 90
@@ -64,7 +70,7 @@ jobs:
 
       - name: Commit Discord Forum Registry
         run: |
-          if git diff --quiet -- json/discord-forum-posts.json; then
+          if [ -z "$(git status --porcelain -- json/discord-forum-posts.json)" ]; then
             echo "No Discord forum registry changes."
             exit 0
           fi
