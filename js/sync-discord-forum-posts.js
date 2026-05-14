@@ -98,7 +98,6 @@ const COMPATIBILITY_TAGS_BY_CHANNEL_ID = {
   },
 };
 
-
 function getEnvString(name, fallbackValue = '') {
   const value = process.env[name];
 
@@ -228,7 +227,6 @@ function applyStoredTagsToRegistryEntry(entry, appliedTags) {
   const { appliedTags: removedAppliedTags, ...entryWithoutTags } = entry;
   return entryWithoutTags;
 }
-
 
 function stableStringify(value) {
   if (Array.isArray(value)) {
@@ -425,7 +423,6 @@ function buildProductContent(product, manifestEntry) {
     ? product.contributors
     : {};
 
-  const title = stripUnsafeDiscordFormatting(product.title || product.name || product.id || product.app_id || 'Untitled');
   const description = stripUnsafeDiscordFormatting(product.description);
   const compatibility = stripUnsafeDiscordFormatting(product.compatibility);
   const creditLines = [
@@ -457,8 +454,6 @@ function buildProductContent(product, manifestEntry) {
   const links = buildLinksSection(product, manifestEntry);
 
   return [
-    `## ${title}`,
-    '',
     ...creditsSection,
     ...descriptionSection,
     ...compatibilitySection,
@@ -474,12 +469,9 @@ function truncateDiscordContent(content, product) {
     return content;
   }
 
-  const title = stripUnsafeDiscordFormatting(product.title || product.name || product.id || product.app_id || 'Untitled');
   const previewUrl = absoluteUrl(product.preview_url);
   const description = stripUnsafeDiscordFormatting(product.description);
   const fallbackContent = [
-    `## ${title}`,
-    '',
     ...(description ? [description, ''] : []),
     '**Full details exceeded Discord’s 2000 character message limit.**',
     '',
