@@ -1713,14 +1713,14 @@
       }
     ]
   },
-  "duskUwp": {
-    "name": "Dusk UWP",
-    "repo": "SternXD/dusk-uwp",
+  "dusklightUwp": {
+    "name": "Dusklight UWP",
+    "repo": "SternXD/dusklight-uwp",
     "assets": [
       {
-        "id": "duskuwp",
+        "id": "dusklight",
         "sourceType": "github",
-        "assetPattern": "dusk-uwp_*.zip"
+        "assetPattern": "dusklight-uwp_*.zip"
       }
     ]
   }
