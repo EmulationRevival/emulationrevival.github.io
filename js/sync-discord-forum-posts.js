@@ -67,6 +67,38 @@ const DATA_FILES = [
   },
 ];
 
+const COMPATIBILITY_TAGS_BY_CHANNEL_ID = {
+  '1504200314964672634': {
+    series: '1504519186255188199',
+    xboxOne: '1504519240558972929',
+  },
+  '1504200374716989551': {
+    series: '1504526316693622844',
+    xboxOne: '1504526367058952342',
+  },
+  '1504200343498653978': {
+    series: '1504526778343882895',
+    xboxOne: '1504526807930634251',
+  },
+  '1504200422720798750': {
+    series: '1504527116962893905',
+    xboxOne: '1504527147539103825',
+  },
+  '1504200450084438097': {
+    series: '1504527333145706547',
+    xboxOne: '1504527359691198535',
+  },
+  '1504200641151762686': {
+    series: '1504527581423079486',
+    xboxOne: '1504527610070302782',
+  },
+  '1504200696248143923': {
+    series: '1504527791943581816',
+    xboxOne: '1504527821362696202',
+  },
+};
+
+
 function getEnvString(name, fallbackValue = '') {
   const value = process.env[name];
 
@@ -137,6 +169,66 @@ function uniqueNonEmpty(values) {
 
   return output;
 }
+
+function getCompatibilityTagIds(channelId, compatibility) {
+  const channelTags = COMPATIBILITY_TAGS_BY_CHANNEL_ID[channelId];
+
+  if (!channelTags) {
+    return [];
+  }
+
+  const normalizedCompatibility = normalizeText(compatibility).toLowerCase();
+
+  if (!normalizedCompatibility) {
+    return [];
+  }
+
+  const supportsXboxOne = /\bxbox\s*one\b/.test(normalizedCompatibility);
+  const supportsSeries = (
+    /\bseries\s*s\s*(?:\||\/|\\|&|and)?\s*x\b/.test(normalizedCompatibility) ||
+    /\bseries\s*s\b/.test(normalizedCompatibility) ||
+    /\bseries\s*x\b/.test(normalizedCompatibility)
+  );
+
+  const tagIds = [];
+
+  if (supportsSeries || supportsXboxOne) {
+    tagIds.push(channelTags.series);
+  }
+
+  if (supportsXboxOne) {
+    tagIds.push(channelTags.xboxOne);
+  }
+
+  return uniqueNonEmpty(tagIds);
+}
+
+function buildContentHashPayload(channelId, title, content, appliedTags) {
+  const payload = {
+    channelId,
+    title,
+    content,
+  };
+
+  if (appliedTags.length) {
+    payload.appliedTags = appliedTags;
+  }
+
+  return payload;
+}
+
+function applyStoredTagsToRegistryEntry(entry, appliedTags) {
+  if (appliedTags.length) {
+    return {
+      ...entry,
+      appliedTags,
+    };
+  }
+
+  const { appliedTags: removedAppliedTags, ...entryWithoutTags } = entry;
+  return entryWithoutTags;
+}
+
 
 function stableStringify(value) {
   if (Array.isArray(value)) {
@@ -594,8 +686,8 @@ async function discordApiRequest(method, endpoint, body, token) {
   throw new Error(`${method} ${endpoint} failed after ${MAX_DISCORD_ATTEMPTS} attempts.`);
 }
 
-async function createForumPost(token, channelId, title, content, autoArchiveDuration) {
-  const response = await discordApiRequest('POST', `/channels/${channelId}/threads`, {
+async function createForumPost(token, channelId, title, content, autoArchiveDuration, appliedTags) {
+  const payload = {
     name: title,
     auto_archive_duration: autoArchiveDuration,
     message: {
@@ -604,7 +696,13 @@ async function createForumPost(token, channelId, title, content, autoArchiveDura
         parse: [],
       },
     },
-  }, token);
+  };
+
+  if (appliedTags.length) {
+    payload.applied_tags = appliedTags;
+  }
+
+  const response = await discordApiRequest('POST', `/channels/${channelId}/threads`, payload, token);
 
   const threadId = normalizeText(response?.id);
   const messageId = normalizeText(response?.message?.id);
@@ -629,8 +727,22 @@ async function unarchiveThread(token, threadId) {
   }
 }
 
-async function editForumPost(token, threadId, messageId, content) {
+async function updateThreadTags(token, threadId, appliedTags) {
+  try {
+    await discordApiRequest('PATCH', `/channels/${threadId}`, {
+      applied_tags: appliedTags,
+    }, token);
+  } catch (error) {
+    console.log(`Could not update thread tags for ${threadId}: ${error.message}`);
+  }
+}
+
+async function editForumPost(token, threadId, messageId, content, appliedTags, shouldUpdateTags) {
   await unarchiveThread(token, threadId);
+
+  if (shouldUpdateTags) {
+    await updateThreadTags(token, threadId, appliedTags);
+  }
 
   await discordApiRequest('PATCH', `/channels/${threadId}/messages/${messageId}`, {
     content,
@@ -645,12 +757,11 @@ async function syncProduct({ token, registry, manifest, item, autoArchiveDuratio
   const manifestEntry = manifest[normalizeText(product.app_id)] || manifest[normalizeText(product.id)] || null;
   const rawContent = buildProductContent(product, manifestEntry);
   const content = truncateDiscordContent(rawContent, product);
-  const contentHash = hashValue({
-    channelId: source.channelId,
-    title: buildForumTitle(product),
-    content,
-  });
+  const title = buildForumTitle(product);
+  const appliedTags = getCompatibilityTagIds(source.channelId, product.compatibility);
+  const contentHash = hashValue(buildContentHashPayload(source.channelId, title, content, appliedTags));
   const existing = normalizeRegistryEntry(registry.posts[key]);
+  const shouldUpdateTags = appliedTags.length > 0 || Array.isArray(existing?.appliedTags);
 
   if (existing && existing.contentHash === contentHash && existing.channelId === source.channelId) {
     console.log(`Unchanged: ${key}`);
@@ -670,12 +781,13 @@ async function syncProduct({ token, registry, manifest, item, autoArchiveDuratio
     const created = await createForumPost(
       token,
       source.channelId,
-      buildForumTitle(product),
+      title,
       content,
-      autoArchiveDuration
+      autoArchiveDuration,
+      appliedTags
     );
 
-    registry.posts[key] = {
+    registry.posts[key] = applyStoredTagsToRegistryEntry({
       key,
       productId: normalizeText(product.id),
       appId: normalizeText(product.app_id),
@@ -687,7 +799,7 @@ async function syncProduct({ token, registry, manifest, item, autoArchiveDuratio
       messageId: created.messageId,
       contentHash,
       updatedAt: new Date().toISOString(),
-    };
+    }, appliedTags);
 
     console.log(`Created: ${key} -> thread ${created.threadId}`);
     return true;
@@ -698,9 +810,9 @@ async function syncProduct({ token, registry, manifest, item, autoArchiveDuratio
     return false;
   }
 
-  await editForumPost(token, existing.threadId, existing.messageId, content);
+  await editForumPost(token, existing.threadId, existing.messageId, content, appliedTags, shouldUpdateTags);
 
-  registry.posts[key] = {
+  registry.posts[key] = applyStoredTagsToRegistryEntry({
     ...existing,
     key,
     productId: normalizeText(product.id),
@@ -711,7 +823,7 @@ async function syncProduct({ token, registry, manifest, item, autoArchiveDuratio
     channelId: source.channelId,
     contentHash,
     updatedAt: new Date().toISOString(),
-  };
+  }, appliedTags);
 
   console.log(`Edited: ${key} -> thread ${existing.threadId}`);
   return true;
