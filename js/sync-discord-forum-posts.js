@@ -424,7 +424,6 @@ function buildProductContent(product, manifestEntry) {
     : {};
 
   const description = stripUnsafeDiscordFormatting(product.description);
-  const compatibility = stripUnsafeDiscordFormatting(product.compatibility);
   const creditLines = [
     formatDeveloperLine(contributors.developers),
     formatContributorLine('UWP Port by', contributors.porters),
@@ -443,22 +442,15 @@ function buildProductContent(product, manifestEntry) {
       '',
     ]
     : [];
-  const compatibilitySection = compatibility
-    ? [
-      `**Compatibility:** ${compatibility}`,
-      '',
-    ]
-    : [];
   const requirementsSection = formatOptionalBulletSection('Requirements', product.requirements);
   const featureSection = formatOptionalBulletSection('Features', product.features);
   const links = buildLinksSection(product, manifestEntry);
 
   return [
-    ...creditsSection,
     ...descriptionSection,
-    ...compatibilitySection,
     ...requirementsSection,
     ...featureSection,
+    ...creditsSection,
     '🔗 **Links**',
     links,
   ].join('\n');
