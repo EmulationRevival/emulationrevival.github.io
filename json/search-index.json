@@ -469,10 +469,10 @@
     "category": "Ports"
   },
   {
-    "name": "Dusk UWP",
-    "description": "Dusk, a Decompilation Port of Zelda: Twilight Princess",
-    "img": "/xbox-dev-mode/images/game-ports/dusk-uwp.webp",
-    "url": "/xbox-dev-mode/ports.html#dusk-uwp",
+    "name": "Dusklight UWP",
+    "description": "Dusklight, a Decompilation Port of Zelda: Twilight Princess",
+    "img": "/xbox-dev-mode/images/game-ports/dusklight.webp",
+    "url": "/xbox-dev-mode/ports.html#dusklight-uwp",
     "category": "Ports"
   },
   {
