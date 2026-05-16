@@ -1712,7 +1712,7 @@
   category: "Ports"
   page_url: "/xbox-dev-mode/ports.html#dusklight-uwp"
   preview_url: "/previews/ports-dusklight-uwp.html"
-  compatibility: "Xbox One & Series S|X"
+  compatibility: "Xbox Series S|X"
   requirements:
     - "GameCube Twilight Princess EU/USA Dump"
   features: []
