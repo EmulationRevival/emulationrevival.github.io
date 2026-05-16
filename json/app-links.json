@@ -239,17 +239,17 @@
   },
   "ppsspp": {
     "name": "PPSSPP",
-    "version": "1.20.3",
-    "releaseDate": "2026-03-15",
+    "version": "1.20.4",
+    "releaseDate": "2026-05-16",
     "firstReleaseDate": "2014-02-15",
     "assets": [
       {
         "id": "ppsspp",
-        "url": "https://www.ppsspp.org/files/1_20_3/ppsspp_uwp.zip"
+        "url": "https://www.ppsspp.org/files/1_20_4/ppsspp_uwp.zip"
       }
     ],
-    "releaseNotesUrl": "https://github.com/hrydgard/ppsspp/releases/tag/v1.20.3",
-    "releaseTag": "v1.20.3"
+    "releaseNotesUrl": "https://github.com/hrydgard/ppsspp/releases/tag/v1.20.4",
+    "releaseTag": "v1.20.4"
   },
   "supermodel": {
     "name": "Supermodel",
