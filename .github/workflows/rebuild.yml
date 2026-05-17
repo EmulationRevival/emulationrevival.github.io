@@ -46,6 +46,9 @@ jobs:
       - name: Update Data Version
         run: node js/update-version.js
 
+      - name: Validate Site Data
+        run: node js/validate-site-data.js
+
       - name: Commit and Push Changes
         run: |
           git config --global user.name "github-actions[bot]"
@@ -56,7 +59,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "No build changes to commit."
           else
-            git commit -m "Automated update: Build links, search index and preview pages"
+            git commit -m "Automated update: Build links, release data, search index and preview pages"
             git push
           fi
 
