@@ -1,19 +1,23 @@
+import { resolveVersionedUrl } from './data-version.js';
+
 let searchIndexCache = null;
 let searchIndexPromise = null;
 let searchIndexPathCache = null;
 
 export async function loadSearchIndex(indexPath = '/json/search-index.json') {
-  if (searchIndexCache && searchIndexPathCache === indexPath) {
+  const requestPath = await resolveVersionedUrl(indexPath);
+
+  if (searchIndexCache && searchIndexPathCache === requestPath) {
     return searchIndexCache;
   }
 
-  if (searchIndexPromise && searchIndexPathCache === indexPath) {
+  if (searchIndexPromise && searchIndexPathCache === requestPath) {
     return searchIndexPromise;
   }
 
-  searchIndexPathCache = indexPath;
+  searchIndexPathCache = requestPath;
 
-  searchIndexPromise = fetch(indexPath, { credentials: 'same-origin' })
+  searchIndexPromise = fetch(requestPath, { credentials: 'same-origin' })
     .then(response => {
       if (!response.ok) {
         throw new Error(`Index fetch failed: ${response.status} ${response.statusText}`);

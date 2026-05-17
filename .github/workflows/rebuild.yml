@@ -40,6 +40,9 @@ jobs:
       - name: Run Build Previews Script
         run: node js/build-previews.js
 
+      - name: Update Data Version
+        run: node js/update-version.js
+
       - name: Commit and Push Changes
         run: |
           git config --global user.name "github-actions[bot]"

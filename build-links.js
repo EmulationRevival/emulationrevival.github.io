@@ -9,7 +9,6 @@ const GITHUB_PAT = process.env.GITHUB_PAT;
 const MANIFEST_FILE = path.join('json', 'devmode.manifest.json');
 const OUTPUT_DIR = 'json';
 const OUTPUT_FILE = path.join(OUTPUT_DIR, 'app-links.json');
-const VERSION_FILE = path.join(OUTPUT_DIR, 'version.json');
 
 const FETCH_TIMEOUT_MS = 15000;
 const RETRY_ATTEMPTS = 2;
@@ -1503,7 +1502,7 @@ async function main() {
         const nextCanonicalString = stableStringify(finalJsonOutput);
 
         if (previousCanonicalString === nextCanonicalString) {
-            console.log(`\n\nℹ️ No data changes detected. Skipping writes to: ${OUTPUT_FILE} and ${VERSION_FILE}`);
+            console.log(`\n\nℹ️ No data changes detected. Skipping write to: ${OUTPUT_FILE}`);
             summary.filesWritten = false;
             printSummary(summary);
             return;
@@ -1511,19 +1510,9 @@ async function main() {
 
         writeFileAtomic(OUTPUT_FILE, nextCanonicalString);
 
-        const versionData = {
-            version: Date.now()
-        };
-
-        writeFileAtomic(
-            VERSION_FILE,
-            `${JSON.stringify(versionData)}\n`
-        );
-
         summary.filesWritten = true;
 
         console.log(`\n\n🚀 Updated data file: ${OUTPUT_FILE}`);
-        console.log(`🚀 Updated cache-busting version file: ${VERSION_FILE}`);
 
         printSummary(summary);
     } catch (error) {

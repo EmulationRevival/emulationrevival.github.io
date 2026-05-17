@@ -1,8 +1,8 @@
 import { scheduleTask, createFocusTrap } from './ui-utils.js';
+import { fetchVersionedJson } from './data-version.js';
 
 const C = {
   URL: {
-    VERSION: '/json/version.json',
     APP_LINKS: '/json/app-links.json',
   },
 
@@ -620,16 +620,10 @@ function hydrateCards(data) {
 async function fetchAppData({ rerender = true } = {}) {
   if (state.dataPromise) return state.dataPromise;
 
-  state.dataPromise = fetch(C.URL.VERSION, { cache: 'no-store' })
-    .then(r => {
-      if (!r.ok) throw new Error('Version fetch failed');
-      return r.json();
-    })
-    .then(v => fetch(`${C.URL.APP_LINKS}?v=${v.version}`))
-    .then(r => {
-      if (!r.ok) throw new Error(`HTTP ${r.status}`);
-      return r.json();
-    })
+  state.dataPromise = fetchVersionedJson(C.URL.APP_LINKS, {
+    errorLabel: 'app-links.json',
+    validate: data => data && typeof data === 'object' && !Array.isArray(data),
+  })
     .then(data => {
       preprocessAppData(data);
       hydrateCards(data);

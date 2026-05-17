@@ -1,3 +1,6 @@
+import { fetchVersionedJson } from './data-version.js';
+import { loadSearchIndex } from './search-utils.js';
+
 const IDS = {
   UPCOMING_GRID: 'coming-soon-grid',
   UPCOMING_SECTION: 'coming-soon-section',
@@ -9,7 +12,6 @@ const IDS = {
 
 const CONFIG = {
   SEARCH_INDEX_PATH: '/json/search-index.json',
-  VERSION_PATH: '/json/version.json',
   APP_LINKS_PATH: '/json/app-links.json',
   IMAGE_FALLBACK: '/images/fallback.png',
   RECENT_WINDOW_MS: 30 * 24 * 60 * 60 * 1000,
@@ -33,14 +35,6 @@ const state = {
 
 function normalizeName(str) {
   return (str || '').toLowerCase().trim();
-}
-
-function buildFetchUrls() {
-  const cacheBust = Date.now();
-  return {
-    searchIndexUrl: `${CONFIG.SEARCH_INDEX_PATH}?cb=${cacheBust}`,
-    versionUrl: `${CONFIG.VERSION_PATH}?cb=${cacheBust}`,
-  };
 }
 
 function formatReleaseDate(timestamp) {
@@ -109,28 +103,13 @@ function createHomepageCard(app, { isUpcoming = false } = {}) {
 }
 
 async function fetchHomepageData() {
-  const { searchIndexUrl, versionUrl } = buildFetchUrls();
-  const fetchOpts = { cache: 'no-store' };
-
-  const searchIndexPromise = fetch(searchIndexUrl, fetchOpts).then(res => {
-    if (!res.ok) throw new Error('Could not fetch search index');
-    return res.json();
-  });
-
-  const versionData = await fetch(versionUrl, fetchOpts).then(res => {
-    if (!res.ok) throw new Error('Could not fetch version.json');
-    return res.json();
-  });
-
-  const appLinksPromise = fetch(
-    `${CONFIG.APP_LINKS_PATH}?v=${versionData.version}`,
-    fetchOpts
-  ).then(res => {
-    if (!res.ok) throw new Error('Could not fetch app-links.json');
-    return res.json();
-  });
-
-  const [searchIndex, appData] = await Promise.all([searchIndexPromise, appLinksPromise]);
+  const [searchIndex, appData] = await Promise.all([
+    loadSearchIndex(CONFIG.SEARCH_INDEX_PATH),
+    fetchVersionedJson(CONFIG.APP_LINKS_PATH, {
+      errorLabel: 'app-links.json',
+      validate: data => data && typeof data === 'object' && !Array.isArray(data),
+    }),
+  ]);
 
   return { searchIndex, appData };
 }
