@@ -1,3 +1,6 @@
+{%- assign release = site.data.release_data[include.card.app_id] -%}
+{%- assign release_asset_map = release.assetMap -%}
+
 <div class="card" id="{{ include.card.id }}">
     <a
         href="{{ include.card.preview_url | default: include.card.page_url }}"
@@ -20,12 +23,30 @@
 
     <div class="card-modal-content" data-modal-id="{{ include.card.id }}" style="display: none;">
         <ul class="info-list">
+            {%- if release.version and release.version != '' and release.version != 'Unknown' -%}
+            <li class="app-version" data-app-id="{{ include.card.app_id }}">
+                <strong>Version:</strong> <span class="val">{{ release.version }}</span>
+            </li>
+            {%- else -%}
             <li class="app-version" data-app-id="{{ include.card.app_id }}">
                 <strong>Version:</strong> <span class="val">Checking...</span>
             </li>
+            {%- endif -%}
+
+            {%- if release.releaseDate and release.releaseDate != '' and release.releaseDate != 'Unknown' -%}
+            <li class="app-release-date" data-app-id="{{ include.card.app_id }}">
+                <strong>Release date:</strong>
+                <span class="val">
+                    <time class="release-date" datetime="{{ release.releaseDate }}">
+                        {{ release.releaseDate | date: "%B %-d, %Y" }}
+                    </time>
+                </span>
+            </li>
+            {%- else -%}
             <li class="app-release-date" data-app-id="{{ include.card.app_id }}">
                 <strong>Release date:</strong> <span class="val">Checking...</span>
             </li>
+            {%- endif -%}
 
             {%- assign developers = include.card.contributors.developers | default: empty -%}
             {%- if developers.size > 0 -%}
@@ -106,9 +127,11 @@
                 <summary class="btn btn-primary">Download ▼</summary>
                 <ul class="dropdown-menu">
                     {%- for download in downloads -%}
+                    {%- assign asset_id = download.asset_id -%}
+                    {%- assign asset_url = release_asset_map[asset_id] | default: '#' -%}
                     <li>
                         <a
-                            href="#"
+                            href="{{ asset_url }}"
                             class="download-link"
                             data-app-id="{{ include.card.app_id }}"
                             data-asset-id="{{ download.asset_id }}"
@@ -118,8 +141,11 @@
                 </ul>
             </details>
             {%- elsif downloads.size == 1 -%}
+            {%- assign primary_download = downloads[0] -%}
+            {%- assign asset_id = primary_download.asset_id -%}
+            {%- assign asset_url = release_asset_map[asset_id] | default: '#' -%}
             <a
-                href="#"
+                href="{{ asset_url }}"
                 class="btn btn-primary download-link"
                 data-app-id="{{ include.card.app_id }}"
                 data-asset-id="{{ downloads[0].asset_id }}"
