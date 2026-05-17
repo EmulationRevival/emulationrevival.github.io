@@ -37,7 +37,11 @@
             <li class="app-release-date" data-app-id="{{ include.card.app_id }}">
                 <strong>Release date:</strong>
                 <span class="val">
-                    <time class="release-date" datetime="{{ release.releaseDate }}">
+                    <time
+                        class="release-date"
+                        datetime="{{ release.releaseDate }}"
+                        data-first-release-date="{% if release.firstReleaseDate and release.firstReleaseDate != '' and release.firstReleaseDate != 'Unknown' %}{{ release.firstReleaseDate }}{% else %}{{ release.releaseDate }}{% endif %}"
+                    >
                         {{ release.releaseDate | date: "%B %-d, %Y" }}
                     </time>
                 </span>

@@ -1,11 +1,6 @@
 import { scheduleTask, createFocusTrap } from './ui-utils.js';
-import { fetchVersionedJson } from './data-version.js';
 
 const C = {
-  URL: {
-    APP_LINKS: '/json/app-links.json',
-  },
-
   SEL: {
     CARD: '.card',
     CARD_GRID: '.card-grid',
@@ -58,6 +53,7 @@ const C = {
     MODAL_TRIGGER: 'modalTrigger',
     MODAL_ID: 'modalId',
     SORT_DIRECTION_LABEL: 'sortDirectionLabel',
+    FIRST_RELEASE_DATE: 'firstReleaseDate',
   },
 
   CLASSES: {
@@ -97,13 +93,13 @@ const C = {
   },
 
   TXT: {
-    UNKNOWN: 'Unknown',
     DL_PREFIX: 'Download',
     EMPTY: 'No cards available.',
     COMING_SOON: 'Coming Soon',
     NEW_RELEASE: 'New Release',
     NEW_UPDATE: 'New Update',
     UPCOMING_ALERT: 'This item is not available yet.',
+    LINK_NOT_FOUND: 'Link not found.',
     SORT_DIRECTION_ASC: 'Sort ascending',
     SORT_DIRECTION_DESC: 'Sort descending',
     SORT_DIRECTION_ASC_SHORT: 'Ascending',
@@ -129,10 +125,6 @@ const C = {
 
 function normalizeText(str = '') {
   return str.toLowerCase().trim();
-}
-
-function sortNeedsHydratedDates(sortField) {
-  return sortField === C.SORT_FIELDS.RELEASE_DATE;
 }
 
 function isValidSortField(value) {
@@ -195,8 +187,55 @@ function mapLegacySortType(sortType) {
   };
 }
 
+function parseDateMs(value) {
+  if (typeof value !== 'string' || !value.trim()) {
+    return 0;
+  }
+
+  const parsedMs = Date.parse(value);
+  return Number.isFinite(parsedMs) ? parsedMs : 0;
+}
+
+function getStaticCardDates(card) {
+  const timeEl = card.querySelector(C.SEL.RELEASE_DATE);
+  const releaseMs = parseDateMs(timeEl?.dateTime || timeEl?.getAttribute('datetime') || '');
+  const firstReleaseMs = parseDateMs(timeEl?.dataset?.[C.DATASET.FIRST_RELEASE_DATE] || '');
+
+  return {
+    releaseMs,
+    firstReleaseMs: firstReleaseMs || releaseMs,
+  };
+}
+
+function getStaticReleaseState(releaseMs, firstReleaseMs) {
+  if (!Number.isFinite(releaseMs) || releaseMs <= 0) {
+    return C.RELEASE_STATE.LIVE;
+  }
+
+  const now = Date.now();
+
+  if (releaseMs > now) {
+    return C.RELEASE_STATE.UPCOMING;
+  }
+
+  const firstDiff = Number.isFinite(firstReleaseMs) && firstReleaseMs > 0
+    ? now - firstReleaseMs
+    : NaN;
+
+  const releaseDiff = now - releaseMs;
+
+  if (Number.isFinite(firstDiff) && firstDiff >= 0 && firstDiff < C.THIRTY_DAYS_MS) {
+    return C.RELEASE_STATE.NEW_RELEASE;
+  }
+
+  if (releaseDiff >= 0 && releaseDiff < C.THIRTY_DAYS_MS) {
+    return C.RELEASE_STATE.RECENT_UPDATE;
+  }
+
+  return C.RELEASE_STATE.LIVE;
+}
+
 const state = {
-  dataPromise: null,
   lastOpenedCardTrigger: null,
   activePopover: null,
   parsedCardsData: [],
@@ -207,15 +246,7 @@ const state = {
 
 const domMeta = new WeakMap();
 const modalContentMap = new Map();
-const cardMap = new Map();
 const modalTrap = createFocusTrap();
-
-const dateFormatter = new Intl.DateTimeFormat('en-US', {
-  timeZone: 'UTC',
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-});
 
 const dom = {
   cards: Array.from(document.querySelectorAll(C.SEL.CARD)),
@@ -257,7 +288,8 @@ function bindStaticDom() {
     const imgContainer = card.querySelector(C.SEL.IMG_CONTAINER);
     const modalContent = card.querySelector(C.SEL.CARD_MODAL_CONTENT);
     const infoList = modalContent?.querySelector(C.SEL.INFO_LIST);
-    const versionEl = card.querySelector(C.SEL.VERSION);
+    const { releaseMs, firstReleaseMs } = getStaticCardDates(card);
+    const releaseState = getStaticReleaseState(releaseMs, firstReleaseMs);
 
     domMeta.set(card, {
       titleEl,
@@ -268,18 +300,11 @@ function bindStaticDom() {
       hasNewReleaseBadge: false,
       hasNewUpdateBadge: false,
       titleText: normalizeText(titleEl?.textContent || ''),
-      dateMs: 0,
-      firstReleaseMs: 0,
+      dateMs: releaseMs,
+      firstReleaseMs,
       compatibilityText: normalizeText(infoList?.textContent || ''),
-      releaseState: C.RELEASE_STATE.LIVE,
+      releaseState,
     });
-
-    if (versionEl) {
-      const appId = versionEl.getAttribute(C.ATTR.APP);
-      if (appId) {
-        cardMap.set(appId, card);
-      }
-    }
 
     if (modalContent) {
       const modalId = modalContent.dataset[C.DATASET.MODAL_ID];
@@ -305,32 +330,15 @@ function bindStaticDom() {
       originalText: btn.textContent.trim(),
     });
   });
-}
 
-function preprocessAppData(data) {
-  for (const app of Object.values(data)) {
-    if (app.assets) {
-      const assetMap = {};
-      for (const asset of app.assets) {
-        assetMap[asset.id] = asset;
-      }
-      app._assetMap = assetMap;
-    }
+  dom.cards.forEach(card => {
+    const meta = domMeta.get(card);
+    if (!meta) return;
 
-    if (app.releaseDate && app.releaseDate !== C.TXT.UNKNOWN) {
-      const parsedMs = Date.parse(app.releaseDate);
-      if (Number.isFinite(parsedMs)) {
-        app._releaseMs = parsedMs;
-      }
-    }
-
-    if (app.firstReleaseDate && app.firstReleaseDate !== C.TXT.UNKNOWN) {
-      const parsedFirstReleaseMs = Date.parse(app.firstReleaseDate);
-      if (Number.isFinite(parsedFirstReleaseMs)) {
-        app._firstReleaseMs = parsedFirstReleaseMs;
-      }
-    }
-  }
+    setCardReleaseState(card, meta.releaseState);
+    syncCardBadgeState(card);
+    syncCardActionState(card);
+  });
 }
 
 function setCardReleaseState(card, releaseState) {
@@ -393,6 +401,36 @@ function removeNewUpdateBadge(cardMeta) {
   const badge = cardMeta.imgContainer.querySelector(`.${C.CLASSES.NEW_UPDATE_BADGE}`);
   badge?.remove();
   cardMeta.hasNewUpdateBadge = false;
+}
+
+function syncCardBadgeState(card) {
+  const cardMeta = domMeta.get(card);
+  if (!cardMeta) return;
+
+  if (cardMeta.releaseState === C.RELEASE_STATE.UPCOMING) {
+    ensureComingSoonBadge(cardMeta);
+    removeNewReleaseBadge(cardMeta);
+    removeNewUpdateBadge(cardMeta);
+    return;
+  }
+
+  if (cardMeta.releaseState === C.RELEASE_STATE.NEW_RELEASE) {
+    removeComingSoonBadge(cardMeta);
+    ensureNewReleaseBadge(cardMeta);
+    removeNewUpdateBadge(cardMeta);
+    return;
+  }
+
+  if (cardMeta.releaseState === C.RELEASE_STATE.RECENT_UPDATE) {
+    removeComingSoonBadge(cardMeta);
+    removeNewReleaseBadge(cardMeta);
+    ensureNewUpdateBadge(cardMeta);
+    return;
+  }
+
+  removeComingSoonBadge(cardMeta);
+  removeNewReleaseBadge(cardMeta);
+  removeNewUpdateBadge(cardMeta);
 }
 
 function setButtonUpcomingState(btn, isUpcoming) {
@@ -533,115 +571,6 @@ function syncModalActionState() {
       dropdown.removeAttribute('open');
     }
   });
-}
-
-function hydrateCards(data) {
-  if (!data) return;
-
-  const now = Date.now();
-
-  dom.versions.forEach(el => {
-    const appId = el.getAttribute(C.ATTR.APP);
-    const info = data[appId];
-    if (!info) return;
-
-    const meta = domMeta.get(el);
-    if (info.version && info.version !== C.TXT.UNKNOWN) {
-      if (meta?.valEl) {
-        meta.valEl.textContent = info.version;
-      }
-    } else {
-      el.style.display = 'none';
-    }
-  });
-
-  dom.dates.forEach(el => {
-    const appId = el.getAttribute(C.ATTR.APP);
-    const info = data[appId];
-    if (!info) return;
-
-    const ms = info._releaseMs;
-    const firstReleaseMs = info._firstReleaseMs;
-    const meta = domMeta.get(el);
-
-    if (Number.isFinite(ms)) {
-      if (meta?.valEl) {
-        const time = document.createElement('time');
-        time.className = 'release-date';
-        time.dateTime = info.releaseDate;
-        time.textContent = dateFormatter.format(ms);
-        meta.valEl.replaceChildren(time);
-      }
-
-      const card = cardMap.get(appId);
-      if (card) {
-        const cardMeta = domMeta.get(card);
-        if (cardMeta) {
-          cardMeta.dateMs = ms;
-          cardMeta.firstReleaseMs = Number.isFinite(firstReleaseMs) ? firstReleaseMs : 0;
-
-          const isUpcoming = ms > now;
-          const timeDiff = now - ms;
-          const firstReleaseDiff = Number.isFinite(firstReleaseMs) ? now - firstReleaseMs : NaN;
-          const isNewRelease = Number.isFinite(firstReleaseDiff) && firstReleaseDiff >= 0 && firstReleaseDiff < C.THIRTY_DAYS_MS;
-          const isRecentUpdate = !isNewRelease && timeDiff >= 0 && timeDiff < C.THIRTY_DAYS_MS;
-
-          if (isUpcoming) {
-            setCardReleaseState(card, C.RELEASE_STATE.UPCOMING);
-            ensureComingSoonBadge(cardMeta);
-            removeNewReleaseBadge(cardMeta);
-            removeNewUpdateBadge(cardMeta);
-          } else if (isNewRelease) {
-            setCardReleaseState(card, C.RELEASE_STATE.NEW_RELEASE);
-            removeComingSoonBadge(cardMeta);
-            ensureNewReleaseBadge(cardMeta);
-            removeNewUpdateBadge(cardMeta);
-          } else if (isRecentUpdate) {
-            setCardReleaseState(card, C.RELEASE_STATE.RECENT_UPDATE);
-            removeComingSoonBadge(cardMeta);
-            removeNewReleaseBadge(cardMeta);
-            ensureNewUpdateBadge(cardMeta);
-          } else {
-            setCardReleaseState(card, C.RELEASE_STATE.LIVE);
-            removeComingSoonBadge(cardMeta);
-            removeNewReleaseBadge(cardMeta);
-            removeNewUpdateBadge(cardMeta);
-          }
-
-          syncCardActionState(card);
-        }
-      }
-    } else {
-      el.style.display = 'none';
-    }
-  });
-}
-
-async function fetchAppData({ rerender = true } = {}) {
-  if (state.dataPromise) return state.dataPromise;
-
-  state.dataPromise = fetchVersionedJson(C.URL.APP_LINKS, {
-    errorLabel: 'app-links.json',
-    validate: data => data && typeof data === 'object' && !Array.isArray(data),
-  })
-    .then(data => {
-      preprocessAppData(data);
-      hydrateCards(data);
-      rebuildParsedCardsData();
-
-      if (rerender) {
-        handleSortAndFilter();
-      }
-
-      return data;
-    })
-    .catch(err => {
-      console.error('FATAL AppData:', err);
-      state.dataPromise = null;
-      return null;
-    });
-
-  return state.dataPromise;
 }
 
 function rebuildParsedCardsData() {
@@ -962,7 +891,7 @@ function resolveUrlType(url) {
   }
 }
 
-async function handleDownloadClick(btn) {
+function handleDownloadClick(btn) {
   if (!domMeta.has(btn)) {
     domMeta.set(btn, {
       card: btn.closest(C.SEL.CARD),
@@ -973,8 +902,6 @@ async function handleDownloadClick(btn) {
   }
 
   const meta = domMeta.get(btn);
-  if (meta.loading) return;
-
   const card = meta.card || btn.closest(C.SEL.CARD);
   const cardMeta = card ? domMeta.get(card) : null;
 
@@ -983,33 +910,13 @@ async function handleDownloadClick(btn) {
     return;
   }
 
-  const appId = btn.getAttribute(C.ATTR.APP);
-  const assetId = btn.getAttribute(C.ATTR.ASSET);
-  if (!appId || !assetId) {
-    console.error('Missing attributes', btn);
+  const href = btn.getAttribute('href');
+  if (!href || href === '#') {
+    alert(C.TXT.LINK_NOT_FOUND);
     return;
   }
 
-  meta.loading = true;
-  btn.dataset.loading = '1';
-
-  const data = await fetchAppData({ rerender: false });
-
-  meta.loading = false;
-  btn.removeAttribute('data-loading');
-
-  if (!data) {
-    alert('Load failed.');
-    return;
-  }
-
-  const url = data[appId]?._assetMap?.[assetId]?.url;
-  if (!url) {
-    alert('Link not found.');
-    return;
-  }
-
-  const resolvedUrl = resolveUrlType(url);
+  const resolvedUrl = resolveUrlType(href);
 
   if (resolvedUrl.isFile || resolvedUrl.isInternalPage) {
     window.location.assign(resolvedUrl.href);
@@ -1029,12 +936,13 @@ function handleDocumentClick(event) {
 
   const downloadBtn = target.closest(C.SEL.BTN);
   if (downloadBtn) {
+    event.preventDefault();
+
     if (downloadBtn.classList.contains(C.CLASSES.UPCOMING_ACTION)) {
-      event.preventDefault();
+      alert(C.TXT.UPCOMING_ALERT);
       return;
     }
 
-    event.preventDefault();
     handleDownloadClick(downloadBtn);
     return;
   }
@@ -1124,26 +1032,7 @@ function init() {
   scheduleTask(initAriaLabels);
 
   rebuildParsedCardsData();
-
-  if (sortNeedsHydratedDates(state.sortField)) {
-    if (dom.cardGrid) {
-      dom.cardGrid.style.visibility = 'hidden';
-    }
-
-    fetchAppData({ rerender: true }).finally(() => {
-      if (dom.cardGrid) {
-        dom.cardGrid.style.visibility = '';
-      }
-
-      if (!state.dataPromise) {
-        rebuildParsedCardsData();
-        handleSortAndFilter();
-      }
-    });
-  } else {
-    handleSortAndFilter();
-    fetchAppData({ rerender: false });
-  }
+  handleSortAndFilter();
 }
 
 init();
