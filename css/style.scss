@@ -1,17 +1,17 @@
 ---
 ---
-@use 'base/reset';
-@use 'base/variables';
-@use 'base/typography';
-@use 'base/markdown';
-@use 'layout/header';
-@use 'layout/footer';
-@use 'layout/main-content';
-@use 'components/buttons';
-@use 'components/card';
-@use 'components/search-bar';
-@use 'components/forms';
-@use 'utilities/helpers';
+@import 'base/reset';
+@import 'base/variables';
+@import 'base/typography';
+@import 'base/markdown';
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/main-content';
+@import 'components/buttons';
+@import 'components/card';
+@import 'components/search-bar';
+@import 'components/forms';
+@import 'utilities/helpers';
 
 @font-face {
   font-family: 'Oxanium';
