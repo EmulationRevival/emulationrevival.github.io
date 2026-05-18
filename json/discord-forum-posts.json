@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-05-18T15:06:45.026Z",
+  "updatedAt": "2026-05-18T15:16:10.726Z",
   "posts": {
     "emulators:retroarch-3ds": {
       "key": "emulators:retroarch-3ds",
@@ -1239,7 +1239,7 @@
       "contentHash": "52f05e480e5be6a2451fb604c728100a87b3d29266d2b88142a52b46e99fd97f",
       "updatedAt": "2026-05-13T20:48:21.009Z",
       "missingFromYaml": true,
-      "missingCheckedAt": "2026-05-18T15:06:45.026Z"
+      "missingCheckedAt": "2026-05-18T15:16:10.726Z"
     },
     "apps:discorduwp": {
       "key": "apps:discorduwp",
@@ -1492,14 +1492,14 @@
       "key": "ports:super-mario-world-remastered-plus",
       "productId": "super-mario-world-remastered-plus",
       "appId": "superMarioWorldRemasteredPlus",
-      "title": "Super Mario World Remastered Plus",
+      "title": "Super Mario World Remastered +",
       "source": "ports",
       "sourceLabel": "Game Ports",
       "channelId": "1504200374716989551",
       "threadId": "1505949770571845755",
       "messageId": "1505949770571845755",
-      "contentHash": "4c9c2c2275f7b3d639127c3c4da348c5df6f310e21ed4ee6dbaab279ab63abf5",
-      "updatedAt": "2026-05-18T15:06:44.764Z",
+      "contentHash": "64e87681f124815fe3a3c1ee42cc961ec2f97b5c3681d1d5cdf9370af02b878e",
+      "updatedAt": "2026-05-18T15:16:10.724Z",
       "appliedTags": [
         "1504526316693622844"
       ]
