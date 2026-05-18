@@ -1,0 +1,26 @@
+{
+  "name": "emulationrevival.github.io",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Build utilities for the Emulation Revival static site.",
+  "scripts": {
+    "build:links": "node build-links.js",
+    "build:release-data": "node js/build-release-data.js",
+    "build:index": "node js/build-index.js",
+    "build:previews": "node js/build-previews.js",
+    "build:version": "node js/update-version.js",
+    "validate": "node js/validate-site-data.js",
+    "post:discord": "node js/post-discord-updates.js /tmp/app-links.previous.json json/app-links.json json/search-index.json",
+    "sync:forum": "node js/sync-discord-forum-posts.js"
+  },
+  "engines": {
+    "node": "24.15.0",
+    "npm": "11.12.1"
+  },
+  "dependencies": {
+    "cheerio": "1.2.0",
+    "dotenv": "17.4.2",
+    "js-yaml": "4.1.1",
+    "node-fetch": "2.7.0"
+  }
+}

@@ -21,50 +21,28 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: '24'
+          node-version: '24.15.0'
           package-manager-cache: false
 
-      - name: Install Dependencies
-        run: npm install cheerio dotenv node-fetch@2 js-yaml
+      - name: Generate Node Lockfile
+        run: npm install --package-lock-only
 
-      - name: Print Node Dependency Versions
-        run: |
-          echo "Node:"
-          node -v
-
-          echo "npm:"
-          npm -v
-
-          echo "Installed top-level packages:"
-          npm ls --depth=0 || true
-
-          echo "Full npm dependency tree:"
-          npm ls || true
+      - name: Install Node Dependencies From Lockfile
+        run: npm ci
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.3'
+          ruby-version: '3.3.11'
+          bundler-cache: false
 
-      - name: Install Jekyll
-        run: gem install jekyll
-
-      - name: Print Ruby and Jekyll Versions
+      - name: Generate Ruby Lockfile
         run: |
-          echo "Ruby:"
-          ruby -v
+          bundle lock
+          bundle lock --add-platform x86_64-linux
 
-          echo "RubyGems:"
-          gem -v
-
-          echo "Bundler:"
-          bundle -v || true
-
-          echo "Jekyll:"
-          jekyll -v
-
-          echo "Installed Jekyll gems:"
-          gem list jekyll
+      - name: Install Ruby Dependencies From Lockfile
+        run: bundle install
 
       - name: Backup previous app-links
         run: cp json/app-links.json /tmp/app-links.previous.json || echo "{}" > /tmp/app-links.previous.json
@@ -72,37 +50,37 @@ jobs:
       - name: Run Build Links Script
         env:
           GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-        run: node build-links.js
+        run: npm run build:links
 
       - name: Build Jekyll Release Data
-        run: node js/build-release-data.js
+        run: npm run build:release-data
 
       - name: Run Build Index Script
-        run: node js/build-index.js
+        run: npm run build:index
 
       - name: Run Build Previews Script
-        run: node js/build-previews.js
+        run: npm run build:previews
 
       - name: Update Data Version
-        run: node js/update-version.js
+        run: npm run build:version
 
       - name: Build Jekyll Site
-        run: jekyll build
+        run: bundle exec jekyll build
 
       - name: Validate Site Data
-        run: node js/validate-site-data.js
+        run: npm run validate
 
       - name: Commit and Push Changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add json/ previews/ _data/release_data.json
+          git add package-lock.json Gemfile.lock json/ previews/ _data/release_data.json
 
           if git diff --cached --quiet; then
             echo "No build changes to commit."
           else
-            git commit -m "Automated update: Build links, release data, search index and preview pages"
+            git commit -m "Automated update: Lock dependencies and rebuild generated data"
             git push
           fi
 
@@ -113,12 +91,12 @@ jobs:
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
           DISCORD_ROLE_ID: ${{ secrets.DISCORD_ROLE_ID }}
-        run: node js/post-discord-updates.js /tmp/app-links.previous.json json/app-links.json json/search-index.json
+        run: npm run post:discord
 
       - name: Sync Discord Forum Posts
         env:
           DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
-        run: node js/sync-discord-forum-posts.js
+        run: npm run sync:forum
 
       - name: Commit Discord Forum Registry
         run: |
