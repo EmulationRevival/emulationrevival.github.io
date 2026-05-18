@@ -1,5 +1,6 @@
 [
   {
+    "app_id": "retroarch3ds",
     "name": "Retroarch 3DS",
     "description": "An experimental RetroArch build with Citra, Azahar and Panda3ds cores",
     "img": "/xbox-dev-mode/images/emulators/retroarch3ds.webp",
@@ -7,6 +8,7 @@
     "category": "Emulators"
   },
   {
+    "app_id": "dolphin",
     "name": "Dolphin",
     "description": "A GameCube and Wii emulator",
     "img": "/xbox-dev-mode/images/emulators/dolphin.webp",
@@ -14,6 +16,7 @@
     "category": "Emulators"
   },
   {
+    "app_id": "flycast",
     "name": "Flycast",
     "description": "A multiplatform Sega Dreamcast, Naomi, Naomi 2 and Atomiswave emulator",
     "img": "/xbox-dev-mode/images/emulators/flycast.webp",
@@ -21,6 +24,7 @@
     "category": "Emulators"
   },
   {
+    "app_id": "gzdoom",
     "name": "GZDoom",
     "description": "A source port for Doom, Heretic, Hexen, and more",
     "img": "/xbox-dev-mode/images/emulators/gzdoom.webp",
@@ -28,6 +32,7 @@
     "category": "Emulators"
   },
   {
+    "app_id": "ikemen",
     "name": "Ikemen GO",
     "description": "A M.U.G.E.N compatible fighting game engine",
     "img": "/xbox-dev-mode/images/emulators/ikemen_go.webp",
@@ -35,6 +40,7 @@
     "category": "Emulators"
   },
   {
+    "app_id": "openbor",
     "name": "OpenBOR",
     "description": "A 2D side scrolling beat 'em up game engine",
     "img": "/xbox-dev-mode/images/emulators/openbor.webp",
@@ -42,6 +48,7 @@
     "category": "Emulators"
   },
   {
+    "app_id": "ppsspp",
     "name": "PPSSPP",
     "description": "A PSP emulator",
     "img": "/xbox-dev-mode/images/emulators/ppsspp.webp",
@@ -49,6 +56,7 @@
     "category": "Emulators"
   },
   {
+    "app_id": "raze",
     "name": "Raze",
     "description": "A source port for Duke Nukem 3D, Blood, Redneck Rampage, and more",
     "img": "/xbox-dev-mode/images/emulators/raze.webp",
@@ -56,6 +64,7 @@
     "category": "Emulators"
   },
   {
+    "app_id": "retroarch",
     "name": "RetroArch",
     "description": "A multi-system emulator for classic games and consoles",
     "img": "/xbox-dev-mode/images/emulators/retroarch.webp",
@@ -63,6 +72,7 @@
     "category": "Emulators"
   },
   {
+    "app_id": "ruffle",
     "name": "Ruffle",
     "description": "A Flash Player emulator",
     "img": "/xbox-dev-mode/images/emulators/ruffle.webp",
@@ -70,6 +80,7 @@
     "category": "Emulators"
   },
   {
+    "app_id": "supermodel",
     "name": "Sega Model 3",
     "description": "A Sega Model 3 arcade emulator based on Supermodel",
     "img": "/xbox-dev-mode/images/emulators/supermodel.webp",
@@ -77,6 +88,7 @@
     "category": "Emulators"
   },
   {
+    "app_id": "superg",
     "name": "Sega Model 3 G920",
     "description": "A Sega Model 3 arcade emulator based on Supermodel, enhanced with Logitech G920 support",
     "img": "/xbox-dev-mode/images/emulators/supermodel_g920.webp",
@@ -84,6 +96,7 @@
     "category": "Emulators"
   },
   {
+    "app_id": "xbsx2",
     "name": "XBSX2",
     "description": "A Playstation 2 emulator ported from PCSX2",
     "img": "/xbox-dev-mode/images/emulators/xbsx2-v2.webp",
@@ -91,6 +104,7 @@
     "category": "Emulators"
   },
   {
+    "app_id": "xeniaCanary",
     "name": "Xenia Canary",
     "description": "An Xbox 360 emulator now with Blades style UI",
     "img": "/xbox-dev-mode/images/emulators/xenia.webp",
@@ -98,6 +112,7 @@
     "category": "Emulators"
   },
   {
+    "app_id": "castlevania",
     "name": "Castlevania Revamped",
     "description": "The NES classic re-forged into a Metroid-style adventure",
     "img": "/xbox-dev-mode/images/game-ports/castlevania.webp",
@@ -105,6 +120,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "celeste",
     "name": "Celeste Classic",
     "description": "The original challenging PICO-8 platformer that started it all",
     "img": "/xbox-dev-mode/images/game-ports/celeste.webp",
@@ -112,6 +128,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "chrono",
     "name": "Chrono Divide",
     "description": "A fan-made project bringing the classic RTS action of Red Alert 2 to life",
     "img": "/xbox-dev-mode/images/game-ports/chrono.webp",
@@ -119,6 +136,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "darkplaces",
     "name": "Darkplaces",
     "description": "An advanced open-source engine port for the original Quake",
     "img": "/xbox-dev-mode/images/game-ports/darkplaces.webp",
@@ -126,6 +144,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "devilutionx",
     "name": "DevilutionX",
     "description": "A faithful source port of Diablo and its expansion, Hellfire",
     "img": "/xbox-dev-mode/images/game-ports/devilutionx.webp",
@@ -133,6 +152,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "dhewm3",
     "name": "Dhewm 3",
     "description": "A source port of the legendary Doom 3, bringing it to UWP",
     "img": "/xbox-dev-mode/images/game-ports/dhewm3.webp",
@@ -140,6 +160,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "dxxrebirth",
     "name": "DXX Rebirth",
     "description": "A source port for the classic 6-degrees-of-freedom shooter, Descent",
     "img": "/xbox-dev-mode/images/game-ports/dxxrebirth.webp",
@@ -147,6 +168,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "ioquake3",
     "name": "ioquake3",
     "description": "The definitive open-source engine for Quake III Arena and its mods",
     "img": "/xbox-dev-mode/images/game-ports/ioquake3.webp",
@@ -154,6 +176,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "jazz2",
     "name": "Jazz² Resurrection",
     "description": "A complete reimplementation of the classic platformer Jazz Jackrabbit 2",
     "img": "/xbox-dev-mode/images/game-ports/jazz2.webp",
@@ -161,6 +184,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "maze",
     "name": "Maze0x72",
     "description": "A homebrew first-person maze game created in the Unity engine",
     "img": "/xbox-dev-mode/images/game-ports/maze.webp",
@@ -168,6 +192,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "mine",
     "name": "Minesweeper 3D",
     "description": "A homebrew 3D take on the classic puzzle game Minesweeper",
     "img": "/xbox-dev-mode/images/game-ports/mine.webp",
@@ -175,6 +200,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "jkdf2",
     "name": "Open JKDF2",
     "description": "Source port for Jedi Knight: Dark Forces II and its expansion",
     "img": "/xbox-dev-mode/images/game-ports/jkdf2.webp",
@@ -182,6 +208,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "openlara",
     "name": "OpenLara",
     "description": "An open-source engine for the classic Tomb Raider, playable on Xbox",
     "img": "/xbox-dev-mode/images/game-ports/openlara.webp",
@@ -189,6 +216,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "opentyrian",
     "name": "OpenTyrian 2000",
     "description": "Classic freeware vertical scrolling shooter via the OpenTyrian engine",
     "img": "/xbox-dev-mode/images/game-ports/opentyrian.webp",
@@ -196,6 +224,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "relichunters",
     "name": "Relic Hunters Zero",
     "description": "A free, open-source, and action-packed top-down shooter",
     "img": "/xbox-dev-mode/images/game-ports/relichunters.webp",
@@ -203,6 +232,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "sdlpop",
     "name": "SDLPoP",
     "description": "An open-source port of the original 1989 Prince of Persia",
     "img": "/xbox-dev-mode/images/game-ports/sdlpop.webp",
@@ -210,6 +240,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "snake",
     "name": "Snake",
     "description": "A simple and classic implementation of the Snake game for UWP",
     "img": "/xbox-dev-mode/images/game-ports/snake.webp",
@@ -217,6 +248,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "soh",
     "name": "SOH (Ship of Harkinian)",
     "description": "A phenomenal open source port of The Legend of Zelda: Ocarina of Time",
     "img": "/xbox-dev-mode/images/game-ports/soh.webp",
@@ -224,6 +256,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "sonic1decomp",
     "name": "Sonic 1 Decompilation",
     "description": "A decompilation project of the original Sonic the Hedgehog mobile remaster",
     "img": "/xbox-dev-mode/images/game-ports/sonic1decomp.webp",
@@ -231,6 +264,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "sonic2decomp",
     "name": "Sonic 2 Decompilation",
     "description": "A decompilation project of the original Sonic the Hedgehog 2 mobile remaster",
     "img": "/xbox-dev-mode/images/game-ports/sonic2decomp.webp",
@@ -238,6 +272,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "sonic1sms",
     "name": "Sonic 1 SMS Remake",
     "description": "Modern remake of the 8-bit Sega Master System Sonic game",
     "img": "/xbox-dev-mode/images/game-ports/sonic1sms.webp",
@@ -245,6 +280,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "sonic2sms",
     "name": "Sonic 2 SMS Remake",
     "description": "Modern remake of the 8-bit Sega Master System Sonic game",
     "img": "/xbox-dev-mode/images/game-ports/sonic2sms.webp",
@@ -252,6 +288,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "sonic3air",
     "name": "Sonic 3 A.I.R.",
     "description": "A fan-made widescreen remaster of Sonic 3 & Knuckles (Angel Island Revisited)",
     "img": "/xbox-dev-mode/images/game-ports/sonic3air.webp",
@@ -259,6 +296,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "sab2",
     "name": "Sonic Adventure Blast 2",
     "description": "Fan-made game with Sonic, Tails, and Knuckles in Adventure-style gameplay",
     "img": "/xbox-dev-mode/images/game-ports/sab2.webp",
@@ -266,6 +304,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "soniccd",
     "name": "Sonic CD (Decompilation)",
     "description": "A port of the Sonic CD mobile remaster via decompilation",
     "img": "/xbox-dev-mode/images/game-ports/soniccd.webp",
@@ -273,6 +312,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "sonicmania",
     "name": "Sonic Mania",
     "description": "A port of the acclaimed 2D Sonic adventure via the RSDKv5 decompilation",
     "img": "/xbox-dev-mode/images/game-ports/sonicmania.webp",
@@ -280,6 +320,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "sonicrealms",
     "name": "Sonic Realms",
     "description": "An impressive and ambitious fan-made Sonic game project",
     "img": "/xbox-dev-mode/images/game-ports/sonicrealms.webp",
@@ -287,6 +328,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "ringracers",
     "name": "Sonic Ring Racers",
     "description": "Fan-made kart racer based on Doom, formerly Dr. Robotnik's Ring Racers",
     "img": "/xbox-dev-mode/images/game-ports/sonicringracers.webp",
@@ -294,6 +336,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "srb2",
     "name": "Sonic Robo Blast 2",
     "description": "A 3D Sonic fangame built on a modified Doom engine",
     "img": "/xbox-dev-mode/images/game-ports/srb2.webp",
@@ -301,6 +344,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "sonictimetwisted",
     "name": "Sonic Time Twisted",
     "description": "Fan game inspired by Sonic CD & S3&K with a time travel mechanic",
     "img": "/xbox-dev-mode/images/game-ports/sonictimetwisted.webp",
@@ -308,6 +352,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "unleashed",
     "name": "Sonic Unleashed Recomp",
     "description": "An unofficial recompilation of the Xbox 360 version of Sonic Unleashed",
     "img": "/xbox-dev-mode/images/game-ports/sonicunleashed.webp",
@@ -315,6 +360,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "spelunky",
     "name": "Spelunky Classic HD",
     "description": "An HD version of the acclaimed roguelike platformer with random levels",
     "img": "/xbox-dev-mode/images/game-ports/spelunky.webp",
@@ -322,6 +368,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "spooky",
     "name": "Spooky Dimensions",
     "description": "A simple homebrew space shooter game with a spooky theme",
     "img": "/xbox-dev-mode/images/game-ports/spooky.webp",
@@ -329,6 +376,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "trogdor",
     "name": "Trogdor-Reburninated",
     "description": "An enhanced recreation of the classic Homestar Runner Flash game",
     "img": "/xbox-dev-mode/images/game-ports/trogdor.webp",
@@ -336,6 +384,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "tuck",
     "name": "Tuck King of the Sky",
     "description": "A charming and straightforward homebrew plane sky shooter",
     "img": "/xbox-dev-mode/images/game-ports/tuck.webp",
@@ -343,6 +392,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "vvvvvv",
     "name": "VVVVVV",
     "description": "Minimalist puzzle platformer with a core gravity-flipping mechanic",
     "img": "/xbox-dev-mode/images/game-ports/vvvvvv.webp",
@@ -350,6 +400,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "zelda3",
     "name": "Zelda 3",
     "description": "A reverse-engineered reimplementation of The Legend of Zelda: A Link to the Past",
     "img": "/xbox-dev-mode/images/game-ports/zelda3.webp",
@@ -357,6 +408,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "zelda64",
     "name": "Zelda 64 Recompiled",
     "description": "A static recompilation of The Legend of Zelda: Majora's Mask",
     "img": "/xbox-dev-mode/images/game-ports/zelda64.webp",
@@ -364,6 +416,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "zircon",
     "name": "Quake (Zircon)",
     "description": "An advanced open-source Quake engine port using the Zircon engine",
     "img": "/xbox-dev-mode/images/game-ports/zircon.webp",
@@ -371,6 +424,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "dxxdescent2",
     "name": "DXX-Rebirth (Descent 2)",
     "description": "A Source Port for the classic 6-degrees-of-freedom shooter, Descent 2",
     "img": "/xbox-dev-mode/images/game-ports/dxxrebirth2.webp",
@@ -378,6 +432,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "2s2h",
     "name": "2S2H (2Ship2Harkinian)",
     "description": "A phenomenal open source port of The Legend of Zelda: Majoras Mask",
     "img": "/xbox-dev-mode/images/game-ports/2s2h.webp",
@@ -385,6 +440,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "nsmb",
     "name": "NSMB (MarioVsLuigi)",
     "description": "A unity-standalone 2-10 online player remake of the Mario vs. Luigi gamemode from the New Super Mario Bros DS download game",
     "img": "/xbox-dev-mode/images/game-ports/NSMB.webp",
@@ -392,6 +448,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "descent3",
     "name": "Descent 3",
     "description": "This is the first release of the community port of Descent 3",
     "img": "/xbox-dev-mode/images/game-ports/descent3.webp",
@@ -399,6 +456,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "inferno",
     "name": "Inferno",
     "description": "Inferno is a single player remaster of the 1995 classic Descent 1",
     "img": "/xbox-dev-mode/images/game-ports/inferno.webp",
@@ -406,6 +464,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "burgerdoom",
     "name": "BurgerDoom",
     "description": "A backport & remaster of 3DO DOOM",
     "img": "/xbox-dev-mode/images/game-ports/burgerdoom.webp",
@@ -413,6 +472,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "sm64coopdx",
     "name": "sm64coopdx",
     "description": "An unofficial port of sm64coopdx",
     "img": "/xbox-dev-mode/images/game-ports/sm64coopdx.webp",
@@ -420,6 +480,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "celeste64",
     "name": "Celeste64",
     "description": "An unofficial port of Celeste 64: Fragments of the Mountain, a game made by the original Celeste developers in under 2 weeks for Celeste's 6th Anniversary",
     "img": "/xbox-dev-mode/images/game-ports/celeste64.webp",
@@ -427,6 +488,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "perfectDark",
     "name": "Perfect Dark",
     "description": "An unofficial port of Perfect Dark decompilation",
     "img": "/xbox-dev-mode/images/game-ports/perfectdark.webp",
@@ -434,6 +496,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "supertuxkart",
     "name": "SuperTuxKart",
     "description": "An unofficial UWP port of SuperTuxKart for Xbox",
     "img": "/xbox-dev-mode/images/game-ports/supertuxkart.webp",
@@ -441,6 +504,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "starfox64Recompiled",
     "name": "Starfox 64: Recompiled",
     "description": "Static recompilation of Starfox 64 for UWP",
     "img": "/xbox-dev-mode/images/game-ports/starfox64.webp",
@@ -448,6 +512,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "spacecadetpinball",
     "name": "SpaceCadetPinball",
     "description": "Decompilation of 3D Pinball for Windows (Unofficial UWP)",
     "img": "/xbox-dev-mode/images/game-ports/spacecadetpinball.webp",
@@ -455,6 +520,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "tailsAdventureRemake",
     "name": "Tails Adventure Remake",
     "description": "Tails Adventure remade from the ground up for PC and Android (Unofficial UWP)",
     "img": "/xbox-dev-mode/images/game-ports/tails-adventure.webp",
@@ -462,6 +528,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "naziZombiesPortable",
     "name": "Nazi Zombies: Portable",
     "description": "An unofficial port of Nazi Zombies: Portable",
     "img": "/xbox-dev-mode/images/game-ports/nzp.webp",
@@ -469,6 +536,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "dusklightUwp",
     "name": "Dusklight UWP",
     "description": "Dusklight, a Decompilation Port of Zelda: Twilight Princess",
     "img": "/xbox-dev-mode/images/game-ports/dusklight.webp",
@@ -476,6 +544,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "superMarioWorldRemasteredPlus",
     "name": "Super Mario World Remastered +",
     "description": "A UWP Remake / Remaster of the original Super Mario World, in Godot.",
     "img": "/xbox-dev-mode/images/game-ports/super-mario-world-remastered-plus.webp",
@@ -483,6 +552,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "superMarioBrosRemastered",
     "name": "Super Mario Bros Remastered",
     "description": "A Remake / Celebration of the original 'Super Mario Bros.' games",
     "img": "/xbox-dev-mode/images/game-ports/super-mario-bros-remastered.webp",
@@ -490,6 +560,7 @@
     "category": "Ports"
   },
   {
+    "app_id": "usbPermissionsTool",
     "name": "USB Permissions Tool",
     "description": "Add necessary permissions to an NTFS formatted USB drive for UWP apps",
     "img": "/xbox-dev-mode/images/utilities/usb-perms-tool.webp",
@@ -497,6 +568,7 @@
     "category": "Utilities"
   },
   {
+    "app_id": "durangoftp",
     "name": "Durango FTP",
     "description": "FTP Server for Xbox One/Series in Dev Mode",
     "img": "/xbox-dev-mode/images/utilities/ftp.webp",
@@ -504,6 +576,7 @@
     "category": "Utilities"
   },
   {
+    "app_id": "oberon",
     "name": "Oberon Remote",
     "description": "Remote input for Xbox consoles, use any controller with your Xbox",
     "img": "/xbox-dev-mode/images/utilities/oberon.webp",
@@ -511,6 +584,7 @@
     "category": "Utilities"
   },
   {
+    "app_id": "safeexit",
     "name": "Safe Exit",
     "description": "Exit from dev mode safely",
     "img": "/xbox-dev-mode/images/utilities/safeexit.webp",
@@ -518,6 +592,7 @@
     "category": "Utilities"
   },
   {
+    "app_id": "discorduwp",
     "name": "Discord",
     "description": "Chat with friends and communities",
     "img": "/xbox-dev-mode/images/apps/discord.webp",
@@ -525,6 +600,7 @@
     "category": "Apps"
   },
   {
+    "app_id": "moonlight",
     "name": "Moonlight",
     "description": "Stream PC games using NVIDIA GameStream or Sunshine",
     "img": "/xbox-dev-mode/images/apps/moonlight.webp",
@@ -532,6 +608,7 @@
     "category": "Apps"
   },
   {
+    "app_id": "xuwp",
     "name": "X (Formerly Twitter)",
     "description": "The social media platform for news, updates, and conversations",
     "img": "/xbox-dev-mode/images/apps/xuwp.webp",
@@ -539,6 +616,7 @@
     "category": "Apps"
   },
   {
+    "app_id": "xbcloudgaming",
     "name": "XB Cloud Gaming",
     "description": "Access a library of games with Game Pass",
     "img": "/xbox-dev-mode/images/apps/xbcloudgaming.webp",
@@ -546,6 +624,7 @@
     "category": "Apps"
   },
   {
+    "app_id": "launchpass",
     "name": "LaunchPass",
     "description": "A frontend capable of launching ROMs in most emulators on Xbox",
     "img": "/xbox-dev-mode/images/frontends/launchpass.webp",
@@ -553,6 +632,7 @@
     "category": "Frontends"
   },
   {
+    "app_id": "retropass",
     "name": "Retro Pass",
     "description": "A simple frontend for emulators running on Xbox",
     "img": "/xbox-dev-mode/images/frontends/retropass.webp",
@@ -560,6 +640,7 @@
     "category": "Frontends"
   },
   {
+    "app_id": "kodi",
     "name": "Kodi",
     "description": "Open-source home theater software",
     "img": "/xbox-dev-mode/images/media-apps/kodi.webp",
@@ -567,6 +648,7 @@
     "category": "Media Apps"
   },
   {
+    "app_id": "soundcloud",
     "name": "SoundCloud",
     "description": "Online audio distribution and music sharing platform",
     "img": "/xbox-dev-mode/images/media-apps/soundcloud.webp",
@@ -574,6 +656,7 @@
     "category": "Media Apps"
   },
   {
+    "app_id": "tunein",
     "name": "TuneIn",
     "description": "Live radio, sports, music, news, and podcasts",
     "img": "/xbox-dev-mode/images/media-apps/tunein.webp",
@@ -581,6 +664,7 @@
     "category": "Media Apps"
   },
   {
+    "app_id": "twitch",
     "name": "Twitch",
     "description": "Live streaming platform for gamers and content creators",
     "img": "/xbox-dev-mode/images/media-apps/twitch.webp",
@@ -588,6 +672,7 @@
     "category": "Media Apps"
   },
   {
+    "app_id": "vlc",
     "name": "VLC Media Player",
     "description": "Free and open-source cross-platform multimedia player",
     "img": "/xbox-dev-mode/images/media-apps/vlc.webp",
@@ -595,6 +680,7 @@
     "category": "Media Apps"
   },
   {
+    "app_id": "youtube",
     "name": "YouTube",
     "description": "Online video sharing platform",
     "img": "/xbox-dev-mode/images/media-apps/youtube.webp",
@@ -602,6 +688,7 @@
     "category": "Media Apps"
   },
   {
+    "app_id": "zune",
     "name": "Windows Media Player (Zune)",
     "description": "Media player with Zune-inspired interface",
     "img": "/xbox-dev-mode/images/media-apps/zune.webp",
@@ -609,6 +696,7 @@
     "category": "Media Apps"
   },
   {
+    "app_id": "chonkystation3",
     "name": "Chonkystation 3",
     "description": "An experimental PlayStation 3 emulator",
     "img": "/xbox-dev-mode/images/experimental-apps/chonkystation3.webp",
@@ -616,6 +704,7 @@
     "category": "Experimental Apps"
   },
   {
+    "app_id": "hedgephysics",
     "name": "Hedge Physics",
     "description": "A fan-made Sonic physics engine/game demo",
     "img": "/xbox-dev-mode/images/experimental-apps/hedgephysics.webp",
@@ -623,6 +712,7 @@
     "category": "Experimental Apps"
   },
   {
+    "app_id": "sm64hd",
     "name": "SM64HD Fan Remake",
     "description": "A fan-made SM64HD (Super Mario 64) engine/game demo",
     "img": "/xbox-dev-mode/images/experimental-apps/sm64hd.webp",
@@ -630,6 +720,7 @@
     "category": "Experimental Apps"
   },
   {
+    "app_id": "boxedwine",
     "name": "BoxedWine",
     "description": "Run 16-bit or 32-bit Windows programs",
     "img": "/xbox-dev-mode/images/experimental-apps/boxedwine.webp",
@@ -637,6 +728,7 @@
     "category": "Experimental Apps"
   },
   {
+    "app_id": "abysm2",
     "name": "ABYSM 2",
     "description": "An action-adventure total conversion for GZDoom inspired by Diablo, Dark Souls, and Strife.",
     "img": "/xbox-dev-mode/images/gzdoom-mods/abysm2.webp",
@@ -644,6 +736,7 @@
     "category": "GZDoom Mods"
   },
   {
+    "app_id": "aliens-eradication",
     "name": "Aliens Eradication TC",
     "description": "A GZDoom mod built from Kontra Kommando’s Aliens-themed work, inspired by Alien Trilogy and Ultimate DOOM.",
     "img": "/xbox-dev-mode/images/gzdoom-mods/aliens-eradication.webp",
@@ -651,6 +744,7 @@
     "category": "GZDoom Mods"
   },
   {
+    "app_id": "ashes",
     "name": "Ashes 2063",
     "description": "A post-apocalyptic total conversion blending Build-style maps, fast combat, and influences from Fallout and S.T.A.L.K.E.R.",
     "img": "/xbox-dev-mode/images/gzdoom-mods/ashes.webp",
@@ -658,6 +752,7 @@
     "category": "GZDoom Mods"
   },
   {
+    "app_id": "bloom",
     "name": "BLOOM",
     "description": "A crossover mod that fuses the worlds, weapons, and style of Blood and DOOM into one GZDoom experience.",
     "img": "/xbox-dev-mode/images/gzdoom-mods/bloom.webp",
@@ -665,6 +760,7 @@
     "category": "GZDoom Mods"
   },
   {
+    "app_id": "brutal-doom",
     "name": "Brutal DOOM",
     "description": "A famous GZDoom mod that makes DOOM faster, harder, louder, and far more violent.",
     "img": "/xbox-dev-mode/images/gzdoom-mods/brutal-doom.webp",
@@ -672,6 +768,7 @@
     "category": "GZDoom Mods"
   },
   {
+    "app_id": "brutal-wolfenstein3d",
     "name": "Brutal Wolfenstein 3D",
     "description": "A total conversion that reimagines the original Wolfenstein 3D episodes and Spear of Destiny in GZDoom.",
     "img": "/xbox-dev-mode/images/gzdoom-mods/brutal-wolfenstein3d.webp",
@@ -679,6 +776,7 @@
     "category": "GZDoom Mods"
   },
   {
+    "app_id": "castlevania-simon",
     "name": "Castlevania: Simon's Destiny",
     "description": "A first-person reimagining of the original NES Castlevania with nostalgic design and brand-new gameplay.",
     "img": "/xbox-dev-mode/images/gzdoom-mods/castlevania-simon.webp",
@@ -686,6 +784,7 @@
     "category": "GZDoom Mods"
   },
   {
+    "app_id": "doom",
     "name": "DOOM",
     "description": "The classic demon-slaying FPS that defined the genre, playable through GZDoom with modern source port features.",
     "img": "/xbox-dev-mode/images/gzdoom-mods/doom.webp",
@@ -693,6 +792,7 @@
     "category": "GZDoom Mods"
   },
   {
+    "app_id": "golden-souls",
     "name": "The Golden Souls",
     "description": "A colorful platformer-inspired DOOM II mod influenced by Super Mario, with new mechanics and whimsical worlds.",
     "img": "/xbox-dev-mode/images/gzdoom-mods/golden-souls.webp",
@@ -700,6 +800,7 @@
     "category": "GZDoom Mods"
   },
   {
+    "app_id": "halodoom",
     "name": "Halo DOOM",
     "description": "A Halo-inspired weapon mod for GZDoom featuring a large sandbox, Spartan classes, and broad addon compatibility.",
     "img": "/xbox-dev-mode/images/gzdoom-mods/halodoom.webp",
@@ -707,6 +808,7 @@
     "category": "GZDoom Mods"
   },
   {
+    "app_id": "heretic",
     "name": "Heretic",
     "description": "Raven Software’s dark fantasy FPS, bringing magic, monsters, and medieval combat to the classic DOOM-style formula.",
     "img": "/xbox-dev-mode/images/gzdoom-mods/heretic.webp",
@@ -714,6 +816,7 @@
     "category": "GZDoom Mods"
   },
   {
+    "app_id": "hexen",
     "name": "HeXen",
     "description": "A darker fantasy shooter from Raven Software with hub-based progression, classes, and more complex combat than Heretic.",
     "img": "/xbox-dev-mode/images/gzdoom-mods/hexen.webp",
@@ -721,6 +824,7 @@
     "category": "GZDoom Mods"
   },
   {
+    "app_id": "operation-body-count",
     "name": "Operation Body Count",
     "description": "A total conversion episode with objective-based maps, custom enemies, and weapons, remaking the Capstone shooter.",
     "img": "/xbox-dev-mode/images/gzdoom-mods/operation-body-count.webp",
@@ -728,6 +832,7 @@
     "category": "GZDoom Mods"
   },
   {
+    "app_id": "siren",
     "name": "SIREN",
     "description": "A slower, more perilous GZDoom mod inspired by Aliens, built around atmosphere, tension, and bespoke story-driven levels.",
     "img": "/xbox-dev-mode/images/gzdoom-mods/siren.webp",
@@ -735,6 +840,7 @@
     "category": "GZDoom Mods"
   },
   {
+    "app_id": "strife",
     "name": "Strife",
     "description": "A story-driven shooter-RPG hybrid blending DOOM-style action with quests, dialogue, and a larger connected world.",
     "img": "/xbox-dev-mode/images/gzdoom-mods/strife.webp",
@@ -742,6 +848,7 @@
     "category": "GZDoom Mods"
   },
   {
+    "app_id": "total-chaos",
     "name": "Total Chaos Director's Cut",
     "description": "A survival horror total conversion for DOOM II focused on atmosphere, isolation, and brutal close-quarters tension.",
     "img": "/xbox-dev-mode/images/gzdoom-mods/total-chaos.webp",
@@ -749,6 +856,7 @@
     "category": "GZDoom Mods"
   },
   {
+    "app_id": "wolfenstein3d-tc",
     "name": "Wolfenstein 3D TC",
     "description": "A GZDoom total conversion recreating the classic Wolfenstein 3D experience with modern source port support.",
     "img": "/xbox-dev-mode/images/gzdoom-mods/wolfenstein3d-tc.webp",
