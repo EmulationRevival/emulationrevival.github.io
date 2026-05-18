@@ -476,6 +476,20 @@
     "category": "Ports"
   },
   {
+    "name": "Super Mario World Remastered Plus",
+    "description": "A UWP Remake / Remaster of the original Super Mario World, in Godot.",
+    "img": "/xbox-dev-mode/images/game-ports/super-mario-world-remastered-plus.webp",
+    "url": "/xbox-dev-mode/ports.html#super-mario-world-remastered-plus",
+    "category": "Ports"
+  },
+  {
+    "name": "Super Mario Bros Remastered",
+    "description": "A Remake / Celebration of the original 'Super Mario Bros.' games",
+    "img": "/xbox-dev-mode/images/game-ports/super-mario-bros-remastered.webp",
+    "url": "/xbox-dev-mode/ports.html#super-mario-bros-remastered",
+    "category": "Ports"
+  },
+  {
     "name": "USB Permissions Tool",
     "description": "Add necessary permissions to an NTFS formatted USB drive for UWP apps",
     "img": "/xbox-dev-mode/images/utilities/usb-perms-tool.webp",
