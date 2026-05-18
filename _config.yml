@@ -4,8 +4,15 @@ url: "https://emulationrevival.github.io"
 exclude:
   - node_modules
   - .env
+  - .git
+  - .github
+  - Gemfile
+  - Gemfile.lock
   - package.json
   - package-lock.json
+  - scripts
+  - json/devmode.manifest.json
+  - json/discord-forum-posts.json
 
 sass:
   style: compressed

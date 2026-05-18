@@ -4,14 +4,14 @@
   "private": true,
   "description": "Build utilities for the Emulation Revival static site.",
   "scripts": {
-    "build:links": "node build-links.js",
-    "build:release-data": "node js/build-release-data.js",
-    "build:index": "node js/build-index.js",
-    "build:previews": "node js/build-previews.js",
-    "build:version": "node js/update-version.js",
-    "validate": "node js/validate-site-data.js",
-    "post:discord": "node js/post-discord-updates.js /tmp/app-links.previous.json json/app-links.json json/search-index.json",
-    "sync:forum": "node js/sync-discord-forum-posts.js"
+    "build:links": "node scripts/build-links.js",
+    "build:release-data": "node scripts/build-release-data.js",
+    "build:index": "node scripts/build-index.js",
+    "build:previews": "node scripts/build-previews.js",
+    "build:version": "node scripts/update-version.js",
+    "validate": "node scripts/validate-site-data.js",
+    "post:discord": "node scripts/post-discord-updates.js /tmp/app-links.previous.json json/app-links.json json/search-index.json",
+    "sync:forum": "node scripts/sync-discord-forum-posts.js"
   },
   "engines": {
     "node": "24.15.0",
