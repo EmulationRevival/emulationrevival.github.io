@@ -1743,7 +1743,7 @@
   
 - id: "super-mario-world-remastered-plus"
   app_id: "superMarioWorldRemasteredPlus"
-  title: "Super Mario World Remastered Plus"
+  title: "Super Mario World Remastered +"
   description: "A UWP Remake / Remaster of the original Super Mario World, in Godot."
   image: "/xbox-dev-mode/images/game-ports/super-mario-world-remastered-plus.webp"
   alt: "Super Mario World Remastered Plus Logo"
