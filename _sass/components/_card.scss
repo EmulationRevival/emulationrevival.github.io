@@ -488,8 +488,11 @@
   margin-inline-end: var(--spacing-sm);
 }
 
-[data-theme='light'] .popover-icon[src*="github-logo.svg"] {
-  filter: invert(1);
+[data-theme='light'] {
+  .popover-icon[src*="github-logo.svg"],
+  .popover-icon[src*="patreon-logo.svg"] {
+    filter: invert(1);
+  }
 }
 
 .card[data-release-state="upcoming"] .action-dropdown .dropdown-menu,

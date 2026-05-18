@@ -16,15 +16,30 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: '20'
+          node-version: '24'
+          package-manager-cache: false
 
       - name: Install Dependencies
         run: npm install cheerio dotenv node-fetch@2 js-yaml
+
+      - name: Print Node Dependency Versions
+        run: |
+          echo "Node:"
+          node -v
+
+          echo "npm:"
+          npm -v
+
+          echo "Installed top-level packages:"
+          npm ls --depth=0 || true
+
+          echo "Full npm dependency tree:"
+          npm ls || true
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
@@ -33,6 +48,23 @@ jobs:
 
       - name: Install Jekyll
         run: gem install jekyll
+
+      - name: Print Ruby and Jekyll Versions
+        run: |
+          echo "Ruby:"
+          ruby -v
+
+          echo "RubyGems:"
+          gem -v
+
+          echo "Bundler:"
+          bundle -v || true
+
+          echo "Jekyll:"
+          jekyll -v
+
+          echo "Installed Jekyll gems:"
+          gem list jekyll
 
       - name: Backup previous app-links
         run: cp json/app-links.json /tmp/app-links.previous.json || echo "{}" > /tmp/app-links.previous.json
