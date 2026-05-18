@@ -1768,7 +1768,8 @@
     - label: "Download"
       asset_id: "supermarioworldremasteredplus"
   source_code_url: "https://github.com/LeNoirKing/Super-Mario-World-Remastered-Plus-UWP"
-  setup_guide: "https://wiki.sternserv.xyz/docs/ports/super-mario-world-remastered-plus-guide"
+  setup_guide:
+    url: "https://wiki.sternserv.xyz/docs/ports/super-mario-world-remastered-plus-guide"
   tutorial_url: null
   
 - id: "super-mario-bros-remastered"
@@ -1798,5 +1799,6 @@
     - label: "Download"
       asset_id: "supermariobrosremastered"
   source_code_url: "https://github.com/LeNoirKing/Super-Mario-Bros.-Remastered-UWP"
-  setup_guide: "https://wiki.sternserv.xyz/docs/ports/super-mario-bros-remastered-guide"
+  setup_guide:
+    url: "https://wiki.sternserv.xyz/docs/ports/super-mario-bros-remastered-guide"
   tutorial_url: null
