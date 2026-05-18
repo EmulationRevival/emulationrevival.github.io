@@ -1723,5 +1723,27 @@
         "assetPattern": "dusklight-uwp_*.zip"
       }
     ]
+  },
+  "superMarioWorldRemasteredPlus": {
+    "name": "Super Mario World Remastered Plus",
+    "repo": "LeNoirKing/Super-Mario-World-Remastered-Plus-UWP",
+    "assets": [
+      {
+        "id": "supermarioworldremasteredplus",
+        "sourceType": "github",
+        "assetPattern": "SMWR_Plus_*_UWP.msix"
+      }
+    ]
+  },
+  "superMarioBrosRemastered": {
+    "name": "Super Mario Bros Remastered",
+    "repo": "LeNoirKing/Super-Mario-Bros.-Remastered-UWP",
+    "assets": [
+      {
+        "id": "supermariobrosremastered",
+        "sourceType": "github",
+        "assetPattern": "SMBR*.zip"
+      }
+    ]
   }
 }

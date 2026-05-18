@@ -1740,3 +1740,63 @@
   setup_guide:
     url: "https://wiki.sternserv.xyz/docs/ports/dusklight-guide"
   tutorial_url: null
+  
+- id: "super-mario-world-remastered-plus"
+  app_id: "superMarioWorldRemasteredPlus"
+  title: "Super Mario World Remastered Plus"
+  description: "A UWP Remake / Remaster of the original Super Mario World, in Godot."
+  image: "/xbox-dev-mode/images/game-ports/super-mario-world-remastered-plus.webp"
+  alt: "Super Mario World Remastered Plus Logo"
+  category: "Ports"
+  page_url: "/xbox-dev-mode/ports.html#super-mario-world-remastered-plus"
+  preview_url: "/previews/ports-super-mario-world-remastered-plus.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "Original SMW SNES ROM to play! (Not All-Stars +SMW or SMA2)"
+  features: []
+  contributors:
+    developers:
+      - name: "Boswer811"
+        github: "https://github.com/Boswer811"
+        donations: []
+    porters:
+      - name: "WaveNoir"
+        github: "https://github.com/LeNoirKing"
+        donations: []
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "supermarioworldremasteredplus"
+  source_code_url: "https://github.com/LeNoirKing/Super-Mario-World-Remastered-Plus-UWP"
+  setup_guide: "https://wiki.sternserv.xyz/docs/ports/super-mario-world-remastered-plus-guide"
+  tutorial_url: null
+  
+- id: "super-mario-bros-remastered"
+  app_id: "superMarioBrosRemastered"
+  title: "Super Mario Bros Remastered"
+  description: "A Remake / Celebration of the original 'Super Mario Bros.' games"
+  image: "/xbox-dev-mode/images/game-ports/super-mario-bros-remastered.webp"
+  alt: "Super Mario Bros Remastered Logo"
+  category: "Ports"
+  page_url: "/xbox-dev-mode/ports.html#super-mario-bros-remastered"
+  preview_url: "/previews/ports-super-mario-bros-remastered.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "Original SMB1 NES ROM"
+  features: []
+  contributors:
+    developers:
+      - name: "JHDev2006"
+        github: "https://github.com/JHDev2006"
+        donations: []
+    porters:
+      - name: "WaveNoir"
+        github: "https://github.com/LeNoirKing"
+        donations: []
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "supermariobrosremastered"
+  source_code_url: "https://github.com/LeNoirKing/Super-Mario-Bros.-Remastered-UWP"
+  setup_guide: "https://wiki.sternserv.xyz/docs/ports/super-mario-bros-remastered-guide"
+  tutorial_url: null
