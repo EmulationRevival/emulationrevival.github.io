@@ -1594,5 +1594,33 @@
     ],
     "releaseNotesUrl": "https://github.com/SternXD/dusklight-uwp/releases/tag/uwp-1.1.1",
     "releaseTag": "uwp-1.1.1"
+  },
+  "superMarioWorldRemasteredPlus": {
+    "name": "Super Mario World Remastered Plus",
+    "version": "1.2",
+    "releaseDate": "2026-05-18",
+    "firstReleaseDate": "2026-05-18",
+    "assets": [
+      {
+        "id": "supermarioworldremasteredplus",
+        "url": "https://github.com/LeNoirKing/Super-Mario-World-Remastered-Plus-UWP/releases/download/UWP/SMWR_Plus_1.2_UWP.msix"
+      }
+    ],
+    "releaseNotesUrl": "https://github.com/LeNoirKing/Super-Mario-World-Remastered-Plus-UWP/releases/tag/UWP",
+    "releaseTag": "UWP"
+  },
+  "superMarioBrosRemastered": {
+    "name": "Super Mario Bros Remastered",
+    "version": "1.2",
+    "releaseDate": "2026-05-18",
+    "firstReleaseDate": "2026-05-18",
+    "assets": [
+      {
+        "id": "supermariobrosremastered",
+        "url": "https://github.com/LeNoirKing/Super-Mario-Bros.-Remastered-UWP/releases/download/UWP/SMBR1.2.zip"
+      }
+    ],
+    "releaseNotesUrl": "https://github.com/LeNoirKing/Super-Mario-Bros.-Remastered-UWP/releases/tag/UWP",
+    "releaseTag": "UWP"
   }
 }
