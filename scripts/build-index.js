@@ -60,17 +60,19 @@ async function fileExists(filePath) {
 }
 
 function buildEntry(item, fallbackCategory) {
+  const appId = normalizeText(item.app_id || '');
   const name = normalizeText(item.title || '');
   const description = normalizeText(item.description || '');
   const img = ensureLeadingSlash(normalizeText(item.image || ''));
   const url = ensureLeadingSlash(normalizeText(item.page_url || ''));
   const category = normalizeText(item.category || fallbackCategory || '');
 
-  if (!name || !img || !url) {
+  if (!appId || !name || !img || !url) {
     return null;
   }
 
   return {
+    app_id: appId,
     name,
     description,
     img,
@@ -96,7 +98,7 @@ async function extractDataIndex({ file, category }) {
   }
 
   const entries = [];
-  const seenUrls = new Set();
+  const seenAppIds = new Set();
 
   for (let i = 0; i < parsed.length; i += 1) {
     const entry = buildEntry(parsed[i], category);
@@ -105,11 +107,11 @@ async function extractDataIndex({ file, category }) {
       continue;
     }
 
-    if (seenUrls.has(entry.url)) {
+    if (seenAppIds.has(entry.app_id)) {
       continue;
     }
 
-    seenUrls.add(entry.url);
+    seenAppIds.add(entry.app_id);
     entries.push(entry);
   }
 

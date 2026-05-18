@@ -114,31 +114,42 @@ async function fetchHomepageData() {
   return { searchIndex, appData };
 }
 
-function buildSearchMap(searchIndex) {
-  const searchMap = new Map();
+function buildSearchLookup(searchIndex) {
+  const byAppId = new Map();
+  const byName = new Map();
 
   for (const item of searchIndex) {
-    const key = normalizeName(item.name);
-    if (key) {
-      searchMap.set(key, item);
+    const appId = item.app_id || '';
+    const nameKey = normalizeName(item.name);
+
+    if (appId) {
+      byAppId.set(appId, item);
+    }
+
+    if (nameKey) {
+      byName.set(nameKey, item);
     }
   }
 
-  return searchMap;
+  return { byAppId, byName };
 }
 
-function computeUpcomingApps(searchMap, appData) {
+function getSearchData(searchLookup, appId, info) {
+  return searchLookup.byAppId.get(appId) || searchLookup.byName.get(normalizeName(info?.name));
+}
+
+function computeUpcomingApps(searchLookup, appData) {
   const now = Date.now();
   const upcomingApps = [];
 
-  for (const info of Object.values(appData)) {
+  for (const [appId, info] of Object.entries(appData)) {
     if (!info?.releaseDate || info.releaseDate === TXT.UNKNOWN) continue;
 
     const timestamp = parseUtcDateMs(info.releaseDate);
     if (!Number.isFinite(timestamp)) continue;
     if (timestamp <= now) continue;
 
-    const searchData = searchMap.get(normalizeName(info.name));
+    const searchData = getSearchData(searchLookup, appId, info);
     if (!searchData) continue;
 
     upcomingApps.push({
@@ -155,12 +166,12 @@ function computeUpcomingApps(searchMap, appData) {
   return upcomingApps;
 }
 
-function computeNewReleaseApps(searchMap, appData) {
+function computeNewReleaseApps(searchLookup, appData) {
   const now = Date.now();
   const cutoff = now - CONFIG.RECENT_WINDOW_MS;
   const newReleaseApps = [];
 
-  for (const info of Object.values(appData)) {
+  for (const [appId, info] of Object.entries(appData)) {
     if (!info?.releaseDate || info.releaseDate === TXT.UNKNOWN) continue;
     if (!info?.firstReleaseDate || info.firstReleaseDate === TXT.UNKNOWN) continue;
 
@@ -172,7 +183,7 @@ function computeNewReleaseApps(searchMap, appData) {
     if (firstReleaseTimestamp > now) continue;
     if (firstReleaseTimestamp < cutoff) continue;
 
-    const searchData = searchMap.get(normalizeName(info.name));
+    const searchData = getSearchData(searchLookup, appId, info);
     if (!searchData) continue;
 
     newReleaseApps.push({
@@ -189,12 +200,12 @@ function computeNewReleaseApps(searchMap, appData) {
   return newReleaseApps;
 }
 
-function computeRecentlyUpdatedApps(searchMap, appData) {
+function computeRecentlyUpdatedApps(searchLookup, appData) {
   const now = Date.now();
   const cutoff = now - CONFIG.RECENT_WINDOW_MS;
   const recentlyUpdatedApps = [];
 
-  for (const info of Object.values(appData)) {
+  for (const [appId, info] of Object.entries(appData)) {
     if (!info?.releaseDate || info.releaseDate === TXT.UNKNOWN) continue;
 
     const releaseTimestamp = parseUtcDateMs(info.releaseDate);
@@ -207,7 +218,7 @@ function computeRecentlyUpdatedApps(searchMap, appData) {
       continue;
     }
 
-    const searchData = searchMap.get(normalizeName(info.name));
+    const searchData = getSearchData(searchLookup, appId, info);
     if (!searchData) continue;
 
     recentlyUpdatedApps.push({
@@ -261,11 +272,11 @@ async function loadHomepageSections() {
   state.inFlightPromise = (async () => {
     try {
       const { searchIndex, appData } = await fetchHomepageData();
-      const searchMap = buildSearchMap(searchIndex);
+      const searchLookup = buildSearchLookup(searchIndex);
 
-      const upcomingApps = computeUpcomingApps(searchMap, appData);
-      const newReleaseApps = computeNewReleaseApps(searchMap, appData);
-      const recentlyUpdatedApps = computeRecentlyUpdatedApps(searchMap, appData);
+      const upcomingApps = computeUpcomingApps(searchLookup, appData);
+      const newReleaseApps = computeNewReleaseApps(searchLookup, appData);
+      const recentlyUpdatedApps = computeRecentlyUpdatedApps(searchLookup, appData);
 
       if (token !== state.renderToken) return;
 
