@@ -1742,7 +1742,7 @@
       {
         "id": "supermariobrosremastered",
         "sourceType": "github",
-        "assetPattern": "SMBR*.zip"
+        "assetPattern": "SMBR_*.zip"
       }
     ]
   }
