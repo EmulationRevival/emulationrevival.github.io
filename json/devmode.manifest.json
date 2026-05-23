@@ -1745,5 +1745,21 @@
         "assetPattern": "SMBR_*.zip"
       }
     ]
+  },
+  "rsdkv4Uwp": {
+    "name": "RSDKv4 UWP",
+    "repo": "caorthann-celt/RSDKv4-UWP",
+    "assets": [
+      {
+        "id": "rsdkv4uwp",
+        "sourceType": "github",
+        "assetPattern": "RSDKv4-UWP_*_x64.msix"
+      },
+      {
+        "id": "rsdkv4uwp-dep",
+        "sourceType": "github",
+        "assetPattern": "Microsoft.VCLibs.x*.appx"
+      }
+    ]
   }
 }
