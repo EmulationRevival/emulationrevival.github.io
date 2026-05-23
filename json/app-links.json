@@ -1622,5 +1622,23 @@
     ],
     "releaseNotesUrl": "https://github.com/LeNoirKing/Super-Mario-Bros.-Remastered-UWP/releases/tag/UWP",
     "releaseTag": "UWP"
+  },
+  "rsdkv4Uwp": {
+    "name": "RSDKv4 UWP",
+    "version": "1.0.1.0",
+    "releaseDate": "2026-05-23",
+    "firstReleaseDate": "2026-05-23",
+    "assets": [
+      {
+        "id": "rsdkv4uwp",
+        "url": "https://github.com/caorthann-celt/RSDKv4-UWP/releases/download/v1.0.1.0/RSDKv4-UWP_1.0.1.0_x64.msix"
+      },
+      {
+        "id": "rsdkv4uwp-dep",
+        "url": "https://github.com/caorthann-celt/RSDKv4-UWP/releases/download/v1.0.1.0/Microsoft.VCLibs.x64.14.00.appx"
+      }
+    ],
+    "releaseNotesUrl": "https://github.com/caorthann-celt/RSDKv4-UWP/releases/tag/v1.0.1.0",
+    "releaseTag": "v1.0.1.0"
   }
 }
