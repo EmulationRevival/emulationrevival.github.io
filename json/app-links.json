@@ -1640,5 +1640,23 @@
     ],
     "releaseNotesUrl": "https://github.com/caorthann-celt/RSDKv4-UWP/releases/tag/v1.0.1.0",
     "releaseTag": "v1.0.1.0"
+  },
+  "hurrican": {
+    "name": "Hurrican",
+    "version": "1.0.1.0",
+    "releaseDate": "2026-05-24",
+    "firstReleaseDate": "2026-05-24",
+    "assets": [
+      {
+        "id": "hurrican",
+        "url": "https://github.com/caorthann-celt/Hurrican-UWP/releases/download/v1.0.1.0/hurrican-uwp_1.0.1.0_x64.msix"
+      },
+      {
+        "id": "hurrican-dep",
+        "url": "https://github.com/caorthann-celt/Hurrican-UWP/releases/download/v1.0.1.0/Microsoft.VCLibs.x64.14.00.appx"
+      }
+    ],
+    "releaseNotesUrl": "https://github.com/caorthann-celt/Hurrican-UWP/releases/tag/v1.0.1.0",
+    "releaseTag": "v1.0.1.0"
   }
 }
