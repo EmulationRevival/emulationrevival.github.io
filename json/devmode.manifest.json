@@ -1761,5 +1761,21 @@
         "assetPattern": "Microsoft.VCLibs.x*.appx"
       }
     ]
+  },
+  "hurrican": {
+    "name": "Hurrican",
+    "repo": "caorthann-celt/Hurrican-UWP",
+    "assets": [
+      {
+        "id": "hurrican",
+        "sourceType": "github",
+        "assetPattern": "hurrican-uwp_*_x64.msix"
+      },
+      {
+        "id": "hurrican-dep",
+        "sourceType": "github",
+        "assetPattern": "Microsoft.VCLibs.x*.appx"
+      }
+    ]
   }
 }

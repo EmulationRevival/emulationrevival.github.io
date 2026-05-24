@@ -1835,3 +1835,35 @@
   setup_guide:
     url: "https://wiki.sternserv.xyz/docs/ports/rsdkv4-uwp-guide"
   tutorial_url: null
+  
+- id: "hurrican"
+  app_id: "hurrican"
+  title: "Hurrican"
+  description: "Xbox dev mode port of Hurrican, the freeware jump and shoot game originally created by Poke53280 and based on Manfred Trenz’s Turrican series."
+  image: "/xbox-dev-mode/images/game-ports/hurrican.webp"
+  alt: "Hurrican Logo"
+  category: "Ports"
+  page_url: "/xbox-dev-mode/ports.html#hurrican"
+  preview_url: "/previews/ports-hurrican.html"
+  compatibility: "Xbox One & Series S|X"
+  requirements: []
+  features: []
+  contributors:
+    developers:
+      - name: "HurricanGame"
+        github: "https://github.com/HurricanGame"
+        donations: []
+    porters:
+      - name: "Caorthann"
+        github: "https://github.com/caorthann-celt"
+        donations: []
+    maintainers: []
+  downloads:
+    - label: "Hurrican"
+      asset_id: "hurrican"
+    - label: "Dependency File"
+      asset_id: "hurrican-dep"
+  source_code_url: "https://github.com/caorthann-celt/Hurrican-UWP"
+  setup_guide:
+    url: "https://wiki.sternserv.xyz/docs/ports/hurrican-guide"
+  tutorial_url: null
