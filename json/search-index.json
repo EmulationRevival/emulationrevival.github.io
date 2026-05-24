@@ -560,6 +560,14 @@
     "category": "Ports"
   },
   {
+    "app_id": "rsdkv4Uwp",
+    "name": "RSDKv4 UWP",
+    "description": "Unofficial UWP/Xbox Dev Mode port of the Sonic 1 & Sonic 2 2013 Retro Engine v4 decompilation",
+    "img": "/xbox-dev-mode/images/game-ports/rsdkv4.webp",
+    "url": "/xbox-dev-mode/ports.html#rsdkv4-uwp",
+    "category": "Ports"
+  },
+  {
     "app_id": "usbPermissionsTool",
     "name": "USB Permissions Tool",
     "description": "Add necessary permissions to an NTFS formatted USB drive for UWP apps",
