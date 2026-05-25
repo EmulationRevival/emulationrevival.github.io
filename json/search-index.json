@@ -568,6 +568,14 @@
     "category": "Ports"
   },
   {
+    "app_id": "hurrican",
+    "name": "Hurrican",
+    "description": "Xbox dev mode port of Hurrican, the freeware jump and shoot game originally created by Poke53280 and based on Manfred Trenz’s Turrican series.",
+    "img": "/xbox-dev-mode/images/game-ports/hurrican.webp",
+    "url": "/xbox-dev-mode/ports.html#hurrican",
+    "category": "Ports"
+  },
+  {
     "app_id": "usbPermissionsTool",
     "name": "USB Permissions Tool",
     "description": "Add necessary permissions to an NTFS formatted USB drive for UWP apps",

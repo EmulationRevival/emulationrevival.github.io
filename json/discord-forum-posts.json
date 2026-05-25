@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-05-23T19:56:00.035Z",
+  "updatedAt": "2026-05-24T16:09:46.917Z",
   "posts": {
     "emulators:retroarch-3ds": {
       "key": "emulators:retroarch-3ds",
@@ -1239,7 +1239,7 @@
       "contentHash": "52f05e480e5be6a2451fb604c728100a87b3d29266d2b88142a52b46e99fd97f",
       "updatedAt": "2026-05-13T20:48:21.009Z",
       "missingFromYaml": true,
-      "missingCheckedAt": "2026-05-23T19:56:00.035Z"
+      "missingCheckedAt": "2026-05-24T16:09:46.917Z"
     },
     "apps:discorduwp": {
       "key": "apps:discorduwp",
@@ -1534,6 +1534,23 @@
       "updatedAt": "2026-05-23T19:56:00.033Z",
       "appliedTags": [
         "1504526316693622844"
+      ]
+    },
+    "ports:hurrican": {
+      "key": "ports:hurrican",
+      "productId": "hurrican",
+      "appId": "hurrican",
+      "title": "Hurrican",
+      "source": "ports",
+      "sourceLabel": "Game Ports",
+      "channelId": "1504200374716989551",
+      "threadId": "1508139961591795832",
+      "messageId": "1508139961591795832",
+      "contentHash": "bd7dd71361df83085f4b4f2bcb13f31d1792d61bb1e5dda79e53907f9e98bb65",
+      "updatedAt": "2026-05-24T16:09:46.916Z",
+      "appliedTags": [
+        "1504526316693622844",
+        "1504526367058952342"
       ]
     }
   }
