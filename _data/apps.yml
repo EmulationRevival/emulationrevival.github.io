@@ -103,7 +103,8 @@
   requirements:
     - "Active Game Pass subscription"
     - "Install all 3 dependencies"
-  features: []
+  features:
+    - "Frontend support"
   contributors:
     developers:
       - name: "DanP"

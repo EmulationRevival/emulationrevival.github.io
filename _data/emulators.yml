@@ -10,6 +10,7 @@
   compatibility: "Xbox Series S|X"
   requirements: []
   features:
+    - "Frontend support"
     - "Locked Citra core"
     - "Includes Azahar and Panda3ds core"
   contributors:
@@ -45,7 +46,8 @@
   compatibility: "Xbox One & Series S|X"
   requirements:
     - "Xbox language must be set to English US for controller input"
-  features: []
+  features:
+    - "Frontend support"
   contributors:
     developers:
       - name: "Dolphin Team"
@@ -83,7 +85,8 @@
   compatibility: "Xbox One & Series S|X"
   requirements:
     - "BIOS optional"
-  features: []
+  features:
+    - "Frontend support"
   contributors:
     developers:
       - name: "Flyinghead"
@@ -210,7 +213,8 @@
   preview_url: "/previews/emulators-ppsspp.html"
   compatibility: "Xbox One & Series S|X"
   requirements: []
-  features: []
+  features:
+    - "Frontend support"
   contributors:
     developers:
       - name: "Henrik Rydgård"
@@ -268,7 +272,8 @@
   preview_url: "/previews/emulators-retroarch.html"
   compatibility: "Xbox One & Series S|X"
   requirements: []
-  features: []
+  features:
+    - "Frontend support"
   contributors:
     developers:
       - name: "Libretro"
@@ -410,7 +415,8 @@
   compatibility: "Xbox One & Series S|X"
   requirements:
     - "PS2 BIOS needed"
-  features: []
+  features:
+    - "Frontend support"
   contributors:
     developers:
       - name: "PCSX2 Team"
@@ -449,7 +455,8 @@
   preview_url: "/previews/emulators-xenia-canary.html"
   compatibility: "Xbox Series S|X"
   requirements: []
-  features: []
+  features:
+    - "Frontend support"
   contributors:
     developers:
       - name: "Xenia Project"

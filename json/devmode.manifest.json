@@ -1148,13 +1148,13 @@
     ]
   },
   "retropass": {
-    "name": "Retropass",
+    "name": "Retro Pass",
     "repo": "retropassdev/RetroPass",
     "assets": [
       {
         "id": "retropass",
         "sourceType": "github",
-        "assetPattern": "RetroPass_*.zip"
+        "assetPattern": "RetroPass_v*.zip"
       }
     ]
   },
