@@ -1777,5 +1777,21 @@
         "assetPattern": "Microsoft.VCLibs.x*.appx"
       }
     ]
+  },
+  "rigelEngine": {
+    "name": "Rigel Engine",
+    "repo": "caorthann-celt/RigelEngineUWP",
+    "assets": [
+      {
+        "id": "rigelengine",
+        "sourceType": "github",
+        "assetPattern": "RigelEngineUWP_*_x64.msix"
+      },
+      {
+        "id": "rigelengine-dep",
+        "sourceType": "github",
+        "assetPattern": "Microsoft.VCLibs.x*.appx"
+      }
+    ]
   }
 }

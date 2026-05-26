@@ -1867,3 +1867,36 @@
   setup_guide:
     url: "https://wiki.sternserv.xyz/docs/ports/hurrican-guide"
   tutorial_url: null
+  
+- id: "rigel-engine"
+  app_id: "rigelEngine"
+  title: "Rigel Engine"
+  description: "An unofficial port of Rigel Engine, a source port for Duke Nukem II"
+  image: "/xbox-dev-mode/images/game-ports/rigelengine.webp"
+  alt: "Rigel Engine Logo"
+  category: "Ports"
+  page_url: "/xbox-dev-mode/ports.html#rigel-engine"
+  preview_url: "/previews/ports-rigel-engine.html"
+  compatibility: "Xbox One & Series S|X"
+  requirements:
+    - "Duke Nukem II game data"
+  features: []
+  contributors:
+    developers:
+      - name: "Nikolai Wuttke-Hohendorf"
+        github: "https://github.com/lethal-guitar"
+        donations: []
+    porters:
+      - name: "Caorthann"
+        github: "https://github.com/caorthann-celt"
+        donations: []
+    maintainers: []
+  downloads:
+    - label: "Rigel Engine"
+      asset_id: "rigelengine"
+    - label: "Dependency File"
+      asset_id: "rigelengine-dep"
+  source_code_url: "https://github.com/caorthann-celt/RigelEngineUWP"
+  setup_guide:
+    url: "https://wiki.sternserv.xyz/docs/ports/rigelengine-guide"
+  tutorial_url: null
