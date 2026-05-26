@@ -576,6 +576,14 @@
     "category": "Ports"
   },
   {
+    "app_id": "rigelEngine",
+    "name": "Rigel Engine",
+    "description": "An unofficial port of Rigel Engine, a source port for Duke Nukem II",
+    "img": "/xbox-dev-mode/images/game-ports/rigelengine.webp",
+    "url": "/xbox-dev-mode/ports.html#rigel-engine",
+    "category": "Ports"
+  },
+  {
     "app_id": "usbPermissionsTool",
     "name": "USB Permissions Tool",
     "description": "Add necessary permissions to an NTFS formatted USB drive for UWP apps",
