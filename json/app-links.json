@@ -954,18 +954,18 @@
     "releaseTag": "v2.2.0"
   },
   "retropass": {
-    "name": "Retropass",
-    "version": "1.12.0",
-    "releaseDate": "2024-04-16",
+    "name": "Retro Pass",
+    "version": "1.13.0",
+    "releaseDate": "2026-05-25",
     "firstReleaseDate": "2022-03-05",
     "assets": [
       {
         "id": "retropass",
-        "url": "https://github.com/retropassdev/RetroPass/releases/download/RetroPass_v1.12.0/RetroPass_v1.12.0.zip"
+        "url": "https://github.com/retropassdev/RetroPass/releases/download/RetroPass_v1.13.0/RetroPass_v1.13.0.zip"
       }
     ],
-    "releaseNotesUrl": "https://github.com/retropassdev/RetroPass/releases/tag/RetroPass_v1.12.0",
-    "releaseTag": "RetroPass_v1.12.0"
+    "releaseNotesUrl": "https://github.com/retropassdev/RetroPass/releases/tag/RetroPass_v1.13.0",
+    "releaseTag": "RetroPass_v1.13.0"
   },
   "usbPermissionsTool": {
     "name": "USB Permissions Tool",
