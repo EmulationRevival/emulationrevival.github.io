@@ -1900,3 +1900,35 @@
   setup_guide:
     url: "https://wiki.sternserv.xyz/docs/ports/rigelengine-guide"
   tutorial_url: null
+  
+- id: "pekka-kana-2"
+  app_id: "pekkaKana2"
+  title: "Pekka Kana 2"
+  description: "A classic 2D platformer where you play as Pekka the rooster"
+  image: "/xbox-dev-mode/images/game-ports/pekkakana2.webp"
+  alt: "Pekka Kana 2 Logo"
+  category: "Ports"
+  page_url: "/xbox-dev-mode/ports.html#pekka-kana-2"
+  preview_url: "/previews/ports-pekka-kana-2.html"
+  compatibility: "Xbox One & Series S|X"
+  requirements: []
+  features: []
+  contributors:
+    developers:
+      - name: "SaturninTheAlien"
+        github: "https://github.com/SaturninTheAlien"
+        donations: []
+    porters:
+      - name: "Caorthann"
+        github: "https://github.com/caorthann-celt"
+        donations: []
+    maintainers: []
+  downloads:
+    - label: "Pekka Kana 2"
+      asset_id: "pekkakana2"
+    - label: "Dependency File"
+      asset_id: "pekkakana2-dep"
+  source_code_url: "https://github.com/caorthann-celt/pk2_greta_uwp"
+  setup_guide:
+    url: "https://wiki.sternserv.xyz/docs/ports/pekka-kana-2-guide"
+  tutorial_url: null

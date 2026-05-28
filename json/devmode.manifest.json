@@ -1793,5 +1793,21 @@
         "assetPattern": "Microsoft.VCLibs.x*.appx"
       }
     ]
+  },
+  "pekkaKana2": {
+    "name": "Pekka Kana 2",
+    "repo": "caorthann-celt/pk2_greta_uwp",
+    "assets": [
+      {
+        "id": "pekkakana2",
+        "sourceType": "github",
+        "assetPattern": "PekkaKana2UWP_*_x64.msix"
+      },
+      {
+        "id": "pekkakana2-dep",
+        "sourceType": "github",
+        "assetPattern": "Microsoft.VCLibs.x*.appx"
+      }
+    ]
   }
 }
