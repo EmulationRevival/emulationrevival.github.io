@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-05-25T21:05:36.879Z",
+  "updatedAt": "2026-05-26T20:23:15.854Z",
   "posts": {
     "emulators:retroarch-3ds": {
       "key": "emulators:retroarch-3ds",
@@ -1239,7 +1239,7 @@
       "contentHash": "52f05e480e5be6a2451fb604c728100a87b3d29266d2b88142a52b46e99fd97f",
       "updatedAt": "2026-05-13T20:48:21.009Z",
       "missingFromYaml": true,
-      "missingCheckedAt": "2026-05-25T21:05:36.879Z"
+      "missingCheckedAt": "2026-05-26T20:23:15.854Z"
     },
     "apps:discorduwp": {
       "key": "apps:discorduwp",
@@ -1548,6 +1548,23 @@
       "messageId": "1508139961591795832",
       "contentHash": "bd7dd71361df83085f4b4f2bcb13f31d1792d61bb1e5dda79e53907f9e98bb65",
       "updatedAt": "2026-05-24T16:09:46.916Z",
+      "appliedTags": [
+        "1504526316693622844",
+        "1504526367058952342"
+      ]
+    },
+    "ports:rigel-engine": {
+      "key": "ports:rigel-engine",
+      "productId": "rigel-engine",
+      "appId": "rigelEngine",
+      "title": "Rigel Engine",
+      "source": "ports",
+      "sourceLabel": "Game Ports",
+      "channelId": "1504200374716989551",
+      "threadId": "1508928528316502126",
+      "messageId": "1508928528316502126",
+      "contentHash": "2c8d5fad06f8713c0dd6daaad1fbb3048c988b9adc3316ff3c4e7eee7840968e",
+      "updatedAt": "2026-05-26T20:23:15.853Z",
       "appliedTags": [
         "1504526316693622844",
         "1504526367058952342"
