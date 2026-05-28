@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-05-26T20:23:15.854Z",
+  "updatedAt": "2026-05-28T14:19:07.596Z",
   "posts": {
     "emulators:retroarch-3ds": {
       "key": "emulators:retroarch-3ds",
@@ -1239,7 +1239,7 @@
       "contentHash": "52f05e480e5be6a2451fb604c728100a87b3d29266d2b88142a52b46e99fd97f",
       "updatedAt": "2026-05-13T20:48:21.009Z",
       "missingFromYaml": true,
-      "missingCheckedAt": "2026-05-26T20:23:15.854Z"
+      "missingCheckedAt": "2026-05-28T14:19:07.596Z"
     },
     "apps:discorduwp": {
       "key": "apps:discorduwp",
@@ -1565,6 +1565,23 @@
       "messageId": "1508928528316502126",
       "contentHash": "2c8d5fad06f8713c0dd6daaad1fbb3048c988b9adc3316ff3c4e7eee7840968e",
       "updatedAt": "2026-05-26T20:23:15.853Z",
+      "appliedTags": [
+        "1504526316693622844",
+        "1504526367058952342"
+      ]
+    },
+    "ports:pekka-kana-2": {
+      "key": "ports:pekka-kana-2",
+      "productId": "pekka-kana-2",
+      "appId": "pekkaKana2",
+      "title": "Pekka Kana 2",
+      "source": "ports",
+      "sourceLabel": "Game Ports",
+      "channelId": "1504200374716989551",
+      "threadId": "1509561665597734962",
+      "messageId": "1509561665597734962",
+      "contentHash": "9b3fdf835e5107a85bd7751f9903faf0997618496c7aa4654f556f67d7f4085a",
+      "updatedAt": "2026-05-28T14:19:07.594Z",
       "appliedTags": [
         "1504526316693622844",
         "1504526367058952342"
