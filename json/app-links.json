@@ -1676,5 +1676,23 @@
     ],
     "releaseNotesUrl": "https://github.com/caorthann-celt/RigelEngineUWP/releases/tag/v0.9.1.0",
     "releaseTag": "v0.9.1.0"
+  },
+  "pekkaKana2": {
+    "name": "Pekka Kana 2",
+    "version": "1.0.0.0",
+    "releaseDate": "2026-05-27",
+    "firstReleaseDate": "2026-05-27",
+    "assets": [
+      {
+        "id": "pekkakana2",
+        "url": "https://github.com/caorthann-celt/pk2_greta_uwp/releases/download/v1.0.0.0/PekkaKana2UWP_1.0.0.0_x64.msix"
+      },
+      {
+        "id": "pekkakana2-dep",
+        "url": "https://github.com/caorthann-celt/pk2_greta_uwp/releases/download/v1.0.0.0/Microsoft.VCLibs.x64.14.00.appx"
+      }
+    ],
+    "releaseNotesUrl": "https://github.com/caorthann-celt/pk2_greta_uwp/releases/tag/v1.0.0.0",
+    "releaseTag": "v1.0.0.0"
   }
 }

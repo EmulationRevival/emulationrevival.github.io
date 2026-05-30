@@ -584,6 +584,14 @@
     "category": "Ports"
   },
   {
+    "app_id": "pekkaKana2",
+    "name": "Pekka Kana 2",
+    "description": "A classic 2D platformer where you play as Pekka the rooster",
+    "img": "/xbox-dev-mode/images/game-ports/pekkakana2.webp",
+    "url": "/xbox-dev-mode/ports.html#pekka-kana-2",
+    "category": "Ports"
+  },
+  {
     "app_id": "usbPermissionsTool",
     "name": "USB Permissions Tool",
     "description": "Add necessary permissions to an NTFS formatted USB drive for UWP apps",
