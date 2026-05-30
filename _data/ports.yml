@@ -1426,7 +1426,7 @@
   
 - id: "sm64coopdx"
   app_id: "sm64coopdx"
-  title: "sm64coopdx"
+  title: "Sm64coopdx"
   description: "An unofficial port of sm64coopdx"
   image: "/xbox-dev-mode/images/game-ports/sm64coopdx.webp"
   alt: "sm64coopdx Logo"
@@ -1435,7 +1435,7 @@
   preview_url: "/previews/ports-sm64coopdx.html"
   compatibility: "Xbox Series S|X"
   requirements:
-    - "baserom.us.z64"
+    - "SM64 .z64 rom"
   features: []
   contributors:
     developers:
