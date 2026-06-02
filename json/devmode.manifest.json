@@ -1809,5 +1809,26 @@
         "assetPattern": "Microsoft.VCLibs.x*.appx"
       }
     ]
+  },
+  "sm64ex": {
+    "name": "Sm64ex",
+    "repo": "caorthann-celt/sm64ex-uwp",
+    "assets": [
+      {
+        "id": "sm64ex",
+        "sourceType": "github",
+        "assetPattern": "sm64ex-uwp_*_x64.msix"
+      },
+      {
+        "id": "sm64ex-dep",
+        "sourceType": "github",
+        "assetPattern": "Microsoft.VCLibs.x*.appx"
+      },
+      {
+        "id": "sm64ex-ext",
+        "sourceType": "github",
+        "assetPattern": "sm64ex_asset_extract.zip"
+      }
+    ]
   }
 }

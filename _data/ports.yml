@@ -1932,3 +1932,40 @@
   setup_guide:
     url: "https://wiki.sternserv.xyz/docs/ports/pekka-kana-2-guide"
   tutorial_url: null
+  
+- id: "sm64ex"
+  app_id: "sm64ex"
+  title: "Sm64ex"
+  description: "An unofficial Xbox UWP port of sm64ex, a Super Mario 64 decompilation with additional features"
+  image: "/xbox-dev-mode/images/game-ports/sm64ex.webp"
+  alt: "Sm64ex Logo"
+  category: "Ports"
+  page_url: "/xbox-dev-mode/ports.html#sm64ex"
+  preview_url: "/previews/ports-sm64ex.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "SM64 .z64 rom"
+  features:
+    - "60 FPS"
+    - "DynOS support"
+  contributors:
+    developers:
+      - name: "sm64pc"
+        github: "https://github.com/sm64pc"
+        donations: []
+    porters:
+      - name: "Caorthann"
+        github: "https://github.com/caorthann-celt"
+        donations: []
+    maintainers: []
+  downloads:
+    - label: "sm64ex"
+      asset_id: "sm64ex"
+    - label: "Dependency File"
+      asset_id: "sm64ex-dep"
+    - label: "Asset Extract Tool"
+      asset_id: "sm64ex-ext"
+  source_code_url: "https://github.com/caorthann-celt/sm64ex-uwp"
+  setup_guide:
+    url: "https://wiki.sternserv.xyz/docs/ports/sm64ex-uwp-guide"
+  tutorial_url: null
