@@ -213,29 +213,29 @@
   },
   "retroarch": {
     "name": "RetroArch",
-    "version": "05-25-2026",
-    "releaseDate": "2026-05-25",
+    "version": "06-01-2026",
+    "releaseDate": "2026-06-01",
     "firstReleaseDate": "2025-02-05",
     "assets": [
       {
         "id": "retroarch1",
-        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/05-25-2026/RetroArch-XboxOne.appx"
+        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/06-01-2026/RetroArch-XboxOne.appx"
       },
       {
         "id": "retroarch2",
-        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/05-25-2026/RetroArch-XboxOne-AllCores.appx"
+        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/06-01-2026/RetroArch-XboxOne-AllCores.appx"
       },
       {
         "id": "retroarch3",
-        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/05-25-2026/RetroArch-SeriesConsoles.appx"
+        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/06-01-2026/RetroArch-SeriesConsoles.appx"
       },
       {
         "id": "retroarch4",
-        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/05-25-2026/RetroArch-SeriesConsoles-AllCores.appx"
+        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/06-01-2026/RetroArch-SeriesConsoles-AllCores.appx"
       }
     ],
-    "releaseNotesUrl": "https://github.com/XboxEmulationHub/RetroArch/releases/tag/05-25-2026",
-    "releaseTag": "05-25-2026"
+    "releaseNotesUrl": "https://github.com/XboxEmulationHub/RetroArch/releases/tag/06-01-2026",
+    "releaseTag": "06-01-2026"
   },
   "ppsspp": {
     "name": "PPSSPP",
@@ -1447,21 +1447,21 @@
   },
   "sm64coopdx": {
     "name": "Sm64coopdx",
-    "version": "1.1.1.0",
-    "releaseDate": "2026-05-30",
+    "version": "1.2.0.0",
+    "releaseDate": "2026-06-02",
     "firstReleaseDate": "2026-04-25",
     "assets": [
       {
         "id": "sm64coopdx",
-        "url": "https://github.com/caorthann-celt/sm64coopdx-uwp/releases/download/v1.1.1.0/sm64coopdx-uwp_1.1.1.0_x64.msix"
+        "url": "https://github.com/caorthann-celt/sm64coopdx-uwp/releases/download/v1.2.0.0/sm64coopdx-uwp_1.2.0.0_x64.msix"
       },
       {
         "id": "sm64coopd-dep",
-        "url": "https://github.com/caorthann-celt/sm64coopdx-uwp/releases/download/v1.1.1.0/Microsoft.VCLibs.x64.14.00.appx"
+        "url": "https://github.com/caorthann-celt/sm64coopdx-uwp/releases/download/v1.2.0.0/Microsoft.VCLibs.x64.14.00.appx"
       }
     ],
-    "releaseNotesUrl": "https://github.com/caorthann-celt/sm64coopdx-uwp/releases/tag/v1.1.1.0",
-    "releaseTag": "v1.1.1.0"
+    "releaseNotesUrl": "https://github.com/caorthann-celt/sm64coopdx-uwp/releases/tag/v1.2.0.0",
+    "releaseTag": "v1.2.0.0"
   },
   "celeste64": {
     "name": "Celeste64",
@@ -1693,6 +1693,28 @@
       }
     ],
     "releaseNotesUrl": "https://github.com/caorthann-celt/pk2_greta_uwp/releases/tag/v1.0.0.0",
+    "releaseTag": "v1.0.0.0"
+  },
+  "sm64ex": {
+    "name": "Sm64ex",
+    "version": "1.0.0.0",
+    "releaseDate": "2026-06-02",
+    "firstReleaseDate": "2026-06-02",
+    "assets": [
+      {
+        "id": "sm64ex",
+        "url": "https://github.com/caorthann-celt/sm64ex-uwp/releases/download/v1.0.0.0/sm64ex-uwp_1.0.0.0_x64.msix"
+      },
+      {
+        "id": "sm64ex-dep",
+        "url": "https://github.com/caorthann-celt/sm64ex-uwp/releases/download/v1.0.0.0/Microsoft.VCLibs.x64.14.00.appx"
+      },
+      {
+        "id": "sm64ex-ext",
+        "url": "https://github.com/caorthann-celt/sm64ex-uwp/releases/download/v1.0.0.0/sm64ex_asset_extract.zip"
+      }
+    ],
+    "releaseNotesUrl": "https://github.com/caorthann-celt/sm64ex-uwp/releases/tag/v1.0.0.0",
     "releaseTag": "v1.0.0.0"
   }
 }
