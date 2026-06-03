@@ -1,10 +1,8 @@
-name: Nightly and Rebuild Scripts
+name: Rebuild Site on Push
 
 on:
   push:
     branches: ["main"]
-  schedule:
-    - cron: '0 0 * * *'
   workflow_dispatch:
 
 permissions:

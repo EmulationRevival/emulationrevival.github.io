@@ -1,0 +1,121 @@
+name: Nightly Link Check
+
+on:
+  schedule:
+    - cron: '30 6 * * *'
+      timezone: "Europe/London"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24.15.0'
+          package-manager-cache: false
+
+      - name: Install Node Dependencies
+        run: npm ci
+
+      - name: Backup previous app-links
+        run: cp json/app-links.json /tmp/app-links.previous.json || echo "{}" > /tmp/app-links.previous.json
+
+      - name: Run Build Links Script
+        env:
+          GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run build:links
+
+      - name: Check for app-link changes
+        id: link_changes
+        run: |
+          if git diff --quiet --exit-code -- json/app-links.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No app-link changes detected. Ending scheduled workflow."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "App-link changes detected. Continuing full rebuild."
+          fi
+
+      - name: Set up Ruby
+        if: steps.link_changes.outputs.changed == 'true'
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3.11'
+          bundler-cache: true
+
+      - name: Build Jekyll Release Data
+        if: steps.link_changes.outputs.changed == 'true'
+        run: npm run build:release-data
+
+      - name: Run Build Index Script
+        if: steps.link_changes.outputs.changed == 'true'
+        run: npm run build:index
+
+      - name: Run Build Previews Script
+        if: steps.link_changes.outputs.changed == 'true'
+        run: npm run build:previews
+
+      - name: Update Data Version
+        if: steps.link_changes.outputs.changed == 'true'
+        run: npm run build:version
+
+      - name: Build Jekyll Site
+        if: steps.link_changes.outputs.changed == 'true'
+        run: bundle exec jekyll build
+
+      - name: Validate Site Data
+        if: steps.link_changes.outputs.changed == 'true'
+        run: npm run validate
+
+      - name: Commit and Push Changes
+        if: steps.link_changes.outputs.changed == 'true'
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add json/ previews/ _data/release_data.json
+
+          if git diff --cached --quiet; then
+            echo "No build changes to commit."
+          else
+            git commit -m "Automated update: Rebuild generated site data"
+            git push
+          fi
+
+      - name: Wait for GitHub Pages to catch up
+        if: steps.link_changes.outputs.changed == 'true'
+        run: sleep 90
+
+      - name: Post Discord Updates
+        if: steps.link_changes.outputs.changed == 'true'
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          DISCORD_ROLE_ID: ${{ secrets.DISCORD_ROLE_ID }}
+        run: npm run post:discord
+
+      - name: Sync Discord Forum Posts
+        if: steps.link_changes.outputs.changed == 'true'
+        env:
+          DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
+        run: npm run sync:forum
+
+      - name: Commit Discord Forum Registry
+        if: steps.link_changes.outputs.changed == 'true'
+        run: |
+          if [ -z "$(git status --porcelain -- json/discord-forum-posts.json)" ]; then
+            echo "No Discord forum registry changes."
+            exit 0
+          fi
+
+          git add json/discord-forum-posts.json
+          git commit -m "Update Discord forum post registry"
+          git push
