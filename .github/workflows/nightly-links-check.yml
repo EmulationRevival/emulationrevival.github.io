@@ -2,8 +2,7 @@ name: Nightly Link Check
 
 on:
   schedule:
-    - cron: '30 6 * * *'
-      timezone: "Europe/London"
+    - cron: '10 5,11,17,23 * * *'
   workflow_dispatch:
 
 permissions:
