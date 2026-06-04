@@ -1,4 +1,4 @@
-name: Nightly Link Check
+name: Scheduled Link Check
 
 on:
   schedule:
