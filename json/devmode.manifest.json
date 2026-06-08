@@ -1820,6 +1820,11 @@
         "assetPattern": "sm64ex-uwp_*_x64.msix"
       },
       {
+        "id": "sm64ex-udd",
+        "sourceType": "github",
+        "assetPattern": "sm64ex-uwp-udd_*_x64.msix"
+      },
+      {
         "id": "sm64ex-dep",
         "sourceType": "github",
         "assetPattern": "Microsoft.VCLibs.x*.appx"

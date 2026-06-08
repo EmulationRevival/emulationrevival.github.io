@@ -1961,6 +1961,8 @@
   downloads:
     - label: "sm64ex"
       asset_id: "sm64ex"
+    - label: "sm64ex (No draw distance)"
+      asset_id: "sm64ex-udd"
     - label: "Dependency File"
       asset_id: "sm64ex-dep"
     - label: "Asset Extract Tool"
