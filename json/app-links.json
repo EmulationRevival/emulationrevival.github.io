@@ -1706,6 +1706,10 @@
         "url": "https://github.com/caorthann-celt/sm64ex-uwp/releases/download/v1.0.0.0/sm64ex-uwp_1.0.0.0_x64.msix"
       },
       {
+        "id": "sm64ex-udd",
+        "url": "https://github.com/caorthann-celt/sm64ex-uwp/releases/download/v1.0.0.0/sm64ex-uwp-udd_1.0.0.0_x64.msix"
+      },
+      {
         "id": "sm64ex-dep",
         "url": "https://github.com/caorthann-celt/sm64ex-uwp/releases/download/v1.0.0.0/Microsoft.VCLibs.x64.14.00.appx"
       },
