@@ -1,25 +1,25 @@
 {
   "moonlight": {
     "name": "Moonlight",
-    "version": "1.18.0.0",
-    "releaseDate": "2026-01-11",
+    "version": "1.18.1.0",
+    "releaseDate": "2026-06-16",
     "firstReleaseDate": "2023-10-17",
     "assets": [
       {
         "id": "moonlight1",
-        "url": "https://github.com/TheElixZammuto/moonlight-xbox/releases/download/1.18.0/moonlight-xbox-dx_1.18.0.0_x64.msixbundle"
+        "url": "https://github.com/TheElixZammuto/moonlight-xbox/releases/download/1.18.1/moonlight-xbox-dx_1.18.1.0_x64.msixbundle"
       },
       {
         "id": "moonlight2",
-        "url": "https://github.com/TheElixZammuto/moonlight-xbox/releases/download/1.18.0/Microsoft.UI.Xaml.2.7.appx"
+        "url": "https://github.com/TheElixZammuto/moonlight-xbox/releases/download/1.18.1/Microsoft.UI.Xaml.2.7.appx"
       },
       {
         "id": "moonlight3",
-        "url": "https://github.com/TheElixZammuto/moonlight-xbox/releases/download/1.18.0/Microsoft.VCLibs.x64.14.00.appx"
+        "url": "https://github.com/TheElixZammuto/moonlight-xbox/releases/download/1.18.1/Microsoft.VCLibs.x64.14.00.appx"
       }
     ],
-    "releaseNotesUrl": "https://github.com/TheElixZammuto/moonlight-xbox/releases/tag/1.18.0",
-    "releaseTag": "1.18.0"
+    "releaseNotesUrl": "https://github.com/TheElixZammuto/moonlight-xbox/releases/tag/1.18.1",
+    "releaseTag": "1.18.1"
   },
   "discorduwp": {
     "name": "Discord UWP",
@@ -213,29 +213,29 @@
   },
   "retroarch": {
     "name": "RetroArch",
-    "version": "06-08-2026",
-    "releaseDate": "2026-06-08",
+    "version": "06-16-2026",
+    "releaseDate": "2026-06-16",
     "firstReleaseDate": "2025-02-05",
     "assets": [
       {
         "id": "retroarch1",
-        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/06-08-2026/RetroArch-XboxOne.appx"
+        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/06-16-2026/RetroArch-XboxOne.appx"
       },
       {
         "id": "retroarch2",
-        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/06-08-2026/RetroArch-XboxOne-AllCores.appx"
+        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/06-16-2026/RetroArch-XboxOne-AllCores.appx"
       },
       {
         "id": "retroarch3",
-        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/06-08-2026/RetroArch-SeriesConsoles.appx"
+        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/06-16-2026/RetroArch-SeriesConsoles.appx"
       },
       {
         "id": "retroarch4",
-        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/06-08-2026/RetroArch-SeriesConsoles-AllCores.appx"
+        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/06-16-2026/RetroArch-SeriesConsoles-AllCores.appx"
       }
     ],
-    "releaseNotesUrl": "https://github.com/XboxEmulationHub/RetroArch/releases/tag/06-08-2026",
-    "releaseTag": "06-08-2026"
+    "releaseNotesUrl": "https://github.com/XboxEmulationHub/RetroArch/releases/tag/06-16-2026",
+    "releaseTag": "06-16-2026"
   },
   "ppsspp": {
     "name": "PPSSPP",
