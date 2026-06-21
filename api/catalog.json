@@ -1,0 +1,92 @@
+---
+layout: null
+permalink: /api/catalog.json
+---
+
+{%- assign emulators = site.data.emulators -%}
+{%- assign frontends = site.data.frontends -%}
+{%- assign ports = site.data.ports -%}
+{%- assign apps = site.data.apps -%}
+{%- assign experimental_apps = site.data["experimental-apps"] -%}
+{%- assign media_apps = site.data["media-apps"] -%}
+{%- assign utilities = site.data.utilities -%}
+{%- assign gzdoom_mods = site.data["gzdoom-mods"] -%}
+
+{%- assign all_cards = emulators
+  | concat: frontends
+  | concat: ports
+  | concat: apps
+  | concat: experimental_apps
+  | concat: media_apps
+  | concat: utilities
+  | concat: gzdoom_mods
+  | sort_natural: "title"
+-%}
+
+{
+  "schemaVersion": 1,
+  "site": "Emulation Revival",
+  "siteUrl": {{ site.url | jsonify }},
+  "generatedAt": {{ site.time | date_to_xmlschema | jsonify }},
+  "itemCount": {{ all_cards.size }},
+  "items": [
+    {%- for card in all_cards -%}
+      {%- assign release = site.data.release_data[card.app_id] -%}
+      {%- assign release_asset_map = release.assetMap -%}
+      {%- assign downloads = card.downloads -%}
+      {%- assign primary_download = downloads | first -%}
+      {%- assign primary_asset_id = primary_download.asset_id -%}
+      {%- assign primary_download_url = release_asset_map[primary_asset_id] | default: "" | strip -%}
+      {%- assign version = release.version | default: "" | strip -%}
+      {%- assign release_date = release.releaseDate | default: "" | strip -%}
+      {%- assign first_release_date = release.firstReleaseDate | default: "" | strip -%}
+      {%- assign release_tag = release.releaseTag | default: "" | strip -%}
+      {%- assign release_notes_url = release.releaseNotesUrl | default: "" | strip -%}
+      {%- assign source_code_url = card.source_code_url | default: "" | strip -%}
+      {%- assign setup_guide_url = card.setup_guide.url | default: "" | strip -%}
+      {%- assign tutorial_url = card.tutorial_url | default: "" | strip -%}
+      {%- unless forloop.first -%},{%- endunless %}
+    {
+      "id": {{ card.id | jsonify }},
+      "appId": {{ card.app_id | jsonify }},
+      "title": {{ card.title | jsonify }},
+      "description": {{ card.description | jsonify }},
+      "category": {{ card.category | jsonify }},
+      "categorySlug": {{ card.category | slugify | jsonify }},
+      "isExperimental": {% if card.category == "Experimental Apps" %}true{% else %}false{% endif %},
+      "isGzdoomMod": {% if card.category == "GZDoom Mods" %}true{% else %}false{% endif %},
+      "compatibility": {{ card.compatibility | jsonify }},
+      "requirements": {% if card.requirements %}{{ card.requirements | jsonify }}{% else %}[]{% endif %},
+      "features": {% if card.features %}{{ card.features | jsonify }}{% else %}[]{% endif %},
+      "imageUrl": {{ card.image | absolute_url | jsonify }},
+      "imageAlt": {{ card.alt | default: card.title | jsonify }},
+      "pageUrl": {{ card.page_url | absolute_url | jsonify }},
+      "previewUrl": {{ card.preview_url | absolute_url | jsonify }},
+      "version": {% if version != "" and version != "Unknown" %}{{ version | jsonify }}{% else %}null{% endif %},
+      "releaseDate": {% if release_date != "" and release_date != "Unknown" %}{{ release_date | jsonify }}{% else %}null{% endif %},
+      "firstReleaseDate": {% if first_release_date != "" and first_release_date != "Unknown" %}{{ first_release_date | jsonify }}{% else %}null{% endif %},
+      "releaseTag": {% if release_tag != "" and release_tag != "Unknown" %}{{ release_tag | jsonify }}{% else %}null{% endif %},
+      "releaseNotesUrl": {% if release_notes_url != "" and release_notes_url != "Unknown" %}{{ release_notes_url | jsonify }}{% else %}null{% endif %},
+      "downloadUrl": {% if primary_download_url != "" and primary_download_url != "#" %}{{ primary_download_url | absolute_url | jsonify }}{% else %}null{% endif %},
+      "downloads": [
+        {%- if downloads -%}
+          {%- for download in downloads -%}
+            {%- assign asset_id = download.asset_id -%}
+            {%- assign asset_url = release_asset_map[asset_id] | default: "" | strip -%}
+            {%- unless forloop.first -%},{%- endunless %}
+        {
+          "label": {{ download.label | default: "Download" | jsonify }},
+          "assetId": {{ asset_id | jsonify }},
+          "url": {% if asset_url != "" and asset_url != "#" %}{{ asset_url | absolute_url | jsonify }}{% else %}null{% endif %}
+        }
+          {%- endfor -%}
+        {%- endif %}
+      ],
+      "sourceCodeUrl": {% if source_code_url != "" and source_code_url != "null" %}{{ source_code_url | jsonify }}{% else %}null{% endif %},
+      "setupGuideUrl": {% if setup_guide_url != "" and setup_guide_url != "null" %}{{ setup_guide_url | jsonify }}{% else %}null{% endif %},
+      "tutorialUrl": {% if tutorial_url != "" and tutorial_url != "null" %}{{ tutorial_url | jsonify }}{% else %}null{% endif %},
+      "contributors": {% if card.contributors %}{{ card.contributors | jsonify }}{% else %}{}{% endif %}
+    }
+    {%- endfor %}
+  ]
+}
