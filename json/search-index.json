@@ -632,6 +632,14 @@
     "category": "Utilities"
   },
   {
+    "app_id": "xbHomebrewVault",
+    "name": "XB Homebrew Vault",
+    "description": "Desktop manager for Xbox Dev Mode homebrew. Browse, install & manage emulators and apps from Emulation Revival",
+    "img": "/xbox-dev-mode/images/utilities/xbvault.png",
+    "url": "/xbox-dev-mode/utilities.html#xb-homebrew-vault",
+    "category": "Utilities"
+  },
+  {
     "app_id": "discorduwp",
     "name": "Discord",
     "description": "Chat with friends and communities",
