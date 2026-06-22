@@ -108,3 +108,31 @@
   source_code_url: "https://github.com/Dantes-Dungeon/safe-exit"
   setup_guide: null
   tutorial_url: "https://youtu.be/Qlr2R8ZkMEw"
+  
+- id: "xb-homebrew-vault"
+  app_id: "xbHomebrewVault"
+  title: "XB Homebrew Vault"
+  description: "Desktop manager for Xbox Dev Mode homebrew. Browse, install & manage emulators and apps from Emulation Revival"
+  image: "/xbox-dev-mode/images/utilities/xbvault.png"
+  alt: "XB Homebrew Vault Logo"
+  category: "Utilities"
+  page_url: "/xbox-dev-mode/utilities.html#xb-homebrew-vault"
+  preview_url: "/previews/utilities-xb-homebrew-vault.html"
+  compatibility: "Windows OS & Linux"
+  requirements: []
+  features: []
+  contributors:
+    developers:
+      - name: "Marcelo Frau"
+        github: "https://github.com/marcelofrau"
+        donations: []
+    porters: []
+    maintainers: []
+  downloads:
+    - label: "Windows"
+      asset_id: "xbvault-win"
+    - label: "Linux"
+      asset_id: "xbvault-linux"
+  source_code_url: "https://github.com/marcelofrau/xb-homebrew-vault"
+  setup_guide: null
+  tutorial_url: null

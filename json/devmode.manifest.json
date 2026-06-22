@@ -1835,5 +1835,21 @@
         "assetPattern": "sm64ex_asset_extract.zip"
       }
     ]
+  },
+  "xbHomebrewVault": {
+    "name": "XB Homebrew Vault",
+    "repo": "marcelofrau/xb-homebrew-vault",
+    "assets": [
+      {
+        "id": "xbvault-win",
+        "sourceType": "github",
+        "assetPattern": "XBVault-*-win-x64.zip"
+      },
+      {
+        "id": "xbvault-linux",
+        "sourceType": "github",
+        "assetPattern": "XBVault-*-linux-x64.zip"
+      }
+    ]
   }
 }
