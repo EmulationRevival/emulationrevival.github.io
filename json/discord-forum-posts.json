@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-02T23:35:08.616Z",
+  "updatedAt": "2026-06-22T14:24:10.013Z",
   "posts": {
     "emulators:retroarch-3ds": {
       "key": "emulators:retroarch-3ds",
@@ -1239,7 +1239,7 @@
       "contentHash": "52f05e480e5be6a2451fb604c728100a87b3d29266d2b88142a52b46e99fd97f",
       "updatedAt": "2026-05-13T20:48:21.009Z",
       "missingFromYaml": true,
-      "missingCheckedAt": "2026-06-02T23:35:08.616Z"
+      "missingCheckedAt": "2026-06-22T14:24:10.013Z"
     },
     "apps:discorduwp": {
       "key": "apps:discorduwp",
@@ -1602,6 +1602,19 @@
       "appliedTags": [
         "1504526316693622844"
       ]
+    },
+    "utilities:xb-homebrew-vault": {
+      "key": "utilities:xb-homebrew-vault",
+      "productId": "xb-homebrew-vault",
+      "appId": "xbHomebrewVault",
+      "title": "XB Homebrew Vault",
+      "source": "utilities",
+      "sourceLabel": "Utilities",
+      "channelId": "1504200696248143923",
+      "threadId": "1518622630888870019",
+      "messageId": "1518622630888870019",
+      "contentHash": "b67d075c5c22cc85e0020f70d955dc00719e9302728f63448614650b7d5c0b8f",
+      "updatedAt": "2026-06-22T14:24:10.012Z"
     }
   }
 }
