@@ -1723,20 +1723,20 @@
   },
   "xbHomebrewVault": {
     "name": "XB Homebrew Vault",
-    "version": "0.8.5",
-    "releaseDate": "2026-06-22",
+    "version": "0.8.6",
+    "releaseDate": "2026-06-23",
     "firstReleaseDate": "2026-06-20",
     "assets": [
       {
         "id": "xbvault-win",
-        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v0.8.5/XBVault-0.8.5-win-x64.zip"
+        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v0.8.6/XBVault-0.8.6-win-x64.zip"
       },
       {
         "id": "xbvault-linux",
-        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v0.8.5/XBVault-0.8.5-linux-x64.zip"
+        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v0.8.6/XBVault-0.8.6-linux-x64.zip"
       }
     ],
-    "releaseNotesUrl": "https://github.com/marcelofrau/xb-homebrew-vault/releases/tag/v0.8.5",
-    "releaseTag": "v0.8.5"
+    "releaseNotesUrl": "https://github.com/marcelofrau/xb-homebrew-vault/releases/tag/v0.8.6",
+    "releaseTag": "v0.8.6"
   }
 }
