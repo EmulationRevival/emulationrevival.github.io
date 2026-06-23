@@ -1729,11 +1729,11 @@
     "assets": [
       {
         "id": "xbvault-win",
-        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v0.8.6/XBVault-0.8.6-win-x64.zip"
+        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v0.8.6/XBVault-v0.8.6-win-x64.zip"
       },
       {
         "id": "xbvault-linux",
-        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v0.8.6/XBVault-0.8.6-linux-x64.zip"
+        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v0.8.6/XBVault-v0.8.6-linux-x64.zip"
       }
     ],
     "releaseNotesUrl": "https://github.com/marcelofrau/xb-homebrew-vault/releases/tag/v0.8.6",
