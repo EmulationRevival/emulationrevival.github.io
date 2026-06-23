@@ -1841,14 +1841,34 @@
     "repo": "marcelofrau/xb-homebrew-vault",
     "assets": [
       {
-        "id": "xbvault-win",
+        "id": "xbvault-win64",
         "sourceType": "github",
-        "assetPattern": "XBVault-*-win-x64.zip"
+        "assetPattern": "XBVault-v*-win-x64-setup.exe"
+      },
+      {
+        "id": "xbvault-win64zip",
+        "sourceType": "github",
+        "assetPattern": "XBVault-v*-win-x64.zip"
+      },
+      {
+        "id": "xbvault-win64arm",
+        "sourceType": "github",
+        "assetPattern": "XBVault-v*-win-arm64.zip"
       },
       {
         "id": "xbvault-linux",
         "sourceType": "github",
-        "assetPattern": "XBVault-*-linux-x64.zip"
+        "assetPattern": "XBVault-v*-linux-x64.zip"
+      },
+      {
+        "id": "xbvault-mac",
+        "sourceType": "github",
+        "assetPattern": "XBVault-v*-osx-arm64.zip"
+      },
+      {
+        "id": "xbvault-macintel",
+        "sourceType": "github",
+        "assetPattern": "XBVault-v*-osx-x64.zip"
       }
     ]
   }

@@ -118,7 +118,7 @@
   category: "Utilities"
   page_url: "/xbox-dev-mode/utilities.html#xb-homebrew-vault"
   preview_url: "/previews/utilities-xb-homebrew-vault.html"
-  compatibility: "Windows OS & Linux"
+  compatibility: "Desktop"
   requirements: []
   features: []
   contributors:
@@ -129,10 +129,18 @@
     porters: []
     maintainers: []
   downloads:
-    - label: "Windows"
-      asset_id: "xbvault-win"
-    - label: "Linux"
+    - label: "Windows 64-bit Installer"
+      asset_id: "xbvault-win64"
+    - label: "Windows 64-bit Portable"
+      asset_id: "xbvault-win64zip"
+    - label: "Windows ARM64 Portable"
+      asset_id: "xbvault-win64arm"
+    - label: "Linux 64-bit ZIP"
       asset_id: "xbvault-linux"
+    - label: "macOS Apple Silicon ZIP"
+      asset_id: "xbvault-mac"
+    - label: "macOS Intel ZIP"
+      asset_id: "xbvault-macintel"
   source_code_url: "https://github.com/marcelofrau/xb-homebrew-vault"
   setup_guide: null
   tutorial_url: null
