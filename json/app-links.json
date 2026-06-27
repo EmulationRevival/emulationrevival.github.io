@@ -1723,36 +1723,36 @@
   },
   "xbHomebrewVault": {
     "name": "XB Homebrew Vault",
-    "version": "0.9.0",
-    "releaseDate": "2026-06-25",
+    "version": "0.9.4",
+    "releaseDate": "2026-06-26",
     "firstReleaseDate": "2026-06-21",
     "assets": [
       {
         "id": "xbvault-win64",
-        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v0.9.0/XBVault-v0.9.0-win-x64-setup.exe"
+        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v0.9.4/XBVault-v0.9.4-win-x64-setup.exe"
       },
       {
         "id": "xbvault-win64zip",
-        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v0.9.0/XBVault-v0.9.0-win-x64.zip"
+        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v0.9.4/XBVault-v0.9.4-win-x64.zip"
       },
       {
         "id": "xbvault-win64arm",
-        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v0.9.0/XBVault-v0.9.0-win-arm64.zip"
+        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v0.9.4/XBVault-v0.9.4-win-arm64.zip"
       },
       {
         "id": "xbvault-linux",
-        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v0.9.0/XBVault-v0.9.0-linux-x64.zip"
+        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v0.9.4/XBVault-v0.9.4-linux-x64.zip"
       },
       {
         "id": "xbvault-mac",
-        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v0.9.0/XBVault-v0.9.0-osx-arm64.zip"
+        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v0.9.4/XBVault-v0.9.4-osx-arm64.zip"
       },
       {
         "id": "xbvault-macintel",
-        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v0.9.0/XBVault-v0.9.0-osx-x64.zip"
+        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v0.9.4/XBVault-v0.9.4-osx-x64.zip"
       }
     ],
-    "releaseNotesUrl": "https://github.com/marcelofrau/xb-homebrew-vault/releases/tag/v0.9.0",
-    "releaseTag": "v0.9.0"
+    "releaseNotesUrl": "https://github.com/marcelofrau/xb-homebrew-vault/releases/tag/v0.9.4",
+    "releaseTag": "v0.9.4"
   }
 }
