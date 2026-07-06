@@ -213,29 +213,29 @@
   },
   "retroarch": {
     "name": "RetroArch",
-    "version": "06-29-2026",
-    "releaseDate": "2026-06-29",
+    "version": "07-06-2026",
+    "releaseDate": "2026-07-06",
     "firstReleaseDate": "2025-02-05",
     "assets": [
       {
         "id": "retroarch1",
-        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/06-29-2026/RetroArch-XboxOne.appx"
+        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/07-06-2026/RetroArch-XboxOne.appx"
       },
       {
         "id": "retroarch2",
-        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/06-29-2026/RetroArch-XboxOne-AllCores.appx"
+        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/07-06-2026/RetroArch-XboxOne-AllCores.appx"
       },
       {
         "id": "retroarch3",
-        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/06-29-2026/RetroArch-SeriesConsoles.appx"
+        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/07-06-2026/RetroArch-SeriesConsoles.appx"
       },
       {
         "id": "retroarch4",
-        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/06-29-2026/RetroArch-SeriesConsoles-AllCores.appx"
+        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/07-06-2026/RetroArch-SeriesConsoles-AllCores.appx"
       }
     ],
-    "releaseNotesUrl": "https://github.com/XboxEmulationHub/RetroArch/releases/tag/06-29-2026",
-    "releaseTag": "06-29-2026"
+    "releaseNotesUrl": "https://github.com/XboxEmulationHub/RetroArch/releases/tag/07-06-2026",
+    "releaseTag": "07-06-2026"
   },
   "ppsspp": {
     "name": "PPSSPP",
