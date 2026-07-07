@@ -213,29 +213,29 @@
   },
   "retroarch": {
     "name": "RetroArch",
-    "version": "06-22-2026",
-    "releaseDate": "2026-06-22",
+    "version": "07-06-2026",
+    "releaseDate": "2026-07-06",
     "firstReleaseDate": "2025-02-05",
     "assets": [
       {
         "id": "retroarch1",
-        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/06-22-2026/RetroArch-XboxOne.appx"
+        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/07-06-2026/RetroArch-XboxOne.appx"
       },
       {
         "id": "retroarch2",
-        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/06-22-2026/RetroArch-XboxOne-AllCores.appx"
+        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/07-06-2026/RetroArch-XboxOne-AllCores.appx"
       },
       {
         "id": "retroarch3",
-        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/06-22-2026/RetroArch-SeriesConsoles.appx"
+        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/07-06-2026/RetroArch-SeriesConsoles.appx"
       },
       {
         "id": "retroarch4",
-        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/06-22-2026/RetroArch-SeriesConsoles-AllCores.appx"
+        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/07-06-2026/RetroArch-SeriesConsoles-AllCores.appx"
       }
     ],
-    "releaseNotesUrl": "https://github.com/XboxEmulationHub/RetroArch/releases/tag/06-22-2026",
-    "releaseTag": "06-22-2026"
+    "releaseNotesUrl": "https://github.com/XboxEmulationHub/RetroArch/releases/tag/07-06-2026",
+    "releaseTag": "07-06-2026"
   },
   "ppsspp": {
     "name": "PPSSPP",
@@ -1723,20 +1723,36 @@
   },
   "xbHomebrewVault": {
     "name": "XB Homebrew Vault",
-    "version": "0.8.6",
-    "releaseDate": "2026-06-23",
-    "firstReleaseDate": "2026-06-20",
+    "version": "1.0.1",
+    "releaseDate": "2026-07-04",
+    "firstReleaseDate": "2026-06-22",
     "assets": [
       {
-        "id": "xbvault-win",
-        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v0.8.6/XBVault-v0.8.6-win-x64.zip"
+        "id": "xbvault-win64",
+        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v1.0.1/XBVault-v1.0.1-win-x64-setup.exe"
+      },
+      {
+        "id": "xbvault-win64zip",
+        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v1.0.1/XBVault-v1.0.1-win-x64.zip"
+      },
+      {
+        "id": "xbvault-win64arm",
+        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v1.0.1/XBVault-v1.0.1-win-arm64.zip"
       },
       {
         "id": "xbvault-linux",
-        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v0.8.6/XBVault-v0.8.6-linux-x64.zip"
+        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v1.0.1/XBVault-v1.0.1-linux-x64.zip"
+      },
+      {
+        "id": "xbvault-mac",
+        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v1.0.1/XBVault-v1.0.1-osx-arm64.zip"
+      },
+      {
+        "id": "xbvault-macintel",
+        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v1.0.1/XBVault-v1.0.1-osx-x64.zip"
       }
     ],
-    "releaseNotesUrl": "https://github.com/marcelofrau/xb-homebrew-vault/releases/tag/v0.8.6",
-    "releaseTag": "v0.8.6"
+    "releaseNotesUrl": "https://github.com/marcelofrau/xb-homebrew-vault/releases/tag/v1.0.1",
+    "releaseTag": "v1.0.1"
   }
 }
