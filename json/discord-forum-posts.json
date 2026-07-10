@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-10T17:16:23.840Z",
+  "updatedAt": "2026-07-10T18:11:06.281Z",
   "posts": {
     "emulators:retroarch-3ds": {
       "key": "emulators:retroarch-3ds",
@@ -1239,7 +1239,7 @@
       "contentHash": "52f05e480e5be6a2451fb604c728100a87b3d29266d2b88142a52b46e99fd97f",
       "updatedAt": "2026-05-13T20:48:21.009Z",
       "missingFromYaml": true,
-      "missingCheckedAt": "2026-07-10T17:16:23.840Z"
+      "missingCheckedAt": "2026-07-10T18:11:06.281Z"
     },
     "apps:discorduwp": {
       "key": "apps:discorduwp",
@@ -1628,6 +1628,23 @@
       "messageId": "1525188956021461163",
       "contentHash": "57c8f081fac25bdfc311ca6c72737e853ba53e0ca1c3a67d9714a637f7457e6a",
       "updatedAt": "2026-07-10T17:16:23.838Z",
+      "appliedTags": [
+        "1504526316693622844",
+        "1504526367058952342"
+      ]
+    },
+    "ports:virtua-fighter": {
+      "key": "ports:virtua-fighter",
+      "productId": "virtua-fighter",
+      "appId": "virtuaFighter",
+      "title": "Virtua Fighter",
+      "source": "ports",
+      "sourceLabel": "Game Ports",
+      "channelId": "1504200374716989551",
+      "threadId": "1525202722880487484",
+      "messageId": "1525202722880487484",
+      "contentHash": "abff72a030651d8f0f2dafd3a692dd392dd3486ce9fc6d462aadd1137ce37e63",
+      "updatedAt": "2026-07-10T18:11:06.279Z",
       "appliedTags": [
         "1504526316693622844",
         "1504526367058952342"
