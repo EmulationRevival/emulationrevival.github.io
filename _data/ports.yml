@@ -2001,3 +2001,35 @@
   setup_guide:
     url: "https://wiki.sternserv.xyz/docs/ports/mega-man-x8-16bit-guide"
   tutorial_url: null
+  
+- id: "virtua-fighter"
+  app_id: "virtuaFighter"
+  title: "Virtua Fighter"
+  description: "An easy emulation wrapper for Sega's Virtua Fighter Model 1 ROM , designed to be as plug and play as possible"
+  image: "/xbox-dev-mode/images/game-ports/virtua-fighter.webp"
+  alt: "Virtua Fighter Logo"
+  category: "Ports"
+  page_url: "/xbox-dev-mode/ports.html#virtua-fighter"
+  preview_url: "/previews/ports-virtua-fighter.html"
+  compatibility: "Xbox One & Series S|X"
+  requirements:
+    - "Sega Virtua Fighter Model 1 ROM"
+  features: []
+  contributors:
+    developers:
+      - name: "Sega"
+        donations: []
+    porters:
+      - name: "Wans Zai"
+        github: "https://github.com/wanszai"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/wanszai"
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "virtuafighter"
+  source_code_url: "https://github.com/wanszai/Virtua-Fighter---XboxOne-Windows"
+  setup_guide:
+    url: "https://wiki.sternserv.xyz/docs/ports/virtua-fighter-guide"
+  tutorial_url: null

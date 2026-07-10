@@ -1882,5 +1882,16 @@
         "assetPattern": "MegaManX8-16bit-UWP-*.zip"
       }
     ]
+  },
+  "virtuaFighter": {
+    "name": "Virtua Fighter",
+    "repo": "wanszai/Virtua-Fighter---XboxOne-Windows",
+    "assets": [
+      {
+        "id": "virtuafighter",
+        "sourceType": "github",
+        "assetPattern": "XboxOne-VirtuaFighter.appx"
+      }
+    ]
   }
 }
