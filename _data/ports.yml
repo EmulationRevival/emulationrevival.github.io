@@ -1971,3 +1971,33 @@
   setup_guide:
     url: "https://wiki.sternserv.xyz/docs/ports/sm64ex-uwp-guide"
   tutorial_url: null
+  
+- id: "mega-man-x8-16-bit"
+  app_id: "megaManX816Bit"
+  title: "Mega Man X8 16-bit"
+  description: "A reimagining of the PS2 original with SNES styled graphics"
+  image: "/xbox-dev-mode/images/game-ports/mega-man-x8.webp"
+  alt: "Mega Man X8 16-bit Logo"
+  category: "Ports"
+  page_url: "/xbox-dev-mode/ports.html#mega-man-x8-16-bit"
+  preview_url: "/previews/ports-mega-man-x8-16-bit.html"
+  compatibility: "Xbox One & Series S|X"
+  requirements: []
+  features: []
+  contributors:
+    developers:
+      - name: "Alysson da Paz"
+        github: "https://github.com/AlyssonDaPaz"
+        donations: []
+    porters:
+      - name: "Drey"
+        github: "https://github.com/Cainareiss"
+        donations: []
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "megamanx8"
+  source_code_url: "https://github.com/Cainareiss/Mega-Man-X8-16-bit-uwp-edition"
+  setup_guide:
+    url: "https://wiki.sternserv.xyz/docs/ports/mega-man-x8-16bit-guide"
+  tutorial_url: null

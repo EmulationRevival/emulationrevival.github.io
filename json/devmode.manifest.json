@@ -1871,5 +1871,16 @@
         "assetPattern": "XBVault-v*-osx-x64.zip"
       }
     ]
+  },
+  "megaManX816Bit": {
+    "name": "Mega Man X8 16-bit",
+    "repo": "Cainareiss/Mega-Man-X8-16-bit-uwp-edition",
+    "assets": [
+      {
+        "id": "megamanx8",
+        "sourceType": "github",
+        "assetPattern": "MegaManX8-16bit-UWP-*.zip"
+      }
+    ]
   }
 }
