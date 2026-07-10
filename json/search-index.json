@@ -600,6 +600,14 @@
     "category": "Ports"
   },
   {
+    "app_id": "megaManX816Bit",
+    "name": "Mega Man X8 16-bit",
+    "description": "A reimagining of the PS2 original with SNES styled graphics",
+    "img": "/xbox-dev-mode/images/game-ports/mega-man-x8.webp",
+    "url": "/xbox-dev-mode/ports.html#mega-man-x8-16-bit",
+    "category": "Ports"
+  },
+  {
     "app_id": "usbPermissionsTool",
     "name": "USB Permissions Tool",
     "description": "Add necessary permissions to an NTFS formatted USB drive for UWP apps",
