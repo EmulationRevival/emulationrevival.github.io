@@ -1768,5 +1768,19 @@
     ],
     "releaseNotesUrl": "https://github.com/Cainareiss/Mega-Man-X8-16-bit-uwp-edition/releases/tag/v1.0.0.10",
     "releaseTag": "v1.0.0.10"
+  },
+  "virtuaFighter": {
+    "name": "Virtua Fighter",
+    "version": "1.0.4",
+    "releaseDate": "2026-07-08",
+    "firstReleaseDate": "2026-07-05",
+    "assets": [
+      {
+        "id": "virtuafighter",
+        "url": "https://github.com/wanszai/Virtua-Fighter---XboxOne-Windows/releases/download/1.0.4/XboxOne-VirtuaFighter.appx"
+      }
+    ],
+    "releaseNotesUrl": "https://github.com/wanszai/Virtua-Fighter---XboxOne-Windows/releases/tag/1.0.4",
+    "releaseTag": "1.0.4"
   }
 }

@@ -608,6 +608,14 @@
     "category": "Ports"
   },
   {
+    "app_id": "virtuaFighter",
+    "name": "Virtua Fighter",
+    "description": "An easy emulation wrapper for Sega's Virtua Fighter Model 1 ROM , designed to be as plug and play as possible",
+    "img": "/xbox-dev-mode/images/game-ports/virtua-fighter.webp",
+    "url": "/xbox-dev-mode/ports.html#virtua-fighter",
+    "category": "Ports"
+  },
+  {
     "app_id": "usbPermissionsTool",
     "name": "USB Permissions Tool",
     "description": "Add necessary permissions to an NTFS formatted USB drive for UWP apps",
