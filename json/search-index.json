@@ -616,6 +616,22 @@
     "category": "Ports"
   },
   {
+    "app_id": "virtuaRacing",
+    "name": "Virtua Racing",
+    "description": "An easy emulation wrapper for Virtua Racing, designed to be as plug and play as possible",
+    "img": "/xbox-dev-mode/images/game-ports/virtua-racing.webp",
+    "url": "/xbox-dev-mode/ports.html#virtua-racing",
+    "category": "Ports"
+  },
+  {
+    "app_id": "flashbackReminiscence",
+    "name": "Flashback / REminiscence",
+    "description": "Unofficial UWP port of the REminiscence open source engine for Delphine Software's Flashback",
+    "img": "/xbox-dev-mode/images/game-ports/reminiscence.webp",
+    "url": "/xbox-dev-mode/ports.html#flashback-reminiscence",
+    "category": "Ports"
+  },
+  {
     "app_id": "usbPermissionsTool",
     "name": "USB Permissions Tool",
     "description": "Add necessary permissions to an NTFS formatted USB drive for UWP apps",
