@@ -1893,5 +1893,32 @@
         "assetPattern": "XboxOne-VirtuaFighter.appx"
       }
     ]
+  },
+  "virtuaRacing": {
+    "name": "Virtua Racing",
+    "repo": "wanszai/Virtua-Racing---XBOXONE-Windows",
+    "assets": [
+      {
+        "id": "virtuaracing",
+        "sourceType": "github",
+        "assetPattern": "Series-X-VirtuaRacing102.appx"
+      }
+    ]
+  },
+  "flashbackReminiscence": {
+    "name": "Flashback / REminiscence",
+    "repo": "caorthann-celt/REminiscence-UWP",
+    "assets": [
+      {
+        "id": "reminiscence",
+        "sourceType": "github",
+        "assetPattern": "REminiscenceUWP_*_x64.msix"
+      },
+      {
+        "id": "reminiscence-dep",
+        "sourceType": "github",
+        "assetPattern": "Microsoft.VCLibs.x*.appx"
+      }
+    ]
   }
 }

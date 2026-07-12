@@ -2033,3 +2033,68 @@
   setup_guide:
     url: "https://wiki.sternserv.xyz/docs/ports/virtua-fighter-guide"
   tutorial_url: null
+  
+- id: "virtua-racing"
+  app_id: "virtuaRacing"
+  title: "Virtua Racing"
+  description: "An easy emulation wrapper for Virtua Racing, designed to be as plug and play as possible"
+  image: "/xbox-dev-mode/images/game-ports/virtua-racing.webp"
+  alt: "Virtua Racing Logo"
+  category: "Ports"
+  page_url: "/xbox-dev-mode/ports.html#virtua-racing"
+  preview_url: "/previews/ports-virtua-racing.html"
+  compatibility: "Xbox One & Series S|X"
+  requirements:
+    - "MAME Virtua Racing vr.zip"
+  features: []
+  contributors:
+    developers:
+      - name: "Sega"
+        donations: []
+    porters:
+      - name: "Wans Zai"
+        github: "https://github.com/wanszai"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/wanszai"
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "virtuaracing"
+  source_code_url: "https://github.com/wanszai/Virtua-Racing---XBOXONE-Windows"
+  setup_guide:
+    url: "https://wiki.sternserv.xyz/docs/ports/virtua-racing-guide"
+  tutorial_url: null
+  
+- id: "flashback-reminiscence"
+  app_id: "flashbackReminiscence"
+  title: "Flashback / REminiscence"
+  description: "Unofficial UWP port of the REminiscence open source engine for Delphine Software's Flashback"
+  image: "/xbox-dev-mode/images/game-ports/reminiscence.webp"
+  alt: "Flashback / REminiscence Logo"
+  category: "Ports"
+  page_url: "/xbox-dev-mode/ports.html#flashback-reminiscence"
+  preview_url: "/previews/ports-flashback-reminiscence.html"
+  compatibility: "Xbox One & Series S|X"
+  requirements:
+    - "Data files from the original 1992 release of Flashback"
+  features: []
+  contributors:
+    developers:
+      - name: "Gregory Montoir"
+        github: "https://github.com/cyxx"
+        donations: []
+    porters:
+      - name: "Caorthann"
+        github: "https://github.com/caorthann-celt"
+        donations: []
+    maintainers: []
+  downloads:
+    - label: "Reminiscence"
+      asset_id: "reminiscence"
+    - label: "Dependency File"
+      asset_id: "reminiscence-dep"
+  source_code_url: "https://github.com/caorthann-celt/REminiscence-UWP"
+  setup_guide:
+    url: "https://wiki.sternserv.xyz/docs/ports/reminiscence-guide"
+  tutorial_url: null
