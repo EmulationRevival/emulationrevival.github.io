@@ -1786,16 +1786,16 @@
   "virtuaRacing": {
     "name": "Virtua Racing",
     "version": "1.0.2",
-    "releaseDate": "2026-07-12",
+    "releaseDate": "2026-07-14",
     "firstReleaseDate": "2026-07-12",
     "assets": [
       {
         "id": "virtuaracing",
-        "url": "https://github.com/wanszai/Virtua-Racing---XBOXONE-Windows/releases/download/1.0.2/Series-X-VirtuaRacing102.appx"
+        "url": "https://github.com/wanszai/Virtua-Racing---XBOXONE-Windows/releases/download/1.0.2a/Series-X-VirtuaRacing102.appx"
       }
     ],
-    "releaseNotesUrl": "https://github.com/wanszai/Virtua-Racing---XBOXONE-Windows/releases/tag/1.0.2",
-    "releaseTag": "1.0.2"
+    "releaseNotesUrl": "https://github.com/wanszai/Virtua-Racing---XBOXONE-Windows/releases/tag/1.0.2a",
+    "releaseTag": "1.0.2a"
   },
   "flashbackReminiscence": {
     "name": "Flashback / REminiscence",
