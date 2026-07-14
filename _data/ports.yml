@@ -2098,3 +2098,37 @@
   setup_guide:
     url: "https://wiki.sternserv.xyz/docs/ports/reminiscence-guide"
   tutorial_url: null
+  
+- id: "doom64ex-classic"
+  app_id: "doom64exClassic"
+  title: "Doom64EX Classic"
+  description: "Unofficial UWP port of Doom64EX Classic 2.5, including gamepad support and custom WAD launcher"
+  image: "/xbox-dev-mode/images/game-ports/doom64ex-classic.webp"
+  alt: "Doom64EX Classic Logo"
+  category: "Ports"
+  page_url: "/xbox-dev-mode/ports.html#doom64ex-classic"
+  preview_url: "/previews/ports-doom64ex-classic.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "DOOM.z64 rom"
+    - "Data files generated from wadgen.exe"
+  features: []
+  contributors:
+    developers:
+      - name: "atsb"
+        github: "https://github.com/atsb"
+        donations: []
+    porters:
+      - name: "Caorthann"
+        github: "https://github.com/caorthann-celt"
+        donations: []
+    maintainers: []
+  downloads:
+    - label: "Doom64EX Classic"
+      asset_id: "doom64exclassic"
+    - label: "Dependency File"
+      asset_id: "doom64exclassic-dep"
+  source_code_url: "https://github.com/caorthann-celt/Doom64EX-SDL2"
+  setup_guide:
+    url: "https://wiki.sternserv.xyz/docs/ports/doom64ex-classic-guide"
+  tutorial_url: null

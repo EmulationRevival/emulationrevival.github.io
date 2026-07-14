@@ -1920,5 +1920,21 @@
         "assetPattern": "Microsoft.VCLibs.x*.appx"
       }
     ]
+  },
+  "doom64exClassic": {
+    "name": "Doom64EX Classic",
+    "repo": "caorthann-celt/Doom64EX-SDL2",
+    "assets": [
+      {
+        "id": "doom64exclassic",
+        "sourceType": "github",
+        "assetPattern": "Doom64EXClassicUWP_*_x64.msix"
+      },
+      {
+        "id": "doom64exclassic-dep",
+        "sourceType": "github",
+        "assetPattern": "Microsoft.VCLibs.x*.appx"
+      }
+    ]
   }
 }
