@@ -1757,17 +1757,17 @@
   },
   "megaManX816Bit": {
     "name": "Mega Man X8 16-bit",
-    "version": "1.0.0.13",
-    "releaseDate": "2026-07-17",
+    "version": "1.0.0.14",
+    "releaseDate": "2026-07-20",
     "firstReleaseDate": "2026-07-10",
     "assets": [
       {
         "id": "megamanx8",
-        "url": "https://github.com/Cainareiss/Mega-Man-X8-16-bit-uwp-edition/releases/download/v1.0.0.13/MegaManX8-16bit-UWP-1.0.0.13.zip"
+        "url": "https://github.com/Cainareiss/Mega-Man-X8-16-bit-uwp-edition/releases/download/v1.0.0.14/MegaManX8-16bit-UWP-1.0.0.14.zip"
       }
     ],
-    "releaseNotesUrl": "https://github.com/Cainareiss/Mega-Man-X8-16-bit-uwp-edition/releases/tag/v1.0.0.13",
-    "releaseTag": "v1.0.0.13"
+    "releaseNotesUrl": "https://github.com/Cainareiss/Mega-Man-X8-16-bit-uwp-edition/releases/tag/v1.0.0.14",
+    "releaseTag": "v1.0.0.14"
   },
   "virtuaFighter": {
     "name": "Virtua Fighter",
