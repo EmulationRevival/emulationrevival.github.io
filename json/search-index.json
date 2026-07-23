@@ -632,6 +632,14 @@
     "category": "Ports"
   },
   {
+    "app_id": "doom64exClassic",
+    "name": "Doom64EX Classic",
+    "description": "Unofficial UWP port of Doom64EX Classic 2.5, including gamepad support and custom WAD launcher",
+    "img": "/xbox-dev-mode/images/game-ports/doom64ex-classic.webp",
+    "url": "/xbox-dev-mode/ports.html#doom64ex-classic",
+    "category": "Ports"
+  },
+  {
     "app_id": "usbPermissionsTool",
     "name": "USB Permissions Tool",
     "description": "Add necessary permissions to an NTFS formatted USB drive for UWP apps",
