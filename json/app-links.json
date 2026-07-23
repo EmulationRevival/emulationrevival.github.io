@@ -1832,5 +1832,19 @@
     ],
     "releaseNotesUrl": "https://github.com/caorthann-celt/Doom64EX-SDL2/releases/tag/v1.0.1.41",
     "releaseTag": "v1.0.1.41"
+  },
+  "dosboxPureUwp": {
+    "name": "DOSBox Pure UWP",
+    "version": "0.9.5.136",
+    "releaseDate": "2026-07-16",
+    "firstReleaseDate": "2026-07-16",
+    "assets": [
+      {
+        "id": "dosboxpureuwp",
+        "url": "https://github.com/marcelofrau/dosbox-pure-uwp/releases/download/v0.9.5.136/dosbox-uwp_0.9.5.136_x64.zip"
+      }
+    ],
+    "releaseNotesUrl": "https://github.com/marcelofrau/dosbox-pure-uwp/releases/tag/v0.9.5.136",
+    "releaseTag": "v0.9.5.136"
   }
 }

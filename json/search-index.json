@@ -112,6 +112,14 @@
     "category": "Emulators"
   },
   {
+    "app_id": "dosboxPureUwp",
+    "name": "DOSBox Pure UWP",
+    "description": "UWP port of DOSBox-Pure libretro core — runs on Windows + Xbox",
+    "img": "/xbox-dev-mode/images/emulators/dosbox-pure.webp",
+    "url": "/xbox-dev-mode/emulators.html#dosbox-pure-uwp",
+    "category": "Emulators"
+  },
+  {
     "app_id": "castlevania",
     "name": "Castlevania Revamped",
     "description": "The NES classic re-forged into a Metroid-style adventure",
