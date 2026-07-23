@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-14T21:50:07.345Z",
+  "updatedAt": "2026-07-23T20:43:49.203Z",
   "posts": {
     "emulators:retroarch-3ds": {
       "key": "emulators:retroarch-3ds",
@@ -1239,7 +1239,7 @@
       "contentHash": "52f05e480e5be6a2451fb604c728100a87b3d29266d2b88142a52b46e99fd97f",
       "updatedAt": "2026-05-13T20:48:21.009Z",
       "missingFromYaml": true,
-      "missingCheckedAt": "2026-07-14T21:50:07.345Z"
+      "missingCheckedAt": "2026-07-23T20:43:49.203Z"
     },
     "apps:discorduwp": {
       "key": "apps:discorduwp",
@@ -1698,6 +1698,23 @@
       "updatedAt": "2026-07-14T21:50:07.341Z",
       "appliedTags": [
         "1504526316693622844"
+      ]
+    },
+    "emulators:dosbox-pure-uwp": {
+      "key": "emulators:dosbox-pure-uwp",
+      "productId": "dosbox-pure-uwp",
+      "appId": "dosboxPureUwp",
+      "title": "DOSBox Pure UWP",
+      "source": "emulators",
+      "sourceLabel": "Emulators",
+      "channelId": "1504200314964672634",
+      "threadId": "1529952197574529184",
+      "messageId": "1529952197574529184",
+      "contentHash": "9d43279abaa7ee3806dd58d2bdba45f0508083fc7fa2f03c14d728dd5b77351a",
+      "updatedAt": "2026-07-23T20:43:49.194Z",
+      "appliedTags": [
+        "1504519186255188199",
+        "1504519240558972929"
       ]
     }
   }
