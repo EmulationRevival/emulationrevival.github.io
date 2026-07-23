@@ -648,6 +648,14 @@
     "category": "Ports"
   },
   {
+    "app_id": "uhexen2",
+    "name": "UHexen2",
+    "description": "An unofficial UWP port of Hexen II: Hammer of Thyrion",
+    "img": "/xbox-dev-mode/images/game-ports/uhexen2.webp",
+    "url": "/xbox-dev-mode/ports.html#uhexen2",
+    "category": "Ports"
+  },
+  {
     "app_id": "usbPermissionsTool",
     "name": "USB Permissions Tool",
     "description": "Add necessary permissions to an NTFS formatted USB drive for UWP apps",
