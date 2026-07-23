@@ -480,3 +480,35 @@
   source_code_url: "https://github.com/danprice142/xenia-canary-uwp"
   setup_guide: null
   tutorial_url: "https://youtu.be/rXAWYeJ0yRw"
+  
+- id: "dosbox-pure-uwp"
+  app_id: "dosboxPureUwp"
+  title: "DOSBox Pure UWP"
+  description: "UWP port of DOSBox-Pure libretro core — runs on Windows + Xbox"
+  image: "/xbox-dev-mode/images/emulators/dosbox-pure.webp"
+  alt: "DOSBox Pure UWP Logo"
+  category: "Emulators"
+  page_url: "/xbox-dev-mode/emulators.html#dosbox-pure-uwp"
+  preview_url: "/previews/emulators-dosbox-pure-uwp.html"
+  compatibility: "Xbox One & Series S|X"
+  requirements: []
+  features: []
+  contributors:
+    developers:
+      - name: "Bernhard Schelling"
+        github: "https://github.com/schellingb"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/schelling"
+    porters:
+      - name: "Marcelo Frau"
+        github: "https://github.com/marcelofrau"
+        donations: []
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "dosboxpureuwp"
+  source_code_url: "https://github.com/marcelofrau/dosbox-pure-uwp"
+  setup_guide:
+    url: "https://wiki.sternserv.xyz/docs/emulation/dosbox-pure-uwp-guide"
+  tutorial_url: null

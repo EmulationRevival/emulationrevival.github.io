@@ -1936,5 +1936,16 @@
         "assetPattern": "Microsoft.VCLibs.x*.appx"
       }
     ]
+  },
+  "dosboxPureUwp": {
+    "name": "DOSBox Pure UWP",
+    "repo": "marcelofrau/dosbox-pure-uwp",
+    "assets": [
+      {
+        "id": "dosboxpureuwp",
+        "sourceType": "github",
+        "assetPattern": "dosbox-uwp_*_x64.zip"
+      }
+    ]
   }
 }
