@@ -1947,5 +1947,21 @@
         "assetPattern": "dosbox-uwp_*_x64.zip"
       }
     ]
+  },
+  "uhexen2": {
+    "name": "UHexen2",
+    "repo": "caorthann-celt/uhexen2-uwp",
+    "assets": [
+      {
+        "id": "uhexen2",
+        "sourceType": "github",
+        "assetPattern": "uhexen2_uwp_*_x64.msix"
+      },
+      {
+        "id": "uhexen2-dep",
+        "sourceType": "github",
+        "assetPattern": "Microsoft.VCLibs.x*.appx"
+      }
+    ]
   }
 }

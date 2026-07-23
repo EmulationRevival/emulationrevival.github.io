@@ -2132,3 +2132,38 @@
   setup_guide:
     url: "https://wiki.sternserv.xyz/docs/ports/doom64ex-classic-guide"
   tutorial_url: null
+  
+- id: "uhexen2"
+  app_id: "uhexen2"
+  title: "UHexen2"
+  description: "An unofficial UWP port of Hexen II: Hammer of Thyrion"
+  image: "/xbox-dev-mode/images/game-ports/uhexen2.webp"
+  alt: "UHexen2 Logo"
+  category: "Ports"
+  page_url: "/xbox-dev-mode/ports.html#uhexen2"
+  preview_url: "/previews/ports-uhexen2.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "Hexen 2: pak0.pak & pak1.pak"
+    - "Optional: Portal of Praevus pak3.pak"
+    - "Music files"
+  features: []
+  contributors:
+    developers:
+      - name: "sezero"
+        github: "https://github.com/sezero"
+        donations: []
+    porters:
+      - name: "Caorthann"
+        github: "https://github.com/caorthann-celt"
+        donations: []
+    maintainers: []
+  downloads:
+    - label: "uHexen2"
+      asset_id: "uhexen2"
+    - label: "Dependency File"
+      asset_id: "uhexen2-dep"
+  source_code_url: "https://github.com/caorthann-celt/uhexen2-uwp"
+  setup_guide:
+    url: "https://wiki.sternserv.xyz/docs/ports/uhexen2-guide"
+  tutorial_url: null
