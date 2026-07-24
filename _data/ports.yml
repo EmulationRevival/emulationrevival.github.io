@@ -2135,10 +2135,10 @@
   
 - id: "uhexen2"
   app_id: "uhexen2"
-  title: "UHexen2"
+  title: "uHexen2"
   description: "An unofficial UWP port of Hexen II: Hammer of Thyrion"
   image: "/xbox-dev-mode/images/game-ports/uhexen2.webp"
-  alt: "UHexen2 Logo"
+  alt: "uHexen2 Logo"
   category: "Ports"
   page_url: "/xbox-dev-mode/ports.html#uhexen2"
   preview_url: "/previews/ports-uhexen2.html"
