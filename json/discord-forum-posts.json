@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-24T12:15:38.371Z",
+  "updatedAt": "2026-07-26T23:43:41.493Z",
   "posts": {
     "emulators:retroarch-3ds": {
       "key": "emulators:retroarch-3ds",
@@ -1239,7 +1239,7 @@
       "contentHash": "52f05e480e5be6a2451fb604c728100a87b3d29266d2b88142a52b46e99fd97f",
       "updatedAt": "2026-05-13T20:48:21.009Z",
       "missingFromYaml": true,
-      "missingCheckedAt": "2026-07-24T12:15:38.371Z"
+      "missingCheckedAt": "2026-07-26T23:43:41.493Z"
     },
     "apps:discorduwp": {
       "key": "apps:discorduwp",
@@ -1731,6 +1731,39 @@
       "updatedAt": "2026-07-24T12:15:38.369Z",
       "appliedTags": [
         "1504526316693622844"
+      ]
+    },
+    "ports:sega-rally-championship": {
+      "key": "ports:sega-rally-championship",
+      "productId": "sega-rally-championship",
+      "appId": "segaRallyChampionship",
+      "title": "Sega Rally Championship",
+      "source": "ports",
+      "sourceLabel": "Game Ports",
+      "channelId": "1504200374716989551",
+      "threadId": "1531084626116743390",
+      "messageId": "1531084626116743390",
+      "contentHash": "0054fc07a1e384f5340638a8cdd28adefc42e9530432894b0f85fa6db7b1cbc1",
+      "updatedAt": "2026-07-26T23:43:41.230Z",
+      "appliedTags": [
+        "1504526316693622844"
+      ]
+    },
+    "utilities:x-files": {
+      "key": "utilities:x-files",
+      "productId": "x-files",
+      "appId": "xFiles",
+      "title": "X-Files",
+      "source": "utilities",
+      "sourceLabel": "Utilities",
+      "channelId": "1504200696248143923",
+      "threadId": "1531084627408584754",
+      "messageId": "1531084627408584754",
+      "contentHash": "533930ce8146aab0992714633d5e182dfedb1d7a08895b5a5ffae64225d1508e",
+      "updatedAt": "2026-07-26T23:43:41.493Z",
+      "appliedTags": [
+        "1504527791943581816",
+        "1504527821362696202"
       ]
     }
   }
