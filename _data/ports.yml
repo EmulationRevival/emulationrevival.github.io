@@ -2167,3 +2167,35 @@
   setup_guide:
     url: "https://wiki.sternserv.xyz/docs/ports/uhexen2-guide"
   tutorial_url: null
+  
+- id: "sega-rally-championship"
+  app_id: "segaRallyChampionship"
+  title: "Sega Rally Championship"
+  description: "An easy emulation wrapper for Sega Rally Championship with quality-of-life improvements"
+  image: "/xbox-dev-mode/images/game-ports/sega-rally-championship.webp"
+  alt: "Sega Rally Championship Logo"
+  category: "Ports"
+  page_url: "/xbox-dev-mode/ports.html#sega-rally-championship"
+  preview_url: "/previews/ports-sega-rally-championship.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "srallyc.zip – Sega Rally Championship (Twin/DX, Rev C)"
+  features: []
+  contributors:
+    developers:
+      - name: "Sega"
+        donations: []
+    porters:
+      - name: "Wans Zai"
+        github: "https://github.com/wanszai"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/wanszai"
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "segarallychampionship"
+  source_code_url: "https://github.com/wanszai/Sega-Rally-Championship-PC-Xbox360-Series-X-"
+  setup_guide:
+    url: "https://wiki.sternserv.xyz/docs/ports/sega-rally-championship-guide"
+  tutorial_url: null

@@ -1963,5 +1963,27 @@
         "assetPattern": "Microsoft.VCLibs.x*.appx"
       }
     ]
+  },
+  "segaRallyChampionship": {
+    "name": "Sega Rally Championship",
+    "repo": "wanszai/Sega-Rally-Championship-PC-Xbox360-Series-X-",
+    "assets": [
+      {
+        "id": "segarallychampionship",
+        "sourceType": "github",
+        "assetPattern": "XboxSX-SegaRally*a.zip"
+      }
+    ]
+  },
+  "xFiles": {
+    "name": "X-Files",
+    "repo": "marcelofrau/x-files-uwp",
+    "assets": [
+      {
+        "id": "xfiles",
+        "sourceType": "github",
+        "assetPattern": "xfiles_*_x64.zip"
+      }
+    ]
   }
 }

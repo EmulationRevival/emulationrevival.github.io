@@ -144,3 +144,30 @@
   source_code_url: "https://github.com/marcelofrau/xb-homebrew-vault"
   setup_guide: null
   tutorial_url: null
+  
+- id: "x-files"
+  app_id: "xFiles"
+  title: "X-Files"
+  description: "The file manager your Xbox deserves.
+Navigate, preview, play, and manage your files — all from the couch, all with a gamepad"
+  image: "/xbox-dev-mode/images/utilities/x-files.webp"
+  alt: "X-Files Logo"
+  category: "Utilities"
+  page_url: "/xbox-dev-mode/utilities.html#x-files"
+  preview_url: "/previews/utilities-x-files.html"
+  compatibility: "Xbox One & Series S|X"
+  requirements: []
+  features: []
+  contributors:
+    developers:
+      - name: "Marcelo Frau"
+        github: "https://github.com/marcelofrau"
+        donations: []
+    porters: []
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "xfiles"
+  source_code_url: "https://github.com/marcelofrau/x-files-uwp"
+  setup_guide: null
+  tutorial_url: null
