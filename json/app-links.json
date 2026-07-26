@@ -1849,20 +1849,20 @@
   },
   "uhexen2": {
     "name": "UHexen2",
-    "version": "0.1.0.22",
-    "releaseDate": "2026-07-23",
+    "version": "0.1.4.25",
+    "releaseDate": "2026-07-24",
     "firstReleaseDate": "2026-07-23",
     "assets": [
       {
         "id": "uhexen2",
-        "url": "https://github.com/caorthann-celt/uhexen2-uwp/releases/download/v0.1.0.22/uhexen2_uwp_0.1.0.22_x64.msix"
+        "url": "https://github.com/caorthann-celt/uhexen2-uwp/releases/download/v0.1.4.25/uhexen2_uwp_0.1.4.25_x64.msix"
       },
       {
         "id": "uhexen2-dep",
-        "url": "https://github.com/caorthann-celt/uhexen2-uwp/releases/download/v0.1.0.22/Microsoft.VCLibs.x64.14.00.appx"
+        "url": "https://github.com/caorthann-celt/uhexen2-uwp/releases/download/v0.1.4.25/Microsoft.VCLibs.x64.14.00.appx"
       }
     ],
-    "releaseNotesUrl": "https://github.com/caorthann-celt/uhexen2-uwp/releases/tag/v0.1.0.22",
-    "releaseTag": "v0.1.0.22"
+    "releaseNotesUrl": "https://github.com/caorthann-celt/uhexen2-uwp/releases/tag/v0.1.4.25",
+    "releaseTag": "v0.1.4.25"
   }
 }
