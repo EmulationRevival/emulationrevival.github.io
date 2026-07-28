@@ -1881,16 +1881,16 @@
   },
   "xFiles": {
     "name": "X-Files",
-    "version": "1.0.0.733",
-    "releaseDate": "2026-07-25",
+    "version": "1.1.0.820",
+    "releaseDate": "2026-07-28",
     "firstReleaseDate": "2026-07-21",
     "assets": [
       {
         "id": "xfiles",
-        "url": "https://github.com/marcelofrau/x-files-uwp/releases/download/v1.0.0/xfiles_1.0.0.733_x64.zip"
+        "url": "https://github.com/marcelofrau/x-files-uwp/releases/download/v1.1.0.820/xfiles_1.1.0.820_x64.zip"
       }
     ],
-    "releaseNotesUrl": "https://github.com/marcelofrau/x-files-uwp/releases/tag/v1.0.0",
-    "releaseTag": "v1.0.0"
+    "releaseNotesUrl": "https://github.com/marcelofrau/x-files-uwp/releases/tag/v1.1.0.820",
+    "releaseTag": "v1.1.0.820"
   }
 }
