@@ -656,6 +656,14 @@
     "category": "Ports"
   },
   {
+    "app_id": "segaRallyChampionship",
+    "name": "Sega Rally Championship",
+    "description": "An easy emulation wrapper for Sega Rally Championship with quality-of-life improvements",
+    "img": "/xbox-dev-mode/images/game-ports/sega-rally-championship.webp",
+    "url": "/xbox-dev-mode/ports.html#sega-rally-championship",
+    "category": "Ports"
+  },
+  {
     "app_id": "usbPermissionsTool",
     "name": "USB Permissions Tool",
     "description": "Add necessary permissions to an NTFS formatted USB drive for UWP apps",
@@ -693,6 +701,14 @@
     "description": "Desktop manager for Xbox Dev Mode homebrew. Browse, install & manage emulators and apps from Emulation Revival",
     "img": "/xbox-dev-mode/images/utilities/xbvault.png",
     "url": "/xbox-dev-mode/utilities.html#xb-homebrew-vault",
+    "category": "Utilities"
+  },
+  {
+    "app_id": "xFiles",
+    "name": "X-Files",
+    "description": "The file manager your Xbox deserves. Navigate, preview, play, and manage your files — all from the couch, all with a gamepad",
+    "img": "/xbox-dev-mode/images/utilities/x-files.webp",
+    "url": "/xbox-dev-mode/utilities.html#x-files",
     "category": "Utilities"
   },
   {
