@@ -491,17 +491,17 @@
   },
   "jazz2": {
     "name": "Jazz 2 Resurrection",
-    "version": "3.6.0",
-    "releaseDate": "2026-05-30",
+    "version": "3.7.0",
+    "releaseDate": "2026-08-01",
     "firstReleaseDate": "2018-03-24",
     "assets": [
       {
         "id": "jazz2",
-        "url": "https://github.com/deathkiller/jazz2/releases/download/3.6.0/Jazz2_3.6.0_UWP.zip"
+        "url": "https://github.com/deathkiller/jazz2/releases/download/3.7.0/Jazz2_3.7.0_UWP.zip"
       }
     ],
-    "releaseNotesUrl": "https://github.com/deathkiller/jazz2/releases/tag/3.6.0",
-    "releaseTag": "3.6.0"
+    "releaseNotesUrl": "https://github.com/deathkiller/jazz2/releases/tag/3.7.0",
+    "releaseTag": "3.7.0"
   },
   "maze": {
     "name": "Maze0x72",
@@ -1892,5 +1892,23 @@
     ],
     "releaseNotesUrl": "https://github.com/marcelofrau/x-files-uwp/releases/tag/v1.1.0.820",
     "releaseTag": "v1.1.0.820"
+  },
+  "gen1recomp": {
+    "name": "Gen1Recomp",
+    "version": "0.3.0.0",
+    "releaseDate": "2026-08-01",
+    "firstReleaseDate": "2026-08-01",
+    "assets": [
+      {
+        "id": "gen1recomp",
+        "url": "https://github.com/caorthann-celt/gen1recomp-uwp/releases/download/v0.3.0.0/Gen1RecompUWP_0.3.0.0_x64.msix"
+      },
+      {
+        "id": "gen1recomp-dep",
+        "url": "https://github.com/caorthann-celt/gen1recomp-uwp/releases/download/v0.3.0.0/Microsoft.VCLibs.x64.14.00.appx"
+      }
+    ],
+    "releaseNotesUrl": "https://github.com/caorthann-celt/gen1recomp-uwp/releases/tag/v0.3.0.0",
+    "releaseTag": "v0.3.0.0"
   }
 }
