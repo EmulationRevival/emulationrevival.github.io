@@ -1985,5 +1985,21 @@
         "assetPattern": "xfiles_*_x64.zip"
       }
     ]
+  },
+  "gen1recomp": {
+    "name": "Gen1Recomp",
+    "repo": "caorthann-celt/gen1recomp-uwp",
+    "assets": [
+      {
+        "id": "gen1recomp",
+        "sourceType": "github",
+        "assetPattern": "Gen1RecompUWP_*_x64.msix"
+      },
+      {
+        "id": "gen1recomp-dep",
+        "sourceType": "github",
+        "assetPattern": "Microsoft.VCLibs.x*.appx"
+      }
+    ]
   }
 }
