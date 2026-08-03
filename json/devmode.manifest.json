@@ -2001,5 +2001,21 @@
         "assetPattern": "Microsoft.VCLibs.x*.appx"
       }
     ]
+  },
+  "syphonFilter": {
+    "name": "Syphon Filter",
+    "repo": "YTReviveMe/SF-pc-port-uwp",
+    "assets": [
+      {
+        "id": "syphonfilter",
+        "sourceType": "github",
+        "assetPattern": "syphon_filter_*_x64.appx"
+      },
+      {
+        "id": "syphonfilter-dep",
+        "sourceType": "github",
+        "assetPattern": "Microsoft.VCLibs.x*.appx"
+      }
+    ]
   }
 }

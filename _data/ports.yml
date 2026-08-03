@@ -2232,3 +2232,38 @@
   setup_guide:
     url: "https://wiki.sternserv.xyz/docs/ports/gen1recomp-guide"
   tutorial_url: null
+  
+- id: "syphon-filter"
+  app_id: "syphonFilter"
+  title: "Syphon Filter"
+  description: "An unofficial Xbox Dev Mode UWP port of Syphon Filter"
+  image: "/xbox-dev-mode/images/game-ports/syphon-filter.webp"
+  alt: "Syphon Filter Logo"
+  category: "Ports"
+  page_url: "/xbox-dev-mode/ports.html#syphon-filter"
+  preview_url: "/previews/ports-syphon-filter.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "Syphon Filter USA v1.1 (SCUS-94240) single-BIN/CUE image"
+  features: []
+  contributors:
+    developers:
+      - name: "Madxbio97"
+        github: "https://github.com/Madxbio97"
+        donations: []
+    porters:
+      - name: "ReviveMe"
+        github: "https://github.com/YTReviveMe"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/reviveme"
+    maintainers: []
+  downloads:
+    - label: "Syphon Filter"
+      asset_id: "syphonfilter"
+    - label: "Dependency File"
+      asset_id: "syphonfilter-dep"
+  source_code_url: "https://github.com/YTReviveMe/SF-pc-port-uwp"
+  setup_guide:
+    url: "https://wiki.sternserv.xyz/docs/ports/syphon-filter-uwp-guide"
+  tutorial_url: null
