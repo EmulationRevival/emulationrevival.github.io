@@ -1910,5 +1910,23 @@
     ],
     "releaseNotesUrl": "https://github.com/caorthann-celt/gen1recomp-uwp/releases/tag/v0.3.0.0",
     "releaseTag": "v0.3.0.0"
+  },
+  "syphonFilter": {
+    "name": "Syphon Filter",
+    "version": "0.1.0.0",
+    "releaseDate": "2026-08-03",
+    "firstReleaseDate": "2026-08-03",
+    "assets": [
+      {
+        "id": "syphonfilter",
+        "url": "https://github.com/YTReviveMe/SF-pc-port-uwp/releases/download/v0.1.0-uwp/syphon_filter_0.1.0.0_x64.appx"
+      },
+      {
+        "id": "syphonfilter-dep",
+        "url": "https://github.com/YTReviveMe/SF-pc-port-uwp/releases/download/v0.1.0-uwp/Microsoft.VCLibs.x64.14.00.appx"
+      }
+    ],
+    "releaseNotesUrl": "https://github.com/YTReviveMe/SF-pc-port-uwp/releases/tag/v0.1.0-uwp",
+    "releaseTag": "v0.1.0-uwp"
   }
 }
