@@ -213,29 +213,29 @@
   },
   "retroarch": {
     "name": "RetroArch",
-    "version": "07-27-2026",
-    "releaseDate": "2026-07-27",
+    "version": "08-03-2026",
+    "releaseDate": "2026-08-03",
     "firstReleaseDate": "2025-02-05",
     "assets": [
       {
         "id": "retroarch1",
-        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/07-27-2026/RetroArch-XboxOne.appx"
+        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/08-03-2026/RetroArch-XboxOne.appx"
       },
       {
         "id": "retroarch2",
-        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/07-27-2026/RetroArch-XboxOne-AllCores.appx"
+        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/08-03-2026/RetroArch-XboxOne-AllCores.appx"
       },
       {
         "id": "retroarch3",
-        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/07-27-2026/RetroArch-SeriesConsoles.appx"
+        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/08-03-2026/RetroArch-SeriesConsoles.appx"
       },
       {
         "id": "retroarch4",
-        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/07-27-2026/RetroArch-SeriesConsoles-AllCores.appx"
+        "url": "https://github.com/XboxEmulationHub/RetroArch/releases/download/08-03-2026/RetroArch-SeriesConsoles-AllCores.appx"
       }
     ],
-    "releaseNotesUrl": "https://github.com/XboxEmulationHub/RetroArch/releases/tag/07-27-2026",
-    "releaseTag": "07-27-2026"
+    "releaseNotesUrl": "https://github.com/XboxEmulationHub/RetroArch/releases/tag/08-03-2026",
+    "releaseTag": "08-03-2026"
   },
   "ppsspp": {
     "name": "PPSSPP",
@@ -491,17 +491,17 @@
   },
   "jazz2": {
     "name": "Jazz 2 Resurrection",
-    "version": "3.6.0",
-    "releaseDate": "2026-05-30",
+    "version": "3.7.0",
+    "releaseDate": "2026-08-01",
     "firstReleaseDate": "2018-03-24",
     "assets": [
       {
         "id": "jazz2",
-        "url": "https://github.com/deathkiller/jazz2/releases/download/3.6.0/Jazz2_3.6.0_UWP.zip"
+        "url": "https://github.com/deathkiller/jazz2/releases/download/3.7.0/Jazz2_3.7.0_UWP.zip"
       }
     ],
-    "releaseNotesUrl": "https://github.com/deathkiller/jazz2/releases/tag/3.6.0",
-    "releaseTag": "3.6.0"
+    "releaseNotesUrl": "https://github.com/deathkiller/jazz2/releases/tag/3.7.0",
+    "releaseTag": "3.7.0"
   },
   "maze": {
     "name": "Maze0x72",
@@ -1723,37 +1723,37 @@
   },
   "xbHomebrewVault": {
     "name": "XB Homebrew Vault",
-    "version": "1.2.0",
-    "releaseDate": "2026-07-28",
+    "version": "1.2.1",
+    "releaseDate": "2026-08-02",
     "firstReleaseDate": "2026-06-22",
     "assets": [
       {
         "id": "xbvault-win64",
-        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v1.2.0/XBVault-v1.2.0-win-x64-setup.exe"
+        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v1.2.1/XBVault-v1.2.1-win-x64-setup.exe"
       },
       {
         "id": "xbvault-win64zip",
-        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v1.2.0/XBVault-v1.2.0-win-x64.zip"
+        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v1.2.1/XBVault-v1.2.1-win-x64.zip"
       },
       {
         "id": "xbvault-win64arm",
-        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v1.2.0/XBVault-v1.2.0-win-arm64.zip"
+        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v1.2.1/XBVault-v1.2.1-win-arm64.zip"
       },
       {
         "id": "xbvault-linux",
-        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v1.2.0/XBVault-v1.2.0-linux-x64.zip"
+        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v1.2.1/XBVault-v1.2.1-linux-x64.zip"
       },
       {
         "id": "xbvault-mac",
-        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v1.2.0/XBVault-v1.2.0-osx-arm64.zip"
+        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v1.2.1/XBVault-v1.2.1-osx-arm64.zip"
       },
       {
         "id": "xbvault-macintel",
-        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v1.2.0/XBVault-v1.2.0-osx-x64.zip"
+        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v1.2.1/XBVault-v1.2.1-osx-x64.zip"
       }
     ],
-    "releaseNotesUrl": "https://github.com/marcelofrau/xb-homebrew-vault/releases/tag/v1.2.0",
-    "releaseTag": "v1.2.0"
+    "releaseNotesUrl": "https://github.com/marcelofrau/xb-homebrew-vault/releases/tag/v1.2.1",
+    "releaseTag": "v1.2.1"
   },
   "megaManX816Bit": {
     "name": "Mega Man X8 16-bit",
@@ -1881,16 +1881,34 @@
   },
   "xFiles": {
     "name": "X-Files",
-    "version": "1.1.0.820",
-    "releaseDate": "2026-07-28",
+    "version": "1.2.0.1112",
+    "releaseDate": "2026-08-02",
     "firstReleaseDate": "2026-07-21",
     "assets": [
       {
         "id": "xfiles",
-        "url": "https://github.com/marcelofrau/x-files-uwp/releases/download/v1.1.0.820/xfiles_1.1.0.820_x64.zip"
+        "url": "https://github.com/marcelofrau/x-files-uwp/releases/download/v1.2.0.1112/xfiles_1.2.0.1112_x64.zip"
       }
     ],
-    "releaseNotesUrl": "https://github.com/marcelofrau/x-files-uwp/releases/tag/v1.1.0.820",
-    "releaseTag": "v1.1.0.820"
+    "releaseNotesUrl": "https://github.com/marcelofrau/x-files-uwp/releases/tag/v1.2.0.1112",
+    "releaseTag": "v1.2.0.1112"
+  },
+  "gen1recomp": {
+    "name": "Gen1Recomp",
+    "version": "0.3.0.0",
+    "releaseDate": "2026-08-01",
+    "firstReleaseDate": "2026-08-01",
+    "assets": [
+      {
+        "id": "gen1recomp",
+        "url": "https://github.com/caorthann-celt/gen1recomp-uwp/releases/download/v0.3.0.0/Gen1RecompUWP_0.3.0.0_x64.msix"
+      },
+      {
+        "id": "gen1recomp-dep",
+        "url": "https://github.com/caorthann-celt/gen1recomp-uwp/releases/download/v0.3.0.0/Microsoft.VCLibs.x64.14.00.appx"
+      }
+    ],
+    "releaseNotesUrl": "https://github.com/caorthann-celt/gen1recomp-uwp/releases/tag/v0.3.0.0",
+    "releaseTag": "v0.3.0.0"
   }
 }
