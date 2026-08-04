@@ -2203,7 +2203,7 @@
 - id: "gen1recomp"
   app_id: "gen1recomp"
   title: "Gen1Recomp"
-  description: "An unofficial Xbox Dev Mode UWP port of Gen1Recomp - A native Lua / LÖVE2D recreation of Gen 1 Poke"
+  description: "An Xbox Dev Mode UWP port of Gen1Recomp - A native Lua / LÖVE2D recreation of Gen 1 Poke"
   image: "/xbox-dev-mode/images/game-ports/gen1recomp.webp"
   alt: "Gen1Recomp Logo"
   category: "Ports"
@@ -2224,11 +2224,9 @@
         donations: []
     maintainers: []
   downloads:
-    - label: "Gen1Recomp"
+    - label: "Download"
       asset_id: "gen1recomp"
-    - label: "Dependency File"
-      asset_id: "gen1recomp-dep"
-  source_code_url: "https://github.com/caorthann-celt/gen1recomp-uwp"
+  source_code_url: "https://github.com/bryanthaboi/gen1recomp"
   setup_guide:
     url: "https://wiki.sternserv.xyz/docs/ports/gen1recomp-guide"
   tutorial_url: null
