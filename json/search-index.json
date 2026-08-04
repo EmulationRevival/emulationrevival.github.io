@@ -672,6 +672,14 @@
     "category": "Ports"
   },
   {
+    "app_id": "syphonFilter",
+    "name": "Syphon Filter",
+    "description": "An unofficial Xbox Dev Mode UWP port of Syphon Filter",
+    "img": "/xbox-dev-mode/images/game-ports/syphon-filter.webp",
+    "url": "/xbox-dev-mode/ports.html#syphon-filter",
+    "category": "Ports"
+  },
+  {
     "app_id": "usbPermissionsTool",
     "name": "USB Permissions Tool",
     "description": "Add necessary permissions to an NTFS formatted USB drive for UWP apps",
