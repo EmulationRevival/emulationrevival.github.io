@@ -1881,17 +1881,17 @@
   },
   "xFiles": {
     "name": "X-Files",
-    "version": "1.2.0.1112",
-    "releaseDate": "2026-08-02",
+    "version": "1.3.0.1205",
+    "releaseDate": "2026-08-07",
     "firstReleaseDate": "2026-07-21",
     "assets": [
       {
         "id": "xfiles",
-        "url": "https://github.com/marcelofrau/x-files-uwp/releases/download/v1.2.0.1112/xfiles_1.2.0.1112_x64.zip"
+        "url": "https://github.com/marcelofrau/x-files-uwp/releases/download/v1.3.0.1205/xfiles_1.3.0.1205_x64.zip"
       }
     ],
-    "releaseNotesUrl": "https://github.com/marcelofrau/x-files-uwp/releases/tag/v1.2.0.1112",
-    "releaseTag": "v1.2.0.1112"
+    "releaseNotesUrl": "https://github.com/marcelofrau/x-files-uwp/releases/tag/v1.3.0.1205",
+    "releaseTag": "v1.3.0.1205"
   },
   "gen1recomp": {
     "name": "Gen1Recomp",
