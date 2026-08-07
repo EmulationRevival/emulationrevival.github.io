@@ -1835,17 +1835,17 @@
   },
   "dosboxPureUwp": {
     "name": "DOSBox Pure UWP",
-    "version": "0.9.5.136",
-    "releaseDate": "2026-07-16",
+    "version": "1.0.0.236",
+    "releaseDate": "2026-08-06",
     "firstReleaseDate": "2026-07-16",
     "assets": [
       {
         "id": "dosboxpureuwp",
-        "url": "https://github.com/marcelofrau/dosbox-pure-uwp/releases/download/v0.9.5.136/dosbox-uwp_0.9.5.136_x64.zip"
+        "url": "https://github.com/marcelofrau/dosbox-pure-uwp/releases/download/v1.0.0.236/dosbox-uwp_1.0.0.236_x64.zip"
       }
     ],
-    "releaseNotesUrl": "https://github.com/marcelofrau/dosbox-pure-uwp/releases/tag/v0.9.5.136",
-    "releaseTag": "v0.9.5.136"
+    "releaseNotesUrl": "https://github.com/marcelofrau/dosbox-pure-uwp/releases/tag/v1.0.0.236",
+    "releaseTag": "v1.0.0.236"
   },
   "uhexen2": {
     "name": "UHexen2",
