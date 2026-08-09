@@ -2012,5 +2012,21 @@
         "assetPattern": "Microsoft.VCLibs.x*.appx"
       }
     ]
+  },
+  "openmohaa": {
+    "name": "OpenMoHAA",
+    "repo": "caorthann-celt/openmohaa-UWP",
+    "assets": [
+      {
+        "id": "openmohaa",
+        "sourceType": "github",
+        "assetPattern": "OpenMoHAA.UWP_*_x64.msix"
+      },
+      {
+        "id": "openmohaa-dep",
+        "sourceType": "github",
+        "assetPattern": "Microsoft.VCLibs.x*.appx"
+      }
+    ]
   }
 }

@@ -2265,3 +2265,36 @@
   setup_guide:
     url: "https://wiki.sternserv.xyz/docs/ports/syphon-filter-uwp-guide"
   tutorial_url: null
+  
+- id: "openmohaa"
+  app_id: "openmohaa"
+  title: "OpenMoHAA"
+  description: "An Unoffical Xbox Dev Mode UWP port of OpenMoHAA, an Open re-implementation of Medal of Honor: Allied Assault including Spearhead and Breakthrough expansions with modern features and bugfixes from ioquake3"
+  image: "/xbox-dev-mode/images/game-ports/openmohaa.webp"
+  alt: "OpenMoHAA Logo"
+  category: "Ports"
+  page_url: "/xbox-dev-mode/ports.html#openmohaa"
+  preview_url: "/previews/ports-openmohaa.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "Medal of Honor - Allied Assault War Chest game data"
+  features: []
+  contributors:
+    developers:
+      - name: "openmoh"
+        github: "https://github.com/openmoh"
+        donations: []
+    porters:
+      - name: "Caorthann"
+        github: "https://github.com/caorthann-celt"
+        donations: []
+    maintainers: []
+  downloads:
+    - label: "OpenMoHAA"
+      asset_id: "openmohaa"
+    - label: "Dependency File"
+      asset_id: "openmohaa-dep"
+  source_code_url: "https://github.com/caorthann-celt/openmohaa-UWP"
+  setup_guide:
+    url: "https://wiki.sternserv.xyz/docs/ports/openmohaa-guide"
+  tutorial_url: null
