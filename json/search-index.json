@@ -680,6 +680,14 @@
     "category": "Ports"
   },
   {
+    "app_id": "openmohaa",
+    "name": "OpenMoHAA",
+    "description": "An Unoffical Xbox Dev Mode UWP port of OpenMoHAA, an Open re-implementation of Medal of Honor: Allied Assault including Spearhead and Breakthrough expansions with modern features and bugfixes from ioquake3",
+    "img": "/xbox-dev-mode/images/game-ports/openmohaa.webp",
+    "url": "/xbox-dev-mode/ports.html#openmohaa",
+    "category": "Ports"
+  },
+  {
     "app_id": "usbPermissionsTool",
     "name": "USB Permissions Tool",
     "description": "Add necessary permissions to an NTFS formatted USB drive for UWP apps",

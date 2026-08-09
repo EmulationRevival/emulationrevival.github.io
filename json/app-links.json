@@ -1924,5 +1924,23 @@
     ],
     "releaseNotesUrl": "https://github.com/YTReviveMe/SF-pc-port-uwp/releases/tag/v0.1.0-uwp-test23",
     "releaseTag": "v0.1.0-uwp-test23"
+  },
+  "openmohaa": {
+    "name": "OpenMoHAA",
+    "version": "0.1.0.23",
+    "releaseDate": "2026-08-09",
+    "firstReleaseDate": "2026-08-09",
+    "assets": [
+      {
+        "id": "openmohaa",
+        "url": "https://github.com/caorthann-celt/openmohaa-UWP/releases/download/v0.1.0.23/OpenMoHAA.UWP_0.1.0.23_x64.msix"
+      },
+      {
+        "id": "openmohaa-dep",
+        "url": "https://github.com/caorthann-celt/openmohaa-UWP/releases/download/v0.1.0.23/Microsoft.VCLibs.x64.14.00.appx"
+      }
+    ],
+    "releaseNotesUrl": "https://github.com/caorthann-celt/openmohaa-UWP/releases/tag/v0.1.0.23",
+    "releaseTag": "v0.1.0.23"
   }
 }
