@@ -1881,31 +1881,31 @@
   },
   "xFiles": {
     "name": "X-Files",
-    "version": "1.3.0.1205",
-    "releaseDate": "2026-08-07",
+    "version": "1.5.0.1308",
+    "releaseDate": "2026-08-14",
     "firstReleaseDate": "2026-07-21",
     "assets": [
       {
         "id": "xfiles",
-        "url": "https://github.com/marcelofrau/x-files-uwp/releases/download/v1.3.0.1205/xfiles_1.3.0.1205_x64.zip"
+        "url": "https://github.com/marcelofrau/x-files-uwp/releases/download/v1.5.0.1308/xfiles_1.5.0.1308_x64.zip"
       }
     ],
-    "releaseNotesUrl": "https://github.com/marcelofrau/x-files-uwp/releases/tag/v1.3.0.1205",
-    "releaseTag": "v1.3.0.1205"
+    "releaseNotesUrl": "https://github.com/marcelofrau/x-files-uwp/releases/tag/v1.5.0.1308",
+    "releaseTag": "v1.5.0.1308"
   },
   "gen1recomp": {
     "name": "Gen1Recomp",
-    "version": "0.1.86",
+    "version": "0.1.88",
     "releaseDate": "2026-08-14",
     "firstReleaseDate": "2026-07-18",
     "assets": [
       {
         "id": "gen1recomp",
-        "url": "https://github.com/bryanthaboi/gen1recomp/releases/download/v0.1.86/gen1recomp-0.1.86-xbox-uwp.zip"
+        "url": "https://github.com/bryanthaboi/gen1recomp/releases/download/v0.1.88/gen1recomp-0.1.88-xbox-uwp.zip"
       }
     ],
-    "releaseNotesUrl": "https://github.com/bryanthaboi/gen1recomp/releases/tag/v0.1.86",
-    "releaseTag": "v0.1.86"
+    "releaseNotesUrl": "https://github.com/bryanthaboi/gen1recomp/releases/tag/v0.1.88",
+    "releaseTag": "v0.1.88"
   },
   "syphonFilter": {
     "name": "Syphon Filter",
