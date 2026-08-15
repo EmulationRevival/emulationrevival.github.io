@@ -1942,5 +1942,51 @@
     ],
     "releaseNotesUrl": "https://github.com/caorthann-celt/openmohaa-UWP/releases/tag/v0.1.0.23",
     "releaseTag": "v0.1.0.23"
+  },
+  "ridgeRacerCollection": {
+    "name": "Ridge Racer Collection",
+    "version": "1.1.0",
+    "releaseDate": "2026-08-14",
+    "firstReleaseDate": "2026-08-14",
+    "assets": [
+      {
+        "id": "ridgeracercollection",
+        "url": "https://github.com/wanszai/Ridge-Racer-Collection/releases/download/1.1.0/RidgeRacerCollectionXSX_1.1.0.zip"
+      }
+    ],
+    "releaseNotesUrl": "https://github.com/wanszai/Ridge-Racer-Collection/releases/tag/1.1.0",
+    "releaseTag": "1.1.0"
+  },
+  "openmw": {
+    "name": "OpenMW",
+    "version": "1.0.0.52",
+    "releaseDate": "2026-08-14",
+    "firstReleaseDate": "2026-08-14",
+    "assets": [
+      {
+        "id": "openmw",
+        "url": "https://github.com/caorthann-celt/openmw-UWP/releases/download/v1.0.0.52/openmw_1.0.0.52_x64.msix"
+      },
+      {
+        "id": "openmw-dep",
+        "url": "https://github.com/caorthann-celt/openmw-UWP/releases/download/v1.0.0.52/Microsoft.VCLibs.x64.14.00.appx"
+      }
+    ],
+    "releaseNotesUrl": "https://github.com/caorthann-celt/openmw-UWP/releases/tag/v1.0.0.52",
+    "releaseTag": "v1.0.0.52"
+  },
+  "scummvm": {
+    "name": "ScummVM",
+    "version": "2026.3.1.53",
+    "releaseDate": "2026-08-12",
+    "firstReleaseDate": "2026-08-10",
+    "assets": [
+      {
+        "id": "scummvm",
+        "url": "https://github.com/marcelofrau/scummvm-uwp/releases/download/v2026.3.1.53/scummvm-uwp_2026.3.1.53_x64.zip"
+      }
+    ],
+    "releaseNotesUrl": "https://github.com/marcelofrau/scummvm-uwp/releases/tag/v2026.3.1.53",
+    "releaseTag": "v2026.3.1.53"
   }
 }
