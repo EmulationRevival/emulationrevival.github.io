@@ -2324,7 +2324,9 @@
     porters:
       - name: "Wans Zai"
         github: "https://github.com/wanszai"
-        donations: []
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/wanszai"
     maintainers: []
   downloads:
     - label: "Download"
