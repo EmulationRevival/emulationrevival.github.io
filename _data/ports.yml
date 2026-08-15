@@ -2211,7 +2211,7 @@
   preview_url: "/previews/ports-gen1recomp.html"
   compatibility: "Xbox One & Series S|X"
   requirements:
-    - "Pokémon Red, Blue & Yellow roms"
+    - "Pokémon Red, Blue, Yellow & Gold Roms "
   features: []
   contributors:
     developers:
@@ -2297,4 +2297,72 @@
   source_code_url: "https://github.com/caorthann-celt/openmohaa-UWP"
   setup_guide:
     url: "https://wiki.sternserv.xyz/docs/ports/openmohaa-guide"
+  tutorial_url: null
+  
+- id: "ridge-racer-collection"
+  app_id: "ridgeRacerCollection"
+  title: "Ridge Racer Collection"
+  description: "Ridge Racer collection System 22 Emulator"
+  image: "/xbox-dev-mode/images/game-ports/ridge-racer-collection.webp"
+  alt: "Ridge Racer Collection Logo"
+  category: "Ports"
+  page_url: "/xbox-dev-mode/ports.html#ridge-racer-collection"
+  preview_url: "/previews/ports-ridge-racer-collection.html"
+  compatibility: "Xbox One & Series S|X"
+  requirements:
+    - "namcoc71.bin"
+    - "namcoc74.bin"
+    - "raverace.zip"
+    - "ridgera2.zip"
+    - "ridgerac.zip"
+    - "ridgeracb.zip"
+  features: []
+  contributors:
+    developers:
+      - name: "Namco"
+        donations: []
+    porters:
+      - name: "Wans Zai"
+        github: "https://github.com/wanszai"
+        donations: []
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "ridgeracercollection"
+  source_code_url: "https://github.com/wanszai/Ridge-Racer-Collection"
+  setup_guide:
+    url: "https://wiki.sternserv.xyz/docs/ports/ridge-racer-collection-guide"
+  tutorial_url: null
+  
+- id: "openmw"
+  app_id: "openmw"
+  title: "OpenMW"
+  description: "An unofficial Xbox Dev Mode UWP port of OpenMW, an open-source open-world RPG game engine that supports playing Morrowind"
+  image: "/xbox-dev-mode/images/game-ports/openmw.webp"
+  alt: "OpenMW Logo"
+  category: "Ports"
+  page_url: "/xbox-dev-mode/ports.html#openmw"
+  preview_url: "/previews/ports-openmw.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "The Elder Scrolls III: Morrowind Data Files"
+  features: []
+  contributors:
+    developers:
+      - name: "OpenMW"
+        github: "https://github.com/OpenMW"
+        donations: []
+    porters:
+      - name: "Caorthann"
+        github: "https://github.com/caorthann-celt"
+        donations: []
+    maintainers: []
+  downloads:
+    - label: "OpenMW"
+      asset_id: "openmw"
+    - label: "Dependency File"
+      asset_id: "openmw-dep"
+  source_code_url: "https://github.com/caorthann-celt/openmw-UWP"
+  setup_guide:
+    url: "https://wiki.sternserv.xyz/docs/ports/openmw-guide"
   tutorial_url: null

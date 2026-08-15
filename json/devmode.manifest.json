@@ -2028,5 +2028,43 @@
         "assetPattern": "Microsoft.VCLibs.x*.appx"
       }
     ]
+  },
+  "ridgeRacerCollection": {
+    "name": "Ridge Racer Collection",
+    "repo": "wanszai/Ridge-Racer-Collection",
+    "assets": [
+      {
+        "id": "ridgeracercollection",
+        "sourceType": "github",
+        "assetPattern": "RidgeRacerCollectionXSX_*.zip"
+      }
+    ]
+  },
+  "openmw": {
+    "name": "OpenMW",
+    "repo": "caorthann-celt/openmw-UWP",
+    "assets": [
+      {
+        "id": "openmw",
+        "sourceType": "github",
+        "assetPattern": "openmw_*_x64.msix"
+      },
+      {
+        "id": "openmw-dep",
+        "sourceType": "github",
+        "assetPattern": "Microsoft.VCLibs.x*.appx"
+      }
+    ]
+  },
+  "scummvm": {
+    "name": "ScummVM",
+    "repo": "marcelofrau/scummvm-uwp",
+    "assets": [
+      {
+        "id": "scummvm",
+        "sourceType": "github",
+        "assetPattern": "scummvm-uwp_*_x64.zip"
+      }
+    ]
   }
 }

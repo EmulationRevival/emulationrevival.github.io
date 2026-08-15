@@ -512,3 +512,33 @@
   setup_guide:
     url: "https://wiki.sternserv.xyz/docs/emulation/dosbox-pure-uwp-guide"
   tutorial_url: null
+  
+- id: "scummvm"
+  app_id: "scummvm"
+  title: "ScummVM"
+  description: "ScummVM on Xbox Dev Mode — RetroArch UWP shell with ScummVM libretro core and launcher"
+  image: "/xbox-dev-mode/images/emulators/scummvm.webp"
+  alt: "ScummVM Logo"
+  category: "Emulators"
+  page_url: "/xbox-dev-mode/emulators.html#scummvm"
+  preview_url: "/previews/emulators-scummvm.html"
+  compatibility: "Xbox One & Series S|X"
+  requirements: []
+  features: []
+  contributors:
+    developers:
+      - name: "ScummVM"
+        github: "https://github.com/scummvm"
+        donations: []
+    porters:
+      - name: "Marcelo Frau"
+        github: "https://github.com/marcelofrau"
+        donations: []
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "scummvm"
+  source_code_url: "https://github.com/marcelofrau/scummvm-uwp"
+  setup_guide:
+    url: "https://wiki.sternserv.xyz/docs/emulation/scummvm-uwp-guide"
+  tutorial_url: null
