@@ -120,6 +120,14 @@
     "category": "Emulators"
   },
   {
+    "app_id": "scummvm",
+    "name": "ScummVM",
+    "description": "ScummVM on Xbox Dev Mode — RetroArch UWP shell with ScummVM libretro core and launcher",
+    "img": "/xbox-dev-mode/images/emulators/scummvm.webp",
+    "url": "/xbox-dev-mode/emulators.html#scummvm",
+    "category": "Emulators"
+  },
+  {
     "app_id": "castlevania",
     "name": "Castlevania Revamped",
     "description": "The NES classic re-forged into a Metroid-style adventure",
@@ -685,6 +693,22 @@
     "description": "An Unoffical Xbox Dev Mode UWP port of OpenMoHAA, an Open re-implementation of Medal of Honor: Allied Assault including Spearhead and Breakthrough expansions with modern features and bugfixes from ioquake3",
     "img": "/xbox-dev-mode/images/game-ports/openmohaa.webp",
     "url": "/xbox-dev-mode/ports.html#openmohaa",
+    "category": "Ports"
+  },
+  {
+    "app_id": "ridgeRacerCollection",
+    "name": "Ridge Racer Collection",
+    "description": "Ridge Racer collection System 22 Emulator",
+    "img": "/xbox-dev-mode/images/game-ports/ridge-racer-collection.webp",
+    "url": "/xbox-dev-mode/ports.html#ridge-racer-collection",
+    "category": "Ports"
+  },
+  {
+    "app_id": "openmw",
+    "name": "OpenMW",
+    "description": "An unofficial Xbox Dev Mode UWP port of OpenMW, an open-source open-world RPG game engine that supports playing Morrowind",
+    "img": "/xbox-dev-mode/images/game-ports/openmw.webp",
+    "url": "/xbox-dev-mode/ports.html#openmw",
     "category": "Ports"
   },
   {
