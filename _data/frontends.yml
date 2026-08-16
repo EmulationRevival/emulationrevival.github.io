@@ -65,3 +65,34 @@
   source_code_url: "https://github.com/retropassdev/RetroPass"
   setup_guide: null
   tutorial_url: "https://youtu.be/eaStAmBhnaE"
+  
+- id: "es-de"
+  app_id: "esDe"
+  title: "ES-DE"
+  description: "ES-DE is a frontend for browsing and launching games from your multi-platform collection"
+  image: "/xbox-dev-mode/images/frontends/es-de.webp"
+  alt: "ES-DE Logo"
+  category: "Frontends"
+  page_url: "/xbox-dev-mode/frontends.html#es-de"
+  preview_url: "/previews/frontends-es-de.html"
+  compatibility: "Xbox Series S|X"
+  requirements: []
+  features: []
+  contributors:
+    developers:
+      - name: "ES-DE"
+        github: "https://gitlab.com/es-de"
+        donations: []
+    porters:
+      - name: "DanP"
+        github: "https://github.com/danprice142"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/danp142"
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "esde"
+  setup_guide:
+    url: "https://gitlab.com/es-de/emulationstation-de/-/blob/master/USERGUIDE.md"
+  tutorial_url: null
