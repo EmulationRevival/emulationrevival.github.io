@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-15T17:57:44.465Z",
+  "updatedAt": "2026-08-16T22:04:40.732Z",
   "posts": {
     "emulators:retroarch-3ds": {
       "key": "emulators:retroarch-3ds",
@@ -1239,7 +1239,7 @@
       "contentHash": "52f05e480e5be6a2451fb604c728100a87b3d29266d2b88142a52b46e99fd97f",
       "updatedAt": "2026-05-13T20:48:21.009Z",
       "missingFromYaml": true,
-      "missingCheckedAt": "2026-08-15T17:57:44.465Z"
+      "missingCheckedAt": "2026-08-16T22:04:40.732Z"
     },
     "apps:discorduwp": {
       "key": "apps:discorduwp",
@@ -1863,6 +1863,22 @@
       "updatedAt": "2026-08-15T17:57:44.462Z",
       "appliedTags": [
         "1504526316693622844"
+      ]
+    },
+    "frontends:es-de": {
+      "key": "frontends:es-de",
+      "productId": "es-de",
+      "appId": "esDe",
+      "title": "ES-DE",
+      "source": "frontends",
+      "sourceLabel": "Frontends",
+      "channelId": "1504200450084438097",
+      "threadId": "1538669855220301854",
+      "messageId": "1538669855220301854",
+      "contentHash": "a8c78254b36157fab3fee51a8f1c71ea6b3ea04b0bd9a50bdb67d7eeeccee98d",
+      "updatedAt": "2026-08-16T22:04:40.730Z",
+      "appliedTags": [
+        "1504527333145706547"
       ]
     }
   }
