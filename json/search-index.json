@@ -808,6 +808,14 @@
     "category": "Frontends"
   },
   {
+    "app_id": "esDe",
+    "name": "ES-DE",
+    "description": "ES-DE is a frontend for browsing and launching games from your multi-platform collection",
+    "img": "/xbox-dev-mode/images/frontends/es-de.webp",
+    "url": "/xbox-dev-mode/frontends.html#es-de",
+    "category": "Frontends"
+  },
+  {
     "app_id": "kodi",
     "name": "Kodi",
     "description": "Open-source home theater software",

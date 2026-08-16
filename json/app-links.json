@@ -1988,5 +1988,17 @@
     ],
     "releaseNotesUrl": "https://github.com/marcelofrau/scummvm-uwp/releases/tag/v2026.3.1.53",
     "releaseTag": "v2026.3.1.53"
+  },
+  "esDe": {
+    "name": "ES-DE",
+    "version": "3.4.1.6",
+    "releaseDate": "2026-08-16",
+    "firstReleaseDate": "2026-08-16",
+    "assets": [
+      {
+        "id": "esde",
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/es-de-3.4.1.6/ES-DE_3.4.1.6_x64.msix"
+      }
+    ]
   }
 }
