@@ -1895,17 +1895,17 @@
   },
   "gen1recomp": {
     "name": "Gen1Recomp",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "releaseDate": "2026-08-17",
     "firstReleaseDate": "2026-07-18",
     "assets": [
       {
         "id": "gen1recomp",
-        "url": "https://github.com/bryanthaboi/gen1recomp/releases/download/v0.2.0/gen1recomp-0.2.0-xbox-uwp.zip"
+        "url": "https://github.com/bryanthaboi/gen1recomp/releases/download/v0.2.1/gen1recomp-0.2.1-xbox-uwp.zip"
       }
     ],
-    "releaseNotesUrl": "https://github.com/bryanthaboi/gen1recomp/releases/tag/v0.2.0",
-    "releaseTag": "v0.2.0"
+    "releaseNotesUrl": "https://github.com/bryanthaboi/gen1recomp/releases/tag/v0.2.1",
+    "releaseTag": "v0.2.1"
   },
   "syphonFilter": {
     "name": "Syphon Filter",
@@ -1959,21 +1959,21 @@
   },
   "openmw": {
     "name": "OpenMW",
-    "version": "1.0.0.52",
-    "releaseDate": "2026-08-14",
+    "version": "1.0.0.54",
+    "releaseDate": "2026-08-17",
     "firstReleaseDate": "2026-08-14",
     "assets": [
       {
         "id": "openmw",
-        "url": "https://github.com/caorthann-celt/openmw-UWP/releases/download/v1.0.0.52/openmw_1.0.0.52_x64.msix"
+        "url": "https://github.com/caorthann-celt/openmw-UWP/releases/download/v1.0.0.54/openmw_1.0.0.54_x64.msix"
       },
       {
         "id": "openmw-dep",
-        "url": "https://github.com/caorthann-celt/openmw-UWP/releases/download/v1.0.0.52/Microsoft.VCLibs.x64.14.00.appx"
+        "url": "https://github.com/caorthann-celt/openmw-UWP/releases/download/v1.0.0.54/Microsoft.VCLibs.x64.14.00.appx"
       }
     ],
-    "releaseNotesUrl": "https://github.com/caorthann-celt/openmw-UWP/releases/tag/v1.0.0.52",
-    "releaseTag": "v1.0.0.52"
+    "releaseNotesUrl": "https://github.com/caorthann-celt/openmw-UWP/releases/tag/v1.0.0.54",
+    "releaseTag": "v1.0.0.54"
   },
   "scummvm": {
     "name": "ScummVM",
