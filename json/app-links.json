@@ -175,17 +175,17 @@
   },
   "flycast": {
     "name": "Flycast",
-    "version": "2.6",
-    "releaseDate": "2026-01-10",
+    "version": "2.7",
+    "releaseDate": "2026-08-19",
     "firstReleaseDate": "2021-05-28",
     "assets": [
       {
         "id": "flycast",
-        "url": "https://github.com/flyinghead/flycast/releases/download/v2.6/flycast-2.6.appx"
+        "url": "https://github.com/flyinghead/flycast/releases/download/v2.7/flycast-2.7.appx"
       }
     ],
-    "releaseNotesUrl": "https://github.com/flyinghead/flycast/releases/tag/v2.6",
-    "releaseTag": "v2.6"
+    "releaseNotesUrl": "https://github.com/flyinghead/flycast/releases/tag/v2.7",
+    "releaseTag": "v2.7"
   },
   "xeniaCanary": {
     "name": "Xenia Canary",
