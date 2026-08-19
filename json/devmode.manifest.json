@@ -461,26 +461,6 @@
       }
     ]
   },
-  "boxedwine": {
-    "name": "BoxedWine",
-    "repo": "EmulationRevival/emulationrevival-downloads",
-    "releaseTagRegex": "^boxedwine-",
-    "versionSource": "auto",
-    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
-    "releaseDateOverrides": {
-      "1.0.3.0": "2024-10-31"
-    },
-    "firstReleaseDateOverrides": {
-      "1.0.3.0": "2024-10-31"
-    },
-    "assets": [
-      {
-        "id": "boxedwine",
-        "sourceType": "github",
-        "assetPattern": "Boxedwine-UWP-*.zip"
-      }
-    ]
-  },
   "castlevania": {
     "name": "Castlevania Revamped",
     "repo": "EmulationRevival/emulationrevival-downloads",
@@ -1199,26 +1179,6 @@
         "id": "safeexit",
         "sourceType": "github",
         "assetPattern": "SafeExitRelease.zip"
-      }
-    ]
-  },
-  "chonkystation3": {
-    "name": "ChonkyStation3",
-    "repo": "EmulationRevival/emulationrevival-downloads",
-    "releaseTagRegex": "^chonkystation3-",
-    "versionSource": "auto",
-    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
-    "releaseDateOverrides": {
-      "1.0.2.0": "2025-03-07"
-    },
-    "firstReleaseDateOverrides": {
-      "1.0.2.0": "2025-03-07"
-    },
-    "assets": [
-      {
-        "id": "chonkystation3",
-        "sourceType": "github",
-        "assetPattern": "ChonkyStation-UWP-*.zip"
       }
     ]
   },
