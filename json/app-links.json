@@ -359,18 +359,6 @@
     "releaseNotesUrl": "https://github.com/aerisarn/Raze-uwp/releases/tag/1.0.22",
     "releaseTag": "1.0.22"
   },
-  "boxedwine": {
-    "name": "BoxedWine",
-    "version": "1.0.3.0",
-    "releaseDate": "2024-10-31",
-    "firstReleaseDate": "2024-10-31",
-    "assets": [
-      {
-        "id": "boxedwine",
-        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/boxedwine-1.0.3.0/Boxedwine-UWP-1.0.3.0.zip"
-      }
-    ]
-  },
   "castlevania": {
     "name": "Castlevania Revamped",
     "version": "1.0.0.0",
@@ -1022,18 +1010,6 @@
     ],
     "releaseNotesUrl": "https://github.com/Dantes-Dungeon/safe-exit/releases/tag/1.0.0.1",
     "releaseTag": "1.0.0.1"
-  },
-  "chonkystation3": {
-    "name": "ChonkyStation3",
-    "version": "1.0.2.0",
-    "releaseDate": "2025-03-07",
-    "firstReleaseDate": "2025-03-07",
-    "assets": [
-      {
-        "id": "chonkystation3",
-        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/chonkystation3-1.0.2.0/ChonkyStation-UWP-1.0.2.0.zip"
-      }
-    ]
   },
   "hedgephysics": {
     "name": "Hedge Physics",
@@ -1895,17 +1871,17 @@
   },
   "gen1recomp": {
     "name": "Gen1Recomp",
-    "version": "0.2.9",
+    "version": "0.2.10",
     "releaseDate": "2026-08-19",
     "firstReleaseDate": "2026-07-18",
     "assets": [
       {
         "id": "gen1recomp",
-        "url": "https://github.com/bryanthaboi/gen1recomp/releases/download/v0.2.9/gen1recomp-0.2.9-xbox-uwp.zip"
+        "url": "https://github.com/bryanthaboi/gen1recomp/releases/download/v0.2.10/gen1recomp-0.2.10-xbox-uwp.zip"
       }
     ],
-    "releaseNotesUrl": "https://github.com/bryanthaboi/gen1recomp/releases/tag/v0.2.9",
-    "releaseTag": "v0.2.9"
+    "releaseNotesUrl": "https://github.com/bryanthaboi/gen1recomp/releases/tag/v0.2.10",
+    "releaseTag": "v0.2.10"
   },
   "syphonFilter": {
     "name": "Syphon Filter",
