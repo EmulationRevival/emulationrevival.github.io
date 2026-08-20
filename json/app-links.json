@@ -1967,13 +1967,13 @@
   },
   "esDe": {
     "name": "ES-DE",
-    "version": "3.4.1.6",
-    "releaseDate": "2026-08-16",
+    "version": "3.4.1.7",
+    "releaseDate": "2026-08-20",
     "firstReleaseDate": "2026-08-16",
     "assets": [
       {
         "id": "esde",
-        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/es-de-3.4.1.6/ES-DE_3.4.1.6_x64.msix"
+        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/es-de-3.4.1.7/ES-DE_3.4.1.7_x64.msix"
       }
     ]
   }
