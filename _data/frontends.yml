@@ -75,7 +75,7 @@
   category: "Frontends"
   page_url: "/xbox-dev-mode/frontends.html#es-de"
   preview_url: "/previews/frontends-es-de.html"
-  compatibility: "Xbox Series S|X"
+  compatibility: "Xbox One & Series S|X"
   requirements: []
   features: []
   contributors:
@@ -95,4 +95,4 @@
       asset_id: "esde"
   setup_guide:
     url: "https://gitlab.com/es-de/emulationstation-de/-/blob/master/USERGUIDE.md"
-  tutorial_url: null
+  tutorial_url: "https://www.youtube.com/watch?v=69eujoTOuKY"
