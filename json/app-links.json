@@ -1699,37 +1699,37 @@
   },
   "xbHomebrewVault": {
     "name": "XB Homebrew Vault",
-    "version": "2.0.1",
-    "releaseDate": "2026-08-24",
+    "version": "2.0.2",
+    "releaseDate": "2026-08-25",
     "firstReleaseDate": "2026-06-22",
     "assets": [
       {
         "id": "xbvault-win64",
-        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v2.0.1/XBVault-v2.0.1-win-x64-setup.exe"
+        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v2.0.2/XBVault-v2.0.2-win-x64-setup.exe"
       },
       {
         "id": "xbvault-win64zip",
-        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v2.0.1/XBVault-v2.0.1-win-x64.zip"
+        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v2.0.2/XBVault-v2.0.2-win-x64.zip"
       },
       {
         "id": "xbvault-win64arm",
-        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v2.0.1/XBVault-v2.0.1-win-arm64.zip"
+        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v2.0.2/XBVault-v2.0.2-win-arm64.zip"
       },
       {
         "id": "xbvault-linux",
-        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v2.0.1/XBVault-v2.0.1-linux-x64.zip"
+        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v2.0.2/XBVault-v2.0.2-linux-x64.zip"
       },
       {
         "id": "xbvault-mac",
-        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v2.0.1/XBVault-v2.0.1-osx-arm64.zip"
+        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v2.0.2/XBVault-v2.0.2-osx-arm64.zip"
       },
       {
         "id": "xbvault-macintel",
-        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v2.0.1/XBVault-v2.0.1-osx-x64.zip"
+        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v2.0.2/XBVault-v2.0.2-osx-x64.zip"
       }
     ],
-    "releaseNotesUrl": "https://github.com/marcelofrau/xb-homebrew-vault/releases/tag/v2.0.1",
-    "releaseTag": "v2.0.1"
+    "releaseNotesUrl": "https://github.com/marcelofrau/xb-homebrew-vault/releases/tag/v2.0.2",
+    "releaseTag": "v2.0.2"
   },
   "megaManX816Bit": {
     "name": "Mega Man X8 16-bit",
@@ -1871,17 +1871,17 @@
   },
   "gen1recomp": {
     "name": "Gen1Recomp",
-    "version": "0.2.24",
-    "releaseDate": "2026-08-24",
+    "version": "0.2.25",
+    "releaseDate": "2026-08-25",
     "firstReleaseDate": "2026-07-18",
     "assets": [
       {
         "id": "gen1recomp",
-        "url": "https://github.com/bryanthaboi/gen1recomp/releases/download/v0.2.24/gen1recomp-0.2.24-xbox-uwp.zip"
+        "url": "https://github.com/bryanthaboi/gen1recomp/releases/download/v0.2.25/gen1recomp-0.2.25-xbox-uwp.zip"
       }
     ],
-    "releaseNotesUrl": "https://github.com/bryanthaboi/gen1recomp/releases/tag/v0.2.24",
-    "releaseTag": "v0.2.24"
+    "releaseNotesUrl": "https://github.com/bryanthaboi/gen1recomp/releases/tag/v0.2.25",
+    "releaseTag": "v0.2.25"
   },
   "syphonFilter": {
     "name": "Syphon Filter",
