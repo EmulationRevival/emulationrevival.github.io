@@ -143,21 +143,21 @@
   },
   "xbsx2": {
     "name": "XBSX2",
-    "version": "2.0.8.5",
-    "releaseDate": "2026-02-18",
+    "version": "2.0.9.0",
+    "releaseDate": "2026-09-01",
     "firstReleaseDate": "2026-02-18",
     "assets": [
       {
         "id": "xbsx2_series",
-        "url": "https://github.com/XboxEmulationHub/XBSX2/releases/download/v2.0.8.5/XBSX2_2.0.8.5_x64_AVX2.msixbundle"
+        "url": "https://github.com/XboxEmulationHub/XBSX2/releases/download/v2.0.9.0/XBSX2_2.0.9.0_AVX2.msixbundle"
       },
       {
         "id": "xbsx2_xb1",
-        "url": "https://github.com/XboxEmulationHub/XBSX2/releases/download/v2.0.8.5/XBSX2_2.0.8.5_x64_SSE4.msixbundle"
+        "url": "https://github.com/XboxEmulationHub/XBSX2/releases/download/v2.0.9.0/XBSX2_2.0.9.0_SSE4.msixbundle"
       }
     ],
-    "releaseNotesUrl": "https://github.com/XboxEmulationHub/XBSX2/releases/tag/v2.0.8.5",
-    "releaseTag": "v2.0.8.5"
+    "releaseNotesUrl": "https://github.com/XboxEmulationHub/XBSX2/releases/tag/v2.0.9.0",
+    "releaseTag": "v2.0.9.0"
   },
   "dolphin": {
     "name": "Dolphin",
