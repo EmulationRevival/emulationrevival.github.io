@@ -1871,17 +1871,17 @@
   },
   "gen1recomp": {
     "name": "Gen1Recomp",
-    "version": "0.2.46",
-    "releaseDate": "2026-09-01",
+    "version": "0.2.48",
+    "releaseDate": "2026-09-02",
     "firstReleaseDate": "2026-07-18",
     "assets": [
       {
         "id": "gen1recomp",
-        "url": "https://github.com/bryanthaboi/gen1recomp/releases/download/v0.2.46/gen1recomp-0.2.46-xbox-uwp.zip"
+        "url": "https://github.com/bryanthaboi/gen1recomp/releases/download/v0.2.48/gen1recomp-0.2.48-xbox-uwp.zip"
       }
     ],
-    "releaseNotesUrl": "https://github.com/bryanthaboi/gen1recomp/releases/tag/v0.2.46",
-    "releaseTag": "v0.2.46"
+    "releaseNotesUrl": "https://github.com/bryanthaboi/gen1recomp/releases/tag/v0.2.48",
+    "releaseTag": "v0.2.48"
   },
   "syphonFilter": {
     "name": "Syphon Filter",
@@ -1921,17 +1921,17 @@
   },
   "ridgeRacerCollection": {
     "name": "Ridge Racer Collection",
-    "version": "1.1.0",
-    "releaseDate": "2026-08-14",
+    "version": "1.1.1",
+    "releaseDate": "2026-09-01",
     "firstReleaseDate": "2026-08-14",
     "assets": [
       {
         "id": "ridgeracercollection",
-        "url": "https://github.com/wanszai/Ridge-Racer-Collection/releases/download/1.1.0/RidgeRacerCollectionXSX_1.1.0.zip"
+        "url": "https://github.com/wanszai/Ridge-Racer-Collection/releases/download/1.1.1/RidgeRacerCollectionXSX_1.1.1.zip"
       }
     ],
-    "releaseNotesUrl": "https://github.com/wanszai/Ridge-Racer-Collection/releases/tag/1.1.0",
-    "releaseTag": "1.1.0"
+    "releaseNotesUrl": "https://github.com/wanszai/Ridge-Racer-Collection/releases/tag/1.1.1",
+    "releaseTag": "1.1.1"
   },
   "openmw": {
     "name": "OpenMW",
