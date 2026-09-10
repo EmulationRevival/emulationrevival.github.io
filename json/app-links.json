@@ -1699,37 +1699,37 @@
   },
   "xbHomebrewVault": {
     "name": "XB Homebrew Vault",
-    "version": "2.0.5",
-    "releaseDate": "2026-08-29",
+    "version": "2.0.7",
+    "releaseDate": "2026-09-10",
     "firstReleaseDate": "2026-06-22",
     "assets": [
       {
         "id": "xbvault-win64",
-        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v2.0.5/XBVault-v2.0.5-win-x64-setup.exe"
+        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v2.0.7/XBVault-v2.0.7-win-x64-setup.exe"
       },
       {
         "id": "xbvault-win64zip",
-        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v2.0.5/XBVault-v2.0.5-win-x64.zip"
+        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v2.0.7/XBVault-v2.0.7-win-x64.zip"
       },
       {
         "id": "xbvault-win64arm",
-        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v2.0.5/XBVault-v2.0.5-win-arm64.zip"
+        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v2.0.7/XBVault-v2.0.7-win-arm64.zip"
       },
       {
         "id": "xbvault-linux",
-        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v2.0.5/XBVault-v2.0.5-linux-x64.zip"
+        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v2.0.7/XBVault-v2.0.7-linux-x64.zip"
       },
       {
         "id": "xbvault-mac",
-        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v2.0.5/XBVault-v2.0.5-osx-arm64.zip"
+        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v2.0.7/XBVault-v2.0.7-osx-arm64.zip"
       },
       {
         "id": "xbvault-macintel",
-        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v2.0.5/XBVault-v2.0.5-osx-x64.zip"
+        "url": "https://github.com/marcelofrau/xb-homebrew-vault/releases/download/v2.0.7/XBVault-v2.0.7-osx-x64.zip"
       }
     ],
-    "releaseNotesUrl": "https://github.com/marcelofrau/xb-homebrew-vault/releases/tag/v2.0.5",
-    "releaseTag": "v2.0.5"
+    "releaseNotesUrl": "https://github.com/marcelofrau/xb-homebrew-vault/releases/tag/v2.0.7",
+    "releaseTag": "v2.0.7"
   },
   "megaManX816Bit": {
     "name": "Mega Man X8 16-bit",
@@ -1953,17 +1953,17 @@
   },
   "scummvm": {
     "name": "ScummVM",
-    "version": "2026.3.1.53",
-    "releaseDate": "2026-08-12",
+    "version": "2026.3.1.62",
+    "releaseDate": "2026-09-10",
     "firstReleaseDate": "2026-08-10",
     "assets": [
       {
         "id": "scummvm",
-        "url": "https://github.com/marcelofrau/scummvm-uwp/releases/download/v2026.3.1.53/scummvm-uwp_2026.3.1.53_x64.zip"
+        "url": "https://github.com/marcelofrau/scummvm-uwp/releases/download/v2026.3.1.62/scummvm-uwp_2026.3.1.62_x64.zip"
       }
     ],
-    "releaseNotesUrl": "https://github.com/marcelofrau/scummvm-uwp/releases/tag/v2026.3.1.53",
-    "releaseTag": "v2026.3.1.53"
+    "releaseNotesUrl": "https://github.com/marcelofrau/scummvm-uwp/releases/tag/v2026.3.1.62",
+    "releaseTag": "v2026.3.1.62"
   },
   "esDe": {
     "name": "ES-DE",
