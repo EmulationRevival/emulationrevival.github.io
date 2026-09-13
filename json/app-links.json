@@ -1510,8 +1510,8 @@
   "spacecadetpinball": {
     "name": "SpaceCadetPinball",
     "version": "1.0.1.33",
-    "releaseDate": "2026-05-04",
-    "firstReleaseDate": "2026-05-04",
+    "releaseDate": "2026-09-13",
+    "firstReleaseDate": "2026-09-13",
     "assets": [
       {
         "id": "spacecadetpinball",
@@ -1527,17 +1527,17 @@
   },
   "tailsAdventureRemake": {
     "name": "Tails Adventure Remake",
-    "version": "1.0.1.13",
-    "releaseDate": "2026-05-10",
+    "version": "1.0.0.14",
+    "releaseDate": "2026-09-13",
     "firstReleaseDate": "2026-05-10",
     "assets": [
       {
         "id": "tailsadventure",
-        "url": "https://github.com/YTReviveMe/tails-adventure-UWP/releases/download/UWP/TailsUWP_1.0.1.13_x64.msix"
+        "url": "https://github.com/YTReviveMe/tails-adventure-UWP/releases/download/UWP-2/TailsUWP_1.0.0.14_x64.msix"
       }
     ],
-    "releaseNotesUrl": "https://github.com/YTReviveMe/tails-adventure-UWP/releases/tag/UWP",
-    "releaseTag": "UWP"
+    "releaseNotesUrl": "https://github.com/YTReviveMe/tails-adventure-UWP/releases/tag/UWP-2",
+    "releaseTag": "UWP-2"
   },
   "naziZombiesPortable": {
     "name": "Nazi Zombies: Portable",
@@ -1885,21 +1885,21 @@
   },
   "syphonFilter": {
     "name": "Syphon Filter",
-    "version": "0.1.0.0",
-    "releaseDate": "2026-08-04",
+    "version": "0.2.0.0",
+    "releaseDate": "2026-09-13",
     "firstReleaseDate": "2026-08-03",
     "assets": [
       {
         "id": "syphonfilter",
-        "url": "https://github.com/YTReviveMe/SF-pc-port-uwp/releases/download/v0.1.0-uwp-test23/syphon_filter_0.1.0.0_x64.appx"
+        "url": "https://github.com/YTReviveMe/SF-pc-port-uwp/releases/download/v0.2.0-Beta2/syphon_filter_0.2.0.0_x64.appx"
       },
       {
         "id": "syphonfilter-dep",
-        "url": "https://github.com/YTReviveMe/SF-pc-port-uwp/releases/download/v0.1.0-uwp-test23/Microsoft.VCLibs.x64.14.00.appx"
+        "url": "https://github.com/YTReviveMe/SF-pc-port-uwp/releases/download/v0.2.0-Beta2/Microsoft.VCLibs.x64.14.00.appx"
       }
     ],
-    "releaseNotesUrl": "https://github.com/YTReviveMe/SF-pc-port-uwp/releases/tag/v0.1.0-uwp-test23",
-    "releaseTag": "v0.1.0-uwp-test23"
+    "releaseNotesUrl": "https://github.com/YTReviveMe/SF-pc-port-uwp/releases/tag/v0.2.0-Beta2",
+    "releaseTag": "v0.2.0-Beta2"
   },
   "openmohaa": {
     "name": "OpenMoHAA",
