@@ -1,25 +1,25 @@
 {
   "moonlight": {
     "name": "Moonlight",
-    "version": "1.18.1.0",
-    "releaseDate": "2026-06-16",
+    "version": "1.18.2.0",
+    "releaseDate": "2026-09-27",
     "firstReleaseDate": "2023-10-17",
     "assets": [
       {
         "id": "moonlight1",
-        "url": "https://github.com/TheElixZammuto/moonlight-xbox/releases/download/1.18.1/moonlight-xbox-dx_1.18.1.0_x64.msixbundle"
+        "url": "https://github.com/TheElixZammuto/moonlight-xbox/releases/download/1.18.2/moonlight-xbox-dx_1.18.2.0_x64.msixbundle"
       },
       {
         "id": "moonlight2",
-        "url": "https://github.com/TheElixZammuto/moonlight-xbox/releases/download/1.18.1/Microsoft.UI.Xaml.2.7.appx"
+        "url": "https://github.com/TheElixZammuto/moonlight-xbox/releases/download/1.18.2/Microsoft.UI.Xaml.2.7.appx"
       },
       {
         "id": "moonlight3",
-        "url": "https://github.com/TheElixZammuto/moonlight-xbox/releases/download/1.18.1/Microsoft.VCLibs.x64.14.00.appx"
+        "url": "https://github.com/TheElixZammuto/moonlight-xbox/releases/download/1.18.2/Microsoft.VCLibs.x64.14.00.appx"
       }
     ],
-    "releaseNotesUrl": "https://github.com/TheElixZammuto/moonlight-xbox/releases/tag/1.18.1",
-    "releaseTag": "1.18.1"
+    "releaseNotesUrl": "https://github.com/TheElixZammuto/moonlight-xbox/releases/tag/1.18.2",
+    "releaseTag": "1.18.2"
   },
   "discorduwp": {
     "name": "Discord UWP",
