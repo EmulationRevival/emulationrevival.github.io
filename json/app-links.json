@@ -167,10 +167,10 @@
     "assets": [
       {
         "id": "dolphin",
-        "url": "https://github.com/SternXD/dolphin/releases/download/1.1.9.0/DolphinWinRT_1.1.9.0_x64.msix"
+        "url": "https://github.com/XboxEmulationHub/dolphin/releases/download/1.1.9.0/DolphinWinRT_1.1.9.0_x64.msix"
       }
     ],
-    "releaseNotesUrl": "https://github.com/SternXD/dolphin/releases/tag/1.1.9.0",
+    "releaseNotesUrl": "https://github.com/XboxEmulationHub/dolphin/releases/tag/1.1.9.0",
     "releaseTag": "1.1.9.0"
   },
   "flycast": {
@@ -1061,10 +1061,10 @@
     "assets": [
       {
         "id": "2s2h",
-        "url": "https://github.com/SternXD/2ship2harkinian-uwp/releases/download/0.1.0-uwp/2ship2harkinian.msixbundle"
+        "url": "https://github.com/XboxEmulationHub/2ship2harkinian-uwp/releases/download/0.1.0-uwp/2ship2harkinian.msixbundle"
       }
     ],
-    "releaseNotesUrl": "https://github.com/SternXD/2ship2harkinian-uwp/releases/tag/0.1.0-uwp",
+    "releaseNotesUrl": "https://github.com/XboxEmulationHub/2ship2harkinian-uwp/releases/tag/0.1.0-uwp",
     "releaseTag": "0.1.0-uwp"
   },
   "nsmb": {
@@ -1125,10 +1125,10 @@
     "assets": [
       {
         "id": "burgerdoom",
-        "url": "https://github.com/SternXD/BurgerDoom/releases/download/1.1.0-uwp/BurgerDoom_1.1.0.0.zip"
+        "url": "https://github.com/XboxEmulationHub/BurgerDoom/releases/download/1.1.0-uwp/BurgerDoom_1.1.0.0.zip"
       }
     ],
-    "releaseNotesUrl": "https://github.com/SternXD/BurgerDoom/releases/tag/1.1.0-uwp",
+    "releaseNotesUrl": "https://github.com/XboxEmulationHub/BurgerDoom/releases/tag/1.1.0-uwp",
     "releaseTag": "1.1.0-uwp"
   },
   "abysm2": {
@@ -1565,10 +1565,10 @@
     "assets": [
       {
         "id": "dusklight",
-        "url": "https://github.com/SternXD/dusklight-uwp/releases/download/uwp-1.1.1/dusklight-uwp_1.1.1.0.zip"
+        "url": "https://github.com/XboxEmulationHub/dusklight-uwp/releases/download/uwp-1.1.1/dusklight-uwp_1.1.1.0.zip"
       }
     ],
-    "releaseNotesUrl": "https://github.com/SternXD/dusklight-uwp/releases/tag/uwp-1.1.1",
+    "releaseNotesUrl": "https://github.com/XboxEmulationHub/dusklight-uwp/releases/tag/uwp-1.1.1",
     "releaseTag": "uwp-1.1.1"
   },
   "superMarioWorldRemasteredPlus": {
@@ -1871,17 +1871,17 @@
   },
   "gen1recomp": {
     "name": "Gen1Recomp",
-    "version": "0.3.30",
+    "version": "0.3.31",
     "releaseDate": "2026-09-29",
     "firstReleaseDate": "2026-07-18",
     "assets": [
       {
         "id": "gen1recomp",
-        "url": "https://github.com/bryanthaboi/gen1recomp/releases/download/v0.3.30/gen1recomp-0.3.30-xbox-uwp.zip"
+        "url": "https://github.com/bryanthaboi/gen1recomp/releases/download/v0.3.31/gen1recomp-0.3.31-xbox-uwp.zip"
       }
     ],
-    "releaseNotesUrl": "https://github.com/bryanthaboi/gen1recomp/releases/tag/v0.3.30",
-    "releaseTag": "v0.3.30"
+    "releaseNotesUrl": "https://github.com/bryanthaboi/gen1recomp/releases/tag/v0.3.31",
+    "releaseTag": "v0.3.31"
   },
   "syphonFilter": {
     "name": "Syphon Filter",
