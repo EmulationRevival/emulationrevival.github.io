@@ -2040,5 +2040,16 @@
         "assetPattern": "ES-DE_*_x64.msix"
       }
     ]
+  },
+  "azahar": {
+    "name": "Azahar",
+    "repo": "danprice142/Azahar-UWP",
+    "assets": [
+      {
+        "id": "azahar",
+        "sourceType": "github",
+        "assetPattern": "Azahar_*.msix"
+      }
+    ]
   }
 }
