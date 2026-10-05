@@ -1733,17 +1733,17 @@
   },
   "megaManX816Bit": {
     "name": "Mega Man X8 16-bit",
-    "version": "1.0.0.15",
-    "releaseDate": "2026-08-29",
+    "version": "1.0.0.16",
+    "releaseDate": "2026-10-05",
     "firstReleaseDate": "2026-07-10",
     "assets": [
       {
         "id": "megamanx8",
-        "url": "https://github.com/Cainareiss/Mega-Man-X8-16-bit-uwp-edition/releases/download/v1.0.0.15/MegaManX8-16bit-UWP-1.0.0.15.zip"
+        "url": "https://github.com/Cainareiss/Mega-Man-X8-16-bit-uwp-edition/releases/download/v1.0.0.16/MegaManX8-16bit-UWP-1.0.0.16.zip"
       }
     ],
-    "releaseNotesUrl": "https://github.com/Cainareiss/Mega-Man-X8-16-bit-uwp-edition/releases/tag/v1.0.0.15",
-    "releaseTag": "v1.0.0.15"
+    "releaseNotesUrl": "https://github.com/Cainareiss/Mega-Man-X8-16-bit-uwp-edition/releases/tag/v1.0.0.16",
+    "releaseTag": "v1.0.0.16"
   },
   "virtuaFighter": {
     "name": "Virtua Fighter",
@@ -1871,17 +1871,17 @@
   },
   "gen1recomp": {
     "name": "Gen1Recomp",
-    "version": "0.3.51",
-    "releaseDate": "2026-10-03",
+    "version": "0.3.53",
+    "releaseDate": "2026-10-05",
     "firstReleaseDate": "2026-07-18",
     "assets": [
       {
         "id": "gen1recomp",
-        "url": "https://github.com/bryanthaboi/gen1recomp/releases/download/v0.3.51/gen1recomp-0.3.51-xbox-uwp.zip"
+        "url": "https://github.com/bryanthaboi/gen1recomp/releases/download/v0.3.53/gen1recomp-0.3.53-xbox-uwp.zip"
       }
     ],
-    "releaseNotesUrl": "https://github.com/bryanthaboi/gen1recomp/releases/tag/v0.3.51",
-    "releaseTag": "v0.3.51"
+    "releaseNotesUrl": "https://github.com/bryanthaboi/gen1recomp/releases/tag/v0.3.53",
+    "releaseTag": "v0.3.53"
   },
   "syphonFilter": {
     "name": "Syphon Filter",
