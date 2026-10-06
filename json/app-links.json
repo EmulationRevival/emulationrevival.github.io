@@ -1976,5 +1976,19 @@
         "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/es-de-3.4.1.8/ES-DE_3.4.1.8_x64.msix"
       }
     ]
+  },
+  "azahar": {
+    "name": "Azahar",
+    "version": "0.2126.1.1",
+    "releaseDate": "2026-10-05",
+    "firstReleaseDate": "2026-10-05",
+    "assets": [
+      {
+        "id": "azahar",
+        "url": "https://github.com/danprice142/Azahar-UWP/releases/download/0.2126.1.1/Azahar_0.2126.1.1.msix"
+      }
+    ],
+    "releaseNotesUrl": "https://github.com/danprice142/Azahar-UWP/releases/tag/0.2126.1.1",
+    "releaseTag": "0.2126.1.1"
   }
 }

@@ -128,6 +128,14 @@
     "category": "Emulators"
   },
   {
+    "app_id": "azahar",
+    "name": "Azahar",
+    "description": "A Nintendo 3DS emulator based on Citra",
+    "img": "/xbox-dev-mode/images/emulators/azahar.webp",
+    "url": "/xbox-dev-mode/emulators.html#azahar",
+    "category": "Emulators"
+  },
+  {
     "app_id": "castlevania",
     "name": "Castlevania Revamped",
     "description": "The NES classic re-forged into a Metroid-style adventure",
