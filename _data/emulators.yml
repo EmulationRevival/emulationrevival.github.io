@@ -542,3 +542,34 @@
   setup_guide:
     url: "https://wiki.sternserv.xyz/docs/emulation/scummvm-uwp-guide"
   tutorial_url: null
+
+- id: "azahar"
+  app_id: "azahar"
+  title: "Azahar"
+  description: "A Nintendo 3DS emulator based on Citra"
+  image: "/xbox-dev-mode/images/emulators/azahar.webp"
+  alt: "Azahar Logo"
+  category: "Emulators"
+  page_url: "/xbox-dev-mode/emulators.html#azahar"
+  preview_url: "/previews/emulators-azahar.html"
+  compatibility: "Xbox Series S|X"
+  requirements: []
+  features: []
+  contributors:
+    developers:
+      - name: "Azahar Team"
+        github: "https://github.com/azahar-emu"
+        donations: []
+    porters:
+      - name: "DanP"
+        github: "https://github.com/danprice142"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/danp142"
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "azahar"
+  source_code_url: "https://github.com/danprice142/Azahar-UWP/tree/UWP"
+  setup_guide: null
+  tutorial_url: null
