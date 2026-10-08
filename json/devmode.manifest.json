@@ -2059,7 +2059,7 @@
       {
         "id": "opence",
         "sourceType": "github",
-        "assetPattern": "OpenCE-UWP-*.zip"
+        "assetPattern": "OpenCE-UWP-*.appx"
       }
     ]
   }
