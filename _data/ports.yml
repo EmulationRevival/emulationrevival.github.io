@@ -2368,3 +2368,36 @@
   setup_guide:
     url: "https://wiki.sternserv.xyz/docs/ports/openmw-guide"
   tutorial_url: null
+  
+- id: "opence"
+  app_id: "opence"
+  title: "OpenCE"
+  description: "Halo: Combat Evolved (for original Xbox) ported to Xbox Dev Mode"
+  image: "/xbox-dev-mode/images/game-ports/opence.webp"
+  alt: "OpenCE Logo"
+  category: "Ports"
+  page_url: "/xbox-dev-mode/ports.html#opence"
+  preview_url: "/previews/ports-opence.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "Halo ISO or XISO"
+  features: []
+  contributors:
+    developers:
+      - name: "OpenCommunityEdition"
+        github: "https://github.com/OpenCommunityEdition"
+        donations: []
+    porters:
+      - name: "ReviveMe"
+        github: "https://github.com/YTReviveMe"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/reviveme"
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "opence"
+  source_code_url: "https://github.com/YTReviveMe/OpenCE-UWP"
+  setup_guide:
+    url: "https://wiki.sternserv.xyz/docs/ports/open-ce"
+  tutorial_url: null

@@ -2051,5 +2051,16 @@
         "assetPattern": "Azahar_*.msix"
       }
     ]
+  },
+  "opence": {
+    "name": "OpenCE",
+    "repo": "YTReviveMe/OpenCE-UWP",
+    "assets": [
+      {
+        "id": "opence",
+        "sourceType": "github",
+        "assetPattern": "OpenCE-UWP-*.zip"
+      }
+    ]
   }
 }
