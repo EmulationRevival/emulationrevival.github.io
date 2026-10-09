@@ -1871,17 +1871,17 @@
   },
   "gen1recomp": {
     "name": "Gen1Recomp",
-    "version": "0.3.66",
-    "releaseDate": "2026-10-08",
+    "version": "0.3.68",
+    "releaseDate": "2026-10-09",
     "firstReleaseDate": "2026-07-18",
     "assets": [
       {
         "id": "gen1recomp",
-        "url": "https://github.com/bryanthaboi/gen1recomp/releases/download/v0.3.66/gen1recomp-0.3.66-xbox-uwp.zip"
+        "url": "https://github.com/bryanthaboi/gen1recomp/releases/download/v0.3.68/gen1recomp-0.3.68-xbox-uwp.zip"
       }
     ],
-    "releaseNotesUrl": "https://github.com/bryanthaboi/gen1recomp/releases/tag/v0.3.66",
-    "releaseTag": "v0.3.66"
+    "releaseNotesUrl": "https://github.com/bryanthaboi/gen1recomp/releases/tag/v0.3.68",
+    "releaseTag": "v0.3.68"
   },
   "syphonFilter": {
     "name": "Syphon Filter",
@@ -1993,16 +1993,16 @@
   },
   "opence": {
     "name": "OpenCE",
-    "version": "OpenCE-UWP-157",
-    "releaseDate": "2026-10-08",
+    "version": "1.5.9.0",
+    "releaseDate": "2026-10-09",
     "firstReleaseDate": "2026-10-08",
     "assets": [
       {
         "id": "opence",
-        "url": "https://github.com/YTReviveMe/OpenCE-UWP/releases/download/OpenCE-UWP-157/OpenCE-UWP-x64.appx"
+        "url": "https://github.com/YTReviveMe/OpenCE-UWP/releases/download/uwp-build-159/OpenCE-UWP-x64.appx"
       }
     ],
-    "releaseNotesUrl": "https://github.com/YTReviveMe/OpenCE-UWP/releases/tag/OpenCE-UWP-157",
-    "releaseTag": "OpenCE-UWP-157"
+    "releaseNotesUrl": "https://github.com/YTReviveMe/OpenCE-UWP/releases/tag/uwp-build-159",
+    "releaseTag": "uwp-build-159"
   }
 }
