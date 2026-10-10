@@ -798,20 +798,20 @@
   "unleashed": {
     "name": "Sonic Unleashed Recomp",
     "version": "1.0.3.0",
-    "releaseDate": "2025-03-26",
+    "releaseDate": "2026-10-10",
     "firstReleaseDate": "2025-03-26",
     "assets": [
       {
         "id": "unleashed1",
-        "url": "https://github.com/YTReviveMe/UnleashedRecomp-uwp/releases/download/Beta/UnleashedRecompiled_1.0.3.0_x64.msixbundle"
+        "url": "https://github.com/YTReviveMe/UnleashedRecomp-uwp/releases/download/installersupport/UnleashedRecompiledinstaller_1.0.3.0_x64.msixbundle"
       },
       {
         "id": "unleashed2",
-        "url": "https://github.com/YTReviveMe/UnleashedRecomp-uwp/releases/download/Beta/Microsoft.VCLibs.x64.14.00.appx"
+        "url": "https://github.com/YTReviveMe/UnleashedRecomp-uwp/releases/download/installersupport/Microsoft.VCLibs.x64.14.00.appx"
       }
     ],
-    "releaseNotesUrl": "https://github.com/YTReviveMe/UnleashedRecomp-uwp/releases/tag/Beta",
-    "releaseTag": "Beta"
+    "releaseNotesUrl": "https://github.com/YTReviveMe/UnleashedRecomp-uwp/releases/tag/installersupport",
+    "releaseTag": "installersupport"
   },
   "spelunky": {
     "name": "Spelunky Classic HD",
