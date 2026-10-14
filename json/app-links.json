@@ -1979,17 +1979,17 @@
   },
   "azahar": {
     "name": "Azahar",
-    "version": "0.2126.2.0",
-    "releaseDate": "2026-10-13",
+    "version": "0.2126.2.1",
+    "releaseDate": "2026-10-14",
     "firstReleaseDate": "2026-10-05",
     "assets": [
       {
         "id": "azahar",
-        "url": "https://github.com/danprice142/Azahar-UWP/releases/download/0.2126.2.0/Azahar_0.2126.2.0.msix"
+        "url": "https://github.com/danprice142/Azahar-UWP/releases/download/0.2126.2.1/Azahar_0.2126.2.1.msix"
       }
     ],
-    "releaseNotesUrl": "https://github.com/danprice142/Azahar-UWP/releases/tag/0.2126.2.0",
-    "releaseTag": "0.2126.2.0"
+    "releaseNotesUrl": "https://github.com/danprice142/Azahar-UWP/releases/tag/0.2126.2.1",
+    "releaseTag": "0.2126.2.1"
   },
   "opence": {
     "name": "OpenCE",
