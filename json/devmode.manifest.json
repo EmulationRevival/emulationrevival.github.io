@@ -2062,5 +2062,21 @@
         "assetPattern": "OpenCE-UWP-*.appx"
       }
     ]
+  },
+  "warthog": {
+    "name": "Warthog",
+    "repo": "YTReviveMe/warthog-UWP",
+    "assets": [
+      {
+        "id": "warthog",
+        "sourceType": "github",
+        "assetPattern": "Warthog-UWP-x64.appx"
+      },
+      {
+        "id": "warthog-dep",
+        "sourceType": "github",
+        "assetPattern": "Microsoft.VCLibs.x*.appx"
+      }
+    ]
   }
 }

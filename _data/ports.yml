@@ -2401,3 +2401,38 @@
   setup_guide:
     url: "https://wiki.sternserv.xyz/docs/ports/open-ce"
   tutorial_url: null
+  
+- id: "warthog"
+  app_id: "warthog"
+  title: "Warthog"
+  description: "Halo: Combat Evolved (for original Xbox) ported to Xbox Dev Mode"
+  image: "/xbox-dev-mode/images/game-ports/warthog.webp"
+  alt: "Warthog Logo"
+  category: "Ports"
+  page_url: "/xbox-dev-mode/ports.html#warthog"
+  preview_url: "/previews/ports-warthog.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "Halo ISO or XISO"
+  features: []
+  contributors:
+    developers:
+      - name: "ChupathingyCE"
+        github: "https://github.com/ChupathingyCE"
+        donations: []
+    porters:
+      - name: "ReviveMe"
+        github: "https://github.com/YTReviveMe"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/reviveme"
+    maintainers: []
+  downloads:
+    - label: "Warthog"
+      asset_id: "warthog"
+    - label: "Dependency File"
+      asset_id: "warthog-dep"
+  source_code_url: "https://github.com/YTReviveMe/warthog-UWP"
+  setup_guide:
+    url: "https://wiki.sternserv.xyz/docs/ports/warthog-guide"
+  tutorial_url: "https://www.youtube.com/watch?v=lZ-Oh7V508Q"
