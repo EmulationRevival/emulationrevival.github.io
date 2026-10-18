@@ -240,9 +240,9 @@ function getDefaultVersionCandidates(text) {
     }
 
     const patterns = [
-        /(?<![\d.])v?(\d+\.\d+\.\d+\.\d+)(?!\d)/gi,
-        /(?<![\d.])v?(\d+\.\d+\.\d+)(?!\d)/gi,
-        /(?<![\d.])v?(\d+\.\d+)(?!\d)/gi
+        /(?<![\d.a-uw-zA-UW-Z])v?(\d+\.\d+\.\d+\.\d+)(?!\d)/gi,
+        /(?<![\d.a-uw-zA-UW-Z])v?(\d+\.\d+\.\d+)(?!\d)/gi,
+        /(?<![\d.a-uw-zA-UW-Z])v?(\d+\.\d+)(?!\d)/gi
     ];
 
     const seen = new Set();
@@ -297,7 +297,7 @@ function scoreVersionCandidate(candidate, source, text) {
     }
 
     if (typeof text === 'string') {
-        if (new RegExp(`(?<![\\d.])v?${normalized.replace(/\./g, '\\.')}(?!\\d)`, 'i').test(text)) {
+        if (new RegExp(`(?<![\\d.a-uw-zA-UW-Z])v?${normalized.replace(/\./g, '\\.')}(?!\\d)`, 'i').test(text)) {
             score += 10;
         }
 
@@ -426,8 +426,19 @@ function getMatchedAssetsForRelease(release, config) {
     });
 }
 
+const DEPENDENCY_ASSET_PATTERN =
+    /vclibs|vcredist|vc_redist|\.net\.native|netcore|framework|runtime|directx|dxsetup/i;
+
+function isDependencyAssetName(assetName) {
+    return DEPENDENCY_ASSET_PATTERN.test(assetName);
+}
+
 function extractVersionCandidatesFromAssetName(assetName, config, sourceLabel) {
     if (typeof assetName !== 'string' || !assetName) {
+        return [];
+    }
+
+    if (isDependencyAssetName(assetName)) {
         return [];
     }
 
