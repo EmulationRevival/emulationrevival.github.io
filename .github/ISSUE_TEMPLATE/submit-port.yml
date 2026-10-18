@@ -1,0 +1,165 @@
+name: Submit a port
+description: Suggest an open-source app, emulator, game port, or utility for Emulation Revival
+title: "[Submission] "
+labels: ["submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for contributing! Fill this out as completely as you can, ensuring all sections marked required are complete.
+
+        **Only projects hosted on GitHub or GitLab with publicly available source code are accepted.**
+        Please only submit projects you made, or that you have permission to share.
+
+  - type: input
+    id: title
+    attributes:
+      label: Title/App name
+      description: The name shown on the site.
+      placeholder: "e.g. XBSX2"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Card description
+      description: One or two lines, as shown on the site card.
+      placeholder: "e.g. A PlayStation 2 emulator based on PCSX2"
+      render: text
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      description: Decides which page the card appears on.
+      options:
+        - Ports
+        - Emulators
+        - Apps
+        - Frontends
+        - Media Apps
+        - Utilities
+        - Experimental Apps
+    validations:
+      required: true
+
+  - type: dropdown
+    id: compatibility
+    attributes:
+      label: Compatibility
+      options:
+        - Xbox One & Series S|X
+        - Xbox Series S|X
+        - Desktop
+    validations:
+      required: true
+
+  - type: textarea
+    id: image
+    attributes:
+      label: Card image
+      description: Drag and drop an image here, 1280x720 in PNG or WebP preferably.
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: "## Downloads"
+
+  - type: textarea
+    id: downloads
+    attributes:
+      label: Download links
+      description: |
+        One per line: `Label | Link`. List the main app first, then any dependencies.
+        Use the full release asset link from your GitHub or GitLab release page (right-click the file and copy the link).
+        GitHub links contain `/releases/download/`. GitLab links come from the release's assets or package registry.
+      placeholder: |
+        Main App | https://github.com/owner/repo/releases/download/v1.0.0.0/App-1.0.0.0.msixbundle
+        Dependency file | https://github.com/owner/repo/releases/download/v1.0.0.0/Microsoft.VCLibs.x64.14.00.appx
+      render: text
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: "## Links"
+
+  - type: input
+    id: setup_guide
+    attributes:
+      label: Setup guide URL
+      placeholder: "https://wiki.sternserv.xyz/docs/..."
+
+  - type: input
+    id: tutorial_url
+    attributes:
+      label: Tutorial video URL
+      placeholder: "https://youtu.be/..."
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Credits
+        For each box below, use one person per line: `Name | GitHub/GitLab URL | Donation URL(s)`.
+        The donation part is optional (Ko-fi, Buy Me a Coffee, PayPal and Patreon are supported).
+
+  - type: textarea
+    id: developers
+    attributes:
+      label: Developer(s)
+      description: Developers of the original project.
+      placeholder: |
+        ReviveMe | https://github.com/YTReviveMe | https://ko-fi.com/reviveme
+      render: text
+    validations:
+      required: true
+
+  - type: textarea
+    id: porters
+    attributes:
+      label: UWP port by (optional)
+      description: Developer who ported it to Xbox/UWP.
+      placeholder: |
+        ReviveMe | https://github.com/YTReviveMe | https://ko-fi.com/reviveme
+      render: text
+
+  - type: markdown
+    attributes:
+      value: "## Details"
+
+  - type: textarea
+    id: requirements
+    attributes:
+      label: Requirements (optional)
+      description: One per line.
+      placeholder: |
+        External Drive
+        Dependency file
+        Game rom
+      render: text
+
+  - type: textarea
+    id: features
+    attributes:
+      label: Features / notes (optional)
+      description: One per line.
+      placeholder: |
+        Frontend support
+        60 FPS
+      render: text
+
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmation
+      options:
+        - label: I made this project, or I have permission from its developer to submit it.
+          required: true
+        - label: The project is hosted on GitHub or GitLab with its source code publicly available, is free and open source, and no license infringement has occurred.
+          required: true
+        - label: The project doesn't contain or distribute copyrighted games, BIOS files, or ROMs.
+          required: true

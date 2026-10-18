@@ -149,6 +149,15 @@ main {
   margin-inline: auto;
 }
 
+.submit-cta-container {
+  margin-block-end: 0;
+  padding-block-end: 0;
+}
+
+.submit-page-action {
+  margin-block: var(--spacing-xl);
+}
+
 .section-padded:last-child {
   padding-block-end: var(--spacing-xxl);
 }

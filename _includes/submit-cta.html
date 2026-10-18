@@ -1,0 +1,6 @@
+<div class="discord-cta-container submit-cta-container">
+    <div class="discord-cta">
+        <p{% if include.text_class %} class="{{ include.text_class }}"{% endif %}>{{ include.text | default: "Know a port we're missing? Submit it to the library." }}</p>
+        <a href="/submit.html" class="btn btn-primary">Submit a Project</a>
+    </div>
+</div>
