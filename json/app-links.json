@@ -2004,5 +2004,23 @@
     ],
     "releaseNotesUrl": "https://github.com/YTReviveMe/OpenCE-UWP/releases/tag/uwp-build-188",
     "releaseTag": "uwp-build-188"
+  },
+  "warthog": {
+    "name": "Warthog",
+    "version": "64.14.00",
+    "releaseDate": "2026-10-18",
+    "firstReleaseDate": "2026-10-18",
+    "assets": [
+      {
+        "id": "warthog",
+        "url": "https://github.com/YTReviveMe/warthog-UWP/releases/download/uwp-0.7.5.0/Warthog-UWP-x64.appx"
+      },
+      {
+        "id": "warthog-dep",
+        "url": "https://github.com/YTReviveMe/warthog-UWP/releases/download/uwp-0.7.5.0/Microsoft.VCLibs.x64.14.00.appx"
+      }
+    ],
+    "releaseNotesUrl": "https://github.com/YTReviveMe/warthog-UWP/releases/tag/uwp-0.7.5.0",
+    "releaseTag": "uwp-0.7.5.0"
   }
 }
