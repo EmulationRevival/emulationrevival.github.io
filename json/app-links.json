@@ -479,17 +479,17 @@
   },
   "jazz2": {
     "name": "Jazz 2 Resurrection",
-    "version": "3.8.0",
-    "releaseDate": "2026-08-22",
+    "version": "3.9.0",
+    "releaseDate": "2026-10-17",
     "firstReleaseDate": "2018-03-24",
     "assets": [
       {
         "id": "jazz2",
-        "url": "https://github.com/deathkiller/jazz2/releases/download/3.8.0/Jazz2_3.8.0_UWP.zip"
+        "url": "https://github.com/deathkiller/jazz2/releases/download/3.9.0/Jazz2_3.9.0_UWP.zip"
       }
     ],
-    "releaseNotesUrl": "https://github.com/deathkiller/jazz2/releases/tag/3.8.0",
-    "releaseTag": "3.8.0"
+    "releaseNotesUrl": "https://github.com/deathkiller/jazz2/releases/tag/3.9.0",
+    "releaseTag": "3.9.0"
   },
   "maze": {
     "name": "Maze0x72",
@@ -798,20 +798,20 @@
   "unleashed": {
     "name": "Sonic Unleashed Recomp",
     "version": "1.0.3.0",
-    "releaseDate": "2025-03-26",
+    "releaseDate": "2026-10-10",
     "firstReleaseDate": "2025-03-26",
     "assets": [
       {
         "id": "unleashed1",
-        "url": "https://github.com/YTReviveMe/UnleashedRecomp-uwp/releases/download/Beta/UnleashedRecompiled_1.0.3.0_x64.msixbundle"
+        "url": "https://github.com/YTReviveMe/UnleashedRecomp-uwp/releases/download/installersupport/UnleashedRecompiledinstaller_1.0.3.0_x64.msixbundle"
       },
       {
         "id": "unleashed2",
-        "url": "https://github.com/YTReviveMe/UnleashedRecomp-uwp/releases/download/Beta/Microsoft.VCLibs.x64.14.00.appx"
+        "url": "https://github.com/YTReviveMe/UnleashedRecomp-uwp/releases/download/installersupport/Microsoft.VCLibs.x64.14.00.appx"
       }
     ],
-    "releaseNotesUrl": "https://github.com/YTReviveMe/UnleashedRecomp-uwp/releases/tag/Beta",
-    "releaseTag": "Beta"
+    "releaseNotesUrl": "https://github.com/YTReviveMe/UnleashedRecomp-uwp/releases/tag/installersupport",
+    "releaseTag": "installersupport"
   },
   "spelunky": {
     "name": "Spelunky Classic HD",
@@ -1871,17 +1871,17 @@
   },
   "gen1recomp": {
     "name": "Gen1Recomp",
-    "version": "0.3.63",
-    "releaseDate": "2026-10-08",
+    "version": "0.3.89",
+    "releaseDate": "2026-10-15",
     "firstReleaseDate": "2026-07-18",
     "assets": [
       {
         "id": "gen1recomp",
-        "url": "https://github.com/bryanthaboi/gen1recomp/releases/download/v0.3.63/gen1recomp-0.3.63-xbox-uwp.zip"
+        "url": "https://github.com/bryanthaboi/gen1recomp/releases/download/v0.3.89/gen1recomp-0.3.89-xbox-uwp.zip"
       }
     ],
-    "releaseNotesUrl": "https://github.com/bryanthaboi/gen1recomp/releases/tag/v0.3.63",
-    "releaseTag": "v0.3.63"
+    "releaseNotesUrl": "https://github.com/bryanthaboi/gen1recomp/releases/tag/v0.3.89",
+    "releaseTag": "v0.3.89"
   },
   "syphonFilter": {
     "name": "Syphon Filter",
@@ -1979,16 +1979,30 @@
   },
   "azahar": {
     "name": "Azahar",
-    "version": "0.2126.1.1",
-    "releaseDate": "2026-10-05",
+    "version": "0.2126.2.1",
+    "releaseDate": "2026-10-14",
     "firstReleaseDate": "2026-10-05",
     "assets": [
       {
         "id": "azahar",
-        "url": "https://github.com/danprice142/Azahar-UWP/releases/download/0.2126.1.1/Azahar_0.2126.1.1.msix"
+        "url": "https://github.com/danprice142/Azahar-UWP/releases/download/0.2126.2.1/Azahar_0.2126.2.1.msix"
       }
     ],
-    "releaseNotesUrl": "https://github.com/danprice142/Azahar-UWP/releases/tag/0.2126.1.1",
-    "releaseTag": "0.2126.1.1"
+    "releaseNotesUrl": "https://github.com/danprice142/Azahar-UWP/releases/tag/0.2126.2.1",
+    "releaseTag": "0.2126.2.1"
+  },
+  "opence": {
+    "name": "OpenCE",
+    "version": "1.8.8.0",
+    "releaseDate": "2026-10-11",
+    "firstReleaseDate": "2026-10-08",
+    "assets": [
+      {
+        "id": "opence",
+        "url": "https://github.com/YTReviveMe/OpenCE-UWP/releases/download/uwp-build-188/OpenCE-UWP-x64.appx"
+      }
+    ],
+    "releaseNotesUrl": "https://github.com/YTReviveMe/OpenCE-UWP/releases/tag/uwp-build-188",
+    "releaseTag": "uwp-build-188"
   }
 }
