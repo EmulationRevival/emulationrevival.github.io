@@ -2052,17 +2052,6 @@
       }
     ]
   },
-  "opence": {
-    "name": "OpenCE",
-    "repo": "YTReviveMe/OpenCE-UWP",
-    "assets": [
-      {
-        "id": "opence",
-        "sourceType": "github",
-        "assetPattern": "OpenCE-UWP-*.appx"
-      }
-    ]
-  },
   "warthog": {
     "name": "Warthog",
     "repo": "YTReviveMe/warthog-UWP",
