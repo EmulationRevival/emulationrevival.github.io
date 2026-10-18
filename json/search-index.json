@@ -720,14 +720,6 @@
     "category": "Ports"
   },
   {
-    "app_id": "opence",
-    "name": "OpenCE",
-    "description": "Halo: Combat Evolved (for original Xbox) ported to Xbox Dev Mode",
-    "img": "/xbox-dev-mode/images/game-ports/opence.webp",
-    "url": "/xbox-dev-mode/ports.html#opence",
-    "category": "Ports"
-  },
-  {
     "app_id": "warthog",
     "name": "Warthog",
     "description": "Halo: Combat Evolved (for original Xbox) ported to Xbox Dev Mode",
