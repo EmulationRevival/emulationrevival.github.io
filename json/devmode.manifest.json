@@ -238,12 +238,12 @@
   },
   "dolphin": {
     "name": "Dolphin",
-    "repo": "SternXD/dolphin",
+    "repo": "danprice142/dolphin-uwp",
     "assets": [
       {
         "id": "dolphin",
         "sourceType": "github",
-        "assetPattern": "DolphinWinRT_*.msix"
+        "assetPattern": "Dolphin_*.msix"
       }
     ]
   },
@@ -339,17 +339,12 @@
   },
   "supermodel": {
     "name": "Supermodel",
-    "repo": "poopbird4k/Supermodel-uwp-gl",
+    "repo": "danprice142/Supermodel-uwp-gl",
     "assets": [
       {
         "id": "supermodel1",
         "sourceType": "github",
-        "assetPattern": "SegaModel3-powered-by-SuperModel-*.appx"
-      },
-      {
-        "id": "supermodel2",
-        "sourceType": "github",
-        "assetPattern": "Microsoft.VCLibs.x64.14.00.appx"
+        "assetPattern": "SuperModelUWP_*_x64.msix"
       }
     ]
   },
@@ -416,21 +411,12 @@
   },
   "ikemen": {
     "name": "Ikemen-GO",
-    "repo": "EmulationRevival/emulationrevival-downloads",
-    "releaseTagRegex": "^ikemen-go-",
-    "versionSource": "auto",
-    "versionRegex": "(\\d+\\.\\d+\\.\\d+\\.\\d+)",
-    "releaseDateOverrides": {
-      "1.0.6.0": "2024-08-26"
-    },
-    "firstReleaseDateOverrides": {
-      "1.0.6.0": "2024-08-26"
-    },
+    "repo": "danprice142/Ikemen-GO-dev-uwp",
     "assets": [
       {
         "id": "ikemen",
         "sourceType": "github",
-        "assetPattern": "Ikemen-GO-UWP-*.zip"
+        "assetPattern": "IkemenGO.UWP_*_x64.msix"
       }
     ]
   },
@@ -2065,6 +2051,39 @@
         "id": "warthog-dep",
         "sourceType": "github",
         "assetPattern": "Microsoft.VCLibs.x*.appx"
+      }
+    ]
+  },
+  "cemu": {
+    "name": "Cemu",
+    "repo": "danprice142/Cemu-UWP",
+    "assets": [
+      {
+        "id": "cemu",
+        "sourceType": "github",
+        "assetPattern": "Cemu_*.msix"
+      }
+    ]
+  },
+  "xemu": {
+    "name": "Xemu",
+    "repo": "danprice142/xemu-uwp",
+    "assets": [
+      {
+        "id": "xemu",
+        "sourceType": "github",
+        "assetPattern": "xemu_*.msix"
+      }
+    ]
+  },
+  "xeniaNetplay": {
+    "name": "Xenia Netplay",
+    "repo": "danprice142/xenia-canary-uwp",
+    "assets": [
+      {
+        "id": "xeniaNetplay",
+        "sourceType": "github",
+        "assetPattern": "Xenia-Netplay-*.appx"
       }
     ]
   }

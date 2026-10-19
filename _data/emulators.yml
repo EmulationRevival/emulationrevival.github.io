@@ -23,7 +23,7 @@
         github: "https://github.com/aerisarn"
         donations: []
     maintainers:
-      - name: "DanP"
+      - name: "DanP142"
         github: "https://github.com/danprice142"
         donations:
           - type: "kofi"
@@ -54,21 +54,16 @@
         github: "https://github.com/dolphin-emu"
         donations: []
     porters:
-      - name: "Sir Mangler"
-        github: "https://github.com/SirMangler"
+      - name: "DanP142"
+        github: "https://github.com/danprice142"
         donations:
           - type: "kofi"
-            url: "https://ko-fi.com/sirmangler"
-    maintainers:
-      - name: "Stern"
-        github: "https://github.com/SternXD"
-        donations:
-          - type: "kofi"
-            url: "https://ko-fi.com/stern"
+            url: "https://ko-fi.com/danp142"
+    maintainers: []
   downloads:
     - label: "Download"
       asset_id: "dolphin"
-  source_code_url: "https://github.com/SternXD/dolphin"
+  source_code_url: "https://github.com/danprice142/dolphin-uwp/tree/uwp"
   setup_guide:
     url: "https://wiki.sternserv.xyz/docs/emulation/dolphin-guide"
   tutorial_url: "https://youtu.be/F1NQKHcQhbQ"
@@ -161,10 +156,16 @@
         donations:
           - type: "kofi"
             url: "https://ko-fi.com/worleydl"
-    maintainers: []
+    maintainers:
+      - name: "DanP142"
+        github: "https://github.com/danprice142"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/danp142"
   downloads:
     - label: "Download"
       asset_id: "ikemen"
+  source_code_url: "https://github.com/danprice142/Ikemen-GO-dev-uwp/tree/UWP"
   setup_guide: null
   tutorial_url: "https://youtu.be/QSz755_O6NY"
 
@@ -341,8 +342,7 @@
   page_url: "/xbox-dev-mode/emulators.html#supermodel"
   preview_url: "/previews/emulators-supermodel.html"
   compatibility: "Xbox Series S|X"
-  requirements:
-    - "Dependency file"
+  requirements: []
   features: []
   contributors:
     developers:
@@ -354,15 +354,15 @@
         github: "https://github.com/aerisarn"
         donations: []
     maintainers:
-      - name: "Poopbird4k"
-        github: "https://github.com/poopbird4k"
-        donations: []
+      - name: "DanP142"
+        github: "https://github.com/danprice142"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/danp142"
   downloads:
-    - label: "Sega Model 3 - Emulator"
+    - label: "Download"
       asset_id: "supermodel1"
-    - label: "Sega Model 3 - Dependency File"
-      asset_id: "supermodel2"
-  source_code_url: "https://github.com/poopbird4k/Supermodel-uwp-gl"
+  source_code_url: "https://github.com/danprice142/Supermodel-uwp-gl/tree/uwp"
   setup_guide:
     url: "https://wiki.sternserv.xyz/docs/emulation/segamodel3-guide"
   tutorial_url: "https://youtu.be/VOJ1IKj0API"
@@ -469,7 +469,7 @@
           - type: "kofi"
             url: "https://ko-fi.com/sirmangler"
     maintainers:
-      - name: "DanP"
+      - name: "DanP142"
         github: "https://github.com/danprice142"
         donations:
           - type: "kofi"
@@ -561,7 +561,7 @@
         github: "https://github.com/azahar-emu"
         donations: []
     porters:
-      - name: "DanP"
+      - name: "DanP142"
         github: "https://github.com/danprice142"
         donations:
           - type: "kofi"
@@ -571,5 +571,106 @@
     - label: "Download"
       asset_id: "azahar"
   source_code_url: "https://github.com/danprice142/Azahar-UWP/tree/UWP"
+  setup_guide: null
+  tutorial_url: null
+
+- id: "cemu"
+  app_id: "cemu"
+  title: "Cemu"
+  description: "A Nintendo Wii U emulator"
+  image: "/xbox-dev-mode/images/emulators/cemu.webp"
+  alt: "Cemu Logo"
+  category: "Emulators"
+  page_url: "/xbox-dev-mode/emulators.html#cemu"
+  preview_url: "/previews/emulators-cemu.html"
+  compatibility: "Xbox Series S|X"
+  requirements: []
+  features: []
+  contributors:
+    developers:
+      - name: "Cemu Team"
+        github: "https://github.com/cemu-project"
+        donations: []
+    porters:
+      - name: "DanP142"
+        github: "https://github.com/danprice142"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/danp142"
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "cemu"
+  source_code_url: "https://github.com/danprice142/Cemu-UWP/tree/uwp-d3d12"
+  setup_guide: null
+  tutorial_url: null
+
+- id: "xemu"
+  app_id: "xemu"
+  title: "Xemu"
+  description: "An original Xbox emulator"
+  image: "/xbox-dev-mode/images/emulators/xemu.webp"
+  alt: "Xemu Logo"
+  category: "Emulators"
+  page_url: "/xbox-dev-mode/emulators.html#xemu"
+  preview_url: "/previews/emulators-xemu.html"
+  compatibility: "Xbox Series S|X"
+  requirements: []
+  features: []
+  contributors:
+    developers:
+      - name: "xemu Project"
+        github: "https://github.com/xemu-project"
+        donations: []
+    porters:
+      - name: "DanP142"
+        github: "https://github.com/danprice142"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/danp142"
+    maintainers: []
+  downloads:
+    - label: "Download"
+      asset_id: "xemu"
+  source_code_url: "https://github.com/danprice142/xemu-uwp/tree/uwp-d3d12"
+  setup_guide: null
+  tutorial_url: null
+
+- id: "xenia-netplay"
+  app_id: "xeniaNetplay"
+  title: "Xenia Netplay"
+  description: "An Xbox 360 emulator based on Xenia Canary with online netplay"
+  image: "/xbox-dev-mode/images/emulators/xenia-netplay.webp"
+  alt: "Xenia Netplay Logo"
+  category: "Emulators"
+  page_url: "/xbox-dev-mode/emulators.html#xenia-netplay"
+  preview_url: "/previews/emulators-xenia-netplay.html"
+  compatibility: "Xbox Series S|X"
+  requirements: []
+  features: []
+  contributors:
+    developers:
+      - name: "Xenia Project"
+        github: "https://github.com/xenia-project"
+        donations: []
+      - name: "AdrianCassar"
+        github: "https://github.com/AdrianCassar"
+        donations: []
+    porters:
+      - name: "DanP142"
+        github: "https://github.com/danprice142"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/danp142"
+    maintainers:
+      - name: "DanP142"
+        github: "https://github.com/danprice142"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/danp142"
+  downloads:
+    - label: "Download"
+      asset_id: "xeniaNetplay"
+  source_code_url: "https://github.com/danprice142/xenia-canary-uwp/tree/Blades-UWP-Netplay"
   setup_guide: null
   tutorial_url: null
