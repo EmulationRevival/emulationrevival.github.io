@@ -136,6 +136,30 @@
     "category": "Emulators"
   },
   {
+    "app_id": "cemu",
+    "name": "Cemu",
+    "description": "A Nintendo Wii U emulator",
+    "img": "/xbox-dev-mode/images/emulators/cemu.webp",
+    "url": "/xbox-dev-mode/emulators.html#cemu",
+    "category": "Emulators"
+  },
+  {
+    "app_id": "xemu",
+    "name": "Xemu",
+    "description": "An original Xbox emulator",
+    "img": "/xbox-dev-mode/images/emulators/xemu.webp",
+    "url": "/xbox-dev-mode/emulators.html#xemu",
+    "category": "Emulators"
+  },
+  {
+    "app_id": "xeniaNetplay",
+    "name": "Xenia Netplay",
+    "description": "An Xbox 360 emulator based on Xenia Canary with online netplay",
+    "img": "/xbox-dev-mode/images/emulators/xenia-netplay.webp",
+    "url": "/xbox-dev-mode/emulators.html#xenia-netplay",
+    "category": "Emulators"
+  },
+  {
     "app_id": "castlevania",
     "name": "Castlevania Revamped",
     "description": "The NES classic re-forged into a Metroid-style adventure",

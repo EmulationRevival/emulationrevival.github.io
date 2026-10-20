@@ -161,17 +161,17 @@
   },
   "dolphin": {
     "name": "Dolphin",
-    "version": "1.1.9.0",
-    "releaseDate": "2025-04-27",
-    "firstReleaseDate": "2025-04-27",
+    "version": "1.2.0.2",
+    "releaseDate": "2026-10-19",
+    "firstReleaseDate": "2026-10-19",
     "assets": [
       {
         "id": "dolphin",
-        "url": "https://github.com/XboxEmulationHub/dolphin/releases/download/1.1.9.0/DolphinWinRT_1.1.9.0_x64.msix"
+        "url": "https://github.com/danprice142/dolphin-uwp/releases/download/1.2.0.2/Dolphin_1.2.0.2.msix"
       }
     ],
-    "releaseNotesUrl": "https://github.com/XboxEmulationHub/dolphin/releases/tag/1.1.9.0",
-    "releaseTag": "1.1.9.0"
+    "releaseNotesUrl": "https://github.com/danprice142/dolphin-uwp/releases/tag/1.2.0.2",
+    "releaseTag": "1.2.0.2"
   },
   "flycast": {
     "name": "Flycast",
@@ -253,21 +253,17 @@
   },
   "supermodel": {
     "name": "Supermodel",
-    "version": "1.0.0.1",
-    "releaseDate": "2024-03-03",
-    "firstReleaseDate": "2024-03-03",
+    "version": "1.0.0.2",
+    "releaseDate": "2026-10-19",
+    "firstReleaseDate": "2026-10-19",
     "assets": [
       {
         "id": "supermodel1",
-        "url": "https://github.com/poopbird4k/Supermodel-uwp-gl/releases/download/v1.0.0.4/SegaModel3-powered-by-SuperModel-v1.0.0.1_NoGUI.appx"
-      },
-      {
-        "id": "supermodel2",
-        "url": "https://github.com/poopbird4k/Supermodel-uwp-gl/releases/download/v1.0.0.4/Microsoft.VCLibs.x64.14.00.appx"
+        "url": "https://github.com/danprice142/Supermodel-uwp-gl/releases/download/0.0.0.2/SuperModelUWP_1.0.0.2_x64.msix"
       }
     ],
-    "releaseNotesUrl": "https://github.com/poopbird4k/Supermodel-uwp-gl/releases/tag/v1.0.0.4",
-    "releaseTag": "v1.0.0.4"
+    "releaseNotesUrl": "https://github.com/danprice142/Supermodel-uwp-gl/releases/tag/0.0.0.2",
+    "releaseTag": "0.0.0.2"
   },
   "superg": {
     "name": "Supermodel-G920",
@@ -317,15 +313,17 @@
   },
   "ikemen": {
     "name": "Ikemen-GO",
-    "version": "1.0.6.0",
-    "releaseDate": "2024-08-26",
-    "firstReleaseDate": "2024-08-26",
+    "version": "1.0.7.0",
+    "releaseDate": "2026-10-19",
+    "firstReleaseDate": "2026-10-19",
     "assets": [
       {
         "id": "ikemen",
-        "url": "https://github.com/EmulationRevival/emulationrevival-downloads/releases/download/ikemen-go-1.0.6.0/Ikemen-GO-UWP-1.0.6.0.zip"
+        "url": "https://github.com/danprice142/Ikemen-GO-dev-uwp/releases/download/1.0.7.0/IkemenGO.UWP_1.0.7.0_x64.msix"
       }
-    ]
+    ],
+    "releaseNotesUrl": "https://github.com/danprice142/Ikemen-GO-dev-uwp/releases/tag/1.0.7.0",
+    "releaseTag": "1.0.7.0"
   },
   "gzdoom": {
     "name": "GZDoom",
@@ -2008,5 +2006,47 @@
     ],
     "releaseNotesUrl": "https://github.com/YTReviveMe/warthog-UWP/releases/tag/uwp-0.8.0.0b",
     "releaseTag": "uwp-0.8.0.0b"
+  },
+  "cemu": {
+    "name": "Cemu",
+    "version": "0.2.6.7",
+    "releaseDate": "2026-10-19",
+    "firstReleaseDate": "2026-10-19",
+    "assets": [
+      {
+        "id": "cemu",
+        "url": "https://github.com/danprice142/Cemu-UWP/releases/download/0.2.6.7/Cemu_0.2.6.7.msix"
+      }
+    ],
+    "releaseNotesUrl": "https://github.com/danprice142/Cemu-UWP/releases/tag/0.2.6.7",
+    "releaseTag": "0.2.6.7"
+  },
+  "xemu": {
+    "name": "Xemu",
+    "version": "0.8.136.1",
+    "releaseDate": "2026-10-19",
+    "firstReleaseDate": "2026-10-19",
+    "assets": [
+      {
+        "id": "xemu",
+        "url": "https://github.com/danprice142/xemu-uwp/releases/download/0.8.136.1/xemu_0.8.136.1.msix"
+      }
+    ],
+    "releaseNotesUrl": "https://github.com/danprice142/xemu-uwp/releases/tag/0.8.136.1",
+    "releaseTag": "0.8.136.1"
+  },
+  "xeniaNetplay": {
+    "name": "Xenia Netplay",
+    "version": "0.6.0.2",
+    "releaseDate": "2026-10-19",
+    "firstReleaseDate": "2026-10-19",
+    "assets": [
+      {
+        "id": "xeniaNetplay",
+        "url": "https://github.com/danprice142/xenia-canary-uwp/releases/download/0.6.0.2/Xenia-Netplay-0.6.0.2.appx"
+      }
+    ],
+    "releaseNotesUrl": "https://github.com/danprice142/xenia-canary-uwp/releases/tag/0.6.0.2",
+    "releaseTag": "0.6.0.2"
   }
 }
