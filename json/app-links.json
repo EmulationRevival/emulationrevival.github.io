@@ -1993,20 +1993,20 @@
   },
   "warthog": {
     "name": "Warthog",
-    "version": "0.7.5.0",
-    "releaseDate": "2026-10-18",
+    "version": "0.8.0.0",
+    "releaseDate": "2026-10-20",
     "firstReleaseDate": "2026-10-18",
     "assets": [
       {
         "id": "warthog",
-        "url": "https://github.com/YTReviveMe/warthog-UWP/releases/download/uwp-0.7.5.0/Warthog-UWP-x64.appx"
+        "url": "https://github.com/YTReviveMe/warthog-UWP/releases/download/uwp-0.8.0.0b/Warthog-UWP-x64.appx"
       },
       {
         "id": "warthog-dep",
-        "url": "https://github.com/YTReviveMe/warthog-UWP/releases/download/uwp-0.7.5.0/Microsoft.VCLibs.x64.14.00.appx"
+        "url": "https://github.com/YTReviveMe/warthog-UWP/releases/download/uwp-0.8.0.0b/Microsoft.VCLibs.x64.14.00.appx"
       }
     ],
-    "releaseNotesUrl": "https://github.com/YTReviveMe/warthog-UWP/releases/tag/uwp-0.7.5.0",
-    "releaseTag": "uwp-0.7.5.0"
+    "releaseNotesUrl": "https://github.com/YTReviveMe/warthog-UWP/releases/tag/uwp-0.8.0.0b",
+    "releaseTag": "uwp-0.8.0.0b"
   }
 }
