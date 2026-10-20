@@ -1953,17 +1953,17 @@
   },
   "scummvm": {
     "name": "ScummVM",
-    "version": "2026.3.1.62",
-    "releaseDate": "2026-09-10",
+    "version": "2026.3.1.155",
+    "releaseDate": "2026-10-19",
     "firstReleaseDate": "2026-08-10",
     "assets": [
       {
         "id": "scummvm",
-        "url": "https://github.com/marcelofrau/scummvm-uwp/releases/download/v2026.3.1.62/scummvm-uwp_2026.3.1.62_x64.zip"
+        "url": "https://github.com/marcelofrau/scummvm-uwp/releases/download/v2026.3.1.155/scummvm-uwp_2026.3.1.155_x64.zip"
       }
     ],
-    "releaseNotesUrl": "https://github.com/marcelofrau/scummvm-uwp/releases/tag/v2026.3.1.62",
-    "releaseTag": "v2026.3.1.62"
+    "releaseNotesUrl": "https://github.com/marcelofrau/scummvm-uwp/releases/tag/v2026.3.1.155",
+    "releaseTag": "v2026.3.1.155"
   },
   "esDe": {
     "name": "ES-DE",
