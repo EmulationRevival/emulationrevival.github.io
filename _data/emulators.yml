@@ -662,12 +662,7 @@
         donations:
           - type: "kofi"
             url: "https://ko-fi.com/danp142"
-    maintainers:
-      - name: "DanP142"
-        github: "https://github.com/danprice142"
-        donations:
-          - type: "kofi"
-            url: "https://ko-fi.com/danp142"
+    maintainers: []
   downloads:
     - label: "Download"
       asset_id: "xeniaNetplay"
