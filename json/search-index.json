@@ -160,6 +160,14 @@
     "category": "Emulators"
   },
   {
+    "app_id": "ymirUwp",
+    "name": "Ymir UWP",
+    "description": "An open-source Sega Saturn emulator port for Xbox Dev Mode, based on Ymir",
+    "img": "/xbox-dev-mode/images/emulators/ymir-uwp.webp",
+    "url": "/xbox-dev-mode/emulators.html#ymir-uwp",
+    "category": "Emulators"
+  },
+  {
     "app_id": "castlevania",
     "name": "Castlevania Revamped",
     "description": "The NES classic re-forged into a Metroid-style adventure",

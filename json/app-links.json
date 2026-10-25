@@ -2048,5 +2048,19 @@
     ],
     "releaseNotesUrl": "https://github.com/danprice142/xenia-canary-uwp/releases/tag/0.6.0.2",
     "releaseTag": "0.6.0.2"
+  },
+  "ymirUwp": {
+    "name": "Ymir UWP",
+    "version": "0.4.2.1",
+    "releaseDate": "2026-10-24",
+    "firstReleaseDate": "2026-10-24",
+    "assets": [
+      {
+        "id": "ymiruwp",
+        "url": "https://github.com/marcelofrau/Ymir/releases/download/uwp-v0.4.2.1/ymir-uwp_0.4.2.1_x64.zip"
+      }
+    ],
+    "releaseNotesUrl": "https://github.com/marcelofrau/Ymir/releases/tag/uwp-v0.4.2.1",
+    "releaseTag": "uwp-v0.4.2.1"
   }
 }
