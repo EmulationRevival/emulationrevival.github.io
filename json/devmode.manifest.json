@@ -2086,5 +2086,16 @@
         "assetPattern": "Xenia-Netplay-*.appx"
       }
     ]
+  },
+  "ymirUwp": {
+    "name": "Ymir UWP",
+    "repo": "marcelofrau/Ymir",
+    "assets": [
+      {
+        "id": "ymiruwp",
+        "sourceType": "github",
+        "assetPattern": "ymir-uwp_*_x64.zip"
+      }
+    ]
   }
 }
