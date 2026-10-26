@@ -2425,7 +2425,9 @@
     porters:
       - name: "ReviveMe"
         github: "https://github.com/YTReviveMe"
-        donations: []
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/reviveme"
     maintainers: []
   downloads:
     - label: "Melee UWP"
