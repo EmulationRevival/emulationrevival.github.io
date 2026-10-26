@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-25T19:28:25.448Z",
+  "updatedAt": "2026-10-26T19:27:34.473Z",
   "posts": {
     "emulators:retroarch-3ds": {
       "key": "emulators:retroarch-3ds",
@@ -1239,7 +1239,7 @@
       "contentHash": "52f05e480e5be6a2451fb604c728100a87b3d29266d2b88142a52b46e99fd97f",
       "updatedAt": "2026-05-13T20:48:21.009Z",
       "missingFromYaml": true,
-      "missingCheckedAt": "2026-10-25T19:28:25.448Z"
+      "missingCheckedAt": "2026-10-26T19:27:34.473Z"
     },
     "apps:discorduwp": {
       "key": "apps:discorduwp",
@@ -1358,7 +1358,7 @@
         "1504527581423079486"
       ],
       "missingFromYaml": true,
-      "missingCheckedAt": "2026-10-25T19:28:25.448Z"
+      "missingCheckedAt": "2026-10-26T19:27:34.473Z"
     },
     "experimental-apps:hedgephysics": {
       "key": "experimental-apps:hedgephysics",
@@ -1410,7 +1410,7 @@
         "1504527581423079486"
       ],
       "missingFromYaml": true,
-      "missingCheckedAt": "2026-10-25T19:28:25.448Z"
+      "missingCheckedAt": "2026-10-26T19:27:34.473Z"
     },
     "utilities:usb-permissions-tool": {
       "key": "utilities:usb-permissions-tool",
@@ -1918,7 +1918,7 @@
         "1504526316693622844"
       ],
       "missingFromYaml": true,
-      "missingCheckedAt": "2026-10-25T19:28:25.448Z"
+      "missingCheckedAt": "2026-10-26T19:27:34.473Z"
     },
     "ports:warthog": {
       "key": "ports:warthog",
@@ -1998,6 +1998,22 @@
       "updatedAt": "2026-10-25T19:28:25.437Z",
       "appliedTags": [
         "1504519186255188199"
+      ]
+    },
+    "ports:melee-uwp": {
+      "key": "ports:melee-uwp",
+      "productId": "melee-uwp",
+      "appId": "meleeUwp",
+      "title": "Melee UWP",
+      "source": "ports",
+      "sourceLabel": "Game Ports",
+      "channelId": "1504200374716989551",
+      "threadId": "1564359856293417065",
+      "messageId": "1564359856293417065",
+      "contentHash": "d89a99c225f56376e834072bbc2165bc40ce494165b63caee78c1feaaee64c09",
+      "updatedAt": "2026-10-26T19:27:34.471Z",
+      "appliedTags": [
+        "1504526316693622844"
       ]
     }
   }
