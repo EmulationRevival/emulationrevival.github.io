@@ -1869,17 +1869,17 @@
   },
   "gen1recomp": {
     "name": "Gen1Recomp",
-    "version": "0.3.96",
-    "releaseDate": "2026-10-23",
+    "version": "0.3.97",
+    "releaseDate": "2026-10-26",
     "firstReleaseDate": "2026-07-18",
     "assets": [
       {
         "id": "gen1recomp",
-        "url": "https://github.com/bryanthaboi/gen1recomp/releases/download/v0.3.96/gen1recomp-0.3.96-xbox-uwp.zip"
+        "url": "https://github.com/bryanthaboi/gen1recomp/releases/download/v0.3.97/gen1recomp-0.3.97-xbox-uwp.zip"
       }
     ],
-    "releaseNotesUrl": "https://github.com/bryanthaboi/gen1recomp/releases/tag/v0.3.96",
-    "releaseTag": "v0.3.96"
+    "releaseNotesUrl": "https://github.com/bryanthaboi/gen1recomp/releases/tag/v0.3.97",
+    "releaseTag": "v0.3.97"
   },
   "syphonFilter": {
     "name": "Syphon Filter",
@@ -2048,5 +2048,19 @@
     ],
     "releaseNotesUrl": "https://github.com/danprice142/xenia-canary-uwp/releases/tag/0.6.0.2",
     "releaseTag": "0.6.0.2"
+  },
+  "ymirUwp": {
+    "name": "Ymir UWP",
+    "version": "0.4.2.1",
+    "releaseDate": "2026-10-24",
+    "firstReleaseDate": "2026-10-24",
+    "assets": [
+      {
+        "id": "ymiruwp",
+        "url": "https://github.com/marcelofrau/Ymir/releases/download/uwp-v0.4.2.1/ymir-uwp_0.4.2.1_x64.zip"
+      }
+    ],
+    "releaseNotesUrl": "https://github.com/marcelofrau/Ymir/releases/tag/uwp-v0.4.2.1",
+    "releaseTag": "uwp-v0.4.2.1"
   }
 }
