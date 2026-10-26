@@ -2062,5 +2062,23 @@
     ],
     "releaseNotesUrl": "https://github.com/marcelofrau/Ymir/releases/tag/uwp-v0.4.2.1",
     "releaseTag": "uwp-v0.4.2.1"
+  },
+  "meleeUwp": {
+    "name": "Melee UWP",
+    "version": "0.4.2.0",
+    "releaseDate": "2026-10-26",
+    "firstReleaseDate": "2026-10-26",
+    "assets": [
+      {
+        "id": "meleeuwp",
+        "url": "https://github.com/YTReviveMe/melee-UWP./releases/download/0.4.2.0/MeleeUWP_0.4.2.0-x64.appx"
+      },
+      {
+        "id": "meleeuwp-dep",
+        "url": "https://github.com/YTReviveMe/melee-UWP./releases/download/0.4.2.0/Microsoft.VCLibs.x64.14.00.appx"
+      }
+    ],
+    "releaseNotesUrl": "https://github.com/YTReviveMe/melee-UWP./releases/tag/0.4.2.0",
+    "releaseTag": "0.4.2.0"
   }
 }

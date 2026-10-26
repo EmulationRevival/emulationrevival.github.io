@@ -760,6 +760,14 @@
     "category": "Ports"
   },
   {
+    "app_id": "meleeUwp",
+    "name": "Melee UWP",
+    "description": "An unofficial UWP port of Super Smash Bros. Melee",
+    "img": "/xbox-dev-mode/images/game-ports/melee.webp",
+    "url": "/xbox-dev-mode/ports.html#melee-uwp",
+    "category": "Ports"
+  },
+  {
     "app_id": "usbPermissionsTool",
     "name": "USB Permissions Tool",
     "description": "Add necessary permissions to an NTFS formatted USB drive for UWP apps",
