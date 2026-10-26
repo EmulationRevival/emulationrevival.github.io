@@ -2097,5 +2097,21 @@
         "assetPattern": "ymir-uwp_*_x64.zip"
       }
     ]
+  },
+  "meleeUwp": {
+    "name": "Melee UWP",
+    "repo": "YTReviveMe/melee-UWP.",
+    "assets": [
+      {
+        "id": "meleeuwp",
+        "sourceType": "github",
+        "assetPattern": "MeleeUWP_*-x64.appx"
+      },
+      {
+        "id": "meleeuwp-dep",
+        "sourceType": "github",
+        "assetPattern": "Microsoft.VCLibs.x*.appx"
+      }
+    ]
   }
 }

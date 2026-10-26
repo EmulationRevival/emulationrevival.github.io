@@ -2403,3 +2403,36 @@
   setup_guide:
     url: "https://wiki.sternserv.xyz/docs/ports/warthog-guide"
   tutorial_url: "https://www.youtube.com/watch?v=lZ-Oh7V508Q"
+  
+- id: "melee-uwp"
+  app_id: "meleeUwp"
+  title: "Melee UWP"
+  description: "An unofficial UWP port of Super Smash Bros. Melee"
+  image: "/xbox-dev-mode/images/game-ports/melee.webp"
+  alt: "Melee UWP Logo"
+  category: "Ports"
+  page_url: "/xbox-dev-mode/ports.html#melee-uwp"
+  preview_url: "/previews/ports-melee-uwp.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "Super Smash Bros. Melee USA, revision 2"
+  features: []
+  contributors:
+    developers:
+      - name: "999sian"
+        github: "https://github.com/999sian"
+        donations: []
+    porters:
+      - name: "ReviveMe"
+        github: "https://github.com/YTReviveMe"
+        donations: []
+    maintainers: []
+  downloads:
+    - label: "Melee UWP"
+      asset_id: "meleeuwp"
+    - label: "Dependency File"
+      asset_id: "meleeuwp-dep"
+  source_code_url: "https://github.com/YTReviveMe/melee-UWP."
+  setup_guide:
+    url: "https://wiki.sternserv.xyz/docs/ports/melee-uwp-guide"
+  tutorial_url: null
