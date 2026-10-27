@@ -2113,5 +2113,21 @@
         "assetPattern": "Microsoft.VCLibs.x*.appx"
       }
     ]
+  },
+  "tenkaichi3decomp": {
+    "name": "Tenkaichi3Decomp",
+    "repo": "YTReviveMe/Tenkaichi3Decomp-UWP",
+    "assets": [
+      {
+        "id": "tenkaichi3decomp",
+        "sourceType": "github",
+        "assetPattern": "bt3.msix"
+      },
+      {
+        "id": "tenkaichi3decomp-dep",
+        "sourceType": "github",
+        "assetPattern": "Microsoft.VCLibs.x*.appx"
+      }
+    ]
   }
 }

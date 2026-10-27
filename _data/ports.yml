@@ -2438,3 +2438,38 @@
   setup_guide:
     url: "https://wiki.sternserv.xyz/docs/ports/melee-uwp-guide"
   tutorial_url: "https://youtu.be/MHLUecZeAE0"
+  
+- id: "tenkaichi3decomp"
+  app_id: "tenkaichi3decomp"
+  title: "Tenkaichi3Decomp"
+  description: "A native UWP port of Dragon Ball Z: Budokai Tenkaichi 3"
+  image: "/xbox-dev-mode/images/game-ports/tenkaichi3decomp.webp"
+  alt: "Tenkaichi3Decomp Logo"
+  category: "Ports"
+  page_url: "/xbox-dev-mode/ports.html#tenkaichi3decomp"
+  preview_url: "/previews/ports-tenkaichi3decomp.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "PS2 USA ISO (SLUS-21678)"
+  features: []
+  contributors:
+    developers:
+      - name: "z3xox"
+        github: "https://github.com/z3xox"
+        donations: []
+    porters:
+      - name: "ReviveMe"
+        github: "https://github.com/YTReviveMe"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/reviveme"
+    maintainers: []
+  downloads:
+    - label: "Tenkaichi3Decomp"
+      asset_id: "tenkaichi3decomp"
+    - label: "Dependency File"
+      asset_id: "tenkaichi3decomp-dep"
+  source_code_url: "https://github.com/YTReviveMe/Tenkaichi3Decomp-UWP"
+  setup_guide:
+    url: "https://wiki.sternserv.xyz/docs/ports/tenkaichi3decomp-uwp-guide"
+  tutorial_url: null
