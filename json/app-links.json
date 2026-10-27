@@ -1991,21 +1991,21 @@
   },
   "warthog": {
     "name": "Warthog",
-    "version": "0.8.0.0",
-    "releaseDate": "2026-10-20",
+    "version": "0.8.0",
+    "releaseDate": "2026-10-27",
     "firstReleaseDate": "2026-10-18",
     "assets": [
       {
         "id": "warthog",
-        "url": "https://github.com/YTReviveMe/warthog-UWP/releases/download/uwp-0.8.0.0b/Warthog-UWP-x64.appx"
+        "url": "https://github.com/YTReviveMe/warthog-UWP/releases/download/uwp-0.8.0h/Warthog-UWP-x64.appx"
       },
       {
         "id": "warthog-dep",
-        "url": "https://github.com/YTReviveMe/warthog-UWP/releases/download/uwp-0.8.0.0b/Microsoft.VCLibs.x64.14.00.appx"
+        "url": "https://github.com/YTReviveMe/warthog-UWP/releases/download/uwp-0.8.0h/Microsoft.VCLibs.x64.14.00.appx"
       }
     ],
-    "releaseNotesUrl": "https://github.com/YTReviveMe/warthog-UWP/releases/tag/uwp-0.8.0.0b",
-    "releaseTag": "uwp-0.8.0.0b"
+    "releaseNotesUrl": "https://github.com/YTReviveMe/warthog-UWP/releases/tag/uwp-0.8.0h",
+    "releaseTag": "uwp-0.8.0h"
   },
   "cemu": {
     "name": "Cemu",
