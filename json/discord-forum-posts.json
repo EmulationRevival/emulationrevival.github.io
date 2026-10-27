@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-27T07:52:43.974Z",
+  "updatedAt": "2026-10-27T22:18:22.636Z",
   "posts": {
     "emulators:retroarch-3ds": {
       "key": "emulators:retroarch-3ds",
@@ -1239,7 +1239,7 @@
       "contentHash": "52f05e480e5be6a2451fb604c728100a87b3d29266d2b88142a52b46e99fd97f",
       "updatedAt": "2026-05-13T20:48:21.009Z",
       "missingFromYaml": true,
-      "missingCheckedAt": "2026-10-27T07:52:43.974Z"
+      "missingCheckedAt": "2026-10-27T22:18:22.636Z"
     },
     "apps:discorduwp": {
       "key": "apps:discorduwp",
@@ -1358,7 +1358,7 @@
         "1504527581423079486"
       ],
       "missingFromYaml": true,
-      "missingCheckedAt": "2026-10-27T07:52:43.974Z"
+      "missingCheckedAt": "2026-10-27T22:18:22.636Z"
     },
     "experimental-apps:hedgephysics": {
       "key": "experimental-apps:hedgephysics",
@@ -1410,7 +1410,7 @@
         "1504527581423079486"
       ],
       "missingFromYaml": true,
-      "missingCheckedAt": "2026-10-27T07:52:43.974Z"
+      "missingCheckedAt": "2026-10-27T22:18:22.636Z"
     },
     "utilities:usb-permissions-tool": {
       "key": "utilities:usb-permissions-tool",
@@ -1918,7 +1918,7 @@
         "1504526316693622844"
       ],
       "missingFromYaml": true,
-      "missingCheckedAt": "2026-10-27T07:52:43.974Z"
+      "missingCheckedAt": "2026-10-27T22:18:22.636Z"
     },
     "ports:warthog": {
       "key": "ports:warthog",
@@ -2012,6 +2012,22 @@
       "messageId": "1564359856293417065",
       "contentHash": "4cc9df33086316ae74add9bd22314d506c84deb6c37a0222dd2ff5e671e0ff73",
       "updatedAt": "2026-10-27T07:52:43.973Z",
+      "appliedTags": [
+        "1504526316693622844"
+      ]
+    },
+    "ports:tenkaichi3decomp": {
+      "key": "ports:tenkaichi3decomp",
+      "productId": "tenkaichi3decomp",
+      "appId": "tenkaichi3decomp",
+      "title": "Tenkaichi3Decomp",
+      "source": "ports",
+      "sourceLabel": "Game Ports",
+      "channelId": "1504200374716989551",
+      "threadId": "1564765227378286723",
+      "messageId": "1564765227378286723",
+      "contentHash": "b1f98c39edf6834079b908ed847f9cb1c3b049537435647131480d0b83ebd28a",
+      "updatedAt": "2026-10-27T22:18:22.635Z",
       "appliedTags": [
         "1504526316693622844"
       ]
