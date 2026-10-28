@@ -2083,20 +2083,20 @@
   },
   "tenkaichi3decomp": {
     "name": "Tenkaichi3Decomp",
-    "version": "0.1.38.9",
-    "releaseDate": "2026-10-27",
+    "version": "0.1.39.1",
+    "releaseDate": "2026-10-28",
     "firstReleaseDate": "2026-10-27",
     "assets": [
       {
         "id": "tenkaichi3decomp",
-        "url": "https://github.com/YTReviveMe/Tenkaichi3Decomp-UWP/releases/download/0.1.39.9/bt3.msix"
+        "url": "https://github.com/YTReviveMe/Tenkaichi3Decomp-UWP/releases/download/0.1.39/bt3.msix"
       },
       {
         "id": "tenkaichi3decomp-dep",
-        "url": "https://github.com/YTReviveMe/Tenkaichi3Decomp-UWP/releases/download/0.1.39.9/Microsoft.VCLibs.x64.14.00.appx"
+        "url": "https://github.com/YTReviveMe/Tenkaichi3Decomp-UWP/releases/download/0.1.39/Microsoft.VCLibs.x64.14.00.appx"
       }
     ],
-    "releaseNotesUrl": "https://github.com/YTReviveMe/Tenkaichi3Decomp-UWP/releases/tag/0.1.39.9",
-    "releaseTag": "0.1.39.9"
+    "releaseNotesUrl": "https://github.com/YTReviveMe/Tenkaichi3Decomp-UWP/releases/tag/0.1.39",
+    "releaseTag": "0.1.39"
   }
 }
