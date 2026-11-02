@@ -1869,17 +1869,17 @@
   },
   "gen1recomp": {
     "name": "Gen1Recomp",
-    "version": "0.3.99",
-    "releaseDate": "2026-10-31",
+    "version": "0.4.0",
+    "releaseDate": "2026-11-02",
     "firstReleaseDate": "2026-07-18",
     "assets": [
       {
         "id": "gen1recomp",
-        "url": "https://github.com/bryanthaboi/gen1recomp/releases/download/v0.3.99/gen1recomp-0.3.99-xbox-uwp.zip"
+        "url": "https://github.com/bryanthaboi/gen1recomp/releases/download/v0.4.0/gen1recomp-0.4.0-xbox-uwp.zip"
       }
     ],
-    "releaseNotesUrl": "https://github.com/bryanthaboi/gen1recomp/releases/tag/v0.3.99",
-    "releaseTag": "v0.3.99"
+    "releaseNotesUrl": "https://github.com/bryanthaboi/gen1recomp/releases/tag/v0.4.0",
+    "releaseTag": "v0.4.0"
   },
   "syphonFilter": {
     "name": "Syphon Filter",
@@ -2098,5 +2098,23 @@
     ],
     "releaseNotesUrl": "https://github.com/YTReviveMe/Tenkaichi3Decomp-UWP/releases/tag/0.1.39",
     "releaseTag": "0.1.39"
+  },
+  "bt4TagTeamDecomp": {
+    "name": "BT4 Tag Team Decomp",
+    "version": "0.1.39.4",
+    "releaseDate": "2026-11-02",
+    "firstReleaseDate": "2026-11-02",
+    "assets": [
+      {
+        "id": "bt4tagteamdecomp",
+        "url": "https://github.com/YTReviveMe/DBZ-BT4-Tag-Team-Decomp-UWP/releases/download/v0.1.39.4/bt4.msix"
+      },
+      {
+        "id": "bt4tagteamdecomp-dep",
+        "url": "https://github.com/YTReviveMe/DBZ-BT4-Tag-Team-Decomp-UWP/releases/download/v0.1.39.4/Microsoft.VCLibs.x64.14.00.appx"
+      }
+    ],
+    "releaseNotesUrl": "https://github.com/YTReviveMe/DBZ-BT4-Tag-Team-Decomp-UWP/releases/tag/v0.1.39.4",
+    "releaseTag": "v0.1.39.4"
   }
 }

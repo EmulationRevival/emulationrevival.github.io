@@ -776,6 +776,14 @@
     "category": "Ports"
   },
   {
+    "app_id": "bt4TagTeamDecomp",
+    "name": "BT4 Tag Team Decomp",
+    "description": "Native UWP port of Budokai Tenkaichi 4 Decomp, featuring Tag Team, tournaments, free camera and more",
+    "img": "/xbox-dev-mode/images/game-ports/bt4-tag-team-decomp.webp",
+    "url": "/xbox-dev-mode/ports.html#bt4-tag-team-decomp",
+    "category": "Ports"
+  },
+  {
     "app_id": "usbPermissionsTool",
     "name": "USB Permissions Tool",
     "description": "Add necessary permissions to an NTFS formatted USB drive for UWP apps",
