@@ -2129,5 +2129,21 @@
         "assetPattern": "Microsoft.VCLibs.x*.appx"
       }
     ]
+  },
+  "bt4TagTeamDecomp": {
+    "name": "BT4 Tag Team Decomp",
+    "repo": "YTReviveMe/DBZ-BT4-Tag-Team-Decomp-UWP",
+    "assets": [
+      {
+        "id": "bt4tagteamdecomp",
+        "sourceType": "github",
+        "assetPattern": "bt4.msix"
+      },
+      {
+        "id": "bt4tagteamdecomp-dep",
+        "sourceType": "github",
+        "assetPattern": "Microsoft.VCLibs.x*.appx"
+      }
+    ]
   }
 }

@@ -2473,3 +2473,38 @@
   setup_guide:
     url: "https://wiki.sternserv.xyz/docs/ports/tenkaichi3decomp-uwp-guide"
   tutorial_url: null
+  
+- id: "bt4-tag-team-decomp"
+  app_id: "bt4TagTeamDecomp"
+  title: "BT4 Tag Team Decomp"
+  description: "Native UWP port of Budokai Tenkaichi 4 Decomp, featuring Tag Team, tournaments, free camera and more"
+  image: "/xbox-dev-mode/images/game-ports/bt4-tag-team-decomp.webp"
+  alt: "BT4 Tag Team Decomp Logo"
+  category: "Ports"
+  page_url: "/xbox-dev-mode/ports.html#bt4-tag-team-decomp"
+  preview_url: "/previews/ports-bt4-tag-team-decomp.html"
+  compatibility: "Xbox Series S|X"
+  requirements:
+    - "BT4 B14 Rev2 (ES-LATAM or EN) ISO"
+  features: []
+  contributors:
+    developers:
+      - name: "NauTaro"
+        github: "https://github.com/NauTaro"
+        donations: []
+    porters:
+      - name: "ReviveMe"
+        github: "https://github.com/YTReviveMe"
+        donations:
+          - type: "kofi"
+            url: "https://ko-fi.com/reviveme"
+    maintainers: []
+  downloads:
+    - label: "BT4 Tag Team Decomp"
+      asset_id: "bt4tagteamdecomp"
+    - label: "Dependency File"
+      asset_id: "bt4tagteamdecomp-dep"
+  source_code_url: "https://github.com/YTReviveMe/DBZ-BT4-Tag-Team-Decomp-UWP"
+  setup_guide:
+    url: "https://wiki.sternserv.xyz/docs/ports/bt4-tag-team-decomp-uwp-guide/"
+  tutorial_url: null
