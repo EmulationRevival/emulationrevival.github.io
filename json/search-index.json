@@ -768,6 +768,14 @@
     "category": "Ports"
   },
   {
+    "app_id": "tenkaichi3decomp",
+    "name": "Tenkaichi3Decomp",
+    "description": "A native UWP port of Dragon Ball Z: Budokai Tenkaichi 3",
+    "img": "/xbox-dev-mode/images/game-ports/tenkaichi3decomp.webp",
+    "url": "/xbox-dev-mode/ports.html#tenkaichi3decomp",
+    "category": "Ports"
+  },
+  {
     "app_id": "usbPermissionsTool",
     "name": "USB Permissions Tool",
     "description": "Add necessary permissions to an NTFS formatted USB drive for UWP apps",

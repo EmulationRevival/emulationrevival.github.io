@@ -1869,17 +1869,17 @@
   },
   "gen1recomp": {
     "name": "Gen1Recomp",
-    "version": "0.3.97",
-    "releaseDate": "2026-10-26",
+    "version": "0.3.99",
+    "releaseDate": "2026-10-31",
     "firstReleaseDate": "2026-07-18",
     "assets": [
       {
         "id": "gen1recomp",
-        "url": "https://github.com/bryanthaboi/gen1recomp/releases/download/v0.3.97/gen1recomp-0.3.97-xbox-uwp.zip"
+        "url": "https://github.com/bryanthaboi/gen1recomp/releases/download/v0.3.99/gen1recomp-0.3.99-xbox-uwp.zip"
       }
     ],
-    "releaseNotesUrl": "https://github.com/bryanthaboi/gen1recomp/releases/tag/v0.3.97",
-    "releaseTag": "v0.3.97"
+    "releaseNotesUrl": "https://github.com/bryanthaboi/gen1recomp/releases/tag/v0.3.99",
+    "releaseTag": "v0.3.99"
   },
   "syphonFilter": {
     "name": "Syphon Filter",
@@ -2080,5 +2080,23 @@
     ],
     "releaseNotesUrl": "https://github.com/YTReviveMe/melee-UWP./releases/tag/0.4.2.1",
     "releaseTag": "0.4.2.1"
+  },
+  "tenkaichi3decomp": {
+    "name": "Tenkaichi3Decomp",
+    "version": "0.1.39.1",
+    "releaseDate": "2026-10-28",
+    "firstReleaseDate": "2026-10-27",
+    "assets": [
+      {
+        "id": "tenkaichi3decomp",
+        "url": "https://github.com/YTReviveMe/Tenkaichi3Decomp-UWP/releases/download/0.1.39/bt3.msix"
+      },
+      {
+        "id": "tenkaichi3decomp-dep",
+        "url": "https://github.com/YTReviveMe/Tenkaichi3Decomp-UWP/releases/download/0.1.39/Microsoft.VCLibs.x64.14.00.appx"
+      }
+    ],
+    "releaseNotesUrl": "https://github.com/YTReviveMe/Tenkaichi3Decomp-UWP/releases/tag/0.1.39",
+    "releaseTag": "0.1.39"
   }
 }
