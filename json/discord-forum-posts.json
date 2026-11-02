@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-27T22:18:22.636Z",
+  "updatedAt": "2026-11-02T22:08:51.100Z",
   "posts": {
     "emulators:retroarch-3ds": {
       "key": "emulators:retroarch-3ds",
@@ -1239,7 +1239,7 @@
       "contentHash": "52f05e480e5be6a2451fb604c728100a87b3d29266d2b88142a52b46e99fd97f",
       "updatedAt": "2026-05-13T20:48:21.009Z",
       "missingFromYaml": true,
-      "missingCheckedAt": "2026-10-27T22:18:22.636Z"
+      "missingCheckedAt": "2026-11-02T22:08:51.100Z"
     },
     "apps:discorduwp": {
       "key": "apps:discorduwp",
@@ -1358,7 +1358,7 @@
         "1504527581423079486"
       ],
       "missingFromYaml": true,
-      "missingCheckedAt": "2026-10-27T22:18:22.636Z"
+      "missingCheckedAt": "2026-11-02T22:08:51.100Z"
     },
     "experimental-apps:hedgephysics": {
       "key": "experimental-apps:hedgephysics",
@@ -1410,7 +1410,7 @@
         "1504527581423079486"
       ],
       "missingFromYaml": true,
-      "missingCheckedAt": "2026-10-27T22:18:22.636Z"
+      "missingCheckedAt": "2026-11-02T22:08:51.100Z"
     },
     "utilities:usb-permissions-tool": {
       "key": "utilities:usb-permissions-tool",
@@ -1918,7 +1918,7 @@
         "1504526316693622844"
       ],
       "missingFromYaml": true,
-      "missingCheckedAt": "2026-10-27T22:18:22.636Z"
+      "missingCheckedAt": "2026-11-02T22:08:51.100Z"
     },
     "ports:warthog": {
       "key": "ports:warthog",
@@ -2028,6 +2028,22 @@
       "messageId": "1564765227378286723",
       "contentHash": "b1f98c39edf6834079b908ed847f9cb1c3b049537435647131480d0b83ebd28a",
       "updatedAt": "2026-10-27T22:18:22.635Z",
+      "appliedTags": [
+        "1504526316693622844"
+      ]
+    },
+    "ports:bt4-tag-team-decomp": {
+      "key": "ports:bt4-tag-team-decomp",
+      "productId": "bt4-tag-team-decomp",
+      "appId": "bt4TagTeamDecomp",
+      "title": "BT4 Tag Team Decomp",
+      "source": "ports",
+      "sourceLabel": "Game Ports",
+      "channelId": "1504200374716989551",
+      "threadId": "1566937158848348190",
+      "messageId": "1566937158848348190",
+      "contentHash": "77e200780721fe10486048cc4c6957f668742fe7b6aa266a8d9b59bf9e6b800b",
+      "updatedAt": "2026-11-02T22:08:51.098Z",
       "appliedTags": [
         "1504526316693622844"
       ]
