@@ -1991,21 +1991,21 @@
   },
   "warthog": {
     "name": "Warthog",
-    "version": "0.8.0",
-    "releaseDate": "2026-10-27",
+    "version": "0.9.0.0",
+    "releaseDate": "2026-11-08",
     "firstReleaseDate": "2026-10-18",
     "assets": [
       {
         "id": "warthog",
-        "url": "https://github.com/YTReviveMe/warthog-UWP/releases/download/uwp-0.8.0h/Warthog-UWP-x64.appx"
+        "url": "https://github.com/YTReviveMe/warthog-UWP/releases/download/uwp-0.9.0.0/Warthog-UWP-x64.appx"
       },
       {
         "id": "warthog-dep",
-        "url": "https://github.com/YTReviveMe/warthog-UWP/releases/download/uwp-0.8.0h/Microsoft.VCLibs.x64.14.00.appx"
+        "url": "https://github.com/YTReviveMe/warthog-UWP/releases/download/uwp-0.9.0.0/Microsoft.VCLibs.x64.14.00.appx"
       }
     ],
-    "releaseNotesUrl": "https://github.com/YTReviveMe/warthog-UWP/releases/tag/uwp-0.8.0h",
-    "releaseTag": "uwp-0.8.0h"
+    "releaseNotesUrl": "https://github.com/YTReviveMe/warthog-UWP/releases/tag/uwp-0.9.0.0",
+    "releaseTag": "uwp-0.9.0.0"
   },
   "cemu": {
     "name": "Cemu",
@@ -2101,20 +2101,20 @@
   },
   "bt4TagTeamDecomp": {
     "name": "BT4 Tag Team Decomp",
-    "version": "0.1.39.4",
-    "releaseDate": "2026-11-02",
+    "version": "0.1.39.5",
+    "releaseDate": "2026-11-08",
     "firstReleaseDate": "2026-11-02",
     "assets": [
       {
         "id": "bt4tagteamdecomp",
-        "url": "https://github.com/YTReviveMe/DBZ-BT4-Tag-Team-Decomp-UWP/releases/download/v0.1.39.4/bt4.msix"
+        "url": "https://github.com/YTReviveMe/DBZ-BT4-Tag-Team-Decomp-UWP/releases/download/V0.1.39.5/bt4.msix"
       },
       {
         "id": "bt4tagteamdecomp-dep",
-        "url": "https://github.com/YTReviveMe/DBZ-BT4-Tag-Team-Decomp-UWP/releases/download/v0.1.39.4/Microsoft.VCLibs.x64.14.00.appx"
+        "url": "https://github.com/YTReviveMe/DBZ-BT4-Tag-Team-Decomp-UWP/releases/download/V0.1.39.5/Microsoft.VCLibs.x64.14.00.appx"
       }
     ],
-    "releaseNotesUrl": "https://github.com/YTReviveMe/DBZ-BT4-Tag-Team-Decomp-UWP/releases/tag/v0.1.39.4",
-    "releaseTag": "v0.1.39.4"
+    "releaseNotesUrl": "https://github.com/YTReviveMe/DBZ-BT4-Tag-Team-Decomp-UWP/releases/tag/V0.1.39.5",
+    "releaseTag": "V0.1.39.5"
   }
 }
