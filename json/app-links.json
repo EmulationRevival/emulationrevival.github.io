@@ -1869,17 +1869,17 @@
   },
   "gen1recomp": {
     "name": "Gen1Recomp",
-    "version": "0.4.3",
-    "releaseDate": "2026-11-11",
+    "version": "0.4.4",
+    "releaseDate": "2026-11-12",
     "firstReleaseDate": "2026-07-18",
     "assets": [
       {
         "id": "gen1recomp",
-        "url": "https://github.com/bryanthaboi/gen1recomp/releases/download/v0.4.3/gen1recomp-0.4.3-xbox-uwp.zip"
+        "url": "https://github.com/bryanthaboi/gen1recomp/releases/download/v0.4.4/gen1recomp-0.4.4-xbox-uwp.zip"
       }
     ],
-    "releaseNotesUrl": "https://github.com/bryanthaboi/gen1recomp/releases/tag/v0.4.3",
-    "releaseTag": "v0.4.3"
+    "releaseNotesUrl": "https://github.com/bryanthaboi/gen1recomp/releases/tag/v0.4.4",
+    "releaseTag": "v0.4.4"
   },
   "syphonFilter": {
     "name": "Syphon Filter",
