@@ -1997,14 +1997,14 @@
     "assets": [
       {
         "id": "warthog",
-        "url": "https://github.com/YTReviveMe/warthog-UWP/releases/download/uwp-0.9.1.2/Warthog-UWP-x64.appx"
+        "url": "https://github.com/ChupathingyCE/warthog-UWP/releases/download/uwp-0.9.1.2/Warthog-UWP-x64.appx"
       },
       {
         "id": "warthog-dep",
-        "url": "https://github.com/YTReviveMe/warthog-UWP/releases/download/uwp-0.9.1.2/Microsoft.VCLibs.x64.14.00.appx"
+        "url": "https://github.com/ChupathingyCE/warthog-UWP/releases/download/uwp-0.9.1.2/Microsoft.VCLibs.x64.14.00.appx"
       }
     ],
-    "releaseNotesUrl": "https://github.com/YTReviveMe/warthog-UWP/releases/tag/uwp-0.9.1.2",
+    "releaseNotesUrl": "https://github.com/ChupathingyCE/warthog-UWP/releases/tag/uwp-0.9.1.2",
     "releaseTag": "uwp-0.9.1.2"
   },
   "cemu": {
